@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Immunization | FHIR API</title>
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+</head>
+
+
+<body class="api">
+  <div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="../../">Cerner Corporation</a>
+      <ul class="nav">
+        <li><a href="../" class="nav-api">API</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- #header -->
+</div>
+<!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="../">API</a></h2>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="immunization">Immunization</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#search" id="markdown-toc-search">Search</a></li>
+</ul>
+
+<h2 id="search">Search</h2>
+
+<p>Search for Immunizations that meet supplied query parameters:</p>
+
+<pre><code>GET /Immunization?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>subject:Patient</code></td>
+      <td><code>string</code></td>
+      <td>The subject of the vaccination event / refusal. Example: <code>12345</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "title": "Search results for resource type Immunization",
+  "id": "27780a25-18ba-4fd8-9c18-e3beb215d2c2",
+  "link": [
+    {
+      "rel": "self",
+      "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?subject:Patient=3602356"
+    }
+  ],
+  "updated": "2015-04-02T17:16:33.685+00:00",
+  "author": [
+    {
+      "name": "Cerner Corporation"
+    }
+  ],
+  "entry": [
+    {
+      "title": "Immunization Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/6109433",
+      "content": {
+        "resourceType": "Immunization",
+        "date": "2014-03-11T20:00:00.000Z",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/VaccineType",
+              "code": "88"
+            }
+          ],
+          "text": "Fluzone Intradermal 2013-2014"
+        },
+        "refusedIndicator": false,
+        "reported": false,
+        "subject": {
+          "reference": "Patient/3602356"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Immunization</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
+</h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+    <div id="footer">
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+      </ul>
+
+      <ul class="footer-cell">
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <p>Design © <span class="js-year"></span> Copyright <span class="js-year"></span> Cerner Corporation </p>
+    </div>
+
+  </div>
+<!-- /#footer -->
+
+</body>
+</html>

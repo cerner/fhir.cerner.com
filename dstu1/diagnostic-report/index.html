@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>DiagnosticReport | FHIR API</title>
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+</head>
+
+
+<body class="api">
+  <div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="../../">Cerner Corporation</a>
+      <ul class="nav">
+        <li><a href="../" class="nav-api">API</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- #header -->
+</div>
+<!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="../">API</a></h2>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="diagnosticreport">DiagnosticReport</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#search" id="markdown-toc-search">Search</a></li>
+</ul>
+
+<h2 id="search">Search</h2>
+
+<p>Search for DiagnosticReports that meet supplied query parameters:</p>
+
+<pre><code>GET /DiagnosticReport?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>subject:Patient</code></td>
+      <td><code>string</code></td>
+      <td>The subject of the report. Example: <code>12345</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "title": "Search results for resource type DiagnosticReport",
+  "id": "63cb5365-149c-4851-897e-b4b4c54a1512",
+  "link": [
+    {
+      "rel": "self",
+      "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?subject:Patient=3602356"
+    }
+  ],
+  "updated": "2015-04-03T16:47:27.614+00:00",
+  "author": [
+    {
+      "name": "Cerner Corporation"
+    }
+  ],
+  "entry": [
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117766",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://loinc.org/",
+              "code": "30745-4"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Chest 2 Views"
+        },
+        "status": "final",
+        "issued": "2013-09-15T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:Cough;Shortness of breath  (SOB)     ReportHistory: left sided rib pain, lower left anterior and posterior     Technique: PA and lateral views of the chest were performed. Comparison is made to a prior study dated 5/30/07.     Findings: The lungs are clear and well expanded. No acute infiltrate, pleural effusion, or pneumothorax is identified. There is normal vascularity. The cardiovascular silhouette is within normal limits. Visualized bones and soft tissues are unremarkable. No displaced rib fractures are seen.     Impression: There is no evidence of acute cardiopulmonary disease.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:35 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117663",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Chest 1 View"
+        },
+        "status": "final",
+        "issued": "2013-03-07T20:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:Chest pain     ReportHistory: Chest pain.     Findings: An AP supine view of the chest was acquired and compared with prior PA erect examination dated 9/1/10. The cardiac silhouette and pulmonary vascular pattern are within normal limits for the supine position. The lungs are clear of infiltrates. No displaced rib fractures are identified. There is subluxation of the right humeral head which is unchanged since the prior exam.     Impression: No pulmonary infiltrates or congestive failure.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:17 pm Transcribed by: MRW Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117703",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Foot Complete Left"
+        },
+        "status": "final",
+        "issued": "2013-06-03T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:left foot swelling     ReportHistory: Cellulitis left leg, rheumatoid arthritis, rule out gas producing organ     Findings: A PA PA oblique and lateral views show soft tissue generally over the foot, predominantly dorsally. There is mild generalized demineralization of bony parts. No other specific abnormalities are noted.     Impression: I do not identify radiopaque foreign body or gas within the soft tissues.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:24 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117681",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Wrist Complete Left"
+        },
+        "status": "final",
+        "issued": "2013-09-12T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:Follow up fracture     ReportHistory: Indication is followup fracture.     Findings: Two views are compared to 06/15/12. A distal left radial fracture site shows continued healing in otherwise unchanged appearance and alignment from the September examination.     Impression: Negative wrist   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:20 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117734",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Hand Complete Left"
+        },
+        "status": "final",
+        "issued": "2013-07-19T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:post injury eval     ReportHistory: Post injury evaluation.     Technique: Three views submitted.     Findings: Osseous structures appear intact and normally aligned.     Impression: Negative hand   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:28 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117905",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Foot Complete Left"
+        },
+        "status": "final",
+        "issued": "2013-05-22T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:left foot pain     ReportHistory: left foot pain.     Findings: Examination of the left foot shows a spur on the inferior pole of the calcaneus. There is no evidence of fracture or bone disease.     Impression: Spur formation left calcaneus.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:59 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117623",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Foot Complete Left"
+        },
+        "status": "final",
+        "issued": "2013-03-07T20:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:foot pain     ReportHistory: Pain.     Findings: Interval appearance is unchanged. There is a stable plantar spur. Midfoot degenerative changes are associated with a pes planus alignment.     Impression:Forefoot unremarkable and no acute pathology is seen.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:17 pm Transcribed by: MRW Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117779",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Hand 2 Views Bilateral"
+        },
+        "status": "final",
+        "issued": "2013-12-27T20:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:pain in both hands     ReportHISTORY: Female pain in both hands/history of auto immune disease for few years.     TECHNIQUE: 2 views of the hands are submitted for evaluation.     COMPARISON: None     FINDINGS: RIGHT: Irregular joint space narrowing around the DIP joint of the second and third digit, with central erosion and peripheral bony proliferation, most indicative of erosive osteoarthritis. Osteoarthritic changes with subchondral cysts are also noted at the PIP joint of the third, fourth and fifth digits, the triscaphe joint, the first through fourth MCP joints, and the interphalangeal joint of the thumb. Osseous structures are osteopenic. LEFT: Irregular joint space narrowing around PIP of the second digit and to a lesser extent of the fifth digit with central erosion and peripheral bony proliferation, most indicative of erosive osteoarthritis. Osteoarthritic changes with subchondral cyst also noted at the PIP of the fifth digit, triscaphe joint, first, third and fourth MCP joints, and the interphalangeal joint of the thumb. Osseous structures are osteopenic. Cystic changes at the proximal ulnar aspect of the lunate may be from ulnar abutment.     IMPRESSION: Bilateral erosive osteoarthritis (R&gt;L). Possible left ulnar abutment syndrome   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:43 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117749",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://loinc.org/",
+              "code": "30745-4"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Chest 2 Views"
+        },
+        "status": "final",
+        "issued": "2013-06-10T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:left side pain;Shortness of breath  (SOB)     ReportHistory: left sided rib pain, lower left anterior and posterior     Technique: PA and lateral views of the chest were performed. Comparison is made to a prior study dated 5/30/07.     Findings: The lungs are clear and well expanded. No acute infiltrate, pleural effusion, or pneumothorax is identified. There is normal vascularity. The cardiovascular silhouette is within normal limits. Visualized bones and soft tissues are unremarkable. No displaced rib fractures are seen.     Impression: There is no evidence of acute cardiopulmonary disease.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:33 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117788",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Hand 2 Views Bilateral"
+        },
+        "status": "final",
+        "issued": "2014-03-11T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:pain     ReportHistory: Bilateral hand pain.     Findings: Examination of the hands and wrists shows advanced arthritic changes of the distal interphalangeal joints of these second third fourth and fifth fingers and the interphalangeal joint of the first finger. The wrists appear normal. Impression: Advanced arthritic changes both hands.     Impression: Negative wrists.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:46 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117861",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "BD Bone Density DEXA Body Composition"
+        },
+        "status": "final",
+        "issued": "2014-05-28T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:Eval     ReportHistory: Advanced arthritic changes.     Findings: A spine bone density value in the range 80-120 mg/cm3 is indicative of osteopenia. The risk for fracture goes up as the bone density goes down, and some, but not all, individuals with BMD in the lower end of this range will have vertebral fractures.     Impression: Level(s) normal.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:52 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117694",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://loinc.org/",
+              "code": "30745-4"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Chest 2 Views"
+        },
+        "status": "final",
+        "issued": "2014-01-19T20:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:shortness of breath;Shortness of breath  (SOB)     ReportHistory:shortness of breath with exertion     Technique: CHEST 2 VIEWS AP OR PA AND LATERAL -- 05/10/12 PA and lateral views of the chest were acquired and compared with the prior examination dated 10/16/10.     Findings: The cardiomediastinal silhouette is within normal limits of size and configuration. The pulmonary vascular pattern is normal. The lungs are clear infiltrates. There are no pleural effusions. Degenerative changes of the thoracic spine are stable.     Impression: No active cardiopulmonary disease.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:23 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117870",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Foot 2 Views Bilateral"
+        },
+        "status": "final",
+        "issued": "2014-05-19T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:pain     AddendumThere are spurs on the inferior pole of the calcanei bilaterally.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:56 pm  Technologist     ReportHistory: Bilateral Foot pain after fall.     Findings: Examination of the feet shows no evidence of fracture or bone disease.     Impression: Negative feet.   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:54 pm  Technologist"
+      }
+    },
+    {
+      "title": "DiagnosticReport Entry",
+      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6117718",
+      "content": {
+        "resourceType": "DiagnosticReport",
+        "name": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "169074008"
+            }
+          ],
+          "text": "XR Hand 2 Views Right | XR Wrist 2 Views Right"
+        },
+        "status": "final",
+        "issued": "2013-07-19T19:40:34.000Z",
+        "subject": {
+          "reference": "Patient/3602356"
+        },
+        "conclusion": "Reason for exam:rt hand swelling      Reason for exam:rt hand swelling     ReportHistory: RIGHT HAND SWELLING ?? RA CHANGES, ? OA ?? CPPD? OTHER. OTHER MALAISE AND FATIGUE . PAIN IN JOINT INVOLVING MULTIPLE SITES. Muscle weakness (generalized)     Technique: Two views of the right hand are submitted for interpretation. COMPARISON: 9/5/09     Findings: Posttraumatic changes are again noted involving the distal radius with radiocarpal joint space narrowing. There is mild sclerosis and joint space narrowing at the first carpometacarpal joint. Similar changes are present at the first MCP. There is mild joint space narrowing of the DIP joints without erosions. No erosive changes can be identified within the limits of the study. No significant soft tissue calcifications are identified.     Impression: 1. Posttraumatic changes involving the distal radius. 2. Osteoarthritic changes as detailed above.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:27 pm  Technologist"
+      }
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">DiagnosticReport</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
+</h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
+</h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+    <div id="footer">
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+      </ul>
+
+      <ul class="footer-cell">
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <p>Design © <span class="js-year"></span> Copyright <span class="js-year"></span> Cerner Corporation </p>
+    </div>
+
+  </div>
+<!-- /#footer -->
+
+</body>
+</html>
