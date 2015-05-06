@@ -22,7 +22,7 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:encounter_bundle) %>
+<%= json(:dstu1_encounter_bundle) %>
 
 ## Retrieve by id
 
@@ -33,4 +33,4 @@ List an individual Encounter by its id:
 ### Response
 
 <%= headers 200 %>
-<%= json(:encounter) %>
+<%= json(:dstu1_encounter) %>

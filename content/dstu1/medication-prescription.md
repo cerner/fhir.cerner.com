@@ -22,4 +22,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:medication_prescription_bundle) %>
+<%= json(:dstu1_medication_prescription_bundle) %>

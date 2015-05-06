@@ -77,7 +77,9 @@ module Cerner
 
     end
 
-    ALLERGY_INTOLERANCE_BUNDLE ||= {
+    # DSTU 1 JSON
+
+    DSTU1_ALLERGY_INTOLERANCE_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type AllergyIntolerance",
       "id"=>"c295606f-2ed2-4fc8-8d21-6c9676fdde92",
@@ -103,7 +105,7 @@ module Cerner
                              "substance"=>{"display"=>"Peanuts"}}}]
     }
 
-    CONDITION_BUNDLE ||= {
+    DSTU1_CONDITION_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type Condition",
       "id"=>"d2dd09d5-9de4-4fa6-937c-cf1d928011df",
@@ -143,7 +145,7 @@ module Cerner
                              "status"=>"confirmed"}}]
     }
 
-    DIAGNOSTIC_REPORT_BUNDLE ||= {
+    DSTU1_DIAGNOSTIC_REPORT_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type DiagnosticReport",
       "id"=>"63cb5365-149c-4851-897e-b4b4c54a1512",
@@ -299,7 +301,7 @@ module Cerner
                              "conclusion"=>"Reason for exam:rt hand swelling      Reason for exam:rt hand swelling     ReportHistory: RIGHT HAND SWELLING ?? RA CHANGES, ? OA ?? CPPD? OTHER. OTHER MALAISE AND FATIGUE . PAIN IN JOINT INVOLVING MULTIPLE SITES. Muscle weakness (generalized)     Technique: Two views of the right hand are submitted for interpretation. COMPARISON: 9/5/09     Findings: Posttraumatic changes are again noted involving the distal radius with radiocarpal joint space narrowing. There is mild sclerosis and joint space narrowing at the first carpometacarpal joint. Similar changes are present at the first MCP. There is mild joint space narrowing of the DIP joints without erosions. No erosive changes can be identified within the limits of the study. No significant soft tissue calcifications are identified.     Impression: 1. Posttraumatic changes involving the distal radius. 2. Osteoarthritic changes as detailed above.\"   Signature Line:***** Final *****    Signed by:  Wilson MD, Mark R Signed (Electronic Signature):  03/27/2015 3:27 pm  Technologist"}}]
     }
 
-    ENCOUNTER ||= {
+    DSTU1_ENCOUNTER ||= {
       "resourceType"=>"Encounter",
       "identifier"=>[{"use"=>"usual",
                       "label"=>"FIN NBR",
@@ -318,7 +320,7 @@ module Cerner
                                "end"=>"2015-03-13T04:59:59.000Z"}}]
     }
 
-    ENCOUNTER_BUNDLE ||= {
+    DSTU1_ENCOUNTER_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type Encounter",
       "id"=>"796e55e8-ed84-4480-ba05-7de545c86e02",
@@ -328,10 +330,10 @@ module Cerner
       "author"=>[{"name"=>"Cerner Corporation"}],
       "entry"=>[{"title"=>"Encounter Entry",
                  "id"=>"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/3524878",
-                 "content"=>ENCOUNTER}]
+                 "content"=>DSTU1_ENCOUNTER}]
     }
 
-    IMMUNIZATION_BUNDLE ||= {
+    DSTU1_IMMUNIZATION_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type Immunization",
       "id"=>"27780a25-18ba-4fd8-9c18-e3beb215d2c2",
@@ -351,7 +353,7 @@ module Cerner
                              "subject"=>{"reference"=>"Patient/3602356"}}}]
     }
 
-    MEDICATION_PRESCRIPTION_BUNDLE ||= {
+    DSTU1_MEDICATION_PRESCRIPTION_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type MedicationPrescription",
       "id"=>"2547d0ae-86f2-4efc-b66a-117ed3693f08",
@@ -427,7 +429,7 @@ module Cerner
                                                        "units"=>"tabs"}}}}]
     }
 
-    OPEN_METADATA ||= {"resourceType"=>"Conformance",
+    DSTU1_OPEN_METADATA ||= {"resourceType"=>"Conformance",
                   "text"=>{"status"=>"generated",
                            "div"=>"Generated Conformance Statement"},
                   "identifier"=>"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
@@ -443,7 +445,7 @@ module Cerner
                             "documentation"=>"All the functionality defined in FHIR",
                             "security"=>{"cors"=>true}}]}
 
-    AUTH_METADATA ||= {
+    DSTU1_AUTH_METADATA ||= {
       "resourceType"=>"Conformance",
       "text"=>{"status"=>"generated",
                "div"=>"Generated Conformance Statement"},
@@ -469,7 +471,7 @@ module Cerner
                              "description"=>"SMART on FHIR uses OAuth2 for authorization"}}]
     }
 
-    OBSERVATION_BUNDLE ||= {
+    DSTU1_OBSERVATION_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type Observation",
       "id"=>"15262c30-ec5a-4ab5-a2ac-d5d879d1f180",
@@ -801,7 +803,7 @@ module Cerner
                                           "target"=>{"reference"=>"Observation/6115137"}}]}}]
     }
 
-    PATIENT ||= {
+    DSTU1_PATIENT ||= {
       "resourceType"=>"Patient",
       "extension"=>[{"url"=>"http://cerner.com/fhir/extension/race",
                      "valueCodeableConcept"=>{"coding"=>[{"system"=>"http://cerner.com/fhir/valueset/race",
@@ -836,7 +838,7 @@ module Cerner
                         "display"=>"Knight MD, Wayne"}]
     }
 
-    PATIENT_BUNDLE ||= {
+    DSTU1_PATIENT_BUNDLE ||= {
       "resourceType"=>"Bundle",
       "title"=>"Search results for resource type Patient",
       "id"=>"f9c97ac7-4802-4cf5-b54a-3de57646ab5d",
@@ -846,7 +848,7 @@ module Cerner
       "author"=>[{"name"=>"Cerner Corporation"}],
       "entry"=>[{"title"=>"Patient Entry",
                  "id"=>"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/3602355",
-                 "content"=>PATIENT},
+                 "content"=>DSTU1_PATIENT},
                 {"title"=>"Patient Entry",
                  "id"=>"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/3582172",
                  "content"=>{"resourceType"=>"Patient",
@@ -870,6 +872,337 @@ module Cerner
                              "contact"=>[],
                              "careProvider"=>[{"reference"=>"Practitioner/1315931",
                                                "display"=>"Ahmad MD, James"}]}}]
+    }
+
+    # DSTU 2 JSON
+
+    DSTU2_OPEN_METADATA ||= {
+      "resourceType"=>"Conformance",
+      "text"=>{"status"=>"generated",
+               "div"=>"Generated Conformance Statement"},
+      "url"=>"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+      "name"=>"SMART on FHIR Conformance Statement",
+      "publisher"=>"Cerner",
+      "description"=>"Describes capabilities of this server",
+      "status"=>"draft",
+      "date"=>"2015-05-06T16:03:55.188+00:00",
+      "fhirVersion"=>"0.5.0",
+      "acceptUnknown"=>false,
+      "format"=>["json"],
+      "rest"=>[{"mode"=>"server",
+                "documentation"=>"All the functionality defined in FHIR",
+                "security"=>{"cors"=>true},
+                "resource" => [
+                  {
+                    "type"=> "AllergyIntolerance",
+                    "interaction"=> [{"code"=> "search-type"
+                      }
+                    ],
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "Who the sensitivity is for"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Encounter",
+                    "interaction"=> [
+                      {
+                        "code"=> "read"
+                      },
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "readHistory"=> false,
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "The patient present at the encounter"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Immunization",
+                    "interaction"=> [
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "The patient for the vaccination record"
+                      },
+                      {
+                        "name"=> "subject",
+                        "type"=> "reference",
+                        "documentation"=> "The patient for the vaccination record"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Patient",
+                    "interaction"=> [
+                      {
+                        "code"=> "read"
+                      },
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "readHistory"=> false,
+                    "searchParam"=> [
+                      {
+                        "name"=> "_id",
+                        "type"=> "token",
+                        "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
+                      },
+                      {
+                        "name"=> "birthdate",
+                        "type"=> "date",
+                        "documentation"=> "The patient's date of birth"
+                      },
+                      {
+                        "name"=> "identifier",
+                        "type"=> "token",
+                        "documentation"=> "A patient identifier"
+                      },
+                      {
+                        "name"=> "name",
+                        "type"=> "string",
+                        "documentation"=> "A portion of either family or given name of the patient"
+                      },
+                      {
+                        "name"=> "telecom",
+                        "type"=> "string",
+                        "documentation"=> "The value in any kind of telecom details of the patient"
+                      },
+                      {
+                        "name"=> "start",
+                        "type"=> "number",
+                        "documentation"=> "The offset to use when returning results"
+                      },
+                      {
+                        "name"=> "_count",
+                        "type"=> "number",
+                        "documentation"=> "The maximum number of results to return"
+                      }
+                    ]
+                  }
+                ]}]}
+
+    DSTU2_AUTH_METADATA ||= {
+      "resourceType"=>"Conformance",
+      "text"=>{"status"=>"generated",
+               "div"=>"Generated Conformance Statement"},
+      "url"=>"https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+      "name"=>"SMART on FHIR Conformance Statement",
+      "publisher"=>"Cerner",
+      "description"=>"Describes capabilities of this server",
+      "status"=>"draft",
+      "date"=>"2015-05-06T16:05:30.915+00:00",
+      "fhirVersion"=>"0.5.0",
+      "acceptUnknown"=>false,
+      "format"=>["json"],
+      "rest"=>[{"mode"=>"server",
+                "documentation"=>"All the functionality defined in FHIR",
+                "security"=>{"extension"=>[{"url"=>"http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize",
+                                            "valueUri"=>"https://fhir.sandboxcernerpowerchart.com/oauth2/authorize"},
+                                           {"url"=>"http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token",
+                                            "valueUri"=>"https://fhir.sandboxcernerpowerchart.com/oauth2/token"}],
+                             "cors"=>true,
+                             "service"=>[{"coding"=>[{"system"=>"http://hl7.org/fhir/vs/restful-security-service",
+                                                      "code"=>"OAuth2"}],
+                                          "text"=>"OAuth version 2 (see oauth.net)."}],
+                             "description"=>"SMART on FHIR uses OAuth2 for authorization"},
+                "resource"=> [
+                  {
+                    "type"=> "AllergyIntolerance",
+                    "interaction"=> [
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "Who the sensitivity is for"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Condition",
+                    "interaction"=> [
+                      {
+                        "code"=> "create"
+                      },
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "updateCreate"=> false,
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "Who has the condition?"
+                      },
+                      {
+                        "name"=> "subject",
+                        "type"=> "reference",
+                        "documentation"=> "Who has the condition?"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Encounter",
+                    "interaction"=> [
+                      {
+                        "code"=> "read"
+                      },
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "readHistory"=> false,
+                    "searchParam"=> [
+                      {
+                        "name"=> "patient",
+                        "type"=> "reference",
+                        "documentation"=> "The patient present at the encounter"
+                      }
+                    ]
+                  },
+                  {
+                    "type"=> "Patient",
+                    "interaction"=> [
+                      {
+                        "code"=> "read"
+                      },
+                      {
+                        "code"=> "search-type"
+                      }
+                    ],
+                    "readHistory"=> false,
+                    "searchParam"=> [
+                      {
+                        "name"=> "_id",
+                        "type"=> "token",
+                        "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
+                      },
+                      {
+                        "name"=> "birthdate",
+                        "type"=> "date",
+                        "documentation"=> "The patient's date of birth"
+                      },
+                      {
+                        "name"=> "identifier",
+                        "type"=> "token",
+                        "documentation"=> "A patient identifier"
+                      },
+                      {
+                        "name"=> "name",
+                        "type"=> "string",
+                        "documentation"=> "A portion of either family or given name of the patient"
+                      },
+                      {
+                        "name"=> "telecom",
+                        "type"=> "string",
+                        "documentation"=> "The value in any kind of telecom details of the patient"
+                      },
+                      {
+                        "name"=> "start",
+                        "type"=> "number",
+                        "documentation"=> "The offset to use when returning results"
+                      },
+                      {
+                        "name"=> "_count",
+                        "type"=> "number",
+                        "documentation"=> "The maximum number of results to return"
+                      }
+                    ]
+                  }
+                ]
+               }]}
+
+    DSTU2_PATIENT ||= {
+      "resourceType"=> "Patient",
+      "id"=> "725944",
+      "identifier"=> [{"use"=> "usual",
+                      "type"=> {"coding"=> [{"system"=> "http://hl7.org/fhir/v2/0203",
+                                           "code"=> "MR",
+                                           "display"=> "Medical record number"}]},
+                      "system"=> "http://cerner.com/fhir/identifier/MRN",
+                      "value"=> "10000086"},
+                     {"use"=> "usual",
+                      "type"=> {"coding"=> [{"system"=> "http://hl7.org/fhir/v2/0203",
+                                           "code"=> "MR",
+                                           "display"=> "Medical record number"}]},
+                      "system"=> "http://cerner.com/fhir/identifier/MRN",
+                      "value"=> "10000057"}],
+      "name"=> [{"use"=> "usual",
+                "text"=> "SMITH, MORGAN",
+                "family"=> ["SMITH"],
+                "given"=> ["MORGAN"]}],
+      "telecom"=> [{"system"=> "phone",
+                   "value"=> "(816) 867-5234",
+                   "use"=> "home"}],
+      "gender"=> "female",
+      "birthDate"=> "1970-01-01",
+      "deceasedBoolean"=> false,
+      "address"=> [{"use"=> "home",
+                   "text"=> "123 Sesame Street\nKansas City, MO 64112\nUSA",
+                   "line"=> ["123 Sesame Street"],
+                   "city"=> "Kansas City",
+                   "state"=> "MO",
+                   "postalCode"=> "64112"}],
+      "maritalStatus"=> {"coding"=> [{"system"=> "http://hl7.org/fhir/v3/MaritalStatus",
+                                    "code"=> "M",
+                                    "display"=> "Married"}],
+                        "text"=> "Married"},
+      "active"=> true
+    }
+
+    DSTU2_PATIENT_BUNDLE ||={
+      "resourceType"=> "Bundle",
+      "id"=> "60eb43c1-1258-4d30-9d9e-ed0b9e2cc33b",
+      "type"=> "searchset",
+      "base"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "total"=> 2,
+      "link"=> [{"relation"=> "self",
+                "url"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Smith&start=0&_count=20"}],
+      "entry"=> [{"resource"=> DSTU2_PATIENT},
+                {"resource"=> {"resourceType"=> "Patient",
+                              "id"=> "685924",
+                              "identifier"=> [{"use"=> "usual",
+                                              "type"=> {
+                                              "coding"=> [{"system"=> "http://hl7.org/fhir/v2/0203",
+                                                          "code"=> "MR",
+                                                          "display"=> "Medical record number"}]},
+                                              "system"=> "http://cerner.com/fhir/identifier/MRN",
+                                              "value"=> "00000227"},
+                                             {"use"=> "usual",
+                                              "type"=> {"coding"=> [{"system"=> "http://hl7.org/fhir/v2/0203",
+                                                                   "code"=> "MR",
+                                                                   "display"=> "Medical record number"}]},
+                                              "system"=> "http://cerner.com/fhir/identifier/MRN",
+                                              "value"=> "10000210"}],
+                              "name"=> [{"use"=> "usual",
+                                        "text"=> "SMITH, JOHN ANDREW",
+                                        "family"=> ["SMITH"],
+                                        "given"=> ["JOHN", "ANDREW"]}],
+                              "gender"=> "male",
+                              "birthDate"=> "1976-08-10",
+                              "deceasedBoolean"=> false,
+                              "careProvider"=> [{"reference"=> "Practitioner/1448009",
+                                                "display"=> "Daniel,, Christina"}],
+                              "active"=> true}}]
     }
 
   end

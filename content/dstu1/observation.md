@@ -24,4 +24,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:observation_bundle) %>
+<%= json(:dstu1_observation_bundle) %>

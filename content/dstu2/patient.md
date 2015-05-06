@@ -1,5 +1,5 @@
 ---
-title: Patient | FHIR API
+title: Patient | FHIR DSTU 2 API
 ---
 
 # Patient
@@ -22,11 +22,13 @@ Name | Type | Description
 `identifier`|`string`| A patient identifier.  Example: `01022228`
 `name`|`string`|  A portion of either family or given name of the patient. Example: `Peters`
 `telecom`|`string`| The value in any kind of telecom details of the patient. Example: `(816) 475-2374`
+`start`|`numeric`| The offset to use when returning results. Defaults to `0`.
+`_count`|`numeric`| The maximum number of results to return. Defaults to `20`.
 
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu1_patient_bundle) %>
+<%= json(:dstu2_patient_bundle) %>
 
 ## Retrieve by id
 
@@ -37,4 +39,4 @@ List an individual Patient by its id:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu1_patient) %>
+<%= json(:dstu2_patient) %>

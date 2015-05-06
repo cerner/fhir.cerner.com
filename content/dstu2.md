@@ -1,5 +1,5 @@
 ---
-title: FHIR API DSTU 1
+title: FHIR API DSTU 2
 ---
 
 # Overview
@@ -12,19 +12,19 @@ please post to our [developer group](https://groups.google.com/d/forum/cerner-fh
 
 ## Current Version
 
-Cerner currently supports the DSTU 1 version of the FHIR API.
-This API will eventually be replaced by the DSTU 2 version. For the DSTU 2 version of the FHIR API see [here](/dstu2).
+Cerner currently supports the DSTU 2 version of the FHIR API.
+For the DSTU 1 version of the FHIR API see [here](/dstu1).
 
 ## Schema
 
-All API access is over HTTPS, and accessed from the `fhir.sandboxcernerpowerchart.com/fhir`
+All API access is over HTTPS, and accessed from the `fhir.sandboxcernerpowerchart.com/dstu2`
 domain.  All data is sent and received as JSON.
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 
 HTTP/1.1 200 OK
-Date: Wed, 01 Apr 2015 20:14:19 GMT
+Date: Wed, 06 May 2015 15:46:52 GMT
 X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
@@ -36,12 +36,12 @@ Vary: User-Agent
 Content-Type: application/json+fhir; charset=utf-8
 Transfer-Encoding: chunked
 
-{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"identifier":"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-04-01T20:14:19.891+00:00","fhirVersion":"0.0.82","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
+{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"url":"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-05-06T15:46:52.429+00:00","fhirVersion":"0.5.0","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
 </pre>
 
 Blank fields are omitted.
 
-All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/datatypes.html#date">FHIR date/dateTime format</a>.
+All timestamps are returned in [FHIR date/dateTime format](http://www.hl7.org/implement/standards/fhir/datatypes.html#date).
 
 ### Media Types
 
@@ -54,7 +54,7 @@ We encourage you to explicitly request one of these types via the `Accept` heade
 
 ## Root Endpoint
 
-The FHIR URL takes the form `fhir.sandboxcernerpowerchart.com/fhir/open/:ehr_source_id/:resource`.
+The FHIR URL takes the form `fhir.sandboxcernerpowerchart.com/dstu2/open/:ehr_source_id/:resource`.
 
 ### Open Endpoint
 
@@ -67,7 +67,7 @@ The `:ehr_source_id` represents the tenant for which data should be retrieved.
 
 ### Resource
 
-`:resource` represent the FHIR resource to access. Example: <a href="/dstu1/patient/">`Patient`</a>
+`:resource` represent the FHIR resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
 
 ## Parameters
 
@@ -76,7 +76,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 <pre class="terminal">
-$ curl -i https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
+$ curl -i https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
 </pre>
 
 In this example, the 'd075cf8b-3261-481d-97e5-ba6c48d3b41f' value is provided for the `:ehr_source_id` parameter in the path
@@ -133,22 +133,23 @@ follow these Link header values instead of constructing your own URLs.
 
     {
         "resourceType": "Bundle",
-        "title": "Search results for resource type Patient",
         "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
+        "base": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "type": "searchset",
         "link": [
             {
-                "rel": "self",
-                "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=0&max=20"
+                "relation": "self",
+                "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=0&_count=20"
             },
             {
-                "rel": "next",
-                "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=20&max=20"
+                "relation": "next",
+                "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=20&_count=20"
             }
         ],
         ...
     }
 
-The possible `rel` values are:
+The possible `relation` values are:
 
 Name | Description
 -----------|-----------|
@@ -166,7 +167,7 @@ HTML 5 Security Guide.
 Here's a sample request sent from the origin `http://example.com`:
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata"
+$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -177,7 +178,7 @@ Access-Control-Allow-Credentials: true
 This is what a CORS preflight request looks like:
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD

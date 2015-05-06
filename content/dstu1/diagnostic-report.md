@@ -22,4 +22,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:diagnostic_report_bundle) %>
+<%= json(:dstu1_diagnostic_report_bundle) %>

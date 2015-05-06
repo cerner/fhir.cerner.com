@@ -22,4 +22,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:immunization_bundle) %>
+<%= json(:dstu1_immunization_bundle) %>

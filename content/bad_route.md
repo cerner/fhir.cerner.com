@@ -9,6 +9,6 @@ layout: overview
     server but your request is to a bad route.
   </h1>
   <p class="intro">Please read our documentation here to see how to make a valid request.</p>
-  <a href="/dstu1/" class="button">Browse the documentation</a>
+  <a href="/dstu2/" class="button">Browse the documentation</a>
   <img src="/images/fhir.png" class="fhirlogo" alt="FHIR" />
 </div>

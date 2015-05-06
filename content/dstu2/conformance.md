@@ -1,5 +1,5 @@
 ---
-title: Conformance | FHIR API
+title: Conformance | FHIR DSTU 2 API
 ---
 
 # Conformance
@@ -16,9 +16,9 @@ Get the capabilities and configurations for the FHIR server:
 ### Response (Open Endpoint)
 
 <%= headers 200 %>
-<%= json(:dstu1_open_metadata) %>
+<%= json(:dstu2_open_metadata) %>
 
 ### Response (Closed Endpoint)
 
 <%= headers 200 %>
-<%= json(:dstu1_auth_metadata) %>
+<%= json(:dstu2_auth_metadata) %>

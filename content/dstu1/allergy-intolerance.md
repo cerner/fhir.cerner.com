@@ -22,4 +22,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:allergy_intolerance_bundle) %>
+<%= json(:dstu1_allergy_intolerance_bundle) %>

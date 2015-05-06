@@ -22,4 +22,4 @@ Name | Type | Description
 ### Response
 
 <%= headers 200 %>
-<%= json(:condition_bundle) %>
+<%= json(:dstu1_condition_bundle) %>
