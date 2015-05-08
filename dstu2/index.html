@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>FHIR API DSTU 1</title>
+  <title>FHIR API DSTU 2</title>
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -22,14 +22,14 @@
 </head>
 
 
-<body class="dstu1_api">
+<body class="dstu2_api">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../dstu2/" class="nav-dstu2-api">DSTU 2 API</a></li>
-        <li><a href="./" class="nav-dstu1-api">DSTU 1 API</a></li>
+        <li><a href="./" class="nav-dstu2-api">DSTU 2 API</a></li>
+        <li><a href="../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
     </div>
@@ -65,19 +65,19 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
 
 <h2 id="current-version">Current Version</h2>
 
-<p>Cerner currently supports the DSTU 1 version of the FHIR API.
-This API will eventually be replaced by the DSTU 2 version. For the DSTU 2 version of the FHIR API see <a href="../dstu2">here</a>.</p>
+<p>Cerner currently supports the DSTU 2 version of the FHIR API.
+For the DSTU 1 version of the FHIR API see <a href="../dstu1">here</a>.</p>
 
 <h2 id="schema">Schema</h2>
 
-<p>All API access is over HTTPS, and accessed from the <code>fhir.sandboxcernerpowerchart.com/fhir</code>
+<p>All API access is over HTTPS, and accessed from the <code>fhir.sandboxcernerpowerchart.com/dstu2</code>
 domain.  All data is sent and received as JSON.</p>
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 
 HTTP/1.1 200 OK
-Date: Wed, 01 Apr 2015 20:14:19 GMT
+Date: Wed, 06 May 2015 15:46:52 GMT
 X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
@@ -89,7 +89,7 @@ Vary: User-Agent
 Content-Type: application/json+fhir; charset=utf-8
 Transfer-Encoding: chunked
 
-{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"identifier":"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-04-01T20:14:19.891+00:00","fhirVersion":"0.0.82","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
+{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"url":"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-05-06T15:46:52.429+00:00","fhirVersion":"0.5.0","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
 </pre>
 
 <p>Blank fields are omitted.</p>
@@ -108,7 +108,7 @@ application/json
 
 <h2 id="root-endpoint">Root Endpoint</h2>
 
-<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/fhir/open/:ehr_source_id/:resource</code>.</p>
+<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/dstu2/open/:ehr_source_id/:resource</code>.</p>
 
 <h3 id="open-endpoint">Open Endpoint</h3>
 
@@ -130,7 +130,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:</p>
 
 <pre class="terminal">
-$ curl -i https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
+$ curl -i https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
 </pre>
 
 <p>In this example, the ‘d075cf8b-3261-481d-97e5-ba6c48d3b41f’ value is provided for the <code>:ehr_source_id</code> parameter in the path
@@ -212,23 +212,24 @@ follow these Link header values instead of constructing your own URLs.</p>
 
 <pre><code>{
     "resourceType": "Bundle",
-    "title": "Search results for resource type Patient",
     "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
+    "base": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+    "type": "searchset",
     "link": [
         {
-            "rel": "self",
-            "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=0&amp;max=20"
+            "relation": "self",
+            "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=0&amp;_count=20"
         },
         {
-            "rel": "next",
-            "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=20&amp;max=20"
+            "relation": "next",
+            "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=20&amp;_count=20"
         }
     ],
     ...
 }
 </code></pre>
 
-<p>The possible <code>rel</code> values are:</p>
+<p>The possible <code>relation</code> values are:</p>
 
 <table>
   <thead>
@@ -260,7 +261,7 @@ HTML 5 Security Guide.</p>
 <p>Here’s a sample request sent from the origin <code>http://example.com</code>:</p>
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata"
+$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -271,7 +272,7 @@ Access-Control-Allow-Credentials: true
 <p>This is what a CORS preflight request looks like:</p>
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -294,41 +295,27 @@ Access-Control-Allow-Credentials: true
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="conformance/">Conformance Metadata</a>
 </h3>
             </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="allergy-intolerance/">AllergyIntolerance</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="condition/">Condition</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="diagnostic-report/">DiagnosticReport</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="encounter/">Encounter</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="immunization/">Immunization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="medication-prescription/">MedicationPrescription</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="observation/">Observation</a>
-</h3>
-            </li>
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/allergy-intolerance/">AllergyIntolerance</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/condition/">Condition</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/diagnostic-report/">DiagnosticReport</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/encounter/">Encounter</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/immunization/">Immunization</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/medication-prescription/">MedicationPrescription</a></h3>-->
+            <!--</li>-->
+            <!--<li class="js-topic">-->
+                <!--<h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/observation/">Observation</a></h3>-->
+            <!--</li>-->
             <li class="js-topic">
                 <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="patient/">Patient</a>

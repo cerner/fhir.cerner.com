@@ -256,7 +256,8 @@ a img {
 }
 
 .overview #header .nav-overview,
-.api #header .nav-api,
+.dstu1_api #header .nav-dstu1-api,
+.dstu2_api #header .nav-dstu2-api,
 .blog #header .nav-blog,
 .developers #header .nav-developers {
   color: #333;
