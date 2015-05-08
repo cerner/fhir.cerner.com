@@ -1131,6 +1131,30 @@ module Cerner
                 ]
                }]}
 
+    DSTU2_DIAGNOSTIC_REPORT_BUNDLE ||= {
+        "resourceType"=>"Bundle",
+        "id"=> "b2502416-98eb-4a53-b9cc-3262c1617a71",
+        "type"=> "searchset",
+        "base"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total"=> 1,
+        "link"=> [{"relation"=> "self",
+                   "url"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"}],
+        "entry"=> [{"resource"=> {"resourceType"=> "DiagnosticReport",
+                                  "id"=> "4149257",
+                                  "name"=> {"coding"=> [{"system"=> "http://loinc.org/",
+                                                         "code"=> "41806-1"},
+                                                        {"system"=> "http://snomed.info/sct",
+                                                         "code"=> "77477000"}],
+                                            "text"=> "CT Abdomen w/ Contrast"},
+                                  "status"=> "final",
+                                  "issued"=> "2014-12-09T16:49:02.000Z",
+                                  "subject"=> {"reference"=> "Patient/1316020"},
+                                  "performer"=> {"reference"=> "Practitioner/1700007",
+                                                 "display"=> "Grayson, Richard"},
+                                  "encounter"=> {"reference"=> "Encounter/2571909"},
+                                  "conclusion"=> "Report Here is a rad   Signature Line:***** Preliminary Report *****   Transcribed by: SM"}}]
+    }
+
     DSTU2_PATIENT ||= {
       "resourceType"=> "Patient",
       "id"=> "725944",
