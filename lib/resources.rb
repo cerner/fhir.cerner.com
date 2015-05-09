@@ -1205,6 +1205,81 @@ module Cerner
                               "active"=> true}}]
     }
 
+    DSTU2_ALLERGY_INTOLERANCE_BUNDLE ||= {
+        "resourceType" => "Bundle",
+        "id" => "b52eae32-0882-46b2-a3d1-6d78c40e016c",
+        "type" => "searchset",
+        "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 2,
+        "link" => [{"relation" => "self",
+                    "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=3602355"}],
+        "entry" => [{"resource" => {"resourceType" => "AllergyIntolerance",
+                                    "id" => "3276869",
+                                    "recordedDate" => "2015-03-26T17:06:21.000Z",
+                                    "patient" => {"reference" => "Patient/3602355"},
+                                    "reporter" => {"display" => "Patient"},
+                                    "substance" => {"text" => "morphine"},
+                                    "status" => "confirmed",
+                                    "type" => "immune",
+                                    "category" => "medication",
+                                    "event" => [
+                                        {
+                                            "manifestation" => [
+                                                {
+                                                    "coding" => [
+                                                        {
+                                                            "system" => "http://snomed.info/sct",
+                                                            "code" => "369546013",
+                                                            "display" => "Hives"
+                                                        }
+                                                    ],
+                                                    "text" => "Hives"
+                                                }
+                                            ],
+                                            "description" => "Hives"
+                                        }
+                                    ]
+                    }},
+                    {"resource" => {"resourceType" => "AllergyIntolerance",
+                                    "id" => "3276865",
+                                    "recordedDate" => "2015-03-26T17:05:24.000Z",
+                                    "patient" => {"reference" => "Patient/3602355"},
+                                    "reporter" => {"display" => "Parent"},
+                                    "substance" => {"text" => "Peanuts"},
+                                    "status" => "refuted",
+                                    "type" => "non-immune",
+                                    "category" => "food",
+                                    "comment" => "Allergic to peanuts", }}]
+    }
+
+    DSTU2_IMMUNIZATION_BUNDLE ||= {
+        "resourceType" => "Bundle",
+        "id" => "27780a25-18ba-4fd8-9c18-e3beb215d2c2",
+        "type" => "searchset",
+        "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 2,
+        "link" => [{"relation" => "self",
+                    "url" => "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=3602356"}],
+        "entry" => [{"resource" => {"resourceType" => "Immunization",
+                                    "id" => "2571542",
+                                    "date" => "2014-03-11T20:00:00.000Z",
+                                    "vaccineType" => {"coding" => [{"system" => "http://hl7.org/fhir/v3/VaccineType",
+                                                                    "code" => "88"}],
+                                                      "text" => "Fluzone Intradermal 2013-2014"},
+                                    "patient" => {"reference" => "Patient/3602356"},
+                                    "wasNotGiven" => false,
+                                    "reported" => false}},
+                    {"resource" => {"resourceType" => "Immunization",
+                                    "id" => "2571538",
+                                    "date" => "2012-09-05T18:28:00.000Z",
+                                    "vaccineType" => {"coding" => [{"system" => "http://hl7.org/fhir/v3/VaccineType",
+                                                                    "code" => "28"}],
+                                                      "text" => "diphtheria toxoid"},
+                                    "patient" => {"reference" => "Patient/3602356"},
+                                    "wasNotGiven" => false,
+                                    "reported" => false}}]
+    }
+
   end
 end
 
