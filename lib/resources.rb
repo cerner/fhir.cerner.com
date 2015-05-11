@@ -1279,6 +1279,53 @@ module Cerner
                                     "wasNotGiven" => false,
                                     "reported" => false}}]
     }
+    
+    DSTU2_MEDICATION_PRESCRIPTION_BUNDLE ||= {
+        "resourceType"=>"Bundle",
+        "id"=>"11025158-de65-4fd2-a7e6-a1f4a2bf897b",
+        "type"=>"searchset",
+        "base"=>
+            "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total"=>1,
+        "link"=>
+            [{"relation"=>"self",
+              "url"=>
+                  "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=33840071"}],
+        "entry"=>
+            [{"resource"=>
+                  {"resourceType"=>"MedicationPrescription",
+                   "id"=>"18306001",
+                   "contained"=>
+                       [{"resourceType"=>"Medication",
+                         "id"=>"2750103",
+                         "code"=>
+                             {"coding"=>
+                                  [{"system"=>"http://www.nlm.nih.gov/research/umls/rxnorm",
+                                    "code"=>"853499",
+                                    "display"=>"Aspirin 228 MG Chewing Gum"}],
+                              "text"=>"aspirin 227.5 mg oral gum"},
+                         "name"=>"aspirin 227.5 mg oral gum"}],
+                   "status"=>"active",
+                   "patient"=>{"reference"=>"Patient/33840071"},
+                   "prescriber"=>
+                       {"reference"=>"Practitioner/20440201", "display"=>"Tatlock, Stephen"},
+                   "medication"=>
+                       {"reference"=>"#2750103", "display"=>"aspirin 227.5 mg oral gum"},
+                   "dosageInstruction"=>
+                       [{"text"=>
+                             "227.5 mg, 1 EA, Chewed, q4hr, Special instructions, PRN: for sore throat, 60 EA",
+                         "additionalInstructions"=>{"text"=>"Chew vigorously"},
+                         "scheduledPeriod"=>
+                             {"start"=>"2015-05-07T20:31:00.000Z",
+                              "end"=>"2015-05-10T21:00:00.000Z"},
+                         "asNeededCodeableConcept"=>{"text"=>"for sore throat"},
+                         "route"=>{"text"=>"Chewed"},
+                         "doseQuantity"=>{"value"=>1.0, "units"=>"EA"}}],
+                   "dispense"=>
+                       {"medication"=>
+                            {"reference"=>"#2750103", "display"=>"aspirin 227.5 mg oral gum"},
+                        "quantity"=>{"value"=>"60", "units"=>"EA"}}}}]
+    }
 
   end
 end
