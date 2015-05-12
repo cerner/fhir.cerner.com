@@ -15,9 +15,9 @@ Search for DiagnosticReports that meet supplied query parameters:
 
 ### Parameters
 
-Name | Type | Description
------|------|--------------
-`subject:Patient`|`string`| The subject of the report. Example: `12345`
+ Name            | Type                                                                           | Description
+-----------------|--------------------------------------------------------------------------------|--------------------------------------------
+`subject:Patient`|[`reference`](http://www.hl7.org/implement/standards/fhir/search.html#reference)| The subject of the report. Example: `12345`
 
 ### Response
 

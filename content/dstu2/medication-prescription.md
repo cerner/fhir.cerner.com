@@ -15,9 +15,9 @@ Search for active MedicationPrescriptions that meet supplied query parameters:
 
 ### Parameters
 
-Name | Type | Description
------|------|--------------
-`patient`|`string`| The identity of a patient to list dispenses for. Example: `12345`
+ Name    | Type                                                           | Description
+---------|----------------------------------------------------------------|------------------------------------------------------------------
+`patient`|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The identity of a patient to list dispenses for. Example: `12345`
 
 ### Response
 
