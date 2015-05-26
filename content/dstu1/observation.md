@@ -15,10 +15,9 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
 ### Parameters
 
-Name | Type | Description
------|------|--------------
-`subject:Patient`|`string`| The subject that the observation is about. Example: `12345`
-`name`|`string`| The name of the observation type. Example: `http://loinc.org|55284-4`
+ Name            | Type                                                                           | Description
+-----------------|--------------------------------------------------------------------------------|------------------------------------------------------------
+`subject:Patient`|[`reference`](http://www.hl7.org/implement/standards/fhir/search.html#reference)| The subject that the observation is about. Example: `12345`
 
 
 ### Response

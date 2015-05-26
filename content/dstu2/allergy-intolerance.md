@@ -15,9 +15,9 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
-Name | Type | Description
------|------|--------------
-`patient`|`string`| Who the sensitivity is for. Example: `12345`
+ Name    | Type                                                           | Description
+---------|----------------------------------------------------------------|---------------------------------------------
+`patient`|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| Who the sensitivity is for. Example: `12345`
 
 ### Response
 
