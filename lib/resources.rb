@@ -1131,6 +1131,39 @@ module Cerner
                 ]
                }]}
 
+    DSTU2_CONDITION_BUNDLE ||= {
+      "resourceType" => "Bundle",
+      "id" => "9c791488-fdbb-4322-a6ed-baac9d636d7b",
+      "type" => "searchset",
+      "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "total" => 2,
+      "link" => [{"relation" => "self",
+                  "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316020"}],
+      "entry" => [{"resource" =>
+                     {"resourceType" => "Condition",
+                      "id" => "/tenant:d075cf8b-3261-481d-97e5-ba6c48d3b41f_0/person:1316020/clinicalfacts.condition.type:CODIFIED/id:7421295",
+                      "patient" => {"reference" => "Patient/1316020"},
+                      "asserter" => {"reference" => "Practitioner/1994019",
+                                     "display" => "Knight MD, Wayne"},
+                      "code" => {"coding" => [{"system" => "http://snomed.info/sct",
+                                               "code" => "22886006",
+                                               "display" => "ACAD"}],
+                                 "text" => "ACAD"},
+                      "clinicalStatus" => "confirmed",
+                      "onsetDateTime" => "2007"}},
+                  {"resource" => {"resourceType" => "Condition",
+                                  "id" => "/tenant:d075cf8b-3261-481d-97e5-ba6c48d3b41f_0/person:1316020/clinicalfacts.condition.type:CODIFIED/id:13795703",
+                                  "patient" => {"reference" => "Patient/1316020"},
+                                  "asserter" => {"reference" => "Practitioner/1994019",
+                                                 "display" => "Knight MD, Wayne"},
+                                  "code" => {"coding" => [{"system" => "http://snomed.info/sct",
+                                                           "code" => "424300006",
+                                                           "display" => "Minimal shared activities"}],
+                                             "text" => "Minimal shared activities"},
+                                  "clinicalStatus" => "confirmed",
+                                  "onsetDateTime" => "2007"}}]
+    }
+
     DSTU2_DIAGNOSTIC_REPORT_BUNDLE ||= {
         "resourceType"=>"Bundle",
         "id"=> "b2502416-98eb-4a53-b9cc-3262c1617a71",
@@ -1153,6 +1186,40 @@ module Cerner
                                                  "display"=> "Grayson, Richard"},
                                   "encounter"=> {"reference"=> "Encounter/2571909"},
                                   "conclusion"=> "Report Here is a rad   Signature Line:***** Preliminary Report *****   Transcribed by: SM"}}]
+    }
+
+    DSTU2_ENCOUNTER ||= {
+      "resourceType" => "Encounter",
+      "id" => "2787906",
+      "status" => "in-progress",
+      "patient" => {"reference" => "Patient/1316020"},
+      "participant" => [{"type" => [{"coding" => [{"system" => "http://hl7.org/fhir/v3/ParticipationType",
+                                                   "code" => "ATND",
+                                                   "display" => "attender"}],
+                                     "text" => "attender"}],
+                         "individual" => {"display" => "Knight MD, Wayne"}}],
+      "period" => {"start" => "2015-01-05T22:50:48.000Z"},
+      "location" => [{"location" => {"display" => "Baseline East"},
+                      "period" => {"start" => "2015-01-05T22:50:48.000Z"}}]
+    }
+
+    DSTU2_ENCOUNTER_BUNDLE ||= {
+      "resourceType" => "Bundle",
+      "id" => "40be3b40-6945-4db9-b993-2f67a44c77a6",
+      "type" => "searchset",
+      "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "total" => 2,
+      "link" => [{"relation" => "self",
+                  "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=1316020"}],
+      "entry" => [{"resource" => DSTU2_ENCOUNTER},
+                  {"resource" =>
+                     {"resourceType" => "Encounter",
+                      "id" => "2777906",
+                      "status" => "in-progress",
+                      "patient" => {"reference" => "Patient/1316020"},
+                      "period" => {"start" => "2014-12-15T18:47:41.000Z"},
+                      "location" => [{"location" => {"display" => "Baseline East"},
+                                      "period" => {"start" => "2014-12-15T18:47:41.000Z"}}]}}]
     }
 
     DSTU2_PATIENT ||= {
