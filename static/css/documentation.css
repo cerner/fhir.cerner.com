@@ -866,7 +866,7 @@ a .mega-octicon {
 
 .dev-program.feature,
 .dev-program-callout {
-  background: #160625;
+  background: #FF9633;
 }
 
 .dev-program.feature .intro {
@@ -898,17 +898,17 @@ a .mega-octicon {
 
 .dev-program-callout .wrapper {
   padding: 40px 0;
-  background: #160625 url(/images/callout-earth-static.png) no-repeat top right / 30%;
+  background: #FF9633;
 }
 
 .dev-program.feature h1,
 .dev-program-callout h2 {
-  color: #eee;
+  color: #000000;
 }
 
 .dev-program.feature .intro,
 .dev-program-callout p {
-  color: #a397ad;
+  color: #000000;
 }
 
 .dev-program-callout h2 {
