@@ -124,7 +124,7 @@ Authorization: Bearer {ACCESS_TOKEN}
 If the access token is valid, and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.
 
 ### Using a Refresh Token ###
-The authorization server has support for **online access** refresh tokens. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the OAuth 2.0 spec [1], the authorization server accepts a content type of **application/x-www-form-urlencoded** POST from your client application with the following information.
+The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the OAuth 2.0 spec [1], the authorization server accepts a content type of **application/x-www-form-urlencoded** POST from your client application with the following information.
 
 * grant_type
 * refresh_token
@@ -143,7 +143,7 @@ If successful, the authorization server will return a **200 OK** response with a
 }
 ```
 
-The refresh token issued is good while the user's session is still valid. 
+The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised. 
 
 ##### References #####
 [1] https://tools.ietf.org/html/rfc6749  
