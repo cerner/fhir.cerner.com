@@ -2,24 +2,20 @@
 ---------------------------------------------
 
 ### Introduction ###
-The Cerner Authorization Server currently supports OAuth 2.0 [1] SMART [2, 3] on FHIR launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.
+The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR][5] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.
 
 ### Registration ###
 In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this, contact your Cerner representative with the following information, the following fields are **required**.
 
-* Name - Application name, this should match what the name of the app will be in the app store
-* Redirect/Callback URI
-* Email address
-
-You may also provide the following **optional** fields.
-
-* Logo URI 
-* SMART Launch Server URI
+* Name - Application name, this should match what the name of the app will be in the app store  
+* Redirect/Callback URI  
+* Email address  
+* Logo URI  - The logo will need to be a [Scalable Vector Graphics][7] image
 
 Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected FHIR resources.
 
 ### Supported Scopes ###
-The Cerner Authorization Server supports many, but not all of the SMART[7] or OAuth/OpenID Connect[1,8] scopes. The following scopes are supported.
+The Cerner Authorization Server supports many, but not all, of the [SMART][5] or [OAuth/OpenID Connect][6] scopes. The following scopes are **supported**.
 
 * online_access
 * launch
@@ -27,38 +23,36 @@ The Cerner Authorization Server supports many, but not all of the SMART[7] or OA
 * profile
 
 ### Requesting an authorization code ###
-Cerner currently supports the SMART launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR SMART launch workflow.
+Cerner currently supports the [SMART][5] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][5] launch workflow.
 
 ![alt text](http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&s=default "SMART launch diagram")
 
-Once a launch context is received by your client application from the SMART launch server, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems.
-
-The authorize endpoints are tenant specific, which means your client application will need to know the specific tenant ID of the tenants whose data your client application is going to request access to as well as the following **required** query parameters.
+Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint, which is provided by the [SMART][5] metadata doc. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems. The **GET** request will **require** the following query parameters.
 
 * response_type
 * client_id
 * launch
-* scope - Note: launch **must** be one of the scopes if using a launch context
+* scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context
 
-It is also recommended that your client application provides the following query parameters.
+It is also **recommended** that your client application provides the following query parameters.
 
-* state - to prevent cross-site requst forgery [4] attacks
-* redirect_uri - note: The redirect_uri ***must*** match what was originally registered
+* state - to prevent [cross-site request forgery attacks][2]
+* redirect_uri - note: The redirect_uri **must** match what was originally registered
 
 ```
 https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 ```
 
-If the user does not currently have an active session [4], the Authorization Server will redirect the user to the identity provider for the tenant in order to authenticate. 
+If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate. 
 
-If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query paramter. This is the authorization code that will be exchanged for an access token.
+If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query paramter. This is the authorization code that can be exchanged for an access token.
 
 ```
 https://test.com/cb?code=1234-567890ab-cdef
 ```
 
 ### Requesting an access token ###
-Once an authorization code has been acquired, a back-channel POST to the authorization server's token endpoint can be made to request an access token. Following the OAuth 2.0 [1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** POST from your client application with the following information.
+Once an authorization code has been acquired, a back-channel **POST** to the authorization server's token endpoint can be made to request an access token. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** from your client application with the following information.
 
 * grant_type
 * code
@@ -73,7 +67,7 @@ https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/token
 grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI}
 ```
 
-If successful, the authorization server will return a **200 OK** response with a content-type of **application/json** [5] similar to the example below.
+If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the example below.
 
 ```
 {
@@ -84,10 +78,10 @@ If successful, the authorization server will return a **200 OK** response with a
 }
 ```
 
-The bearer access token returned from the authorization server is a JSON Web Token (JWT) [6]. The JWT is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
+The [bearer access token][8] returned from the authorization server is a [JSON Web Token (JWT)][4]. The JWT is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
 
 ### OpenID Connect ###
-If the scopes "openid" and "profile" were originally, an OpenID Connect id_token will be included per the SMART specification [2] that includes the user's FHIR resource URL (userfhirurl) as the "profile" claim.
+If the scopes "openid" and "profile" were originally, an [OpenID Connect][9] id_token will be included per the [SMART][5] specification  that includes the user's FHIR resource URL (userfhirurl) as the "profile" claim.
 
 ```
 { 
@@ -124,7 +118,7 @@ Authorization: Bearer {ACCESS_TOKEN}
 If the access token is valid, and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.
 
 ### Using a Refresh Token ###
-The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the OAuth 2.0 spec [1], the authorization server accepts a content type of **application/x-www-form-urlencoded** POST from your client application with the following information.
+The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec , the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
 
 * grant_type
 * refresh_token
@@ -133,7 +127,7 @@ The authorization server has support for **online access** refresh tokens. Refre
 grant_type=refresh_token&refresh_token={REFRESH_TOKEN}
 ```
 
-If successful, the authorization server will return a **200 OK** response with a content-type of **application/json** [5] similar to the example below. 
+If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the example below. 
 
 ```
 {
@@ -145,12 +139,12 @@ If successful, the authorization server will return a **200 OK** response with a
 
 The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised. 
 
-##### References #####
-[1] https://tools.ietf.org/html/rfc6749  
-[2] http://smarthealthit.org/smart-on-fhir/  
-[3] http://docs.smarthealthit.org/  
-[4] https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
-[5] http://json.org/  
-[6] https://tools.ietf.org/html//rfc7519  
-[7] http://docs.smarthealthit.org/authorization/public/  
-[8] http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims  
+[1]: https://tools.ietf.org/html/rfc6749  
+[2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
+[3]: http://json.org/  
+[4]: https://tools.ietf.org/html//rfc7519  
+[5]: http://docs.smarthealthit.org/authorization/public/  
+[6]: http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims  
+[7]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
+[8]: https://tools.ietf.org/html/rfc6750
+[9]: http://openid.net/connect/
