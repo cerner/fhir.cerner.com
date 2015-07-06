@@ -32,7 +32,7 @@ Once a launch context is received by your client application from the EHR, it mu
 
 * response_type
 * client_id
-* launch - Note: only required if using [SMART][5] launch
+* launch - Note: only required if using a [SMART][5] launch context
 * scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context
 
 It is also **recommended** that your client application provides the following query parameters.
