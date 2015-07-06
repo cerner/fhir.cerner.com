@@ -5,12 +5,13 @@
 The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR][5] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.
 
 ### Registration ###
-In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this, contact your Cerner representative with the following information, the following fields are **required**.
+In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this please [contact us][11] with the following fields, all fields are **required**.
 
 * Name - Application name, this should match what the name of the app will be in the app store  
 * Redirect/Callback URI  
 * Email address  
-* Logo URI  - The logo will need to be a [Scalable Vector Graphics][7] image
+* Logo URI - The logo will need to be a [Scalable Vector Graphics][7] image
+* SMART Launch URI
 
 Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected FHIR resources.
 
@@ -27,11 +28,11 @@ Cerner currently supports the [SMART][5] launch workflow from within an EHR, suc
 
 ![alt text](http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&s=default "SMART launch diagram")
 
-Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint, which is provided by the [SMART][5] metadata doc. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems. The **GET** request will **require** the following query parameters.
+Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint, which is provided by the [SMART][10] token and authorization extension. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. The **GET** request will **require** the following query parameters.
 
 * response_type
 * client_id
-* launch
+* launch - Note: only required if using [SMART][5] launch
 * scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context
 
 It is also **recommended** that your client application provides the following query parameters.
@@ -50,6 +51,8 @@ If successful, the authorization server will redirect the user-agent back to you
 ```
 https://test.com/cb?code=1234-567890ab-cdef
 ```
+
+Note: Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems. 
 
 ### Requesting an access token ###
 Once an authorization code has been acquired, a back-channel **POST** to the authorization server's token endpoint can be made to request an access token. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** from your client application with the following information.
@@ -148,3 +151,5 @@ The refresh token issued is good while the user's session is still valid and can
 [7]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
 [8]: https://tools.ietf.org/html/rfc6750
 [9]: http://openid.net/connect/
+[10]: http://docs.smarthealthit.org/authorization/conformance-statement/  
+[11]: https://groups.google.com/forum/#!forum/cerner-fhir-developers
