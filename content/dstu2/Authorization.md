@@ -46,7 +46,7 @@ https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/authorize?response_ty
 
 If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate. 
 
-If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query paramter. This is the authorization code that can be exchanged for an access token.
+If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query parameter. This is the authorization code that can be exchanged for an access token.
 
 ```
 https://test.com/cb?code=1234-567890ab-cdef
@@ -84,7 +84,7 @@ If successful, the authorization server will return a **200 OK** response with a
 The [bearer access token][8] returned from the authorization server is a [JSON Web Token (JWT)][4]. The JWT is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
 
 ### OpenID Connect ###
-If the scopes "openid" and "profile" were originally, an [OpenID Connect][9] id_token will be included per the [SMART][5] specification  that includes the user's FHIR resource URL (userfhirurl) as the "profile" claim.
+If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][9] id_token will be included per the [SMART][5] specification that includes the user's FHIR resource URL (userfhirurl) as the "profile" claim.
 
 ```
 { 
@@ -95,7 +95,7 @@ If the scopes "openid" and "profile" were originally, an [OpenID Connect][9] id_
 }
 ```
 
-Additionally, the claims specified in the launch resolution response will be included in the custom claims of the authorization token defined by the Cerner Access Token Specification.
+Additionally, the claims specified in the launch resolution response will be included in the custom claims of the authorization token defined by Cerner.
 
 ```
 "urn:com:cerner:authorization:claims" : 
@@ -112,7 +112,7 @@ Additionally, the claims specified in the launch resolution response will be inc
 ```
 
 ### Using an access token ###
-In order to use an access token, your client application needs to provide the access token recieved from the authorization server to the FHIR protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
+In order to use an access token, your client application needs to provide the access token received from the authorization server to the FHIR protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
 
 ```
 Authorization: Bearer {ACCESS_TOKEN}
