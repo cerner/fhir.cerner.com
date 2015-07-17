@@ -58,7 +58,7 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
   <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
   <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
-  <li><a href="#authentication" id="markdown-toc-authentication">Authentication</a></li>
+  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
   <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
   <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
 </ul>
@@ -198,12 +198,12 @@ response.</p>
   </tbody>
 </table>
 
-<h2 id="authentication">Authentication</h2>
+<h2 id="authorization">Authorization</h2>
 
 <p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>.
 Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
 
-<p>Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> for application registration.</p>
+<p>Please reference the <a href="authorization/">authorization</a> documentation for more information.</p>
 
 <h2 id="pagination">Pagination</h2>
 
@@ -288,6 +288,11 @@ Access-Control-Allow-Credentials: true
             <li class="js-topic">
                 <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="authorization">Authorization</a>
 </h3>
             </li>
             <li class="js-topic">
