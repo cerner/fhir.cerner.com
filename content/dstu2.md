@@ -119,12 +119,12 @@ Verb | Description
 `GET` | Used for retrieving resources.
 `POST` | Coming soon!
 
-## Authentication
+## Authorization
 
 We have an endpoint secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/).
 Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
 
-Please [contact us](https://groups.google.com/d/forum/cerner-fhir-developers) for application registration.
+Please reference the <a href="/dstu2/authorization/">authorization</a> documentation for more information. 
 
 ## Pagination
 
