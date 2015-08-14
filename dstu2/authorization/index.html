@@ -97,7 +97,7 @@
 </ul>
 
 <p><code>
-https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/authorize?response_type=code&amp;client_id={YOUR_CLIENT_ID}&amp;state=12345&amp;redirect_uri=https%3A%2F%2Ftest.com%2Fcb
+https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&amp;client_id={YOUR_CLIENT_ID}&amp;state=12345&amp;redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 </code></p>
 
 <p>If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.</p>
@@ -121,7 +121,7 @@ https://test.com/cb?code=1234-567890ab-cdef
 </ul>
 
 <p><code>
-https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/token
+https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/token
 </code></p>
 
 <p><code>
