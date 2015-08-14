@@ -41,7 +41,7 @@ It is also **recommended** that your client application provides the following q
 * redirect_uri - note: The redirect_uri **must** match what was originally registered
 
 ```
-https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
+https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 ```
 
 If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate. 
@@ -63,7 +63,7 @@ Once an authorization code has been acquired, a back-channel **POST** to the aut
 * redirect_uri (only if provided when the authorization code was requested)
 
 ```
-https://authorization.stagingcerner.com/oauth2/{TENANT_ID}/token
+https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/token
 ```
 
 ```
