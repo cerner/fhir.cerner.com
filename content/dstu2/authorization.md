@@ -1,3 +1,7 @@
+---
+title: Authorization | FHIR DSTU 2 API
+---
+
 # Authorization Server Client Documentation #
 ---------------------------------------------
 
@@ -22,6 +26,7 @@ The Cerner Authorization Server supports many, but not all, of the [SMART][5] or
 * launch
 * openid
 * profile
+* [User-level and patient-specific scopes][12] for requesting clinical data
 
 ### Requesting an authorization code ###
 Cerner currently supports the [SMART][5] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][5] launch workflow.
@@ -33,7 +38,7 @@ Once a launch context is received by your client application from the EHR, it mu
 * response_type
 * client_id
 * launch - Note: only required if using a [SMART][5] launch context
-* scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context
+* scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context. When requesting clinical data, [SMART scopes][12] for requesting clinical data must be provided.
 
 It is also **recommended** that your client application provides the following query parameters.
 
@@ -153,3 +158,4 @@ The refresh token issued is good while the user's session is still valid and can
 [9]: http://openid.net/connect/
 [10]: http://docs.smarthealthit.org/authorization/conformance-statement/  
 [11]: https://groups.google.com/forum/#!forum/cerner-fhir-developers
+[12]: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/
