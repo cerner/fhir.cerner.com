@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title></title>
+  <title>Authorization | FHIR DSTU 2 API</title>
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -45,7 +45,8 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="authorization-server-client-documentation">Authorization Server Client Documentation</h1>
+      
+<h1 id="authorization-server-client-documentation">Authorization Server Client Documentation</h1>
 <hr>
 
 <h3 id="introduction">Introduction</h3>
@@ -72,6 +73,8 @@
   <li>launch</li>
   <li>openid</li>
   <li>profile</li>
+  <li>
+<a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">User-level and patient-specific scopes</a> for requesting clinical data</li>
 </ul>
 
 <h3 id="requesting-an-authorization-code">Requesting an authorization code</h3>
@@ -85,7 +88,7 @@
   <li>response_type</li>
   <li>client_id</li>
   <li>launch - Note: only required if using a <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch context</li>
-  <li>scope - Note: launch <strong>must</strong> be one of the scopes if using a <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch context</li>
+  <li>scope - Note: launch <strong>must</strong> be one of the scopes if using a <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch context. When requesting clinical data, <a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">SMART scopes</a> for requesting clinical data must be provided.</li>
 </ul>
 
 <p>It is also <strong>recommended</strong> that your client application provides the following query parameters.</p>
