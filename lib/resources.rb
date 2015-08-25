@@ -874,13 +874,13 @@ module Cerner
                                                "display"=>"Ahmad MD, James"}]}}]
     }
 
-    # DSTU 2 JSON
+    # MAY 2015 BALLOT JSON
 
-    DSTU2_OPEN_METADATA ||= {
+    MAY2015_OPEN_METADATA ||= {
       "resourceType"=>"Conformance",
       "text"=>{"status"=>"generated",
                "div"=>"Generated Conformance Statement"},
-      "url"=>"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+      "url"=>"https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
       "name"=>"SMART on FHIR Conformance Statement",
       "publisher"=>"Cerner",
       "description"=>"Describes capabilities of this server",
@@ -996,11 +996,11 @@ module Cerner
                   }
                 ]}]}
 
-    DSTU2_AUTH_METADATA ||= {
+    MAY2015_AUTH_METADATA ||= {
       "resourceType"=>"Conformance",
       "text"=>{"status"=>"generated",
                "div"=>"Generated Conformance Statement"},
-      "url"=>"https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+      "url"=>"https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
       "name"=>"SMART on FHIR Conformance Statement",
       "publisher"=>"Cerner",
       "description"=>"Describes capabilities of this server",
@@ -1131,14 +1131,14 @@ module Cerner
                 ]
                }]}
 
-    DSTU2_CONDITION_BUNDLE ||= {
+    MAY2015_CONDITION_BUNDLE ||= {
       "resourceType" => "Bundle",
       "id" => "9c791488-fdbb-4322-a6ed-baac9d636d7b",
       "type" => "searchset",
-      "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
       "total" => 2,
       "link" => [{"relation" => "self",
-                  "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316020"}],
+                  "url" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316020"}],
       "entry" => [{"resource" =>
                      {"resourceType" => "Condition",
                       "id" => "/tenant:d075cf8b-3261-481d-97e5-ba6c48d3b41f_0/person:1316020/clinicalfacts.condition.type:CODIFIED/id:7421295",
@@ -1164,14 +1164,14 @@ module Cerner
                                   "onsetDateTime" => "2007"}}]
     }
 
-    DSTU2_DIAGNOSTIC_REPORT_BUNDLE ||= {
+    MAY2015_DIAGNOSTIC_REPORT_BUNDLE ||= {
         "resourceType"=>"Bundle",
         "id"=> "b2502416-98eb-4a53-b9cc-3262c1617a71",
         "type"=> "searchset",
-        "base"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total"=> 1,
         "link"=> [{"relation"=> "self",
-                   "url"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"}],
+                   "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"}],
         "entry"=> [{"resource"=> {"resourceType"=> "DiagnosticReport",
                                   "id"=> "4149257",
                                   "name"=> {"coding"=> [{"system"=> "http://loinc.org/",
@@ -1188,7 +1188,7 @@ module Cerner
                                   "conclusion"=> "Report Here is a rad   Signature Line:***** Preliminary Report *****   Transcribed by: SM"}}]
     }
 
-    DSTU2_ENCOUNTER ||= {
+    MAY2015_ENCOUNTER ||= {
       "resourceType" => "Encounter",
       "id" => "2787906",
       "status" => "in-progress",
@@ -1203,15 +1203,15 @@ module Cerner
                       "period" => {"start" => "2015-01-05T22:50:48.000Z"}}]
     }
 
-    DSTU2_ENCOUNTER_BUNDLE ||= {
+    MAY2015_ENCOUNTER_BUNDLE ||= {
       "resourceType" => "Bundle",
       "id" => "40be3b40-6945-4db9-b993-2f67a44c77a6",
       "type" => "searchset",
-      "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
       "total" => 2,
       "link" => [{"relation" => "self",
-                  "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=1316020"}],
-      "entry" => [{"resource" => DSTU2_ENCOUNTER},
+                  "url" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=1316020"}],
+      "entry" => [{"resource" => MAY2015_ENCOUNTER},
                   {"resource" =>
                      {"resourceType" => "Encounter",
                       "id" => "2777906",
@@ -1222,7 +1222,7 @@ module Cerner
                                       "period" => {"start" => "2014-12-15T18:47:41.000Z"}}]}}]
     }
 
-    DSTU2_PATIENT ||= {
+    MAY2015_PATIENT ||= {
       "resourceType"=> "Patient",
       "id"=> "725944",
       "identifier"=> [{"use"=> "usual",
@@ -1260,15 +1260,15 @@ module Cerner
       "active"=> true
     }
 
-    DSTU2_PATIENT_BUNDLE ||={
+    MAY2015_PATIENT_BUNDLE ||={
       "resourceType"=> "Bundle",
       "id"=> "60eb43c1-1258-4d30-9d9e-ed0b9e2cc33b",
       "type"=> "searchset",
-      "base"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "base"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
       "total"=> 2,
       "link"=> [{"relation"=> "self",
-                "url"=> "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Smith&start=0&_count=20"}],
-      "entry"=> [{"resource"=> DSTU2_PATIENT},
+                "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Smith&start=0&_count=20"}],
+      "entry"=> [{"resource"=> MAY2015_PATIENT},
                 {"resource"=> {"resourceType"=> "Patient",
                               "id"=> "685924",
                               "identifier"=> [{"use"=> "usual",
@@ -1296,14 +1296,14 @@ module Cerner
                               "active"=> true}}]
     }
 
-    DSTU2_ALLERGY_INTOLERANCE_BUNDLE ||= {
+    MAY2015_ALLERGY_INTOLERANCE_BUNDLE ||= {
         "resourceType" => "Bundle",
         "id" => "b52eae32-0882-46b2-a3d1-6d78c40e016c",
         "type" => "searchset",
-        "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 2,
         "link" => [{"relation" => "self",
-                    "url" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=3602355"}],
+                    "url" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=3602355"}],
         "entry" => [{"resource" => {"resourceType" => "AllergyIntolerance",
                                     "id" => "3276869",
                                     "recordedDate" => "2015-03-26T17:06:21.000Z",
@@ -1343,11 +1343,11 @@ module Cerner
                                     "comment" => "Allergic to peanuts", }}]
     }
 
-    DSTU2_IMMUNIZATION_BUNDLE ||= {
+    MAY2015_IMMUNIZATION_BUNDLE ||= {
         "resourceType" => "Bundle",
         "id" => "27780a25-18ba-4fd8-9c18-e3beb215d2c2",
         "type" => "searchset",
-        "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 2,
         "link" => [{"relation" => "self",
                     "url" => "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=3602356"}],
@@ -1371,17 +1371,17 @@ module Cerner
                                     "reported" => false}}]
     }
     
-    DSTU2_MEDICATION_PRESCRIPTION_BUNDLE ||= {
+    MAY2015_MEDICATION_PRESCRIPTION_BUNDLE ||= {
         "resourceType"=>"Bundle",
         "id"=>"11025158-de65-4fd2-a7e6-a1f4a2bf897b",
         "type"=>"searchset",
         "base"=>
-            "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+            "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total"=>1,
         "link"=>
             [{"relation"=>"self",
               "url"=>
-                  "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=33840071"}],
+                  "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=33840071"}],
         "entry"=>
             [{"resource"=>
                   {"resourceType"=>"MedicationPrescription",
@@ -1418,14 +1418,14 @@ module Cerner
                         "quantity"=>{"value"=>"60", "units"=>"EA"}}}}]
     }
 
-    DSTU2_OBSERVATION_BUNDLE ||= {
+    MAY2015_OBSERVATION_BUNDLE ||= {
         "resourceType"=>"Bundle",
         "id"=>"15262c30-ec5a-4ab5-a2ac-d5d879d1f180",
         "type" => "searchset",
-        "base" => "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 5,
         "link"=>[{"relation"=>"self",
-                  "url"=>"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject:Patient=3602355"}],
+                  "url"=>"https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject:Patient=3602355"}],
         "entry"=>[{"resource"=>{"resourceType"=>"Observation",
                                 "id" => "4707327",
                                 "code"=>{"coding"=>[{"system"=>"http://loinc.org/",

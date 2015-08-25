@@ -1,5 +1,5 @@
 ---
-title: Patient | FHIR DSTU 2 API
+title: Patient | FHIR MAY 2015 BALLOT API
 ---
 
 # Patient
@@ -28,7 +28,7 @@ Search for Patients that meet supplied query parameters:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_patient_bundle) %>
+<%= json(:may2015_patient_bundle) %>
 
 ## Retrieve by id
 
@@ -39,4 +39,4 @@ List an individual Patient by its id:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_patient) %>
+<%= json(:may2015_patient) %>

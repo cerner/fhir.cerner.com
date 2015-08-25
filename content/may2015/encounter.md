@@ -1,5 +1,5 @@
 ---
-title: Encounter | FHIR DSTU 2 API
+title: Encounter | FHIR MAY 2015 BALLOT API
 ---
 
 # Encounter
@@ -22,7 +22,7 @@ Search for Encounters that meet supplied query parameters:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_encounter_bundle) %>
+<%= json(:may2015_encounter_bundle) %>
 
 ## Retrieve by id
 
@@ -33,4 +33,4 @@ List an individual Encounter by its id:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_encounter) %>
+<%= json(:may2015_encounter) %>
