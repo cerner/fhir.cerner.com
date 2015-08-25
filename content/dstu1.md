@@ -13,7 +13,7 @@ please post to our [developer group](https://groups.google.com/d/forum/cerner-fh
 ## Current Version
 
 Cerner currently supports the DSTU 1 version of the FHIR API.
-This API will eventually be replaced by the DSTU 2 version. For the DSTU 2 version of the FHIR API see [here](/dstu2).
+This API will eventually be replaced by the DSTU 2 version. For the current DSTU 2 version of the FHIR API, which is based on the May DSTU 2 ballot, see [here](/may2015).
 
 ## Schema
 

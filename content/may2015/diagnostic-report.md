@@ -1,5 +1,5 @@
 ---
-title: DiagnosticReport | FHIR DSTU 2 API
+title: DiagnosticReport | FHIR MAY 2015 BALLOT API
 ---
 
 # DiagnosticReport
@@ -23,4 +23,4 @@ Search for DiagnosticReports that meet supplied query parameters:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_diagnostic_report_bundle) %>
+<%= json(:may2015_diagnostic_report_bundle) %>

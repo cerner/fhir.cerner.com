@@ -1,5 +1,5 @@
 ---
-title: AllergyIntolerance | FHIR DSTU 2 API
+title: AllergyIntolerance | FHIR MAY 2015 BALLOT API
 ---
 
 # AllergyIntolerance
@@ -22,4 +22,4 @@ Search for AllergyIntolerances that meet supplied query parameters:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_allergy_intolerance_bundle) %>
+<%= json(:may2015_allergy_intolerance_bundle) %>

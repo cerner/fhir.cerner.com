@@ -1,5 +1,5 @@
 ---
-title: Observation | FHIR DSTU 2 API
+title: Observation | FHIR MAY 2015 BALLOT API
 ---
 
 # Observation
@@ -23,4 +23,4 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_observation_bundle) %>
+<%= json(:may2015_observation_bundle) %>

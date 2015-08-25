@@ -1,5 +1,5 @@
 ---
-title: Authorization | FHIR DSTU 2 API
+title: Authorization | FHIR MAY 2015 BALLOT API
 ---
 
 # Authorization Server Client Documentation #

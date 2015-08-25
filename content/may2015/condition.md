@@ -1,5 +1,5 @@
 ---
-title: Condition | FHIR DSTU 2 API
+title: Condition | FHIR MAY 2015 BALLOT API
 ---
 
 # Condition
@@ -23,4 +23,4 @@ Search for Conditions that meet supplied query parameters:
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_condition_bundle) %>
+<%= json(:may2015_condition_bundle) %>
