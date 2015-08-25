@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>FHIR API DSTU 1</title>
+  <title>FHIR API MAY 2015 BALLOT</title>
   
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,14 +23,14 @@
 </head>
 
 
-<body class="dstu1_api">
+<body class="may2015_api">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
-        <li><a href="./" class="nav-dstu1-api">DSTU 1 API</a></li>
+        <li><a href="./" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
+        <li><a href="../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
     </div>
@@ -59,26 +59,26 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
   <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
   <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
-  <li><a href="#authentication" id="markdown-toc-authentication">Authentication</a></li>
+  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
   <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
   <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
 </ul>
 
 <h2 id="current-version">Current Version</h2>
 
-<p>Cerner currently supports the DSTU 1 version of the FHIR API.
-This API will eventually be replaced by the DSTU 2 version. For the current DSTU 2 version of the FHIR API, which is based on the May DSTU 2 ballot, see <a href="../may2015">here</a>.</p>
+<p>Cerner currently supports the DSTU 2 May 2015 Ballot version of the FHIR API.
+For the DSTU 1 version of the FHIR API see <a href="../dstu1">here</a>.</p>
 
 <h2 id="schema">Schema</h2>
 
-<p>All API access is over HTTPS, and accessed from the <code>fhir.sandboxcernerpowerchart.com/fhir</code>
+<p>All API access is over HTTPS, and accessed from the <code>fhir.sandboxcernerpowerchart.com/may2015</code>
 domain.  All data is sent and received as JSON.</p>
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 
 HTTP/1.1 200 OK
-Date: Wed, 01 Apr 2015 20:14:19 GMT
+Date: Wed, 06 May 2015 15:46:52 GMT
 X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
@@ -90,7 +90,7 @@ Vary: User-Agent
 Content-Type: application/json+fhir; charset=utf-8
 Transfer-Encoding: chunked
 
-{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"identifier":"https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-04-01T20:14:19.891+00:00","fhirVersion":"0.0.82","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
+{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"url":"https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-05-06T15:46:52.429+00:00","fhirVersion":"0.5.0","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
 </pre>
 
 <p>Blank fields are omitted.</p>
@@ -109,7 +109,7 @@ application/json
 
 <h2 id="root-endpoint">Root Endpoint</h2>
 
-<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/fhir/open/:ehr_source_id/:resource</code>.</p>
+<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/may2015/open/:ehr_source_id/:resource</code>.</p>
 
 <h3 id="open-endpoint">Open Endpoint</h3>
 
@@ -131,7 +131,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:</p>
 
 <pre class="terminal">
-$ curl -i https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
+$ curl -i https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
 </pre>
 
 <p>In this example, the ‘d075cf8b-3261-481d-97e5-ba6c48d3b41f’ value is provided for the <code>:ehr_source_id</code> parameter in the path
@@ -199,12 +199,12 @@ response.</p>
   </tbody>
 </table>
 
-<h2 id="authentication">Authentication</h2>
+<h2 id="authorization">Authorization</h2>
 
 <p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>.
 Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
 
-<p>Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> for application registration.</p>
+<p>Please reference the <a href="authorization/">authorization</a> documentation for more information.</p>
 
 <h2 id="pagination">Pagination</h2>
 
@@ -213,23 +213,24 @@ follow these Link header values instead of constructing your own URLs.</p>
 
 <pre><code>{
     "resourceType": "Bundle",
-    "title": "Search results for resource type Patient",
     "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
+    "base": "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+    "type": "searchset",
     "link": [
         {
-            "rel": "self",
-            "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=0&amp;max=20"
+            "relation": "self",
+            "url": "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=0&amp;_count=20"
         },
         {
-            "rel": "next",
-            "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=20&amp;max=20"
+            "relation": "next",
+            "url": "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=20&amp;_count=20"
         }
     ],
     ...
 }
 </code></pre>
 
-<p>The possible <code>rel</code> values are:</p>
+<p>The possible <code>relation</code> values are:</p>
 
 <table>
   <thead>
@@ -261,7 +262,7 @@ HTML 5 Security Guide.</p>
 <p>Here’s a sample request sent from the origin <code>http://example.com</code>:</p>
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata"
+$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -272,7 +273,7 @@ Access-Control-Allow-Credentials: true
 <p>This is what a CORS preflight request looks like:</p>
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -288,6 +289,11 @@ Access-Control-Allow-Credentials: true
             <li class="js-topic">
                 <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="authorization">Authorization</a>
 </h3>
             </li>
             <li class="js-topic">

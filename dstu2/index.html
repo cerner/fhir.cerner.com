@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>FHIR API DSTU 2</title>
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/may2015">
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -22,13 +23,13 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="./" class="nav-dstu2-api">DSTU 2 API</a></li>
+        <li><a href="../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
         <li><a href="../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -39,317 +40,37 @@
 <!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="./">API</a></h2>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="overview">Overview</h1>
-
-<p>This describes the resources that make up Cerner’s implementation of the FHIR API. If you have any problems or requests,
-please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.</p>
-
-<ul id="markdown-toc">
-  <li><a href="#current-version" id="markdown-toc-current-version">Current Version</a></li>
-  <li><a href="#schema" id="markdown-toc-schema">Schema</a></li>
-  <li><a href="#root-endpoint" id="markdown-toc-root-endpoint">Root Endpoint</a></li>
-  <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-  <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
-  <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
-  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
-  <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
-  <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
-</ul>
-
-<h2 id="current-version">Current Version</h2>
-
-<p>Cerner currently supports the DSTU 2 version of the FHIR API.
-For the DSTU 1 version of the FHIR API see <a href="../dstu1">here</a>.</p>
-
-<h2 id="schema">Schema</h2>
-
-<p>All API access is over HTTPS, and accessed from the <code>fhir.sandboxcernerpowerchart.com/dstu2</code>
-domain.  All data is sent and received as JSON.</p>
-
-<pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
-
-HTTP/1.1 200 OK
-Date: Wed, 06 May 2015 15:46:52 GMT
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-Cache-Control: no-cache
-X-Request-Id: 29232f0f-12fc-4140-8069-8816aca818e6
-X-Runtime: 0.011165
-Status: 200 OK
-Vary: User-Agent
-Content-Type: application/json+fhir; charset=utf-8
-Transfer-Encoding: chunked
-
-{"resourceType":"Conformance","text":{"status":"generated","div":"Generated Conformance Statement"},"url":"https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance","name":"SMART on FHIR Conformance Statement","publisher":"Cerner","description":"Describes capabilities of this server","status":"draft","date":"2015-05-06T15:46:52.429+00:00","fhirVersion":"0.5.0","acceptUnknown":false,"format":["json"],"rest":[{"mode":"server","documentation":"All the functionality defined in FHIR","security":{"cors":true}}]}
-</pre>
-
-<p>Blank fields are omitted.</p>
-
-<p>All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/datatypes.html#date">FHIR date/dateTime format</a>.</p>
-
-<h3 id="media-types">Media Types</h3>
-
-<p>Cerner supports standard FHIR media types for JSON content:</p>
-
-<pre><code>application/json+fhir
-application/json
-</code></pre>
-
-<p>We encourage you to explicitly request one of these types via the <code>Accept</code> header.</p>
-
-<h2 id="root-endpoint">Root Endpoint</h2>
-
-<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/dstu2/open/:ehr_source_id/:resource</code>.</p>
-
-<h3 id="open-endpoint">Open Endpoint</h3>
-
-<p>The presence of <code>/open</code> in the path allows developers to experiment with the service without requiring
-authentication.</p>
-
-<h3 id="source">Source</h3>
-
-<p>The <code>:ehr_source_id</code> represents the tenant for which data should be retrieved.</p>
-
-<h3 id="resource">Resource</h3>
-
-<p><code>:resource</code> represent the FHIR resource to access. Example: <a href="patient/"><code>Patient</code></a></p>
-
-<h2 id="parameters">Parameters</h2>
-
-<p>Many API methods take optional parameters. For GET requests, any parameters not
-specified as a segment in the path can be passed as an HTTP query string
-parameter:</p>
-
-<pre class="terminal">
-$ curl -i https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010
-</pre>
-
-<p>In this example, the ‘d075cf8b-3261-481d-97e5-ba6c48d3b41f’ value is provided for the <code>:ehr_source_id</code> parameter in the path
-while <code>:patient</code> is passed in the query string.</p>
-
-<h2 id="client-errors">Client Errors</h2>
-
-<p>There are four possible types of client errors on API calls that
-receive request bodies:</p>
-
-<ol>
-  <li>
-    <p>Requested a media type other than JSON will result in a <code>406 Not Acceptable</code> response.</p>
-
-    <pre><code> HTTP/1.1 406 Not Acceptable
- Content-Length: 0
-</code></pre>
-  </li>
-  <li>
-    <p>Failing to send a required query parameter will result in a <code>400 Bad
-Request</code> response.</p>
-
-    <pre><code> HTTP/1.1 400 Bad Request
-
- no supported search parameters provided
-</code></pre>
-  </li>
-  <li>
-    <p>Requesting the authenticated endpoint (non-<code>open</code>) without valid credentials will result in a <code>401 Unauthorized</code>
-response.</p>
-
-    <pre><code> HTTP/1.1 401 Unauthorized
-</code></pre>
-  </li>
-  <li>
-    <p>Requesting an invalid or unauthorized <code>:ehr_source_id</code> will result in a <code>403 Forbidden</code> response.</p>
-
-    <pre><code> HTTP/1.1 403 Forbidden
-
- Tenant [:ehr_source_id] not valid or accessible
-</code></pre>
-  </li>
-</ol>
-
-<h2 id="http-verbs">HTTP Verbs</h2>
-
-<p>Where possible, FHIR strives to use appropriate HTTP verbs for each action.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Verb</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>GET</code></td>
-      <td>Used for retrieving resources.</td>
-    </tr>
-    <tr>
-      <td><code>POST</code></td>
-      <td>Coming soon!</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="authorization">Authorization</h2>
-
-<p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>.
-Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
-
-<p>Please reference the <a href="authorization/">authorization</a> documentation for more information.</p>
-
-<h2 id="pagination">Pagination</h2>
-
-<p>The pagination links are included in the Bundle when a resource returns multiple items. It is important to
-follow these Link header values instead of constructing your own URLs.</p>
-
-<pre><code>{
-    "resourceType": "Bundle",
-    "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
-    "base": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-    "type": "searchset",
-    "link": [
-        {
-            "relation": "self",
-            "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=0&amp;_count=20"
-        },
-        {
-            "relation": "next",
-            "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&amp;start=20&amp;_count=20"
-        }
-    ],
-    ...
-}
-</code></pre>
-
-<p>The possible <code>relation</code> values are:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>self</code></td>
-      <td>Shows the URL of the current page of results.</td>
-    </tr>
-    <tr>
-      <td><code>next</code></td>
-      <td>Shows the URL of the immediate next page of results.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
-
-<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
-any origin.
-You can read the <a href="http://www.w3.org/TR/cors">CORS W3C Recommendation</a>, or
-<a href="http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">this intro</a> from the
-HTML 5 Security Guide.</p>
-
-<p>Here’s a sample request sent from the origin <code>http://example.com</code>:</p>
-
-<pre class="terminal">
-$ curl -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
-HTTP/1.1 200 OK
-Access-Control-Allow-Origin: http://example.com
-Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
-Access-Control-Max-Age: 0
-Access-Control-Allow-Credentials: true
-</pre>
-
-<p>This is what a CORS preflight request looks like:</p>
-
-<pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: http://example.com
-Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
-Access-Control-Max-Age: 0
-Access-Control-Allow-Credentials: true
-</pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="authorization">Authorization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="conformance/">Conformance Metadata</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="allergy-intolerance/">AllergyIntolerance</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="condition/">Condition</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="diagnostic-report/">DiagnosticReport</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="encounter/">Encounter</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="immunization/">Immunization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="medication-prescription/">MedicationPrescription</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="observation/">Observation</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="patient/">Patient</a>
-</h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="wrapper feature">
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../may2015">/may2015 </a>
+    <img src="../images/fhir.png" class="fhirlogo" alt="FHIR">
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+    <ul class="wrapper highlights">
+        <li class="highlight-module">
+            <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+            <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+            <p>New to the FHIR API? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a>
+                and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+            <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+            <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR Implementations</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+            <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+            <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+        </li>
+    </ul>
+</div>
+
 
     <div id="footer">
     <div class="lower_footer">

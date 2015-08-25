@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>AllergyIntolerance | FHIR DSTU 2 API</title>
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/may2015/allergy-intolerance">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -22,13 +23,13 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 API</a></li>
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
         <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -39,192 +40,37 @@
 <!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="../">API</a></h2>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="allergyintolerance">AllergyIntolerance</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#search" id="markdown-toc-search">Search</a></li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for AllergyIntolerances that meet supplied query parameters:</p>
-
-<pre><code>GET /AllergyIntolerance?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>Who the sensitivity is for. Example: <code>12345</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "b52eae32-0882-46b2-a3d1-6d78c40e016c",
-  "type": "searchset",
-  "base": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=3602355"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "AllergyIntolerance",
-        "id": "3276869",
-        "recordedDate": "2015-03-26T17:06:21.000Z",
-        "patient": {
-          "reference": "Patient/3602355"
-        },
-        "reporter": {
-          "display": "Patient"
-        },
-        "substance": {
-          "text": "morphine"
-        },
-        "status": "confirmed",
-        "type": "immune",
-        "category": "medication",
-        "event": [
-          {
-            "manifestation": [
-              {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "369546013",
-                    "display": "Hives"
-                  }
-                ],
-                "text": "Hives"
-              }
-            ],
-            "description": "Hives"
-          }
-        ]
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "AllergyIntolerance",
-        "id": "3276865",
-        "recordedDate": "2015-03-26T17:05:24.000Z",
-        "patient": {
-          "reference": "Patient/3602355"
-        },
-        "reporter": {
-          "display": "Parent"
-        },
-        "substance": {
-          "text": "Peanuts"
-        },
-        "status": "refuted",
-        "type": "non-immune",
-        "category": "food",
-        "comment": "Allergic to peanuts"
-      }
-    }
-  ]
-}</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">AllergyIntolerance</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
-</h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="wrapper feature">
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../may2015/allergy-intolerance">/may2015/allergy-intolerance </a>
+    <img src="../../images/fhir.png" class="fhirlogo" alt="FHIR">
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+    <ul class="wrapper highlights">
+        <li class="highlight-module">
+            <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+            <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+            <p>New to the FHIR API? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a>
+                and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+            <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+            <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR Implementations</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+            <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+            <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+        </li>
+    </ul>
+</div>
+
 
     <div id="footer">
     <div class="lower_footer">

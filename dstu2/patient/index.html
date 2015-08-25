@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Patient | FHIR DSTU 2 API</title>
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/may2015/patient">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -22,13 +23,13 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 API</a></li>
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
         <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -39,401 +40,37 @@
 <!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="../">API</a></h2>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="patient">Patient</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#search" id="markdown-toc-search">Search</a></li>
-  <li><a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a></li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Patients that meet supplied query parameters:</p>
-
-<pre><code>GET /Patient?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>_id</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
-    </tr>
-    <tr>
-      <td><code>birthdate</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#date"><code>date</code></a></td>
-      <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>identifier</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>A patient identifier.  Example: <code>01022228</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>name</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#string"><code>string</code></a></td>
-      <td>A portion of either family or given name of the patient. Example: <code>Peters</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>telecom</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>The value in any kind of telecom details of the patient. Example: <code>(816) 475-2374</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>start</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#number"><code>number</code></a></td>
-      <td>The offset to use when returning results. Defaults to <code>0</code>.</td>
-    </tr>
-    <tr>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#count"><code>_count</code></a></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "60eb43c1-1258-4d30-9d9e-ed0b9e2cc33b",
-  "type": "searchset",
-  "base": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Smith&amp;start=0&amp;_count=20"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "Patient",
-        "id": "725944",
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number"
-                }
-              ]
-            },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000086"
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number"
-                }
-              ]
-            },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000057"
-          }
-        ],
-        "name": [
-          {
-            "use": "usual",
-            "text": "SMITH, MORGAN",
-            "family": [
-              "SMITH"
-            ],
-            "given": [
-              "MORGAN"
-            ]
-          }
-        ],
-        "telecom": [
-          {
-            "system": "phone",
-            "value": "(816) 867-5234",
-            "use": "home"
-          }
-        ],
-        "gender": "female",
-        "birthDate": "1970-01-01",
-        "deceasedBoolean": false,
-        "address": [
-          {
-            "use": "home",
-            "text": "123 Sesame Street\nKansas City, MO 64112\nUSA",
-            "line": [
-              "123 Sesame Street"
-            ],
-            "city": "Kansas City",
-            "state": "MO",
-            "postalCode": "64112"
-          }
-        ],
-        "maritalStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v3/MaritalStatus",
-              "code": "M",
-              "display": "Married"
-            }
-          ],
-          "text": "Married"
-        },
-        "active": true
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Patient",
-        "id": "685924",
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number"
-                }
-              ]
-            },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "00000227"
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number"
-                }
-              ]
-            },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000210"
-          }
-        ],
-        "name": [
-          {
-            "use": "usual",
-            "text": "SMITH, JOHN ANDREW",
-            "family": [
-              "SMITH"
-            ],
-            "given": [
-              "JOHN",
-              "ANDREW"
-            ]
-          }
-        ],
-        "gender": "male",
-        "birthDate": "1976-08-10",
-        "deceasedBoolean": false,
-        "careProvider": [
-          {
-            "reference": "Practitioner/1448009",
-            "display": "Daniel,, Christina"
-          }
-        ],
-        "active": true
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Patient by its id:</p>
-
-<pre><code>GET /Patient/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Patient",
-  "id": "725944",
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "MR",
-            "display": "Medical record number"
-          }
-        ]
-      },
-      "system": "http://cerner.com/fhir/identifier/MRN",
-      "value": "10000086"
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "MR",
-            "display": "Medical record number"
-          }
-        ]
-      },
-      "system": "http://cerner.com/fhir/identifier/MRN",
-      "value": "10000057"
-    }
-  ],
-  "name": [
-    {
-      "use": "usual",
-      "text": "SMITH, MORGAN",
-      "family": [
-        "SMITH"
-      ],
-      "given": [
-        "MORGAN"
-      ]
-    }
-  ],
-  "telecom": [
-    {
-      "system": "phone",
-      "value": "(816) 867-5234",
-      "use": "home"
-    }
-  ],
-  "gender": "female",
-  "birthDate": "1970-01-01",
-  "deceasedBoolean": false,
-  "address": [
-    {
-      "use": "home",
-      "text": "123 Sesame Street\nKansas City, MO 64112\nUSA",
-      "line": [
-        "123 Sesame Street"
-      ],
-      "city": "Kansas City",
-      "state": "MO",
-      "postalCode": "64112"
-    }
-  ],
-  "maritalStatus": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/v3/MaritalStatus",
-        "code": "M",
-        "display": "Married"
-      }
-    ],
-    "text": "Married"
-  },
-  "active": true
-}</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Patient</a>
-</h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="wrapper feature">
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../may2015/patient">/may2015/patient </a>
+    <img src="../../images/fhir.png" class="fhirlogo" alt="FHIR">
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+    <ul class="wrapper highlights">
+        <li class="highlight-module">
+            <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+            <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+            <p>New to the FHIR API? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a>
+                and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+            <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+            <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR Implementations</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+            <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+            <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+        </li>
+    </ul>
+</div>
+
 
     <div id="footer">
     <div class="lower_footer">

@@ -4,7 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Conformance | FHIR DSTU 2 API</title>
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/may2015/conformance">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -22,13 +23,13 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 API</a></li>
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
         <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -39,396 +40,37 @@
 <!-- #header-wrapper -->
 
 
-  <div class="sub-nav">
-    <h2><a href="../">API</a></h2>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="conformance">Conformance</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#metadata" id="markdown-toc-metadata">Metadata</a></li>
-</ul>
-
-<h2 id="metadata">Metadata</h2>
-
-<p>Get the capabilities and configurations for the FHIR server:</p>
-
-<pre><code>GET /metadata
-</code></pre>
-
-<h3 id="response-open-endpoint">Response (Open Endpoint)</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Conformance",
-  "text": {
-    "status": "generated",
-    "div": "Generated Conformance Statement"
-  },
-  "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
-  "name": "SMART on FHIR Conformance Statement",
-  "publisher": "Cerner",
-  "description": "Describes capabilities of this server",
-  "status": "draft",
-  "date": "2015-05-06T16:03:55.188+00:00",
-  "fhirVersion": "0.5.0",
-  "acceptUnknown": false,
-  "format": [
-    "json"
-  ],
-  "rest": [
-    {
-      "mode": "server",
-      "documentation": "All the functionality defined in FHIR",
-      "security": {
-        "cors": true
-      },
-      "resource": [
-        {
-          "type": "AllergyIntolerance",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who the sensitivity is for"
-            }
-          ]
-        },
-        {
-          "type": "Encounter",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient present at the encounter"
-            }
-          ]
-        },
-        {
-          "type": "Immunization",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient for the vaccination record"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The patient for the vaccination record"
-            }
-          ]
-        },
-        {
-          "type": "Patient",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "_id",
-              "type": "token",
-              "documentation": "The logical resource id associated with the resource (must be supported by all servers)"
-            },
-            {
-              "name": "birthdate",
-              "type": "date",
-              "documentation": "The patient's date of birth"
-            },
-            {
-              "name": "identifier",
-              "type": "token",
-              "documentation": "A patient identifier"
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "documentation": "A portion of either family or given name of the patient"
-            },
-            {
-              "name": "telecom",
-              "type": "string",
-              "documentation": "The value in any kind of telecom details of the patient"
-            },
-            {
-              "name": "start",
-              "type": "number",
-              "documentation": "The offset to use when returning results"
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}</code></pre>
-
-<h3 id="response-closed-endpoint">Response (Closed Endpoint)</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Conformance",
-  "text": {
-    "status": "generated",
-    "div": "Generated Conformance Statement"
-  },
-  "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
-  "name": "SMART on FHIR Conformance Statement",
-  "publisher": "Cerner",
-  "description": "Describes capabilities of this server",
-  "status": "draft",
-  "date": "2015-05-06T16:05:30.915+00:00",
-  "fhirVersion": "0.5.0",
-  "acceptUnknown": false,
-  "format": [
-    "json"
-  ],
-  "rest": [
-    {
-      "mode": "server",
-      "documentation": "All the functionality defined in FHIR",
-      "security": {
-        "extension": [
-          {
-            "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize",
-            "valueUri": "https://fhir.sandboxcernerpowerchart.com/oauth2/authorize"
-          },
-          {
-            "url": "http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token",
-            "valueUri": "https://fhir.sandboxcernerpowerchart.com/oauth2/token"
-          }
-        ],
-        "cors": true,
-        "service": [
-          {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/vs/restful-security-service",
-                "code": "OAuth2"
-              }
-            ],
-            "text": "OAuth version 2 (see oauth.net)."
-          }
-        ],
-        "description": "SMART on FHIR uses OAuth2 for authorization"
-      },
-      "resource": [
-        {
-          "type": "AllergyIntolerance",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who the sensitivity is for"
-            }
-          ]
-        },
-        {
-          "type": "Condition",
-          "interaction": [
-            {
-              "code": "create"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "updateCreate": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            }
-          ]
-        },
-        {
-          "type": "Encounter",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient present at the encounter"
-            }
-          ]
-        },
-        {
-          "type": "Patient",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "_id",
-              "type": "token",
-              "documentation": "The logical resource id associated with the resource (must be supported by all servers)"
-            },
-            {
-              "name": "birthdate",
-              "type": "date",
-              "documentation": "The patient's date of birth"
-            },
-            {
-              "name": "identifier",
-              "type": "token",
-              "documentation": "A patient identifier"
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "documentation": "A portion of either family or given name of the patient"
-            },
-            {
-              "name": "telecom",
-              "type": "string",
-              "documentation": "The value in any kind of telecom details of the patient"
-            },
-            {
-              "name": "start",
-              "type": "number",
-              "documentation": "The offset to use when returning results"
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Conformance Metadata</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
-</h3>
-            </li>
-            <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
-</h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="wrapper feature">
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../may2015/conformance">/may2015/conformance </a>
+    <img src="../../images/fhir.png" class="fhirlogo" alt="FHIR">
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+    <ul class="wrapper highlights">
+        <li class="highlight-module">
+            <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+            <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+            <p>New to the FHIR API? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a>
+                and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+            <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+            <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR Implementations</a>.</p>
+        </li>
+        <li class="highlight-module">
+            <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+            <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+            <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+        </li>
+    </ul>
+</div>
+
 
     <div id="footer">
     <div class="lower_footer">

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>AllergyIntolerance | FHIR API</title>
+  <title>DiagnosticReport | FHIR MAY 2015 BALLOT API</title>
   
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,14 +23,14 @@
 </head>
 
 
-<body class="dstu1_api">
+<body class="may2015_api">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
-        <li><a href="../" class="nav-dstu1-api">DSTU 1 API</a></li>
+        <li><a href="../" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
+        <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
     </div>
@@ -47,7 +47,7 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="allergyintolerance">AllergyIntolerance</h1>
+<h1 id="diagnosticreport">DiagnosticReport</h1>
 
 <ul id="markdown-toc">
   <li><a href="#search" id="markdown-toc-search">Search</a></li>
@@ -55,9 +55,9 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for AllergyIntolerances that meet supplied query parameters:</p>
+<p>Search for DiagnosticReports that meet supplied query parameters:</p>
 
-<pre><code>GET /AllergyIntolerance?:parameters
+<pre><code>GET /DiagnosticReport?:parameters
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
@@ -72,9 +72,15 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>patient</code></td>
+      <td><a href="http://www.hl7.org/FHIR/2015May/search.html#reference"><code>reference</code></a></td>
+      <td>The subject of the report if a patient. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
       <td><code>subject:Patient</code></td>
-      <td><a href="http://www.hl7.org/implement/standards/fhir/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the allergy or intolerance. Example: <code>12345</code>
+      <td><a href="http://www.hl7.org/FHIR/2015May/search.html#reference"><code>reference</code></a></td>
+      <td>The subject (Patient) of the report. Example: <code>12345</code>
 </td>
     </tr>
   </tbody>
@@ -86,51 +92,47 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "title": "Search results for resource type AllergyIntolerance",
-  "id": "c295606f-2ed2-4fc8-8d21-6c9676fdde92",
+  "id": "b2502416-98eb-4a53-b9cc-3262c1617a71",
+  "type": "searchset",
+  "base": "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+  "total": 1,
   "link": [
     {
-      "rel": "self",
-      "href": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?subject:Patient=3602355"
-    }
-  ],
-  "updated": "2015-04-02T17:05:14.054+00:00",
-  "author": [
-    {
-      "name": "Cerner Corporation"
+      "relation": "self",
+      "url": "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"
     }
   ],
   "entry": [
     {
-      "title": "AllergyIntolerance Entry",
-      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3276869",
-      "content": {
-        "resourceType": "AllergyIntolerance",
-        "sensitivityType": "intolerance",
-        "recordedDate": "2015-03-26T17:06:21.000Z",
-        "status": "confirmed",
-        "subject": {
-          "reference": "Patient/3602355"
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "4149257",
+        "name": {
+          "coding": [
+            {
+              "system": "http://loinc.org/",
+              "code": "41806-1"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "77477000"
+            }
+          ],
+          "text": "CT Abdomen w/ Contrast"
         },
-        "substance": {
-          "display": "Dust"
-        }
-      }
-    },
-    {
-      "title": "AllergyIntolerance Entry",
-      "id": "https://fhir.sandboxcernerpowerchart.com/fhir/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3276865",
-      "content": {
-        "resourceType": "AllergyIntolerance",
-        "sensitivityType": "intolerance",
-        "recordedDate": "2015-03-26T17:05:24.000Z",
-        "status": "confirmed",
+        "status": "final",
+        "issued": "2014-12-09T16:49:02.000Z",
         "subject": {
-          "reference": "Patient/3602355"
+          "reference": "Patient/1316020"
         },
-        "substance": {
-          "display": "Peanuts"
-        }
+        "performer": {
+          "reference": "Practitioner/1700007",
+          "display": "Grayson, Richard"
+        },
+        "encounter": {
+          "reference": "Encounter/2571909"
+        },
+        "conclusion": "Report Here is a rad   Signature Line:***** Preliminary Report *****   Transcribed by: SM"
       }
     }
   ]
@@ -148,12 +150,17 @@
             </li>
             <li class="js-topic">
                 <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
 </h3>
             </li>
             <li class="js-topic">
                 <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">AllergyIntolerance</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
 </h3>
             </li>
             <li class="js-topic">
@@ -163,7 +170,7 @@
             </li>
             <li class="js-topic">
                 <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">DiagnosticReport</a>
 </h3>
             </li>
             <li class="js-topic">
