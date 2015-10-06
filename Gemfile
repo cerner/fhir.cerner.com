@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.3'
 
 gem 'kramdown', '~> 1.6'
 gem 'nanoc', '~> 3.7'
