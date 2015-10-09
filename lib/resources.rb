@@ -1297,50 +1297,83 @@ module Cerner
     }
 
     MAY2015_ALLERGY_INTOLERANCE_BUNDLE ||= {
-        "resourceType" => "Bundle",
-        "id" => "b52eae32-0882-46b2-a3d1-6d78c40e016c",
-        "type" => "searchset",
-        "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total" => 2,
-        "link" => [{"relation" => "self",
-                    "url" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=3602355"}],
-        "entry" => [{"resource" => {"resourceType" => "AllergyIntolerance",
-                                    "id" => "3276869",
-                                    "recordedDate" => "2015-03-26T17:06:21.000Z",
-                                    "patient" => {"reference" => "Patient/3602355"},
-                                    "reporter" => {"display" => "Patient"},
-                                    "substance" => {"text" => "morphine"},
-                                    "status" => "confirmed",
-                                    "type" => "immune",
-                                    "category" => "medication",
-                                    "event" => [
-                                        {
-                                            "manifestation" => [
-                                                {
-                                                    "coding" => [
-                                                        {
-                                                            "system" => "http://snomed.info/sct",
-                                                            "code" => "369546013",
-                                                            "display" => "Hives"
-                                                        }
-                                                    ],
-                                                    "text" => "Hives"
-                                                }
-                                            ],
-                                            "description" => "Hives"
-                                        }
-                                    ]
-                    }},
-                    {"resource" => {"resourceType" => "AllergyIntolerance",
-                                    "id" => "3276865",
-                                    "recordedDate" => "2015-03-26T17:05:24.000Z",
-                                    "patient" => {"reference" => "Patient/3602355"},
-                                    "reporter" => {"display" => "Parent"},
-                                    "substance" => {"text" => "Peanuts"},
-                                    "status" => "refuted",
-                                    "type" => "non-immune",
-                                    "category" => "food",
-                                    "comment" => "Allergic to peanuts", }}]
+        "resourceType"=> "Bundle",
+        "id"=> "5ab17194-bb85-45fe-94d5-a02a2e8699ab",
+        "type"=> "searchset",
+        "base"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total"=> 2,
+        "link"=> [{
+                      "relation"=> "self",
+                      "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
+                  }],
+        "entry"=> [{
+                       "resource"=> {
+                           "resourceType"=> "AllergyIntolerance",
+                           "id"=> "3643731",
+                           "meta"=> {
+                               "versionId"=> "3643735",
+                               "lastUpdated"=> "2015-03-11T20=>34=>59.000Z"
+                           },
+                           "text"=> {
+                               "status"=> "generated",
+                               "div"=> "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: RHEUM, TEST ONE&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Penicillin&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Refuted&lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: &lt;/p>&lt;p>&lt;b>Category&lt;/b>: Medication&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Comment&lt;/b>: &lt;/p>&lt;/div>"
+                           },
+                           "recordedDate"=> "2015-03-11T15=>34=>59.000",
+                           "recorder"=> {
+                               "reference"=> "Practitioner/3270007",
+                               "display"=> "Venkat, Savitha"
+                           },
+                           "patient"=> {
+                               "reference"=> "Patient/2744010",
+                               "display"=> "RHEUM, TEST ONE"
+                           },
+                           "substance"=> {
+                               "coding"=> [{
+                                               "system"=> "http=>//snomed.info/sct",
+                                               "code"=> "373270004",
+                                               "display"=> "Penicillin -class of antibiotic- (substance)",
+                                               "primary"=> true
+                                           }],
+                               "text"=> "Penicillin"
+                           },
+                           "status"=> "refuted",
+                           "type"=> "immune",
+                           "category"=> "medication"
+                       }
+                   }, {
+                       "resource"=> {
+                           "resourceType"=> "AllergyIntolerance",
+                           "id"=> "3643739",
+                           "meta"=> {
+                               "versionId"=> "3643739",
+                               "lastUpdated"=> "2015-03-11T20=>36=>08.000Z"
+                           },
+                           "text"=> {
+                               "status"=> "generated",
+                               "div"=> "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: RHEUM, TEST ONE&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Dust allergy&lt;/p>&lt;p>&lt;b>Status&lt;/b>: &lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: &lt;/p>&lt;p>&lt;b>Category&lt;/b>: Environment&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Comment&lt;/b>: &lt;/p>&lt;/div>"
+                           },
+                           "recordedDate"=> "2015-03-11T15=>36=>08.000",
+                           "recorder"=> {
+                               "reference"=> "Practitioner/3270007",
+                               "display"=> "Venkat, Savitha"
+                           },
+                           "patient"=> {
+                               "reference"=> "Patient/2744010",
+                               "display"=> "RHEUM, TEST ONE"
+                           },
+                           "substance"=> {
+                               "coding"=> [{
+                                               "system"=> "http=>//snomed.info/sct",
+                                               "code"=> "390952000",
+                                               "display"=> "Dust allergy (disorder)",
+                                               "primary"=> true
+                                           }],
+                               "text"=> "Dust allergy"
+                           },
+                           "type"=> "immune",
+                           "category"=> "environment"
+                       }
+                   }]
     }
 
     MAY2015_IMMUNIZATION_BUNDLE ||= {
