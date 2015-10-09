@@ -877,259 +877,390 @@ module Cerner
     # MAY 2015 BALLOT JSON
 
     MAY2015_OPEN_METADATA ||= {
-      "resourceType"=>"Conformance",
-      "text"=>{"status"=>"generated",
-               "div"=>"Generated Conformance Statement"},
-      "url"=>"https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
-      "name"=>"SMART on FHIR Conformance Statement",
-      "publisher"=>"Cerner",
-      "description"=>"Describes capabilities of this server",
-      "status"=>"draft",
-      "date"=>"2015-05-06T16:03:55.188+00:00",
-      "fhirVersion"=>"0.5.0",
-      "acceptUnknown"=>false,
-      "format"=>["json"],
-      "rest"=>[{"mode"=>"server",
-                "documentation"=>"All the functionality defined in FHIR",
-                "security"=>{"cors"=>true},
-                "resource" => [
-                  {
-                    "type"=> "AllergyIntolerance",
-                    "interaction"=> [{"code"=> "search-type"
-                      }
-                    ],
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "Who the sensitivity is for"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Encounter",
-                    "interaction"=> [
-                      {
-                        "code"=> "read"
+        "resourceType"=> "Conformance",
+        "text"=> {
+            "status"=> "generated",
+            "div"=> "\u003cdiv\u003eGenerated Conformance Statement\u003c/div\u003e"
+        },
+        "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+        "name"=> "Cerner Conformance Statement",
+        "publisher"=> "Cerner",
+        "description"=> "Describes capabilities of this server",
+        "status"=> "draft",
+        "date"=> "2015-10-09T19=>12=>45.663+00=>00",
+        "fhirVersion"=> "0.5.0",
+        "acceptUnknown"=> false,
+        "format"=> ["json"],
+        "rest"=> [{
+                      "mode"=> "server",
+                      "documentation"=> "All the functionality defined in FHIR",
+                      "security"=> {
+                          "cors"=> true
                       },
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "readHistory"=> false,
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "The patient present at the encounter"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Immunization",
-                    "interaction"=> [
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "The patient for the vaccination record"
-                      },
-                      {
-                        "name"=> "subject",
-                        "type"=> "reference",
-                        "documentation"=> "The patient for the vaccination record"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Patient",
-                    "interaction"=> [
-                      {
-                        "code"=> "read"
-                      },
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "readHistory"=> false,
-                    "searchParam"=> [
-                      {
-                        "name"=> "_id",
-                        "type"=> "token",
-                        "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
-                      },
-                      {
-                        "name"=> "birthdate",
-                        "type"=> "date",
-                        "documentation"=> "The patient's date of birth"
-                      },
-                      {
-                        "name"=> "identifier",
-                        "type"=> "token",
-                        "documentation"=> "A patient identifier"
-                      },
-                      {
-                        "name"=> "name",
-                        "type"=> "string",
-                        "documentation"=> "A portion of either family or given name of the patient"
-                      },
-                      {
-                        "name"=> "telecom",
-                        "type"=> "string",
-                        "documentation"=> "The value in any kind of telecom details of the patient"
-                      },
-                      {
-                        "name"=> "start",
-                        "type"=> "number",
-                        "documentation"=> "The offset to use when returning results"
-                      },
-                      {
-                        "name"=> "_count",
-                        "type"=> "number",
-                        "documentation"=> "The maximum number of results to return"
-                      }
-                    ]
-                  }
-                ]}]}
+                      "resource"=> [{
+                                        "type"=> "AllergyIntolerance",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who the sensitivity is for"
+                                                         }, {
+                                                             "name"=> "status",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The status of the allergy"
+                                                         }]
+                                    }, {
+                                        "type"=> "Condition",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who has the condition?"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who has the condition?"
+                                                         }, {
+                                                             "name"=> "clinicalstatus",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The clinical status of the condition"
+                                                         }, {
+                                                             "name"=> "category",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The category of the condition"
+                                                         }]
+                                    }, {
+                                        "type"=> "DiagnosticReport",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject of the report if a patient"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject of the report"
+                                                         }]
+                                    }, {
+                                        "type"=> "Encounter",
+                                        "interaction"=> [{
+                                                             "code"=> "read"
+                                                         }, {
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "readHistory"=> false,
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The patient present at the encounter"
+                                                         }]
+                                    }, {
+                                        "type"=> "Immunization",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The patient for the vaccination record"
+                                                         }]
+                                    }, {
+                                        "type"=> "MedicationPrescription",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The identity of a patient to list dispenses for"
+                                                         }, {
+                                                             "name"=> "status",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The status of the prescription"
+                                                         }, {
+                                                             "name"=> "scheduledtiming-bounds-end",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by \u003c="
+                                                         }, {
+                                                             "name"=> "_count",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The maximum number of results to return"
+                                                         }]
+                                    }, {
+                                        "type"=> "Observation",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject that the observation is about (if patient)"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject that the observation is about"
+                                                         }, {
+                                                             "name"=> "code",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The type of observation"
+                                                         }, {
+                                                             "name"=> "date",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '\u003e' representing the earliest date and once by '\u003c' representing the latest date."
+                                                         }]
+                                    }, {
+                                        "type"=> "Patient",
+                                        "interaction"=> [{
+                                                             "code"=> "read"
+                                                         }, {
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "readHistory"=> false,
+                                        "searchParam"=> [{
+                                                             "name"=> "_id",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
+                                                         }, {
+                                                             "name"=> "birthdate",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The patient's date of birth"
+                                                         }, {
+                                                             "name"=> "identifier",
+                                                             "type"=> "token",
+                                                             "documentation"=> "A patient identifier"
+                                                         }, {
+                                                             "name"=> "name",
+                                                             "type"=> "string",
+                                                             "documentation"=> "A portion of either family or given name of the patient"
+                                                         }, {
+                                                             "name"=> "telecom",
+                                                             "type"=> "string",
+                                                             "documentation"=> "The value in any kind of telecom details of the patient"
+                                                         }, {
+                                                             "name"=> "start",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The offset to use when returning results"
+                                                         }, {
+                                                             "name"=> "_count",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The maximum number of results to return"
+                                                         }]
+                                    }]
+                  }]
+    }
+
 
     MAY2015_AUTH_METADATA ||= {
-      "resourceType"=>"Conformance",
-      "text"=>{"status"=>"generated",
-               "div"=>"Generated Conformance Statement"},
-      "url"=>"https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
-      "name"=>"SMART on FHIR Conformance Statement",
-      "publisher"=>"Cerner",
-      "description"=>"Describes capabilities of this server",
-      "status"=>"draft",
-      "date"=>"2015-05-06T16:05:30.915+00:00",
-      "fhirVersion"=>"0.5.0",
-      "acceptUnknown"=>false,
-      "format"=>["json"],
-      "rest"=>[{"mode"=>"server",
-                "documentation"=>"All the functionality defined in FHIR",
-                "security"=>{"extension"=>[{"url"=>"http://fhir-registry.smarthealthit.org/Profile/oauth-uris#authorize",
-                                            "valueUri"=>"https://fhir.sandboxcernerpowerchart.com/oauth2/authorize"},
-                                           {"url"=>"http://fhir-registry.smarthealthit.org/Profile/oauth-uris#token",
-                                            "valueUri"=>"https://fhir.sandboxcernerpowerchart.com/oauth2/token"}],
-                             "cors"=>true,
-                             "service"=>[{"coding"=>[{"system"=>"http://hl7.org/fhir/vs/restful-security-service",
-                                                      "code"=>"OAuth2"}],
-                                          "text"=>"OAuth version 2 (see oauth.net)."}],
-                             "description"=>"SMART on FHIR uses OAuth2 for authorization"},
-                "resource"=> [
-                  {
-                    "type"=> "AllergyIntolerance",
-                    "interaction"=> [
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "Who the sensitivity is for"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Condition",
-                    "interaction"=> [
-                      {
-                        "code"=> "create"
+        "resourceType"=> "Conformance",
+        "text"=> {
+            "status"=> "generated",
+            "div"=> "\u003cdiv\u003eGenerated Conformance Statement\u003c/div\u003e"
+        },
+        "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+        "name"=> "Cerner Conformance Statement",
+        "publisher"=> "Cerner",
+        "description"=> "Describes capabilities of this server",
+        "status"=> "draft",
+        "date"=> "2015-10-09T19=>11=>41.476+00=>00",
+        "fhirVersion"=> "0.5.0",
+        "acceptUnknown"=> false,
+        "format"=> ["json"],
+        "rest"=> [{
+                      "mode"=> "server",
+                      "documentation"=> "All the functionality defined in FHIR",
+                      "security"=> {
+                          "extension"=> [{
+                                             "url"=> "http=>//fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+                                             "extension"=> [{
+                                                                "url"=> "token",
+                                                                "valueUri"=> "https=>//authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/token"
+                                                            }, {
+                                                                "url"=> "authorize",
+                                                                "valueUri"=> "https=>//authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/authorize"
+                                                            }]
+                                         }],
+                          "cors"=> true,
+                          "service"=> [{
+                                           "coding"=> [{
+                                                           "system"=> "http=>//hl7.org/fhir/vs/restful-security-service",
+                                                           "code"=> "OAuth2"
+                                                       }],
+                                           "text"=> "OAuth version 2 (see oauth.net)."
+                                       }],
+                          "description"=> "OAuth2 plus SMART extensions"
                       },
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "updateCreate"=> false,
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "Who has the condition?"
-                      },
-                      {
-                        "name"=> "subject",
-                        "type"=> "reference",
-                        "documentation"=> "Who has the condition?"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Encounter",
-                    "interaction"=> [
-                      {
-                        "code"=> "read"
-                      },
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "readHistory"=> false,
-                    "searchParam"=> [
-                      {
-                        "name"=> "patient",
-                        "type"=> "reference",
-                        "documentation"=> "The patient present at the encounter"
-                      }
-                    ]
-                  },
-                  {
-                    "type"=> "Patient",
-                    "interaction"=> [
-                      {
-                        "code"=> "read"
-                      },
-                      {
-                        "code"=> "search-type"
-                      }
-                    ],
-                    "readHistory"=> false,
-                    "searchParam"=> [
-                      {
-                        "name"=> "_id",
-                        "type"=> "token",
-                        "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
-                      },
-                      {
-                        "name"=> "birthdate",
-                        "type"=> "date",
-                        "documentation"=> "The patient's date of birth"
-                      },
-                      {
-                        "name"=> "identifier",
-                        "type"=> "token",
-                        "documentation"=> "A patient identifier"
-                      },
-                      {
-                        "name"=> "name",
-                        "type"=> "string",
-                        "documentation"=> "A portion of either family or given name of the patient"
-                      },
-                      {
-                        "name"=> "telecom",
-                        "type"=> "string",
-                        "documentation"=> "The value in any kind of telecom details of the patient"
-                      },
-                      {
-                        "name"=> "start",
-                        "type"=> "number",
-                        "documentation"=> "The offset to use when returning results"
-                      },
-                      {
-                        "name"=> "_count",
-                        "type"=> "number",
-                        "documentation"=> "The maximum number of results to return"
-                      }
-                    ]
-                  }
-                ]
-               }]}
+                      "resource"=> [{
+                                        "type"=> "AllergyIntolerance",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who the sensitivity is for"
+                                                         }, {
+                                                             "name"=> "status",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The status of the allergy"
+                                                         }]
+                                    }, {
+                                        "type"=> "Condition",
+                                        "interaction"=> [{
+                                                             "code"=> "create"
+                                                         }, {
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "updateCreate"=> false,
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who has the condition?"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "Who has the condition?"
+                                                         }, {
+                                                             "name"=> "clinicalstatus",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The clinical status of the condition"
+                                                         }, {
+                                                             "name"=> "category",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The category of the condition"
+                                                         }]
+                                    }, {
+                                        "type"=> "DiagnosticReport",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject of the report if a patient"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject of the report"
+                                                         }]
+                                    }, {
+                                        "type"=> "DocumentReference",
+                                        "interaction"=> [{
+                                                             "code"=> "create"
+                                                         }],
+                                        "updateCreate"=> false
+                                    }, {
+                                        "type"=> "Encounter",
+                                        "interaction"=> [{
+                                                             "code"=> "read"
+                                                         }, {
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "readHistory"=> false,
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The patient present at the encounter"
+                                                         }]
+                                    }, {
+                                        "type"=> "Immunization",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The patient for the vaccination record"
+                                                         }]
+                                    }, {
+                                        "type"=> "MedicationPrescription",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The identity of a patient to list dispenses for"
+                                                         }, {
+                                                             "name"=> "status",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The status of the prescription"
+                                                         }, {
+                                                             "name"=> "scheduledtiming-bounds-end",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by \u003c="
+                                                         }, {
+                                                             "name"=> "_count",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The maximum number of results to return"
+                                                         }]
+                                    }, {
+                                        "type"=> "Observation",
+                                        "interaction"=> [{
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "searchParam"=> [{
+                                                             "name"=> "patient",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject that the observation is about (if patient)"
+                                                         }, {
+                                                             "name"=> "subject",
+                                                             "type"=> "reference",
+                                                             "documentation"=> "The subject that the observation is about"
+                                                         }, {
+                                                             "name"=> "code",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The type of observation"
+                                                         }, {
+                                                             "name"=> "date",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '\u003e' representing the earliest date and once by '\u003c' representing the latest date."
+                                                         }]
+                                    }, {
+                                        "type"=> "Patient",
+                                        "interaction"=> [{
+                                                             "code"=> "read"
+                                                         }, {
+                                                             "code"=> "search-type"
+                                                         }],
+                                        "readHistory"=> false,
+                                        "searchParam"=> [{
+                                                             "name"=> "_id",
+                                                             "type"=> "token",
+                                                             "documentation"=> "The logical resource id associated with the resource (must be supported by all servers)"
+                                                         }, {
+                                                             "name"=> "birthdate",
+                                                             "type"=> "date",
+                                                             "documentation"=> "The patient's date of birth"
+                                                         }, {
+                                                             "name"=> "identifier",
+                                                             "type"=> "token",
+                                                             "documentation"=> "A patient identifier"
+                                                         }, {
+                                                             "name"=> "name",
+                                                             "type"=> "string",
+                                                             "documentation"=> "A portion of either family or given name of the patient"
+                                                         }, {
+                                                             "name"=> "telecom",
+                                                             "type"=> "string",
+                                                             "documentation"=> "The value in any kind of telecom details of the patient"
+                                                         }, {
+                                                             "name"=> "start",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The offset to use when returning results"
+                                                         }, {
+                                                             "name"=> "_count",
+                                                             "type"=> "number",
+                                                             "documentation"=> "The maximum number of results to return"
+                                                         }]
+                                    }]
+                  }]
+    }
 
     MAY2015_CONDITION_BUNDLE ||= {
       "resourceType" => "Bundle",
