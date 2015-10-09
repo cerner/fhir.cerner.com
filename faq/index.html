@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>FHIR FAQs</title>
+  
+  <link href="../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../js/jquery.js" type="text/javascript"></script>
+  <script src="../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="faq">
+  <div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="../">Cerner Corporation</a>
+      <ul class="nav">
+        <li><a href="../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
+        <li><a href="../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
+        <li><a href="./" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- #header -->
+</div>
+<!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="./">FAQ</a></h2>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#fhir-developer-faqs" id="markdown-toc-fhir-developer-faqs">FHIR Developer FAQs</a></li>
+</ul>
+
+<h2 id="fhir-developer-faqs">FHIR Developer FAQs</h2>
+
+<h3 id="what-is-cerners-roadmap-for-fhir-implementation">What is Cerner’s roadmap for FHIR implementation?</h3>
+
+<p>Currently, resources published on <a href="http://fhir.cerner.com/">Cerner’s FHIR Development</a> web site use May2015 and are available to partners. Part of the roadmap is moving the May2015 resources forward to general availability, migrating to the recently released final Draft Standard for Trial Use 2, and helping provide feedback to the current draft of FHIR. Additionally, our roadmap is prioritized depending on maturity of the resources in FHIR (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR resources we implement. If you would like to create a business partnership with us and help guide our roadmap, please complete the <a href="http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033">SMART on FHIR Collaboration Request form</a>.</p>
+
+<h3 id="what-is-cerners-millennium-web-services-toolkit">What is Cerner’s Millennium Web Services toolkit?</h3>
+
+<p>Millennium Web Services is an application programming interface (API) that exposes a set of Cerner Millennium business and application logic through person-centric web interfaces. Cerner’s Millennium Web Services toolkit includes web services that provide access to a range of the clinical services that are available on the Cerner Millennium platform. These services include concepts around patient demographics, clinical results, clinical documentation, reporting, and scheduling. The Millennium Web Services are exposed using standard protocols (for example, SOAP, REST, and HTTPS).</p>
+
+<h3 id="what-is-the-future-of-millennium-web-services">What is the future of Millennium Web Services?</h3>
+
+<p>With the emergence of the FHIR (Fast HealthCare Interoperability Resources) standard, we expect to migrate Millennium Web Services to the FHIR standard for all services that have a FHIR resource equivalent. Cerner expects that some of the services may never have FHIR equivalents, and so we will maintain those services in addition to the FHIR suite.</p>
+
+<h3 id="how-will-cerner-implement-fhir">How will Cerner implement FHIR?</h3>
+
+<p>Cerner is currently in the process of implementing FHIR to expose Cerner Millennium data to our clients and third-party developers. Cerner believes FHIR will become the public API that the JASON report and the JASON Task Force have called for. We believe FHIR, along with SMART and OAuth2, will enable Cerner Millennium to become an open electronic healthe record (EHR) platform that supports innovative developers.</p>
+
+<h3 id="with-the-fhir-implementation-what-service-and-protocol-is-supported">With the FHIR implementation, what service and protocol is supported?</h3>
+
+<p>The current FHIR implementation supports the REST API through the HTTPS protocol. Any application capable of making an HTTPS call can consume Cerner’s FHIR resource suite. In testing, we have desktop, web, and mobile applications that consume our FHIR resource suite. We will support the SMART platform, OAuth2 authentication, and authorization profiles.</p>
+
+<h3 id="what-are-smart-apps-and-what-is-cerners-position-on-usage-with-fhir">What are SMART apps and what is Cerner’s position on usage with FHIR?</h3>
+
+<p>The SMART (Substitutable Medical Apps &amp; Reusable Technology) platform defines a specification for an EHR to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and will use FHIR to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of FHIR resources. We will also support FHIR access through mobile SMART applications, as those specifications emerge from the <a href="http://smartplatforms.org/">SMART</a> web site.</p>
+
+<h3 id="where-can-i-ask-a-question">Where can I ask a question?</h3>
+
+<p>A developer can post a question to the community using the <a href="https://groups.google.com/forum/#!forum/cerner-fhir-developers">Cerner FHIR Developers</a> group.</p>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+    <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="#fhir-developer-faqs">FHIR Developer FAQs</a>
+</h3>
+            </li>
+        </ul>
+    </div> <!-- /sidebar-module -->
+    <div class="sidebar-module notice">
+        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+    </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+    <div id="footer">
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+      </ul>
+
+      <ul class="footer-cell">
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <p>Design © <span class="js-year"></span> Copyright <span class="js-year"></span> Cerner Corporation </p>
+    </div>
+
+  </div>
+<!-- /#footer -->
+
+</body>
+</html>
