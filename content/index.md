@@ -16,6 +16,6 @@ layout: overview
 <div class="full-width dev-program-callout">
   <div class="wrapper">
     <h2>Build a business relationship with Cerner around SMART on FHIR.</h2>
-    <p>Interested in collaborating? <a href="http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033">Learn more.</a></p>
+    <p>Interested in collaborating? <a href="http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033">Learn more</a>.</p>
   </div>
 </div>

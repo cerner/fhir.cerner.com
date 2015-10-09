@@ -31,6 +31,14 @@ compile '/dstu1/*' do
   filter :relativize_paths, :type => :html
 end
 
+compile '/faq/*' do
+  filter :erb
+  filter :kramdown, :toc_levels => [2]
+  layout item[:layout] || 'faq'
+  filter :relativize_paths, :type => :css
+  filter :relativize_paths, :type => :html
+end
+
 compile '/may2015/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
