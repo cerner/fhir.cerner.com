@@ -1300,11 +1300,11 @@ module Cerner
         "resourceType"=> "Bundle",
         "id"=> "5ab17194-bb85-45fe-94d5-a02a2e8699ab",
         "type"=> "searchset",
-        "base"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total"=> 2,
         "link"=> [{
                       "relation"=> "self",
-                      "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
+                      "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
                   }],
         "entry"=> [{
                        "resource"=> {
@@ -1312,13 +1312,13 @@ module Cerner
                            "id"=> "3643731",
                            "meta"=> {
                                "versionId"=> "3643735",
-                               "lastUpdated"=> "2015-03-11T20=>34=>59.000Z"
+                               "lastUpdated"=> "2015-03-11T20:34:59.000Z"
                            },
                            "text"=> {
                                "status"=> "generated",
                                "div"=> "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: RHEUM, TEST ONE&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Penicillin&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Refuted&lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: &lt;/p>&lt;p>&lt;b>Category&lt;/b>: Medication&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Comment&lt;/b>: &lt;/p>&lt;/div>"
                            },
-                           "recordedDate"=> "2015-03-11T15=>34=>59.000",
+                           "recordedDate"=> "2015-03-11T15:34:59.000",
                            "recorder"=> {
                                "reference"=> "Practitioner/3270007",
                                "display"=> "Venkat, Savitha"
@@ -1329,7 +1329,7 @@ module Cerner
                            },
                            "substance"=> {
                                "coding"=> [{
-                                               "system"=> "http=>//snomed.info/sct",
+                                               "system"=> "http://snomed.info/sct",
                                                "code"=> "373270004",
                                                "display"=> "Penicillin -class of antibiotic- (substance)",
                                                "primary"=> true
@@ -1346,13 +1346,13 @@ module Cerner
                            "id"=> "3643739",
                            "meta"=> {
                                "versionId"=> "3643739",
-                               "lastUpdated"=> "2015-03-11T20=>36=>08.000Z"
+                               "lastUpdated"=> "2015-03-11T20:36:08.000Z"
                            },
                            "text"=> {
                                "status"=> "generated",
                                "div"=> "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: RHEUM, TEST ONE&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Dust allergy&lt;/p>&lt;p>&lt;b>Status&lt;/b>: &lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: &lt;/p>&lt;p>&lt;b>Category&lt;/b>: Environment&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Comment&lt;/b>: &lt;/p>&lt;/div>"
                            },
-                           "recordedDate"=> "2015-03-11T15=>36=>08.000",
+                           "recordedDate"=> "2015-03-11T15:36:08.000",
                            "recorder"=> {
                                "reference"=> "Practitioner/3270007",
                                "display"=> "Venkat, Savitha"
@@ -1363,7 +1363,7 @@ module Cerner
                            },
                            "substance"=> {
                                "coding"=> [{
-                                               "system"=> "http=>//snomed.info/sct",
+                                               "system"=> "http://snomed.info/sct",
                                                "code"=> "390952000",
                                                "display"=> "Dust allergy (disorder)",
                                                "primary"=> true
