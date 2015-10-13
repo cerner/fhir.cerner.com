@@ -15,7 +15,7 @@ Search for Conditions that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Required | Type                                                           | Description
+ Name    | Required? | Type                                                           | Description
 ---------|----------|----------------------------------------------------------------|----------------------------------------------------
 `patient`|This or subject|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient who has the condition. Example: `12345`
 `subject`|This or patient|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient who has the condition. Example: `12345`

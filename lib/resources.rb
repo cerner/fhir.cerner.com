@@ -1135,11 +1135,11 @@ module Cerner
         "resourceType"=> "Bundle",
         "id"=> "d457d75f-4d8d-439e-9aca-2d8294457652",
         "type"=> "searchset",
-        "base"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total" => 86,
+        "base"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 5,
         "link" => [{
                        "relation"=> "self",
-                       "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
+                       "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
                    }],
         "entry" => [{
                         "resource" => {
@@ -1167,7 +1167,7 @@ module Cerner
                             "dateAsserted"=> "2013-02-08",
                             "code" => {
                                 "coding" => [{
-                                                 "system"=> "http=>//hl7.org/fhir/sid/icd-9",
+                                                 "system"=> "http://hl7.org/fhir/sid/icd-9",
                                                  "code"=> "345.0",
                                                  "display"=> "Generalized nonconvulsive epilepsy",
                                                  "primary" => true
@@ -1176,7 +1176,7 @@ module Cerner
                             },
                             "category" => {
                                 "coding" => [{
-                                                 "system"=> "http=>//hl7.org/fhir/condition-category",
+                                                 "system"=> "http://hl7.org/fhir/condition-category",
                                                  "code"=> "diagnosis",
                                                  "display"=> "Diagnosis"
                                              }],
