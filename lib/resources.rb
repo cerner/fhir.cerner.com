@@ -880,14 +880,14 @@ module Cerner
         "resourceType"=> "Conformance",
         "text"=> {
             "status"=> "generated",
-            "div"=> "\u003cdiv\u003eGenerated Conformance Statement\u003c/div\u003e"
+            "div"=> "&lt;div>Generated Conformance Statement&lt;/div>"
         },
-        "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+        "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
         "name"=> "Cerner Conformance Statement",
         "publisher"=> "Cerner",
         "description"=> "Describes capabilities of this server",
         "status"=> "draft",
-        "date"=> "2015-10-09T19=>12=>45.663+00=>00",
+        "date"=> "2015-10-09T19:12:45.663+00:00",
         "fhirVersion"=> "0.5.0",
         "acceptUnknown"=> false,
         "format"=> ["json"],
@@ -986,7 +986,7 @@ module Cerner
                                                          }, {
                                                              "name"=> "scheduledtiming-bounds-end",
                                                              "type"=> "date",
-                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by \u003c="
+                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by &lt;="
                                                          }, {
                                                              "name"=> "_count",
                                                              "type"=> "number",
@@ -1012,7 +1012,7 @@ module Cerner
                                                          }, {
                                                              "name"=> "date",
                                                              "type"=> "date",
-                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '\u003e' representing the earliest date and once by '\u003c' representing the latest date."
+                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '>' representing the earliest date and once by '&lt;' representing the latest date."
                                                          }]
                                     }, {
                                         "type"=> "Patient",
@@ -1060,14 +1060,14 @@ module Cerner
         "resourceType"=> "Conformance",
         "text"=> {
             "status"=> "generated",
-            "div"=> "\u003cdiv\u003eGenerated Conformance Statement\u003c/div\u003e"
+            "div"=> "&lt;div>Generated Conformance Statement&lt;/div>"
         },
-        "url"=> "https=>//fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
+        "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Conformance",
         "name"=> "Cerner Conformance Statement",
         "publisher"=> "Cerner",
         "description"=> "Describes capabilities of this server",
         "status"=> "draft",
-        "date"=> "2015-10-09T19=>11=>41.476+00=>00",
+        "date"=> "2015-10-09T19:11:41.476+00:00",
         "fhirVersion"=> "0.5.0",
         "acceptUnknown"=> false,
         "format"=> ["json"],
@@ -1076,19 +1076,19 @@ module Cerner
                       "documentation"=> "All the functionality defined in FHIR",
                       "security"=> {
                           "extension"=> [{
-                                             "url"=> "http=>//fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+                                             "url"=> "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
                                              "extension"=> [{
                                                                 "url"=> "token",
-                                                                "valueUri"=> "https=>//authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/token"
+                                                                "valueUri"=> "https://authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/token"
                                                             }, {
                                                                 "url"=> "authorize",
-                                                                "valueUri"=> "https=>//authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/authorize"
+                                                                "valueUri"=> "https://authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/authorize"
                                                             }]
                                          }],
                           "cors"=> true,
                           "service"=> [{
                                            "coding"=> [{
-                                                           "system"=> "http=>//hl7.org/fhir/vs/restful-security-service",
+                                                           "system"=> "http://hl7.org/fhir/vs/restful-security-service",
                                                            "code"=> "OAuth2"
                                                        }],
                                            "text"=> "OAuth version 2 (see oauth.net)."
@@ -1193,7 +1193,7 @@ module Cerner
                                                          }, {
                                                              "name"=> "scheduledtiming-bounds-end",
                                                              "type"=> "date",
-                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by \u003c="
+                                                             "documentation"=> "The period end of the prescription timing schedule. This parameter value should be prefixed by &lt;="
                                                          }, {
                                                              "name"=> "_count",
                                                              "type"=> "number",
@@ -1219,7 +1219,7 @@ module Cerner
                                                          }, {
                                                              "name"=> "date",
                                                              "type"=> "date",
-                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '\u003e' representing the earliest date and once by '\u003c' representing the latest date."
+                                                             "documentation"=> "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '>' representing the earliest date and once by '&lt;' representing the latest date."
                                                          }]
                                     }, {
                                         "type"=> "Patient",
