@@ -1151,18 +1151,18 @@ module Cerner
                             },
                             "text" => {
                                 "status"=> "generated",
-                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Absence seizures, 345.0&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2009-05-04&lt;/p>&lt;/div>"
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Absence seizures, 345.0&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2009-05-04&lt;/p>&lt;/div>"
                             },
                             "patient" => {
                                 "reference"=> "Patient/1316024",
-                                "display"=> "PETERS, TIMOTHY"
+                                "display"=> "Song, River"
                             },
                             "encounter" => {
                                 "reference"=> "Encounter/1309918"
                             },
                             "asserter" => {
                                 "reference"=> "Practitioner/1418008",
-                                "display"=> "Brewer, Phil V"
+                                "display"=> "Howser, Doogie"
                             },
                             "dateAsserted"=> "2013-02-08",
                             "code" => {
@@ -1195,15 +1195,15 @@ module Cerner
                             },
                             "text"=> {
                                 "status"=> "generated",
-                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Lumbar, 264082005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Lumbar, 264082005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
                             },
                             "patient"=> {
                                 "reference"=> "Patient/1316024",
-                                "display"=> "PETERS, TIMOTHY"
+                                "display"=> "Song, River"
                             },
                             "asserter"=> {
                                 "reference"=> "Practitioner/605923",
-                                "display"=> "Hoff, David"
+                                "display"=> "Smith, John"
                             },
                             "dateAsserted"=> "2012-08-28",
                             "code"=> {
@@ -1227,11 +1227,11 @@ module Cerner
                             },
                             "text"=> {
                                 "status"=> "generated",
-                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Red eye, 75705005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Red eye, 75705005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
                             },
                             "patient"=> {
                                 "reference"=> "Patient/1316024",
-                                "display"=> "PETERS, TIMOTHY"
+                                "display"=> "Song, River"
                             },
                             "code"=> {
                                 "coding"=> [{
@@ -1254,11 +1254,11 @@ module Cerner
                             },
                             "text"=> {
                                 "status"=> "generated",
-                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Heartwater, 73896008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2008&lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: 2014-08-07&lt;/p>&lt;/div>"
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Heartwater, 73896008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2008&lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: 2014-08-07&lt;/p>&lt;/div>"
                             },
                             "patient"=> {
                                 "reference"=> "Patient/1316024",
-                                "display"=> "PETERS, TIMOTHY"
+                                "display"=> "Song, River"
                             },
                             "code"=> {
                                 "coding"=> [{
@@ -1283,18 +1283,18 @@ module Cerner
                             },
                             "text"=> {
                                 "status"=> "generated",
-                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Strep throat, 43878008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2013-11-21&lt;/p>&lt;/div>"
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Strep throat, 43878008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2013-11-21&lt;/p>&lt;/div>"
                             },
                             "patient"=> {
                                 "reference"=> "Patient/1316024",
-                                "display"=> "PETERS, TIMOTHY"
+                                "display"=> "Song, River"
                             },
                             "encounter"=> {
                                 "reference"=> "Encounter/1591906"
                             },
                             "asserter"=> {
                                 "reference"=> "Practitioner/1348007",
-                                "display"=> "Hunter, Trill"
+                                "display"=> "Who, Doctor"
                             },
                             "dateAsserted"=> "2013-11-21",
                             "code"=> {
@@ -1316,7 +1316,7 @@ module Cerner
                             },
                             "clinicalStatus"=> "confirmed",
                             "onsetDateTime"=> "2013-11-21",
-                            "notes"=> "11/21/13 1:41 PM - Hunter, Trill\r\nTest #2\r\n\r\n11/21/13 1:40 PM - Hunter, Trill\r\nTest"
+                            "notes"=> "11/21/13 1:41 PM - Who, Doctor\r\nTest #2\r\n\r\n11/21/13 1:40 PM - Who, Doctor\r\nTest"
                         }
                     }]
          }
