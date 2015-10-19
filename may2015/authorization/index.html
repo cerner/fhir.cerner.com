@@ -52,7 +52,7 @@
 <hr>
 
 <h3 id="introduction">Introduction</h3>
-<p>The Cerner Authorization Server currently supports <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> <a href="http://docs.smarthealthit.org/authorization/public/">SMART on FHIR</a> launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.</p>
+<p>The Cerner Authorization Server currently supports <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR</a> launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.</p>
 
 <h3 id="registration">Registration</h3>
 <p>In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this please <a href="https://groups.google.com/forum/#!forum/cerner-fhir-developers">contact us</a> with the following fields, all fields are <strong>required</strong>.</p>
@@ -68,7 +68,7 @@
 <p>Once approved, a <strong>client identifier</strong> will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected FHIR resources.</p>
 
 <h3 id="supported-scopes">Supported Scopes</h3>
-<p>The Cerner Authorization Server supports many, but not all, of the <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> or <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OAuth/OpenID Connect</a> scopes. The following scopes are <strong>supported</strong>.</p>
+<p>The Cerner Authorization Server supports many, but not all, of the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> or <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OAuth/OpenID Connect</a> scopes. The following scopes are <strong>supported</strong>.</p>
 
 <ul>
   <li>online_access</li>
@@ -80,7 +80,7 @@
 </ul>
 
 <h3 id="requesting-an-authorization-code">Requesting an authorization code</h3>
-<p>Cerner currently supports the <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch workflow from within an EHR, such as Cerner Millennium’s PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch workflow.</p>
+<p>Cerner currently supports the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch workflow from within an EHR, such as Cerner Millennium’s PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch workflow.</p>
 
 <p><img src="http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&amp;s=default" alt="alt text" title="SMART launch diagram"></p>
 
@@ -89,8 +89,9 @@
 <ul>
   <li>response_type</li>
   <li>client_id</li>
-  <li>launch - Note: only required if using a <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch context</li>
-  <li>scope - Note: launch <strong>must</strong> be one of the scopes if using a <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> launch context. When requesting clinical data, <a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">SMART scopes</a> for requesting clinical data must be provided.</li>
+  <li>launch - Note: only required if using a <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch context</li>
+  <li>aud - Required if using a <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch. This should be the fhir server root url.</li>
+  <li>scope - Note: launch <strong>must</strong> be one of the scopes if using a <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch context. When requesting clinical data, <a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">SMART scopes</a> for requesting clinical data must be provided.</li>
 </ul>
 
 <p>It is also <strong>recommended</strong> that your client application provides the following query parameters.</p>
@@ -102,7 +103,7 @@
 </ul>
 
 <p><code>
-https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&amp;client_id={YOUR_CLIENT_ID}&amp;state=12345&amp;redirect_uri=https%3A%2F%2Ftest.com%2Fcb
+https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&amp;client_id={YOUR_CLIENT_ID}&amp;state=12345&amp;redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 </code></p>
 
 <p>If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.</p>
@@ -126,7 +127,7 @@ https://test.com/cb?code=1234-567890ab-cdef
 </ul>
 
 <p><code>
-https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/token
+https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/token
 </code></p>
 
 <p><code>
@@ -147,7 +148,7 @@ grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_
 <p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is a <a href="https://tools.ietf.org/html//rfc7519">JSON Web Token (JWT)</a>. The JWT is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
 
 <h3 id="openid-connect">OpenID Connect</h3>
-<p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/public/">SMART</a> specification that includes the user’s FHIR resource URL (userfhirurl) as the “profile” claim.</p>
+<p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> specification that includes the user’s FHIR resource URL (userfhirurl) as the “profile” claim.</p>
 
 <p><code>
 { 
