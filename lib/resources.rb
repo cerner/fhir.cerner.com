@@ -1263,37 +1263,194 @@ module Cerner
     }
 
     MAY2015_CONDITION_BUNDLE ||= {
-      "resourceType" => "Bundle",
-      "id" => "9c791488-fdbb-4322-a6ed-baac9d636d7b",
-      "type" => "searchset",
-      "base" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-      "total" => 2,
-      "link" => [{"relation" => "self",
-                  "url" => "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316020"}],
-      "entry" => [{"resource" =>
-                     {"resourceType" => "Condition",
-                      "id" => "/tenant:d075cf8b-3261-481d-97e5-ba6c48d3b41f_0/person:1316020/clinicalfacts.condition.type:CODIFIED/id:7421295",
-                      "patient" => {"reference" => "Patient/1316020"},
-                      "asserter" => {"reference" => "Practitioner/1994019",
-                                     "display" => "Knight MD, Wayne"},
-                      "code" => {"coding" => [{"system" => "http://snomed.info/sct",
-                                               "code" => "22886006",
-                                               "display" => "ACAD"}],
-                                 "text" => "ACAD"},
-                      "clinicalStatus" => "confirmed",
-                      "onsetDateTime" => "2007"}},
-                  {"resource" => {"resourceType" => "Condition",
-                                  "id" => "/tenant:d075cf8b-3261-481d-97e5-ba6c48d3b41f_0/person:1316020/clinicalfacts.condition.type:CODIFIED/id:13795703",
-                                  "patient" => {"reference" => "Patient/1316020"},
-                                  "asserter" => {"reference" => "Practitioner/1994019",
-                                                 "display" => "Knight MD, Wayne"},
-                                  "code" => {"coding" => [{"system" => "http://snomed.info/sct",
-                                                           "code" => "424300006",
-                                                           "display" => "Minimal shared activities"}],
-                                             "text" => "Minimal shared activities"},
-                                  "clinicalStatus" => "confirmed",
-                                  "onsetDateTime" => "2007"}}]
-    }
+        "resourceType"=> "Bundle",
+        "id"=> "d457d75f-4d8d-439e-9aca-2d8294457652",
+        "type"=> "searchset",
+        "base"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 5,
+        "link" => [{
+                       "relation"=> "self",
+                       "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/open/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
+                   }],
+        "entry" => [{
+                        "resource" => {
+                            "resourceType"=> "Condition",
+                            "id"=> "d21591516",
+                            "meta" => {
+                                "versionId"=> "21591516",
+                                "lastUpdated"=> "2013-02-08T18:03:09.000Z"
+                            },
+                            "text" => {
+                                "status"=> "generated",
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Absence seizures, 345.0&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2009-05-04&lt;/p>&lt;/div>"
+                            },
+                            "patient" => {
+                                "reference"=> "Patient/1316024",
+                                "display"=> "Song, River"
+                            },
+                            "encounter" => {
+                                "reference"=> "Encounter/1309918"
+                            },
+                            "asserter" => {
+                                "reference"=> "Practitioner/1418008",
+                                "display"=> "Howser, Doogie"
+                            },
+                            "dateAsserted"=> "2013-02-08",
+                            "code" => {
+                                "coding" => [{
+                                                 "system"=> "http://hl7.org/fhir/sid/icd-9",
+                                                 "code"=> "345.0",
+                                                 "display"=> "Generalized nonconvulsive epilepsy",
+                                                 "primary" => true
+                                             }],
+                                "text"=> "Absence seizures"
+                            },
+                            "category" => {
+                                "coding" => [{
+                                                 "system"=> "http://hl7.org/fhir/condition-category",
+                                                 "code"=> "diagnosis",
+                                                 "display"=> "Diagnosis"
+                                             }],
+                                "text"=> "Diagnosis"
+                            },
+                            "clinicalStatus"=> "confirmed",
+                            "onsetDateTime"=> "2009-05-04"
+                        }
+                    }, {
+                        "resource" => {
+                            "resourceType"=> "Condition",
+                            "id"=> "p1147855",
+                            "meta" => {
+                                "versionId"=> "1209866",
+                                "lastUpdated"=> "2013-04-26T14:45:17.000Z"
+                            },
+                            "text"=> {
+                                "status"=> "generated",
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Lumbar, 264082005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
+                            },
+                            "patient"=> {
+                                "reference"=> "Patient/1316024",
+                                "display"=> "Song, River"
+                            },
+                            "asserter"=> {
+                                "reference"=> "Practitioner/605923",
+                                "display"=> "Smith, John"
+                            },
+                            "dateAsserted"=> "2012-08-28",
+                            "code"=> {
+                                "coding"=> [{
+                                                "system"=> "http://snomed.info/sct",
+                                                "code"=> "264082005",
+                                                "display"=> "Lumbar (qualifier value)",
+                                                "primary"=> true
+                                            }],
+                                "text"=> "Lumbar"
+                            },
+                            "clinicalStatus"=> "entered-in-error"
+                        }
+                    }, {
+                        "resource"=> {
+                            "resourceType"=> "Condition",
+                            "id"=> "p1251556",
+                            "meta"=> {
+                                "versionId"=> "1251556",
+                                "lastUpdated"=> "2015-09-30T18:07:26.000Z"
+                            },
+                            "text"=> {
+                                "status"=> "generated",
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Red eye, 75705005&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: &lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: false&lt;/p>&lt;/div>"
+                            },
+                            "patient"=> {
+                                "reference"=> "Patient/1316024",
+                                "display"=> "Song, River"
+                            },
+                            "code"=> {
+                                "coding"=> [{
+                                                "system"=> "http://snomed.info/sct",
+                                                "code"=> "75705005",
+                                                "display"=> "Red eye (disorder)",
+                                                "primary"=> true
+                                            }],
+                                "text"=> "Red eye"
+                            },
+                            "clinicalStatus"=> "unknown"
+                        }
+                    }, {
+                        "resource"=> {
+                            "resourceType"=> "Condition",
+                            "id"=> "p1242256",
+                            "meta"=> {
+                                "versionId"=> "1242256",
+                                "lastUpdated"=> "2014-08-07T20:48:06.000Z"
+                            },
+                            "text"=> {
+                                "status"=> "generated",
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Heartwater, 73896008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: unknown&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2008&lt;/p>&lt;p>&lt;b>Abatement&lt;/b>: 2014-08-07&lt;/p>&lt;/div>"
+                            },
+                            "patient"=> {
+                                "reference"=> "Patient/1316024",
+                                "display"=> "Song, River"
+                            },
+                            "code"=> {
+                                "coding"=> [{
+                                                "system"=> "http://snomed.info/sct",
+                                                "code"=> "73896008",
+                                                "display"=> "Heartwater (disorder)",
+                                                "primary"=> true
+                                            }],
+                                "text"=> "Heartwater"
+                            },
+                            "clinicalStatus"=> "unknown",
+                            "onsetDateTime"=> "2008",
+                            "abatementDate"=> "2014-08-07"
+                        }
+                    }, {
+                        "resource"=> {
+                            "resourceType"=> "Condition",
+                            "id"=> "d21786652",
+                            "meta"=> {
+                                "versionId"=> "21786656",
+                                "lastUpdated"=> "2013-11-21T19:41:14.000Z"
+                            },
+                            "text"=> {
+                                "status"=> "generated",
+                                "div"=> "&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Diagnosis&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Strep throat, 43878008&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Confirmed&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: &lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 2013-11-21&lt;/p>&lt;/div>"
+                            },
+                            "patient"=> {
+                                "reference"=> "Patient/1316024",
+                                "display"=> "Song, River"
+                            },
+                            "encounter"=> {
+                                "reference"=> "Encounter/1591906"
+                            },
+                            "asserter"=> {
+                                "reference"=> "Practitioner/1348007",
+                                "display"=> "Who, Doctor"
+                            },
+                            "dateAsserted"=> "2013-11-21",
+                            "code"=> {
+                                "coding"=> [{
+                                                "system"=> "http://snomed.info/sct",
+                                                "code"=> "43878008",
+                                                "display"=> "Streptococcal sore throat (disorder)",
+                                                "primary"=> true
+                                            }],
+                                "text"=> "Strep throat"
+                            },
+                            "category"=> {
+                                "coding"=> [{
+                                                "system"=> "http://hl7.org/fhir/condition-category",
+                                                "code"=> "diagnosis",
+                                                "display"=> "Diagnosis"
+                                            }],
+                                "text"=> "Diagnosis"
+                            },
+                            "clinicalStatus"=> "confirmed",
+                            "onsetDateTime"=> "2013-11-21",
+                            "notes"=> "11/21/13 1:41 PM - Who, Doctor\r\nTest #2\r\n\r\n11/21/13 1:40 PM - Who, Doctor\r\nTest"
+                        }
+                    }]
+         }
 
     MAY2015_DIAGNOSTIC_REPORT_BUNDLE ||= {
         "resourceType"=>"Bundle",
