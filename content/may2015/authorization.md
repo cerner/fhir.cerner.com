@@ -38,6 +38,7 @@ Once a launch context is received by your client application from the EHR, it mu
 * response_type
 * client_id
 * launch - Note: only required if using a [SMART][5] launch context
+* aud - Required if using a [SMART][5] launch. This should be the fhir server root url.
 * scope - Note: launch **must** be one of the scopes if using a [SMART][5] launch context. When requesting clinical data, [SMART scopes][12] for requesting clinical data must be provided.
 
 It is also **recommended** that your client application provides the following query parameters.
@@ -46,7 +47,7 @@ It is also **recommended** that your client application provides the following q
 * redirect_uri - note: The redirect_uri **must** match what was originally registered
 
 ```
-https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
+https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 ```
 
 If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate. 
@@ -68,7 +69,7 @@ Once an authorization code has been acquired, a back-channel **POST** to the aut
 * redirect_uri (only if provided when the authorization code was requested)
 
 ```
-https://authorization.stagingcerner.com/realms/{TENANT_ID}/protocols/smart/token
+https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/token
 ```
 
 ```
@@ -151,7 +152,7 @@ The refresh token issued is good while the user's session is still valid and can
 [2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
 [3]: http://json.org/  
 [4]: https://tools.ietf.org/html//rfc7519  
-[5]: http://docs.smarthealthit.org/authorization/public/  
+[5]: http://docs.smarthealthit.org/authorization/  
 [6]: http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims  
 [7]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
 [8]: https://tools.ietf.org/html/rfc6750
