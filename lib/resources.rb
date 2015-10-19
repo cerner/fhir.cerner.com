@@ -1321,7 +1321,7 @@ module Cerner
                            "recordedDate"=> "2015-03-11T15:34:59.000",
                            "recorder"=> {
                                "reference"=> "Practitioner/3270007",
-                               "display"=> "Venkat, Savitha"
+                               "display"=> "Who, Doctor"
                            },
                            "patient"=> {
                                "reference"=> "Patient/2744010",
@@ -1355,7 +1355,7 @@ module Cerner
                            "recordedDate"=> "2015-03-11T15:36:08.000",
                            "recorder"=> {
                                "reference"=> "Practitioner/3270007",
-                               "display"=> "Venkat, Savitha"
+                               "display"=> "Who, Doctor"
                            },
                            "patient"=> {
                                "reference"=> "Patient/2744010",
