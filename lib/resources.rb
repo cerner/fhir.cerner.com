@@ -1453,27 +1453,163 @@ module Cerner
          }
 
     MAY2015_DIAGNOSTIC_REPORT_BUNDLE ||= {
-        "resourceType"=>"Bundle",
-        "id"=> "b2502416-98eb-4a53-b9cc-3262c1617a71",
-        "type"=> "searchset",
-        "base"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total"=> 1,
-        "link"=> [{"relation"=> "self",
-                   "url"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"}],
-        "entry"=> [{"resource"=> {"resourceType"=> "DiagnosticReport",
-                                  "id"=> "4149257",
-                                  "name"=> {"coding"=> [{"system"=> "http://loinc.org/",
-                                                         "code"=> "41806-1"},
-                                                        {"system"=> "http://snomed.info/sct",
-                                                         "code"=> "77477000"}],
-                                            "text"=> "CT Abdomen w/ Contrast"},
-                                  "status"=> "final",
-                                  "issued"=> "2014-12-09T16:49:02.000Z",
-                                  "subject"=> {"reference"=> "Patient/1316020"},
-                                  "performer"=> {"reference"=> "Practitioner/1700007",
-                                                 "display"=> "Grayson, Richard"},
-                                  "encounter"=> {"reference"=> "Encounter/2571909"},
-                                  "conclusion"=> "Report Here is a rad   Signature Line:***** Preliminary Report *****   Transcribed by: SM"}}]
+        "resourceType" => "Bundle",
+        "id" => "c7d2abdd-0c20-433e-a9a9-53e655f79885",
+        "type" => "searchset",
+        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 3,
+        "link" => [
+            {
+                "relation" => "self",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"
+            }
+        ],
+        "entry" => [
+            {
+                "resource" => {
+                    "resourceType" => "DiagnosticReport",
+                    "id" => "5153487",
+                    "meta" => {
+                        "versionId" => "3"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: XR Wrist Complete Left&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: Who, Doctor&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+                    },
+                    "name" => {
+                        "coding" => [
+                            {
+                                "system" => "http://snomed.info/sct",
+                                "code" => "169074008"
+                            }
+                        ],
+                        "text" => "XR Wrist Complete Left"
+                    },
+                    "status" => "final",
+                    "issued" => "2015-08-06T20:03:21.000Z",
+                    "subject" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "performer" => {
+                        "reference" => "Practitioner/2048007",
+                        "display" => "Who, Doctor"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2787906"
+                    },
+                    "serviceCategory" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v2/0074",
+                                "code" => "RAD",
+                                "display" => "Radiology"
+                            }
+                        ],
+                        "text" => "Radiology"
+                    },
+                    "diagnosticDateTime" => "2015-08-06T20:03:09.000Z",
+                    "conclusion" => "Report_asdfasdfasdf jjimmmy   Signature Line:***** Preliminary Report *****   Transcribed by: DW      Reason for exam:4061979"
+                }
+            },{
+                "resource" => {
+                    "resourceType" => "DiagnosticReport",
+                    "id" => "3153886",
+                    "meta" => {
+                        "versionId" => "6"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: XR Abdomen Series w/ Chest 1 View | XR Abdomen AP&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+                    },
+                    "name" => {
+                        "coding" => [
+                            {
+                                "system" => "http://snomed.info/sct",
+                                "code" => "169074008"
+                            }
+                        ],
+                        "text" => "XR Abdomen Series w/ Chest 1 View | XR Abdomen AP"
+                    },
+                    "status" => "final",
+                    "issued" => "2014-04-07T22:19:18.000Z",
+                    "subject" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "performer" => {
+                        "reference" => "Practitioner/1666007",
+                        "display" => "Song, River"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/1309912"
+                    },
+                    "serviceCategory" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v2/0074",
+                                "code" => "RAD",
+                                "display" => "Radiology"
+                            }
+                        ],
+                        "text" => "Radiology"
+                    },
+                    "diagnosticDateTime" => "2014-02-03T20:31:32.000Z",
+                    "conclusion" => "AddendumAddendum   Signature Line:***** Final *****    Signed (Electronic Signature):  04/07/2014 5:19 pm Signed by:  Song, River     ReportGas pattern is unremarkable.  No free air is seen.  There is no hepatosplenomegaly.     IMPRESSION: No acute findings.   Signature Line:***** Final *****    Signed (Electronic Signature):  02/03/2014 2:31 pm Signed by:  Song, River"
+                }
+            },{
+                "resource" => {
+                    "resourceType" => "DiagnosticReport",
+                    "id" => "4141333",
+                    "meta" => {
+                        "versionId" => "2"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: CT Abdomen w/ Contrast | CT Cardiac w/Contrast&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: Who, Doctor&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+                    },
+                    "name" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org/",
+                                "code" => "41806-1"
+                            },
+                            {
+                                "system" => "http://loinc.org/",
+                                "code" => "42136-2"
+                            },
+                            {
+                                "system" => "http://snomed.info/sct",
+                                "code" => "77477000"
+                            }
+                        ],
+                        "text" => "CT Abdomen w/ Contrast | CT Cardiac w/Contrast"
+                    },
+                    "status" => "final",
+                    "issued" => "2014-12-08T18:23:05.000Z",
+                    "subject" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "performer" => {
+                        "reference" => "Practitioner/1628008",
+                        "display" => "Who, Doctor"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2571909"
+                    },
+                    "serviceCategory" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v2/0074",
+                                "code" => "RAD",
+                                "display" => "Radiology"
+                            }
+                        ],
+                        "text" => "Radiology"
+                    },
+                    "diagnosticDateTime" => "2014-12-08T18:19:51.000Z",
+                    "conclusion" => "Reporttesting in non-prod   Signature Line:***** Preliminary Report *****   Transcribed by: DW"
+                }
+            }
+        ]
     }
 
     MAY2015_ENCOUNTER ||= {
