@@ -1666,30 +1666,236 @@ module Cerner
 
     MAY2015_IMMUNIZATION_BUNDLE ||= {
         "resourceType" => "Bundle",
-        "id" => "27780a25-18ba-4fd8-9c18-e3beb215d2c2",
+        "id" => "6236583e-e881-4bce-9964-decd5457b02f",
         "type" => "searchset",
         "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total" => 2,
-        "link" => [{"relation" => "self",
-                    "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=3602356"}],
-        "entry" => [{"resource" => {"resourceType" => "Immunization",
-                                    "id" => "2571542",
-                                    "date" => "2014-03-11T20:00:00.000Z",
-                                    "vaccineType" => {"coding" => [{"system" => "http://hl7.org/fhir/v3/VaccineType",
-                                                                    "code" => "88"}],
-                                                      "text" => "Fluzone Intradermal 2013-2014"},
-                                    "patient" => {"reference" => "Patient/3602356"},
-                                    "wasNotGiven" => false,
-                                    "reported" => false}},
-                    {"resource" => {"resourceType" => "Immunization",
-                                    "id" => "2571538",
-                                    "date" => "2012-09-05T18:28:00.000Z",
-                                    "vaccineType" => {"coding" => [{"system" => "http://hl7.org/fhir/v3/VaccineType",
-                                                                    "code" => "28"}],
-                                                      "text" => "diphtheria toxoid"},
-                                    "patient" => {"reference" => "Patient/3602356"},
-                                    "wasNotGiven" => false,
-                                    "reported" => false}}]
+        "total" => 6,
+        "link" => [
+            {
+                "relation" => "self",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=1083999"
+            }
+        ],
+        "entry" => [
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "M2247765",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2011-11-29&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Physician, One&lt;/p>&lt;/div>"
+                    },
+                    "date" => "2011-11-29",
+                    "vaccineType" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v3/VaccineType",
+                                "code" => "43"
+                            }
+                        ]
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => false,
+                    "reported" => true,
+                    "performer" => {
+                        "reference" => "Practitioner/1262007",
+                        "display" => "Physician, One"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/1135920"
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "M2247761",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2011-11-29&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Physician, One&lt;/p>&lt;/div>"
+                    },
+                    "date" => "2011-11-29",
+                    "vaccineType" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v3/VaccineType",
+                                "code" => "43"
+                            }
+                        ],
+                        "text" => "hepatitis B vaccine pediatric 10 mcg/0.5 mL intramuscular suspension (obsolete)"
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => false,
+                    "reported" => true,
+                    "performer" => {
+                        "reference" => "Practitioner/1262007",
+                        "display" => "Physician, One"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/1135920"
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "M2247769",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2011-11-29&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Physician, One&lt;/p>&lt;/div>"
+                    },
+                    "date" => "2011-11-29",
+                    "vaccineType" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v3/VaccineType",
+                                "code" => "43"
+                            }
+                        ]
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => false,
+                    "reported" => true,
+                    "performer" => {
+                        "reference" => "Practitioner/1262007",
+                        "display" => "Physician, One"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/1135920"
+                    },
+                    "manufacturer" => {
+                        "reference" => "Organization/4296975",
+                        "display" => "Able Laboratories Inc"
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "M2247752",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2012-03-16T09:43:00.000Z&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Physician, One&lt;/p>&lt;p>&lt;b>Site&lt;/b>: left arm&lt;/p>&lt;p>&lt;b>Route&lt;/b>: ID&lt;/p>&lt;/div>"
+                    },
+                    "date" => "2012-03-16T09:43:00.000Z",
+                    "vaccineType" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v3/VaccineType",
+                                "code" => "83"
+                            }
+                        ],
+                        "text" => "hepatitis A pediatric vaccine"
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => false,
+                    "reported" => false,
+                    "performer" => {
+                        "reference" => "Practitioner/1262007",
+                        "display" => "Physician, One"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/1135920"
+                    },
+                    "manufacturer" => {
+                        "reference" => "Organization/4297457",
+                        "display" => "A-A Spectrum Healthcare Products"
+                    },
+                    "lotNumber" => "11",
+                    "expirationDate" => "2013-03-25",
+                    "site" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v3/ActSite",
+                                "code" => "LA",
+                                "display" => "left arm"
+                            }
+                        ],
+                        "text" => "left arm"
+                    },
+                    "route" => {
+                        "text" => "ID"
+                    },
+                    "doseQuantity" => {
+                        "value" => 1.0,
+                        "units" => "mL"
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "HM1110832",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Vaccine Type&lt;/b>: CERNER_CDC_IPV&lt;/p>&lt;p>&lt;b>Date Attempted&lt;/b>: 2011-05-17&lt;/p>&lt;p>&lt;b>Given&lt;/b>: No&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Who, Doctor&lt;/p>&lt;/div>"
+                    },
+                    "date" => "2011-05-17",
+                    "vaccineType" => {
+                        "text" => "CERNER_CDC_IPV"
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => true,
+                    "reported" => false,
+                    "performer" => {
+                        "reference" => "Practitioner/1",
+                        "display" => "Who, Doctor"
+                    },
+                    "location" => {
+                        "reference" => "Organization/589723"
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Immunization",
+                    "id" => "HM1110830",
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Vaccine Type&lt;/b>: CERNER_CDC_INFLUENZA_CHILD&lt;/p>&lt;p>&lt;b>Given&lt;/b>: No&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Who, Doctor&lt;/p>&lt;p>&lt;b>Reason Not Given&lt;/b>: patient objection&lt;/p>&lt;/div>"
+                    },
+                    "vaccineType" => {
+                        "text" => "CERNER_CDC_INFLUENZA_CHILD"
+                    },
+                    "patient" => {
+                        "reference" => "Patient/1083999"
+                    },
+                    "wasNotGiven" => true,
+                    "reported" => false,
+                    "performer" => {
+                        "reference" => "Practitioner/1",
+                        "display" => "Who, Doctor"
+                    },
+                    "location" => {
+                        "reference" => "Organization/589723"
+                    },
+                    "explanation" => {
+                        "reasonNotGiven" => [
+                            {
+                                "coding" => [
+                                    {
+                                        "system" => "http://hl7.org/fhir/v3/ActReason",
+                                        "code" => "PATOBJ",
+                                        "display" => "patient objection"
+                                    }
+                                ],
+                                "text" => "patient objection"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
     }
     
     MAY2015_MEDICATION_PRESCRIPTION_BUNDLE ||= {

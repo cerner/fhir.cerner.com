@@ -15,9 +15,9 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Type                                                           | Description
----------|----------------------------------------------------------------|---------------------------------------------------------
-`patient`|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient for the vaccination record. Example: `12345`
+ Name    | Required? | Type                                                           | Description
+---------|-----------|----------------------------------------------------------------|---------------------------------------------------------
+`patient`| Y |[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient for the vaccination record. Example: `12345`
 
 ### Response
 
