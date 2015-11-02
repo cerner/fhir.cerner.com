@@ -15,9 +15,10 @@ Search for Encounters that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Type                                                           | Description
----------|----------------------------------------------------------------|-------------------------------------------------------
-`patient`|[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient present at the encounter. Example: `12345`
+ Name    | Required? | Type                                                           | Description
+---------|-----------|----------------------------------------------------------------|-------------------------------------------------------
+`patient`| This or _id |[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient present at the encounter. Example: `12345`
+`_id`    | This or patient |[`id`](http://hl7.org/fhir/2015May/datatypes.html#id) | A single or comma separated list of Encounter ids. Example: `45678,89765` 
 
 ### Response
 
