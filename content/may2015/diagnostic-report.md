@@ -15,10 +15,10 @@ Search for DiagnosticReports that meet supplied query parameters:
 
 ### Parameters
 
- Name            | Type                                                               | Description
------------------|--------------------------------------------------------------------|---------------------------------------------------------
-`patient`        |[`reference`](http://www.hl7.org/FHIR/2015May/search.html#reference)| The subject of the report if a patient. Example: `12345`
-`subject:Patient`|[`reference`](http://www.hl7.org/FHIR/2015May/search.html#reference)| The subject (Patient) of the report. Example: `12345`
+ Name            | Required? | Type                                                               | Description
+-----------------|--------------------------------------------------------------------------------|---------------------------------------------------------
+`patient`        | This or subject |[`reference`](http://www.hl7.org/FHIR/2015May/search.html#reference)| The subject of the report if a patient. Example: `12345`
+`subject:Patient`| This or patient |[`reference`](http://www.hl7.org/FHIR/2015May/search.html#reference)| The subject (Patient) of the report. Example: `12345`
 
 ### Response
 
