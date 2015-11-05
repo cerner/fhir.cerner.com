@@ -2178,51 +2178,933 @@ module Cerner
         ]
     }
     
-    MAY2015_MEDICATION_PRESCRIPTION_BUNDLE ||= {
-        "resourceType"=>"Bundle",
-        "id"=>"11025158-de65-4fd2-a7e6-a1f4a2bf897b",
-        "type"=>"searchset",
-        "base"=>
-            "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total"=>1,
-        "link"=>
-            [{"relation"=>"self",
-              "url"=>
-                  "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=33840071"}],
-        "entry"=>
-            [{"resource"=>
-                  {"resourceType"=>"MedicationPrescription",
-                   "id"=>"18306001",
-                   "contained"=>
-                       [{"resourceType"=>"Medication",
-                         "id"=>"2750103",
-                         "code"=>
-                             {"coding"=>
-                                  [{"system"=>"http://www.nlm.nih.gov/research/umls/rxnorm",
-                                    "code"=>"853499",
-                                    "display"=>"Aspirin 228 MG Chewing Gum"}],
-                              "text"=>"aspirin 227.5 mg oral gum"},
-                         "name"=>"aspirin 227.5 mg oral gum"}],
-                   "status"=>"active",
-                   "patient"=>{"reference"=>"Patient/33840071"},
-                   "prescriber"=>
-                       {"reference"=>"Practitioner/20440201", "display"=>"Tatlock, Stephen"},
-                   "medication"=>
-                       {"reference"=>"#2750103", "display"=>"aspirin 227.5 mg oral gum"},
-                   "dosageInstruction"=>
-                       [{"text"=>
-                             "227.5 mg, 1 EA, Chewed, q4hr, Special instructions, PRN: for sore throat, 60 EA",
-                         "additionalInstructions"=>{"text"=>"Chew vigorously"},
-                         "scheduledPeriod"=>
-                             {"start"=>"2015-05-07T20:31:00.000Z",
-                              "end"=>"2015-05-10T21:00:00.000Z"},
-                         "asNeededCodeableConcept"=>{"text"=>"for sore throat"},
-                         "route"=>{"text"=>"Chewed"},
-                         "doseQuantity"=>{"value"=>1.0, "units"=>"EA"}}],
-                   "dispense"=>
-                       {"medication"=>
-                            {"reference"=>"#2750103", "display"=>"aspirin 227.5 mg oral gum"},
-                        "quantity"=>{"value"=>"60", "units"=>"EA"}}}}]
+    MAY2015_MEDICATION_PRESCRIPTION_ACTIVE_BUNDLE ||= {
+        "resourceType" => "Bundle",
+        "id" => "06d99b3a-ee60-493a-a700-b23cec4dfcf1",
+        "type" => "searchset",
+        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "total" => 7,
+        "link" => [
+            {
+                "relation" => "self",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010&status=active%2Cdraft"
+            }
+        ],
+        "entry" => [
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "16566157",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Procardia XL 30 mg oral tablet, extended release&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 30 mg, 1 tab(s), Oral, Daily, 30 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2765117",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "207772",
+                                        "display" => "24 HR Nifedipine 30 MG Extended Release Oral Tablet [Procardia]"
+                                    }
+                                ],
+                                "text" => "Procardia XL 30 mg oral tablet, extended release"
+                            },
+                            "name" => "Procardia XL 30 mg oral tablet, extended release"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/2692009",
+                        "display" => "Song, River"
+                    },
+                    "medication" => {
+                        "reference" => "#2765117",
+                        "display" => "Procardia XL 30 mg oral tablet, extended release"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "30 mg, 1 tab(s), Oral, Daily, 30 tab(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-08-14T19:00:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "Daily"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 30.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2765117",
+                            "display" => "Procardia XL 30 mg oral tablet, extended release"
+                        },
+                        "quantity" => {
+                            "value" => "30",
+                            "units" => "tab(s)"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "16566159",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: predniSONE 5 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 5 mg, 1 tabs, Oral, Daily, tabs, PRN: Instruct&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2767469",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "763179",
+                                        "display" => "{48 (Prednisone 5 MG Oral Tablet) } Pack"
+                                    }
+                                ],
+                                "text" => "predniSONE 5 mg oral tablet"
+                            },
+                            "name" => "predniSONE 5 mg oral tablet"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/2692009",
+                        "display" => "Song, River"
+                    },
+                    "medication" => {
+                        "reference" => "#2767469",
+                        "display" => "predniSONE 5 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "5 mg, 1 tabs, Oral, Daily, tabs, PRN: Instruct",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-08-14T19:00:00.000Z",
+                                        "end" => "2014-09-14T19:00:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "Daily"
+                                }
+                            },
+                            "asNeededCodeableConcept" => {
+                                "text" => "Instruct"
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 5.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2767469",
+                            "display" => "predniSONE 5 mg oral tablet"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14203884",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Aspercreme 10% topical lotion&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 1 boxes, GTUBE, 10x/Day, 2 boxes, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "5213029",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "1101829",
+                                        "display" => "trolamine salicylate 100 MG/ML Topical Lotion [Aspercreme]"
+                                    }
+                                ],
+                                "text" => "Aspercreme 10% topical lotion"
+                            },
+                            "name" => "Aspercreme 10% topical lotion"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1400009",
+                        "display" => "Who, Doctor"
+                    },
+                    "medication" => {
+                        "reference" => "#5213029",
+                        "display" => "Aspercreme 10% topical lotion"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "1 boxes, GTUBE, 10x/Day, 2 boxes, 0 Refill(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2015-05-21T20:36:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "10x/Day"
+                                }
+                            },
+                            "route" => {
+                                "text" => "GTUBE"
+                            },
+                            "doseQuantity" => {
+                                "value" => 1.0,
+                                "units" => "boxes"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#5213029",
+                            "display" => "Aspercreme 10% topical lotion"
+                        },
+                        "numberOfRepeatsAllowed" => 0,
+                        "quantity" => {
+                            "value" => "2",
+                            "units" => "boxes"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "17865897",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: albuterol 2 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 2 mg, 1 tab(s), Oral, QID, 120 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2748635",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "197316",
+                                        "display" => "Albuterol 2 MG Oral Tablet"
+                                    }
+                                ],
+                                "text" => "albuterol 2 mg oral tablet"
+                            },
+                            "name" => "albuterol 2 mg oral tablet"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/3270007",
+                        "display" => "Howser, Doogie"
+                    },
+                    "medication" => {
+                        "reference" => "#2748635",
+                        "display" => "albuterol 2 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "2 mg, 1 tab(s), Oral, QID, 120 tab(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2015-03-11T20:38:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "QID"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 2.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2748635",
+                            "display" => "albuterol 2 mg oral tablet"
+                        },
+                        "quantity" => {
+                            "value" => "120",
+                            "units" => "tab(s)"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "18937899",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Colace&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 50 mg = 1 caps, Oral, q4hr, order duration: 5 days, first dose dttm: 07/31/15 18:00:00 CDT, stop date 08/05/15 17:59:00 CDT&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "4318409",
+                            "code" => {
+                                "text" => "Colace"
+                            },
+                            "name" => "Colace"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1616012",
+                        "display" => "House, Gregory"
+                    },
+                    "medication" => {
+                        "reference" => "#4318409",
+                        "display" => "Colace"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "50 mg = 1 caps, Oral, q4hr, order duration: 5 days, first dose dttm: 07/31/15 18:00:00 CDT, stop date 08/05/15 17:59:00 CDT",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2015-07-31T23:00:00.000Z",
+                                        "end" => "2015-08-05T22:59:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "q4hr"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 50.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#4318409",
+                            "display" => "Colace"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "16566161",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: methotrexate 10 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 10 mg, 1 tab(s), Oral, qWeek, 1 tabs&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2763106",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "105586",
+                                        "display" => "Methotrexate 10 MG Oral Tablet"
+                                    }
+                                ],
+                                "text" => "methotrexate 10 mg oral tablet"
+                            },
+                            "name" => "methotrexate 10 mg oral tablet"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/2692009",
+                        "display" => "Song, River"
+                    },
+                    "medication" => {
+                        "reference" => "#2763106",
+                        "display" => "methotrexate 10 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "10 mg, 1 tab(s), Oral, qWeek, 1 tabs",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-08-14T19:00:00.000Z",
+                                        "end" => "2014-09-14T19:00:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "qWeek"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 10.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2763106",
+                            "display" => "methotrexate 10 mg oral tablet"
+                        },
+                        "quantity" => {
+                            "value" => "1",
+                            "units" => "tabs"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "16566163",
+                    "meta" => {
+                        "versionId" => "0"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Zocor 10 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 340 mg, 34 tabs, Oral, Once a day (at bedtime), tabs&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2768849",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "104490",
+                                        "display" => "Simvastatin 10 MG Oral Tablet [Zocor]"
+                                    }
+                                ],
+                                "text" => "Zocor 10 mg oral tablet"
+                            },
+                            "name" => "Zocor 10 mg oral tablet"
+                        }
+                    ],
+                    "status" => "active",
+                    "patient" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/2692009",
+                        "display" => "Song, River"
+                    },
+                    "medication" => {
+                        "reference" => "#2768849",
+                        "display" => "Zocor 10 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "340 mg, 34 tabs, Oral, Once a day (at bedtime), tabs",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-08-14T19:00:00.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "Once a day (at bedtime)"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 340.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2768849",
+                            "display" => "Zocor 10 mg oral tablet"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+
+    MAY2015_MEDICATION_PRESCRIPTION_INACTIVE_BUNDLE ||= {
+        "resourceType" => "Bundle",
+        "id" => "e8e295fb-9370-40bc-88ba-87d1311ac619",
+        "type" => "searchset",
+        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "link" => [
+            {
+                "relation" => "self",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5"
+            },
+            {
+                "relation" => "next",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5&scheduledtiming-bounds-end=%3C%3D2015-02-10T16%3A20%3A25.000Z&context=14199276"
+            }
+        ],
+        "entry" => [
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14192352",
+                    "meta" => {
+                        "versionId" => "1"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: amoxicillin 500 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 10.0 mg, Chewed, 1-3x/Day, Take twice daily with meal, 1.0 bottles, PRN: Instruct, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: stopped&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "22283427",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "308192",
+                                        "display" => "Amoxicillin 500 MG Oral Tablet"
+                                    }
+                                ],
+                                "text" => "amoxicillin 500 mg oral tablet"
+                            },
+                            "name" => "amoxicillin 500 mg oral tablet"
+                        }
+                    ],
+                    "status" => "stopped",
+                    "patient" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1590015",
+                        "display" => "Who, Doctor"
+                    },
+                    "medication" => {
+                        "reference" => "#22283427",
+                        "display" => "amoxicillin 500 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "10.0 mg, Chewed, 1-3x/Day, Take twice daily with meal, 1.0 bottles, PRN: Instruct, 0 Refill(s)",
+                            "additionalInstructions" => {
+                                "text" => "Take twice daily with meal"
+                            },
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-09-17T01:31:00.000Z",
+                                        "end" => "2015-06-18T22:38:45.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "1-3x/Day"
+                                }
+                            },
+                            "asNeededCodeableConcept" => {
+                                "text" => "Instruct"
+                            },
+                            "route" => {
+                                "text" => "Chewed"
+                            },
+                            "doseQuantity" => {
+                                "value" => 10.0,
+                                "units" => "mg"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#22283427",
+                            "display" => "amoxicillin 500 mg oral tablet"
+                        },
+                        "numberOfRepeatsAllowed" => 0,
+                        "quantity" => {
+                            "value" => 1.0,
+                            "units" => "bottles"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14201768",
+                    "meta" => {
+                        "versionId" => "3"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin 325 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 1.0 tabs, Oral, Daily, 100.0 tabs, PRN: Instruct, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: completed&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2750107",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "212033",
+                                        "display" => "Aspirin 325 MG Oral Tablet"
+                                    }
+                                ],
+                                "text" => "aspirin 325 mg oral tablet"
+                            },
+                            "name" => "aspirin 325 mg oral tablet"
+                        }
+                    ],
+                    "status" => "completed",
+                    "patient" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1314013",
+                        "display" => "Song, River"
+                    },
+                    "medication" => {
+                        "reference" => "#2750107",
+                        "display" => "aspirin 325 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "1.0 tabs, Oral, Daily, 100.0 tabs, PRN: Instruct, 0 Refill(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2015-04-14T15:45:00.000Z",
+                                        "end" => "2015-06-18T22:35:21.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "Daily"
+                                }
+                            },
+                            "asNeededCodeableConcept" => {
+                                "text" => "Instruct"
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 1.0,
+                                "units" => "tabs"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2750107",
+                            "display" => "aspirin 325 mg oral tablet"
+                        },
+                        "numberOfRepeatsAllowed" => 0,
+                        "quantity" => {
+                            "value" => 100.0,
+                            "units" => "tabs"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14192976",
+                    "meta" => {
+                        "versionId" => "3"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Nyquil Liquicap oral capsule&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 1.0 tabs, Oral, 1-2x/Day, 10.0 tabs, 10 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: completed&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2749728",
+                            "code" => {
+                                "text" => "Nyquil Liquicap oral capsule"
+                            },
+                            "name" => "Nyquil Liquicap oral capsule"
+                        }
+                    ],
+                    "status" => "completed",
+                    "patient" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1590015",
+                        "display" => "Who, Doctor"
+                    },
+                    "medication" => {
+                        "reference" => "#2749728",
+                        "display" => "Nyquil Liquicap oral capsule"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "1.0 tabs, Oral, 1-2x/Day, 10.0 tabs, 10 Refill(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-09-23T14:50:00.000Z",
+                                        "end" => "2015-05-22T00:41:40.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "1-2x/Day"
+                                }
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 1.0,
+                                "units" => "tabs"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2749728",
+                            "display" => "Nyquil Liquicap oral capsule"
+                        },
+                        "numberOfRepeatsAllowed" => 10,
+                        "quantity" => {
+                            "value" => 10.0,
+                            "units" => "tabs"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14193568",
+                    "meta" => {
+                        "versionId" => "1"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acetaZOLAMIDE 125 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 1.0 tabs, Oral, Daily, 90.0 tabs, PRN: Instruct, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: stopped&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2748405",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "18631",
+                                        "display" => "Azithromycin"
+                                    }
+                                ],
+                                "text" => "acetaZOLAMIDE 125 mg oral tablet"
+                            },
+                            "name" => "acetaZOLAMIDE 125 mg oral tablet"
+                        }
+                    ],
+                    "status" => "stopped",
+                    "patient" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1314015",
+                        "display" => "Howser, Doogie"
+                    },
+                    "medication" => {
+                        "reference" => "#2748405",
+                        "display" => "acetaZOLAMIDE 125 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "1.0 tabs, Oral, Daily, 90.0 tabs, PRN: Instruct, 0 Refill(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2014-10-07T16:13:00.000Z",
+                                        "end" => "2015-03-04T23:36:59.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "Daily"
+                                }
+                            },
+                            "asNeededCodeableConcept" => {
+                                "text" => "Instruct"
+                            },
+                            "route" => {
+                                "text" => "Oral"
+                            },
+                            "doseQuantity" => {
+                                "value" => 1.0,
+                                "units" => "tabs"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2748405",
+                            "display" => "acetaZOLAMIDE 125 mg oral tablet"
+                        },
+                        "numberOfRepeatsAllowed" => 0,
+                        "quantity" => {
+                            "value" => 90.0,
+                            "units" => "tabs"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "MedicationPrescription",
+                    "id" => "14198144",
+                    "meta" => {
+                        "versionId" => "1"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acetaminophen 160 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 1.0 tabs, Buccal, BID, 4.0 tabs, PRN: Instruct, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: stopped&lt;/p>&lt;/div>"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Medication",
+                            "id" => "2748051",
+                            "code" => {
+                                "coding" => [
+                                    {
+                                        "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                        "code" => "282464",
+                                        "display" => "Acetaminophen 160 MG Oral Tablet"
+                                    }
+                                ],
+                                "text" => "acetaminophen 160 mg oral tablet"
+                            },
+                            "name" => "acetaminophen 160 mg oral tablet"
+                        }
+                    ],
+                    "status" => "stopped",
+                    "patient" => {
+                        "reference" => "Patient/1316020"
+                    },
+                    "prescriber" => {
+                        "reference" => "Practitioner/1328007",
+                        "display" => "House, Gregory"
+                    },
+                    "medication" => {
+                        "reference" => "#2748051",
+                        "display" => "acetaminophen 160 mg oral tablet"
+                    },
+                    "dosageInstruction" => [
+                        {
+                            "text" => "1.0 tabs, Buccal, BID, 4.0 tabs, PRN: Instruct, 0 Refill(s)",
+                            "scheduledTiming" => {
+                                "repeat" => {
+                                    "bounds" => {
+                                        "start" => "2015-01-27T11:45:00.000Z",
+                                        "end" => "2015-02-10T16:22:23.000Z"
+                                    }
+                                },
+                                "code" => {
+                                    "text" => "BID"
+                                }
+                            },
+                            "asNeededCodeableConcept" => {
+                                "text" => "Instruct"
+                            },
+                            "route" => {
+                                "text" => "Buccal"
+                            },
+                            "doseQuantity" => {
+                                "value" => 1.0,
+                                "units" => "tabs"
+                            }
+                        }
+                    ],
+                    "dispense" => {
+                        "medication" => {
+                            "reference" => "#2748051",
+                            "display" => "acetaminophen 160 mg oral tablet"
+                        },
+                        "numberOfRepeatsAllowed" => 0,
+                        "quantity" => {
+                            "value" => 4.0,
+                            "units" => "tabs"
+                        }
+                    }
+                }
+            }
+        ]
     }
 
     MAY2015_OBSERVATION_BUNDLE ||= {
