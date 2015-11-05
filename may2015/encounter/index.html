@@ -68,6 +68,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Required?</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -75,8 +76,16 @@
   <tbody>
     <tr>
       <td><code>patient</code></td>
+      <td>This or _id</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
       <td>The patient present at the encounter. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or patient</td>
+      <td><a href="http://hl7.org/fhir/2015May/datatypes.html#id"><code>id</code></a></td>
+      <td>A single or comma separated list of Encounter ids. Example: <code>45678,89765</code>
 </td>
     </tr>
   </tbody>
@@ -88,21 +97,82 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "40be3b40-6945-4db9-b993-2f67a44c77a6",
+  "id": "2cd77130-032f-4354-921e-d05141ca2184",
   "type": "searchset",
   "base": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
   "total": 2,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=1316020"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?_id=3261906%2C2787906"
     }
   ],
   "entry": [
     {
       "resource": {
         "resourceType": "Encounter",
+        "id": "3261906",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://cerner.com/fhir/identifier/FINNBR",
+            "value": "20001427"
+          }
+        ],
+        "status": "in-progress",
+        "class": "outpatient",
+        "patient": {
+          "reference": "Patient/1316020"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ],
+                "text": "attender"
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/2386008",
+              "display": "Howser, Doogie"
+            }
+          }
+        ],
+        "period": {
+          "start": "2015-08-06T13:00:00.000Z"
+        },
+        "reason": [
+          {
+            "text": "Checkup"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "display": "Outpatient Ctr"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
         "id": "2787906",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-01-05T22:50:48.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;/div&gt;"
+        },
         "status": "in-progress",
         "patient": {
           "reference": "Patient/1316020"
@@ -122,43 +192,23 @@
               }
             ],
             "individual": {
-              "display": "Knight MD, Wayne"
+              "reference": "Practitioner/1746007",
+              "display": "Who, Doctor"
             }
           }
         ],
         "period": {
           "start": "2015-01-05T22:50:48.000Z"
         },
-        "location": [
+        "reason": [
           {
-            "location": {
-              "display": "Baseline East"
-            },
-            "period": {
-              "start": "2015-01-05T22:50:48.000Z"
-            }
+            "text": "pain"
           }
-        ]
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "2777906",
-        "status": "in-progress",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "period": {
-          "start": "2014-12-15T18:47:41.000Z"
-        },
+        ],
         "location": [
           {
             "location": {
               "display": "Baseline East"
-            },
-            "period": {
-              "start": "2014-12-15T18:47:41.000Z"
             }
           }
         ]
@@ -180,8 +230,20 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Encounter",
-  "id": "2787906",
+  "id": "3261906",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "http://cerner.com/fhir/identifier/FINNBR",
+      "value": "20001427"
+    }
+  ],
   "status": "in-progress",
+  "class": "outpatient",
   "patient": {
     "reference": "Patient/1316020"
   },
@@ -200,20 +262,23 @@
         }
       ],
       "individual": {
-        "display": "Knight MD, Wayne"
+        "reference": "Practitioner/2386008",
+        "display": "Howser, Doogie"
       }
     }
   ],
   "period": {
-    "start": "2015-01-05T22:50:48.000Z"
+    "start": "2015-08-06T13:00:00.000Z"
   },
+  "reason": [
+    {
+      "text": "Checkup"
+    }
+  ],
   "location": [
     {
       "location": {
-        "display": "Baseline East"
-      },
-      "period": {
-        "start": "2015-01-05T22:50:48.000Z"
+        "display": "Outpatient Ctr"
       }
     }
   ]

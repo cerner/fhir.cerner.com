@@ -67,6 +67,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Required?</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -74,6 +75,7 @@
   <tbody>
     <tr>
       <td><code>patient</code></td>
+      <td>Y</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
       <td>The patient for the vaccination record. Example: <code>12345</code>
 </td>
@@ -87,57 +89,233 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "27780a25-18ba-4fd8-9c18-e3beb215d2c2",
+  "id": "6236583e-e881-4bce-9964-decd5457b02f",
   "type": "searchset",
   "base": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
+  "total": 6,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=3602356"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=1083999"
     }
   ],
   "entry": [
     {
       "resource": {
         "resourceType": "Immunization",
-        "id": "2571542",
-        "date": "2014-03-11T20:00:00.000Z",
+        "id": "M2247765",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2011-11-29&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Physician, One&lt;/p&gt;&lt;/div&gt;"
+        },
+        "date": "2011-11-29",
         "vaccineType": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/v3/VaccineType",
-              "code": "88"
+              "code": "43"
             }
-          ],
-          "text": "Fluzone Intradermal 2013-2014"
+          ]
         },
         "patient": {
-          "reference": "Patient/3602356"
+          "reference": "Patient/1083999"
         },
         "wasNotGiven": false,
-        "reported": false
+        "reported": true,
+        "performer": {
+          "reference": "Practitioner/1262007",
+          "display": "Physician, One"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        }
       }
     },
     {
       "resource": {
         "resourceType": "Immunization",
-        "id": "2571538",
-        "date": "2012-09-05T18:28:00.000Z",
+        "id": "M2247761",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2011-11-29&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Physician, One&lt;/p&gt;&lt;/div&gt;"
+        },
+        "date": "2011-11-29",
         "vaccineType": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/v3/VaccineType",
-              "code": "28"
+              "code": "43"
             }
           ],
-          "text": "diphtheria toxoid"
+          "text": "hepatitis B vaccine pediatric 10 mcg/0.5 mL intramuscular suspension (obsolete)"
         },
         "patient": {
-          "reference": "Patient/3602356"
+          "reference": "Patient/1083999"
         },
         "wasNotGiven": false,
-        "reported": false
+        "reported": true,
+        "performer": {
+          "reference": "Practitioner/1262007",
+          "display": "Physician, One"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "M2247769",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2011-11-29&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Physician, One&lt;/p&gt;&lt;/div&gt;"
+        },
+        "date": "2011-11-29",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/VaccineType",
+              "code": "43"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/1083999"
+        },
+        "wasNotGiven": false,
+        "reported": true,
+        "performer": {
+          "reference": "Practitioner/1262007",
+          "display": "Physician, One"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "manufacturer": {
+          "reference": "Organization/4296975",
+          "display": "Able Laboratories Inc"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "M2247752",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2012-03-16T09:43:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Physician, One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: left arm&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: ID&lt;/p&gt;&lt;/div&gt;"
+        },
+        "date": "2012-03-16T09:43:00.000Z",
+        "vaccineType": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/VaccineType",
+              "code": "83"
+            }
+          ],
+          "text": "hepatitis A pediatric vaccine"
+        },
+        "patient": {
+          "reference": "Patient/1083999"
+        },
+        "wasNotGiven": false,
+        "reported": false,
+        "performer": {
+          "reference": "Practitioner/1262007",
+          "display": "Physician, One"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "manufacturer": {
+          "reference": "Organization/4297457",
+          "display": "A-A Spectrum Healthcare Products"
+        },
+        "lotNumber": "11",
+        "expirationDate": "2013-03-25",
+        "site": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/ActSite",
+              "code": "LA",
+              "display": "left arm"
+            }
+          ],
+          "text": "left arm"
+        },
+        "route": {
+          "text": "ID"
+        },
+        "doseQuantity": {
+          "value": 1.0,
+          "units": "mL"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "HM1110832",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine Type&lt;/b&gt;: CERNER_CDC_IPV&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date Attempted&lt;/b&gt;: 2011-05-17&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;/div&gt;"
+        },
+        "date": "2011-05-17",
+        "vaccineType": {
+          "text": "CERNER_CDC_IPV"
+        },
+        "patient": {
+          "reference": "Patient/1083999"
+        },
+        "wasNotGiven": true,
+        "reported": false,
+        "performer": {
+          "reference": "Practitioner/1",
+          "display": "Who, Doctor"
+        },
+        "location": {
+          "reference": "Organization/589723"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "HM1110830",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine Type&lt;/b&gt;: CERNER_CDC_INFLUENZA_CHILD&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason Not Given&lt;/b&gt;: patient objection&lt;/p&gt;&lt;/div&gt;"
+        },
+        "vaccineType": {
+          "text": "CERNER_CDC_INFLUENZA_CHILD"
+        },
+        "patient": {
+          "reference": "Patient/1083999"
+        },
+        "wasNotGiven": true,
+        "reported": false,
+        "performer": {
+          "reference": "Practitioner/1",
+          "display": "Who, Doctor"
+        },
+        "location": {
+          "reference": "Organization/589723"
+        },
+        "explanation": {
+          "reasonNotGiven": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ActReason",
+                  "code": "PATOBJ",
+                  "display": "patient objection"
+                }
+              ],
+              "text": "patient objection"
+            }
+          ]
+        }
       }
     }
   ]
