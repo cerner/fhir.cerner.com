@@ -1508,7 +1508,7 @@ module Cerner
                         "text" => "Radiology"
                     },
                     "diagnosticDateTime" => "2015-08-06T20:03:09.000Z",
-                    "conclusion" => "Report_asdfasdfasdf jjimmmy   Signature Line:***** Preliminary Report *****   Transcribed by: DW      Reason for exam:4061979"
+                    "conclusion" => "Report   Signature Line:***** Preliminary Report *****   Transcribed by: DW      Reason for exam:4061979"
                 }
             },{
                 "resource" => {
