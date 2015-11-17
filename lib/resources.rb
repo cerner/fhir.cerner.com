@@ -3108,78 +3108,415 @@ module Cerner
     }
 
     MAY2015_OBSERVATION_BUNDLE ||= {
-        "resourceType"=>"Bundle",
-        "id"=>"15262c30-ec5a-4ab5-a2ac-d5d879d1f180",
+        "resourceType" => "Bundle",
+        "id" => "17207056-05f2-4e07-9770-77cbe0cbc8b0",
         "type" => "searchset",
         "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-        "total" => 5,
-        "link"=>[{"relation"=>"self",
-                  "url"=>"https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject:Patient=3602355"}],
-        "entry"=>[{"resource"=>{"resourceType"=>"Observation",
-                                "id" => "4707327",
-                                "code"=>{"coding"=>[{"system"=>"http://loinc.org/",
-                                                     "code"=>"35591-7"}],
-                                         "text"=>"Estimated Creatinine Clearance"},
-                                "valueQuantity"=>{"value"=>37.83,
-                                                  "units"=>"mL/min",
-                                                  "system"=>"http://unitsofmeasure.org",
-                                                  "code"=>"mL/min"},
-                                "appliesDateTime"=>"2015-03-27T19:08:15.000Z",
-                                "status"=>"final",
-                                "reliability"=>"ok",
-                                "subject"=>{"reference"=>"Patient/3602355"}}},
-                  {"resource"=>{"resourceType"=>"Observation",
-                                "id" => "4707333",
-                                "code"=>{"coding"=>[{"system"=>"http://loinc.org/",
-                                                     "code"=>"35591-7"}],
-                                         "text"=>"Estimated Creatinine Clearance"},
-                                "valueQuantity"=>{"value"=>30.26,
-                                                  "units"=>"mL/min",
-                                                  "system"=>"http://unitsofmeasure.org",
-                                                  "code"=>"mL/min"},
-                                "appliesDateTime"=>"2015-03-27T19:06:35.000Z",
-                                "status"=>"final",
-                                "reliability"=>"ok",
-                                "subject"=>{"reference"=>"Patient/3602355"}}},
-                  {"resource"=>{"resourceType"=>"Observation",
-                                "id"=> "4707331",
-                                "code"=>{"coding"=>[{"system"=>"http://loinc.org/",
-                                                     "code"=>"2160-0"}],
-                                         "text"=>"Creatinine Lvl"},
-                                "valueQuantity"=>{"value"=>1.2,
-                                                  "units"=>"mg/dL",
-                                                  "system"=>"http://unitsofmeasure.org",
-                                                  "code"=>"mg/dL"},
-                                "appliesDateTime"=>"2015-03-15T14:00:00.000Z",
-                                "status"=>"final",
-                                "reliability"=>"ok",
-                                "subject"=>{"reference"=>"Patient/3602355"}}},
-                  {"resource"=>{"resourceType"=>"Observation",
-                                "id"=> "4707335",
-                                "code"=>{"coding"=>[{"system"=>"http://loinc.org/",
-                                                     "code"=>"1751-7"}],
-                                         "text"=>"Albumin Lvl"},
-                                "valueQuantity"=>{"value"=>4.1,
-                                                  "units"=>"g/dL",
-                                                  "system"=>"http://unitsofmeasure.org",
-                                                  "code"=>"g/dL"},
-                                "appliesDateTime"=>"2015-03-15T14:00:00.000Z",
-                                "status"=>"final",
-                                "reliability"=>"ok",
-                                "subject"=>{"reference"=>"Patient/3602355"}}},
-                  {"resource"=>{"resourceType"=>"Observation",
-                                "id"=> "4679258",
-                                "code"=>{"coding"=>[{"system"=>"http://loinc.org/",
-                                                     "code"=>"6768-6"}],
-                                         "text"=>"Alk Phos"},
-                                "valueQuantity"=>{"value"=>91.0,
-                                                  "units"=>"IU/L",
-                                                  "system"=>"http://unitsofmeasure.org",
-                                                  "code"=>"[iU]/d"},
-                                "appliesDateTime"=>"2015-03-15T14:00:00.000Z",
-                                "status"=>"final",
-                                "reliability"=>"ok",
-                                "subject"=>{"reference"=>"Patient/3602355"}}}]
+        "link" => [
+            {
+                "relation" => "self",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&_count=10&date=%3E2014-09-24T12%3A00%3A00.000Z&date=%3C2015-09-24T12%3A00%3A00.000Z"
+            },
+            {
+                "relation" => "next",
+                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&pageContext=H4sIAAAAAAAAAJ1TbW%2BbMBD%2BK63zlSJDSLvxqYQ4GxJJEJhor0IWOKklsCNjqmZt%2F%2FvOoVVfpEnbENJxvueeO%2B4536OOs37QvOPSbD0Uolp1bs215Nrt%2BtvarVshRc1afgsI9xXaZR37paR7YHsh92508jK257GSht%2BZyfW50QMH8%2FeUtRaGa8HcnBstID4%2FEgsquImfQufXk0HLcOQLO9GEXHfugeteybCXDZf70L8KAuxhgPrYCy7wxws%2FoJ4fYgyvizH%2BNoZmfwidUt9VqZXmrlYtP2i1Ey1%2FrkV%2FDBhPm9RJFuOXB7lyaFsw86hI4iqiNE%2FmJSUFHJHlksQ02ZJqEVECB1GanuWkKFN6VtjIZn2CrTL6tUqTgr53crIkOVnHpMqj9SfiRKecKss322RBciferFZkTZ1tlJaW32oA5p9keKvsXDRC89oIJVlrBS4MM%2FyFek2%2B0Cou82KT27FeYuzPZlMnCD5M%2FSvseIF%2FCdbH9gHAjrW9Tctysk02ZfGS%2BjQ1aPVh8oCRg3pVC9Z%2BFr1R%2Bmi38x7VUHoPXtz0KPz%2B00EHZgT0nDToWXYHscHcKNiXI%2BzzKBOQad4y%2Bw%2F9jThYNOCsnNkoZ5ksAPzfmgP%2FTshmfszGdlBoh%2FPowHUarOfhx999w9l9awMAAA%3D%3D&direction=NEXT"
+            }
+        ],
+        "entry" => [
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "3025861",
+                    "meta" => {
+                        "versionId" => "3025861",
+                        "lastUpdated" => "2014-09-24T23:18:40.000Z"
+                    },
+                    "contained" => [
+                        {
+                            "resourceType" => "Observation",
+                            "id" => "3025861-q6930392",
+                            "meta" => {
+                                "lastUpdated" => "2014-09-24T23:18:40.000Z"
+                            },
+                            "text" => {
+                                "status" => "generated",
+                                "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Category&lt;/b>: &lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Alcohol use&lt;/p>&lt;p>&lt;b>Response&lt;/b>: Current&lt;/p>&lt;/div>"
+                            },
+                            "code" => {
+                                "text" => "SHX Alcohol use"
+                            },
+                            "valueString" => "Current",
+                            "issued" => "2014-09-24T23:18:40.000Z",
+                            "status" => "final",
+                            "subject" => {
+                                "reference" => "Patient/2744010"
+                            }
+                        },
+                        {
+                            "resourceType" => "Observation",
+                            "id" => "3025861-q6930388",
+                            "meta" => {
+                                "lastUpdated" => "2014-09-24T23:18:40.000Z"
+                            },
+                            "text" => {
+                                "status" => "generated",
+                                "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Category&lt;/b>: &lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Alcohol type&lt;/p>&lt;p>&lt;b>Response&lt;/b>: Wine&lt;/p>&lt;/div>"
+                            },
+                            "code" => {
+                                "text" => "SHX Alcohol type"
+                            },
+                            "valueString" => "Wine",
+                            "issued" => "2014-09-24T23:18:40.000Z",
+                            "status" => "final",
+                            "subject" => {
+                                "reference" => "Patient/2744010"
+                            }
+                        },
+                        {
+                            "resourceType" => "Observation",
+                            "id" => "3025861-q6930384",
+                            "meta" => {
+                                "lastUpdated" => "2014-09-24T23:18:40.000Z"
+                            },
+                            "text" => {
+                                "status" => "generated",
+                                "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Category&lt;/b>: &lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Alcohol frequency&lt;/p>&lt;p>&lt;b>Response&lt;/b>: Daily&lt;/p>&lt;/div>"
+                            },
+                            "code" => {
+                                "text" => "SHX Alcohol frequency"
+                            },
+                            "valueString" => "Daily",
+                            "issued" => "2014-09-24T23:18:40.000Z",
+                            "status" => "final",
+                            "subject" => {
+                                "reference" => "Patient/2744010"
+                            }
+                        }
+                    ],
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://snomed.info/sct",
+                                "code" => "363905002",
+                                "display" => "Details of alcohol drinking behavior (observable entity)"
+                            }
+                        ],
+                        "text" => "Alcohol"
+                    },
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "related" => [
+                        {
+                            "type" => "has-component",
+                            "target" => {
+                                "reference" => "#3025861-q6930392"
+                            }
+                        },
+                        {
+                            "type" => "has-component",
+                            "target" => {
+                                "reference" => "#3025861-q6930388"
+                            }
+                        },
+                        {
+                            "type" => "has-component",
+                            "target" => {
+                                "reference" => "#3025861-q6930384"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "M4637256",
+                    "meta" => {
+                        "versionId" => "17-4637255",
+                        "lastUpdated" => "2015-10-16T07:17:08.000Z"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Sodium Lvl&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 234 mEq/dL&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2015-04-17T06:32:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 135 mEq/dL High: 150 mEq/dL&lt;/p>&lt;/div>"
+                    },
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org",
+                                "code" => "2951-2",
+                                "display" => "SODIUM:SCNC:PT:SER/PLAS:QN:"
+                            }
+                        ],
+                        "text" => "Sodium Lvl"
+                    },
+                    "valueQuantity" => {
+                        "value" => 234,
+                        "units" => "mEq/dL",
+                        "system" => "http://unitsofmeasure.org",
+                        "code" => "meq/dL"
+                    },
+                    "interpretation" => {
+                        "text" => "CRIT"
+                    },
+                    "appliesDateTime" => "2015-04-17T06:32:00.000Z",
+                    "issued" => "2015-04-17T06:36:44.000Z",
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2951906"
+                    },
+                    "referenceRange" => {
+                        "low" => {
+                            "value" => 135,
+                            "units" => "mEq/dL",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "meq/dL"
+                        },
+                        "high" => {
+                            "value" => 150,
+                            "units" => "mEq/dL",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "meq/dL"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "M4637264",
+                    "meta" => {
+                        "versionId" => "17-4637263",
+                        "lastUpdated" => "2015-10-16T07:17:23.000Z"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Chloride&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 233 mmol/L&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2015-04-17T06:24:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 98 mmol/L High: 107 mmol/L&lt;/p>&lt;/div>"
+                    },
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org",
+                                "code" => "2075-0",
+                                "display" => "CHLORIDE:SCNC:PT:SER/PLAS:QN:"
+                            }
+                        ],
+                        "text" => "Chloride"
+                    },
+                    "valueQuantity" => {
+                        "value" => 233,
+                        "units" => "mmol/L",
+                        "system" => "http://unitsofmeasure.org",
+                        "code" => "mmol/L"
+                    },
+                    "interpretation" => {
+                        "text" => "CRIT"
+                    },
+                    "appliesDateTime" => "2015-04-17T06:24:00.000Z",
+                    "issued" => "2015-04-17T06:42:24.000Z",
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2951906"
+                    },
+                    "referenceRange" => {
+                        "low" => {
+                            "value" => 98,
+                            "units" => "mmol/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mmol/L"
+                        },
+                        "high" => {
+                            "value" => 107,
+                            "units" => "mmol/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mmol/L"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "M4637268",
+                    "meta" => {
+                        "versionId" => "17-4637267",
+                        "lastUpdated" => "2015-10-16T07:17:23.000Z"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: BUN&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 50 mg/dL&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2015-04-17T06:24:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 10 mg/dL High: 20 mg/dL&lt;/p>&lt;/div>"
+                    },
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org",
+                                "code" => "3094-0",
+                                "display" => "UREA NITROGEN:MCNC:PT:SER/PLAS:QN:"
+                            }
+                        ],
+                        "text" => "BUN"
+                    },
+                    "valueQuantity" => {
+                        "value" => 50,
+                        "units" => "mg/dL",
+                        "system" => "http://unitsofmeasure.org",
+                        "code" => "mg/dL"
+                    },
+                    "interpretation" => {
+                        "text" => "CRIT"
+                    },
+                    "appliesDateTime" => "2015-04-17T06:24:00.000Z",
+                    "issued" => "2015-04-17T06:58:07.000Z",
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2951906"
+                    },
+                    "referenceRange" => {
+                        "low" => {
+                            "value" => 10,
+                            "units" => "mg/dL",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mg/dL"
+                        },
+                        "high" => {
+                            "value" => 20,
+                            "units" => "mg/dL",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mg/dL"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "M4637260",
+                    "meta" => {
+                        "versionId" => "17-4637259",
+                        "lastUpdated" => "2015-10-16T07:17:23.000Z"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Potassium Lvl&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 2.34 mEq/L&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2015-04-17T06:24:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p>&lt;/div>"
+                    },
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org",
+                                "code" => "2823-3",
+                                "display" => "POTASSIUM:SCNC:PT:SER/PLAS:QN:"
+                            }
+                        ],
+                        "text" => "Potassium Lvl"
+                    },
+                    "valueQuantity" => {
+                        "value" => 2.34,
+                        "units" => "mEq/L",
+                        "system" => "http://unitsofmeasure.org",
+                        "code" => "meq/L"
+                    },
+                    "interpretation" => {
+                        "text" => "CRIT"
+                    },
+                    "appliesDateTime" => "2015-04-17T06:24:00.000Z",
+                    "issued" => "2015-04-17T06:40:38.000Z",
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2951906"
+                    },
+                    "referenceRange" => {
+                        "low" => {
+                            "value" => 3.5,
+                            "units" => "mEq/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "meq/L"
+                        },
+                        "high" => {
+                            "value" => 5.1,
+                            "units" => "mEq/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "meq/L"
+                        }
+                    }
+                }
+            },
+            {
+                "resource" => {
+                    "resourceType" => "Observation",
+                    "id" => "M4483270",
+                    "meta" => {
+                        "versionId" => "1-4483269",
+                        "lastUpdated" => "2015-03-13T18:15:31.000Z"
+                    },
+                    "text" => {
+                        "status" => "generated",
+                        "div" => "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 2744010&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: CRP-hs&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 3.1 mg/L&lt;/p>&lt;p>&lt;b>Risk Level&lt;/b>: Above high normal&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2015-03-13T18:10:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 1.0 mg/L High: 3.0 mg/L&lt;/p>&lt;/div>"
+                    },
+                    "code" => {
+                        "coding" => [
+                            {
+                                "system" => "http://loinc.org",
+                                "code" => "30522-7",
+                                "display" => "C REACTIVE PROTEIN:MCNC:PT:SER/PLAS:QN:HIGH SENSITIVITY"
+                            }
+                        ],
+                        "text" => "CRP-hs"
+                    },
+                    "valueQuantity" => {
+                        "value" => 3.1,
+                        "units" => "mg/L",
+                        "system" => "http://unitsofmeasure.org",
+                        "code" => "mg/L"
+                    },
+                    "interpretation" => {
+                        "coding" => [
+                            {
+                                "system" => "http://hl7.org/fhir/v2/0078",
+                                "code" => "H",
+                                "display" => "Above high normal"
+                            }
+                        ],
+                        "text" => "HI"
+                    },
+                    "appliesDateTime" => "2015-03-13T18:10:00.000Z",
+                    "issued" => "2015-03-13T18:15:30.000Z",
+                    "status" => "final",
+                    "subject" => {
+                        "reference" => "Patient/2744010"
+                    },
+                    "encounter" => {
+                        "reference" => "Encounter/2951906"
+                    },
+                    "referenceRange" => {
+                        "low" => {
+                            "value" => 1.0,
+                            "units" => "mg/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mg/L"
+                        },
+                        "high" => {
+                            "value" => 3.0,
+                            "units" => "mg/L",
+                            "system" => "http://unitsofmeasure.org",
+                            "code" => "mg/L"
+                        }
+                    }
+                }
+            }
+        ]
     }
 
   end
