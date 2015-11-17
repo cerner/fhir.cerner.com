@@ -68,6 +68,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Required?</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -75,45 +76,52 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
+      <td>N, if populated all other parameters are ignored</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>birthdate</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#date"><code>date</code></a></td>
       <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
 </td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
       <td>A patient identifier.  Example: <code>01022228</code>
 </td>
     </tr>
     <tr>
       <td><code>name</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#string"><code>string</code></a></td>
       <td>A portion of either family or given name of the patient. Example: <code>Peters</code>
 </td>
     </tr>
     <tr>
       <td><code>telecom</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
       <td>The value in any kind of telecom details of the patient. Example: <code>(816) 475-2374</code>
 </td>
     </tr>
     <tr>
-      <td><code>start</code></td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#number"><code>number</code></a></td>
-      <td>The offset to use when returning results. Defaults to <code>0</code>.</td>
-    </tr>
-    <tr>
       <td><a href="http://hl7.org/fhir/2015May/search.html#count"><code>_count</code></a></td>
+      <td>N</td>
       <td><a href="http://hl7.org/fhir/2015May/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
     </tr>
   </tbody>
 </table>
+
+<p>Note: Parameters (other than <code>_id</code>) will currently perform a “fuzzy” search.</p>
 
 <h3 id="response">Response</h3>
 
@@ -121,21 +129,25 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "60eb43c1-1258-4d30-9d9e-ed0b9e2cc33b",
+  "id": "d25d5d3c-ea8e-4e52-8085-3d29bdf790b7",
   "type": "searchset",
   "base": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
+  "total": 8,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Smith&amp;start=0&amp;_count=20"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=smert&amp;_count=20"
     }
   ],
   "entry": [
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "725944",
+        "id": "687923",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, JEREMY CERNER&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1975-09-09&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
         "identifier": [
           {
             "use": "usual",
@@ -146,69 +158,49 @@
                   "code": "MR",
                   "display": "Medical record number"
                 }
-              ]
+              ],
+              "text": "Medical record number"
             },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000086"
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number"
-                }
-              ]
-            },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000057"
+            "value": "230"
           }
         ],
         "name": [
           {
             "use": "usual",
-            "text": "SMITH, MORGAN",
+            "text": "SMART, JEREMY CERNER",
             "family": [
-              "SMITH"
+              "SMART"
             ],
             "given": [
-              "MORGAN"
+              "JEREMY",
+              "CERNER"
             ]
           }
         ],
-        "telecom": [
-          {
-            "system": "phone",
-            "value": "(816) 867-5234",
-            "use": "home"
-          }
-        ],
-        "gender": "female",
-        "birthDate": "1970-01-01",
+        "gender": "male",
+        "birthDate": "1975-09-09",
         "deceasedBoolean": false,
         "address": [
           {
             "use": "home",
-            "text": "123 Sesame Street\nKansas City, MO 64112\nUSA",
+            "text": "43 5th Ave\nny, NY 77777\nUSA",
             "line": [
-              "123 Sesame Street"
+              "43 5th Ave"
             ],
-            "city": "Kansas City",
-            "state": "MO",
-            "postalCode": "64112"
+            "city": "ny",
+            "state": "NY",
+            "postalCode": "77777"
           }
         ],
         "maritalStatus": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/v3/MaritalStatus",
-              "code": "M",
-              "display": "Married"
+              "code": "S",
+              "display": "Never Married"
             }
           ],
-          "text": "Married"
+          "text": "Never Married"
         },
         "active": true
       }
@@ -216,7 +208,11 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "685924",
+        "id": "1386025",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Maxwell 1017&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
         "identifier": [
           {
             "use": "usual",
@@ -227,10 +223,66 @@
                   "code": "MR",
                   "display": "Medical record number"
                 }
-              ]
+              ],
+              "text": "Medical record number"
             },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "00000227"
+            "value": "10000412"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "109180109"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "Smart, Maxwell 1017",
+            "family": [
+              "Smart"
+            ],
+            "given": [
+              "Maxwell 1017"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2012-04-25",
+        "deceasedBoolean": false,
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "1482007",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart-Template, Ros&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1985-05-05&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10000512"
           },
           {
             "use": "usual",
@@ -241,34 +293,398 @@
                   "code": "MR",
                   "display": "Medical record number"
                 }
-              ]
+              ],
+              "text": "Medical record number"
             },
-            "system": "http://cerner.com/fhir/identifier/MRN",
-            "value": "10000210"
+            "value": "319"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "314159265"
           }
         ],
         "name": [
           {
             "use": "usual",
-            "text": "SMITH, JOHN ANDREW",
+            "text": "Smart-Template, Ros",
             "family": [
-              "SMITH"
+              "Smart-Template"
             ],
             "given": [
-              "JOHN",
-              "ANDREW"
+              "Ros"
             ]
           }
         ],
         "gender": "male",
-        "birthDate": "1976-08-10",
+        "birthDate": "1985-05-05",
         "deceasedBoolean": false,
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/MaritalStatus",
+              "code": "S",
+              "display": "Never Married"
+            }
+          ],
+          "text": "Never Married"
+        },
         "careProvider": [
           {
-            "reference": "Practitioner/1448009",
-            "display": "Daniel,, Christina"
+            "reference": "Practitioner/1304007",
+            "display": "Student, Medical"
+          },
+          {
+            "reference": "Practitioner/1418008",
+            "display": "Who, Doctor"
+          },
+          {
+            "reference": "Practitioner/1284019",
+            "display": "Song, River"
           }
         ],
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "1514016",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart-Template, Rosi&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-07-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "8"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "888987888"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "Smart-Template, Rosi",
+            "family": [
+              "Smart-Template"
+            ],
+            "given": [
+              "Rosi"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2012-07-30",
+        "deceasedBoolean": false,
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "3256007",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, CARRIE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2005-11-21&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10002094"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10000723"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "326"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "984264454"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "SMART, CARRIE",
+            "family": [
+              "SMART"
+            ],
+            "given": [
+              "CARRIE"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "test001@cerner.com"
+          },
+          {
+            "system": "phone",
+            "value": "(816) 201-1024",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2005-11-21",
+        "deceasedBoolean": false,
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "3276007",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, Common&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1942-03-17&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "328"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10002100"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "98645987"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "SMART, Common",
+            "family": [
+              "SMART"
+            ],
+            "given": [
+              "Common"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1942-03-17",
+        "deceasedBoolean": false,
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "3288007",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, Amalia&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1944-02-13&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10002109"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "96538765"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "SMART, Amalia",
+            "family": [
+              "SMART"
+            ],
+            "given": [
+              "Amalia"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1944-02-13",
+        "deceasedBoolean": false,
+        "active": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "3312020",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, Healthwise&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1929-02-12&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10002122"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "value": "94686498"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "SMART, Healthwise",
+            "family": [
+              "SMART"
+            ],
+            "given": [
+              "Healthwise"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1929-02-12",
+        "deceasedBoolean": false,
         "active": true
       }
     }
@@ -288,7 +704,17 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Patient",
-  "id": "725944",
+  "id": "1316034",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Hilton, Amy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1978-08-06&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+      "valueDateTime": "1978-08-06T05:00:00.000Z"
+    }
+  ],
   "identifier": [
     {
       "use": "usual",
@@ -299,10 +725,10 @@
             "code": "MR",
             "display": "Medical record number"
           }
-        ]
+        ],
+        "text": "Medical record number"
       },
-      "system": "http://cerner.com/fhir/identifier/MRN",
-      "value": "10000086"
+      "value": "10000363"
     },
     {
       "use": "usual",
@@ -310,59 +736,162 @@
         "coding": [
           {
             "system": "http://hl7.org/fhir/v2/0203",
-            "code": "MR",
-            "display": "Medical record number"
+            "code": "SS",
+            "display": "Social Security number"
           }
-        ]
+        ],
+        "text": "Social Security number"
       },
-      "system": "http://cerner.com/fhir/identifier/MRN",
-      "value": "10000057"
+      "value": "527986895"
     }
   ],
   "name": [
     {
       "use": "usual",
-      "text": "SMITH, MORGAN",
+      "text": "Hilton, Amy",
       "family": [
-        "SMITH"
+        "Hilton"
       ],
       "given": [
-        "MORGAN"
+        "Amy"
       ]
     }
   ],
   "telecom": [
     {
+      "system": "email",
+      "value": "amy.hilton@secureemail.com"
+    },
+    {
       "system": "phone",
-      "value": "(816) 867-5234",
-      "use": "home"
+      "value": "913-919-2347 (0)",
+      "use": "work"
     }
   ],
-  "gender": "female",
-  "birthDate": "1970-01-01",
+  "gender": "male",
+  "birthDate": "1978-08-06",
   "deceasedBoolean": false,
+  "photo": [
+    {
+      "contentType": "image/jpeg",
+      "data": "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"
+    }
+  ],
   "address": [
     {
       "use": "home",
-      "text": "123 Sesame Street\nKansas City, MO 64112\nUSA",
+      "text": "13051 Roe\n, KS 66212",
       "line": [
-        "123 Sesame Street"
+        "13051 Roe"
       ],
-      "city": "Kansas City",
-      "state": "MO",
-      "postalCode": "64112"
+      "state": "KS",
+      "postalCode": "66212"
     }
   ],
   "maritalStatus": {
     "coding": [
       {
         "system": "http://hl7.org/fhir/v3/MaritalStatus",
-        "code": "M",
-        "display": "Married"
+        "code": "S",
+        "display": "Never Married"
       }
     ],
-    "text": "Married"
+    "text": "Never Married"
   },
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency"
+            }
+          ],
+          "text": "Emergency"
+        }
+      ],
+      "name": {
+        "text": "Hilton, Bob"
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8167964432",
+          "use": "home"
+        }
+      ]
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "parent",
+              "display": "Parent"
+            }
+          ],
+          "text": "Parent"
+        }
+      ],
+      "name": {
+        "text": "Hilton, Sharon"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "parent",
+              "display": "Parent"
+            }
+          ],
+          "text": "Parent"
+        }
+      ],
+      "name": {
+        "text": "Hilton, Bob"
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8167964432",
+          "use": "home"
+        }
+      ]
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "guardian",
+              "display": "Guardian"
+            }
+          ],
+          "text": "Guardian"
+        }
+      ],
+      "name": {
+        "text": "Hilton, Sharon"
+      }
+    }
+  ],
+  "careProvider": [
+    {
+      "reference": "Practitioner/1316022",
+      "display": "Who, Doctor"
+    },
+    {
+      "reference": "Practitioner/1314014",
+      "display": "Song, River"
+    }
+  ],
   "active": true
 }</code></pre>
 
