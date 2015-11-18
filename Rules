@@ -29,7 +29,7 @@ end
 
 compile '/dstu2/*' do
   filter :erb
-  filter :kramdown, :toc_levels => [2]
+  filter :kramdown, :toc_levels => [2,3]
   layout item[:layout] || 'dstu2_api'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html

@@ -1,0 +1,53 @@
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for item in data[:fields] %>
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          <% if !item[:url].nil? %>
+            <a target="_blank" href="<%= item[:url]%>"><code><%= item[:name]%></code></a>
+          <% else %>
+            <code><%= item[:name]%></code>
+          <% end %>
+        </td>
+        <td><%= item[:required] %> </td>
+        <td><%= item[:cardinality] %> </td>
+        <td><%= item[:type] %> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          <% unless item[:description].nil? %>
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li><%= item[:description] %></li></ul>
+          <%end%>
+
+          <% unless item[:example].nil? %>
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre><%= item[:example] %></pre></li></ul>
+          <%end%>
+
+          <% unless item[:note].nil? %>
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li><%= item[:note] %></li></ul>
+          <%end%>
+        </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
