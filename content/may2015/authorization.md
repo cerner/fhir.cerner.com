@@ -158,5 +158,5 @@ The refresh token issued is good while the user's session is still valid and can
 [8]: https://tools.ietf.org/html/rfc6750
 [9]: http://openid.net/connect/
 [10]: http://docs.smarthealthit.org/authorization/conformance-statement/  
-[11]: https://groups.google.com/forum/#!forum/cerner-fhir-developers
+[11]: http://www.cerner.com/FHIR_Application_Authorization_Request/
 [12]: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/
