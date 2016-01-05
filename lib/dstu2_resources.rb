@@ -424,5 +424,132 @@ module Cerner
         }
       ]
     }
+
+    DSTU2_PATIENT_1 ||= { 
+      "resourceType" => "Patient",
+      "id" => "20940091",
+      "text" => {
+        "status" => "generated",
+        "div" =>
+          "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Melody&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+      },
+      "extension" => [{
+                        "url" => "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+                        "valueDateTime" => "2012-04-25T16:30:00.000Z"
+                      }],
+      "identifier" => [{
+                         "use" => "usual",
+                         "type" => {
+                           "coding" => [{
+                                          "system" => "http://hl7.org/fhir/v2/0203",
+                                          "code" => "MR",
+                                          "display" => "Medical record number"
+                                        }],
+                           "text" => "Medical record number"
+                         },
+                         "value" => "10001185"
+                       }],
+      "active" => true,
+      "name" => [{
+                   "use" => "usual",
+                   "text" => "Pond, Melody",
+                   "family" => ["Pond"],
+                   "given" => ["Melody"]
+                 }],
+      "gender" => "male",
+      "birthDate" => "2012-04-25",
+      "deceasedBoolean" => false,
+      "contact" => [{
+                      "relationship" => [{
+                                           "coding" => [{
+                                                          "system" => "http://hl7.org/fhir/patient-contact-relationship",
+                                                          "code" => "parent",
+                                                          "display" => "Parent"
+                                                        }],
+                                           "text" => "Parent"
+                                         }],
+                      "name" => {
+                        "text" => "Williams, Rory"
+                      }
+                    }],
+      "careProvider" => [{
+                           "reference" => "Practitioner/1448008", "display" => "Kovarian, Madame"
+                         }]
+    }
+
+    DSTU2_PATIENT_2 ||= {
+      "resourceType" => "Patient",
+      "id" => "6219231",
+      "text" => {
+        "status" => "generated",
+        "div" =>
+          "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Annabeth&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2003-02-02&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+      },
+      "extension" => [{
+                        "url" => "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+                        "valueDateTime" => "2003-02-03T00:00:00.000Z"
+                      }],
+      "identifier" => [{
+                         "use" => "usual",
+                         "type" => {
+                           "coding" => [{
+                                          "system" => "http://hl7.org/fhir/v2/0203",
+                                          "code" => "MR",
+                                          "display" => "Medical record number"
+                                        }],
+                           "text" => "Medical record number"
+                         },
+                         "value" => "809723498234"
+                       }],
+      "active" => true,
+      "name" => [{
+                   "use" => "usual",
+                   "text" => "Pond, Annabeth",
+                   "family" => ["Pond"],
+                   "given" => ["Annabeth"]
+                 }],
+      "telecom" => [{
+                      "system" => "phone", "value" => "(111) 111-1111", "use" => "home"
+                    }],
+      "gender" => "female",
+      "birthDate" => "2003-02-02",
+      "deceasedBoolean" => false,
+      "address" => [{
+                      "use" => "home",
+                      "text" => "123123123123\nParkville, MO 64152\nUSA",
+                      "line" => ["123123123123"],
+                      "city" => "Parkville",
+                      "state" => "MO",
+                      "postalCode" => "64152"
+                    }],
+      "maritalStatus" => {
+        "coding" => [{
+                       "system" => "http://hl7.org/fhir/marital-status",
+                       "code" => "S",
+                       "display" => "Never Married"
+                     }],
+        "text" => "Never Married"
+      }
+    }
+
+    DSTU2_PATIENT_BUNDLE ||= {
+      "resourceType" => "Bundle",
+      "id" => "08638e55-cb75-4a66-b306-5e3c3938ef3f",
+      "type" => "searchset",
+      "total" => 2,
+      "link" => [{
+                   "relation" => "self",
+                   "url" =>
+                     "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Pond&start=0&_count=20"
+                 }],
+      "entry" => [{
+                    "fullUrl" =>
+                      "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/20940091",
+                    "resource" => DSTU2_PATIENT_1
+                  }, {
+                    "fullUrl" =>
+                      "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/6219231",
+                    "resource" => DSTU2_PATIENT_2
+                  }]}
   end
 end
