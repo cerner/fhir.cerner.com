@@ -13,10 +13,6 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-preprocess do
-  RedirectGenerator.generate(config[:redirects], items)
-end
-
 compile '/static/*' do
 end
 
@@ -27,6 +23,14 @@ compile '/dstu1/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
   layout item[:layout] || 'dstu1_api'
+  filter :relativize_paths, :type => :css
+  filter :relativize_paths, :type => :html
+end
+
+compile '/dstu2/*' do
+  filter :erb
+  filter :kramdown, :toc_levels => [2]
+  layout item[:layout] || 'dstu2_api'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end

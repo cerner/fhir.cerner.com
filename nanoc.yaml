@@ -69,26 +69,3 @@ checks:
     #   exclude: ['^/server_status']
     exclude: []
 
-redirects:
-  /dstu2/allergy-intolerance:
-    /may2015/allergy-intolerance
-  /dstu2/authorization:
-    /may2015/authorization
-  /dstu2/condition:
-    /may2015/condition
-  /dstu2/conformance:
-    /may2015/conformance
-  /dstu2/diagnostic-report:
-    /may2015/diagnostic-report
-  /dstu2/encounter:
-    /may2015/encounter
-  /dstu2/immunization:
-    /may2015/immunization
-  /dstu2/medication-prescription:
-    /may2015/medication-prescription
-  /dstu2/observation:
-    /may2015/observation
-  /dstu2/patient:
-    /may2015/patient
-  /dstu2:
-    /may2015

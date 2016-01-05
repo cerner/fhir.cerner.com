@@ -1,0 +1,20 @@
+<%= render 'head' %>
+
+<body class="dstu2_api">
+  <%= render 'header' %>
+
+  <div class="sub-nav">
+    <h2><a href="/dstu2/">API</a></h2>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <%= render 'dstu2_sidebar' %>
+  </div><!-- #wrapper -->
+
+  <%= render 'footer' %>
+</body>
+</html>
