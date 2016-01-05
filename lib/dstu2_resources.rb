@@ -1,6 +1,316 @@
 module Cerner
   module Resources
-    
+
+    DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
+      "resourceType"=> "Bundle",
+      "id"=> "b8ea9905-29fe-4d40-9d71-475ca2ebb209",
+      "type"=> "searchset",
+      "total"=> 3,
+      "link"=> [
+        {
+          "relation"=> "self",
+          "url"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&_count=50"
+        }
+      ],
+      "entry"=> [
+        {
+          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/16358117",
+          "resource"=> {
+            "resourceType"=> "MedicationStatement",
+            "id"=> "16358117",
+            "meta"=> {
+              "versionId"=> "1"
+            },
+            "text"=> {
+              "status"=> "generated",
+              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 325 mg, Oral, q4hr, PRN: headache&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            },
+            "contained"=> [
+              {
+                "resourceType"=> "Medication",
+                "id"=> "2750067",
+                "code"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code"=> "1191",
+                      "display"=> "Aspirin",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "aspirin"
+                },
+                "product"=> {
+                  "form"=> {
+                    "coding"=> [
+                      {
+                        "system"=> "http://snomed.info/sct",
+                        "code"=> "385055001",
+                        "display"=> "Tablet dose form (qualifier value)",
+                        "userSelected"=> false
+                      }
+                    ],
+                    "text"=> "Tab"
+                  }
+                }
+              }
+            ],
+            "patient"=> {
+              "reference"=> "Patient/1316024"
+            },
+            "informationSource"=> {
+              "reference"=> "Practitioner/1328007",
+              "display"=> "House, Gregory"
+            },
+            "dateAsserted"=> "2014-08-11T13:42:01.000-05:00",
+            "status"=> "active",
+            "effectivePeriod"=> {
+              "start"=> "2014-08-11T13:42:00.000-05:00"
+            },
+            "medicationReference"=> {
+              "reference"=> "#2750067",
+              "display"=> "aspirin"
+            },
+            "dosage"=> [
+              {
+                "text"=> "325 mg, Oral, q4hr, PRN: headache",
+                "timing"=> {
+                  "repeat"=> {
+                    "boundsPeriod"=> {
+                      "start"=> "2014-08-11T13:42:00.000-05:00"
+                    }
+                  },
+                  "code"=> {
+                    "text"=> "q4hr"
+                  }
+                },
+                "asNeededCodeableConcept"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://snomed.info/sct",
+                      "code"=> "25064002",
+                      "display"=> "headache (finding)",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "headache"
+                },
+                "route"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://snomed.info/sct",
+                      "code"=> "26643006",
+                      "display"=> "Oral route (qualifier value)",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "Oral"
+                },
+                "quantityQuantity"=> {
+                  "value"=> 325,
+                  "units"=> "mg",
+                  "system"=> "http://unitsofmeasure.org",
+                  "code"=> "mg"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19169979",
+          "resource"=> {
+            "resourceType"=> "MedicationStatement",
+            "id"=> "19169979",
+            "meta"=> {
+              "versionId"=> "0"
+            },
+            "text"=> {
+              "status"=> "generated",
+              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Imuran&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 50 mg, 1 tabs, Oral, BID&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            },
+            "contained"=> [
+              {
+                "resourceType"=> "Medication",
+                "id"=> "4310241",
+                "code"=> {
+                  "text"=> "Imuran"
+                },
+                "product"=> {
+                  "form"=> {
+                    "coding"=> [
+                      {
+                        "system"=> "http://snomed.info/sct",
+                        "code"=> "385055001",
+                        "display"=> "Tablet dose form (qualifier value)",
+                        "userSelected"=> false
+                      }
+                    ],
+                    "text"=> "Tab"
+                  }
+                }
+              }
+            ],
+            "patient"=> {
+              "reference"=> "Patient/1316024"
+            },
+            "informationSource"=> {
+              "reference"=> "Practitioner/1328007",
+              "display"=> "House, Gregory"
+            },
+            "dateAsserted"=> "2015-09-04T10:51:36.000-05:00",
+            "status"=> "active",
+            "effectivePeriod"=> {
+              "start"=> "2015-09-04T09:00:00.000-07:00"
+            },
+            "medicationReference"=> {
+              "reference"=> "#4310241",
+              "display"=> "Imuran"
+            },
+            "dosage"=> [
+              {
+                "text"=> "50 mg, 1 tabs, Oral, BID",
+                "timing"=> {
+                  "repeat"=> {
+                    "boundsPeriod"=> {
+                      "start"=> "2015-09-04T09:00:00.000-07:00"
+                    }
+                  },
+                  "code"=> {
+                    "coding"=> [
+                      {
+                        "system"=> "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                        "code"=> "BID",
+                        "display"=> "BID",
+                        "userSelected"=> false
+                      }
+                    ],
+                    "text"=> "BID"
+                  }
+                },
+                "route"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://snomed.info/sct",
+                      "code"=> "26643006",
+                      "display"=> "Oral route (qualifier value)",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "Oral"
+                },
+                "quantityQuantity"=> {
+                  "value"=> 50,
+                  "units"=> "mg",
+                  "system"=> "http://unitsofmeasure.org",
+                  "code"=> "mg"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19245893",
+          "resource"=> {
+            "resourceType"=> "MedicationStatement",
+            "id"=> "19245893",
+            "meta"=> {
+              "versionId"=> "0"
+            },
+            "text"=> {
+              "status"=> "generated",
+              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: azathioprine 50 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 50 mg, 1 tabs, Oral, BID, 60 tabs&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            },
+            "contained"=> [
+              {
+                "resourceType"=> "Medication",
+                "id"=> "2750424",
+                "code"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code"=> "197388",
+                      "display"=> "Azathioprine 50 MG Oral Tablet",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "azathioprine 50 mg oral tablet"
+                },
+                "product"=> {
+                  "form"=> {
+                    "coding"=> [
+                      {
+                        "system"=> "http://snomed.info/sct",
+                        "code"=> "385055001",
+                        "display"=> "Tablet dose form (qualifier value)",
+                        "userSelected"=> false
+                      }
+                    ],
+                    "text"=> "Tab"
+                  }
+                }
+              }
+            ],
+            "patient"=> {
+              "reference"=> "Patient/1316024"
+            },
+            "informationSource"=> {
+              "reference"=> "Practitioner/1328007",
+              "display"=> "House, Gregory"
+            },
+            "dateAsserted"=> "2015-09-09T19:00:21.000-05:00",
+            "status"=> "active",
+            "effectivePeriod"=> {
+              "start"=> "2015-09-09T17:01:00.000-07:00"
+            },
+            "medicationReference"=> {
+              "reference"=> "#2750424",
+              "display"=> "azathioprine 50 mg oral tablet"
+            },
+            "dosage"=> [
+              {
+                "text"=> "50 mg, 1 tabs, Oral, BID, 60 tabs",
+                "timing"=> {
+                  "repeat"=> {
+                    "boundsPeriod"=> {
+                      "start"=> "2015-09-09T17:01:00.000-07:00"
+                    }
+                  },
+                  "code"=> {
+                    "coding"=> [
+                      {
+                        "system"=> "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                        "code"=> "BID",
+                        "display"=> "BID",
+                        "userSelected"=> false
+                      }
+                    ],
+                    "text"=> "BID"
+                  }
+                },
+                "route"=> {
+                  "coding"=> [
+                    {
+                      "system"=> "http://snomed.info/sct",
+                      "code"=> "26643006",
+                      "display"=> "Oral route (qualifier value)",
+                      "userSelected"=> false
+                    }
+                  ],
+                  "text"=> "Oral"
+                },
+                "quantityQuantity"=> {
+                  "value"=> 50,
+                  "units"=> "mg",
+                  "system"=> "http://unitsofmeasure.org",
+                  "code"=> "mg"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+
     DSTU2_OPEN_METADATA ||= {
       "resourceType": "Conformance",
       "text": {
