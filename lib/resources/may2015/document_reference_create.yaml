@@ -1,0 +1,135 @@
+---
+field_name_base_url: http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource
+  example: DocumentReference
+  note: resourceType must be DocumentReference
+  url: http://hl7.org/fhir/2015May/json.html#1.17.2.4
+
+- name: subject
+  required: 'Yes'
+  cardinality: 0..1
+  type: PatientReference
+  description: Who or what is the subject of the document.
+  example: '{"reference": "Patient/1234"}'
+
+- name: type
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Kind of document.
+  example: |
+             {"coding": [
+               {"system": "http://loinc.org",
+                "code": "34840-9"}]}
+  note: The type must include a loinc coding.
+
+- name: author
+  required: 'Yes'
+  cardinality: 0..1
+  type: PractitionerReference
+  description: Who and/or what authored the document
+  example: |
+            {"author": [
+              {"reference": "Practitioner/21500917"}]}
+
+- name: indexed
+  required: 'Yes'
+  cardinality: 1..1
+  type: instant
+  description: When this document reference was created
+  example: '{"indexed": "2015-05-16T091014Z"}'
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: The status of this document reference
+  example: '{"status": "current"}'
+  note: Currently support 'current' only
+
+- name: docStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The status of underlying document
+  example: '{"status": "final"}'
+  note: Currently support 'final' and 'preliminary'
+
+- name: description
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Human-readable description (title)
+  example: '{"description": "Rheumatology Note"}'
+
+- name: content
+  required: 'Yes'
+  cardinality: 1..*
+  type: Attachment
+  description: The referenced document
+  children:
+
+    - name: contentType
+      required: 'Yes'
+      cardinality: 0..1
+      type: string
+      description: Mime type of the content, with charset etc.
+      example: |
+                {"content": [
+                  {"contentType": "application/xhtml+xml;charset=utf-8"}]}
+      note: contentType must be 'application/xhtml+xml;charset=utf-8'
+      url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.contentType
+
+    - name: data
+      required: 'Yes'
+      cardinality: 0..1
+      type: string
+      description: Data inline, base64-ed
+      example: |
+                {"content": [
+                  {"data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"}]}
+      url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data
+
+- name: context
+  required: 'Yes'
+  cardinality: 0..1
+  type: Element
+  description: The clinical context in which the document was prepared
+  children:
+
+  - name: period
+    required: 'No'
+    cardinality: 0..1
+    type: Period
+    description: When the documented service was performed.
+    example: |
+              {"context": {
+                "period" : {
+                  "end": "2015-08-20T091014Z"}}}
+    note: >
+            If provided, the service time must be set to context.period.end. If not provided, the document will be
+            stored with the indexed dateTime.
+
+  - name: related
+    required: 'Yes'
+    cardinality: 0..*
+    type: Element
+    description: Related things
+    children:
+
+      - name: ref
+        required: 'Yes'
+        cardinality: 0..1
+        type: Any
+        description: Related resource
+        example: |
+                  {"context": {
+                    "related": [
+                      {"ref": {
+                        "reference": "Encounter/31419016"}}]}
+        note: context.related.ref must be an Encounter reference
