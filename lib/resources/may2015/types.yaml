@@ -1,13 +1,14 @@
 ---
-Any:  <a target="_blank" href="http://hl7.org/fhir/2015May/resourcelist.html"><code>Any</code></a>
-Attachment: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#Attachment"><code>Attachment</code></a>
-Element: <a target="_blank" href="http://hl7.org/fhir/2015May/element.html"><code>Element</code></a>
-code: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#code"><code>code</code></a>
-dateTime: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#dateTime"><code>dateTime</code></a>
-EncounterReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/encounter.html"><code>Encounter</code></a>)
-instant: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#instant"><code>instant</code></a>
-PatientReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/patient.html"><code>Patient</code></a>)
-PractitionerReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/practitioner.html"><code>Practitioner</code></a>)
-Period: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#Period"><code>Period</code></a>
-string: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a>
-CodeableConcept: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>
+Any: http://hl7.org/fhir/2015May/resourcelist.html
+Attachment: http://hl7.org/fhir/2015May/datatypes.html#Attachment
+code: http://hl7.org/fhir/2015May/datatypes.html#code
+CodeableConcept: http://hl7.org/fhir/2015May/datatypes.html#CodeableConcept
+dateTime: http://hl7.org/fhir/2015May/datatypes.html#dateTime
+Element: http://hl7.org/fhir/2015May/element.html
+Encounter: http://hl7.org/fhir/2015May/encounter.html
+instant: http://hl7.org/fhir/2015May/datatypes.html#instant
+Patient: http://hl7.org/fhir/2015May/patient.html
+Period: http://hl7.org/fhir/2015May/datatypes.html#Period
+Practitioner: http://hl7.org/fhir/2015May/practitioner.html
+Reference: http://hl7.org/fhir/2015May/references.html
+string: http://hl7.org/fhir/2015May/datatypes.html#string

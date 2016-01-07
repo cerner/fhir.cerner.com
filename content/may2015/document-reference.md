@@ -22,7 +22,7 @@ To successfully POST a document, the following headers must be provided. Documen
 
 ### Body fields
 
-<%= definition_table(:document_reference_create, :may2015) %>
+<%= definition_table(:document_reference, :create, :may2015) %>
 
 #### Example Body
 

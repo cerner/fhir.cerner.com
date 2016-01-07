@@ -1,25 +1,39 @@
 require 'erb'
 require 'yaml'
 
-def definition_table(content_key, version)
-  DefinitionTableGenerator.new.field_definition_table(content_key, version)
+def definition_table(content_key, action, version)
+  DefinitionTableGenerator.new(version, action).field_definition_table(content_key)
 end
 
 class DefinitionTableGenerator
 
-  def field_definition_table(content_key, version)
+  def initialize(version, action)
+    @version = version.to_s
+    @action = action
+  end
 
-    schema = YAML.load(File.read("lib/resources/#{version.to_s}/#{content_key}.yaml"))
+  def field_definition_table(content_key)
+
+    schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
 
     # TODO: This concept needs to be reworked to allow multiple types for a given resource, or multiple versions of
     # the same type (e.g. Reference(Patient|Practitioner|RelatedPerson)). It would be nice if it also did not apply the
     # html formatting; that should be done elsewhere.
-    types = YAML.load(File.read("lib/resources/#{version.to_s}/types.yaml"))
+    types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
+    types ||= {}
 
     # Storing in a variable so that it is accessible in the erb
-    data = {fields: flatten_fields(fields: schema['fields'],
-                                   base_url: schema['field_name_base_url'],
-                                   types: types)}
+
+    @table_name = "#{@action}"
+
+    flattened_fields = flatten_fields(fields: schema['fields'],
+                                      base_url: schema['field_name_base_url'],
+                                      types: types)
+
+    activate_links(flattened_fields, types)
+
+    data = {table_name: @table_name,
+            fields: flattened_fields}
 
     ERB.new(File.read('lib/field_definition_table.erb')).result(binding)
   end
@@ -30,26 +44,28 @@ class DefinitionTableGenerator
     results = []
 
     fields.each do |field|
+      puts "Rendering: #{field['name']}"
 
-      name = unless parent.nil?
-               "#{parent}.#{field['name']}"
-             else
-               field['name']
-             end
+      next unless supported_for_action?(field)
 
-      type = types[field['type']] || field['type']
+      field_name = get_value(field['name'])
+      name = parent.nil? ? field_name : "#{parent}.#{field_name}"
 
-      url = field['url']
+      field_type = get_value(field['type'])
+
+      url = get_value(field['url'])
       url ||= "#{base_url}.#{name}" unless base_url.nil?
 
-      results << {name: name,
-                  type: type,
-                  required: field['required'],
-                  cardinality: field['cardinality'],
-                  description: field['description'],
-                  example: field['example'],
-                  note: field['note'],
-                  url: url}
+      values = {name: name,
+                type: field_type,
+                required: get_value(field['required']),
+                cardinality: get_value(field['cardinality']),
+                description: get_value(field['description']),
+                example: get_value(field['example']),
+                note: get_value(field['note']),
+                url: url}
+
+      results << values
 
       results << flatten_fields(fields: field['children'],
                                 base_url: base_url,
@@ -58,6 +74,84 @@ class DefinitionTableGenerator
     end
 
     results.flatten
-
   end
+
+  # Retrieve the value for the current action in context, or the value if no action is defined.
+  def get_value(value)
+
+    return value if value.nil? || @action.nil?
+
+    if value.kind_of?(Array)
+      filter_action = value.find { |v| !v[@action.to_s].nil? }
+      return filter_action[@action.to_s] unless filter_action.nil?
+
+      return value.find { |v| !v.kind_of?(Hash) }
+    end
+
+    return value
+  end
+
+  # Determine whether the field is supported for the current action in context.
+  def supported_for_action?(field)
+    return true if field['action'].nil? || @action.nil?
+    return field['action'].include?(@action.to_s) if field['action'].kind_of?(Array)
+    return field['action'] == @action.to_s
+  end
+
+  # Replace the embedded link tags with active hyperlinks.
+  #
+  # Note that link replacement uses simple text replacement and assumes generated links are correct.
+  def activate_links(fields, types)
+    fields.each do |field|
+      field[:type] = activate_field_links(field[:type], types, auto_link: true) if field[:type]
+      field[:note] = activate_field_links(field[:note], types) if field[:note]
+      field[:description] = activate_field_links(field[:description], types) if field[:description]
+    end
+  end
+
+  # Searches a value field and replaces linkable strings with the appropriate hyperlink based on the types
+  # defined in the types variable.
+  #
+  # Substrings enclosed in `` will be replaced with links indicated in types if
+  # available, or simply formatted in a <code> block if not. Substr
+  #
+  # Words enclosed in [] will be replaced with a link to a local anchor. The anchor name is assumed to be the
+  # same as the enclosed word
+  #
+  # If auto_link is true, the string will be split and any word, enclosed or not, will be replaced the same as values
+  # enclosed in ``. In general, it is best not to use auto_link on strings with either `` or [] enclosures.
+  def activate_field_links(value, types, auto_link: false)
+
+    return nil if value.nil?
+
+    # TODO: It would be nice to enhance these to be more wiki style and allow providing both a display value and a
+    # link value. Something like [some display|http://go.somewhere.else]. If no link value is provided, then assume
+    # the display references a local anchor
+    #
+    # Something similar could be done for `` and maybe allow linking to a specified type, but aliasing the text.
+    #
+    # The regex would need to be updated to allow additional character sequences.
+
+    # Activate type links
+    results = value.gsub(/`((\w|\s|\d|\.)+)`/) { |match|
+      tag = match.tr('\`', '')
+      next "<a target=\"_blank\" href=\"#{types[tag]}\"><code>#{tag}</code></a>" if types[tag]
+      "<code>#{tag}</code>"
+    }
+
+    # If auto_link is true, activate type strings which have not been explicitly linked.
+    results = results.gsub(/(\w+)/) do |match|
+      next "<a target=\"_blank\" href=\"#{types[match]}\"><code>#{match}</code></a>" if types[match]
+      "<code>#{match}</code>"
+    end if auto_link
+
+    # Activate local links
+    results = results.gsub(/\[(\w+)\]/) { |match|
+      tag = match.tr('[]', '')
+      "<a href=\"##{@table_name}-#{tag}\">#{tag}</a>"
+    }
+
+    results
+  end
+
 end
