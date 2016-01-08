@@ -23,9 +23,9 @@ fields:
   type: CodeableConcept
   description: Kind of document.
   example: |
-             {"coding": [
-               {"system": "http://loinc.org",
-                "code": "34840-9"}]}
+            {"coding": [
+              {"system": "http://loinc.org",
+               "code": "34840-9"}]}
   note: The type must include a loinc coding.
 
 - name: author
@@ -74,26 +74,26 @@ fields:
   description: The referenced document
   children:
 
-    - name: contentType
-      required: 'Yes'
-      cardinality: 0..1
-      type: string
-      description: Mime type of the content, with charset etc.
-      example: |
-                {"content": [
-                  {"contentType": "application/xhtml+xml;charset=utf-8"}]}
-      note: contentType must be 'application/xhtml+xml;charset=utf-8'
-      url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.contentType
+  - name: contentType
+    required: 'Yes'
+    cardinality: 0..1
+    type: string
+    description: Mime type of the content, with charset etc.
+    example: |
+              {"content": [
+                {"contentType": "application/xhtml+xml;charset=utf-8"}]}
+    note: contentType must be 'application/xhtml+xml;charset=utf-8'
+    url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.contentType
 
-    - name: data
-      required: 'Yes'
-      cardinality: 0..1
-      type: string
-      description: Data inline, base64-ed
-      example: |
-                {"content": [
-                  {"data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"}]}
-      url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data
+  - name: data
+    required: 'Yes'
+    cardinality: 0..1
+    type: string
+    description: Data inline, base64-ed
+    example: |
+              {"content": [
+                {"data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"}]}
+    url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data
 
 - name: context
   required: 'Yes'
