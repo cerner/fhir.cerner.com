@@ -3790,6 +3790,250 @@ module Cerner
         ]
     }
 
+    MAY2015_MEDICATION_STATEMENT_BUNDLE ||= {
+      "resourceType": "Bundle",
+      "id": "8f9835e3-04df-4249-9666-5191ec235a7d",
+      "type": "searchset",
+      "base": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&_count=3"
+        },
+        {
+          "relation": "next",
+          "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&-pageContext=H4sIAAAAAAAAAI1TzW7UMBAOlB9xRT1w41RupImTeDeUy_4UqVWhVbscOFVubJJUjp21nf3pM3HjwlPwJrwD4zjZbCUORNr1N5_H45n5xj_-eM-18j5msvIzpgRTflZL5ktFAdZKfi858yvuy7t7lhn_iuRsJoVhG2MXUsKJg-vfb0_efGieegfn3quamJIJc0bPvReNZuqMXngvM3fEeK8v7smKHHMi8uMbo0qRn2xqz36Hh7889z0xz35SprOjaB4eIczmxDDA75MIxzgO4T8IArshMmFU79UaXBIqBd8-MCVhY_BqSqqBQHiUpAE-QgmaIRymj3Ha4hCjMA0Dxyfpzj9M0nDA4zRFo84H73gU4Ogx7mIm8XBvEkSPcIj2eOcfxcNdUTwe7eJEQZqGY1vWpu4KLIgW0NuuD2DViq26vZIyAXBPXUoM8UmWMa2dyN1iNV42TG39TkBYc5DHv2ydrAZ72s8ZZ7mVBWHeyQPCQCk4aD_gK0a7lABRmQ2GkKoifLDhQrkWe3ZBVJXBX872SCUNlYbboPPJt9vLT7eL69PJ4vPpl4XzUJvBW5O-H4JaZEEhCCBoTwljZwkpXI5BayhatgljHAVoFAFX90drd9R1YsZlQ-fQYTS92UKMbQVoXZoCFgI_LkUOiyAVdGdqCsgETXUhG0gdTe9aUjUig65ZYl2AQmhKS11zsm0pm930araY2KtFU3WV1LsUYxQEY2ynoNblQ9skW0P91W1HoAKKgVhmvBSK8bYO67GUqswhzEBAW--1ka5Ue8tSG6LMzgEs0-hZ-3hwHMXYzWQL-_GPox70gxwnPYh7MO5A0vsk_QuL-6cQpz1wkXEYJ5Gt0k7zKvRtPivCXZHvGgUjM3FTDaCy9ISpyq9BJGn3tIDpz33DqvpWFbJ7ATAAPrwH2O8a9e9ImVSsCyUY_59ofwFt2Ei7SwUAAA&-pageDirection=NEXT"
+        }
+      ],
+      "entry": [
+        {
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "16842049",
+            "meta": {
+              "versionId": "0"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: NS 1000 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 30 mL/hr, IV&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;/div>"
+            },
+            "contained": [
+              {
+                "resourceType": "Medication",
+                "id": "2796823",
+                "code": {
+                  "text": "NS 1000 mL"
+                },
+                "name": "NS 1000 mL"
+              }
+            ],
+            "patient": {
+              "reference": "Patient/1316024"
+            },
+            "informationSource": {
+              "reference": "Practitioner/2270007"
+            },
+            "dateAsserted": "2014-10-02T13:26:26.000-05:00",
+            "status": "in-progress",
+            "effectivePeriod": {
+              "start": "2014-10-02T13:26:00.000-05:00"
+            },
+            "medication": {
+              "reference": "#2796823",
+              "display": "NS 1000 mL"
+            },
+            "dosage": [
+              {
+                "text": "30 mL/hr, IV",
+                "schedule": {
+                  "repeat": {
+                    "bounds": {
+                      "start": "2014-10-02T13:26:00.000-05:00"
+                    }
+                  }
+                },
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "47625008",
+                      "display": "Intravenous route (qualifier value)",
+                      "primary": false
+                    }
+                  ],
+                  "text": "IV"
+                },
+                "quantity": {
+                  "value": 1000,
+                  "units": "mL",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mL"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "14203672",
+            "meta": {
+              "versionId": "0"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol 200 mg oral capsule&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 caps, Oral, Daily, PRN: Instruct, 30 caps, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;/div>"
+            },
+            "contained": [
+              {
+                "resourceType": "Medication",
+                "id": "2748018",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code": "998689",
+                      "display": "Acebutolol Hydrochloride 200 MG Oral Capsule",
+                      "primary": false
+                    }
+                  ],
+                  "text": "acebutolol 200 mg oral capsule"
+                },
+                "name": "acebutolol 200 mg oral capsule"
+              }
+            ],
+            "patient": {
+              "reference": "Patient/1316024"
+            },
+            "informationSource": {
+              "reference": "Practitioner/1962007"
+            },
+            "dateAsserted": "2015-05-15T11:01:23.000-05:00",
+            "status": "in-progress",
+            "effectivePeriod": {
+              "start": "2015-05-15T11:01:00.000-05:00"
+            },
+            "medication": {
+              "reference": "#2748018",
+              "display": "acebutolol 200 mg oral capsule"
+            },
+            "dosage": [
+              {
+                "text": "1 caps, Oral, Daily, PRN: Instruct, 30 caps, 0 Refill(s)",
+                "schedule": {
+                  "repeat": {
+                    "bounds": {
+                      "start": "2015-05-15T11:01:00.000-05:00"
+                    }
+                  },
+                  "code": {
+                    "text": "Daily"
+                  }
+                },
+                "asNeededCodeableConcept": {
+                  "text": "Instruct"
+                },
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "26643006",
+                      "display": "Oral route (qualifier value)",
+                      "primary": false
+                    }
+                  ],
+                  "text": "Oral"
+                },
+                "quantity": {
+                  "value": 1,
+                  "units": "caps"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "14205368",
+            "meta": {
+              "versionId": "0"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol 200 mg oral capsule&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 caps, Oral, Daily, PRN: Instruct, 30 caps, 0 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;/div>"
+            },
+            "contained": [
+              {
+                "resourceType": "Medication",
+                "id": "2748018",
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code": "998689",
+                      "display": "Acebutolol Hydrochloride 200 MG Oral Capsule",
+                      "primary": false
+                    }
+                  ],
+                  "text": "acebutolol 200 mg oral capsule"
+                },
+                "name": "acebutolol 200 mg oral capsule"
+              }
+            ],
+            "patient": {
+              "reference": "Patient/1316024"
+            },
+            "informationSource": {
+              "reference": "Practitioner/2166007"
+            },
+            "dateAsserted": "2015-07-22T10:57:27.000-05:00",
+            "status": "in-progress",
+            "effectivePeriod": {
+              "start": "2015-07-22T10:57:00.000-05:00"
+            },
+            "medication": {
+              "reference": "#2748018",
+              "display": "acebutolol 200 mg oral capsule"
+            },
+            "dosage": [
+              {
+                "text": "1 caps, Oral, Daily, PRN: Instruct, 30 caps, 0 Refill(s)",
+                "schedule": {
+                  "repeat": {
+                    "bounds": {
+                      "start": "2015-07-22T10:57:00.000-05:00"
+                    }
+                  },
+                  "code": {
+                    "text": "Daily"
+                  }
+                },
+                "asNeededCodeableConcept": {
+                  "text": "Instruct"
+                },
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "26643006",
+                      "display": "Oral route (qualifier value)",
+                      "primary": false
+                    }
+                  ],
+                  "text": "Oral"
+                },
+                "quantity": {
+                  "value": 1,
+                  "units": "caps"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+
     MAY2015_OBSERVATION_BUNDLE ||= {
         "resourceType" => "Bundle",
         "id" => "17207056-05f2-4e07-9770-77cbe0cbc8b0",
