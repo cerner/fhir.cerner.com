@@ -4,10 +4,10 @@ Attachment: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#
 Element: <a target="_blank" href="http://hl7.org/fhir/2015May/element.html"><code>Element</code></a>
 code: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#code"><code>code</code></a>
 dateTime: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#dateTime"><code>dateTime</code></a>
-EncounterReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/encounter.html"><code>Encounter</code></a>)
+EncounterReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/encounter.html"><code>Encounter</code></a>)
 instant: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#instant"><code>instant</code></a>
-PatientReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/patient.html"><code>Patient</code></a>)
-PractitionerReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/practitioner.html"><code>Practitioner</code></a>)
+PatientReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/patient.html"><code>Patient</code></a>)
+PractitionerReference: <a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/2015May/practitioner.html"><code>Practitioner</code></a>)
 Period: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#Period"><code>Period</code></a>
 string: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a>
 CodeableConcept: <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>
