@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>DocumentReference | FHIR MAY 2015 BALLOT API</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="may2015_api">
+  <div id="header-wrapper">
+  <div id="header">
+    <div>
+      <a class="logo" href="../../">Cerner Corporation</a>
+      <ul class="nav">
+        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
+        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1</a></li>
+        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- #header -->
+</div>
+<!-- #header-wrapper -->
+
+
+  <div class="sub-nav">
+    <h2><a href="../">API</a></h2>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="documentreference">DocumentReference</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#create" id="markdown-toc-create">Create</a></li>
+</ul>
+
+<h2 id="create">Create</h2>
+
+<p>Create new documents. Only documents that would be classified as notes are currently supported.</p>
+
+<pre><code>POST /DocumentReference
+</code></pre>
+
+<h3 id="headers">Headers</h3>
+
+<p>To successfully POST a document, the following headers must be provided. Document creation is supported from the closed endpoint only.</p>
+
+<pre><code>Content-Type: application/json+fhir
+Authorization: &lt;OAuth2 Bearer Token&gt;
+</code></pre>
+
+<h3 id="body-fields">Body fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/json.html#1.17.2.4"><code>resourceType</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>1..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>The type of the FHIR resource</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>DocumentReference</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>resourceType must be DocumentReference</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.subject"><code>subject</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/patient.html"><code>Patient</code></a>) </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Who or what is the subject of the document.</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"reference": "Patient/1234"}</pre></li></ul>
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.type"><code>type</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>1..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Kind of document.</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"coding": [
+  {"system": "http://loinc.org",
+   "code": "34840-9"}]}
+</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>The type must include a loinc coding.</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.author"><code>author</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/search.html#reference"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/practitioner.html"><code>Practitioner</code></a>) </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Who and/or what authored the document</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"author": [
+  {"reference": "Practitioner/21500917"}]}
+</pre></li></ul>
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.indexed"><code>indexed</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>1..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#instant"><code>instant</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>When this document reference was created</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"indexed": "2015-05-16T091014Z"}</pre></li></ul>
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.status"><code>status</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>1..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#code"><code>code</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>The status of this document reference</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"status": "current"}</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>Currently support 'current' only</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.docStatus"><code>docStatus</code></a>
+          
+        </td>
+        <td>No </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>The status of underlying document</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"status": "final"}</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>Currently support 'final' and 'preliminary'</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.description"><code>description</code></a>
+          
+        </td>
+        <td>No </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Human-readable description (title)</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"description": "Rheumatology Note"}</pre></li></ul>
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.content"><code>content</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>1..* </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#Attachment"><code>Attachment</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>The referenced document</li></ul>
+          
+
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.contentType"><code>content.contentType</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Mime type of the content, with charset etc.</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"content": [
+  {"contentType": "application/xhtml+xml;charset=utf-8"}]}
+</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>contentType must be 'application/xhtml+xml;charset=utf-8'</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data"><code>content.data</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#string"><code>string</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Data inline, base64-ed</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"content": [
+  {"data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"}]}
+</pre></li></ul>
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.context"><code>context</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/element.html"><code>Element</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>The clinical context in which the document was prepared</li></ul>
+          
+
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.context.period"><code>context.period</code></a>
+          
+        </td>
+        <td>No </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/datatypes.html#Period"><code>Period</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>When the documented service was performed.</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"context": {
+  "period" : {
+    "end": "2015-08-20T091014Z"}}}
+</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>If provided, the service time must be set to context.period.end. If not provided, the document will be stored with the indexed dateTime.
+</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.context.related"><code>context.related</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..* </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/element.html"><code>Element</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Related things</li></ul>
+          
+
+          
+
+          
+        </ul>
+        </td>
+      </tr>
+    
+
+      <!-- TODO: Externalize the styling in this erb so that it is consistent with the rest of the site. Keeping in
+                 mind that the table as a whole needs to not scroll. Individual examples should, but the entire table
+                 should not. It looks tacky -->
+      <tr>
+        <td>
+          <!-- Render the field name as a link, if a url is provided.-->
+          
+            <a target="_blank" href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.context.related.ref"><code>context.related.ref</code></a>
+          
+        </td>
+        <td>Yes </td>
+        <td>0..1 </td>
+        <td>
+<a target="_blank" href="http://hl7.org/fhir/2015May/resourcelist.html"><code>Any</code></a> </td>
+      </tr>
+
+      <tr>
+        <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li>Related resource</li></ul>
+          
+
+          
+              <li><i>Example</i></li>
+              <ul style="list-style-type: none"><li><pre>{"context": {
+  "related": [
+    {"ref": {
+      "reference": "Encounter/31419016"}}]}
+</pre></li></ul>
+          
+
+          
+              <li><i>Notes</i></li>
+              <ul style="list-style-type: none"><li>context.related.ref must be an Encounter reference</li></ul>
+          
+        </ul>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<h4 id="example-body">Example Body</h4>
+
+<pre><code>{
+   "resourceType": "DocumentReference",
+   "subject": {"reference":"Patient/36920071"},
+   "type": {"coding": [{"system":"http://loinc.org", "code":"34840-9"}]},
+   "author": [{"reference": "Practitioner/2044324"}],
+   "indexed": "2016-01-06T09:10:14Z",
+   "status": "current",
+   "docStatus": {"coding": [{"system": "http://hl7.org/fhir/composition-status", "code": "final"}]},
+   "description": "Rheumatology Note",
+   "content": [{"contentType": "application/xhtml+xml; charset=utf-8","data": "&lt;snipped for brevity&gt;"}],
+   "context": {"related": [{"ref": {"reference": "Encounter/33419091"}}]}
+}
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+   Connection → Keep-Alive
+   Content-Encoding → gzip
+   Content-Length → 20
+   Content-Type → text/html; charset=UTF-8
+   Date → Wed, 06 Jan 2016 22:15:12 GMT
+   Keep-Alive → timeout=15, max=100
+   Status → 201 Created
+   access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
+   access-control-allow-origin → *
+   access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+   access-control-max-age → 0
+   cache-control → no-cache
+   location → https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789258
+   server-response-time → 3751.0383859999997
+   strict-transport-security → max-age=631152000
+   vary → Origin,User-Agent,Accept-Encoding
+   x-content-type-options → nosniff
+   x-frame-options → SAMEORIGIN
+   x-request-id → cef31d49-a952-4711-8aa8-5fee359cd91f
+   x-runtime → 3.751004
+   x-xss-protection → 1; mode=block
+</pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+    <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">DocumentReference</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-prescription/">MedicationPrescription</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-statement/">MedicationStatement</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
+</h3>
+            </li>
+        </ul>
+    </div> <!-- /sidebar-module -->
+    <div class="sidebar-module notice">
+        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+    </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+    <div id="footer">
+    <div class="lower_footer">
+      <ul class="footer-cell">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+      </ul>
+
+      <ul class="footer-cell">
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <p>Design © <span class="js-year"></span> Copyright <span class="js-year"></span> Cerner Corporation </p>
+    </div>
+
+  </div>
+<!-- /#footer -->
+
+</body>
+</html>

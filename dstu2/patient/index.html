@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Redirecting</title>
-  <meta http-equiv="refresh" content="5;URL=/may2015/patient">
+  <title>Patient | FHIR DSTU 2 API</title>
+  
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,14 +23,15 @@
 </head>
 
 
-<body class="overview">
+<body class="dstu2_api">
   <div id="header-wrapper">
   <div id="header">
     <div>
       <a class="logo" href="../../">Cerner Corporation</a>
       <ul class="nav">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 (MAY BALLOT) API</a></li>
-        <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1 API</a></li>
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
+        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../dstu1/" class="nav-dstu1-api">DSTU 1</a></li>
         <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -41,42 +42,419 @@
 <!-- #header-wrapper -->
 
 
-  <div class="wrapper feature">
-    <h1>
-        The page you're attempting to access has been moved. You will be redirected shortly.
-    </h1>
-    <p class="intro">Please update your bookmarks to the new location:</p>
-    <a href="../../may2015/patient">/may2015/patient </a>
-    <img src="../../images/fhir.png" class="fhirlogo" alt="FHIR">
-</div>
+  <div class="sub-nav">
+    <h2><a href="../">API</a></h2>
+  </div>
 
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="patient">Patient</h1>
 
-  <div class="full-width-divider">
-    <ul class="wrapper highlights">
-        <li class="highlight-module">
-            <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
-            <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
-            <p>New to the FHIR API? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a>
-                and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
-        </li>
-        <li class="highlight-module">
-            <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
-            <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
-            <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR Implementations</a>.</p>
-        </li>
-        <li class="highlight-module">
-            <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
-            <h2><a href="../../faq/">FAQ</a></h2>
-            <p>Browse frequently asked questions to learn more about SMART on FHIR.</p>
-        </li>
-        <li class="highlight-module">
-            <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
-            <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
-            <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
-        </li>
+<ul id="markdown-toc">
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
-</div>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+</ul>
 
+<h2 id="search">Search</h2>
+
+<p>Search for Patients that meet supplied query parameters:</p>
+
+<pre><code>GET /Patient?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>N, if populated all other parameters are ignored</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>birthdate</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>A patient identifier.  Example: <code>01022228</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>A portion of either family or given name of the patient. Example: <code>Peters</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>telecom</code></td>
+      <td>At least one parameter must be populated other than <code>_count</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The value in any kind of telecom details of the patient. Example: <code>(816) 475-2374</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: Parameters (other than <code>_id</code>) will currently perform a “fuzzy” search.</p>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "08638e55-cb75-4a66-b306-5e3c3938ef3f",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Pond&amp;start=0&amp;_count=20"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/20940091",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "20940091",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Melody&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+            "valueDateTime": "2012-04-25T16:30:00.000Z"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "10001185"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "text": "Pond, Melody",
+            "family": [
+              "Pond"
+            ],
+            "given": [
+              "Melody"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2012-04-25",
+        "deceasedBoolean": false,
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/patient-contact-relationship",
+                    "code": "parent",
+                    "display": "Parent"
+                  }
+                ],
+                "text": "Parent"
+              }
+            ],
+            "name": {
+              "text": "Williams, Rory"
+            }
+          }
+        ],
+        "careProvider": [
+          {
+            "reference": "Practitioner/1448008",
+            "display": "Kovarian, Madame"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/6219231",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "6219231",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Annabeth&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2003-02-02&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+            "valueDateTime": "2003-02-03T00:00:00.000Z"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR",
+                  "display": "Medical record number"
+                }
+              ],
+              "text": "Medical record number"
+            },
+            "value": "809723498234"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "text": "Pond, Annabeth",
+            "family": [
+              "Pond"
+            ],
+            "given": [
+              "Annabeth"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(111) 111-1111",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-02-02",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "text": "123123123123\nParkville, MO 64152\nUSA",
+            "line": [
+              "123123123123"
+            ],
+            "city": "Parkville",
+            "state": "MO",
+            "postalCode": "64152"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/marital-status",
+              "code": "S",
+              "display": "Never Married"
+            }
+          ],
+          "text": "Never Married"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Patient by its id:</p>
+
+<pre><code>GET /Patient/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Patient",
+  "id": "20940091",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Melody&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+      "valueDateTime": "2012-04-25T16:30:00.000Z"
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Medical record number"
+      },
+      "value": "10001185"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "usual",
+      "text": "Pond, Melody",
+      "family": [
+        "Pond"
+      ],
+      "given": [
+        "Melody"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2012-04-25",
+  "deceasedBoolean": false,
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "parent",
+              "display": "Parent"
+            }
+          ],
+          "text": "Parent"
+        }
+      ],
+      "name": {
+        "text": "Williams, Rory"
+      }
+    }
+  ],
+  "careProvider": [
+    {
+      "reference": "Practitioner/1448008",
+      "display": "Kovarian, Madame"
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+    <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
+</h3>
+            </li>
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
+</h3>
+            </li>
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/allergy-intolerance/">AllergyIntolerance</a></h3>
+            </li> -->
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/condition/">Condition</a></h3>
+            </li> -->
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/diagnostic-report/">DiagnosticReport</a></h3>
+            </li> -->
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../document-reference/">DocumentReference</a>
+</h3>
+            </li>            
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/encounter/">Encounter</a></h3>
+            </li> -->
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/immunization/">Immunization</a></h3>
+            </li> -->
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-order/">MedicationOrder</a>
+</h3>
+            </li>
+            <li class="js-topic">
+               <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-statement/">MedicationStatement</a>
+</h3>
+           </li>
+            <!-- <li class="js-topic">
+                <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/dstu2/observation/">Observation</a></h3>
+            </li> -->
+            <li class="js-topic">
+                <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Patient</a>
+</h3>
+            </li>
+        </ul>
+    </div> <!-- /sidebar-module -->
+    <div class="sidebar-module notice">
+        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+    </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
 
     <div id="footer">
     <div class="lower_footer">
