@@ -5,6 +5,10 @@ def definition_table(content_key, action, version)
   DefinitionTableGenerator.new(version, action).field_definition_table(content_key)
 end
 
+def terminology_table(content_key, version)
+  DefinitionTableGenerator.new(version, nil).terminology_table(content_key)
+end
+
 class DefinitionTableGenerator
 
   def initialize(version, action)
@@ -13,32 +17,34 @@ class DefinitionTableGenerator
   end
 
   def field_definition_table(content_key)
+    render_table(content_key, "#{@action}", 'field_definition_table')
+  end
 
-    schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
-
-    # TODO: This concept needs to be reworked to allow multiple types for a given resource, or multiple versions of
-    # the same type (e.g. Reference(Patient|Practitioner|RelatedPerson)). It would be nice if it also did not apply the
-    # html formatting; that should be done elsewhere.
-    types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
-    types ||= {}
-
-    # Storing in a variable so that it is accessible in the erb
-
-    @table_name = "#{@action}"
-
-    flattened_fields = flatten_fields(fields: schema['fields'],
-                                      base_url: schema['field_name_base_url'],
-                                      types: types)
-
-    activate_links(flattened_fields, types)
-
-    data = {table_name: @table_name,
-            fields: flattened_fields}
-
-    ERB.new(File.read('lib/field_definition_table.erb')).result(binding)
+  def terminology_table(content_key)
+    render_table(content_key, 'terminology', 'terminology_table')
   end
 
   private
+
+  def render_table(content_key, table_name, erb_name, options = nil)
+    @table_name = table_name
+
+    schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
+    types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
+
+    fields = flatten_fields(fields: schema['fields'],
+                            base_url: schema['field_name_base_url'],
+                            types: types)
+
+    activate_links(fields, types)
+
+    data = {table_name: @table_name,
+            options: options,
+            name: schema['name'],
+            fields: fields}
+
+    ERB.new(File.read("lib/#{erb_name}.erb")).result(binding)
+  end
 
   def flatten_fields(fields:, base_url:, types:, parent: nil)
     results = []
@@ -63,6 +69,7 @@ class DefinitionTableGenerator
                 description: get_value(field['description']),
                 example: get_value(field['example']),
                 note: get_value(field['note']),
+                binding: get_value(field['binding']),
                 url: url}
 
       results << values

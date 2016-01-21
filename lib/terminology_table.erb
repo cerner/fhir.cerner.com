@@ -1,0 +1,52 @@
+<table style="display: table; white-space: normal">
+  <tbody>
+    <% for item in data[:fields] %>
+      <% next unless item[:binding] %>
+      <% binding = item[:binding] %>
+    <tr>
+      <td>
+      <% if !item[:url].nil? %>
+          <a target="_blank" href="<%= item[:url]%>"><%= "#{data[:name]}.#{item[:name]}" %></a>
+      <% else %>
+          <%= "#{data[:name]}.#{item[:name]}" %>
+      <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          <% unless binding['description'].nil? %>
+              <li><i>Description</i></li>
+              <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
+          <% end %>
+
+          <% unless binding['terminology'].nil? && binding['display'].nil? %>
+              <li><i>Binding</i></li>
+              <ul style="list-style-type: none">
+                <li>
+                  <% if binding['display'] && binding['terminology'] %>
+                      <%= "<a target=\"_blank\" href=\"#{binding['terminology']}\">#{binding['display']}</a>" %>
+                  <% elsif binding['terminology'] %>
+                      <%= "<a target=\"_blank\" href=\"#{binding['terminology']}\">#{binding['terminology']}</a>" %>
+                  <% else %>
+                      <%= binding['display'] %>
+                  <% end %>
+                </li>
+              </ul>
+          <% end %>
+
+          <% unless binding['values'].nil? %>
+            <li><i>Supported values</i></li>
+            <ul style="list-style-type: none">
+              <% for value in binding['values'] %>
+                  <li><%= value %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

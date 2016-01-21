@@ -7,6 +7,10 @@ title: DocumentReference | FHIR DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:document_reference, :dstu2) %>
+
 ## Create
 
 Create new documents. Only documents that would be classified as notes are currently supported.
