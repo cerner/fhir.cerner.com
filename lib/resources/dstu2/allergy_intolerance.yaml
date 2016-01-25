@@ -1,0 +1,223 @@
+---
+field_name_base_url: http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  example: AllergyIntolerance
+  note: resourceType must be AllergyIntolerance
+  url: http://hl7.org/fhir/DSTU2/json.html#resources
+
+- name: id
+  required: 'Yes'
+  cardinality: 0..1
+  type: id
+  description: The logical id of the resource to update.
+  example: '{"id": "123412"}'
+  note: The id value must match the AllergyIntolerance/&lt;id> value.
+  url: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
+  action: update
+
+- name: contained
+  required: 'No'
+  cardinality: 0..*
+  type: Resource
+  description: Contained, inline Resources.
+  example: |
+             Contained RelatedPerson
+               {"contained": [
+                  {"resourceType": "RelatedPerson",
+                   "id": "5366328",
+                   "relationship": {
+                      "coding": [
+                        {"system": "http://hl7.org/fhir/v3/RoleCode",
+                         "code": "SIGOTHR"}]}}]}
+
+             Contained Practitioner
+               {"contained": [
+                  {"resourceType": "Practitioner",
+                   "id": "123",
+                   "practitionerRole": [
+                     {"role": {
+                        "coding": [
+                          {"system": "http://hl7.org/fhir/v2/0286",
+                            "code": "RP"}]}}]}]
+  note: >
+          These should be either `Practitioner` or `RelatedPerson` resources that are referenced with the
+          [reporter] field.
+  url: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained
+
+- name: onset
+  required: 'No'
+  cardinality: 0..1
+  type: dateTime
+  description: Date(/time) when manifestations showed.
+  example: '{"onset: "2012-07-13T00:00:00Z"}'
+
+- name: recordedDate
+  required: 'Yes'
+  cardinality: 0..1
+  type: dateTime
+  description: When the sensitivity was recorded.
+  example: '{"recordedDate": "2015-10-14T13:13:20-06:00"}'
+
+- name: recorder
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Practitioner)
+  description: Who recorded the sensitivity.
+  note: Recorder must be a `Practitioner` reference.
+  example: |
+             {"recorder": {
+                "reference": "Practitioner/21500971"}}
+
+- name: patient
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference (Patient)
+  description: Who the sensitivity is for.
+  example: |
+             {"patient": {
+                "reference": "Patient/5366327"}}
+
+- name: reporter
+  required: 'Yes'
+  cardinality: 0..1
+  type: Reference (Patient) | contained Reference (Practitioner | RelatedPerson)
+  description: Source of the information about the allergy.
+  example: |
+             Reporter as a Patient Reference
+               {"reporter": {
+                  "reference": "Patient/5366327"}}
+
+             Reporter as a contained reference
+               {"reporter": "#5366328"}
+  note: >
+          If [reporter] is a contained reference, a matching `RelatedPerson` or `Practitioner` reference must be
+          provided in the [contained] field.
+
+- name: substance
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Substance, (or class) considered to be responsible for risk
+  example: |
+             {"substance": {
+                "coding": [
+                  {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                   "code": "4125",
+                   "display": "Ethiodized oil"}]}}
+
+- name: status
+  required: 'Yes'
+  cardinality: 0..1
+  type: code
+  description: >
+                 Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
+                 identified [substance].
+  example: '{"status": "resolved"}'
+
+- name: criticality
+  required: 'Yes'
+  cardinality: 0..1
+  type: code
+  description: Estimate of the potential clinical harm, or seriousness, of the reaction to the identified [substance].
+  example: '{"criticality": "CRITU"}'
+
+- name: type
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: Identification of the underlying physiological mechanism for the reaction risk.
+  example: '{"type": "allergy"}'
+
+- name: category
+  required: 'Yes'
+  cardinality: 0..1
+  type: code
+  description: Category of the identified [substance].
+  example: '{"type": "food"}'
+
+- name: note
+  required: 'No'
+  cardinality: 0..1
+  type: Annotation
+  description: Additional text not captured in other fields.
+  example: |
+             {"note": {
+                "authorReference": {"reference": "Practitioner/21500971"},
+                "time": "2015-10-14T13:13:20-06:00",
+                "text": "Patient complains of discomfort"}}
+  children:
+
+  - name: authorReference
+    required: 'No'
+    cardinality: 0..1
+    type: Reference (Practitioner)
+    description: Individual responsible for the annotation.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_
+    example: |
+               {"note": {
+                  "authorReference": {"reference": "Practitioner/21500971"}}
+  - name: time
+    required: 'No'
+    cardinality: 0..1
+    type: dateTime
+    description: When the annotation was made.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time
+    example: |
+               {"note": {
+                  "time": "2015-10-14T13:13:20-06:00"}}
+
+  - name: text
+    required: 'Yes'
+    cardinality: 1..1
+    type: string
+    description: The text content.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text
+    example: |
+               {"note": {
+                  "text": "Patient complains of discomfort"}}
+- name: reaction
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: Adverse reaction events linked to exposure to [substance].
+  example: |
+             {"reaction": [
+                {"manifestation": [
+                  {"coding": [
+                    {"system": "http://snomed.info/sct",
+                     "code": "39579001",
+                     "display": "Anaphylactic reaction"}]}]}}
+  children:
+
+  - name: id
+    required: 'Yes'
+    cardinality: 0..1
+    type: id
+    description: Logical id of the reaction event.
+    example: '{"id": "543123"}'
+    url: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
+    action: update
+
+  - name: manifestation
+    required: 'Yes'
+    cardinality: 1..*
+    type: CodeableConcept
+    description: Clinical symptoms/signs associated with the event.
+    example: |
+               Manifestation with a coding:
+                 {"reaction": [
+                    {"manifestation": [
+                      {"coding": [
+                        {"system": "http://snomed.info/sct",
+                         "code": "39579001",
+                         "display": "Anaphylactic reaction"}]}]}}
+
+               Manifestation with a freetext value:
+                 {"reaction": [
+                    {"manifestation": [
+                      {"text": "Anaphylactic reaction"}]}]}

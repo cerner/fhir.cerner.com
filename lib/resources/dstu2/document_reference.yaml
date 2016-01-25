@@ -13,7 +13,7 @@ fields:
 - name: subject
   required: 'Yes'
   cardinality: 0..1
-  type: PatientReference
+  type: Reference (Patient)
   description: Who or what is the subject of the document.
   example: '{"reference": "Patient/1234"}'
 
@@ -31,7 +31,7 @@ fields:
 - name: author
   required: 'Yes'
   cardinality: 0..1
-  type: PractitionerReference
+  type: Reference (Practitioner)
   description: Who and/or what authored the document
   example: |
             {"author": [
@@ -50,7 +50,7 @@ fields:
   type: code
   description: The status of this document reference
   example: '{"status": "current"}'
-  note: Currently support 'current' only
+  note: Currently support `current` only
 
 - name: docStatus
   required: 'No'
@@ -58,7 +58,7 @@ fields:
   type: CodeableConcept
   description: The status of underlying document
   example: '{"status": "final"}'
-  note: Currently support 'final' and 'preliminary'
+  note: Currently support `final` and `preliminary`
 
 - name: description
   required: 'No'
@@ -119,7 +119,7 @@ fields:
   - name: encounter
     required: 'Yes'
     cardinality: 0..1
-    type: EncounterReference
+    type: Reference (Encounter)
     description: Context of the document content
     example: |
               {"context": {
@@ -136,5 +136,5 @@ fields:
                 "period" : {
                   "end": "2015-08-20T091014Z"}}}
     note: >
-            If provided, the service time must be set to context.period.end. If not provided, the document will be
+            If provided, the service time must be set to `context.period.end`. If not provided, the document will be
             stored with the indexed dateTime.
