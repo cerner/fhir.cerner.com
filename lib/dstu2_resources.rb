@@ -206,6 +206,105 @@ module Cerner
         }
     }
 
+    DSTU2_IMMUNIZATION_BUNDLE ||= {
+      "resourceType": "Bundle",
+      "id": "3639d63c-3475-4763-a98a-5f51d59d61bb",
+      "type": "searchset",
+      "total": 2,
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2652008"
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M3977347",
+          "resource": {
+            "resourceType": "Immunization",
+            "id": "M3977347",
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2014-10-22T18:46:00.000Z&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Site&lt;/b>: left thigh&lt;/p>&lt;p>&lt;b>Route&lt;/b>: ID&lt;/p>&lt;/div>"
+            },
+            "status": "completed",
+            "date": "2014-10-22T18:46:00.000Z",
+            "vaccineCode": {
+              "coding": [
+                {
+                  "system": "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx",
+                  "code": "43"
+                }
+              ],
+              "text": "Engerix-B (obsolete)"
+            },
+            "patient": {
+              "reference": "Patient/2652008"
+            },
+            "wasNotGiven": false,
+            "reported": false,
+            "performer": {
+              "reference": "Practitioner/1314013",
+              "display": "Song, River"
+            },
+            "encounter": {
+              "reference": "Encounter/2287924"
+            },
+            "manufacturer": {
+              "reference": "Organization/4296975",
+              "display": "Able Laboratories Inc"
+            },
+            "lotNumber": "45",
+            "expirationDate": "2016-10-22",
+            "site": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ActSite",
+                  "code": "LT",
+                  "display": "left thigh"
+                }
+              ],
+              "text": "left thigh"
+            },
+            "route": {
+              "text": "ID"
+            },
+            "doseQuantity": {
+              "value": 3,
+              "unit": "mL"
+            }
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM2384824",
+          "resource": {
+            "resourceType": "Immunization",
+            "id": "HM2384824",
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Vaccine Code&lt;/b>: CERNER_CDC_VARICELLA&lt;/p>&lt;p>&lt;b>Given&lt;/b>: No&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Song, River&lt;/p>&lt;/div>"
+            },
+            "status": "completed",
+            "vaccineCode": {
+              "text": "CERNER_CDC_VARICELLA"
+            },
+            "patient": {
+              "reference": "Patient/2652008"
+            },
+            "wasNotGiven": true,
+            "reported": false,
+            "performer": {
+              "reference": "Practitioner/1314013",
+              "display": "Song, River"
+            },
+            "location": {
+              "reference": "Organization/619848"
+            }
+          }
+        }
+      ]
+    }
+
     DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
       "resourceType"=> "Bundle",
       "id"=> "b8ea9905-29fe-4d40-9d71-475ca2ebb209",
