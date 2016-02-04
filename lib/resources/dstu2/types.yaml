@@ -2,8 +2,10 @@
 Annotation: http://hl7.org/fhir/DSTU2/datatypes.html#Annotation
 Attachment: http://hl7.org/fhir/DSTU2/datatypes.html#Attachment
 BackboneElement: http://hl7.org/fhir/DSTU2/backboneelement.html
+boolean: http://hl7.org/fhir/DSTU2/datatypes.html#boolean
 code: http://hl7.org/fhir/DSTU2/datatypes.html#code
 CodeableConcept: http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept
+date: http://hl7.org/fhir/DSTU2/datatypes.html#date
 dateTime: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 Encounter: http://hl7.org/fhir/DSTU2/encounter.html
 id: http://hl7.org/fhir/DSTU2/datatypes.html#id
