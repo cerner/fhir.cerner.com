@@ -206,6 +206,161 @@ module Cerner
         }
     }
 
+    DSTU2_DIAGNOSTIC_REPORT_BUNDLE ||= {
+        "resourceType": "Bundle",
+        "id": "5bbc073e-1ebd-458a-b1f6-c1a2beace210",
+        "type": "searchset",
+        "total": 3,
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=2744123"
+          }
+        ],
+        "entry":[
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5658748",
+            "resource": {
+              "resourceType": "DiagnosticReport",
+              "id": "5658748",
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: XR Wrist Complete Right&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+              },
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v2/0074",
+                    "code": "RAD",
+                    "display": "Radiology"
+                  }
+                ],
+                "text": "Radiology"
+              },
+              "code": {
+                "coding":[
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "169074008"
+                  }
+                ],
+                "text": "XR Wrist Complete Right"
+              },
+              "subject": {
+                "reference": "Patient/2744123"
+              },
+              "encounter": {
+                "reference": "Encounter/3519101"
+              },
+              "effectiveDateTime": "2015-11-25T22:00:11.000Z",
+              "performer": {
+                "reference": "Practitioner/2770007",
+                "display": "Song, River"
+              }
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6767035",
+            "resource": {
+              "resourceType": "DiagnosticReport",
+              "id": "6767035",
+              "meta": {
+                "versionId": "3"
+              },
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: XR Wrist Complete Right&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: Chase, Robert&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+              },
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v2/0074",
+                    "code": "RAD",
+                    "display": "Radiology"
+                  }
+                ],
+                "text": "Radiology"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "77477000"
+                  }
+                ],
+                "text": "CT Pelvis w/ + w/o Contrast"
+              },
+              "subject": {
+                "reference": "Patient/2744123"
+              },
+              "encounter": {
+                "reference": "Encounter/3519101"
+              },
+              "effectiveDateTime": "2015-11-24T23:04:50.000Z",
+              "issued": "2015-11-24T23:09:23.000Z",
+              "performer": {
+                "reference": "Practitioner/4669118",
+                "display": "Chase, Robert"
+              },
+              "conclusion": "Conclusion of the report"
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5826385",
+            "resource": {
+              "resourceType": "DiagnosticReport",
+              "id": "5826385",
+              "meta": {
+                "versionId": "3"
+              },
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Diagnostic Report&lt;/b>&lt;/p>&lt;p>&lt;b>Service Category&lt;/b>: Radiology&lt;/p>&lt;p>&lt;b>Name&lt;/b>: XCT Abdomen w/ + w/o Contrast&lt;/p>&lt;p>&lt;b>Performer&lt;/b>: House, Gregory&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;/div>"
+              },
+              "status": "final",
+              "category": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v2/0074",
+                    "code": "RAD",
+                    "display": "Radiology"
+                  }
+                ],
+                "text": "Radiology"
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org/",
+                    "code": "41806-1"
+                  },
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "77477000"
+                  }
+                ],
+                "text": "CT Abdomen w/ + w/o Contrast"
+              },
+              "subject": {
+                "reference": "Patient/2744123"
+              },
+              "encounter": {
+                "reference": "Encounter/3519101"
+              },
+              "effectiveDateTime": "2015-12-09T17:31:19.000Z",
+              "issued": "2015-12-09T17:31:52.000Z",
+              "performer": {
+                "reference": "Practitioner/1985700",
+                "display": "House, Gregory"
+              },
+              "conclusion": "Conclusion of the report"
+            }
+          }
+        ]
+    }
+
     DSTU2_IMMUNIZATION_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "3639d63c-3475-4763-a98a-5f51d59d61bb",
