@@ -30,9 +30,10 @@ fields:
   note: The type must include a loinc coding.
   binding:
     description: Precise type of clinical document.
-    terminology: http://loinc.org
-    display: LOINC
-    values:
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      values:
       - 34840-9 - Rheumatology Note
       - 68608-9 - Summary Note
 

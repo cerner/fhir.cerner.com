@@ -111,9 +111,13 @@ fields:
                    "code": "4125",
                    "display": "Ethiodized oil"}]}}
   binding:
-    display: RxNorm
-    terminology: http://www.nlm.nih.gov/research/umls/rxnorm
     description: Type of the substance and negation codes for reporting no known allergies.
+    terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      note: SNOMED CT is supported for non-medication substances and for negations.
 
 - name: status
   required: 'Yes'
@@ -227,6 +231,8 @@ fields:
                     {"manifestation": [
                       {"text": "Anaphylactic reaction"}]}]}
     binding:
-      display: SNOMED CT
-      terminology: http://snomed.info/sct
       description: Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+

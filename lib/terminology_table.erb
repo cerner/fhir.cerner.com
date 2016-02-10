@@ -16,32 +16,37 @@
       <td>
         <ul style="list-style-type: none">
           <% unless binding['description'].nil? %>
-              <li><i>Description</i></li>
-              <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
           <% end %>
 
-          <% unless binding['terminology'].nil? && binding['display'].nil? %>
-              <li><i>Binding</i></li>
-              <ul style="list-style-type: none">
-                <li>
-                  <% if binding['display'] && binding['terminology'] %>
-                      <%= "<a target=\"_blank\" href=\"#{binding['terminology']}\">#{binding['display']}</a>" %>
-                  <% elsif binding['terminology'] %>
-                      <%= "<a target=\"_blank\" href=\"#{binding['terminology']}\">#{binding['terminology']}</a>" %>
-                  <% else %>
-                      <%= binding['display'] %>
+          <% unless binding['terminology'].nil? %>
+            <% binding['terminology'].each do |terminology| %>
+              <% unless terminology['system'].nil? && terminology['display'].nil? %>
+                  <li>
+                    <% if terminology['display'] && terminology['system'] %>
+                      <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['display']}</a>" %>
+                    <% elsif terminology['system'] %>
+                      <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['system']}</a>" %>
+                    <% else %>
+                      <%= terminology['display'] %>
+                    <% end %>
+                  </li>
+                  <ul style="list-style-type: none">
+                  <% if terminology['note'] %>
+                    <li><%= terminology['note'] %></li>
                   <% end %>
-                </li>
-              </ul>
-          <% end %>
-
-          <% unless binding['values'].nil? %>
-            <li><i>Supported values</i></li>
-            <ul style="list-style-type: none">
-              <% for value in binding['values'] %>
-                  <li><%= value %></li>
+                  <% unless terminology['values'].nil? %>
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      <% for value in terminology['values'] %>
+                        <li><%= value %></li>
+                      <% end %>
+                      </ul>
+                  <% end %>
+                  </ul>
               <% end %>
-            </ul>
+            <% end %>
           <% end %>
         </ul>
       </td>
