@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Immunization | FHIR DSTU 2 BALLOT API</title>
+  <title>Encounter | FHIR DSTU 2 BALLOT API</title>
   
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -73,7 +73,7 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="immunization">Immunization</h1>
+<h1 id="encounter">Encounter</h1>
 
 <ul id="markdown-toc">
   <li>
@@ -82,13 +82,18 @@
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="search">Search</h2>
 
-<p>Search for Immunizations that meet supplied query parameters:</p>
+<p>Search for Encounters that meet supplied query parameters:</p>
 
-<pre><code>GET /Immunization?:parameters
+<pre><code>GET /Encounter?:parameters
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
@@ -105,9 +110,16 @@
   <tbody>
     <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
+      <td>This or _id</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient for the vaccination record. Example: <code>12345</code>
+      <td>The patient present at the encounter. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or patient</td>
+      <td><a href="http://hl7.org/fhir/dstu2/datatypes.html#id"><code>id</code></a></td>
+      <td>A single or comma separated list of Encounter ids. Example: <code>45678,89765</code>
 </td>
     </tr>
   </tbody>
@@ -119,98 +131,173 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "3639d63c-3475-4763-a98a-5f51d59d61bb",
+  "id": "d41490ce-aece-4de5-ae7b-d4e1c671dd94",
   "type": "searchset",
   "total": 2,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2652008"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=111"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M3977347",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/222",
       "resource": {
-        "resourceType": "Immunization",
-        "id": "M3977347",
+        "resourceType": "Encounter",
+        "id": "222",
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2014-10-22T18:46:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: left thigh&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: ID&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BW Rheumatology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: finished&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-03-12T15:30:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period End Date&lt;/b&gt;: 2015-03-12T16:15:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: rheumatoid arthritis&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Jones, Bob&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "completed",
-        "date": "2014-10-22T18:46:00.000Z",
-        "vaccineCode": {
-          "coding": [
-            {
-              "system": "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx",
-              "code": "43"
-            }
-          ],
-          "text": "Engerix-B (obsolete)"
-        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://cerner.com/fhir/identifier/FINNBR",
+            "value": "20001118"
+          }
+        ],
+        "status": "finished",
+        "class": "outpatient",
         "patient": {
-          "reference": "Patient/2652008"
+          "reference": "Patient/111"
         },
-        "wasNotGiven": false,
-        "reported": false,
-        "performer": {
-          "reference": "Practitioner/1314013",
-          "display": "Song, River"
-        },
-        "encounter": {
-          "reference": "Encounter/2287924"
-        },
-        "manufacturer": {
-          "reference": "Organization/4296975",
-          "display": "Able Laboratories Inc"
-        },
-        "lotNumber": "45",
-        "expirationDate": "2016-10-22",
-        "site": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v3/ActSite",
-              "code": "LT",
-              "display": "left thigh"
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ],
+                "text": "attender"
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/4340404",
+              "display": "Jones, Bob"
             }
-          ],
-          "text": "left thigh"
+          }
+        ],
+        "period": {
+          "start": "2015-03-12T15:30:00.000Z",
+          "end": "2015-03-12T16:15:00.000Z"
         },
-        "route": {
-          "text": "ID"
-        },
-        "doseQuantity": {
-          "value": 3,
-          "unit": "mL"
-        }
+        "reason": [
+          {
+            "text": "rheumatoid arthritis"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "display": "BW Rheumatology"
+            }
+          }
+        ]
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM2384824",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/333",
       "resource": {
-        "resourceType": "Immunization",
-        "id": "HM2384824",
+        "resourceType": "Encounter",
+        "id": "333",
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine Code&lt;/b&gt;: CERNER_CDC_VARICELLA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Song, River&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-03-10T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: HIMSS demo pt&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Smith, John&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "completed",
-        "vaccineCode": {
-          "text": "CERNER_CDC_VARICELLA"
-        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://cerner.com/fhir/identifier/FINNBR",
+            "value": "20001290"
+          }
+        ],
+        "status": "in-progress",
+        "class": "outpatient",
         "patient": {
-          "reference": "Patient/2652008"
+          "reference": "Patient/111"
         },
-        "wasNotGiven": true,
-        "reported": false,
-        "performer": {
-          "reference": "Practitioner/1314013",
-          "display": "Song, River"
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "ATND",
+                    "display": "attender"
+                  }
+                ],
+                "text": "attender"
+              }
+            ],
+            "individual": {
+              "reference": "Practitioner/5132404",
+              "display": "Smith, John"
+            }
+          }
+        ],
+        "period": {
+          "start": "2015-03-10T13:00:00.000Z"
         },
-        "location": {
-          "reference": "Organization/619848"
-        }
+        "reason": [
+          {
+            "text": "HIMSS demo pt"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "display": "Outpatient Ctr"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Encounter by its id:</p>
+
+<pre><code>GET /Encounter/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Encounter",
+  "id": "111",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: 1N 134 01&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2004-04-16T19:00:00.000Z&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "http://cerner.com/fhir/identifier/FINNBR",
+      "value": "000000014"
+    }
+  ],
+  "status": "in-progress",
+  "class": "inpatient",
+  "patient": {
+    "reference": "Patient/111"
+  },
+  "period": {
+    "start": "2004-04-16T19:00:00.000Z"
+  },
+  "location": [
+    {
+      "location": {
+        "display": "1N 134 01"
       }
     }
   ]
@@ -258,12 +345,12 @@
             </li>            
             <li class="js-topic">
                 <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Encounter</a>
 </h3>
             </li>
             <li class="js-topic">
                 <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Immunization</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
 </h3>
             </li>
             <li class="js-topic">
