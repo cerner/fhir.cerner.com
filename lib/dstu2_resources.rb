@@ -2663,5 +2663,170 @@ module Cerner
           }
         ]
       }
+    
+      DSTU2_ENCOUNTER_BUNDLE ||=
+        {
+          "resourceType": "Bundle",
+          "id": "d41490ce-aece-4de5-ae7b-d4e1c671dd94",
+          "type": "searchset",
+          "total": 2,
+          "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=111"
+          }
+          ],
+        "entry": [
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/222",
+            "resource": {
+              "resourceType": "Encounter",
+              "id": "222",
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: BW Rheumatology&lt;/p>&lt;p>&lt;b>Type&lt;/b>: outpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: finished&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2015-03-12T15:30:00.000Z&lt;/p>&lt;p>&lt;b>Period End Date&lt;/b>: 2015-03-12T16:15:00.000Z&lt;/p>&lt;p>&lt;b>Reason For Visit&lt;/b>: rheumatoid arthritis&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Jones, Bob&lt;/p>&lt;/div>"
+              },
+              "identifier": [
+                {
+                  "use": "usual",
+                  "system": "http://cerner.com/fhir/identifier/FINNBR",
+                  "value": "20001118"
+                }
+              ],
+              "status": "finished",
+              "class": "outpatient",
+              "patient": {
+                  "reference": "Patient/111"
+              },
+              "participant": [
+                {
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "code": "ATND",
+                          "display": "attender"
+                        }
+                      ],
+                      "text": "attender"
+                    }
+                  ],
+                  "individual": {
+                    "reference": "Practitioner/4340404",
+                    "display": "Jones, Bob"
+                  }
+                }
+              ],
+              "period": {
+                "start": "2015-03-12T15:30:00.000Z",
+                "end": "2015-03-12T16:15:00.000Z"
+              },
+              "reason": [
+                {
+                  "text": "rheumatoid arthritis"
+                }
+              ],
+              "location": [
+                {
+                  "location": {
+                    "display": "BW Rheumatology"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/333",
+            "resource": {
+              "resourceType": "Encounter",
+              "id": "333",
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Outpatient Ctr&lt;/p>&lt;p>&lt;b>Type&lt;/b>: outpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: in-progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2015-03-10T13:00:00.000Z&lt;/p>&lt;p>&lt;b>Reason For Visit&lt;/b>: HIMSS demo pt&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Smith, John&lt;/p>&lt;/div>"
+              },
+              "identifier": [
+                {
+                  "use": "usual",
+                  "system": "http://cerner.com/fhir/identifier/FINNBR",
+                  "value": "20001290"
+                }
+              ],
+              "status": "in-progress",
+              "class": "outpatient",
+              "patient": {
+                "reference": "Patient/111"
+              },
+              "participant": [
+                {
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "code": "ATND",
+                          "display": "attender"
+                        }
+                      ],
+                      "text": "attender"
+                    }
+                  ],
+                  "individual": {
+                    "reference": "Practitioner/5132404",
+                    "display": "Smith, John"
+                  }
+                }
+              ],
+              "period": {
+                "start": "2015-03-10T13:00:00.000Z"
+              },
+              "reason": [
+                {
+                  "text": "HIMSS demo pt"
+                }
+              ],
+              "location": [
+                {
+                  "location": {
+                    "display": "Outpatient Ctr"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+
+    DSTU2_ENCOUNTER ||=
+      {
+        "resourceType": "Encounter",
+        "id": "111",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: 1N 134 01&lt;/p>&lt;p>&lt;b>Type&lt;/b>: inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: in-progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2004-04-16T19:00:00.000Z&lt;/p>&lt;/div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "http://cerner.com/fhir/identifier/FINNBR",
+            "value": "000000014"
+          }
+        ],
+        "status": "in-progress",
+        "class": "inpatient",
+        "patient": {
+          "reference": "Patient/111"
+        },
+        "period": {
+          "start": "2004-04-16T19:00:00.000Z"
+        },
+        "location": [
+          {
+            "location": {
+              "display": "1N 134 01"
+            }
+          }
+        ]
+      }
   end
 end 
