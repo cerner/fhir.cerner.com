@@ -7,6 +7,10 @@ title: AllergyIntolerance | FHIR DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:allergy_intolerance, :dstu2) %>
+
 ## Search
 
 Search for AllergyIntolerances that meet supplied query parameters:

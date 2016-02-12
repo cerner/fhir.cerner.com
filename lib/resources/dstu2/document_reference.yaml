@@ -1,4 +1,5 @@
 ---
+name: DocumentReference
 field_name_base_url: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference
 fields:
 - name: resourceType
@@ -27,6 +28,14 @@ fields:
               {"system": "http://loinc.org",
                "code": "34840-9"}]}
   note: The type must include a loinc coding.
+  binding:
+    description: Precise type of clinical document.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      values:
+      - 34840-9 - Rheumatology Note
+      - 68608-9 - Summary Note
 
 - name: author
   required: 'Yes'

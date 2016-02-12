@@ -7,6 +7,10 @@ title: DocumentReference | FHIR MAY 2015 BALLOT API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:document_reference, :may2015) %>
+
 ## Create
 
 Create new documents. Only documents that would be classified as notes are currently supported.
