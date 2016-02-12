@@ -76,6 +76,7 @@
 <h1 id="allergyintolerance">AllergyIntolerance</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -99,6 +100,118 @@
     </ul>
   </li>
 </ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance">AllergyIntolerance.substance</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Type of the substance and negation codes for reporting no known allergies.</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                    <li>SNOMED CT is supported for non-medication substances and for negations.</li>
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation">AllergyIntolerance.reaction.manifestation</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -897,7 +1010,8 @@ Reporter as a contained reference
 Manifestation with a freetext value:
   {"reaction": [
      {"manifestation": [
-       {"text": "Anaphylactic reaction"}]}]}</pre></li></ul>
+       {"text": "Anaphylactic reaction"}]}]}
+</pre></li></ul>
       
       
       </ul>
@@ -1686,7 +1800,8 @@ Reporter as a contained reference
 Manifestation with a freetext value:
   {"reaction": [
      {"manifestation": [
-       {"text": "Anaphylactic reaction"}]}]}</pre></li></ul>
+       {"text": "Anaphylactic reaction"}]}]}
+</pre></li></ul>
       
       
       </ul>
