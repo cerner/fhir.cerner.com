@@ -2,7 +2,7 @@
 title: DiagnosticReport | FHIR DSTU 2 BALLOT API
 ---
 
-# Immunization
+# DiagnosticReport
 
 * TOC
 {:toc}
