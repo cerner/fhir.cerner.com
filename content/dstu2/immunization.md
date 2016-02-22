@@ -7,6 +7,10 @@ title: Immunization | FHIR DSTU 2 BALLOT API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:immunization, :dstu2) %>
+
 ## Search
 
 Search for Immunizations that meet supplied query parameters:

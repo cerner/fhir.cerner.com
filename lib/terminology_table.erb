@@ -19,6 +19,10 @@
             <li><i>Description</i></li>
             <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
           <% end %>
+          <% unless binding['note'].nil? %>
+            <li><i>Note</i></li>
+            <ul style="list-style-type: none"><li style="list-style-type: none"><%= binding['note'] %></li></ul>
+          <% end %>
 
           <% unless binding['terminology'].nil? %>
             <% binding['terminology'].each do |terminology| %>
