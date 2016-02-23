@@ -968,6 +968,72 @@ module Cerner
       ]
     }
 
+    DSTU2_MEDICATION_STATEMENT_CREATE ||= {
+      "resourceType": "MedicationStatement",
+      "contained":
+      [
+        {
+          "resourceType":"Medication",
+          "id":"123",
+          "code":{
+            "text":"FHIR Test Medication"
+          }
+        }
+      ],
+      "patient": {
+        "reference":"Patient/234"
+      },
+      "status":"active",
+      "medicationReference":{
+        "reference":"#123"
+      },
+      "dosage":
+      [
+        {
+          "timing":{
+            "code":{
+              "coding":
+              [
+                {
+                  "system":"http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                  "code":"BID"
+                }
+              ],
+              "text":"BID"
+            }
+          },
+          "quantityQuantity":{
+            "value":60.0,
+            "units":"mg",
+            "system":"http://unitsofmeasure.org",
+            "code":"mg"
+          }
+        }
+      ]
+    }
+
+    DSTU2_MEDICATION_STATEMENT_UPDATE ||= {
+      "resourceType": "MedicationStatement",
+      "id": "222",
+      "contained":
+      [
+        {
+          "resourceType":"Medication",
+          "id":"123",
+          "code":{
+            "text":"FHIR Test Medication"
+          }
+        }
+      ],
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/234"
+      },
+      "medicationReference": {
+        "reference": "#123"
+      }
+    }
+
     DSTU2_OPEN_METADATA ||= {
       "resourceType": "Conformance",
       "text": {

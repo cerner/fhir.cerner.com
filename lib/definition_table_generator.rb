@@ -86,6 +86,7 @@ class DefinitionTableGenerator
   # Retrieve the value for the current action in context, or the value if no action is defined.
   def get_value(value)
 
+    return nil if value.kind_of?(Array) && @action.nil?
     return value if value.nil? || @action.nil?
 
     if value.kind_of?(Array)
