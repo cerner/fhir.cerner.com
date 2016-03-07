@@ -1,4 +1,5 @@
 ---
+name: Condition
 field_name_base_url: http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition
 fields:
 - name: resourceType
@@ -71,6 +72,15 @@ fields:
                    "display": "Generalized nonconvulsive epilepsy",
                    "userSelected": true}],
                 "text": "Absence seizures"}}
+  binding:
+    description: A code that defines the condition.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+    - display: ICD-9
+      system: http://hl7.org/fhir/sid/icd-9
+    - display: ICD-10
+      system: http://hl7.org/fhir/sid/icd-10
 
 - name: category
   required: 'No'
@@ -84,6 +94,11 @@ fields:
                    "code": "diagnosis",
                    "display": "Diagnosis"}],
                 "text": "Diagnosis"}}
+  binding:
+    description: A code that defines the category of the condition.
+    terminology:
+    - display: Condition Category Codes
+      system: http://hl7.org/fhir/condition-category
 
 - name: verificationStatus
   required: 'Yes'
@@ -104,6 +119,11 @@ fields:
                    "code": "371923003",
                    "display": "Mild to moderate"}],
                 "text": "Mild to moderate"}}
+  binding:
+    description: A code that defines the severity of the condition.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
 
 - name: onsetDateTime
   required: 'No'
