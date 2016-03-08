@@ -73,7 +73,7 @@ fields:
                    "userSelected": true}],
                 "text": "Absence seizures"}}
   binding:
-    description: A code that defines the condition.
+    description: Identification of the condition or diagnosis.
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
@@ -95,7 +95,7 @@ fields:
                    "display": "Diagnosis"}],
                 "text": "Diagnosis"}}
   binding:
-    description: A code that defines the category of the condition.
+    description: A category assigned to the condition.
     terminology:
     - display: Condition Category Codes
       system: http://hl7.org/fhir/condition-category
@@ -120,7 +120,7 @@ fields:
                    "display": "Mild to moderate"}],
                 "text": "Mild to moderate"}}
   binding:
-    description: A code that defines the severity of the condition.
+    description: A subjective assessment of the severity of the condition as evaluated by the clinician.
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
