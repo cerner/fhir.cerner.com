@@ -3237,6 +3237,59 @@ module Cerner
       ]
     }
 
+    MAY2015_MEDICATION_STATEMENT_CREATE ||= {
+      "resourceType": "MedicationStatement",
+      "contained":
+      [
+        {
+          "resourceType":"Medication",
+          "id":"123",
+          "code":{
+            "text":"FHIR Test Medication"
+          }
+        }
+      ],
+      "patient": {
+        "reference":"Patient/234"
+      },
+      "status":"in-progress",
+      "medication":{
+        "reference":"#123"
+      },
+      "dosage":
+      [
+        {
+          "schedule":{
+            "code":{
+              "coding":
+              [
+                {
+                  "system":"http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                  "code":"BID"
+                }
+              ],
+              "text":"BID"
+            }
+          },
+          "quantity":{
+            "value":60.0,
+            "units":"mg",
+            "system":"http://unitsofmeasure.org",
+            "code":"mg"
+          }
+        }
+      ]
+    }
+
+    MAY2015_MEDICATION_STATEMENT_UPDATE ||= {
+      "resourceType": "MedicationStatement",
+      "id": "222",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/234"
+      }
+    }
+
     MAY2015_OBSERVATION_BUNDLE ||= {
         "resourceType" => "Bundle",
         "id" => "17207056-05f2-4e07-9770-77cbe0cbc8b0",
