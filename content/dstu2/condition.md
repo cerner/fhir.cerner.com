@@ -7,6 +7,10 @@ title: Condition | FHIR DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:condition, :dstu2) %>
+
 ## Search
 
 Search for Conditions that meet supplied query parameters:
