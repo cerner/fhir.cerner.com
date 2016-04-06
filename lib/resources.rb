@@ -2086,7 +2086,7 @@ module Cerner
                     },
                     "text" => {
                         "status" => "generated",
-                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Procardia XL 30 mg oral tablet, extended release&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 30 mg, 1 tab(s), Oral, Daily, 30 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                        "div" => "&lt;div>&lt;p>&lt;b>MedicationPrescription&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Procardia XL 15 mg oral tablet, extended release&lt;/p>&lt;p>&lt;b>Dosage Instruction Text&lt;/b>: 15 mg, 0.5 tab(s), Oral, Daily, 7.5 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
                     },
                     "contained" => [
                         {
@@ -2097,12 +2097,12 @@ module Cerner
                                     {
                                         "system" => "http://www.nlm.nih.gov/research/umls/rxnorm",
                                         "code" => "207772",
-                                        "display" => "24 HR Nifedipine 30 MG Extended Release Oral Tablet [Procardia]"
+                                        "display" => "24 HR Nifedipine 15 MG Extended Release Oral Tablet [Procardia]"
                                     }
                                 ],
-                                "text" => "Procardia XL 30 mg oral tablet, extended release"
+                                "text" => "Procardia XL 15 mg oral tablet, extended release"
                             },
-                            "name" => "Procardia XL 30 mg oral tablet, extended release"
+                            "name" => "Procardia XL 15 mg oral tablet, extended release"
                         }
                     ],
                     "status" => "active",
@@ -2115,11 +2115,11 @@ module Cerner
                     },
                     "medication" => {
                         "reference" => "#2765117",
-                        "display" => "Procardia XL 30 mg oral tablet, extended release"
+                        "display" => "Procardia XL 15 mg oral tablet, extended release"
                     },
                     "dosageInstruction" => [
                         {
-                            "text" => "30 mg, 1 tab(s), Oral, Daily, 30 tab(s)",
+                            "text" => "15 mg, 0.5 tab(s), Oral, Daily, 7.5 tab(s)",
                             "scheduledTiming" => {
                                 "repeat" => {
                                     "bounds" => {
@@ -2134,7 +2134,7 @@ module Cerner
                                 "text" => "Oral"
                             },
                             "doseQuantity" => {
-                                "value" => 30.0,
+                                "value" => 15,
                                 "units" => "mg"
                             }
                         }
@@ -2145,7 +2145,7 @@ module Cerner
                             "display" => "Procardia XL 30 mg oral tablet, extended release"
                         },
                         "quantity" => {
-                            "value" => "30",
+                            "value" => 7.5,
                             "units" => "tab(s)"
                         }
                     }
@@ -2294,7 +2294,7 @@ module Cerner
                         },
                         "numberOfRepeatsAllowed" => 0,
                         "quantity" => {
-                            "value" => "2",
+                            "value" => 2,
                             "units" => "boxes"
                         }
                     }
@@ -2368,7 +2368,7 @@ module Cerner
                             "display" => "albuterol 2 mg oral tablet"
                         },
                         "quantity" => {
-                            "value" => "120",
+                            "value" => 120,
                             "units" => "tab(s)"
                         }
                     }
@@ -2507,7 +2507,7 @@ module Cerner
                             "display" => "methotrexate 10 mg oral tablet"
                         },
                         "quantity" => {
-                            "value" => "1",
+                            "value" => 1.0,
                             "units" => "tabs"
                         }
                     }
