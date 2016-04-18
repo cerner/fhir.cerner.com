@@ -14,7 +14,7 @@ In order for your client application to utilize any protected resources, your cl
 * Name - Application name, this should match what the name of the app will be in the app store  
 * Redirect/Callback URI  
 * Email address  
-* Logo URI - The logo will need to be a [Scalable Vector Graphics][6] image
+* Logo URI - The logo will need to be a [Scalable Vector Graphics][6] image  
 * SMART Launch URI
 
 Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
@@ -23,7 +23,7 @@ Once approved, a **client identifier** will be provided for use with the Cerner 
 The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
 
 * online_access
-* launch
+* patient/launch
 * openid
 * profile
 * [User-level and patient-specific scopes][11] for requesting clinical data
@@ -35,22 +35,22 @@ Cerner currently supports the [SMART][4] launch workflow from within an EHR, suc
 
 Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint, which is provided by the [SMART conformance statement][9]. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. The **GET** request will **require** the following query parameters.
 
-* response_type
-* client_id
+* response_type - currently only support "code"
+* client_id  
 * launch - Note: only required if using a [SMART][4] launch context
 * aud - Required if using a [SMART][4] launch. This should be the fhir server root url.
-* scope - Note: launch **must** be one of the scopes if using a [SMART][4] launch context. When requesting clinical data, [SMART scopes][11] for requesting clinical data must be provided.
+* scope - Note: launch **must** be one of the scopes if using a [SMART][4] launch context. When requesting clinical data, [SMART scopes][11] for requesting clinical data must be provided. At minimum, one scope must be provided in order for a successful request to occur.
 
 It is also **recommended** that your client application provides the following query parameters.
 
 * state - to prevent [cross-site request forgery attacks][2]
-* redirect_uri - note: The redirect_uri **must** match what was originally registered
+* redirect_uri - note: The redirect_uri **must** match what was originally registered and requested
 
 ```
-https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
+https://authorization.sandboxcerner.com/tenants/{TENANT_ID}/personas/{provider or patient}/protocols/oauth2/profiles/smart-v1/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
 ```
 
-If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate. 
+If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.
 
 If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query parameter. This is the authorization code that can be exchanged for an access token.
 
@@ -58,31 +58,31 @@ If successful, the authorization server will redirect the user-agent back to you
 https://test.com/cb?code=1234-567890ab-cdef
 ```
 
-Note: Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems. 
+Note: Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems.
 
 ### Requesting an access token ###
 Once an authorization code has been acquired, a back-channel **POST** to the authorization server's token endpoint can be made to request an access token. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** from your client application with the following information.
 
-* grant_type
+* grant_type - currently only support "authorization_code"
 * code
 * client_id
-* redirect_uri (only if provided when the authorization code was requested)
+* redirect_uri (only necessary if it was provided when the authorization code was requested)
 
 ```
-https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/token
+https://authorization.sandboxcerner.com/tenants/{TENANT_ID}/personas/{provider or patient}/protocols/oauth2/profiles/smart-v1/token
 ```
 
 ```
-grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI}
+grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
 ```
 
 If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the example below.
 
 ```
 {
-   "access_token":"eyJraWQiOiIyMDE1LTA1LTE1VDE4OjI2OjUxLjM0NiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJLTDAyODA2NSIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb24uY2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjhlMzNhZTNkLTQ4NzItNGQyZi1hMDU5LTVmMjMwN2ZjYmYzYiJ9LCJhenAiOiIyIiwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwODBcL2F1dGhvcml6YXRpb25cLzhlMzNhZTNkLTQ4NzItNGQyZi1hMDU5LTVmMjMwN2ZjYmYzYlwvdG9rZW4iLCJleHAiOjE0MzE3MTUxNDcsImlhdCI6MTQzMTcxNDU0NywianRpIjoiZmIzZDMwOGQtZmQ0Yy00MTk5LTlmZDQtZTU2ZmEwM2Y3ZTViIn0.Fv_6-LtIFzvf7DHleH-rXsjnaEMFgTHRyok4vJ8hkml5FQtnKejNSwECvqdex7hz6VyclcMy67D_bcafNZjNb",
+   "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTkzOTEsImlhdCI6MTQ1NTg5ODc5MSwianRpIjoiOTQ1YjQ5ZjctMTFiMi00NmQ2LWEwZjctZGJmNjcxMzVmYTJlIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.EnvJ8hRDIZcb9pKsfOaFGXhpAnfzi7rDMks0mAnAp0Lsbooe-JPoVPY8FT00xWP9JelbGdKGpoNLt0enGVGhnQ",
    "token_type":"Bearer",
-   "expires_in":600,
+   "expires_in":570,
    "refresh_token":"1234-567890ab-cdef"
 }
 ```
@@ -93,14 +93,13 @@ The [bearer access token][7] returned from the authorization server is what you 
 If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
 
 ```
-{ 
+{
   "access_token" : "18adCadfj_lj13S3ada8.41jVCo_dgalL",
   "encounter" : "91731344",
   "patient" : "121341578",
   "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
 }
 ```
-
 
 ### Using an access token ###
 In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
@@ -109,29 +108,79 @@ In order to use an access token, your client application needs to provide the ac
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
-If the access token is valid, and your application is authorized, the resource server will allow your client application to access its protected resources.
+If the access token is valid and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.
 
 ### Using a Refresh Token ###
-The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec , the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
+The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
 
-* grant_type
+* grant_type - "refresh_token"
 * refresh_token
 
 ```
 grant_type=refresh_token&refresh_token={REFRESH_TOKEN}
 ```
 
-If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the example below. 
+If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the non-normative example below.
 
 ```
 {
-   "access_token":"eyJraWQiOiIyMDE1LTA1LTE1VDE4OjI2OjUxLjM0NiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJLTDAyODA2NSIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb24uY2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjhlMzNhZTNkLTQ4NzItNGQyZi1hMDU5LTVmMjMwN2ZjYmYzYiJ9LCJhenAiOiIyIiwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwODBcL2F1dGhvcml6YXRpb25cLzhlMzNhZTNkLTQ4NzItNGQyZi1hMDU5LTVmMjMwN2ZjYmYzYlwvdG9rZW4iLCJleHAiOjE0MzE3MTUxNDcsImlhdCI6MTQzMTcxNDU0NywianRpIjoiZmIzZDMwOGQtZmQ0Yy00MTk5LTlmZDQtZTU2ZmEwM2Y3ZTViIn0.Fv_6-LtIFzvf7DHleH-rXsjnaEMFgTHRyok4vJ8hkml5FQtnKejNSwECvqdex7hz6VyclcMy67D_bcafNZjNb",
+   "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTk2NzAsImlhdCI6MTQ1NTg5OTA3MCwianRpIjoiZWI0Njg1ZDItZGM1MC00Y2NjLWE0YTktYWI1MjJlNzdjZTg1IiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.FpGIHS438A9ocU4ozx5s8PzpZ4OhZ6St7S6uP5galSkxrgof07ao1bv2LtFqcbyaFGUTeU3J0NtV82Sfg7GpqA",
    "token_type":"Bearer",
-   "expires_in":600
+   "expires_in":570
 }
 ```
 
-The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised. 
+The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised.
+
+### Error Codes ###
+##### Error URNs for the Authorization Server #####
+* **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid
+* **urn:cerner:error:authorization-server:oauth2:grant:unknown-client** - The client application is not registered.
+* **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri** - The requested redirect URI does not match the one registered for the client application.
+* **urn:cerner:error:authorization-server:oauth:grant:redirect-uri-not-absolute** - The requested or registered redirect URI is not absolute.
+* **urn:cerner:error:authorization-server:oauth2:grant:unknown-tenant** - The client redirect URI was known and valid, but the tenant provided was unknown.
+* **urn:cerner:error:authorization-server:oauth2:grant:unauthorized-client-for-tenant** - The client redirect URI was known and valid, but is not authorized for use with the specified tenant.
+* **urn:cerner:error:authorization-server:oauth2:grant:server-error** - The client redirect URI was known and valid, but other fatal errors occurred during processing.
+* **urn:cerner:error:authorization-server:oauth2:grant:unsupported-response-type** - A response type other than "code" was requested.
+* **urn:cerner:error:authorization-server:oauth2:grant:csrf-security-failure** - The CSRF token used in confirming the user's approval was invalid; we will immediately notify the client app that we are unable to satisfy the request.
+* **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
+* **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
+* **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
+* **urn:cerner:error:authorization-server:oauth2:token:invalid-redirect-uri** - The URI provided did not match the original request, or is not a valid URI.
+* **urn:cerner:error:authorization-server:oauth2:token:empty-scopes** - The resulting token contains no scopes, either due to unsatisfied constraints specified in the token request, or because the client is no longer authorized for the scopes associated with the refresh token.
+* **urn:cerner:error:authorization-server:oauth2:token:terminated-client** - The client application has a valid token, but is no longer registered.
+* **urn:cerner:error:authorization-server:oauth2:token:code:invalid** - The authorization code presented is either invalid or has expired.
+* **urn:cerner:error:authorization-server:oauth:token:code:client:mismatch** - The client provided did not match the original authorization code request.
+* **urn:cerner:error:authorization-server:oauth:token:code:tenant:mismatch** - The tenant provided did not match the original authorization code request.
+* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:token-invalid** - The refresh token presented is either invalid, expired, or was terminated by the user.
+* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
+* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-terminated** - The client application is no longer authorized to access tenant resources specified in the original authorization code.
+* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:launch-code-required** - A launch scope was requested, but a launch code was not supplied.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unknown-resource-server** - An application received a launch originating from an unknown resource server.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:invalid-code** - An application sent an invalid launch code.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:mismatchted-identity** - A different user is currently authenticated on the user's device to the EHR launching mechanism.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unsupported-version** - The EHR does not support the version of launch that was requested.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unspecified** - Resolution of launch data failed at the EHR for unspecified reasons.
+* **urn:cerner:error:authorization-server:preauthentication** - A fatal error in the pre-authentication process.
+* **urn:cerner:error:authorization-server:server-error** - An unspecified server error.
+* **urn:cerner:error:authorization-server:grant:session-service:authentication:cancelled** - The user or identity provider cancelled the authentication request.
+* **urn:cerner:error:authorization-server:grant:session-service:authentication:error** - An unspecified server error occurred while authenticating.
+
+##### Errors URNs for Resource Servers #####
+* **urn:cerner:error:oauth2:resource-access:token-required** - No access token was provided to the resource server
+* **urn:cerner:error:oauth2:resource-access:expired** - The access token has expired.
+* **urn:cerner:error:oauth2:resource-access:token-not-authorized** - The access token does not have the appropriate scopes for this resource.
+* **urn:cerner:error:oauth2:resource-access:insufficient-scopes** - The access token does not have the appropriate scopes for this resource, or perhaps is requesting a patient record other than what is allowed by the token.
+* **urn:cerner:error:oauth2:resource-access:user-not-authorized** - The user is not authorized to read or perform actions against the given record or resource.
+* **urn:cerner:error:oauth2:resource-access:signature-verification-failed** - The access token signature verification failed, perhaps due to the signature being incorrect, or being signed by a key that is not currently advertised at the JSON web key set.
+* **urn:cerner:error:oauth2:resource-access:issuer-not-trusted** - The issuer of the access token is not trusted by this resource server.
+* **urn:cerner:error:oauth2:resource-access:signature-keys-unavailable** - The resource server is unable to verify the access tokens signature, perhaps due to an inability to fetch the current signing keys.
+* **urn:cerner:error:oauth2:resource-access:tenant-mismatch** - The tenant on the access token does not match that of the resource.
+* **urn:cerner:error:oauth2:resource-access:profile-not-supported** - The profile on the access token is not supported, currently only "smart-v1" is supported.
+* **urn:cerner:error:oauth2:resource-access:server-error** - A runtime error occurred within the resource server that prevented it from determining if the request was authorized.
+* **urn:cerner:error:oauth2:resource-access:encounter-required** - This resource requires an encounter to create records, however, one could not be automatically determined based on the content of the access token.
 
 [1]: https://tools.ietf.org/html/rfc6749  
 [2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
