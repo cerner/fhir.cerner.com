@@ -23,7 +23,7 @@ Once approved, a **client identifier** will be provided for use with the Cerner 
 The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
 
 * online_access
-* patient/launch
+* launch
 * openid
 * profile
 * [User-level and patient-specific scopes][11] for requesting clinical data
