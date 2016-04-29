@@ -109,7 +109,7 @@
 
 <p><img src="http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&amp;s=default" alt="alt text" title="SMART launch diagram"></p>
 
-<p>Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a <strong>GET</strong> request to the authorization server’s authorize endpoint, which is provided by the <a href="http://docs.smarthealthit.org/authorization/conformance-statement/">SMART</a> token and authorization extension. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system’s browser for performing this exchange rather than an embedded browser. The <strong>GET</strong> request will <strong>require</strong> the following query parameters.</p>
+<p>Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a <strong>GET</strong> request to the authorization server’s authorize endpoint, which is provided by the <a href="http://docs.smarthealthit.org/authorization/conformance-statement/">SMART conformance statement</a>. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system’s browser for performing this exchange rather than an embedded browser. The <strong>GET</strong> request will <strong>require</strong> the following query parameters.</p>
 
 <ul>
   <li>response_type</li>
@@ -170,7 +170,7 @@ grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_
 }
 </code></p>
 
-<p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is a <a href="https://tools.ietf.org/html//rfc7519">JSON Web Token (JWT)</a>. The JWT is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
+<p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
 
 <h3 id="openid-connect">OpenID Connect</h3>
 <p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> specification that includes the user’s FHIR resource URL (userfhirurl) as the “profile” claim.</p>
@@ -182,22 +182,6 @@ grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_
   "patient" : "121341578",
   "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
 }
-</code></p>
-
-<p>Additionally, the claims specified in the launch resolution response will be included in the custom claims of the authorization token defined by Cerner.</p>
-
-<p><code>
-"urn:com:cerner:authorization:claims" : 
-{ 
-    "azs" : [ 
-        "test-scope1",
-        "test-scope2" ],
-      "encounter" : "91731344",
-      "patient" : "121341578",
-      "ppr":"100251",
-      "tnt" : "8e33ae3d-4872-4d2f-a059-5f2307fcbf3b",
-      "ver" : "1.0"
-    }
 </code></p>
 
 <h3 id="using-an-access-token">Using an access token</h3>
