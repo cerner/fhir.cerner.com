@@ -11,7 +11,7 @@ title: FHIR FAQs
 
 ### What is Cerner's roadmap for FHIR implementation?
 
-Currently, resources published on [Cerner's FHIR Development](http://fhir.cerner.com/) web site use May2015 and are available to partners. Part of the roadmap is moving the May2015 resources forward to general availability, migrating to the recently released final Draft Standard for Trial Use 2, and helping provide feedback to the current draft of FHIR. Additionally, our roadmap is prioritized depending on maturity of the resources in FHIR (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR resources we implement. If you would like to create a business partnership with us and help guide our roadmap, please complete the [SMART on FHIR Collaboration Request form](http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033).
+Currently, resources published on [Cerner's FHIR Development](http://fhir.cerner.com/) web site use May2015 and are available to partners. Part of the roadmap is moving the May2015 resources forward to general availability, migrating to the recently released final Draft Standard for Trial Use 2, and helping provide feedback to the current draft of FHIR. Additionally, our roadmap is prioritized depending on maturity of the resources in FHIR (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR resources we implement.
 
 ### What is Cerner's Millennium Web Services toolkit?
 
