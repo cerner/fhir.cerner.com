@@ -134,17 +134,22 @@ The refresh token issued is good while the user's session is still valid and can
 
 ### Error Codes ###
 ##### Error URNs for the Authorization Server #####
-* **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid
+* **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid.
 * **urn:cerner:error:authorization-server:oauth2:grant:unknown-client** - The client application is not registered.
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri** - The requested redirect URI does not match the one registered for the client application.
-* **urn:cerner:error:authorization-server:oauth:grant:redirect-uri-not-absolute** - The requested or registered redirect URI is not absolute.
+* **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri-trailing-slash** - The requested redirect URI does not match the one registered for the client application because of a trailing slash at the end of one of the URIs.
+* **urn:cerner:error:authorization-server:oauth2:grant:redirect-uri-not-absolute** - The requested or registered redirect URI is not absolute.
+* **urn:cerner:error:authorization-server:oauth2:grant:redirect-uri-not-registered** - The requested or registered redirect URI is not registered.
 * **urn:cerner:error:authorization-server:oauth2:grant:unknown-tenant** - The client redirect URI was known and valid, but the tenant provided was unknown.
+* **urn:cerner:error:authorization-server:oauth2:grant:tenant-not-configured** - The tenant id was known and valid, but the identity service provider id for the provided persona was not.
 * **urn:cerner:error:authorization-server:oauth2:grant:unauthorized-client-for-tenant** - The client redirect URI was known and valid, but is not authorized for use with the specified tenant.
 * **urn:cerner:error:authorization-server:oauth2:grant:server-error** - The client redirect URI was known and valid, but other fatal errors occurred during processing.
 * **urn:cerner:error:authorization-server:oauth2:grant:unsupported-response-type** - A response type other than "code" was requested.
 * **urn:cerner:error:authorization-server:oauth2:grant:csrf-security-failure** - The CSRF token used in confirming the user's approval was invalid; we will immediately notify the client app that we are unable to satisfy the request.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
+* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.
+
 * **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
 * **urn:cerner:error:authorization-server:oauth2:token:invalid-redirect-uri** - The URI provided did not match the original request, or is not a valid URI.
 * **urn:cerner:error:authorization-server:oauth2:token:empty-scopes** - The resulting token contains no scopes, either due to unsatisfied constraints specified in the token request, or because the client is no longer authorized for the scopes associated with the refresh token.
@@ -156,6 +161,7 @@ The refresh token issued is good while the user's session is still valid and can
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
 * **urn:cerner:error:authorization-server:oauth2:token:code:tenant-terminated** - The client application is no longer authorized to access tenant resources specified in the original authorization code.
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
+
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:launch-code-required** - A launch scope was requested, but a launch code was not supplied.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unknown-resource-server** - An application received a launch originating from an unknown resource server.
@@ -163,6 +169,10 @@ The refresh token issued is good while the user's session is still valid and can
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:mismatchted-identity** - A different user is currently authenticated on the user's device to the EHR launching mechanism.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unsupported-version** - The EHR does not support the version of launch that was requested.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unspecified** - Resolution of launch data failed at the EHR for unspecified reasons.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unregistered-service** - The launch resolution service was not configured for a given tenant.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.
+
+* **urn:cerner:error:authorization-server:unregistered-authorized-representatives-server** - The Authorized Representatives service was not configured properly.
 * **urn:cerner:error:authorization-server:preauthentication** - A fatal error in the pre-authentication process.
 * **urn:cerner:error:authorization-server:server-error** - An unspecified server error.
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:cancelled** - The user or identity provider cancelled the authentication request.
