@@ -1,5 +1,5 @@
 ---
-title: Immunization | FHIR MAY 2015 BALLOT API
+title: Immunization | MAY 2015 BALLOT API
 ---
 
 # Immunization

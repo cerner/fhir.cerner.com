@@ -1,5 +1,5 @@
 ---
-title: Immunization | FHIR DSTU 2 BALLOT API
+title: Immunization | DSTU 2 API
 ---
 
 # Immunization

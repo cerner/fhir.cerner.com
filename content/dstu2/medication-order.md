@@ -1,5 +1,5 @@
 ---
-title: MedicationOrder | FHIR DSTU 2 API
+title: MedicationOrder | DSTU 2 API
 ---
 
 # MedicationOrder

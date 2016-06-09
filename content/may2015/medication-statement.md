@@ -1,5 +1,5 @@
 ---
-title: MedicationStatement | FHIR MAY 2015 BALLOT API
+title: MedicationStatement | MAY 2015 BALLOT API
 ---
 
 # MedicationStatement

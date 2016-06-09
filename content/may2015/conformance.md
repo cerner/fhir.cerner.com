@@ -1,5 +1,5 @@
 ---
-title: Conformance | FHIR MAY 2015 BALLOT API
+title: Conformance | MAY 2015 BALLOT API
 ---
 
 # Conformance
@@ -9,7 +9,7 @@ title: Conformance | FHIR MAY 2015 BALLOT API
 
 ## Metadata
 
-Get the capabilities and configurations for the FHIR server:
+Get the capabilities and configurations for this implementation and deployment of the FHIR<sup>®</sup> standard:
 
     GET /metadata
 

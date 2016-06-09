@@ -1,5 +1,5 @@
 ---
-title: AllergyIntolerance | FHIR DSTU 2 API
+title: AllergyIntolerance | DSTU 2 API
 ---
 
 # AllergyIntolerance
@@ -87,7 +87,7 @@ Update an existing allergy.
 
     PUT /AllergyIntolerance
 
-Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR Update](http://hl7.org/fhir/DSTU2/http.html#update) for additional details about update operations.
+Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update](http://hl7.org/fhir/DSTU2/http.html#update) for additional details about update operations.
 
 ### Headers
 

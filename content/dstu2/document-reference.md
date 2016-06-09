@@ -1,5 +1,5 @@
 ---
-title: DocumentReference | FHIR DSTU 2 API
+title: DocumentReference | DSTU 2 API
 ---
 
 # DocumentReference

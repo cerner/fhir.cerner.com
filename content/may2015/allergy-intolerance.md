@@ -1,5 +1,5 @@
 ---
-title: AllergyIntolerance | FHIR MAY 2015 BALLOT API
+title: AllergyIntolerance | MAY 2015 BALLOT API
 ---
 
 # AllergyIntolerance

@@ -1,5 +1,5 @@
 ---
-title: DiagnosticReport | FHIR DSTU 2 BALLOT API
+title: DiagnosticReport | DSTU 2 API
 ---
 
 # DiagnosticReport

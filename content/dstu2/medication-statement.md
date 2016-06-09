@@ -1,5 +1,5 @@
 ---
-title: MedicationStatement | FHIR DSTU 2 API
+title: MedicationStatement | DSTU 2 API
 ---
 
 # MedicationStatement
