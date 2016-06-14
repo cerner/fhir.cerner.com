@@ -2275,7 +2275,7 @@ module Cerner
     DSTU2_OBSERVATION_BUNDLE ||=
       {
         "resourceType": "Bundle",
-        "id": "17953d5e-2728-4836-b934-4eb8baeb97c1",
+        "id": "2f43050f-af18-423d-8b11-d699193ef760",
         "type": "searchset",
         "link": [
           {
@@ -2457,7 +2457,7 @@ module Cerner
               },
               "text": {
                 "status": "generated",
-                "div": "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Potassium Lvl&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 2.50 mEq/L&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2016-01-26T22:02:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p>&lt;/div>"
+                "div": "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Potassium Lvl&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 2.50 mEq/L&lt;/p>&lt;p>&lt;b>Risk Level&lt;/b>: CRIT&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2016-01-26T22:02:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p>&lt;/div>"
               },
               "status": "final",
               "category": {
@@ -2580,11 +2580,50 @@ module Cerner
             "resource": {
               "resourceType": "Observation",
               "id": "BP-5851294-5851296",
-              "contained": [
+              "meta": {
+                "versionId": "1-5851293-1-5851295",
+                "lastUpdated": "2016-01-26T20:03:52.000Z"
+              },
+              "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: final&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Systolic Blood Pressure: Systolic Blood Pressure Diastolic Blood Pressure: Diastolic Blood Pressure&lt;/p>&lt;p>&lt;b>Result&lt;/b>: Systolic Blood Pressure: 125 mmHg Diastolic Blood Pressure: 117 mmHg&lt;/p>&lt;p>&lt;b>Risk Level&lt;/b>: Above absolute high-off instrument scale&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2016-01-26T20:01:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Systolic Blood Pressure: Low: 80 mmHg High: 120 mmHg Diastolic Blood Pressure: Low: 70 mmHg High: 80 mmHg&lt;/p>&lt;/div>"
+              },
+              "status": "final",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "75367002",
+                    "display": "Blood pressure (observable entity)"
+                  },
+                  {
+                    "system": "http://loinc.org",
+                    "code": "55284-4",
+                    "display": "Blood pressure systolic and diastolic"
+                  }
+                ],
+                "text": "Blood pressure"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "encounter": {
+                "reference": "Encounter/3651924"
+              },
+              "effectiveDateTime": "2016-01-26T20:01:00.000Z",
+              "issued": "2016-01-26T20:01:08.000Z",
+              "interpretation": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v2/0078",
+                    "code": ">",
+                    "display": "Above absolute high-off instrument scale"
+                  }
+                ],
+                "text": ">HHI"
+              },
+              "component": [
                 {
-                  "resourceType": "Observation",
-                  "id": "M5851294",
-                  "status": "final",
                   "code": {
                     "coding": [
                       {
@@ -2595,29 +2634,11 @@ module Cerner
                     ],
                     "text": "Systolic Blood Pressure"
                   },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "encounter": {
-                    "reference": "Encounter/3651924"
-                  },
-                  "effectiveDateTime": "2016-01-26T20:01:00.000Z",
-                  "issued": "2016-01-26T20:01:08.000Z",
                   "valueQuantity": {
                     "value": 125,
                     "unit": "mmHg",
                     "system": "http://unitsofmeasure.org",
                     "code": "mm[Hg]"
-                  },
-                  "interpretation": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v2/0078",
-                        "code": "H",
-                        "display": "Above high normal"
-                      }
-                    ],
-                    "text": "HI"
                   },
                   "referenceRange": [
                     {
@@ -2637,9 +2658,6 @@ module Cerner
                   ]
                 },
                 {
-                  "resourceType": "Observation",
-                  "id": "M5851296",
-                  "status": "final",
                   "code": {
                     "coding": [
                       {
@@ -2650,29 +2668,11 @@ module Cerner
                     ],
                     "text": "Diastolic Blood Pressure"
                   },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "encounter": {
-                    "reference": "Encounter/3651924"
-                  },
-                  "effectiveDateTime": "2016-01-26T20:01:00.000Z",
-                  "issued": "2016-01-26T20:01:08.000Z",
                   "valueQuantity": {
                     "value": 117,
                     "unit": "mmHg",
                     "system": "http://unitsofmeasure.org",
                     "code": "mm[Hg]"
-                  },
-                  "interpretation": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v2/0078",
-                        "code": ">",
-                        "display": "Above absolute high-off instrument scale"
-                      }
-                    ],
-                    "text": ">HHI"
                   },
                   "referenceRange": [
                     {
@@ -2690,39 +2690,6 @@ module Cerner
                       }
                     }
                   ]
-                }
-              ],
-              "status": "unknown",
-              "code": {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "75367002",
-                    "display": "Blood pressure (observable entity)"
-                  },
-                  {
-                    "system": "http://loinc.org",
-                    "code": "55284-4",
-                    "display": "Blood pressure systolic and diastolic"
-                  }
-                ],
-                "text": "Blood pressure"
-              },
-              "subject": {
-                "reference": "Patient/3998008"
-              },
-              "related": [
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#M5851294"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#M5851296"
-                  }
                 }
               ]
             }
