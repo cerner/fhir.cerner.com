@@ -1,5 +1,5 @@
 ---
-title: DocumentReference | FHIR MAY 2015 BALLOT API
+title: DocumentReference | MAY 2015 BALLOT API
 ---
 
 # DocumentReference

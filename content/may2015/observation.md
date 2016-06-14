@@ -1,5 +1,5 @@
 ---
-title: Observation | FHIR MAY 2015 BALLOT API
+title: Observation | MAY 2015 BALLOT API
 ---
 
 # Observation

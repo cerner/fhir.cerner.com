@@ -1,15 +1,15 @@
 ---
-title: Authorization | FHIR DSTU 2 API
+title: Authorization | DSTU 2 API
 ---
 
 # Authorization Server Client Documentation #
 ---------------------------------------------
 
 ### Introduction ###
-The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.
+The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR<sup>®</sup>][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.
 
 ### Registration ###
-In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this please [contact us][10] with the following fields, all fields are **required**.
+In order for your client application to utilize any protected resources, your client application must first register. To do this please [contact us][10] with the following fields, all fields are **required**.
 
 * Name - Application name, this should match what the name of the app will be in the app store  
 * Redirect/Callback URI  
@@ -17,7 +17,7 @@ In order for your client application to utilize any FHIR protected resources, yo
 * Logo URI - The logo will need to be a [Scalable Vector Graphics][6] image
 * SMART Launch URI
 
-Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected FHIR resources.
+Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
 
 ### Supported Scopes ###
 The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
@@ -87,10 +87,10 @@ If successful, the authorization server will return a **200 OK** response with a
 }
 ```
 
-The [bearer access token][7] returned from the authorization server is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
+The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
 
 ### OpenID Connect ###
-If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's FHIR resource URL (userfhirurl) as the "profile" claim.
+If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
 
 ```
 { 
@@ -103,13 +103,13 @@ If the scopes "openid" and "profile" were originally provided, an [OpenID Connec
 
 
 ### Using an access token ###
-In order to use an access token, your client application needs to provide the access token received from the authorization server to the FHIR protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
+In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
 
 ```
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
-If the access token is valid, and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.
+If the access token is valid, and your application is authorized, the resource server will allow your client application to access its protected resources.
 
 ### Using a Refresh Token ###
 The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec , the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.

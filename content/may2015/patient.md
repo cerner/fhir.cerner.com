@@ -1,5 +1,5 @@
 ---
-title: Patient | FHIR MAY 2015 BALLOT API
+title: Patient | MAY 2015 BALLOT API
 ---
 
 # Patient

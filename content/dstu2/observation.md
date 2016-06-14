@@ -1,5 +1,5 @@
 ---
-title: Observation | FHIR DSTU 2 BALLOT API
+title: Observation | DSTU 2 API
 ---
 
 # Observation

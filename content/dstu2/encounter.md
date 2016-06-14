@@ -1,5 +1,5 @@
 ---
-title: Encounter | FHIR DSTU 2 BALLOT API
+title: Encounter | DSTU 2 API
 ---
 
 # Encounter

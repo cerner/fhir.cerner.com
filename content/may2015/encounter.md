@@ -1,5 +1,5 @@
 ---
-title: Encounter | FHIR MAY 2015 BALLOT API
+title: Encounter | MAY 2015 BALLOT API
 ---
 
 # Encounter

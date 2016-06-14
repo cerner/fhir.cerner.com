@@ -1,5 +1,5 @@
 ---
-title: Patient | FHIR DSTU 2 API
+title: Patient | DSTU 2 API
 ---
 
 # Patient

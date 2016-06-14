@@ -1,6 +1,6 @@
 # fhir.cerner.com
 
-The public facing API documentation for Cerner's FHIR implementation.
+The public facing API documentation for Cerner's implementation of the FHIR<sup>®</sup> standard.
 
 ## Usage
 
@@ -32,8 +32,8 @@ The content is defined in YAML files and most fields are optional. If they are n
 - field_name_base_url: `definition_table` will generate nested links for each field prepended with this url
 - fields: The list of defined fields
     - name: The name of the field. This will be generated as a link based of `field_name_base_url`
-    - required: Whether or not the field is required. This is not necessarily whether the field is required by FHIR, but rather whether it is required by our server implementation.
-    - cardinality: The is the FHIR defined cardinality for the field
+    - required: Whether or not the field is required. This is not necessarily whether the field is required by the FHIR<sup>®</sup> standard, but rather whether it is required by our server implementation.
+    - cardinality: The is the defined cardinality for the field
     - type: The type of the field. If found in `lib/resources/<version>/types.yaml` this field will be linked to the specified resource.
     - description: The description of the field.
     - example: An example of how the field should be populated. The generated examples will be enclosed in &lt;pre&gt; tags to preserve formatting.

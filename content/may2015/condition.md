@@ -1,5 +1,5 @@
 ---
-title: Condition | FHIR MAY 2015 BALLOT API
+title: Condition | MAY 2015 BALLOT API
 ---
 
 # Condition

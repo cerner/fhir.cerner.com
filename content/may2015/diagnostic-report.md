@@ -1,5 +1,5 @@
 ---
-title: DiagnosticReport | FHIR MAY 2015 BALLOT API
+title: DiagnosticReport | MAY 2015 BALLOT API
 ---
 
 # DiagnosticReport

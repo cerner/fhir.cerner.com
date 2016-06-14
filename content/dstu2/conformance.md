@@ -1,5 +1,5 @@
 ---
-title: Conformance | FHIR DSTU 2 API
+title: Conformance | DSTU 2 API
 ---
 
 # Conformance
@@ -9,7 +9,7 @@ title: Conformance | FHIR DSTU 2 API
 
 ## Metadata
 
-Get the capabilities and configurations for the FHIR server:
+Get the capabilities and configurations of this implementation and deployment of the FHIR<sup>®</sup> standard:
 
     GET /metadata
 

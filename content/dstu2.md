@@ -1,10 +1,10 @@
 ---
-title: FHIR API DSTU 2
+title: DSTU 2
 ---
 
 # Overview
 
-This describes the resources that make up Cerner's implementation of the FHIR API. If you have any problems or requests,
+This describes the resources that make up Cerner's implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
 please post to our [developer group](https://groups.google.com/d/forum/cerner-fhir-developers).
 
 * TOC
@@ -42,11 +42,11 @@ Transfer-Encoding: chunked
 
 Blank fields are omitted.
 
-All timestamps are returned in [FHIR date/dateTime format](http://www.hl7.org/implement/standards/fhir/datatypes.html#date).
+All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/datatypes.html#date).
 
 ### Media Types
 
-Cerner supports standard FHIR media types for JSON content:
+Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON content:
 
     application/json+fhir
     application/json
@@ -55,7 +55,7 @@ We encourage you to explicitly request one of these types via the `Accept` heade
 
 ## Root Endpoint
 
-The FHIR URL takes the form `fhir.sandboxcernerpowerchart.com/dstu2/:ehr_source_id/:resource`.
+The URL takes the form `fhir.sandboxcernerpowerchart.com/dstu2/:ehr_source_id/:resource`.
 
 ### Open Endpoint
 
@@ -68,7 +68,7 @@ The `:ehr_source_id` represents the tenant for which data should be retrieved.
 
 ### Resource
 
-`:resource` represent the FHIR resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
+`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
 
 ## Parameters
 
@@ -124,7 +124,7 @@ receive request bodies:
 
 ## HTTP Verbs
 
-Where possible, FHIR strives to use appropriate HTTP verbs for each action.
+Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.
 
 Verb | Description
 -----|-----------
