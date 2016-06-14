@@ -141,7 +141,7 @@ $(function() {
   }
 
   // Expand and activate search if the page loaded with a value set for the search field
-  if ($("#searchfield").val().length > 0) {
+  if ($("#searchfield").val() && $("#searchfield").val().length > 0) {
     $("#search-container").addClass("active");
     searchForString($("#searchfield").val());
   }
