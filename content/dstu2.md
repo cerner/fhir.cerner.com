@@ -68,7 +68,7 @@ The `:ehr_source_id` represents the tenant for which data should be retrieved.
 
 ### Resource
 
-`:resource` represent the FHIR<sup>®</sup> standard resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
+`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
 
 ## Parameters
 

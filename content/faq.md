@@ -35,4 +35,4 @@ The SMART (Substitutable Medical Apps & Reusable Technology) platform defines a 
 
 ### Where can I ask a question?
 
-A developer can post a question to the community using the [our google group](https://groups.google.com/forum/#!forum/cerner-fhir-developers).
+A developer can post a question to the community using [our google group](https://groups.google.com/forum/#!forum/cerner-fhir-developers).
