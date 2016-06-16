@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Authorization | FHIR DSTU 2 API</title>
+  <title>Authorization | DSTU 2 API</title>
   
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -77,10 +77,10 @@
 <hr>
 
 <h3 id="introduction">Introduction</h3>
-<p>The Cerner Authorization Server currently supports <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR</a> launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a FHIR resource server.</p>
+<p>The Cerner Authorization Server currently supports <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR<sup>®</sup></a> launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.</p>
 
 <h3 id="registration">Registration</h3>
-<p>In order for your client application to utilize any FHIR protected resources, your client application must first register. To do this please <a href="http://www.cerner.com/FHIR_Application_Authorization_Request/">contact us</a> with the following fields, all fields are <strong>required</strong>.</p>
+<p>In order for your client application to utilize any protected resources, your client application must first register. To do this please <a href="http://www.cerner.com/FHIR_Application_Authorization_Request/">contact us</a> with the following fields, all fields are <strong>required</strong>.</p>
 
 <ul>
   <li>Name - Application name, this should match what the name of the app will be in the app store</li>
@@ -90,7 +90,7 @@
   <li>SMART Launch URI</li>
 </ul>
 
-<p>Once approved, a <strong>client identifier</strong> will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected FHIR resources.</p>
+<p>Once approved, a <strong>client identifier</strong> will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.</p>
 
 <h3 id="supported-scopes">Supported Scopes</h3>
 <p>The Cerner Authorization Server supports many, but not all, of the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> or <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OAuth/OpenID Connect</a> scopes. The following scopes are <strong>supported</strong>.</p>
@@ -170,10 +170,10 @@ grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_
 }
 </code></p>
 
-<p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is what you provide to the protected FHIR resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
+<p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
 
 <h3 id="openid-connect">OpenID Connect</h3>
-<p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> specification that includes the user’s FHIR resource URL (userfhirurl) as the “profile” claim.</p>
+<p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> specification that includes the user’s URL (userfhirurl) as the “profile” claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.</p>
 
 <p><code>
 { 
@@ -185,13 +185,13 @@ grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_
 </code></p>
 
 <h3 id="using-an-access-token">Using an access token</h3>
-<p>In order to use an access token, your client application needs to provide the access token received from the authorization server to the FHIR protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.</p>
+<p>In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.</p>
 
 <p><code>
 Authorization: Bearer {ACCESS_TOKEN}
 </code></p>
 
-<p>If the access token is valid, and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.</p>
+<p>If the access token is valid, and your application is authorized, the resource server will allow your client application to access its protected resources.</p>
 
 <h3 id="using-a-refresh-token">Using a Refresh Token</h3>
 <p>The authorization server has support for <strong>online access</strong> refresh tokens. Refresh tokens <strong>must</strong> be used in conjunction with the <strong>online_access</strong> scope. In order to use a refresh token, the user’s session <strong>must</strong> remain active. To request a refresh token, <strong>online_access</strong> must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> spec , the authorization server accepts a content type of <strong>application/x-www-form-urlencoded</strong> <strong>POST</strong> from your client application with the following information.</p>
@@ -224,69 +224,43 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
     <div class="js-toggle-list sidebar-module expandable">
         <ul>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
+                <h3><a href="../">Overview</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href=".">Authorization</a>
-</h3>
+                <h3><a href=".">Authorization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
-</h3>
+                <h3><a href="../conformance/">Conformance Metadata</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
-</h3>
+                <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
-</h3>
+                <h3><a href="../condition/">Condition</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
-</h3>
+                <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../document-reference/">DocumentReference</a>
-</h3>
+                <h3><a href="../document-reference/">DocumentReference</a></h3>
             </li>            
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
-</h3>
+                <h3><a href="../encounter/">Encounter</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
-</h3>
+                <h3><a href="../immunization/">Immunization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-order/">MedicationOrder</a>
-</h3>
+                <h3><a href="../medication-order/">MedicationOrder</a></h3>
             </li>
             <li class="js-topic">
-               <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-statement/">MedicationStatement</a>
-</h3>
+               <h3><a href="../medication-statement/">MedicationStatement</a></h3>
            </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../observation/">Observation</a>
-</h3>
+                <h3><a href="../observation/">Observation</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
-</h3>
+                <h3><a href="../patient/">Patient</a></h3>
             </li>
         </ul>
     </div> <!-- /sidebar-module -->

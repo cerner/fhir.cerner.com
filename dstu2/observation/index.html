@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Observation | FHIR DSTU 2 BALLOT API</title>
+  <title>Observation | DSTU 2 API</title>
   
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -121,16 +121,26 @@
     </tr>
     <tr>
       <td><code>code</code></td>
-      <td>Recommended to send at least one <code>code</code> or <code>date</code> range</td>
+      <td>Recommended to search by <code>code</code>, <code>component-code</code>, or <code>date</code>
+</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
       <td>The code of the observation type, can be a list of comma separated values. The system portion of the code is required. EG: <code>http://loinc.org|3094-0</code>
 </td>
     </tr>
     <tr>
+      <td><code>component-code</code></td>
+      <td>Recommended to search by <code>code</code>, <code>component-code</code>, or <code>date</code>
+</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
+      <td>The component code of the observation type, can be a list of comma separated values. Results will qualify if their components match the code. The system portion of the code is required. EG: <code>http://loinc.org|3094-0</code>
+</td>
+    </tr>
+    <tr>
       <td><code>date</code></td>
-      <td>Recommended to send at least one <code>code</code> or <code>date</code> range</td>
+      <td>Recommended to search by <code>code</code>, <code>component-code</code>, or <code>date</code>
+</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the observation falls (effectiveDateTime). Must request a range of time. EG: <code>date=gt2014-09-24T12:00:00.000Z</code> <code>&amp;date=lt2015-09-24T12:00:00.000Z</code>
+      <td>Date range into which the observation falls (effectiveDateTime). Single dates are treated as implied ranges. EG: <code>date=gt2014-09-24T12:00:00.000Z</code> <code>&amp;date=lt2015-09-24T12:00:00.000Z</code>
 </td>
     </tr>
     <tr>
@@ -148,7 +158,7 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "17953d5e-2728-4836-b934-4eb8baeb97c1",
+  "id": "2f43050f-af18-423d-8b11-d699193ef760",
   "type": "searchset",
   "link": [
     {
@@ -330,7 +340,7 @@
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 3998008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Potassium Lvl&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 2.50 mEq/L&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-26T22:02:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 3998008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Potassium Lvl&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 2.50 mEq/L&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level&lt;/b&gt;: CRIT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-26T22:02:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "final",
         "category": {
@@ -453,11 +463,50 @@
       "resource": {
         "resourceType": "Observation",
         "id": "BP-5851294-5851296",
-        "contained": [
+        "meta": {
+          "versionId": "1-5851293-1-5851295",
+          "lastUpdated": "2016-01-26T20:03:52.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 3998008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Systolic Blood Pressure: Systolic Blood Pressure Diastolic Blood Pressure: Diastolic Blood Pressure&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: Systolic Blood Pressure: 125 mmHg Diastolic Blood Pressure: 117 mmHg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level&lt;/b&gt;: Above absolute high-off instrument scale&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-26T20:01:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Systolic Blood Pressure: Low: 80 mmHg High: 120 mmHg Diastolic Blood Pressure: Low: 70 mmHg High: 80 mmHg&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "75367002",
+              "display": "Blood pressure (observable entity)"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood pressure systolic and diastolic"
+            }
+          ],
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "Patient/3998008"
+        },
+        "encounter": {
+          "reference": "Encounter/3651924"
+        },
+        "effectiveDateTime": "2016-01-26T20:01:00.000Z",
+        "issued": "2016-01-26T20:01:08.000Z",
+        "interpretation": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0078",
+              "code": "&gt;",
+              "display": "Above absolute high-off instrument scale"
+            }
+          ],
+          "text": "&gt;HHI"
+        },
+        "component": [
           {
-            "resourceType": "Observation",
-            "id": "M5851294",
-            "status": "final",
             "code": {
               "coding": [
                 {
@@ -468,29 +517,11 @@
               ],
               "text": "Systolic Blood Pressure"
             },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "encounter": {
-              "reference": "Encounter/3651924"
-            },
-            "effectiveDateTime": "2016-01-26T20:01:00.000Z",
-            "issued": "2016-01-26T20:01:08.000Z",
             "valueQuantity": {
               "value": 125,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
-            },
-            "interpretation": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0078",
-                  "code": "H",
-                  "display": "Above high normal"
-                }
-              ],
-              "text": "HI"
             },
             "referenceRange": [
               {
@@ -510,9 +541,6 @@
             ]
           },
           {
-            "resourceType": "Observation",
-            "id": "M5851296",
-            "status": "final",
             "code": {
               "coding": [
                 {
@@ -523,29 +551,11 @@
               ],
               "text": "Diastolic Blood Pressure"
             },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "encounter": {
-              "reference": "Encounter/3651924"
-            },
-            "effectiveDateTime": "2016-01-26T20:01:00.000Z",
-            "issued": "2016-01-26T20:01:08.000Z",
             "valueQuantity": {
               "value": 117,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
-            },
-            "interpretation": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0078",
-                  "code": "&gt;",
-                  "display": "Above absolute high-off instrument scale"
-                }
-              ],
-              "text": "&gt;HHI"
             },
             "referenceRange": [
               {
@@ -564,44 +574,12 @@
               }
             ]
           }
-        ],
-        "status": "unknown",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "75367002",
-              "display": "Blood pressure (observable entity)"
-            },
-            {
-              "system": "http://loinc.org",
-              "code": "55284-4",
-              "display": "Blood pressure systolic and diastolic"
-            }
-          ],
-          "text": "Blood pressure"
-        },
-        "subject": {
-          "reference": "Patient/3998008"
-        },
-        "related": [
-          {
-            "type": "has-member",
-            "target": {
-              "reference": "#M5851294"
-            }
-          },
-          {
-            "type": "has-member",
-            "target": {
-              "reference": "#M5851296"
-            }
-          }
         ]
       }
     }
   ]
 }</code></pre>
+
 
     </div>
 
@@ -609,69 +587,43 @@
     <div class="js-toggle-list sidebar-module expandable">
         <ul>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
+                <h3><a href="../">Overview</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../authorization">Authorization</a>
-</h3>
+                <h3><a href="../authorization">Authorization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance Metadata</a>
-</h3>
+                <h3><a href="../conformance/">Conformance Metadata</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../allergy-intolerance/">AllergyIntolerance</a>
-</h3>
+                <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../condition/">Condition</a>
-</h3>
+                <h3><a href="../condition/">Condition</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic-report/">DiagnosticReport</a>
-</h3>
+                <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../document-reference/">DocumentReference</a>
-</h3>
+                <h3><a href="../document-reference/">DocumentReference</a></h3>
             </li>            
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounter/">Encounter</a>
-</h3>
+                <h3><a href="../encounter/">Encounter</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../immunization/">Immunization</a>
-</h3>
+                <h3><a href="../immunization/">Immunization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-order/">MedicationOrder</a>
-</h3>
+                <h3><a href="../medication-order/">MedicationOrder</a></h3>
             </li>
             <li class="js-topic">
-               <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medication-statement/">MedicationStatement</a>
-</h3>
+               <h3><a href="../medication-statement/">MedicationStatement</a></h3>
            </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Observation</a>
-</h3>
+                <h3><a href="./">Observation</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../patient/">Patient</a>
-</h3>
+                <h3><a href="../patient/">Patient</a></h3>
             </li>
         </ul>
     </div> <!-- /sidebar-module -->

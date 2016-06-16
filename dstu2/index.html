@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>FHIR API DSTU 2</title>
+  <title>DSTU 2</title>
   
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@
       
 <h1 id="overview">Overview</h1>
 
-<p>This describes the resources that make up Cerner’s implementation of the FHIR API. If you have any problems or requests,
+<p>This describes the resources that make up Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
 please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.</p>
 
 <ul id="markdown-toc">
@@ -132,11 +132,11 @@ Transfer-Encoding: chunked
 
 <p>Blank fields are omitted.</p>
 
-<p>All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/datatypes.html#date">FHIR date/dateTime format</a>.</p>
+<p>All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/datatypes.html#date">FHIR<sup>®</sup> standard date/dateTime formats</a>.</p>
 
 <h3 id="media-types">Media Types</h3>
 
-<p>Cerner supports standard FHIR media types for JSON content:</p>
+<p>Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON content:</p>
 
 <pre><code>application/json+fhir
 application/json
@@ -146,7 +146,7 @@ application/json
 
 <h2 id="root-endpoint">Root Endpoint</h2>
 
-<p>The FHIR URL takes the form <code>fhir.sandboxcernerpowerchart.com/dstu2/:ehr_source_id/:resource</code>.</p>
+<p>The URL takes the form <code>fhir.sandboxcernerpowerchart.com/dstu2/:ehr_source_id/:resource</code>.</p>
 
 <h3 id="open-endpoint">Open Endpoint</h3>
 
@@ -159,7 +159,7 @@ authentication. Use the <code>fhir.sandboxcernerpowerchart.com</code> domain to 
 
 <h3 id="resource">Resource</h3>
 
-<p><code>:resource</code> represent the FHIR resource to access. Example: <a href="patient/"><code>Patient</code></a></p>
+<p><code>:resource</code> represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="patient/"><code>Patient</code></a></p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -232,7 +232,7 @@ response.</p>
 
 <h2 id="http-verbs">HTTP Verbs</h2>
 
-<p>Where possible, FHIR strives to use appropriate HTTP verbs for each action.</p>
+<p>Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.</p>
 
 <table>
   <thead>
@@ -344,69 +344,43 @@ Access-Control-Allow-Credentials: true
     <div class="js-toggle-list sidebar-module expandable">
         <ul>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
-</h3>
+                <h3><a href="./">Overview</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="authorization">Authorization</a>
-</h3>
+                <h3><a href="authorization">Authorization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="conformance/">Conformance Metadata</a>
-</h3>
+                <h3><a href="conformance/">Conformance Metadata</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="allergy-intolerance/">AllergyIntolerance</a>
-</h3>
+                <h3><a href="allergy-intolerance/">AllergyIntolerance</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="condition/">Condition</a>
-</h3>
+                <h3><a href="condition/">Condition</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="diagnostic-report/">DiagnosticReport</a>
-</h3>
+                <h3><a href="diagnostic-report/">DiagnosticReport</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="document-reference/">DocumentReference</a>
-</h3>
+                <h3><a href="document-reference/">DocumentReference</a></h3>
             </li>            
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="encounter/">Encounter</a>
-</h3>
+                <h3><a href="encounter/">Encounter</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="immunization/">Immunization</a>
-</h3>
+                <h3><a href="immunization/">Immunization</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="medication-order/">MedicationOrder</a>
-</h3>
+                <h3><a href="medication-order/">MedicationOrder</a></h3>
             </li>
             <li class="js-topic">
-               <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="medication-statement/">MedicationStatement</a>
-</h3>
+               <h3><a href="medication-statement/">MedicationStatement</a></h3>
            </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="observation/">Observation</a>
-</h3>
+                <h3><a href="observation/">Observation</a></h3>
             </li>
             <li class="js-topic">
-                <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="patient/">Patient</a>
-</h3>
+                <h3><a href="patient/">Patient</a></h3>
             </li>
         </ul>
     </div> <!-- /sidebar-module -->
