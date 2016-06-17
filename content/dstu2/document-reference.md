@@ -26,11 +26,11 @@ To successfully POST a document, the following headers must be provided. Documen
 
 ### Body fields
 
-<%= definition_table(:document_reference, :create, :dstu2) %>
-
-### Implementation Notes
+_Implementation Notes_   
 
 * The [relatesTo](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo) Is-Modifier field is not supported and will be ignored if present.
+
+<%= definition_table(:document_reference, :create, :dstu2) %>
 
 #### Example Body
 
