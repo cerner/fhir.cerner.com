@@ -143,7 +143,7 @@ fields:
     example: |
               {"context": {
                 "period" : {
-                  "end": "2015-08-20T091014Z"}}}
+                  "end": "2015-08-20T09:10:14Z"}}}
     note: >
             If provided, the service time must be set to `context.period.end`. If not provided, the document will be
             stored with the indexed dateTime.
