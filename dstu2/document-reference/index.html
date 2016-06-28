@@ -171,6 +171,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 
 <h3 id="body-fields">Body fields</h3>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> Is-Modifier field is not supported and will be ignored if present.</li>
+</ul>
+
 <table style="white-space: normal">
   <thead>
     <tr>
@@ -654,7 +660,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{"context": {
   "period" : {
-    "end": "2015-08-20T091014Z"}}}
+    "end": "2015-08-20T09:10:14Z"}}}
 </pre></li></ul>
       
       
