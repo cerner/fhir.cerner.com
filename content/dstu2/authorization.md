@@ -46,9 +46,7 @@ It is also **recommended** that your client application provides the following q
 * state - to prevent [cross-site request forgery attacks][2]
 * redirect_uri - note: The redirect_uri **must** match what was originally registered and requested
 
-```
-https://authorization.sandboxcerner.com/tenants/{TENANT_ID}/personas/{provider or patient}/protocols/oauth2/profiles/smart-v1/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
-```
+The authorization server authorize URL can be found in the security section of the [conformance document](conformance.md)
 
 If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.
 
@@ -68,9 +66,7 @@ Once an authorization code has been acquired, a back-channel **POST** to the aut
 * client_id
 * redirect_uri (only necessary if it was provided when the authorization code was requested)
 
-```
-https://authorization.sandboxcerner.com/tenants/{TENANT_ID}/personas/{provider or patient}/protocols/oauth2/profiles/smart-v1/token
-```
+The authorization server authorize URL can be found in the security section of the [conformance document](conformance.md)
 
 ```
 grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
@@ -108,7 +104,7 @@ In order to use an access token, your client application needs to provide the ac
 Authorization: Bearer {ACCESS_TOKEN}
 ```
 
-If the access token is valid and your application is authorized, the FHIR resource server will allow your client application to access its protected resources.
+If the access token is valid and your application is authorized, the resource server will allow your client application to access its protected resources.
 
 ### Using a Refresh Token ###
 The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
@@ -133,6 +129,8 @@ If successful, the authorization server will return a **200 OK** response with a
 The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised.
 
 ### Error Codes ###
+There are numerous possible situations that can cause an error while attempting to retrieve an access token. Some are displayed directly to users when the client application redirect URI cannot be trusted while others are returned to the client application in the error_uri as per section 4.1.2.1 of the [OAuth 2.0][1] specification. If an error is returned to the application, an application should display it's own error page and include the link from the error response.
+
 ##### Error URNs for the Authorization Server #####
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid.
 * **urn:cerner:error:authorization-server:oauth2:grant:unknown-client** - The client application is not registered.
@@ -148,6 +146,7 @@ The refresh token issued is good while the user's session is still valid and can
 * **urn:cerner:error:authorization-server:oauth2:grant:csrf-security-failure** - The CSRF token used in confirming the user's approval was invalid; we will immediately notify the client app that we are unable to satisfy the request.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
+* **urn:cerner:error:authorization-server:oauth2:grant:invalid-patient-id** - The patient id does not exist or the user does not have access to the selected patient id's records.
 * **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.
 
 * **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
@@ -155,11 +154,19 @@ The refresh token issued is good while the user's session is still valid and can
 * **urn:cerner:error:authorization-server:oauth2:token:empty-scopes** - The resulting token contains no scopes, either due to unsatisfied constraints specified in the token request, or because the client is no longer authorized for the scopes associated with the refresh token.
 * **urn:cerner:error:authorization-server:oauth2:token:terminated-client** - The client application has a valid token, but is no longer registered.
 * **urn:cerner:error:authorization-server:oauth2:token:code:invalid** - The authorization code presented is either invalid or has expired.
-* **urn:cerner:error:authorization-server:oauth:token:code:client:mismatch** - The client provided did not match the original authorization code request.
-* **urn:cerner:error:authorization-server:oauth:token:code:tenant:mismatch** - The tenant provided did not match the original authorization code request.
+* **urn:cerner:error:authorization-server:oauth2:token:code:client:mismatch** - The client provided did not match the original authorization code request.
+* **urn:cerner:error:authorization-server:oauth2:token:code:tenant:mismatch** - The tenant provided did not match the original authorization code request.
+* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-terminated** - The client application is no longer authorized to access tenant resources specified in the original authorization code.
+* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-invalid** - The tenant for which a token requested in not registered.
+* **urn:cerner:error:authorization-server:oauth2:token:invalid_authorization_header** - The Authorization Header used in client_credentials grants for B2B workflows is invalid.
+* **urn:cerner:error:authorization-server:oauth2:token:invalid_client_credentials** - The client credentials were invalid.
+* **urn:cerner:error:authorization-server:oauth2:token:patient-scope-requires-one-patient-id** - There must be exactly one patient id selected when requesting a patient/*.* scope.
+* **urn:cerner:error:authorization-server:oauth2:token:tenant-not-enabled-for-testing** - The tenant is not enabled for obtaining testing tokens on behalf of users.
+* **urn:cerner:error:authorization-server:oauth2:token:client-not-enabled-for-testing** - The client is not enabled for obtaining testing tokens on behalf of users.
+* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.
+
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:token-invalid** - The refresh token presented is either invalid, expired, or was terminated by the user.
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
-* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-terminated** - The client application is no longer authorized to access tenant resources specified in the original authorization code.
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
 
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
@@ -178,19 +185,6 @@ The refresh token issued is good while the user's session is still valid and can
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:cancelled** - The user or identity provider cancelled the authentication request.
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:error** - An unspecified server error occurred while authenticating.
 
-##### Errors URNs for Resource Servers #####
-* **urn:cerner:error:oauth2:resource-access:token-required** - No access token was provided to the resource server
-* **urn:cerner:error:oauth2:resource-access:expired** - The access token has expired.
-* **urn:cerner:error:oauth2:resource-access:token-not-authorized** - The access token does not have the appropriate scopes for this resource.
-* **urn:cerner:error:oauth2:resource-access:insufficient-scopes** - The access token does not have the appropriate scopes for this resource, or perhaps is requesting a patient record other than what is allowed by the token.
-* **urn:cerner:error:oauth2:resource-access:user-not-authorized** - The user is not authorized to read or perform actions against the given record or resource.
-* **urn:cerner:error:oauth2:resource-access:signature-verification-failed** - The access token signature verification failed, perhaps due to the signature being incorrect, or being signed by a key that is not currently advertised at the JSON web key set.
-* **urn:cerner:error:oauth2:resource-access:issuer-not-trusted** - The issuer of the access token is not trusted by this resource server.
-* **urn:cerner:error:oauth2:resource-access:signature-keys-unavailable** - The resource server is unable to verify the access tokens signature, perhaps due to an inability to fetch the current signing keys.
-* **urn:cerner:error:oauth2:resource-access:tenant-mismatch** - The tenant on the access token does not match that of the resource.
-* **urn:cerner:error:oauth2:resource-access:profile-not-supported** - The profile on the access token is not supported, currently only "smart-v1" is supported.
-* **urn:cerner:error:oauth2:resource-access:server-error** - A runtime error occurred within the resource server that prevented it from determining if the request was authorized.
-* **urn:cerner:error:oauth2:resource-access:encounter-required** - This resource requires an encounter to create records, however, one could not be automatically determined based on the content of the access token.
 
 [1]: https://tools.ietf.org/html/rfc6749  
 [2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
