@@ -46,7 +46,7 @@ It is also **recommended** that your client application provides the following q
 * state - to prevent [cross-site request forgery attacks][2]
 * redirect_uri - Note: The redirect_uri **must** match what was originally registered and requested
 
-The authorization server authorize URL can be found in the security section of the [conformance document](../conformance)
+The authorization server authorize URL can be found in the security section of the [conformance document](../conformance).
 
 If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.
 
@@ -66,7 +66,7 @@ Once an authorization code has been acquired, a back-channel **POST** to the aut
 * client_id
 * redirect_uri (only necessary if it was provided when the authorization code was requested)
 
-The authorization server authorize URL can be found in the security section of the [conformance document](../conformance)
+The authorization server authorize URL can be found in the security section of the [conformance document](../conformance).
 
 ```
 grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
@@ -147,7 +147,7 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-patient-id** - The patient id does not exist or the user does not have access to the selected patient id's records.
-* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.
+* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.  
 <br />
 * **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
 * **urn:cerner:error:authorization-server:oauth2:token:invalid-redirect-uri** - The URI provided did not match the original request, or is not a valid URI.
@@ -163,11 +163,11 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:oauth2:token:patient-scope-requires-one-patient-id** - There must be exactly one patient id selected when requesting a patient/*.* scope.
 * **urn:cerner:error:authorization-server:oauth2:token:tenant-not-enabled-for-testing** - The tenant is not enabled for obtaining testing tokens on behalf of users.
 * **urn:cerner:error:authorization-server:oauth2:token:client-not-enabled-for-testing** - The client is not enabled for obtaining testing tokens on behalf of users.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.
+* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.  
 <br />
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:token-invalid** - The refresh token presented is either invalid, expired, or was terminated by the user.
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
-* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
+* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.  
 <br />
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:launch-code-required** - A launch scope was requested, but a launch code was not supplied.
@@ -177,7 +177,7 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unsupported-version** - The EHR does not support the version of launch that was requested.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unspecified** - Resolution of launch data failed at the EHR for unspecified reasons.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unregistered-service** - The launch resolution service was not configured for a given tenant.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.  
 <br />
 * **urn:cerner:error:authorization-server:unregistered-authorized-representatives-server** - The Authorized Representatives service was not configured properly.
 * **urn:cerner:error:authorization-server:preauthentication** - A fatal error in the pre-authentication process.
