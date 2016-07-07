@@ -44,7 +44,7 @@ Once a launch context is received by your client application from the EHR, it mu
 It is also **recommended** that your client application provides the following query parameters.
 
 * state - to prevent [cross-site request forgery attacks][2]
-* redirect_uri - note: The redirect_uri **must** match what was originally registered
+* redirect_uri - Note: The redirect_uri **must** match what was originally registered
 
 ```
 https://authorization.sandboxcerner.com/realms/{TENANT_ID}/protocols/smart/authorize?response_type=code&client_id={YOUR_CLIENT_ID}&state=12345&redirect_uri=https%3A%2F%2Ftest.com%2Fcb
