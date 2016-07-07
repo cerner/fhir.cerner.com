@@ -2280,112 +2280,19 @@ module Cerner
         "link": [
           {
             "relation": "self",
-            "url": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=3998008&_count=50"
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=3998008&_count=50"
           }
         ],
         "entry": [
           {
-            "fullUrl": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867",
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/93-5525867",
             "resource": {
               "resourceType": "Observation",
-              "id": "5525867",
+              "id": "93-5525867",
               "meta": {
                 "versionId": "1252402",
                 "lastUpdated": "2016-01-26T21:58:41.000Z"
               },
-              "contained": [
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930400",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco use"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "Current some day smoker"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930404",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco type"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "Cigarettes, Chewing tobacco"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930316",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco number of years"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "10"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930360",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco started at age"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "22 Years"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930372",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco readiness to change"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "No"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930368",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco previous treatment"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "None"
-                },
-                {
-                  "resourceType": "Observation",
-                  "id": "5525867-q6930376",
-                  "status": "final",
-                  "code": {
-                    "text": "SHX Tobacco household concerns"
-                  },
-                  "subject": {
-                    "reference": "Patient/3998008"
-                  },
-                  "issued": "2016-01-26T21:58:41.000Z",
-                  "valueString": "Yes"
-                }
-              ],
               "status": "final",
               "code": {
                 "coding": [
@@ -2404,50 +2311,184 @@ module Cerner
                 {
                   "type": "has-member",
                   "target": {
-                    "reference": "#5525867-q6930400"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930404"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930316"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930360"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930372"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930368"
-                  }
-                },
-                {
-                  "type": "has-member",
-                  "target": {
-                    "reference": "#5525867-q6930376"
+                    "reference": "Observation/5525867"
                   }
                 }
               ]
             }
           },
           {
-            "fullUrl": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/M5853272",
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "229819007",
+                    "display": "Tobacco use and exposure (observable entity)"
+                  }
+                ],
+                "text": "Tobacco"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "related": [
+                {
+                  "type": "has-member",
+                  "target": {
+                    "reference": "Observation/5525867-q6930400"
+                  }
+                },
+                {
+                  "type": "has-member",
+                  "target": {
+                    "reference": "Observation/5525867-q6930404-0"
+                  }
+                },
+                {
+                  "type": "has-member",
+                  "target": {
+                    "reference": "Observation/5525867-q6930404-1"
+                  }
+                },
+                {
+                  "type": "has-member",
+                  "target": {
+                    "reference": "Observation/5525867-q6930316"
+                  }
+                },
+                {
+                  "type": "has-member",
+                  "target": {
+                    "reference": "Observation/5525867-q6930360"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867-q6930400",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867-q6930400",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "text": "SHX Tobacco use"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "issued": "2016-01-26T21:58:41.000Z",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "8517006",
+                    "display": "Ex-smoker (finding)"
+                  }
+                ],
+                "text": "Former smoker"
+              }
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867-q6930404-0",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867-q6930404-0",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "text": "SHX Tobacco type"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "issued": "2016-01-26T21:58:41.000Z",
+              "valueCodeableConcept": {
+                "text": "Cigarettes"
+              }
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867-q6930404-1",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867-q6930404-1",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "text": "SHX Tobacco type"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "issued": "2016-01-26T21:58:41.000Z",
+              "valueCodeableConcept": {
+                "text": "Chewing tobacco"
+              }
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867-q6930316",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867-q6930316",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "text": "SHX Tobacco number of years"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "issued": "2016-01-26T21:58:41.000Z",
+              "valueString": "10"
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/5525867-q6930360",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "5525867-q6930360",
+              "meta": {
+                "versionId": "1252402",
+                "lastUpdated": "2016-01-26T21:58:41.000Z"
+              },
+              "status": "final",
+              "code": {
+                "text": "SHX Tobacco started at age"
+              },
+              "subject": {
+                "reference": "Patient/3998008"
+              },
+              "issued": "2016-01-26T21:58:41.000Z",
+              "valueString": "22 Years"
+            }
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/M5853272",
             "resource": {
               "resourceType": "Observation",
               "id": "M5853272",
@@ -2516,7 +2557,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/M5851292",
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/M5851292",
             "resource": {
               "resourceType": "Observation",
               "id": "M5851292",
@@ -2576,7 +2617,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/BP-5851294-5851296",
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation/BP-5851294-5851296",
             "resource": {
               "resourceType": "Observation",
               "id": "BP-5851294-5851296",
