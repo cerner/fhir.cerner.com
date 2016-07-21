@@ -8,58 +8,40 @@ fields:
   cardinality: 1..1
   type: CodeableConcept
   description: The vaccine that was administered or was to be administered.
-  example: |
-            {"vaccineCode": {
-               "coding": [
-                {"system": "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx",
-                 "code": "43"}],
-               "text": "Engerix-B (obsolete)"}}
   binding:
     description: Identifies the vaccine substance administered.
     terminology:
     - display: CVX
-      system: http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+      system: http://hl7.org/fhir/sid/cvx
 
 - name: site
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: The body site where the vaccine was administered.
-  example: |
-            {"site": {
-               "coding": [
-                {"system": "http://hl7.org/fhir/v3/ActSite",
-                 "code": "LT",
-                 "display": "left thigh"}],
-               "text": "left thigh"}}
   binding:
     description: The site at which the vaccine was administered.
     terminology:
-    - display: v3 Code System ActSite
-      system: http://hl7.org/fhir/v3/ActSite
+    - display: SNOMED CT
+      system: http://snomed.info/sct
 
 - name: route
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: The path by which the vaccine product is taken into the body.
-  example: |
-            {"route": {
-               "text": "IV"}}
-  note: The value would always be a freetext value. Currently does not return a coded value.
   binding:
     description: The path the administered medication takes to get into the body or into contact with the body.
-    note: Currently it is not bound to any terminology. The value would always be returned as a freetext value.
+    terminology:
+        - display: NCI Metathesaurus
+          system: http://ncimeta.nci.nih.gov
 
 - name: explanation
   required: 'No'
   cardinality: 0..1
   type: BackboneElement
   description: Reasons why a vaccine was or was not administered.
-  example: |
-            {"explanation": {
-               "reasons_not_given": [
-                {"text": "Patient Refuses"}]}}
+
   children:
 
   - name: reasonNotGiven
@@ -67,10 +49,6 @@ fields:
     cardinality: 0..*
     type: CodeableConcept
     description: Why immunization did not occur.
-    example: |
-              {"explanation": {
-                 "reasons_not_given": [
-                  {"text": "Patient Refuses"}]}}
     binding:
       description: The reason why a vaccine was not administered.
       terminology:
