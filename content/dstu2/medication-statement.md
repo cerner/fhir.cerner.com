@@ -11,6 +11,10 @@ title: MedicationStatement | DSTU 2 API
 
 <%= terminology_table(:medication_statement, :dstu2) %>
 
+### Contained Medication Bindings
+
+<%= terminology_table(:contained_medication, :dstu2) %>
+
 ## Search
 
 Search for MedicationStatements that meet supplied query parameters:
@@ -33,10 +37,15 @@ Search for MedicationStatements that meet supplied query parameters:
 
 ## Create
 
-Create new MedicationStatement. The medicationReference field must refer to a contained Medication with the code field populated.
-Only active MedicationStatement can be created.
+Create a new MedicationStatement.
 
     POST /MedicationStatement
+
+_Notes_
+
+* Only active MedicationStatements may be created.
+* [MedicationStatement.wasNotTaken](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken) set to `true` is not supported.
+* If [MedicationStatement.medication](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_) is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.
 
 ### Headers
 
@@ -45,9 +54,13 @@ To successfully POST a MedicationStatement, the following headers must be provid
     Content-Type: application/json+fhir
     Authorization: <OAuth2 Bearer Token>
 
-### Body fields
+### Body Fields
 
 <%= definition_table(:medication_statement, :create, :dstu2) %>
+
+#### Contained Medication Body Fields
+
+<%= definition_table(:contained_medication, :create, :dstu2) %>
 
 ### Example Body
 
@@ -82,14 +95,17 @@ To successfully POST a MedicationStatement, the following headers must be provid
     x-xss-protection → 1; mode=block
 </pre>
 
-The `etag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ## Update
 
-Update the status of a MedicationStatement, only completed status is supported. The medicationReference field must refer
-to a contained Medication where the code field is populated with the current medication code; it may not be changed.
+Update a MedicationStatement.
 
     PUT /MedicationStatement
+
+_Notes_
+
+* The only supported change is to update the status to `completed`.
 
 ### Headers
 
