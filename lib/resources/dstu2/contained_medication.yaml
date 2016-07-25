@@ -27,3 +27,21 @@ fields:
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
+
+- name: product
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: Information that applies only to products (not packages).
+  children:
+
+  - name: form
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Describes the form of the item.
+    binding:
+      description: Describes the form of the item.
+      terminology:
+          - display: NCI Metathesaurus
+            system: http://ncimeta.nci.nih.gov

@@ -1,0 +1,109 @@
+---
+name: MedicationOrder
+field_name_base_url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder
+fields:
+
+- name: reasonCodeableConcept
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The reason or indication for writing the prescription.
+  url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_
+  binding:
+    description: The reason or indication for writing the prescription.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+    - display: ICD-9
+      system: http://hl7.org/fhir/sid/icd-9
+    - display: ICD-10
+      system: http://hl7.org/fhir/sid/icd-10
+
+- name: medicationCodeableConcept
+  required: 'No'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Identifies the medication being administered.
+  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
+  binding:
+    description: Identifies the medication being administered.
+    terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
+
+- name: dosageInstruction
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: How the medication is to be used by the patient.
+  children:
+
+  - name: additionalInstructions
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Supplemental instructions.
+    binding:
+        description: Supplemental instructions.
+        note: Currently not bound to any terminology. The value would always be returned as a free-text value.
+
+  - name: timing
+    required: 'No'
+    cardinality: 0..1
+    type: Timing
+    description: The timing schedule for giving the medication to the patient.
+    children:
+
+    - name: code
+      required: 'No'
+      cardinality: 0..1
+      type: CodeableConcept
+      description: A code for the timing pattern.
+      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
+      binding:
+        description: Code for a known / defined timing pattern.
+        terminology:
+        - display: TimingAbbreviation
+          system: http://hl7.org/fhir/timing-abbreviation
+        - display: SNOMED CT
+          system: http://snomed.info/sct
+
+  - name: asNeeded[x]
+    required: 'No'
+    cardinality: 0..1
+    type: boolean | CodeableConcept
+    description: >
+      Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+    url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_
+    binding:
+      description: >
+        Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+
+  - name: siteCodeableConcept
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The anatomic site where the medication first enters the body.
+    url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_
+    binding:
+      description: The anatomic site where the medication first enters the body.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+
+  - name: route
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: >
+      A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+    binding:
+      description: >
+        A code specifying the route or physiological path of administration of a therapeutic agent into or onto a
+        subject.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
