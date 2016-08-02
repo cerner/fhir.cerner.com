@@ -7,6 +7,10 @@ title: Appointment | DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:appointment, :dstu2) %>
+
 ## Search
 
 Search for Appointments that meet supplied query parameters:
