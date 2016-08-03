@@ -2981,167 +2981,293 @@ module Cerner
           }
         ]
       }
-    
-      DSTU2_ENCOUNTER_BUNDLE ||=
-        {
-          "resourceType": "Bundle",
-          "id": "d41490ce-aece-4de5-ae7b-d4e1c671dd94",
-          "type": "searchset",
-          "total": 2,
-          "link": [
-          {
-            "relation": "self",
-            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=111"
-          }
-          ],
-        "entry": [
-          {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/222",
-            "resource": {
-              "resourceType": "Encounter",
-              "id": "222",
-              "text": {
-                "status": "generated",
-                "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: BW Rheumatology&lt;/p>&lt;p>&lt;b>Type&lt;/b>: outpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: finished&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2015-03-12T15:30:00.000Z&lt;/p>&lt;p>&lt;b>Period End Date&lt;/b>: 2015-03-12T16:15:00.000Z&lt;/p>&lt;p>&lt;b>Reason For Visit&lt;/b>: rheumatoid arthritis&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Jones, Bob&lt;/p>&lt;/div>"
-              },
-              "identifier": [
-                {
-                  "use": "usual",
-                  "system": "http://cerner.com/fhir/identifier/FINNBR",
-                  "value": "20001118"
-                }
-              ],
-              "status": "finished",
-              "class": "outpatient",
-              "patient": {
-                  "reference": "Patient/111"
-              },
-              "participant": [
-                {
-                  "type": [
-                    {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/v3/ParticipationType",
-                          "code": "ATND",
-                          "display": "attender"
-                        }
-                      ],
-                      "text": "attender"
-                    }
-                  ],
-                  "individual": {
-                    "reference": "Practitioner/4340404",
-                    "display": "Jones, Bob"
-                  }
-                }
-              ],
-              "period": {
-                "start": "2015-03-12T15:30:00.000Z",
-                "end": "2015-03-12T16:15:00.000Z"
-              },
-              "reason": [
-                {
-                  "text": "rheumatoid arthritis"
-                }
-              ],
-              "location": [
-                {
-                  "location": {
-                    "display": "BW Rheumatology"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/333",
-            "resource": {
-              "resourceType": "Encounter",
-              "id": "333",
-              "text": {
-                "status": "generated",
-                "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Outpatient Ctr&lt;/p>&lt;p>&lt;b>Type&lt;/b>: outpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: in-progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2015-03-10T13:00:00.000Z&lt;/p>&lt;p>&lt;b>Reason For Visit&lt;/b>: HIMSS demo pt&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Smith, John&lt;/p>&lt;/div>"
-              },
-              "identifier": [
-                {
-                  "use": "usual",
-                  "system": "http://cerner.com/fhir/identifier/FINNBR",
-                  "value": "20001290"
-                }
-              ],
-              "status": "in-progress",
-              "class": "outpatient",
-              "patient": {
-                "reference": "Patient/111"
-              },
-              "participant": [
-                {
-                  "type": [
-                    {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/v3/ParticipationType",
-                          "code": "ATND",
-                          "display": "attender"
-                        }
-                      ],
-                      "text": "attender"
-                    }
-                  ],
-                  "individual": {
-                    "reference": "Practitioner/5132404",
-                    "display": "Smith, John"
-                  }
-                }
-              ],
-              "period": {
-                "start": "2015-03-10T13:00:00.000Z"
-              },
-              "reason": [
-                {
-                  "text": "HIMSS demo pt"
-                }
-              ],
-              "location": [
-                {
-                  "location": {
-                    "display": "Outpatient Ctr"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
 
     DSTU2_ENCOUNTER ||=
       {
         "resourceType": "Encounter",
-        "id": "111",
+        "id": "8124712",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2016-02-15T18:57:38.000Z"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: 1N 134 01&lt;/p>&lt;p>&lt;b>Type&lt;/b>: inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: in-progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: 2004-04-16T19:00:00.000Z&lt;/p>&lt;/div>"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Emergency&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: Outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Fri Jan  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Pain in leg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Pond, Amy&lt;/p&gt;&lt;/div&gt;"
         },
+        "contained": [
+          {
+            "resourceType": "Location",
+            "id": "d312719",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/RoleCode",
+                  "code": "PTRES",
+                  "display": "Patient's Residence",
+                  "userSelected": false
+                }
+              ],
+              "text": "Home"
+            }
+          },
+          {
+            "resourceType": "Location",
+            "id": "o589723",
+            "name": "Baseline West Medical Center",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/RoleCode",
+                  "code": "ER",
+                  "display": "Emergency room",
+                  "userSelected": false
+                }
+              ],
+              "text": "Emergency Room - Hospital"
+            }
+          }
+        ],
         "identifier": [
           {
             "use": "usual",
-            "system": "http://cerner.com/fhir/identifier/FINNBR",
-            "value": "000000014"
+            "type": {
+              "text": "FIN NBR"
+            },
+            "value": "200124881",
+            "period": {
+              "start": "2016-02-15T18:57:37.000Z"
+            }
           }
         ],
         "status": "in-progress",
-        "class": "inpatient",
-        "patient": {
-          "reference": "Patient/111"
+        "class": "outpatient",
+        "type": [
+          {
+            "text": "Emergency"
+          }
+        ],
+        "priority": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/encounter-priority",
+              "code": "emg",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency"
         },
+        "patient": {
+          "reference": "Patient/9823498",
+          "display": "Song, River"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "ATND",
+                    "display": "attender",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Attending Physician"
+              }
+            ],
+            "period": {
+              "start": "2016-02-15T18:57:37.000Z"
+            },
+            "individual": {
+              "reference": "Practitioner/9349712",
+              "display": "Pond, Amy"
+            }
+          }
+        ],
         "period": {
-          "start": "2004-04-16T19:00:00.000Z"
+          "start": "2016-01-01T18:56:00.000Z"
+        },
+        "reason": [
+          {
+            "text": "Pain in leg"
+          }
+        ],
+        "hospitalization": {
+          "admitSource": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/admit-source",
+                "code": "emd",
+                "display": "From accident/emergency department",
+                "userSelected": false
+              }
+            ],
+            "text": "Emergency Room"
+          },
+          "dietPreference": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diet",
+                  "code": "vegan",
+                  "display": "Vegan",
+                  "userSelected": false
+                }
+              ],
+              "text": "Vegan"
+            }
+          ],
+          "specialCourtesy": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/EncounterSpecialCourtesy",
+                  "code": "VIP",
+                  "display": "very important person",
+                  "userSelected": false
+                }
+              ],
+              "text": "Yes"
+            }
+          ],
+          "specialArrangement": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/encounter-special-arrangements",
+                  "code": "wheel",
+                  "display": "Wheelchair",
+                  "userSelected": false
+                }
+              ],
+              "text": "Wheelchair/Stretcher"
+            }
+          ],
+          "destination": {
+            "reference": "#d312719",
+            "display": "Home"
+          },
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home",
+                "userSelected": false
+              }
+            ],
+            "text": "Self Care"
+          }
         },
         "location": [
           {
             "location": {
-              "display": "1N 134 01"
+              "reference": "#o589723",
+              "display": "Baseline West Medical Center"
+            },
+            "status": "active"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/619848"
+        }
+      }
+
+    DSTU2_ENCOUNTER_BUNDLE ||=
+      {
+        "resourceType": "Bundle",
+        "id": "8f6ceb97-af79-4cf1-b996-d7589b6eff7a",
+        "type": "searchset",
+        "total": 2,
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=9823498"
+          }
+        ],
+        "entry": [
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/8124712",
+            "resource": DSTU2_ENCOUNTER
+          },
+          {
+            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/89723347",
+            "resource": {
+              "resourceType": "Encounter",
+              "id": "89723347",
+              "meta": {
+                "versionId": "0",
+                "lastUpdated": "2016-07-21T11:25:40.000Z"
+              },
+              "text": {
+                "status": "generated",
+                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Discharged&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Fri Apr  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period End Date&lt;/b&gt;: Wed Jun  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;/div&gt;"
+              },
+              "identifier": [
+                {
+                  "use": "usual",
+                  "type": {
+                    "text": "FIN NBR"
+                  },
+                  "value": "20013481",
+                  "period": {
+                    "start": "2016-07-21T11:25:40.000Z"
+                  }
+                }
+              ],
+              "status": "finished",
+              "class": "outpatient",
+              "type": [
+                {
+                  "text": "Outpatient"
+                }
+              ],
+              "patient": {
+                "reference": "Patient/9823498",
+                "display": "Song, River"
+              },
+              "participant": [
+                {
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "code": "ATND",
+                          "display": "attender",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Attending Physician"
+                    }
+                  ],
+                  "period": {
+                    "start": "2016-07-20T10:36:00.000Z",
+                    "end": "2016-07-20T15:36:00.000Z"
+                  },
+                  "individual": {
+                    "reference": "Practitioner/2348712",
+                    "display": "Williams, River"
+                  }
+                }
+              ],
+              "period": {
+                "start": "2016-04-01T18:56:00.000Z",
+                "end": "2016-06-01T18:56:00.000Z"
+              },
+              "location": [
+                {
+                  "location": {
+                    "reference": "Location/4048128",
+                    "display": "Baseline East Medical Center"
+                  },
+                  "status": "completed"
+                }
+              ],
+              "serviceProvider": {
+                "reference": "Organization/619848"
+              }
             }
           }
         ]
