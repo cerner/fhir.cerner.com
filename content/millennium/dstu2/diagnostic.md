@@ -1,0 +1,20 @@
+---
+title: Diagnostic
+layout: api
+---
+
+# Diagnostic
+
+The Diagnostic resources are concerned with the process of observing, testing, and diagnosing a patient. Note, once a 
+diagnosis is confirmed, it would be recorded in Condition so that it is part of the historical patient record.
+
+The Observation resource is primarily concerned with recording discrete values, answers, and results such as clinical 
+laboratory data and vital signs while the DiagnosticReport resource typically provides a textual set of information and 
+interpretation after performing a diagnostic service such as a Radiology report or Pathology report.
+
+Click [here](http://hl7.org/fhir/dstu2/resourceguide.html#3.1.2.4) to see the detailed categorization and full set of 
+resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.
+
+## Implemented Resources
+* [DiagnosticReport](../diagnostic/diagnostic-report)
+* [Observation](../diagnostic/observation)

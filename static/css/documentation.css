@@ -1374,7 +1374,7 @@ pre span.comment {color: #aaa;}
 }
 
 .sidebar-module .arrow-btn {
- background-image: url(/images/expand-arrows.png);
+ background-image: url(../images/expand-arrows.png);
  background-repeat: no-repeat;
  background-position: -3px -3px;
  width: 13px;
