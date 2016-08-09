@@ -28,10 +28,10 @@ _Implementation Notes_
 
 ### Parameters
 
- Name     | Required?       | Type          | Description
-----------|-----------------|---------------|-------------------------------------------------------
-`_id`     | This or patient | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
-`patient` | This or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
+ Name      | Required?       | Type          | Description
+-----------|-----------------|---------------|---------------------------------------------------------------------------
+ `_id`     | This or patient | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `patient` | This or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
 
 ### Response
 

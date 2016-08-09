@@ -31,7 +31,7 @@ The current FHIR<sup>®</sup> standard implementation supports the REST API thro
 
 ### What are SMART apps and what is Cerner's position on usage with the FHIR<sup>®</sup> standard?
 
-The SMART (Substitutable Medical Apps & Reusable Technology) platform defines a specification for an EHR to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and will use the FHIR<sup>®</sup> standard to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of implementations of the FHIR<sup>®</sup> standard resources. We will also support access through mobile SMART applications, as those specifications emerge from the [SMART](http://smartplatforms.org/) web site.
+The SMART (Substitutable Medical Apps & Reusable Technology) platform defines a specification for an EHR to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and will use the FHIR<sup>®</sup> standard to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of implementations of the FHIR<sup>®</sup> standard resources. We will also support access through mobile SMART applications, as those specifications emerge from the [SMART](http://smarthealthit.org/) web site.
 
 ### Where can I ask a question?
 

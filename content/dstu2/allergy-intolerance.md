@@ -19,10 +19,10 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Required? | Type                                                           | Description
----------|-----------|----------------------------------------------------------------|---------------------------------------------
-`patient`|     Y     |[`reference`](http://hl7.org/fhir/DSTU2/search.html#reference)| Who the sensitivity is for. Example: `12345`
-`status` |     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)        | [Certainty of the allergy or intolerance](http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html). Example: `confirmed`
+ Name      | Required? | Type          | Description
+-----------|-----------|---------------|-----------------------------------------------------------------
+ `patient` | Y         | [`reference`] | Who the sensitivity is for. Example: `12345`
+ `status`  | N         | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
 
 ### Response
 
@@ -79,7 +79,7 @@ To successfully POST an allergy, the following headers must be provided. Allergy
     x-xss-protection → 1; mode=block
 </pre>
 
-The `etag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ## Update
 
@@ -87,7 +87,7 @@ Update an existing allergy.
 
     PUT /AllergyIntolerance
 
-Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update](http://hl7.org/fhir/DSTU2/http.html#update) for additional details about update operations.
+Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Headers
 
@@ -132,3 +132,8 @@ To successfully PUT an allergy, the following headers must be provided. Allergy 
     x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
+
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[Certainty of the allergy or intolerance]: http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html
+[FHIR<sup>®</sup> Update]: http://hl7.org/fhir/DSTU2/http.html#update

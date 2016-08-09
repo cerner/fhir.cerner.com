@@ -16,7 +16,10 @@ fields:
   cardinality: 0..1
   type: Reference (Patient)
   description: Who or what is the subject of the document.
-  example: '{"reference": "Patient/1234"}'
+  example: |
+    {
+      "reference": "Patient/1234"
+    }
 
 - name: type
   required: 'Yes'
@@ -24,9 +27,14 @@ fields:
   type: CodeableConcept
   description: Kind of document.
   example: |
-            {"coding": [
-              {"system": "http://loinc.org",
-               "code": "34840-9"}]}
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34840-9"
+        }
+      ]
+    }
   note: The type must include a loinc coding.
   binding:
     description: Precise type of clinical document.
@@ -43,22 +51,33 @@ fields:
   type: Reference (Practitioner)
   description: Who and/or what authored the document
   example: |
-            {"author": [
-              {"reference": "Practitioner/21500917"}]}
+    {
+      "author": [
+        {
+          "reference": "Practitioner/21500917"
+        }
+      ]
+    }
 
 - name: indexed
   required: 'Yes'
   cardinality: 1..1
   type: instant
   description: When this document reference was created
-  example: '{"indexed": "2015-05-16T091014Z"}'
+  example: |
+    {
+      "indexed": "2015-05-16T091014Z"
+    }
 
 - name: status
   required: 'Yes'
   cardinality: 1..1
   type: code
   description: The status of this document reference
-  example: '{"status": "current"}'
+  example: |
+    {
+      "status": "current"
+    }
   note: Currently support `current` only
 
 - name: docStatus
@@ -66,7 +85,10 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: The status of underlying document
-  example: '{"status": "final"}'
+  example: |
+    {
+      "status": "final"
+    }
   note: Currently support `final` and `preliminary`
 
 - name: description
@@ -74,7 +96,10 @@ fields:
   cardinality: 0..1
   type: string
   description: Human-readable description (title)
-  example: '{"description": "Rheumatology Note"}'
+  example: |
+    {
+      "description": "Rheumatology Note"
+    }
 
 - name: content
   required: 'Yes'
@@ -89,10 +114,15 @@ fields:
     type: string
     description: Mime type of the [content], with charset etc.
     example: |
-              {"content": [
-                {"contentType": "application/xhtml+xml;charset=utf-8"}]}
+      {
+        "content": [
+          {
+            "contentType": "application/xhtml+xml;charset=utf-8"
+          }
+        ]
+      }
     note: >
-            contentType must be `application/xhtml+xml;charset=utf-8`
+      contentType must be `application/xhtml+xml;charset=utf-8`
     url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.contentType
 
   - name: data
@@ -101,8 +131,13 @@ fields:
     type: string
     description: Data inline, base64-ed
     example: |
-              {"content": [
-                {"data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"}]}
+      {
+        "content": [
+          {
+            "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"
+          }
+        ]
+      }
     url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data
 
 - name: context
@@ -118,12 +153,16 @@ fields:
     type: Period
     description: When the documented service was performed.
     example: |
-              {"context": {
-                "period" : {
-                  "end": "2015-08-20T09:10:14Z"}}}
+      {
+        "context": {
+          "period": {
+            "end": "2015-08-20T09:10:14Z"
+          }
+        }
+      }
     note: >
-            If provided, the service time must be set to `context.period.end`. If not provided, the document will be
-            stored with the indexed dateTime.
+      If provided, the service time must be set to `context.period.end`. If not provided, the document will be stored
+      with the indexed dateTime.
 
   - name: related
     required: 'Yes'
@@ -138,9 +177,16 @@ fields:
         type: Any
         description: Related resource
         example: |
-                  {"context": {
-                    "related": [
-                      {"ref": {
-                        "reference": "Encounter/31419016"}}]}
+          {
+            "context": {
+              "related": [
+                {
+                  "ref": {
+                    "reference": "Encounter/31419016"
+                  }
+                }
+              ]
+            }
+          }
         note: >
-                `context.related.ref` must be an Encounter reference
+          `context.related.ref` must be an Encounter reference

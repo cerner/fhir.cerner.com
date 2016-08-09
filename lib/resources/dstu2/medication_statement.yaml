@@ -174,7 +174,7 @@ fields:
               "start": "2014-11-03T14:38:00.000-05:00"
             }
           }
-
+          
           {
             "boundsQuantity": {
               "value": 10,
@@ -183,6 +183,7 @@ fields:
               "code": "d"
             }
           }
+
         url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_
 
       - name: count
@@ -240,7 +241,7 @@ fields:
           ]
         }
       }
-
+      
       {
         "asNeededBoolean" : true
       }

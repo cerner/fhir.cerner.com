@@ -19,13 +19,13 @@ Search for Conditions that meet supplied query parameters:
 
 ### Parameters
 
- Name           | Required? | Type                                                            | Description
-----------------|-----------|-----------------------------------------------------------------|---------------------------------------------
-`patient`       |     Y     |[`reference`](http://hl7.org/fhir/DSTU2/search.html#reference)   | The patient who has the condition. Example: `12345`
-`category`      |     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)           | The [category](http://hl7.org/fhir/DSTU2/valueset-condition-category.html) of the condition. Example: `diagnosis`, `problem`
-`clinicalstatus`|     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)           | The [clinical status](http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html) of the condition. Example: `resolved`
+ Name             | Required? | Type          | Description
+------------------|-----------|---------------|------------------------------------------------------------------
+ `patient`        | Y         | [`reference`] | The patient who has the condition. Example: `12345`
+ `category`       | N         | [`token`]     | The [category] of the condition. Example: `diagnosis`, `problem`
+ `clinicalstatus` | N         | [`token`]     | The [clinical status] of the condition. Example: `resolved`
 
-Note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is from [condition-category](http://hl7.org/fhir/condition-category) and `problem` is from [argonaut extenstion-codes](http://argonaut.hl7.org/extension-codes) system.
+Note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is from the [condition-category] system and code `problem` is from the [argonaut extension-codes] system.
 
 ### Response
 
@@ -117,7 +117,7 @@ Create Diagnosis Example:
     x-xss-protection → 1; mode=block
 </pre>
 
-The `etag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ## Update
 
@@ -125,7 +125,7 @@ Update an existing condition.
 
     PUT /Condition
 
-Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update](http://hl7.org/fhir/DSTU2/http.html#update) for additional details about update operations.
+Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Headers
 
@@ -175,3 +175,11 @@ Note: abatementDateTime is not supported for diagnosis
     x-runtime → 0.303026
     x-xss-protection → 1; mode=block
 </pre>
+
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[category]: http://hl7.org/fhir/DSTU2/valueset-condition-category.html
+[clinical status]: http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html
+[condition-category]: http://hl7.org/fhir/condition-category
+[argonaut extension-codes]: http://argonaut.hl7.org/extension-codes
+[FHIR<sup>®</sup> Update]: http://hl7.org/fhir/DSTU2/http.html#update

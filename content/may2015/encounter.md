@@ -15,10 +15,10 @@ Search for Encounters that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Required? | Type                                                           | Description
----------|-----------|----------------------------------------------------------------|-------------------------------------------------------
-`patient`| This or _id |[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient present at the encounter. Example: `12345`
-`_id`    | This or patient |[`id`](http://hl7.org/fhir/2015May/datatypes.html#id) | A single or comma separated list of Encounter ids. Example: `45678,89765` 
+ Name      | Required?       | Type          | Description
+-----------|-----------------|---------------|---------------------------------------------------------------------------
+ `patient` | This or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `_id`     | This or patient | [`id`]        | A single or comma separated list of Encounter ids. Example: `45678,89765` 
 
 ### Response
 
@@ -35,3 +35,6 @@ List an individual Encounter by its id:
 
 <%= headers 200 %>
 <%= json(:may2015_encounter) %>
+
+[`reference`]: http://hl7.org/fhir/2015May/search.html#reference
+[`id`]: http://hl7.org/fhir/2015May/datatypes.html#id

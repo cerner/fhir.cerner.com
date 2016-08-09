@@ -49,7 +49,5 @@ module Nanoc3::DataSources
         digest.hexdigest
       end.join('-')
     end
-
   end
-
 end

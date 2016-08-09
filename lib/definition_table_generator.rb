@@ -161,5 +161,4 @@ class DefinitionTableGenerator
 
     results
   end
-
 end

@@ -35,16 +35,49 @@ _Implementation Notes_
 #### Example Body
 
     {
-       "resourceType": "DocumentReference",
-       "subject": {"reference":"Patient/36920071"},
-       "type": {"coding": [{"system":"http://loinc.org", "code":"34840-9"}]},
-       "author": [{"reference": "Practitioner/2044324"}],
-       "indexed": "2016-01-06T09:10:14Z",
-       "status": "current",
-       "docStatus": {"coding": [{"system": "http://hl7.org/fhir/composition-status", "code": "final"}]},
-       "description": "Rheumatology Note",
-       "content": [{"contentType": "application/xhtml+xml; charset=utf-8","data": "<snipped for brevity>"}],
-       "context": {"related": [{"ref": {"reference": "Encounter/33419091"}}]}
+      "resourceType": "DocumentReference",
+      "subject": {
+        "reference": "Patient/36920071"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "34840-9"
+          }
+        ]
+      },
+      "author": [
+        {
+          "reference": "Practitioner/2044324"
+        }
+      ],
+      "indexed": "2016-01-06T09:10:14Z",
+      "status": "current",
+      "docStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/composition-status",
+            "code": "final"
+          }
+        ]
+      },
+      "description": "Rheumatology Note",
+      "content": [
+        {
+          "contentType": "application/xhtml+xml; charset=utf-8",
+          "data": "<snipped for brevity>"
+        }
+      ],
+      "context": {
+        "related": [
+          {
+            "ref": {
+              "reference": "Encounter/33419091"
+            }
+          }
+        ]
+      }
     }
 
 ### Response

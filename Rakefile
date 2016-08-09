@@ -17,4 +17,3 @@ desc "Remove the output dir"
 task :remove_output_dir do
   FileUtils.rm_r('output') if File.exist?('output')
 end
-

@@ -19,11 +19,13 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Required? | Type                                                           | Description
----------|-----------|----------------------------------------------------------------|---------------------------------------------------------
-`patient`| Y |[`reference`](http://hl7.org/fhir/dstu2/search.html#reference)| The patient for the vaccination record. Example: `12345`
+ Name      | Required? | Type          | Description
+-----------|-----------|---------------|----------------------------------------------------------
+ `patient` | Y         | [`reference`] | The patient for the vaccination record. Example: `12345`
 
 ### Response
 
 <%= headers 200 %>
 <%= json(:dstu2_immunization_bundle) %>
+
+[`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
