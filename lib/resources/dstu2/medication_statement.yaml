@@ -7,7 +7,10 @@ fields:
   cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
-  example: MedicationStatement
+  example: |
+    {
+      "resourceType: "MedicationStatement"
+    }
   note: resourceType must be MedicationStatement
   url: http://hl7.org/fhir/DSTU2/json.html#resources
 
@@ -16,51 +19,98 @@ fields:
   cardinality: 0..1
   type: id
   description: The logical id of the resource to update.
-  example: '{"id": "123412"}'
-  note: The id value must match the MedicationStatement/&lt;id> value.
+  example: |
+    {
+      "id": "123412"
+    }
   url: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
   action: update
 
-- name: contained
+- name: patient
   required: 'Yes'
-  cardinality: 0..*
-  type: Resource
-  description: Contained, inline Resources.
+  cardinality: 1..1
+  type: Reference (Patient)
+  description: Who is/was taking the medication.
   example: |
-               {"contained": [
-                 {"resourceType": "Medication",
-                    "id": "2750067",
-                    "code": {
-                      "coding": [
-                        {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                         "code": "1191",
-                         "display": "Aspirin",
-                         "userSelected": false}],
-                      "text": "aspirin"}}]}
-  url: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained
-  note: It should contain medication resource with medication.code
-  children:
+    {
+      "patient": {
+        "reference": "Patient/5366327"
+      }
+    }
 
-  - name: code
-    required: 'No'
-    cardinality: 0..1
-    type: CodeableConcept
-    description:  Codes that identify this medication.
-    example: |
-               {"code": {
-                 "coding": [
-                   {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                    "code": "1191",
-                    "display": "Aspirin",
-                    "userSelected": false}],
-                 "text": "aspirin"}}
-    url: http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code
-    note: This code is only belongs where the resource is a Medication.
-    binding:
-      description: A code that defines the type of medication.
-      terminology:
-      - display: RxNorm
-        system: http://www.nlm.nih.gov/research/umls/rxnorm
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: >
+    A code representing the patient or other source's judgment about the state of the medication used that this
+    statement is about.
+  example: |
+    {
+      "status": "active"
+    }
+
+- name: effectivePeriod
+  required: 'No'
+  cardinality: 0..1
+  type: Period
+  description: The interval of time during which it is being asserted that the patient was taking the medication.
+  note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.
+  example: |
+    {
+      "effectivePeriod": {
+        "start": "2015-05-05T14:00:00.000Z",
+        "end": "2015-05-06T01:00:00.000Z"
+      }
+    }
+  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_
+  action: create
+
+- name: note
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Provides extra information about the medication statement that is not conveyed by the other attributes.
+  example: |
+    {
+      "note": "do not take with alcohol"
+    }
+  action: create
+
+- name: medication[x]
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept | contained Reference (Medication)
+  description: Identifies the medication being administered.
+  note:
+  - update: This must be the current medication. It cannot be modified.
+  example: |
+    {
+      "medicationReference": {
+        "reference": "#456235",
+        "display": "Ibuprofen"
+      }
+    }
+
+    {
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+             "code": "2551",
+             "display": "Ciprofloxacin",
+             "userSelected": false
+          }
+        ],
+        "text": "ciprofloxacin"
+      }
+    }
+  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
+  binding:
+    description: A code that defines the type of medication.
+    terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
 
 - name: dosage
   required: 'No'
@@ -68,34 +118,6 @@ fields:
   type: BackboneElement
   description: How the medication is/was used by the patient.
   note: At most one dosage can be populated.
-  example: |
-            {"dosage": [
-              {"text": "325 mg, Oral, q4hr, PRN: headache",
-               "timing": {
-                 "repeat": {
-                   "boundsPeriod": {
-                     "start": "2014-08-11T13:42:00.000-05:00"}},
-                 "code": {
-                   "text": "q4hr"}},
-               "asNeededCodeableConcept": {
-                 "coding": [
-                   {"system": "http://snomed.info/sct",
-                    "code": "25064002",
-                    "display": "headache (finding)",
-                    "userSelected": false}],
-               "text": "headache"},
-               "route": {
-                 "coding": [
-                   {"system": "http://snomed.info/sct",
-                    "code": "26643006",
-                    "display": "Oral route (qualifier value)",
-                    "userSelected": false}],
-                 "text": "Oral"},
-               "quantityQuantity": {
-                 "value": 325,
-                 "units": "mg",
-                 "system": "http://unitsofmeasure.org",
-                 "code": "mg"}}]}
   action: create
   children:
 
@@ -104,26 +126,59 @@ fields:
     cardinality: 0..1
     type: string
     description: Free text dosage information as reported about a patient's medication use.
-    example: '{"text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"}'
+    example: |
+      {
+        "text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"
+      }
 
   - name: timing
     required: 'No'
     cardinality: 0..1
     type: Timing
     description: The timing schedule for giving the medication to the patient.
-    example: |
-               {"timing": {
-                  "repeat": {
-                    "boundsPeriod": {
-                      "start": "2014-11-03T14:38:00.000-05:00"},
-                    "count": 5},
-                  "code": {
-                    "coding": [
-                      {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                       "code": "TID",
-                       "display": "TID"}],
-                    "text": "TID"}}
     children:
+
+    - name: repeat
+      required: 'No'
+      cardinality: 0..1
+      type: Element
+      description: A set of rules that describe when the event should occur.
+      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat
+      children:
+
+      - name: bounds[x]
+        required: 'No'
+        cardinality: 0..1
+        type: Period | Quantity
+        description: >
+          Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
+        example: |
+          {
+            "boundsPeriod": {
+              "start": "2014-11-03T14:38:00.000-05:00"
+            }
+          }
+
+          {
+            "boundsQuantity": {
+              "value": 10,
+              "unit": "days",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            }
+          }
+        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_
+
+      - name: count
+        required: 'No'
+        cardinality: 0..1
+        type: integer
+        description: A total count of the desired number of repetitions.
+        example: |
+          {
+            "count": 5
+          }
+        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count
 
     - name: code
       required: 'No'
@@ -131,12 +186,18 @@ fields:
       type: CodeableConcept
       description: A code for the timing pattern.
       example: |
-                 {"code": {
-                    "coding": [
-                      {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                       "code": "TID",
-                       "display": "TID"}],
-                    "text": "TID"}}}
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                "code": "TID",
+                "display": "TID"
+              }
+            ],
+            "text": "TID"
+          }
+        }
       url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
       binding:
         description: Code for a known / defined timing pattern.
@@ -146,78 +207,84 @@ fields:
         - display: SNOMED CT
           system: http://snomed.info/sct
 
-    - name: repeat
-      required: 'No'
-      cardinality: 0..1
-      type: Element
-      description: A set of rules that describe when the event should occur.
-      example: |
-                 {"repeat": {
-                    "boundsPeriod": {
-                      "start": "2014-11-03T14:38:00.000-05:00"},
-                    "count": 5}}
-      children:
-
-      - name: boundsPeriod
-        required: 'No'
-        cardinality: 0..1
-        type: Period
-        description: Outer bounds for start and/or end limits of the timing schedule.
-        example: |
-                   {"boundsPeriod": {
-                      "start": "2014-11-03T14:38:00.000-05:00"}}
-        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_
-
-      - name: count
-        required: 'No'
-        cardinality: 0..1
-        type: integer
-        description: A total count of the desired number of repetitions.
-        example: '{"count": 5}'
-        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count
-
   - name: asNeeded[x]
     required: 'No'
     cardinality: 0..1
     type: boolean | CodeableConcept
     description: Whether the Medication is only taken when needed within a specific dosing schedule.
     example: |
-               asNeededCodeableConcept
-                 {"asNeededCodeableConcept": {
-                    "coding": [
-                      {"system": "http://snomed.info/sct",
-                       "code": "25064002",
-                       "display": "for headache"}]}}
+      {
+        "asNeededCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "25064002",
+              "display": "for headache"
+            }
+          ]
+        }
+      }
 
-               asNeededBoolean
-                 {"asNeededBoolean" : true}
+      {
+        "asNeededBoolean" : true
+      }
     binding:
       description: >
-                      A coded concept identifying the precondition that should be met or evaluated prior
-                      to consuming or administering a medication dose.
+        A coded concept identifying the precondition that should be met or evaluated prior to consuming or
+        administering a medication dose.
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
     url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_
+
+  - name: siteCodeableConcept
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Where on the body the medication is/was administered.
+    example: |
+      {
+        "siteCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "368208006",
+              "display": "left upper arm structure (body structure)"
+            }
+          ],
+          "text": "Left Arm"
+        }
+      }
+    binding:
+      description: Where on the body the medication is/was administered.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+    url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_
 
   - name: route
     required: 'No'
     cardinality: 0..1
     type: CodeableConcept
     description: >
-                     A code specifying the route or physiological path of administration of a therapeutic
-                     agent into or onto a subject.
+      A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
     example: |
-              {"route": {
-                 "coding": [
-                   {"system": "http://snomed.info/sct",
-                    "code": "41974700",
-                    "display": "Chew - dosing instruction imperative (qualifier value)"}],
-                 "text": "Chewed"}}
+      {
+        "route": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "41974700",
+              "display": "Chew (qualifier value)"
+            }
+          ],
+          "text": "Chewed"
+        }
+      }
     binding:
       description: >
-                      A coded concept describing the route or physiological path of administration of a
-                      therapeutic agent into or onto the body of a subject.
+        A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto
+        the body of a subject.
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
@@ -228,60 +295,12 @@ fields:
     type: SimpleQuantity
     description: The amount of therapeutic or other substance given at one administration event.
     example: |
-               {"quantityQuantity": {
-                  "value": 2,
-                  "unit": "tabs",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "tbl"}}
+      {
+        "quantityQuantity": {
+          "value": 2,
+          "unit": "tabs",
+          "system": "http://unitsofmeasure.org",
+          "code": "tbl"
+        }
+      }
     url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_
-
-- name: patient
-  required: 'Yes'
-  cardinality: 1..1
-  type: Reference (Patient)
-  description: Who is/was taking the medication.
-  example: '{"patient": {"reference": "Patient/5366327"}}'
-
-- name: status
-  required: 'Yes'
-  cardinality: 1..1
-  type: code
-  description: >
-                 A code representing the patient or other source's judgment about the state of the medication
-                 used that this statement is about.
-  example: '{"status": "active"}'
-
-- name: note
-  required: 'No'
-  cardinality: 0..1
-  type: string
-  description: Provides extra information about the medication statement that is not conveyed by the other attributes.
-  example: '{"note": "do not take with alcohol"}'
-  action: create
-
-- name: effectivePeriod
-  required: 'No'
-  cardinality: 0..1
-  type: Period
-  description: The interval of time during which it is being asserted that the patient was taking the medication.
-  note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.
-  example: |
-             {"effectivePeriod": {
-                "start": "2015-05-05T14:00:00.000Z",
-                "end": "2015-05-06T01:00:00.000Z"}}
-  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_
-  action: create
-
-- name: medicationReference
-  required: 'Yes'
-  cardinality: 1..1
-  type: contained Reference (Medication)
-  description: Identifies the medication being administered.
-  note:
-  - update: This must be the current medicationReference.code. It cannot be modified.
-  example: |
-             {"medicationReference": {
-                "reference": "#456235",
-                "display": "Ibuprofen"}}
-  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
-

@@ -1,0 +1,29 @@
+---
+name: Medication
+field_name_base_url: http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication
+fields:
+
+- name: code
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description:  Codes that identify this medication.
+  example: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "2551",
+            "display": "Ciprofloxacin",
+            "userSelected": false
+          }
+        ],
+        "text": "ciprofloxacin"
+      }
+    }
+  binding:
+    description: A code that defines the type of medication.
+    terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
