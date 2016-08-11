@@ -77,17 +77,400 @@
 
 <ul id="markdown-toc">
   <li>
+<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#active-response" id="markdown-toc-active-response">Active Response</a></li>
-      <li><a href="#inactive-response" id="markdown-toc-inactive-response">Inactive Response</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
 </ul>
 
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_">MedicationOrder.reasonCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The reason or indication for writing the prescription.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-9">ICD-9</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-10">ICD-10</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationOrder.medicationCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Identifies the medication being administered.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.additionalInstructions">MedicationOrder.dosageInstruction.additionalInstructions</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Supplemental instructions.</li></ul>
+          
+          
+            <li><i>Note</i></li>
+            <ul style="list-style-type: none"><li style="list-style-type: none">Currently not bound to any terminology. The value would always be returned as a free-text value.</li></ul>
+          
+
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code">MedicationOrder.dosageInstruction.timing.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Code for a known / defined timing pattern.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/timing-abbreviation">TimingAbbreviation</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_">MedicationOrder.dosageInstruction.asNeeded[x]</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_">MedicationOrder.dosageInstruction.siteCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The anatomic site where the medication first enters the body.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route">MedicationOrder.dosageInstruction.route</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="contained-medication-bindings">Contained Medication Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the type of medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Describes the form of the item.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://ncimeta.nci.nih.gov">NCI Metathesaurus</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
-<p>Search for active or inactive MedicationOrders that meet supplied query parameters:</p>
+<p>Search for MedicationOrders that meet supplied query parameters:</p>
 
 <pre><code>GET /MedicationOrder?:parameters
 </code></pre>
@@ -107,564 +490,647 @@
     <tr>
       <td><code>patient</code></td>
       <td>Y</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The identity of a patient to list dispenses for. Example: <code>12345</code>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td>The identity of a patient to list orders for. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
-      <td>
-<code>status</code>*</td>
+      <td><code>status</code></td>
       <td>Y</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The status of the med, may be a list separated by commas. Example: <code>active,draft</code>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
+      <td>The status of the medication order, may be a list separated by commas. Example: <code>active,draft</code>
 </td>
     </tr>
     <tr>
-      <td><code>timing-boundsperiod-end</code></td>
+      <td><code>-timing-boundsPeriod</code></td>
       <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The <a href="http://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing">stop time</a> of the order. Must be prefixed by <code>le</code> (currently only support querying for orders completed prior to a certain time). Not accepted when querying active or draft orders. Example: <code>le2014-05-19T20:54:02.000Z</code>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
+      <td>The date-time which should fall within the <a href="http://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing">period</a> the medication should be given to the patient. Must be prefixed by ‘ge’. Example: <code>ge2014-05-19T20:54:02.000Z</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
       <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The number of items to include in a page. Currently ignored if querying for active or draft statuses. Example: <code>50</code>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to include in a page. Example: <code>50</code>
 </td>
     </tr>
   </tbody>
 </table>
 
-<p>* Note: The current implementation requires separating the query for active medication orders from inactive. This is a technical limitation that we hope to remove in the future.</p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Active statuses: <code>active</code>, <code>draft</code>
-</li>
-  <li>Inactive statuses: <code>completed</code>, <code>on-hold</code>, <code>stopped</code>
-</li>
+  <li>MedicationOrder may have a reference to a contained Medication when the Medication cannot be represented by a CodeableConcept.</li>
 </ul>
 
-<p>Also, the <code>entered-in-error</code> status is not currently supported (the server will return an error if requested).</p>
-
-<h3 id="active-response">Active Response</h3>
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "d85381ff-57a9-47a7-a855-2196da2b2308",
+  "id": "062aa0c7-40ea-4dba-9613-0b2c50e76491",
   "type": "searchset",
-  "total": 7,
+  "total": 5,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=2744010&amp;status=active"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=1083999&amp;_count=25"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/16566157",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12168993",
       "resource": {
         "resourceType": "MedicationOrder",
-        "id": "16566157",
+        "id": "12168993",
         "meta": {
-          "versionId": "0"
+          "versionId": "1",
+          "lastUpdated": "2011-10-03T21:23:47.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Procardia XL 15 mg oral tablet, extended release&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 15 mg, 0.5 tab(s), Oral, Daily, 7.5 tab(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: River Song&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Amino Acids 8.5% (TPN) 12.5 % + Dextrose 70% (TPN) 3 % + M.V.I. Pediatric 3.2 mL + Multiple Trace E&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 8.33 mL/hr, IV&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;/div&gt;"
         },
         "contained": [
           {
             "resourceType": "Medication",
-            "id": "2765117",
+            "id": "20657392",
             "code": {
-              "coding": [
+              "text": "Amino Acids 8.5% (TPN) 12.5 % + Dextrose 70% (TPN) 3 % + M.V.I. Pediatric 3.2 mL + Multiple Trace E"
+            },
+            "product": {
+              "ingredient": [
                 {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "207772",
-                  "display": "24 HR Nifedipine 15 MG Extended Release Oral Tablet [Procardia]"
+                  "item": {
+                    "reference": "#20653453-1",
+                    "display": "Amino Acids 8.5% (TPN)"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 12.5,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#20653450-2",
+                    "display": "Dextrose 70% (TPN)"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 3,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#2763960-3",
+                    "display": "M.V.I. Pediatric"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 3.2,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#3976642-4",
+                    "display": "Multiple Trace Element Neonatal"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 0.2,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#20653460-5",
+                    "display": "Heparin (TPN)"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 100,
+                      "unit": "units",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "U"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#20657392-6",
+                    "display": "TPN Total Volume #1"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    },
+                    "denominator": {
+                      "value": 200,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
                 }
-              ],
-              "text": "Procardia XL 15 mg oral tablet, extended release"
+              ]
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "20653453-1",
+            "code": {
+              "text": "Amino Acids 8.5% (TPN)"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "20653450-2",
+            "code": {
+              "text": "Dextrose 70% (TPN)"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "2763960-3",
+            "code": {
+              "text": "M.V.I. Pediatric"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "3976642-4",
+            "code": {
+              "text": "Multiple Trace Element Neonatal"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "20653460-5",
+            "code": {
+              "text": "Heparin (TPN)"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "20657392-6",
+            "code": {
+              "text": "TPN Total Volume #1"
             }
           }
         ],
+        "dateWritten": "2011-10-03T16:23:24.000-05:00",
         "status": "active",
         "patient": {
-          "reference": "Patient/2744010"
+          "reference": "Patient/1083999",
+          "display": "River Song"
         },
         "prescriber": {
-          "reference": "Practitioner/2692009",
-          "display": "Song, River"
+          "reference": "Practitioner/589923",
+          "display": "Dr. Who"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
         },
         "medicationReference": {
-          "reference": "#2765117",
-          "display": "Procardia XL 15 mg oral tablet, extended release"
+          "reference": "#20657392",
+          "display": "Amino Acids 8.5% (TPN) 12.5 % + Dextrose 70% (TPN) 3 % + M.V.I. Pediatric 3.2 mL + Multiple Trace E"
         },
         "dosageInstruction": [
           {
-            "text": "15 mg, 0.5 tab(s), Oral, Daily, 7.5 tab(s)",
+            "text": "8.33 mL/hr, IV",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2014-08-14T19:00:00.000Z"
-                }
-              },
-              "code": {
-                "text": "Daily"
+                  "start": "2011-10-03T16:23:00.000-05:00"
+                },
+                "duration": 24,
+                "durationUnits": "h"
               }
             },
             "route": {
-              "text": "Oral"
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38276",
+                  "display": "INTRAVENOUS",
+                  "userSelected": false
+                }
+              ],
+              "text": "IV"
             },
             "doseQuantity": {
-              "value": 15,
-              "units": "mg"
+              "value": 200,
+              "unit": "mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL"
+            },
+            "rateRatio": {
+              "numerator": {
+                "value": 200,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              },
+              "denominator": {
+                "value": 24,
+                "unit": "hr",
+                "system": "http://unitsofmeasure.org",
+                "code": "h"
+              }
             }
           }
         ],
         "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2765117",
-            "display": "Procardia XL 30 mg oral tablet, extended release"
-          },
-          "quantity": {
-            "value": 7.5,
-            "units": "tab(s)"
+          "validityPeriod": {
+            "start": "2011-10-03T16:23:24.000-05:00"
           }
         }
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/16566159",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229327",
       "resource": {
         "resourceType": "MedicationOrder",
-        "id": "16566159",
+        "id": "12229327",
         "meta": {
-          "versionId": "0"
+          "versionId": "0",
+          "lastUpdated": "2012-03-16T09:14:49.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: predniSONE 5 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 5 mg, 1 tabs, Oral, Daily, tabs, PRN: Instruct&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: River Song&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Dextrose 5% in Water 1,000 mL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 100 mL/hr, IV&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;/div&gt;"
         },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2767469",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "763179",
-                  "display": "{48 (Prednisone 5 MG Oral Tablet) } Pack"
-                }
-              ],
-              "text": "predniSONE 5 mg oral tablet"
-            }
-          }
-        ],
+        "dateWritten": "2012-03-16T04:14:48.000-05:00",
         "status": "active",
         "patient": {
-          "reference": "Patient/2744010"
+          "reference": "Patient/1083999",
+          "display": "River Song"
         },
         "prescriber": {
-          "reference": "Practitioner/2692009",
-          "display": "Song, River"
+          "reference": "Practitioner/589923",
+          "display": "Dr. Who"
         },
-        "medicationReference": {
-          "reference": "#2767469",
-          "display": "predniSONE 5 mg oral tablet"
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "medicationCodeableConcept": {
+          "text": "Dextrose 5% in Water 1,000 mL"
         },
         "dosageInstruction": [
           {
-            "text": "5 mg, 1 tabs, Oral, Daily, tabs, PRN: Instruct",
+            "text": "100 mL/hr, IV",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2014-08-14T19:00:00.000Z",
-                  "end": "2014-09-14T19:00:00.000Z"
+                  "start": "2012-03-16T04:14:00.000-05:00"
+                },
+                "duration": 10,
+                "durationUnits": "h"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38276",
+                  "display": "INTRAVENOUS",
+                  "userSelected": false
+                }
+              ],
+              "text": "IV"
+            },
+            "doseQuantity": {
+              "value": 1000,
+              "unit": "mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL"
+            },
+            "rateRatio": {
+              "numerator": {
+                "value": 1000,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              },
+              "denominator": {
+                "value": 10,
+                "unit": "hr",
+                "system": "http://unitsofmeasure.org",
+                "code": "h"
+              }
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2012-03-16T04:14:48.000-05:00"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229374",
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "12229374",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2012-03-16T09:26:30.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: River Song&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: amoxicillin&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 125 mg, Oral, As Indicated, PRN: allergy symptoms&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "dateWritten": "2012-03-16T04:25:32.000-05:00",
+        "status": "active",
+        "patient": {
+          "reference": "Patient/1083999",
+          "display": "River Song"
+        },
+        "prescriber": {
+          "reference": "Practitioner/1260008",
+          "display": "Dr. Who"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "723",
+              "display": "Amoxicillin",
+              "userSelected": false
+            }
+          ],
+          "text": "amoxicillin"
+        },
+        "dosageInstruction": [
+          {
+            "text": "125 mg, Oral, As Indicated, PRN: allergy symptoms",
+            "timing": {
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2012-03-16T04:26:00.000-05:00"
                 }
               },
               "code": {
-                "text": "Daily"
+                "text": "As Indicated"
               }
             },
             "asNeededCodeableConcept": {
-              "text": "Instruct"
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "473011001",
+                  "display": "allergic condition (disorder)",
+                  "userSelected": false
+                }
+              ],
+              "text": "allergy symptoms"
             },
             "route": {
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
+                  "userSelected": false
+                }
+              ],
               "text": "Oral"
             },
             "doseQuantity": {
-              "value": 5,
-              "units": "mg"
+              "value": 125,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
             }
           }
         ],
         "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2767469",
-            "display": "predniSONE 5 mg oral tablet"
+          "validityPeriod": {
+            "start": "2012-03-16T04:25:32.000-05:00"
           }
         }
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14203884",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14958880",
       "resource": {
         "resourceType": "MedicationOrder",
-        "id": "14203884",
+        "id": "14958880",
         "meta": {
-          "versionId": "0"
+          "versionId": "0",
+          "lastUpdated": "2012-11-07T21:11:50.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Aspercreme 10% topical lotion&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 1 boxes, GTUBE, 10x/Day, 2 boxes, 0 Refill(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: River Song&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: warfarin&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 4 mg, Oral, Daily&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;/div&gt;"
         },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "5213029",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "1101829",
-                  "display": "trolamine salicylate 100 MG/ML Topical Lotion [Aspercreme]"
-                }
-              ],
-              "text": "Aspercreme 10% topical lotion"
-            }
-          }
-        ],
+        "dateWritten": "2012-11-07T15:11:13.000-06:00",
         "status": "active",
         "patient": {
-          "reference": "Patient/2744010"
+          "reference": "Patient/1083999",
+          "display": "River Song"
         },
         "prescriber": {
-          "reference": "Practitioner/1400009",
-          "display": "Who, Doctor"
+          "reference": "Practitioner/709938",
+          "display": "Dr. Who"
         },
-        "medicationReference": {
-          "reference": "#5213029",
-          "display": "Aspercreme 10% topical lotion"
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "11289",
+              "display": "Warfarin",
+              "userSelected": false
+            }
+          ],
+          "text": "warfarin"
         },
         "dosageInstruction": [
           {
-            "text": "1 boxes, GTUBE, 10x/Day, 2 boxes, 0 Refill(s)",
+            "text": "4 mg, Oral, Daily",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2015-05-21T20:36:00.000Z"
+                  "start": "2012-11-07T15:11:00.000-06:00"
                 }
               },
               "code": {
-                "text": "10x/Day"
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/timing-abbreviation",
+                    "code": "QD",
+                    "display": "QD",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Daily"
               }
             },
             "route": {
-              "text": "GTUBE"
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
+                  "userSelected": false
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseQuantity": {
+              "value": 4,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2012-11-07T15:11:13.000-06:00"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229319",
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "id": "12229319",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2012-03-16T09:08:10.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: River Song&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: ciprofloxacin (ciprofloxacin 750 mg oral tablet)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 750 mg, 1 tabs, Oral, Once, 1 tabs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: completed&lt;/p&gt;&lt;/div&gt;"
+        },
+        "dateWritten": "2012-03-16T04:07:39.000-05:00",
+        "status": "completed",
+        "dateEnded": "2012-03-16T04:08:10.000-05:00",
+        "patient": {
+          "reference": "Patient/1083999",
+          "display": "River Song"
+        },
+        "prescriber": {
+          "reference": "Practitioner/1260008",
+          "display": "Dr. Who"
+        },
+        "encounter": {
+          "reference": "Encounter/1135920"
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197512",
+              "display": "Ciprofloxacin 750 MG Oral Tablet",
+              "userSelected": false
+            }
+          ],
+          "text": "ciprofloxacin (ciprofloxacin 750 mg oral tablet)"
+        },
+        "dosageInstruction": [
+          {
+            "text": "750 mg, 1 tabs, Oral, Once, 1 tabs",
+            "timing": {
+              "repeat": {
+                "boundsQuantity": {
+                  "value": 1,
+                  "unit": "days",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "d"
+                }
+              },
+              "code": {
+                "text": "Once"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
+                  "userSelected": false
+                }
+              ],
+              "text": "Oral"
             },
             "doseQuantity": {
               "value": 1,
-              "units": "boxes"
+              "unit": "tabs",
+              "system": "http://unitsofmeasure.org",
+              "code": "{tbl}"
             }
           }
         ],
         "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#5213029",
-            "display": "Aspercreme 10% topical lotion"
-          },
-          "numberOfRepeatsAllowed": 0,
-          "quantity": {
-            "value": 2,
-            "units": "boxes"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/17865897",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "17865897",
-        "meta": {
-          "versionId": "0"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: albuterol 2 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 2 mg, 1 tab(s), Oral, QID, 120 tab(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2748635",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "197316",
-                  "display": "Albuterol 2 MG Oral Tablet"
-                }
-              ],
-              "text": "albuterol 2 mg oral tablet"
-            }
-          }
-        ],
-        "status": "active",
-        "patient": {
-          "reference": "Patient/2744010"
-        },
-        "prescriber": {
-          "reference": "Practitioner/3270007",
-          "display": "Howser, Doogie"
-        },
-        "medicationReference": {
-          "reference": "#2748635",
-          "display": "albuterol 2 mg oral tablet"
-        },
-        "dosageInstruction": [
-          {
-            "text": "2 mg, 1 tab(s), Oral, QID, 120 tab(s)",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2015-03-11T20:38:00.000Z"
-                }
-              },
-              "code": {
-                "text": "QID"
-              }
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 2,
-              "units": "mg"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2748635",
-            "display": "albuterol 2 mg oral tablet"
+          "validityPeriod": {
+            "start": "2012-03-16T04:07:39.000-05:00"
           },
           "quantity": {
-            "value": 120,
-            "units": "tab(s)"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/18937899",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "18937899",
-        "meta": {
-          "versionId": "0"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Colace&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 50 mg = 1 caps, Oral, q4hr, order duration: 5 days, first dose dttm: 07/31/15 18:00:00 CDT, stop date 08/05/15 17:59:00 CDT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "4318409",
-            "code": {
-              "text": "Colace"
-            }
-          }
-        ],
-        "status": "active",
-        "patient": {
-          "reference": "Patient/2744010"
-        },
-        "prescriber": {
-          "reference": "Practitioner/1616012",
-          "display": "House, Gregory"
-        },
-        "medicationReference": {
-          "reference": "#4318409",
-          "display": "Colace"
-        },
-        "dosageInstruction": [
-          {
-            "text": "50 mg = 1 caps, Oral, q4hr, order duration: 5 days, first dose dttm: 07/31/15 18:00:00 CDT, stop date 08/05/15 17:59:00 CDT",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2015-07-31T23:00:00.000Z",
-                  "end": "2015-08-05T22:59:00.000Z"
-                }
-              },
-              "code": {
-                "text": "q4hr"
-              }
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 50,
-              "units": "mg"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#4318409",
-            "display": "Colace"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/16566161",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "16566161",
-        "meta": {
-          "versionId": "0"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: methotrexate 10 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 10 mg, 1 tab(s), Oral, qWeek, 1 tabs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2763106",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "105586",
-                  "display": "Methotrexate 10 MG Oral Tablet"
-                }
-              ],
-              "text": "methotrexate 10 mg oral tablet"
-            }
-          }
-        ],
-        "status": "active",
-        "patient": {
-          "reference": "Patient/2744010"
-        },
-        "prescriber": {
-          "reference": "Practitioner/2692009",
-          "display": "Song, River"
-        },
-        "medicationReference": {
-          "reference": "#2763106",
-          "display": "methotrexate 10 mg oral tablet"
-        },
-        "dosageInstruction": [
-          {
-            "text": "10 mg, 1 tab(s), Oral, qWeek, 1 tabs",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2014-08-14T19:00:00.000Z",
-                  "end": "2014-09-14T19:00:00.000Z"
-                }
-              },
-              "code": {
-                "text": "qWeek"
-              }
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 10,
-              "units": "mg"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2763106",
-            "display": "methotrexate 10 mg oral tablet"
-          },
-          "quantity": {
-            "value": 1.0,
-            "units": "tabs"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/16566163",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "16566163",
-        "meta": {
-          "versionId": "0"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Zocor 10 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 340 mg, 34 tabs, Oral, Once a day (at bedtime), tabs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2768849",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "104490",
-                  "display": "Simvastatin 10 MG Oral Tablet [Zocor]"
-                }
-              ],
-              "text": "Zocor 10 mg oral tablet"
-            }
-          }
-        ],
-        "status": "active",
-        "patient": {
-          "reference": "Patient/2744010"
-        },
-        "prescriber": {
-          "reference": "Practitioner/2692009",
-          "display": "Song, River"
-        },
-        "medicationReference": {
-          "reference": "#2768849",
-          "display": "Zocor 10 mg oral tablet"
-        },
-        "dosageInstruction": [
-          {
-            "text": "340 mg, 34 tabs, Oral, Once a day (at bedtime), tabs",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2014-08-14T19:00:00.000Z"
-                }
-              },
-              "code": {
-                "text": "Once a day (at bedtime)"
-              }
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 340,
-              "units": "mg"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2768849",
-            "display": "Zocor 10 mg oral tablet"
+            "value": 1,
+            "unit": "tabs",
+            "system": "http://unitsofmeasure.org",
+            "code": "{tbl}"
           }
         }
       }
@@ -672,174 +1138,6 @@
   ]
 }</code></pre>
 
-<h3 id="inactive-response">Inactive Response</h3>
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "ed51a825-e6d1-463e-922b-50ced0cf315b",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=1316020&amp;status=completed&amp;_count=5"
-    },
-    {
-      "relation": "next",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=1316020&amp;status=completed&amp;_count=5&amp;timing-boundsperiod-end=le2015-02-10T16%3A20%3A25.000Z&amp;context=14199276"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14201768",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "14201768",
-        "meta": {
-          "versionId": "3"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: aspirin 325 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 1.0 tabs, Oral, Daily, 100.0 tabs, PRN: Instruct, 0 Refill(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: completed&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2750107",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "212033",
-                  "display": "Aspirin 325 MG Oral Tablet"
-                }
-              ],
-              "text": "aspirin 325 mg oral tablet"
-            }
-          }
-        ],
-        "status": "completed",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "prescriber": {
-          "reference": "Practitioner/1314013",
-          "display": "Song, River"
-        },
-        "medicationReference": {
-          "reference": "#2750107",
-          "display": "aspirin 325 mg oral tablet"
-        },
-        "dosageInstruction": [
-          {
-            "text": "1.0 tabs, Oral, Daily, 100.0 tabs, PRN: Instruct, 0 Refill(s)",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2015-04-14T15:45:00.000Z",
-                  "end": "2015-06-18T22:35:21.000Z"
-                }
-              },
-              "code": {
-                "text": "Daily"
-              }
-            },
-            "asNeededCodeableConcept": {
-              "text": "Instruct"
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 1,
-              "units": "tabs"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2750107",
-            "display": "aspirin 325 mg oral tablet"
-          },
-          "numberOfRepeatsAllowed": 0,
-          "quantity": {
-            "value": 100,
-            "units": "tabs"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14192976",
-      "resource": {
-        "resourceType": "MedicationOrder",
-        "id": "14192976",
-        "meta": {
-          "versionId": "3"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;MedicationOrder&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Nyquil Liquicap oral capsule&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instruction Text&lt;/b&gt;: 1.0 tabs, Oral, 1-2x/Day, 10.0 tabs, 10 Refill(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: completed&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2749728",
-            "code": {
-              "text": "Nyquil Liquicap oral capsule"
-            }
-          }
-        ],
-        "status": "completed",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "prescriber": {
-          "reference": "Practitioner/1590015",
-          "display": "who, Doctor"
-        },
-        "medicationReference": {
-          "reference": "#2749728",
-          "display": "Nyquil Liquicap oral capsule"
-        },
-        "dosageInstruction": [
-          {
-            "text": "1.0 tabs, Oral, 1-2x/Day, 10.0 tabs, 10 Refill(s)",
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2014-09-23T14:50:00.000Z",
-                  "end": "2015-05-22T00:41:40.000Z"
-                }
-              },
-              "code": {
-                "text": "1-2x/Day"
-              }
-            },
-            "route": {
-              "text": "Oral"
-            },
-            "doseQuantity": {
-              "value": 1,
-              "units": "tabs"
-            }
-          }
-        ],
-        "dispenseRequest": {
-          "medicationReference": {
-            "reference": "#2749728",
-            "display": "Nyquil Liquicap oral capsule"
-          },
-          "numberOfRepeatsAllowed": 10,
-          "quantity": {
-            "value": 10,
-            "units": "tabs"
-          }
-        }
-      }
-    }
-  ]
-}</code></pre>
 
     </div>
 

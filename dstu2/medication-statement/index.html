@@ -76,7 +76,11 @@
 <h1 id="medicationstatement">MedicationStatement</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -86,7 +90,7 @@
   <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
       <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
     </ul>
@@ -111,10 +115,13 @@
       
       
       
+      
+      
+      
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">MedicationStatement.contained.code</a>
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication[x]</a>
       
       </td>
     </tr>
@@ -146,6 +153,9 @@
       </td>
     </tr>
     
+      
+      
+      
       
       
       
@@ -200,9 +210,6 @@
     
       
       
-      
-      
-      
     <tr>
       <td>
       
@@ -217,6 +224,43 @@
             <li><i>Description</i></li>
             <ul style="list-style-type: none"><li>A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.
 </li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_">MedicationStatement.dosage.siteCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Where on the body the medication is/was administered.</li></ul>
           
           
 
@@ -278,11 +322,89 @@
     </tr>
     
       
+  </tbody>
+</table>
+
+<h3 id="contained-medication-bindings">Contained Medication Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the type of medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
       
       
       
+    <tr>
+      <td>
       
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
       
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Describes the form of the item.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://ncimeta.nci.nih.gov">NCI Metathesaurus</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -651,11 +773,19 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create new MedicationStatement. The medicationReference field must refer to a contained Medication with the code field populated.
-Only active MedicationStatement can be created.</p>
+<p>Create a new MedicationStatement.</p>
 
 <pre><code>POST /MedicationStatement
 </code></pre>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>Only active MedicationStatements may be created.</li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken">MedicationStatement.wasNotTaken</a> set to <code>true</code> is not supported.</li>
+  <li>If <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -665,7 +795,7 @@ Only active MedicationStatement can be created.</p>
 Authorization: &lt;OAuth2 Bearer Token&gt;
 </code></pre>
 
-<h3 id="body-fields">Body fields</h3>
+<h3 id="body-fields">Body Fields</h3>
 
 <table style="white-space: normal">
   <thead>
@@ -700,7 +830,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>MedicationStatement</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType: "MedicationStatement"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -713,41 +846,33 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
     
     <tr>
       <td>
-        <a name="create-contained">
+        <a name="create-patient">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"><code>contained</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
         
         
       </td>
       <td>Yes </td>
-      <td>0..* </td>
+      <td>1..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/resource.html"><code>Resource</code></a> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
     </tr>
     <tr>
       <td colspan="4">
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Contained, inline Resources.</li></ul>
+        <ul style="list-style-type: none"><li>Who is/was taking the medication.</li></ul>
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"contained": [
-  {"resourceType": "Medication",
-     "id": "2750067",
-     "code": {
-       "coding": [
-         {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "1191",
-          "display": "Aspirin",
-          "userSelected": false}],
-       "text": "aspirin"}}]}
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
 </pre></li></ul>
       
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>It should contain medication resource with medication.code</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -756,38 +881,154 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
     
     <tr>
       <td>
-        <a name="create-contained.code">
+        <a name="create-status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>contained.code</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
+      <td>Yes </td>
+      <td>1..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Codes that identify this medication.</li></ul>
+        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication used that this statement is about.
+</li></ul>
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-  "coding": [
-    {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-     "code": "1191",
-     "display": "Aspirin",
-     "userSelected": false}],
-  "text": "aspirin"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "active"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-effectivePeriod">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_"><code>effectivePeriod</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The interval of time during which it is being asserted that the patient was taking the medication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "effectivePeriod": {
+    "start": "2015-05-05T14:00:00.000Z",
+    "end": "2015-05-06T01:00:00.000Z"
+  }
+}
 </pre></li></ul>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>This code is only belongs where the resource is a Medication.</li></ul>
+        <ul style="list-style-type: none"><li>If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Provides extra information about the medication statement that is not conveyed by the other attributes.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": "do not take with alcohol"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-medication%5Bx%5D">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identifies the medication being administered.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "medicationReference": {
+    "reference": "#456235",
+    "display": "Ibuprofen"
+  }
+}
+
+{
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+         "code": "2551",
+         "display": "Ciprofloxacin",
+         "userSelected": false
+      }
+    ],
+    "text": "ciprofloxacin"
+  }
+}
+</pre></li></ul>
+      
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -814,36 +1055,6 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
         <li><i>Description</i></li>
         <ul style="list-style-type: none"><li>How the medication is/was used by the patient.</li></ul>
       
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"dosage": [
-  {"text": "325 mg, Oral, q4hr, PRN: headache",
-   "timing": {
-     "repeat": {
-       "boundsPeriod": {
-         "start": "2014-08-11T13:42:00.000-05:00"}},
-     "code": {
-       "text": "q4hr"}},
-   "asNeededCodeableConcept": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
-        "code": "25064002",
-        "display": "headache (finding)",
-        "userSelected": false}],
-   "text": "headache"},
-   "route": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
-        "code": "26643006",
-        "display": "Oral route (qualifier value)",
-        "userSelected": false}],
-     "text": "Oral"},
-   "quantityQuantity": {
-     "value": 325,
-     "units": "mg",
-     "system": "http://unitsofmeasure.org",
-     "code": "mg"}}]}
-</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -876,7 +1087,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -905,56 +1119,6 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
         <ul style="list-style-type: none"><li>The timing schedule for giving the medication to the patient.</li></ul>
       
       
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"timing": {
-   "repeat": {
-     "boundsPeriod": {
-       "start": "2014-11-03T14:38:00.000-05:00"},
-     "count": 5},
-   "code": {
-     "coding": [
-       {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-        "code": "TID",
-        "display": "TID"}],
-     "text": "TID"}}
-</pre></li></ul>
-      
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-dosage.timing.code">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code"><code>dosage.timing.code</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>A code for the timing pattern.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-      "code": "TID",
-      "display": "TID"}],
-   "text": "TID"}}}
-</pre></li></ul>
-      
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -965,7 +1129,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       <td>
         <a name="create-dosage.timing.repeat">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing.repeat"><code>dosage.timing.repeat</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat"><code>dosage.timing.repeat</code></a>
         
         
       </td>
@@ -982,13 +1146,6 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
         <ul style="list-style-type: none"><li>A set of rules that describe when the event should occur.</li></ul>
       
       
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"repeat": {
-   "boundsPeriod": {
-     "start": "2014-11-03T14:38:00.000-05:00"},
-   "count": 5}}
-</pre></li></ul>
-      
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -997,28 +1154,41 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
     
     <tr>
       <td>
-        <a name="create-dosage.timing.repeat.boundsPeriod">
+        <a name="create-dosage.timing.repeat.bounds%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_"><code>dosage.timing.repeat.boundsPeriod</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_"><code>dosage.timing.repeat.bounds[x]</code></a>
         
         
       </td>
       <td>No </td>
       <td>0..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> | <code>Quantity</code> </td>
     </tr>
     <tr>
       <td colspan="4">
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Outer bounds for start and/or end limits of the timing schedule.</li></ul>
+        <ul style="list-style-type: none"><li>Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
+</li></ul>
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"boundsPeriod": {
-   "start": "2014-11-03T14:38:00.000-05:00"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "boundsPeriod": {
+    "start": "2014-11-03T14:38:00.000-05:00"
+  }
+}
+
+{
+  "boundsQuantity": {
+    "value": 10,
+    "unit": "days",
+    "system": "http://unitsofmeasure.org",
+    "code": "d"
+  }
+}
 </pre></li></ul>
       
       
@@ -1049,7 +1219,52 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"count": 5}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "count": 5
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-dosage.timing.code">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code"><code>dosage.timing.code</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code for the timing pattern.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+        "code": "TID",
+        "display": "TID"
+      }
+    ],
+    "text": "TID"
+  }
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1079,15 +1294,63 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>asNeededCodeableConcept
-  {"asNeededCodeableConcept": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
+        <ul style="list-style-type: none"><li><pre>{
+  "asNeededCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
         "code": "25064002",
-        "display": "for headache"}]}}
+        "display": "for headache"
+      }
+    ]
+  }
+}
 
-asNeededBoolean
-  {"asNeededBoolean" : true}
+{
+  "asNeededBoolean" : true
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-dosage.siteCodeableConcept">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_"><code>dosage.siteCodeableConcept</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Where on the body the medication is/was administered.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "siteCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "368208006",
+        "display": "left upper arm structure (body structure)"
+      }
+    ],
+    "text": "Left Arm"
+  }
+}
 </pre></li></ul>
       
       
@@ -1119,12 +1382,18 @@ asNeededBoolean
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"route": {
-   "coding": [
-     {"system": "http://snomed.info/sct",
-      "code": "41974700",
-      "display": "Chew - dosing instruction imperative (qualifier value)"}],
-   "text": "Chewed"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "route": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "41974700",
+        "display": "Chew (qualifier value)"
+      }
+    ],
+    "text": "Chewed"
+  }
+}
 </pre></li></ul>
       
       
@@ -1155,11 +1424,14 @@ asNeededBoolean
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"quantityQuantity": {
-   "value": 2,
-   "unit": "tabs",
-   "system": "http://unitsofmeasure.org",
-   "code": "tbl"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "quantityQuantity": {
+    "value": 2,
+    "unit": "tabs",
+    "system": "http://unitsofmeasure.org",
+    "code": "tbl"
+  }
+}
 </pre></li></ul>
       
       
@@ -1168,90 +1440,58 @@ asNeededBoolean
       </td>
     </tr>
     
+  </tbody>
+</table>
+
+<h4 id="contained-medication-body-fields">Contained Medication Body Fields</h4>
+
+<table style="white-space: normal">
+  <thead>
     <tr>
-      <td>
-        <a name="create-patient">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
     </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Who is/was taking the medication.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {"reference": "Patient/5366327"}}</pre></li></ul>
-      
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
+  </thead>
+  <tbody>
     
     <tr>
       <td>
-        <a name="create-status">
+        <a name="create-code">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication used that this statement is about.
-</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"status": "active"}</pre></li></ul>
-      
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-note">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note"><code>note</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>code</code></a>
         
         
       </td>
       <td>No </td>
       <td>0..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Provides extra information about the medication statement that is not conveyed by the other attributes.</li></ul>
+        <ul style="list-style-type: none"><li>Codes that identify this medication.</li></ul>
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"note": "do not take with alcohol"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "2551",
+        "display": "Ciprofloxacin",
+        "userSelected": false
+      }
+    ],
+    "text": "ciprofloxacin"
+  }
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1261,66 +1501,51 @@ asNeededBoolean
     
     <tr>
       <td>
-        <a name="create-effectivePeriod">
+        <a name="create-product">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_"><code>effectivePeriod</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product"><code>product</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Information that applies only to products (not packages).</li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-product.form">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form"><code>product.form</code></a>
         
         
       </td>
       <td>No </td>
       <td>0..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The interval of time during which it is being asserted that the patient was taking the medication.</li></ul>
+        <ul style="list-style-type: none"><li>Describes the form of the item.</li></ul>
       
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"effectivePeriod": {
-   "start": "2015-05-05T14:00:00.000Z",
-   "end": "2015-05-06T01:00:00.000Z"}}
-</pre></li></ul>
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-medicationReference">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medicationReference</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
-<code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Identifies the medication being administered.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"medicationReference": {
-   "reference": "#456235",
-   "display": "Ibuprofen"}}
-</pre></li></ul>
       
       
       </ul>
@@ -1404,15 +1629,20 @@ asNeededBoolean
     x-xss-protection → 1; mode=block
 </pre>
 
-<p>The <code>etag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <h2 id="update">Update</h2>
 
-<p>Update the status of a MedicationStatement, only completed status is supported. The medicationReference field must refer
-to a contained Medication where the code field is populated with the current medication code; it may not be changed.</p>
+<p>Update a MedicationStatement.</p>
 
 <pre><code>PUT /MedicationStatement
 </code></pre>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>The only supported change is to update the status to <code>completed</code>.</li>
+</ul>
 
 <h3 id="headers-1">Headers</h3>
 
@@ -1458,7 +1688,10 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>MedicationStatement</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType: "MedicationStatement"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -1491,94 +1724,11 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"id": "123412"}</pre></li></ul>
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>The id value must match the MedicationStatement/&lt;id&gt; value.</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#update">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="update-contained">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"><code>contained</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>0..* </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/resource.html"><code>Resource</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Contained, inline Resources.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"contained": [
-  {"resourceType": "Medication",
-     "id": "2750067",
-     "code": {
-       "coding": [
-         {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "1191",
-          "display": "Aspirin",
-          "userSelected": false}],
-       "text": "aspirin"}}]}
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "123412"
+}
 </pre></li></ul>
       
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>It should contain medication resource with medication.code</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#update">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="update-contained.code">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>contained.code</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Codes that identify this medication.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-  "coding": [
-    {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-     "code": "1191",
-     "display": "Aspirin",
-     "userSelected": false}],
-  "text": "aspirin"}}
-</pre></li></ul>
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>This code is only belongs where the resource is a Medication.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -1607,7 +1757,12 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {"reference": "Patient/5366327"}}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1638,7 +1793,10 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"status": "active"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "active"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1648,16 +1806,16 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
     
     <tr>
       <td>
-        <a name="update-medicationReference">
+        <a name="update-medication%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medicationReference</code></a>
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
         
         
       </td>
       <td>Yes </td>
       <td>1..1 </td>
       <td>
-<code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -1668,14 +1826,31 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"medicationReference": {
-   "reference": "#456235",
-   "display": "Ibuprofen"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "medicationReference": {
+    "reference": "#456235",
+    "display": "Ibuprofen"
+  }
+}
+
+{
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+         "code": "2551",
+         "display": "Ciprofloxacin",
+         "userSelected": false
+      }
+    ],
+    "text": "ciprofloxacin"
+  }
+}
 </pre></li></ul>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>This must be the current medicationReference.code. It cannot be modified.</li></ul>
+        <ul style="list-style-type: none"><li>This must be the current medication. It cannot be modified.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>

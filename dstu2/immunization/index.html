@@ -113,7 +113,7 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">CVX</a>
+                      <a target="_blank" href="http://hl7.org/fhir/sid/cvx">CVX</a>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -150,7 +150,7 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/v3/ActSite">v3 Code System ActSite</a>
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -181,10 +181,21 @@
             <ul style="list-style-type: none"><li>The path the administered medication takes to get into the body or into contact with the body.</li></ul>
           
           
-            <li><i>Note</i></li>
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently it is not bound to any terminology. The value would always be returned as a freetext value.</li></ul>
-          
 
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://ncimeta.nci.nih.gov">NCI Metathesaurus</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
           
         </ul>
       </td>
@@ -266,97 +277,262 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "3639d63c-3475-4763-a98a-5f51d59d61bb",
+  "id": "8291c5a4-0f4c-4eae-86bc-f927f6582591",
   "type": "searchset",
-  "total": 2,
+  "total": 4,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2652008"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2100031"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M3977347",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335399",
       "resource": {
         "resourceType": "Immunization",
-        "id": "M3977347",
+        "id": "M22335399",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2016-05-03T10:41:40-0500"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2014-10-22T18:46:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: left thigh&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: ID&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: haemophilus b conjugate (PRP-T) vaccine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2013-12-11T11:41:00-0600&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Dr. Who&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Deltoid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: ID&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "completed",
-        "date": "2014-10-22T18:46:00.000Z",
+        "date": "2013-12-11T11:41:00-0600",
         "vaccineCode": {
           "coding": [
             {
-              "system": "http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx",
-              "code": "43"
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "48",
+              "display": "Hib (PRP-T)",
+              "userSelected": false
             }
           ],
-          "text": "Engerix-B (obsolete)"
+          "text": "haemophilus b conjugate (PRP-T) vaccine"
         },
         "patient": {
-          "reference": "Patient/2652008"
+          "reference": "Patient/2100031",
+          "display": "River Song"
         },
         "wasNotGiven": false,
         "reported": false,
         "performer": {
-          "reference": "Practitioner/1314013",
-          "display": "Song, River"
+          "reference": "Practitioner/7750958",
+          "display": "Dr. Who"
         },
         "encounter": {
-          "reference": "Encounter/2287924"
+          "reference": "Encounter/6456569"
         },
         "manufacturer": {
-          "reference": "Organization/4296975",
-          "display": "Able Laboratories Inc"
+          "display": "Biovail Pharmaceuticals Inc"
         },
-        "lotNumber": "45",
-        "expirationDate": "2016-10-22",
+        "location": {
+          "reference": "Location/4048128",
+          "display": "Baseline East"
+        },
+        "lotNumber": "245",
+        "expirationDate": "2016-05-04",
         "site": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/v3/ActSite",
-              "code": "LT",
-              "display": "left thigh"
+              "system": "http://snomed.info/sct",
+              "code": "37622008",
+              "display": "deltoid region structure (body structure)",
+              "userSelected": false
             }
           ],
-          "text": "left thigh"
+          "text": "Left Deltoid"
         },
         "route": {
+          "coding": [
+            {
+              "system": "http://ncimeta.nci.nih.gov",
+              "code": "C38238",
+              "display": "INTRADERMAL",
+              "userSelected": false
+            }
+          ],
           "text": "ID"
         },
         "doseQuantity": {
-          "value": 3,
-          "unit": "mL"
+          "value": 1,
+          "unit": "mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
         }
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM2384824",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335324",
       "resource": {
         "resourceType": "Immunization",
-        "id": "HM2384824",
+        "id": "M22335324",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2016-05-03T10:38:58-0500"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine Code&lt;/b&gt;: CERNER_CDC_VARICELLA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Song, River&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: human papillomavirus vaccine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-02-03&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Dr. Who&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Thigh&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: IM&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "completed",
+        "date": "2015-02-03",
         "vaccineCode": {
-          "text": "CERNER_CDC_VARICELLA"
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "62",
+              "display": "HPV, quadrivalent",
+              "userSelected": false
+            }
+          ],
+          "text": "human papillomavirus vaccine"
         },
         "patient": {
-          "reference": "Patient/2652008"
+          "reference": "Patient/2100031",
+          "display": "River Song"
+        },
+        "wasNotGiven": false,
+        "reported": true,
+        "performer": {
+          "reference": "Practitioner/7750958",
+          "display": "Dr. Who"
+        },
+        "encounter": {
+          "reference": "Encounter/6456569"
+        },
+        "manufacturer": {
+          "display": "Bracco Diagnostics Inc"
+        },
+        "location": {
+          "reference": "Location/4048128",
+          "display": "Baseline East"
+        },
+        "lotNumber": "45",
+        "site": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "61396006",
+              "display": "structure of left thigh (body structure)",
+              "userSelected": false
+            }
+          ],
+          "text": "Left Thigh"
+        },
+        "route": {
+          "text": "IM"
+        },
+        "doseQuantity": {
+          "value": 1,
+          "unit": "mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335052",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "M22335052",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2016-05-03"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: diphtheria/pertussis, acel/tetanus ped&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date Attempted&lt;/b&gt;: 2016-05-02&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Dr. Who&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reasons Not Given&lt;/b&gt;: Allergy to Neomycin (Disorder)&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "stopped",
+        "date": "2016-05-02",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "20",
+              "display": "DTaP",
+              "userSelected": false
+            }
+          ],
+          "text": "diphtheria/pertussis, acel/tetanus ped"
+        },
+        "patient": {
+          "reference": "Patient/2100031",
+          "display": "River Song"
         },
         "wasNotGiven": true,
         "reported": false,
         "performer": {
-          "reference": "Practitioner/1314013",
-          "display": "Song, River"
+          "reference": "Practitioner/7750958",
+          "display": "Dr. Who"
         },
         "location": {
-          "reference": "Organization/619848"
+          "reference": "Location/4048128",
+          "display": "Baseline East"
+        },
+        "explanation": {
+          "reasonNotGiven": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ActReason",
+                  "code": "MEDPREC",
+                  "display": "medical precaution",
+                  "userSelected": false
+                }
+              ],
+              "text": "Allergy to Neomycin (Disorder)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM4234847",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "HM4234847",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2016-05-13T12:03:36-0500"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: Hepatitis B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date Attempted&lt;/b&gt;: 2016-05-13T12:03:36-0500&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: No&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Dr. Who&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reasons Not Given&lt;/b&gt;: Patient Refuses&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "on-hold",
+        "date": "2016-05-13T12:03:36-0500",
+        "vaccineCode": {
+          "text": "Hepatitis B"
+        },
+        "patient": {
+          "reference": "Patient/2100031",
+          "display": "River Song"
+        },
+        "wasNotGiven": true,
+        "reported": false,
+        "performer": {
+          "reference": "Practitioner/7750958",
+          "display": "Dr. Who"
+        },
+        "explanation": {
+          "reasonNotGiven": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ActReason",
+                  "code": "PATOBJ",
+                  "display": "patient objection",
+                  "userSelected": false
+                }
+              ],
+              "text": "Patient Refuses"
+            }
+          ]
         }
       }
     }
