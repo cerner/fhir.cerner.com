@@ -16,6 +16,7 @@ id: http://hl7.org/fhir/DSTU2/datatypes.html#id
 Identifier: http://hl7.org/fhir/DSTU2/datatypes.html#Identifier
 instant: http://hl7.org/fhir/DSTU2/datatypes.html#instant
 integer: http://hl7.org/fhir/DSTU2/datatypes.html#integer
+Location: http://hl7.org/fhir/DSTU2/location.html
 Medication: http://hl7.org/fhir/DSTU2/medication.html
 Reference: http://hl7.org/fhir/DSTU2/references.html
 Patient: http://hl7.org/fhir/DSTU2/patient.html

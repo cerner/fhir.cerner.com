@@ -1,0 +1,134 @@
+---
+name: Encounter
+field_name_base_url: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: Identifier(s) by which this encounter is known.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+      - display: v2 Identifier Type
+        system: http://hl7.org/fhir/v2/0203
+
+- name: type
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: The specific type of encounter.
+  binding:
+    description: The type of encounter.
+    note: Currently not bound to any terminology.
+
+- name: priority
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Indicates the urgency of the encounter.
+  binding:
+    description: Indicates the urgency of the encounter.
+    terminology:
+    - display: Encounter Priority
+      system: http://hl7.org/fhir/encounter-priority
+
+- name: participant
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: The list of people responsible for providing the service.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Role of participant in encounter.
+    binding:
+      description: Role of participant in encounter.
+      terminology:
+      - display: ParticipantType
+        system: http://hl7.org/fhir/participant-type
+      - display: v3 Code System ParticipationType
+        system: http://hl7.org/fhir/v3/ParticipationType
+
+- name: reason
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: Reason the encounter takes place.
+  binding:
+    description: The type of encounter.
+    note: Currently not bound to any terminology. The value would always be returned as a free-text value.
+
+- name: hospitalization
+  required: 'No'
+  cardinality: 0..1
+  type: BackboneElement
+  description: Details about the admission to a healthcare service.
+  children:
+
+  - name: admitSource
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: From where patient was admitted.
+    binding:
+      description: From where patient was admitted.
+      terminology:
+      - display: AdmitSource
+        system: http://hl7.org/fhir/admit-source
+
+  - name: dietPreference
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Diet preferences reported by the patient.
+    binding:
+      description: Medical, cultural or ethical food preferences to help with catering requirements.
+      terminology:
+      - display: Diet
+        system: http://hl7.org/fhir/diet
+
+  - name: specialCourtesy
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The special courtesies applicable to the patient.
+    binding:
+      description: Special courtesies.
+      terminology:
+      - display: v3 Code System EncounterSpecialCourtesy
+        system: http://hl7.org/fhir/v3/EncounterSpecialCourtesy
+
+  - name: specialArrangement
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The special arrangements made for the patient during the encounter.
+    binding:
+      description: Special arrangements.
+      terminology:
+      - display: SpecialArrangements
+        system: http://hl7.org/fhir/encounter-special-arrangements
+
+  - name: dischargeDisposition
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Category or kind of location after discharge.
+    binding:
+      description: Discharge Disposition.
+      terminology:
+      - display: DischargeDisposition
+        system: http://hl7.org/fhir/discharge-disposition
