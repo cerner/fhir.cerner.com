@@ -76,6 +76,8 @@
 <h1 id="patient">Patient</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -89,12 +91,119 @@
   </li>
 </ul>
 
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier.type">Patient.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/v2/0203">v2 Identifier Type</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact.relationship">Patient.contact.relationship</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The nature of the relationship between a patient and a contact person for that patient.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/patient-contact-relationship">PatientContactRelationship</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html">Time of day of birth</a></li>
+</ul>
+
 <h2 id="search">Search</h2>
 
 <p>Search for Patients that meet supplied query parameters:</p>
 
 <pre><code>GET /Patient?:parameters
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> and <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.link">Patient.link</a> modifier elements are not supported and will not be returned.</li>
+</ul>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -110,7 +219,7 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>N, if populated all other parameters are ignored</td>
+      <td>No. If populated all other parameters are ignored</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
@@ -148,7 +257,7 @@
     </tr>
     <tr>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
     </tr>
@@ -163,29 +272,33 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "08638e55-cb75-4a66-b306-5e3c3938ef3f",
+  "id": "7f105a3b-ec18-45df-96f7-61fe8e520db9",
   "type": "searchset",
   "total": 2,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Pond&amp;start=0&amp;_count=20"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Carr&amp;_count=20"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/20940091",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/9827347",
       "resource": {
         "resourceType": "Patient",
-        "id": "20940091",
+        "id": "9827347",
+        "meta": {
+          "versionId": "11",
+          "lastUpdated": "2012-09-25T16:04:36.000Z"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Melody&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Amy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1981-09-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-            "valueDateTime": "2012-04-25T16:30:00.000Z"
+            "valueDateTime": "1981-09-10T13:09:00.000-05:00"
           }
         ],
         "identifier": [
@@ -196,30 +309,75 @@
                 {
                   "system": "http://hl7.org/fhir/v2/0203",
                   "code": "MR",
-                  "display": "Medical record number"
+                  "display": "Medical record number",
+                  "userSelected": false
                 }
               ],
-              "text": "Medical record number"
+              "text": "Community Medical Record Number"
             },
-            "value": "10001185"
+            "system": "urn:oid:2.16.840.1.113883.3.13.3.90.274.100.1",
+            "value": "10012938",
+            "period": {
+              "start": "2015-05-07T16:39:21.000Z"
+            }
           }
         ],
         "active": true,
         "name": [
           {
-            "use": "usual",
-            "text": "Pond, Melody",
+            "use": "official",
+            "text": "Pond, Amy",
             "family": [
               "Pond"
             ],
             "given": [
-              "Melody"
-            ]
+              "Amy"
+            ],
+            "period": {
+              "start": "2012-05-17T15:41:35.000Z"
+            }
           }
         ],
-        "gender": "male",
-        "birthDate": "2012-04-25",
-        "deceasedBoolean": false,
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "81676505276",
+            "use": "home",
+            "period": {
+              "start": "2012-05-17T15:41:34.000Z"
+            }
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1981-09-10",
+        "address": [
+          {
+            "use": "home",
+            "text": "12 Grimmauld Place\nIslington, London 34943\nEngland",
+            "line": [
+              "12 Grimmauld Place"
+            ],
+            "city": "Islington",
+            "district": "Kent",
+            "state": "London",
+            "postalCode": "34943",
+            "country": "England",
+            "period": {
+              "start": "2012-05-17T15:41:34.000Z"
+            }
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/MaritalStatus",
+              "code": "M",
+              "display": "Married",
+              "userSelected": false
+            }
+          ],
+          "text": "Married"
+        },
         "contact": [
           {
             "relationship": [
@@ -227,41 +385,78 @@
                 "coding": [
                   {
                     "system": "http://hl7.org/fhir/patient-contact-relationship",
-                    "code": "parent",
-                    "display": "Parent"
+                    "code": "family",
+                    "display": "Family",
+                    "userSelected": false
                   }
                 ],
-                "text": "Parent"
+                "text": "Family Member"
               }
             ],
             "name": {
-              "text": "Williams, Rory"
+              "use": "official",
+              "text": "Pond, Melody",
+              "family": [
+                "Pond"
+              ],
+              "given": [
+                "Melody"
+              ],
+              "period": {
+                "start": "2013-01-03T22:25:05.000Z"
+              }
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "87644689",
+                "use": "home",
+                "period": {
+                  "start": "2015-09-20T04:16:16.000Z"
+                }
+              }
+            ],
+            "address": {
+              "use": "home",
+              "text": "4 Prevet Drive\nLittle Whinning, Surrey 12983\nEngland",
+              "line": [
+                "4 Prevet Drive"
+              ],
+              "city": "Little Whinning",
+              "state": "Surrey",
+              "postalCode": "12983",
+              "country": "England",
+              "period": {
+                "start": "2015-09-20T04:16:16.000Z"
+              }
+            },
+            "gender": "male",
+            "period": {
+              "start": "2013-01-03T22:20:05.000Z"
             }
           }
         ],
         "careProvider": [
           {
-            "reference": "Practitioner/1448008",
-            "display": "Kovarian, Madame"
+            "reference": "Practitioner/1298321",
+            "display": "Song, River"
           }
         ]
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/6219231",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/12389912",
       "resource": {
         "resourceType": "Patient",
-        "id": "6219231",
+        "id": "12389912",
+        "meta": {
+          "versionId": "5",
+          "lastUpdated": "2012-09-25T14:24:36.000Z"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Annabeth&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2003-02-02&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Never Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1977-12-12&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Separated&lt;/p&gt;&lt;p&gt;&lt;b&gt;Deceased&lt;/b&gt;: Sun Jan  1 06:00:00 2012&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-            "valueDateTime": "2003-02-03T00:00:00.000Z"
-          }
-        ],
         "identifier": [
           {
             "use": "usual",
@@ -270,58 +465,82 @@
                 {
                   "system": "http://hl7.org/fhir/v2/0203",
                   "code": "MR",
-                  "display": "Medical record number"
+                  "display": "Medical record number",
+                  "userSelected": false
                 }
               ],
-              "text": "Medical record number"
+              "text": "MRN"
             },
-            "value": "809723498234"
+            "value": "10930286",
+            "period": {
+              "start": "2006-12-08T14:58:50.000Z"
+            }
           }
         ],
         "active": true,
         "name": [
           {
-            "use": "usual",
-            "text": "Pond, Annabeth",
+            "use": "official",
+            "text": "Williams, Rory",
             "family": [
-              "Pond"
+              "Williams"
             ],
             "given": [
-              "Annabeth"
-            ]
+              "Rory"
+            ],
+            "period": {
+              "start": "2006-12-08T14:58:50.000Z"
+            }
+          },
+          {
+            "use": "nickname",
+            "given": [
+              "Rory"
+            ],
+            "period": {
+              "start": "2006-12-08T19:32:34.000Z"
+            }
           }
         ],
         "telecom": [
           {
             "system": "phone",
-            "value": "(111) 111-1111",
-            "use": "home"
+            "value": "2313434652",
+            "use": "home",
+            "period": {
+              "start": "2006-12-08T14:58:50.000Z"
+            }
           }
         ],
         "gender": "female",
-        "birthDate": "2003-02-02",
-        "deceasedBoolean": false,
+        "birthDate": "1977-12-12",
+        "deceasedDateTime": "2012-01-01T06:00:00.000Z",
         "address": [
           {
             "use": "home",
-            "text": "123123123123\nParkville, MO 64152\nUSA",
+            "text": "9972 Bright Horse Farms\nPtarmigan, Nevada 661-5137\nUSA",
             "line": [
-              "123123123123"
+              "9972 Bright Horse Farms"
             ],
-            "city": "Parkville",
-            "state": "MO",
-            "postalCode": "64152"
+            "city": "Ptarmigan",
+            "state": "Nevada",
+            "postalCode": "661-5137",
+            "country": "USA",
+            "period": {
+              "start": "2006-12-08T14:58:50.000Z"
+            }
           }
         ],
         "maritalStatus": {
           "coding": [
             {
-              "system": "http://hl7.org/fhir/marital-status",
-              "code": "S",
-              "display": "Never Married"
+              "system": "http://hl7.org/fhir/v3/MaritalStatus",
+              "code": "L",
+              "display": "Legally Separated",
+              "userSelected": false
             }
           ],
-          "text": "Never Married"
+          "text": "Separated"
         }
       }
     }
@@ -335,21 +554,31 @@
 <pre><code>GET /Patient/:id
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> and <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.link">Patient.link</a> modifier elements are not supported and will not be returned.</li>
+</ul>
+
 <h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Patient",
-  "id": "20940091",
+  "id": "9827347",
+  "meta": {
+    "versionId": "11",
+    "lastUpdated": "2012-09-25T16:04:36.000Z"
+  },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Melody&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 2012-04-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Pond, Amy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1981-09-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-      "valueDateTime": "2012-04-25T16:30:00.000Z"
+      "valueDateTime": "1981-09-10T13:09:00.000-05:00"
     }
   ],
   "identifier": [
@@ -360,30 +589,75 @@
           {
             "system": "http://hl7.org/fhir/v2/0203",
             "code": "MR",
-            "display": "Medical record number"
+            "display": "Medical record number",
+            "userSelected": false
           }
         ],
-        "text": "Medical record number"
+        "text": "Community Medical Record Number"
       },
-      "value": "10001185"
+      "system": "urn:oid:2.16.840.1.113883.3.13.3.90.274.100.1",
+      "value": "10012938",
+      "period": {
+        "start": "2015-05-07T16:39:21.000Z"
+      }
     }
   ],
   "active": true,
   "name": [
     {
-      "use": "usual",
-      "text": "Pond, Melody",
+      "use": "official",
+      "text": "Pond, Amy",
       "family": [
         "Pond"
       ],
       "given": [
-        "Melody"
-      ]
+        "Amy"
+      ],
+      "period": {
+        "start": "2012-05-17T15:41:35.000Z"
+      }
     }
   ],
-  "gender": "male",
-  "birthDate": "2012-04-25",
-  "deceasedBoolean": false,
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "81676505276",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:41:34.000Z"
+      }
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1981-09-10",
+  "address": [
+    {
+      "use": "home",
+      "text": "12 Grimmauld Place\nIslington, London 34943\nEngland",
+      "line": [
+        "12 Grimmauld Place"
+      ],
+      "city": "Islington",
+      "district": "Kent",
+      "state": "London",
+      "postalCode": "34943",
+      "country": "England",
+      "period": {
+        "start": "2012-05-17T15:41:34.000Z"
+      }
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/MaritalStatus",
+        "code": "M",
+        "display": "Married",
+        "userSelected": false
+      }
+    ],
+    "text": "Married"
+  },
   "contact": [
     {
       "relationship": [
@@ -391,25 +665,65 @@
           "coding": [
             {
               "system": "http://hl7.org/fhir/patient-contact-relationship",
-              "code": "parent",
-              "display": "Parent"
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
             }
           ],
-          "text": "Parent"
+          "text": "Family Member"
         }
       ],
       "name": {
-        "text": "Williams, Rory"
+        "use": "official",
+        "text": "Pond, Melody",
+        "family": [
+          "Pond"
+        ],
+        "given": [
+          "Melody"
+        ],
+        "period": {
+          "start": "2013-01-03T22:25:05.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "87644689",
+          "use": "home",
+          "period": {
+            "start": "2015-09-20T04:16:16.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "4 Prevet Drive\nLittle Whinning, Surrey 12983\nEngland",
+        "line": [
+          "4 Prevet Drive"
+        ],
+        "city": "Little Whinning",
+        "state": "Surrey",
+        "postalCode": "12983",
+        "country": "England",
+        "period": {
+          "start": "2015-09-20T04:16:16.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-01-03T22:20:05.000Z"
       }
     }
   ],
   "careProvider": [
     {
-      "reference": "Practitioner/1448008",
-      "display": "Kovarian, Madame"
+      "reference": "Practitioner/1298321",
+      "display": "Song, River"
     }
   ]
 }</code></pre>
+
 
     </div>
 
