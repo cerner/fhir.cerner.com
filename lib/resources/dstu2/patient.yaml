@@ -1,0 +1,41 @@
+---
+name: Patient
+field_name_base_url: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: The identifier for the patient.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+      - display: v2 Identifier Type
+        system: http://hl7.org/fhir/v2/0203
+
+- name: contact
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: A contact party (e.g. guardian, partner, friend) for the patient.
+  children:
+
+  - name: relationship
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The nature of the relationship between the patient and the contact person.
+    binding:
+      description: The nature of the relationship between a patient and a contact person for that patient.
+      terminology:
+      - display: PatientContactRelationship
+        system: http://hl7.org/fhir/patient-contact-relationship
