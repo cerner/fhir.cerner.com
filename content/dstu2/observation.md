@@ -7,6 +7,10 @@ title: Observation | DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:observation, :dstu2) %>
+
 ## Search
 
 Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied query parameters:

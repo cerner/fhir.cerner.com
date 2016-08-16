@@ -1,0 +1,67 @@
+---
+name: Observation
+field_name_base_url: http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation
+fields:
+
+- name: category
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: >
+    A code that classifies the general type of observation being made. This is used for searching, sorting and display
+    purposes.
+  binding:
+    description: Codes for high level observation categories.
+    terminology:
+    - display: Observation Category Codes
+      system: http://hl7.org/fhir/observation-category
+
+- name: code
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Describes what was observed. Sometimes this is called the observation "name".
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+
+- name: interpretation
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: >
+    The assessment made based on the result of the observation. Intended as a simple compact code often placed adjacent
+    to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known
+    as abnormal flag.
+  binding:
+    description: Codes identifying interpretations of observations.
+    terminology:
+    - display: v2 Interpretation Codes
+      system: http://hl7.org/fhir/DSTU2/v2/0078
+
+- name: component
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: >
+    Some observations have multiple component observations. These component observations are expressed as separate code
+    value pairs that share the same attributes. Examples include systolic and diastolic component observations for
+    blood pressure measurement and multiple component observations for genetics observations.
+  children:
+
+  - name: code
+    required: 'Yes'
+    cardinality: 1..1
+    type: CodeableConcept
+    description: Describes what was observed. Sometimes this is called the observation "code".
+    binding:
+      description: Codes identifying names of simple observations.
+      terminology:
+      - display: LOINC
+        system: http://loinc.org
+      - display: SNOMED CT
+        system: http://snomed.info/sct
