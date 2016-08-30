@@ -26,7 +26,13 @@ The Cerner Authorization Server supports many, but not all, of the [SMART][4] or
 * launch
 * openid
 * profile
-* [User-level and patient-specific scopes][11] for requesting clinical data
+* [User-level and patient-specific scopes][11] for requesting clinical data. 
+
+#### Wildcard Scopes #### 
+[Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) are **not supported**
+
+An application is currently required to specifically request each scope that it needs to run.
+
 
 ### Requesting an authorization code ###
 Cerner currently supports the [SMART][4] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][4] launch workflow.
