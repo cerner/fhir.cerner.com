@@ -42,7 +42,7 @@ Transfer-Encoding: chunked
 
 Blank fields are omitted.
 
-All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/datatypes.html#date).
+All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/dstu2/datatypes.html#date).
 
 ### Media Types
 
@@ -60,13 +60,13 @@ application is a SMART application, the [service root url](http://hl7.org/fhir/d
 launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
  against a specific tenant. FHIR calls will be made against URLs of the following format:
 
-`:serviceRootURL/:resource\[?:parameters]`
+`:serviceRootURL/:resource[?:parameters]`
 
 ### Open Sandbox
 
 The open sandbox instance allows developers to experiment with the service without requiring
 authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
-this instance is: `https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource?:parameters`
+this instance is: `https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
 
 Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.
 
@@ -74,7 +74,7 @@ Note: The open endpoint exposes read-only resources. No writes are available in 
 
 The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service 
 root URL for this instance is: 
-`https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource?:parameters`
+`https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
 
 
 ### Resource
