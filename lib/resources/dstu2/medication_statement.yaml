@@ -50,6 +50,22 @@ fields:
       "status": "active"
     }
 
+- name: reasonForUse[x]
+  required: 'no'
+  cardinality: 0..1
+  type: CodeableConcept
+  action: search
+  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_
+  binding:
+    description: A reason for why the medication is being/was taken.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+    - display: ICD-9
+      system: http://hl7.org/fhir/sid/icd-9
+    - display: ICD-10
+      system: http://hl7.org/fhir/sid/icd-10
+
 - name: effectivePeriod
   required: 'No'
   cardinality: 0..1
@@ -149,7 +165,7 @@ fields:
       - name: bounds[x]
         required: 'No'
         cardinality: 0..1
-        type: Period | Quantity
+        type: Period | Duration
         description: >
           Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
         example: |

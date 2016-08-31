@@ -1,0 +1,22 @@
+---
+name: Practitioner
+field_name_base_url: http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner
+fields:
+
+- name: practitionerRole
+  required: 'No'
+  cardinality: 0..1
+  type: BackboneElement
+  description: The list of roles or organizations that the practitioner is associated with.
+  children:
+
+  - name: role
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The roles which this practitioner is authorized to perform for the organization.
+    binding:
+      description: The roles which this practitioner is authorized to perform for the organization.
+      terminology:
+          - display: Practitioner Role
+            system: http://hl7.org/fhir/practitioner-role

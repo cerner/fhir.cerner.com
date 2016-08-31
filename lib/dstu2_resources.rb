@@ -872,307 +872,402 @@ module Cerner
     }
 
     DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
-      "resourceType"=> "Bundle",
-      "id"=> "b8ea9905-29fe-4d40-9d71-475ca2ebb209",
-      "type"=> "searchset",
-      "total"=> 3,
-      "link"=> [
+      "resourceType": "Bundle",
+      "id": "97dee263-b655-4f6b-948b-b510516ab4c2",
+      "type": "searchset",
+      "total": 4,
+      "link": [
         {
-          "relation"=> "self",
-          "url"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&_count=50"
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=4342008&_count=50"
         }
       ],
-      "entry"=> [
+      "entry": [
         {
-          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/16358117",
-          "resource"=> {
-            "resourceType"=> "MedicationStatement",
-            "id"=> "16358117",
-            "meta"=> {
-              "versionId"=> "1"
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369961",
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "21369961",
+            "meta": {
+              "versionId": "0-21369975",
+              "lastUpdated": "2016-06-24T10:10:51.000-05:00"
             },
-            "text"=> {
-              "status"=> "generated",
-              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 325 mg, Oral, q4hr, PRN: headache&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin (aspirin 81 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
             },
-            "contained"=> [
-              {
-                "resourceType"=> "Medication",
-                "id"=> "2750067",
-                "code"=> {
-                  "coding"=> [
-                    {
-                      "system"=> "http://www.nlm.nih.gov/research/umls/rxnorm",
-                      "code"=> "1191",
-                      "display"=> "Aspirin",
-                      "userSelected"=> false
-                    }
-                  ],
-                  "text"=> "aspirin"
-                },
-                "product"=> {
-                  "form"=> {
-                    "coding"=> [
-                      {
-                        "system"=> "http://snomed.info/sct",
-                        "code"=> "385055001",
-                        "display"=> "Tablet dose form (qualifier value)",
-                        "userSelected"=> false
-                      }
-                    ],
-                    "text"=> "Tab"
-                  }
+            "patient": {
+              "reference": "Patient/4342008",
+              "display": "Song, River"
+            },
+            "dateAsserted": "2016-06-24T10:10:51.000-05:00",
+            "status": "active",
+            "wasNotTaken": false,
+            "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "243670",
+                  "display": "Aspirin 81 MG Oral Tablet",
+                  "userSelected": false
                 }
-              }
-            ],
-            "patient"=> {
-              "reference"=> "Patient/1316024"
+              ],
+              "text": "aspirin (aspirin 81 mg oral tablet)"
             },
-            "informationSource"=> {
-              "reference"=> "Practitioner/1328007",
-              "display"=> "House, Gregory"
-            },
-            "dateAsserted"=> "2014-08-11T13:42:01.000-05:00",
-            "status"=> "active",
-            "effectivePeriod"=> {
-              "start"=> "2014-08-11T13:42:00.000-05:00"
-            },
-            "medicationReference"=> {
-              "reference"=> "#2750067",
-              "display"=> "aspirin"
-            },
-            "dosage"=> [
+            "dosage": [
               {
-                "text"=> "325 mg, Oral, q4hr, PRN: headache",
-                "timing"=> {
-                  "repeat"=> {
-                    "boundsPeriod"=> {
-                      "start"=> "2014-08-11T13:42:00.000-05:00"
+                "text": "1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)",
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2016-06-24T08:08:00.000-07:00"
                     }
                   },
-                  "code"=> {
-                    "text"=> "q4hr"
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
+                        "code": "BID",
+                        "display": "BID",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "BID"
                   }
                 },
-                "asNeededCodeableConcept"=> {
-                  "coding"=> [
+                "asNeededCodeableConcept": {
+                  "text": "pain | Take 1 - 2 tabs twice per day as needed"
+                },
+                "route": {
+                  "coding": [
                     {
-                      "system"=> "http://snomed.info/sct",
-                      "code"=> "25064002",
-                      "display"=> "headache (finding)",
-                      "userSelected"=> false
+                      "system": "http://ncimeta.nci.nih.gov",
+                      "code": "C38288",
+                      "display": "ORAL",
+                      "userSelected": false
                     }
                   ],
-                  "text"=> "headache"
-                },
-                "route"=> {
-                  "coding"=> [
-                    {
-                      "system"=> "http://snomed.info/sct",
-                      "code"=> "26643006",
-                      "display"=> "Oral route (qualifier value)",
-                      "userSelected"=> false
-                    }
-                  ],
-                  "text"=> "Oral"
-                },
-                "quantityQuantity"=> {
-                  "value"=> 325,
-                  "units"=> "mg",
-                  "system"=> "http://unitsofmeasure.org",
-                  "code"=> "mg"
+                  "text": "Oral"
                 }
               }
             ]
           }
         },
         {
-          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19169979",
-          "resource"=> {
-            "resourceType"=> "MedicationStatement",
-            "id"=> "19169979",
-            "meta"=> {
-              "versionId"=> "0"
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369989",
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "21369989",
+            "meta": {
+              "versionId": "0-21369975",
+              "lastUpdated": "2016-06-24T15:27:06.000Z"
             },
-            "text"=> {
-              "status"=> "generated",
-              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: Imuran&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 50 mg, 1 tabs, Oral, BID&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: morphine (morphine 24 hour extended release)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 30 mg, 1 caps, Oral, Daily, PRN: pain&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
             },
-            "contained"=> [
+            "patient": {
+              "reference": "Patient/4342008",
+              "display": "Song, River"
+            },
+            "dateAsserted": "2016-06-24T10:10:51.000-05:00",
+            "status": "active",
+            "wasNotTaken": false,
+            "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
+            "supportingInformation": [
               {
-                "resourceType"=> "Medication",
-                "id"=> "4310241",
-                "code"=> {
-                  "text"=> "Imuran"
-                },
-                "product"=> {
-                  "form"=> {
-                    "coding"=> [
-                      {
-                        "system"=> "http://snomed.info/sct",
-                        "code"=> "385055001",
-                        "display"=> "Tablet dose form (qualifier value)",
-                        "userSelected"=> false
-                      }
-                    ],
-                    "text"=> "Tab"
-                  }
-                }
+                "reference": "MedicationOrder/21369989"
               }
             ],
-            "patient"=> {
-              "reference"=> "Patient/1316024"
+            "medicationCodeableConcept": {
+              "text": "morphine (morphine 24 hour extended release)"
             },
-            "informationSource"=> {
-              "reference"=> "Practitioner/1328007",
-              "display"=> "House, Gregory"
-            },
-            "dateAsserted"=> "2015-09-04T10:51:36.000-05:00",
-            "status"=> "active",
-            "effectivePeriod"=> {
-              "start"=> "2015-09-04T09:00:00.000-07:00"
-            },
-            "medicationReference"=> {
-              "reference"=> "#4310241",
-              "display"=> "Imuran"
-            },
-            "dosage"=> [
+            "dosage": [
               {
-                "text"=> "50 mg, 1 tabs, Oral, BID",
-                "timing"=> {
-                  "repeat"=> {
-                    "boundsPeriod"=> {
-                      "start"=> "2015-09-04T09:00:00.000-07:00"
+                "text": "30 mg, 1 caps, Oral, Daily, PRN: pain",
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2016-06-24T08:24:00.000-07:00"
                     }
                   },
-                  "code"=> {
-                    "coding"=> [
+                  "code": {
+                    "coding": [
                       {
-                        "system"=> "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                        "code"=> "BID",
-                        "display"=> "BID",
-                        "userSelected"=> false
+                        "system": "http://hl7.org/fhir/timing-abbreviation",
+                        "code": "QD",
+                        "display": "QD",
+                        "userSelected": false
                       }
                     ],
-                    "text"=> "BID"
+                    "text": "Daily"
                   }
                 },
-                "route"=> {
-                  "coding"=> [
+                "asNeededCodeableConcept": {
+                  "coding": [
                     {
-                      "system"=> "http://snomed.info/sct",
-                      "code"=> "26643006",
-                      "display"=> "Oral route (qualifier value)",
-                      "userSelected"=> false
+                      "system": "http://snomed.info/sct",
+                      "code": "22253000",
+                      "display": "pain (finding)",
+                      "userSelected": false
                     }
                   ],
-                  "text"=> "Oral"
+                  "text": "pain"
                 },
-                "quantityQuantity"=> {
-                  "value"=> 50,
-                  "units"=> "mg",
-                  "system"=> "http://unitsofmeasure.org",
-                  "code"=> "mg"
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://ncimeta.nci.nih.gov",
+                      "code": "C38288",
+                      "display": "ORAL",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Oral"
+                },
+                "quantityQuantity": {
+                  "value": 30,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
                 }
               }
             ]
           }
         },
         {
-          "fullUrl"=> "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19245893",
-          "resource"=> {
-            "resourceType"=> "MedicationStatement",
-            "id"=> "19245893",
-            "meta"=> {
-              "versionId"=> "0"
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/17498403",
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "17498403",
+            "meta": {
+              "versionId": "2-17498411",
+              "lastUpdated": "2015-01-19T18:54:25.000Z"
             },
-            "text"=> {
-              "status"=> "generated",
-              "div"=> "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: azathioprine 50 mg oral tablet&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 50 mg, 1 tabs, Oral, BID, 60 tabs&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: atorvastatin (atorvastatin 80 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
             },
-            "contained"=> [
+            "patient": {
+              "reference": "Patient/4342008",
+              "display": "Song, River"
+            },
+            "informationSource": {
+              "display": "Family"
+            },
+            "dateAsserted": "2015-01-19T12:50:48.000-06:00",
+            "status": "completed",
+            "wasNotTaken": false,
+            "effectiveDateTime": "2015-01-19T12:50:48.000-06:00",
+            "note": "Medication Compliance: only takes half a tab on a good day",
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "259255",
+                  "display": "atorvastatin 80 MG Oral Tablet",
+                  "userSelected": false
+                }
+              ],
+              "text": "atorvastatin (atorvastatin 80 mg oral tablet)"
+            },
+            "dosage": [
               {
-                "resourceType"=> "Medication",
-                "id"=> "2750424",
-                "code"=> {
-                  "coding"=> [
-                    {
-                      "system"=> "http://www.nlm.nih.gov/research/umls/rxnorm",
-                      "code"=> "197388",
-                      "display"=> "Azathioprine 50 MG Oral Tablet",
-                      "userSelected"=> false
+                "text": "80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)",
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2015-01-19T12:51:00.000-06:00",
+                      "end": "2015-01-19T12:54:25.000-06:00"
                     }
-                  ],
-                  "text"=> "azathioprine 50 mg oral tablet"
-                },
-                "product"=> {
-                  "form"=> {
-                    "coding"=> [
+                  },
+                  "code": {
+                    "coding": [
                       {
-                        "system"=> "http://snomed.info/sct",
-                        "code"=> "385055001",
-                        "display"=> "Tablet dose form (qualifier value)",
-                        "userSelected"=> false
+                        "system": "http://hl7.org/fhir/timing-abbreviation",
+                        "code": "QD",
+                        "display": "QD",
+                        "userSelected": false
                       }
                     ],
-                    "text"=> "Tab"
+                    "text": "Daily"
                   }
+                },
+                "asNeededCodeableConcept": {
+                  "text": "Instruct"
+                },
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://ncimeta.nci.nih.gov",
+                      "code": "C38288",
+                      "display": "ORAL",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Oral"
+                },
+                "quantityQuantity": {
+                  "value": 1,
+                  "unit": "tab(s)",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "{tbl}"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/9776226",
+          "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "9776226",
+            "meta": {
+              "versionId": "5-13917251",
+              "lastUpdated": "2012-08-13T17:41:08.000-05:00"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 16.88 mL/hr, IV&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
+            },
+            "contained": [
+              {
+                "resourceType": "Medication",
+                "id": "18925324",
+                "code": {
+                  "text": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
+                },
+                "product": {
+                  "form": {
+                    "coding": [
+                      {
+                        "system": "http://ncimeta.nci.nih.gov",
+                        "code": "C42986",
+                        "display": "SOLUTION",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Soln-IV"
+                  },
+                  "ingredient": [
+                    {
+                      "item": {
+                        "reference": "#18925322-1",
+                        "display": "Premix D5W"
+                      },
+                      "amount": {
+                        "numerator": {
+                          "value": 500,
+                          "unit": "mL",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "mL"
+                        },
+                        "denominator": {
+                          "value": 500,
+                          "unit": "mL",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "mL"
+                        }
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#4310611-2",
+                        "display": "DOPamine"
+                      },
+                      "amount": {
+                        "numerator": {
+                          "value": 400,
+                          "unit": "mg",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "mg"
+                        },
+                        "denominator": {
+                          "value": 500,
+                          "unit": "mL",
+                          "system": "http://unitsofmeasure.org",
+                          "code": "mL"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "resourceType": "Medication",
+                "id": "18925322-1",
+                "code": {
+                  "text": "Premix D5W"
+                }
+              },
+              {
+                "resourceType": "Medication",
+                "id": "4310611-2",
+                "code": {
+                  "text": "DOPamine"
                 }
               }
             ],
-            "patient"=> {
-              "reference"=> "Patient/1316024"
+            "patient": {
+              "reference": "Patient/4342008",
+              "display": "Song, River"
             },
-            "informationSource"=> {
-              "reference"=> "Practitioner/1328007",
-              "display"=> "House, Gregory"
-            },
-            "dateAsserted"=> "2015-09-09T19:00:21.000-05:00",
-            "status"=> "active",
-            "effectivePeriod"=> {
-              "start"=> "2015-09-09T17:01:00.000-07:00"
-            },
-            "medicationReference"=> {
-              "reference"=> "#2750424",
-              "display"=> "azathioprine 50 mg oral tablet"
-            },
-            "dosage"=> [
+            "dateAsserted": "2012-08-13T17:41:08.000-05:00",
+            "status": "active",
+            "wasNotTaken": false,
+            "effectiveDateTime": "2012-08-13T17:41:08.000-05:00",
+            "supportingInformation": [
               {
-                "text"=> "50 mg, 1 tabs, Oral, BID, 60 tabs",
-                "timing"=> {
-                  "repeat"=> {
-                    "boundsPeriod"=> {
-                      "start"=> "2015-09-09T17:01:00.000-07:00"
-                    }
-                  },
-                  "code"=> {
-                    "coding"=> [
-                      {
-                        "system"=> "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                        "code"=> "BID",
-                        "display"=> "BID",
-                        "userSelected"=> false
-                      }
-                    ],
-                    "text"=> "BID"
+                "reference": "MedicationOrder/9776226"
+              }
+            ],
+            "medicationReference": {
+              "reference": "#18925324",
+              "display": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
+            },
+            "dosage": [
+              {
+                "text": "16.88 mL/hr, IV",
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2009-06-25T12:52:00.000-05:00"
+                    },
+                    "duration": 29.6,
+                    "durationUnits": "h"
                   }
                 },
-                "route"=> {
-                  "coding"=> [
+                "route": {
+                  "coding": [
                     {
-                      "system"=> "http://snomed.info/sct",
-                      "code"=> "26643006",
-                      "display"=> "Oral route (qualifier value)",
-                      "userSelected"=> false
+                      "system": "http://ncimeta.nci.nih.gov",
+                      "code": "C38276",
+                      "display": "INTRAVENOUS",
+                      "userSelected": false
                     }
                   ],
-                  "text"=> "Oral"
+                  "text": "IV"
                 },
-                "quantityQuantity"=> {
-                  "value"=> 50,
-                  "units"=> "mg",
-                  "system"=> "http://unitsofmeasure.org",
-                  "code"=> "mg"
+                "quantityQuantity": {
+                  "value": 500,
+                  "unit": "mL",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mL"
+                },
+                "rateRatio": {
+                  "numerator": {
+                    "value": 500,
+                    "unit": "mL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mL"
+                  },
+                  "denominator": {
+                    "value": 29.6,
+                    "unit": "hr",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "h"
+                  }
                 }
               }
             ]

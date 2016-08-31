@@ -9,6 +9,7 @@ CodeableConcept: http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept
 ContactPoint: http://hl7.org/fhir/DSTU2/datatypes.html#ContactPoint
 date: http://hl7.org/fhir/DSTU2/datatypes.html#date
 dateTime: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
+Duration: http://hl7.org/fhir/DSTU2/datatypes.html#Duration
 Element: http://hl7.org/fhir/DSTU2/element.html
 Encounter: http://hl7.org/fhir/DSTU2/encounter.html
 HumanName: http://hl7.org/fhir/DSTU2/datatypes.html#HumanName

@@ -15,18 +15,27 @@ title: MedicationStatement | DSTU 2 API
 
 <%= terminology_table(:contained_medication, :dstu2) %>
 
+### Contained Practitioner Bindings
+
+<%= terminology_table(:medication_statement_contained_practitioner, :dstu2) %>
+
 ## Search
 
 Search for MedicationStatements that meet supplied query parameters:
 
     GET /MedicationStatement?:parameters
 
+_Notes_
+
+* [MedicationStatement.informationSource] may be a reference to a contained Practitioner or RelatedPerson.
+* [MedicationStatement.medication] may be a reference to a contained Medication.
+
 ### Parameters
 
  Name                                                   | Required? | Type                                                           | Description
 --------------------------------------------------------|-----------|----------------------------------------------------------------|-----------------------------------------------------------------------------------
 `patient`                                               | Y         | [`reference`](http://hl7.org/fhir/DSTU2/search.html#reference) | The identifier of a patient to list statements for. Example: `12345`
-`status`                                                | N         | [`token`](http://hl7.org/fhir/DSTU2/search.html#token)         | The status of the medication statement, may be a list separated by commas.  Note, `intended` status is not supported. Example: `active,completed`
+`status`                                                | N         | [`token`](http://hl7.org/fhir/DSTU2/search.html#token)         | The status of the medication statement, may be a list separated by commas.  Example: `active,completed`
 `effectivedate`                                         | N         | [`date`](http://hl7.org/fhir/DSTU2/search.html#date)           | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'  Example: `ge2015-01-01`
 [`_count`](http://hl7.org/fhir/DSTU2/search.html#count) | N         | [`number`](http://hl7.org/fhir/DSTU2/search.html#number)       | The maximum number of results to return. Defaults to `50`.
 
@@ -43,9 +52,9 @@ Create a new MedicationStatement.
 
 _Notes_
 
-* Only active MedicationStatements may be created.
-* [MedicationStatement.wasNotTaken](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken) set to `true` is not supported.
-* If [MedicationStatement.medication](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_) is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.
+* [MedicationStatement.status] must be set to `active`.
+* [MedicationStatement.wasNotTaken] set to `true` is not supported.
+* If [MedicationStatement.medication] is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.
 
 ### Headers
 
@@ -105,7 +114,7 @@ Update a MedicationStatement.
 
 _Notes_
 
-* The only supported change is to update the status to `completed`.
+* The only supported change is to update the [MedicationStatement.status] to `completed`.
 
 ### Headers
 
@@ -150,3 +159,8 @@ To successfully PUT a MedicationStatement, the following headers must be provide
     x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
+
+[MedicationStatement.informationSource]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource
+[MedicationStatement.medication]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
+[MedicationStatement.status]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status
+[MedicationStatement.wasNotTaken]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken
