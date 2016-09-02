@@ -26,7 +26,13 @@ The Cerner Authorization Server supports many, but not all, of the [SMART][4] or
 * launch
 * openid
 * profile
-* [User-level and patient-specific scopes][11] for requesting clinical data
+* [User-level and patient-specific scopes][11] for requesting clinical data. 
+
+#### Wildcard Scopes #### 
+[Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) are **not supported**
+
+An application is currently required to specifically request each scope that it needs to run.
+
 
 ### Requesting an authorization code ###
 Cerner currently supports the [SMART][4] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][4] launch workflow.
@@ -72,30 +78,28 @@ The authorization server authorize URL can be found in the security section of t
 grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
 ```
 
-If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the example below.
+If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the non-normative example below.
 
-```
-{
+<pre class="body-response"><code class="language-javascript">{
    "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTkzOTEsImlhdCI6MTQ1NTg5ODc5MSwianRpIjoiOTQ1YjQ5ZjctMTFiMi00NmQ2LWEwZjctZGJmNjcxMzVmYTJlIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.EnvJ8hRDIZcb9pKsfOaFGXhpAnfzi7rDMks0mAnAp0Lsbooe-JPoVPY8FT00xWP9JelbGdKGpoNLt0enGVGhnQ",
    "token_type":"Bearer",
    "expires_in":570,
    "refresh_token":"1234-567890ab-cdef"
 }
-```
+</code></pre>
 
 The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
 
 ### OpenID Connect ###
 If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
 
-```
-{
+<pre class="body-response"><code class="language-javascript">{
   "access_token" : "18adCadfj_lj13S3ada8.41jVCo_dgalL",
   "encounter" : "91731344",
   "patient" : "121341578",
   "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
 }
-```
+</code></pre>
 
 ### Using an access token ###
 In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
@@ -118,13 +122,12 @@ grant_type=refresh_token&refresh_token={REFRESH_TOKEN}
 
 If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the non-normative example below.
 
-```
-{
+<pre class="body-response"><code class="language-javascript">{
    "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTk2NzAsImlhdCI6MTQ1NTg5OTA3MCwianRpIjoiZWI0Njg1ZDItZGM1MC00Y2NjLWE0YTktYWI1MjJlNzdjZTg1IiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.FpGIHS438A9ocU4ozx5s8PzpZ4OhZ6St7S6uP5galSkxrgof07ao1bv2LtFqcbyaFGUTeU3J0NtV82Sfg7GpqA",
    "token_type":"Bearer",
    "expires_in":570
 }
-```
+</code></pre>
 
 The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised.
 

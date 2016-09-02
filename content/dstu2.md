@@ -17,8 +17,8 @@ Documentation for our production implementation can be found at [DSTU 2 Ballot (
 
 ## Schema
 
-All API access is over HTTPS, and accessed from the `fhir.sandboxcernerpowerchart.com/dstu2`
-domain.  All data is sent and received as JSON.
+All API access is over HTTPS. See [Service Root URL](#service-root-url) for more information on URL format. 
+All data is sent and received as JSON.
 
 <pre class="terminal">
 $ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
@@ -42,7 +42,7 @@ Transfer-Encoding: chunked
 
 Blank fields are omitted.
 
-All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/datatypes.html#date).
+All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/dstu2/datatypes.html#date).
 
 ### Media Types
 
@@ -53,24 +53,35 @@ Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON cont
 
 We encourage you to explicitly request one of these types via the `Accept` header.
 
-## Root Endpoint
+## Service Root URL
 
-The URL takes the form `fhir.sandboxcernerpowerchart.com/dstu2/:ehr_source_id/:resource`.
+URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the 
+application is a SMART application, the [service root url](http://hl7.org/fhir/dstu2/http.html#general) is provided at 
+launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
+ against a specific tenant. FHIR calls will be made against URLs of the following format:
 
-### Open Endpoint
+`:serviceRootURL/:resource[?:parameters]`
 
-The `fhir-open.sandboxcernerpowerchart.com` domain allows developers to experiment with the service without requiring
-authentication. Use the `fhir.sandboxcernerpowerchart.com` domain to access the authenticated endpoint.
+### Open Sandbox
 
-### Source
+The open sandbox instance allows developers to experiment with the service without requiring
+authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
+this instance is: `https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
 
-The `:ehr_source_id` represents the tenant for which data should be retrieved.
+Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.
+
+### Secure Sandbox
+
+The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service 
+root URL for this instance is: 
+`https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
+
 
 ### Resource
 
 `:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
 
-## Parameters
+### Parameters
 
 Many API methods take optional parameters. For GET requests, any parameters not
 specified as a segment in the path can be passed as an HTTP query string
@@ -80,8 +91,8 @@ parameter:
 $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=2744010&status=active"
 </pre>
 
-In this example, the 'd075cf8b-3261-481d-97e5-ba6c48d3b41f' value is provided for the `:ehr_source_id` parameter in the path
-while `patient` and `status` are passed in the query string.
+In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
+ are passed in the query string.
 
 ## Client Errors
 
@@ -94,16 +105,16 @@ receive request bodies:
 
         no supported search parameters provided
 
-2. Requesting the authenticated endpoint (non-`open`) without valid credentials will result in a `401 Unauthorized`
+2. Requesting the secure endpoint (non-`open`) without valid credentials will result in a `401 Unauthorized`
    response.
 
         HTTP/1.1 401 Unauthorized
 
-3. Requesting an invalid or unauthorized `:ehr_source_id` will result in a `403 Forbidden` response.
+3. Requesting data from an unknown instance or an instance where the application is not authorized will result in a `403 Forbidden` response.
 
         HTTP/1.1 403 Forbidden
 
-        Tenant [:ehr_source_id] not valid or accessible
+        Tenant not valid or accessible
 
 4. Requesting a resource which does not exist will resule in a `404 Not Found` response.
 
