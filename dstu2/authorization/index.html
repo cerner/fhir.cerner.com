@@ -101,8 +101,13 @@
   <li>openid</li>
   <li>profile</li>
   <li>
-<a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">User-level and patient-specific scopes</a> for requesting clinical data</li>
+<a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">User-level and patient-specific scopes</a> for requesting clinical data.</li>
 </ul>
+
+<h4 id="wildcard-scopes">Wildcard Scopes</h4>
+<p><a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes">Wildcard Scopes</a> are <strong>not supported</strong></p>
+
+<p>An application is currently required to specifically request each scope that it needs to run.</p>
 
 <h3 id="requesting-an-authorization-code">Requesting an authorization code</h3>
 <p>Cerner currently supports the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch workflow from within an EHR, such as Cerner Millennium’s PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated <a href="http://docs.smarthealthit.org/authorization/">SMART</a> launch workflow.</p>
@@ -155,30 +160,28 @@ https://test.com/cb?code=1234-567890ab-cdef
 grant_type=authorization_code&amp;code={AUTHORIZATION_CODE}&amp;client_id={YOUR_CLIENT_ID}&amp;redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
 </code></p>
 
-<p>If successful, the authorization server will return a <strong>200 OK</strong> response with a content-type of <a href="http://json.org/"><strong>application/json</strong></a> similar to the example below.</p>
+<p>If successful, the authorization server will return a <strong>200 OK</strong> response with a content-type of <a href="http://json.org/"><strong>application/json</strong></a> similar to the non-normative example below.</p>
 
-<p><code>
-{
+<pre class="body-response"><code class="language-javascript">{
    "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTkzOTEsImlhdCI6MTQ1NTg5ODc5MSwianRpIjoiOTQ1YjQ5ZjctMTFiMi00NmQ2LWEwZjctZGJmNjcxMzVmYTJlIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.EnvJ8hRDIZcb9pKsfOaFGXhpAnfzi7rDMks0mAnAp0Lsbooe-JPoVPY8FT00xWP9JelbGdKGpoNLt0enGVGhnQ",
    "token_type":"Bearer",
    "expires_in":570,
    "refresh_token":"1234-567890ab-cdef"
 }
-</code></p>
+</code></pre>
 
 <p>The <a href="https://tools.ietf.org/html/rfc6750">bearer access token</a> returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.</p>
 
 <h3 id="openid-connect">OpenID Connect</h3>
 <p>If the scopes “openid” and “profile” were originally provided, an <a href="http://openid.net/connect/">OpenID Connect</a> id_token will be included per the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> specification that includes the user’s URL (userfhirurl) as the “profile” claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.</p>
 
-<p><code>
-{
+<pre class="body-response"><code class="language-javascript">{
   "access_token" : "18adCadfj_lj13S3ada8.41jVCo_dgalL",
   "encounter" : "91731344",
   "patient" : "121341578",
   "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
 }
-</code></p>
+</code></pre>
 
 <h3 id="using-an-access-token">Using an access token</h3>
 <p>In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.</p>
@@ -203,13 +206,12 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
 
 <p>If successful, the authorization server will return a <strong>200 OK</strong> response with a content-type of <a href="http://json.org/"><strong>application/json</strong></a> similar to the non-normative example below.</p>
 
-<p><code>
-{
+<pre class="body-response"><code class="language-javascript">{
    "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTk2NzAsImlhdCI6MTQ1NTg5OTA3MCwianRpIjoiZWI0Njg1ZDItZGM1MC00Y2NjLWE0YTktYWI1MjJlNzdjZTg1IiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.FpGIHS438A9ocU4ozx5s8PzpZ4OhZ6St7S6uP5galSkxrgof07ao1bv2LtFqcbyaFGUTeU3J0NtV82Sfg7GpqA",
    "token_type":"Bearer",
    "expires_in":570
 }
-</code></p>
+</code></pre>
 
 <p>The refresh token issued is good while the user’s session is still valid and can be used over and over again until the user’s session is no longer valid or the refresh token has been revoked due to being compromised.</p>
 
