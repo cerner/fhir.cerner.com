@@ -94,11 +94,34 @@ fields:
                    "code": "diagnosis",
                    "display": "Diagnosis"}],
                 "text": "Diagnosis"}}
+             OR
+
+             {"category": {
+                "coding": [
+                  {"system": "http://argonaut.hl7.org/extension-codes",
+                   "code": "problem",
+                   "display": "Problem"}],
+                "text": "Problem"}}
   binding:
     description: A category assigned to the condition.
+    note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is bound to condition category codes and `problem` is bound to argonaut extenstion codes terminology system shown below.
     terminology:
     - display: Condition Category Codes
       system: http://hl7.org/fhir/condition-category
+    - display: Argonaut Extension Code
+      system: http://argonaut.hl7.org/extension-codes
+
+- name: clinicalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: The clinical status of the condition.
+  example: '{"clinicalStatus": "resolved"}'
+  binding:
+    description: Preferred value set for Condition Clinical Status.
+    terminology:
+    - display: Condition Clinical
+      system: http://hl7.org/fhir/condition-clinical
 
 - name: verificationStatus
   required: 'Yes'

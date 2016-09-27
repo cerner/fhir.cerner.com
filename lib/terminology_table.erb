@@ -21,7 +21,12 @@
           <% end %>
           <% unless binding['note'].nil? %>
             <li><i>Note</i></li>
-            <ul style="list-style-type: none"><li style="list-style-type: none"><%= binding['note'] %></li></ul>
+            <%
+              result = binding['note'].gsub(/`((\w|\s|\d|\.)+)`/) { |match|
+              tag = match.tr('\`', '')
+              "<code>#{tag}</code>" }
+            %>
+            <ul style="list-style-type: none"><li style="list-style-type: none"><%= result %></li></ul>
           <% end %>
 
           <% unless binding['terminology'].nil? %>

@@ -684,6 +684,7 @@ module Cerner
               ],
               "text": "Diagnosis"
             },
+            "clinicalStatus": "resolved",
             "verificationStatus": "confirmed",
             "onsetDateTime": "2009-05-04"
           }
@@ -713,6 +714,17 @@ module Cerner
             "code": {
               "text": "5problem"
             },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://argonaut.hl7.org/extension-codes",
+                  "code": "problem",
+                  "display": "Problem"
+                }
+              ],
+              "text": "Problem"
+            },
+            "clinicalStatus": "active",
             "verificationStatus": "entered-in-error"
           }
         },
@@ -744,6 +756,17 @@ module Cerner
               ],
               "text": "Pyogenic Arthritis Involving Multiple Sites"
             },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://argonaut.hl7.org/extension-codes",
+                  "code": "problem",
+                  "display": "Problem"
+                }
+              ],
+              "text": "Problem"
+            },
+            "clinicalStatus": "resolved",
             "verificationStatus": "confirmed"
           }
         }
@@ -758,6 +781,17 @@ module Cerner
       "code": {
         "text": "Freetext Condition"
       },
+      "category": {
+        "coding": [
+          {
+            "system": "http://argonaut.hl7.org/extension-codes",
+            "code": "problem",
+            "display": "Problem"
+          }
+        ],
+        "text": "Problem"
+      },
+      "clinicalStatus": "resolved",
       "verificationStatus": "differential",
       "abatementDateTime": "2014-01-01T00:00:00Z"
     }
@@ -770,7 +804,6 @@ module Cerner
       "code": {
         "text": "Freetext Condition"
       },
-      "verificationStatus": "differential",
       "category": {
         "coding": [
           {
@@ -781,6 +814,8 @@ module Cerner
         ],
         "text": "Diagnosis"
       },
+      "clinicalStatus": "active",
+      "verificationStatus": "differential",
       "encounter": {
         "reference": "Encounter/1309819"
       }
@@ -795,6 +830,17 @@ module Cerner
       "code": {
         "text": "Freetext Condition"
       },
+      "category": {
+        "coding": [
+          {
+            "system": "http://argonaut.hl7.org/extension-codes",
+            "code": "problem",
+            "display": "Problem"
+          }
+        ],
+        "text": "Problem"
+      },
+      "clinicalStatus": "resolved",
       "verificationStatus": "differential",
       "abatementDateTime": "2014-01-01T00:00:00Z"
     }
@@ -808,7 +854,6 @@ module Cerner
       "code": {
         "text": "Freetext Condition"
       },
-      "verificationStatus": "differential",
       "category": {
         "coding": [
           {
@@ -819,6 +864,8 @@ module Cerner
         ],
         "text": "Diagnosis"
       },
+      "clinicalStatus": "resolved",
+      "verificationStatus": "differential",
       "encounter": {
         "reference": "Encounter/1309819"
       }

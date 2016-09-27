@@ -19,10 +19,13 @@ Search for Conditions that meet supplied query parameters:
 
 ### Parameters
 
- Name     | Required? | Type                                                            | Description
---------- |-----------|-----------------------------------------------------------------|---------------------------------------------
-`patient` |     Y     |[`reference`](http://hl7.org/fhir/DSTU2/search.html#reference)   | The patient who has the condition. Example: `12345`
-`category`|     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)           | [The category of the condition](http://hl7.org/fhir/DSTU2/valueset-condition-category.html). Example: `diagnosis`
+ Name           | Required? | Type                                                            | Description
+----------------|-----------|-----------------------------------------------------------------|---------------------------------------------
+`patient`       |     Y     |[`reference`](http://hl7.org/fhir/DSTU2/search.html#reference)   | The patient who has the condition. Example: `12345`
+`category`      |     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)           | The [category](http://hl7.org/fhir/DSTU2/valueset-condition-category.html) of the condition. Example: `diagnosis`, `problem`
+`clinicalstatus`|     N     |[`token`](http://hl7.org/fhir/DSTU2/search.html#token)           | The [clinical status](http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html) of the condition. Example: `resolved`
+
+Note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is from [condition-category](http://hl7.org/fhir/condition-category) and `problem` is from [argonaut extenstion-codes](http://argonaut.hl7.org/extension-codes) system.
 
 ### Response
 
