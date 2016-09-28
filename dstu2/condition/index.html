@@ -190,6 +190,10 @@
             <ul style="list-style-type: none"><li>A category assigned to the condition.</li></ul>
           
           
+            <li><i>Note</i></li>
+            
+            <ul style="list-style-type: none"><li style="list-style-type: none">Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is bound to condition category codes and <code>problem</code> is bound to argonaut extenstion codes terminology system shown below.</li></ul>
+          
 
           
             
@@ -197,6 +201,55 @@
                   <li>
                     
                       <a target="_blank" href="http://hl7.org/fhir/condition-category">Condition Category Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://argonaut.hl7.org/extension-codes">Argonaut Extension Code</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus">Condition.clinicalStatus</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Preferred value set for Condition Clinical Status.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/condition-clinical">Condition Clinical</a>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -285,12 +338,20 @@
       <td><code>category</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>
-<a href="http://hl7.org/fhir/DSTU2/valueset-condition-category.html">The category of the condition</a>. Example: <code>diagnosis</code>
+      <td>The <a href="http://hl7.org/fhir/DSTU2/valueset-condition-category.html">category</a> of the condition. Example: <code>diagnosis</code>, <code>problem</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>clinicalstatus</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The <a href="http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html">clinical status</a> of the condition. Example: <code>resolved</code>
 </td>
     </tr>
   </tbody>
 </table>
+
+<p>Note: Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is from <a href="http://hl7.org/fhir/condition-category">condition-category</a> and <code>problem</code> is from <a href="http://argonaut.hl7.org/extension-codes">argonaut extenstion-codes</a> system.</p>
 
 <h3 id="response">Response</h3>
 
@@ -354,6 +415,7 @@
           ],
           "text": "Diagnosis"
         },
+        "clinicalStatus": "resolved",
         "verificationStatus": "confirmed",
         "onsetDateTime": "2009-05-04"
       }
@@ -383,6 +445,17 @@
         "code": {
           "text": "5problem"
         },
+        "category": {
+          "coding": [
+            {
+              "system": "http://argonaut.hl7.org/extension-codes",
+              "code": "problem",
+              "display": "Problem"
+            }
+          ],
+          "text": "Problem"
+        },
+        "clinicalStatus": "active",
         "verificationStatus": "entered-in-error"
       }
     },
@@ -414,6 +487,17 @@
           ],
           "text": "Pyogenic Arthritis Involving Multiple Sites"
         },
+        "category": {
+          "coding": [
+            {
+              "system": "http://argonaut.hl7.org/extension-codes",
+              "code": "problem",
+              "display": "Problem"
+            }
+          ],
+          "text": "Problem"
+        },
+        "clinicalStatus": "resolved",
         "verificationStatus": "confirmed"
       }
     }
@@ -647,7 +731,45 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       "code": "diagnosis",
       "display": "Diagnosis"}],
    "text": "Diagnosis"}}
+OR
+
+{"category": {
+   "coding": [
+     {"system": "http://argonaut.hl7.org/extension-codes",
+      "code": "problem",
+      "display": "Problem"}],
+   "text": "Problem"}}
 </pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-clinicalStatus">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus"><code>clinicalStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical status of the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{"clinicalStatus": "resolved"}</pre></li></ul>
       
       
       </ul>
@@ -855,6 +977,17 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
   "code": {
     "text": "Freetext Condition"
   },
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org/extension-codes",
+        "code": "problem",
+        "display": "Problem"
+      }
+    ],
+    "text": "Problem"
+  },
+  "clinicalStatus": "resolved",
   "verificationStatus": "differential",
   "abatementDateTime": "2014-01-01T00:00:00Z"
 }</code></pre>
@@ -869,7 +1002,6 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
   "code": {
     "text": "Freetext Condition"
   },
-  "verificationStatus": "differential",
   "category": {
     "coding": [
       {
@@ -880,6 +1012,8 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
     ],
     "text": "Diagnosis"
   },
+  "clinicalStatus": "active",
+  "verificationStatus": "differential",
   "encounter": {
     "reference": "Encounter/1309819"
   }
@@ -1241,7 +1375,45 @@ If-Match: W/"&lt;Current condition id&gt;"
       "code": "diagnosis",
       "display": "Diagnosis"}],
    "text": "Diagnosis"}}
+OR
+
+{"category": {
+   "coding": [
+     {"system": "http://argonaut.hl7.org/extension-codes",
+      "code": "problem",
+      "display": "Problem"}],
+   "text": "Problem"}}
 </pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-clinicalStatus">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus"><code>clinicalStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical status of the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{"clinicalStatus": "resolved"}</pre></li></ul>
       
       
       </ul>
@@ -1450,6 +1622,17 @@ If-Match: W/"&lt;Current condition id&gt;"
   "code": {
     "text": "Freetext Condition"
   },
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org/extension-codes",
+        "code": "problem",
+        "display": "Problem"
+      }
+    ],
+    "text": "Problem"
+  },
+  "clinicalStatus": "resolved",
   "verificationStatus": "differential",
   "abatementDateTime": "2014-01-01T00:00:00Z"
 }</code></pre>
@@ -1464,7 +1647,6 @@ If-Match: W/"&lt;Current condition id&gt;"
   "code": {
     "text": "Freetext Condition"
   },
-  "verificationStatus": "differential",
   "category": {
     "coding": [
       {
@@ -1475,6 +1657,8 @@ If-Match: W/"&lt;Current condition id&gt;"
     ],
     "text": "Diagnosis"
   },
+  "clinicalStatus": "resolved",
+  "verificationStatus": "differential",
   "encounter": {
     "reference": "Encounter/1309819"
   }
