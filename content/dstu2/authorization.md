@@ -2,13 +2,14 @@
 title: Authorization | DSTU 2 API
 ---
 
-# Authorization Server Client Documentation #
----------------------------------------------
+# Authorization Server Client Documentation
 
-### Introduction ###
+## Introduction
+
 The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR<sup>®</sup>][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.
 
-### Registration ###
+## Registration
+
 In order for your client application to utilize any protected resources, your client application must first register. To do this please [contact us][10] with the following fields, all fields are **required**.
 
 * Name - Application name, this should match what the name of the app will be in the app store  
@@ -19,7 +20,8 @@ In order for your client application to utilize any protected resources, your cl
 
 Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
 
-### Supported Scopes ###
+## Supported Scopes
+
 The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
 
 * online_access
@@ -34,7 +36,8 @@ The Cerner Authorization Server supports many, but not all, of the [SMART][4] or
 An application is currently required to specifically request each scope that it needs to run.
 
 
-### Requesting an authorization code ###
+## Requesting an Authorization Code
+
 Cerner currently supports the [SMART][4] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][4] launch workflow.
 
 ![alt text](http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&s=default "SMART launch diagram")
@@ -64,7 +67,8 @@ https://test.com/cb?code=1234-567890ab-cdef
 
 Note: Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems.
 
-### Requesting an access token ###
+## Requesting an Access Token
+
 Once an authorization code has been acquired, a back-channel **POST** to the authorization server's token endpoint can be made to request an access token. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** from your client application with the following information.
 
 * grant_type - currently only support "authorization_code"
@@ -90,18 +94,12 @@ If successful, the authorization server will return a **200 OK** response with a
 
 The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
 
-### OpenID Connect ###
-If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
+## OpenID Connect
 
-<pre class="body-response"><code class="language-javascript">{
-  "access_token" : "18adCadfj_lj13S3ada8.41jVCo_dgalL",
-  "encounter" : "91731344",
-  "patient" : "121341578",
-  "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
-}
-</code></pre>
+Cerner's authorization server supports certain features of OpenID Connect.  Please refer to the [OpenID Connect documentation](../openid-connect) for more information.
 
-### Using an access token ###
+## Using an Access Token
+
 In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
 
 ```
@@ -110,7 +108,8 @@ Authorization: Bearer {ACCESS_TOKEN}
 
 If the access token is valid and your application is authorized, the resource server will allow your client application to access its protected resources.
 
-### Using a Refresh Token ###
+## Using a Refresh Token
+
 The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
 
 * grant_type - "refresh_token"
@@ -131,10 +130,11 @@ If successful, the authorization server will return a **200 OK** response with a
 
 The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised.
 
-### Error Codes ###
+## Error Codes
+
 There are numerous possible situations that can cause an error while attempting to retrieve an access token. Some are displayed directly to users when the client application redirect URI cannot be trusted while others are returned to the client application in the error_uri as per section 4.1.2.1 of the [OAuth 2.0][1] specification. If an error is returned to the application, an application should display its own error page and include the link from the error response.
 
-##### Error URNs for the Authorization Server #####
+### Error URNs for the Authorization Server
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid.
 * **urn:cerner:error:authorization-server:oauth2:grant:unknown-client** - The client application is not registered.
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri** - The requested redirect URI does not match the one registered for the client application.
@@ -187,7 +187,6 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:server-error** - An unspecified server error.
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:cancelled** - The user or identity provider cancelled the authentication request.
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:error** - An unspecified server error occurred while authenticating.
-
 
 [1]: https://tools.ietf.org/html/rfc6749  
 [2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
