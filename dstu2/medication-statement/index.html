@@ -79,6 +79,7 @@
   <li>
 <a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
       <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+      <li><a href="#contained-practitioner-bindings" id="markdown-toc-contained-practitioner-bindings">Contained Practitioner Bindings</a></li>
     </ul>
   </li>
   <li>
@@ -114,6 +115,67 @@
       
       
       
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_">MedicationStatement.reasonForUse[x]</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A reason for why the medication is being/was taken.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-9">ICD-9</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-10">ICD-10</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
       
       
       
@@ -408,12 +470,67 @@
   </tbody>
 </table>
 
+<h3 id="contained-practitioner-bindings">Contained Practitioner Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role">Practitioner.practitionerRole.role</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The roles which this practitioner is authorized to perform for the organization.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/practitioner-role">Practitioner Role</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
 <p>Search for MedicationStatements that meet supplied query parameters:</p>
 
 <pre><code>GET /MedicationStatement?:parameters
 </code></pre>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a contained Practitioner or RelatedPerson.</li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a contained Medication.</li>
+</ul>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -438,7 +555,7 @@
       <td><code>status</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The status of the medication statement, may be a list separated by commas.  Note, <code>intended</code> status is not supported. Example: <code>active,completed</code>
+      <td>The status of the medication statement, may be a list separated by commas.  Example: <code>active,completed</code>
 </td>
     </tr>
     <tr>
@@ -463,112 +580,162 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "b8ea9905-29fe-4d40-9d71-475ca2ebb209",
+  "id": "97dee263-b655-4f6b-948b-b510516ab4c2",
   "type": "searchset",
-  "total": 3,
+  "total": 4,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&amp;_count=50"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=4342008&amp;_count=50"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/16358117",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369961",
       "resource": {
         "resourceType": "MedicationStatement",
-        "id": "16358117",
+        "id": "21369961",
         "meta": {
-          "versionId": "1"
+          "versionId": "0-21369975",
+          "lastUpdated": "2016-06-24T10:10:51.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: aspirin&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 325 mg, Oral, q4hr, PRN: headache&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: aspirin (aspirin 81 mg oral tablet)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
         },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "2750067",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "1191",
-                  "display": "Aspirin",
-                  "userSelected": false
-                }
-              ],
-              "text": "aspirin"
-            },
-            "product": {
-              "form": {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "385055001",
-                    "display": "Tablet dose form (qualifier value)",
-                    "userSelected": false
-                  }
-                ],
-                "text": "Tab"
-              }
-            }
-          }
-        ],
         "patient": {
-          "reference": "Patient/1316024"
+          "reference": "Patient/4342008",
+          "display": "Song, River"
         },
-        "informationSource": {
-          "reference": "Practitioner/1328007",
-          "display": "House, Gregory"
-        },
-        "dateAsserted": "2014-08-11T13:42:01.000-05:00",
+        "dateAsserted": "2016-06-24T10:10:51.000-05:00",
         "status": "active",
-        "effectivePeriod": {
-          "start": "2014-08-11T13:42:00.000-05:00"
-        },
-        "medicationReference": {
-          "reference": "#2750067",
-          "display": "aspirin"
+        "wasNotTaken": false,
+        "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "243670",
+              "display": "Aspirin 81 MG Oral Tablet",
+              "userSelected": false
+            }
+          ],
+          "text": "aspirin (aspirin 81 mg oral tablet)"
         },
         "dosage": [
           {
-            "text": "325 mg, Oral, q4hr, PRN: headache",
+            "text": "1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2014-08-11T13:42:00.000-05:00"
+                  "start": "2016-06-24T08:08:00.000-07:00"
                 }
               },
               "code": {
-                "text": "q4hr"
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
+                    "code": "BID",
+                    "display": "BID",
+                    "userSelected": false
+                  }
+                ],
+                "text": "BID"
+              }
+            },
+            "asNeededCodeableConcept": {
+              "text": "pain | Take 1 - 2 tabs twice per day as needed"
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
+                  "userSelected": false
+                }
+              ],
+              "text": "Oral"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369989",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "21369989",
+        "meta": {
+          "versionId": "0-21369975",
+          "lastUpdated": "2016-06-24T15:27:06.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: morphine (morphine 24 hour extended release)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 30 mg, 1 caps, Oral, Daily, PRN: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
+        },
+        "patient": {
+          "reference": "Patient/4342008",
+          "display": "Song, River"
+        },
+        "dateAsserted": "2016-06-24T10:10:51.000-05:00",
+        "status": "active",
+        "wasNotTaken": false,
+        "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
+        "supportingInformation": [
+          {
+            "reference": "MedicationOrder/21369989"
+          }
+        ],
+        "medicationCodeableConcept": {
+          "text": "morphine (morphine 24 hour extended release)"
+        },
+        "dosage": [
+          {
+            "text": "30 mg, 1 caps, Oral, Daily, PRN: pain",
+            "timing": {
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2016-06-24T08:24:00.000-07:00"
+                }
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/timing-abbreviation",
+                    "code": "QD",
+                    "display": "QD",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Daily"
               }
             },
             "asNeededCodeableConcept": {
               "coding": [
                 {
                   "system": "http://snomed.info/sct",
-                  "code": "25064002",
-                  "display": "headache (finding)",
+                  "code": "22253000",
+                  "display": "pain (finding)",
                   "userSelected": false
                 }
               ],
-              "text": "headache"
+              "text": "pain"
             },
             "route": {
               "coding": [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "26643006",
-                  "display": "Oral route (qualifier value)",
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
                   "userSelected": false
                 }
               ],
               "text": "Oral"
             },
             "quantityQuantity": {
-              "value": 325,
-              "units": "mg",
+              "value": 30,
+              "unit": "mg",
               "system": "http://unitsofmeasure.org",
               "code": "mg"
             }
@@ -577,192 +744,237 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19169979",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/17498403",
       "resource": {
         "resourceType": "MedicationStatement",
-        "id": "19169979",
+        "id": "17498403",
         "meta": {
-          "versionId": "0"
+          "versionId": "2-17498411",
+          "lastUpdated": "2015-01-19T18:54:25.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: Imuran&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 50 mg, 1 tabs, Oral, BID&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: atorvastatin (atorvastatin 80 mg oral tablet)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
         },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "4310241",
-            "code": {
-              "text": "Imuran"
-            },
-            "product": {
-              "form": {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "385055001",
-                    "display": "Tablet dose form (qualifier value)",
-                    "userSelected": false
-                  }
-                ],
-                "text": "Tab"
-              }
-            }
-          }
-        ],
         "patient": {
-          "reference": "Patient/1316024"
+          "reference": "Patient/4342008",
+          "display": "Song, River"
         },
         "informationSource": {
-          "reference": "Practitioner/1328007",
-          "display": "House, Gregory"
+          "display": "Family"
         },
-        "dateAsserted": "2015-09-04T10:51:36.000-05:00",
-        "status": "active",
-        "effectivePeriod": {
-          "start": "2015-09-04T09:00:00.000-07:00"
-        },
-        "medicationReference": {
-          "reference": "#4310241",
-          "display": "Imuran"
+        "dateAsserted": "2015-01-19T12:50:48.000-06:00",
+        "status": "completed",
+        "wasNotTaken": false,
+        "effectiveDateTime": "2015-01-19T12:50:48.000-06:00",
+        "note": "Medication Compliance: only takes half a tab on a good day",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "259255",
+              "display": "atorvastatin 80 MG Oral Tablet",
+              "userSelected": false
+            }
+          ],
+          "text": "atorvastatin (atorvastatin 80 mg oral tablet)"
         },
         "dosage": [
           {
-            "text": "50 mg, 1 tabs, Oral, BID",
+            "text": "80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2015-09-04T09:00:00.000-07:00"
+                  "start": "2015-01-19T12:51:00.000-06:00",
+                  "end": "2015-01-19T12:54:25.000-06:00"
                 }
               },
               "code": {
                 "coding": [
                   {
-                    "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                    "code": "BID",
-                    "display": "BID",
+                    "system": "http://hl7.org/fhir/timing-abbreviation",
+                    "code": "QD",
+                    "display": "QD",
                     "userSelected": false
                   }
                 ],
-                "text": "BID"
+                "text": "Daily"
               }
+            },
+            "asNeededCodeableConcept": {
+              "text": "Instruct"
             },
             "route": {
               "coding": [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "26643006",
-                  "display": "Oral route (qualifier value)",
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38288",
+                  "display": "ORAL",
                   "userSelected": false
                 }
               ],
               "text": "Oral"
             },
             "quantityQuantity": {
-              "value": 50,
-              "units": "mg",
+              "value": 1,
+              "unit": "tab(s)",
               "system": "http://unitsofmeasure.org",
-              "code": "mg"
+              "code": "{tbl}"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/19245893",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/9776226",
       "resource": {
         "resourceType": "MedicationStatement",
-        "id": "19245893",
+        "id": "9776226",
         "meta": {
-          "versionId": "0"
+          "versionId": "5-13917251",
+          "lastUpdated": "2012-08-13T17:41:08.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: azathioprine 50 mg oral tablet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 50 mg, 1 tabs, Oral, BID, 60 tabs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 16.88 mL/hr, IV&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
         },
         "contained": [
           {
             "resourceType": "Medication",
-            "id": "2750424",
+            "id": "18925324",
             "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "197388",
-                  "display": "Azathioprine 50 MG Oral Tablet",
-                  "userSelected": false
-                }
-              ],
-              "text": "azathioprine 50 mg oral tablet"
+              "text": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
             },
             "product": {
               "form": {
                 "coding": [
                   {
-                    "system": "http://snomed.info/sct",
-                    "code": "385055001",
-                    "display": "Tablet dose form (qualifier value)",
+                    "system": "http://ncimeta.nci.nih.gov",
+                    "code": "C42986",
+                    "display": "SOLUTION",
                     "userSelected": false
                   }
                 ],
-                "text": "Tab"
-              }
+                "text": "Soln-IV"
+              },
+              "ingredient": [
+                {
+                  "item": {
+                    "reference": "#18925322-1",
+                    "display": "Premix D5W"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 500,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    },
+                    "denominator": {
+                      "value": 500,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "reference": "#4310611-2",
+                    "display": "DOPamine"
+                  },
+                  "amount": {
+                    "numerator": {
+                      "value": 400,
+                      "unit": "mg",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mg"
+                    },
+                    "denominator": {
+                      "value": 500,
+                      "unit": "mL",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "mL"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "18925322-1",
+            "code": {
+              "text": "Premix D5W"
+            }
+          },
+          {
+            "resourceType": "Medication",
+            "id": "4310611-2",
+            "code": {
+              "text": "DOPamine"
             }
           }
         ],
         "patient": {
-          "reference": "Patient/1316024"
+          "reference": "Patient/4342008",
+          "display": "Song, River"
         },
-        "informationSource": {
-          "reference": "Practitioner/1328007",
-          "display": "House, Gregory"
-        },
-        "dateAsserted": "2015-09-09T19:00:21.000-05:00",
+        "dateAsserted": "2012-08-13T17:41:08.000-05:00",
         "status": "active",
-        "effectivePeriod": {
-          "start": "2015-09-09T17:01:00.000-07:00"
-        },
+        "wasNotTaken": false,
+        "effectiveDateTime": "2012-08-13T17:41:08.000-05:00",
+        "supportingInformation": [
+          {
+            "reference": "MedicationOrder/9776226"
+          }
+        ],
         "medicationReference": {
-          "reference": "#2750424",
-          "display": "azathioprine 50 mg oral tablet"
+          "reference": "#18925324",
+          "display": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
         },
         "dosage": [
           {
-            "text": "50 mg, 1 tabs, Oral, BID, 60 tabs",
+            "text": "16.88 mL/hr, IV",
             "timing": {
               "repeat": {
                 "boundsPeriod": {
-                  "start": "2015-09-09T17:01:00.000-07:00"
-                }
-              },
-              "code": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                    "code": "BID",
-                    "display": "BID",
-                    "userSelected": false
-                  }
-                ],
-                "text": "BID"
+                  "start": "2009-06-25T12:52:00.000-05:00"
+                },
+                "duration": 29.6,
+                "durationUnits": "h"
               }
             },
             "route": {
               "coding": [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "26643006",
-                  "display": "Oral route (qualifier value)",
+                  "system": "http://ncimeta.nci.nih.gov",
+                  "code": "C38276",
+                  "display": "INTRAVENOUS",
                   "userSelected": false
                 }
               ],
-              "text": "Oral"
+              "text": "IV"
             },
             "quantityQuantity": {
-              "value": 50,
-              "units": "mg",
+              "value": 500,
+              "unit": "mL",
               "system": "http://unitsofmeasure.org",
-              "code": "mg"
+              "code": "mL"
+            },
+            "rateRatio": {
+              "numerator": {
+                "value": 500,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              },
+              "denominator": {
+                "value": 29.6,
+                "unit": "hr",
+                "system": "http://unitsofmeasure.org",
+                "code": "h"
+              }
             }
           }
         ]
@@ -781,7 +993,8 @@
 <p><em>Notes</em></p>
 
 <ul>
-  <li>Only active MedicationStatements may be created.</li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> must be set to <code>active</code>.</li>
   <li>
 <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken">MedicationStatement.wasNotTaken</a> set to <code>true</code> is not supported.</li>
   <li>If <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.</li>
@@ -1163,7 +1376,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       <td>No </td>
       <td>0..1 </td>
       <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> | <code>Quantity</code> </td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> | <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Duration"><code>Duration</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -1641,7 +1854,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 <p><em>Notes</em></p>
 
 <ul>
-  <li>The only supported change is to update the status to <code>completed</code>.</li>
+  <li>The only supported change is to update the <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> to <code>completed</code>.</li>
 </ul>
 
 <h3 id="headers-1">Headers</h3>
@@ -1911,6 +2124,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
     x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
+
 
     </div>
 
