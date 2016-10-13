@@ -3,6 +3,9 @@
 # will be considered as binary.
 text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'slim', 'txt', 'xhtml', 'xml' ]
 
+#While Upgrading
+#enable_output_diff:
+
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
 # relative to the site directory.
@@ -29,6 +32,9 @@ prune:
   # .git, .svn etc.
   exclude: [ '.git', '.hg', '.svn', 'CVS' ]
 
+#Upgraded from Nanoc 3 to 4, use this for compatibility
+string_pattern_type: legacy
+
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
 # there is only a single data source that reads data from the “content/” and
@@ -38,6 +44,7 @@ data_sources:
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.
     type: filesystem_unified
+    identifier_type: legacy #We upgraded from Nanoc 3 to 4 and it currently requires this
 
     # The path where items should be mounted (comparable to mount points in
     # Unix-like systems). This is “/” by default, meaning that items will have
@@ -54,9 +61,11 @@ data_sources:
     # UTF-8 (which they should be!), change this.
     encoding: utf-8
 
-  -
-    type: static
-    items_root: /static
+  #-
+  #  type: filesystem
+  #  items_root: /static
+  #  content_dir: 'static'
+  #  layouts_dir: null
 
 # Configuration for the “check” command, which run unit tests on the site.
 checks:

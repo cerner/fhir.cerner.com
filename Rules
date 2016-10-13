@@ -13,8 +13,13 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/static/*' do
-end
+#compile '/static/**/*' do
+#end
+
+#route '/static/**/*' do
+#  # /static/foo.html → /foo.html
+#  item.identifier.to_s.sub(/\A\/static/, '')
+#end
 
 compile '/CNAME/' do
 end

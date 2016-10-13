@@ -1,4 +1,4 @@
-require 'nanoc3/tasks'
+require 'nanoc/tasks'
 
 task :default => [:test]
 
