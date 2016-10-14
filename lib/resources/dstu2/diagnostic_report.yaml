@@ -1,0 +1,28 @@
+---
+name: DiagnosticReport
+field_name_base_url: http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport
+fields:
+
+- name: category
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: >
+    A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g.
+    cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.
+  binding:
+    description: Codes for diagnostic service sections.
+    terminology:
+    - display: Diagnostic Service Section Codes
+      system: http://hl7.org/fhir/ValueSet/diagnostic-service-sections
+
+- name: code
+  required: 'No'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: A code or name that describes this diagnostic report.
+  binding:
+    description: Codes that describe Diagnostic Reports.
+    terminology:
+    - display: LOINC Diagnostic Report Codes
+      system: http://hl7.org/fhir/ValueSet/report-codes
