@@ -14,5 +14,4 @@ class RedirectGenerator
                                 from_url)
     end
   end
-
 end

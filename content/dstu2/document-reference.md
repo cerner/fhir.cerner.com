@@ -28,25 +28,57 @@ To successfully POST a document, the following headers must be provided. Documen
 
 _Implementation Notes_   
 
-* The [relatesTo](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo) modifier element is not supported and will be ignored if present.
+* The [relatesTo] modifier element is not supported and will be ignored if present.
 
 <%= definition_table(:document_reference, :create, :dstu2) %>
 
 #### Example Body
 
     {
-       "resourceType": "DocumentReference",
-       "subject": {"reference": "Patient/53663272"},
-       "type": {"coding": [{"system": "http://loinc.org", "code": "34840-9"}]},
-       "author": [{"reference":"Practitioner/21500981"}],
-       "indexed": "2015-11-18T18:00:00Z",
-       "status": "current",
-       "docStatus": {"coding": [{"system": "http://hl7.org/fhir/composition-status", "code": "final"}]},
-       "description": "Rheumatology Note",
-       "content": [{"attachment": {"contentType": "application/xhtml+xml;charset=utf-8",
-                                   "data": "<snipped for brevity>"}}],
-       "context": {"encounter": {"reference": "Encounter/4208059"}, 
-                   "period": {"end": "2015-08-20T09:10:14Z"}}
+      "resourceType": "DocumentReference",
+      "subject": {
+        "reference": "Patient/53663272"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "34840-9"
+          }
+        ]
+      },
+      "author": [
+        {
+          "reference": "Practitioner/21500981"
+        }
+      ],
+      "indexed": "2015-11-18T18:00:00Z",
+      "status": "current",
+      "docStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/composition-status",
+            "code": "final"
+          }
+        ]
+      },
+      "description": "Rheumatology Note",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/xhtml+xml;charset=utf-8",
+            "data": "<snipped for brevity>"
+          }
+        }
+      ],
+      "context": {
+        "encounter": {
+          "reference": "Encounter/4208059"
+        },
+        "period": {
+          "end": "2015-08-20T09:10:14Z"
+        }
+      }
     }
 
 ### Response
@@ -75,3 +107,5 @@ _Implementation Notes_
    x-runtime → 5.497541
    x-xss-protection → 1; mode=block
 </pre>
+
+[relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo

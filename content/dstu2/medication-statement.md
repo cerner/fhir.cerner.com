@@ -32,12 +32,12 @@ _Notes_
 
 ### Parameters
 
- Name                                                   | Required? | Type                                                           | Description
---------------------------------------------------------|-----------|----------------------------------------------------------------|-----------------------------------------------------------------------------------
-`patient`                                               | Y         | [`reference`](http://hl7.org/fhir/DSTU2/search.html#reference) | The identifier of a patient to list statements for. Example: `12345`
-`status`                                                | N         | [`token`](http://hl7.org/fhir/DSTU2/search.html#token)         | The status of the medication statement, may be a list separated by commas.  Example: `active,completed`
-`effectivedate`                                         | N         | [`date`](http://hl7.org/fhir/DSTU2/search.html#date)           | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'  Example: `ge2015-01-01`
-[`_count`](http://hl7.org/fhir/DSTU2/search.html#count) | N         | [`number`](http://hl7.org/fhir/DSTU2/search.html#number)       | The maximum number of results to return. Defaults to `50`.
+ Name            | Required? | Type          | Description
+-----------------|-----------|-------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `patient`       | Y         | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
+ `status`        | N         | [`token`]     | The status of the medication statement, may be a list separated by commas.  Example: `active,completed`
+ `effectivedate` | N         | [`date`]      | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'  Example: `ge2015-01-01`
+ [`_count`]      | N         | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
 ### Response
 
@@ -162,5 +162,10 @@ To successfully PUT a MedicationStatement, the following headers must be provide
 
 [MedicationStatement.informationSource]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource
 [MedicationStatement.medication]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
+[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [MedicationStatement.status]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status
 [MedicationStatement.wasNotTaken]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken

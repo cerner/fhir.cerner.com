@@ -15,11 +15,13 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name    | Required? | Type                                                           | Description
----------|-----------|----------------------------------------------------------------|---------------------------------------------------------
-`patient`| Y |[`reference`](http://hl7.org/fhir/2015May/search.html#reference)| The patient for the vaccination record. Example: `12345`
+ Name      | Required? | Type          | Description
+-----------|-----------|---------------|----------------------------------------------------------
+ `patient` | Y         | [`reference`] | The patient for the vaccination record. Example: `12345`
 
 ### Response
 
 <%= headers 200 %>
 <%= json(:may2015_immunization_bundle) %>
+
+[`reference`]: http://hl7.org/fhir/2015May/search.html#reference

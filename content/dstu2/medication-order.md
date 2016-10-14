@@ -23,12 +23,12 @@ Search for MedicationOrders that meet supplied query parameters:
 
 ### Parameters
 
- Name                 | Required? | Type        | Description
-----------------------|-----------|-------------|------------------------------------------------------------------
-`patient`             | Y         |[`reference`]| The identity of a patient to list orders for. Example: `12345`
-`status`              | N         |[`token`]    | The status of the medication order, may be a list separated by commas. Example: `active,draft`
-`-timing-boundsPeriod`| N         |[`date`]     | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
-[`_count`]            | N         |[`number`]   | The maximum number of results to include in a page. Example: `50`
+ Name                      | Required? | Type          | Description
+---------------------------|-----------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `patient`                 | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
+ `status`                  | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
+ `-timing-boundsPeriod`    | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
+ [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
 _Notes_
 
@@ -42,6 +42,6 @@ _Notes_
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`token`]: http://hl7.org/fhir/dstu2/search.html#token
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date
-[`number`]: http://hl7.org/fhir/dstu2/search.html#number
-[`_count`]: http://hl7.org/fhir/dstu2/search.html#count
 [period]: http://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing
+[`_count`]: http://hl7.org/fhir/dstu2/search.html#count
+[`number`]: http://hl7.org/fhir/dstu2/search.html#number

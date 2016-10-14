@@ -24,7 +24,6 @@ module Cerner
         502 => '502 Bad Gateway'
       }
 
-
       def headers(status, head = {})
         lines = ["Status: #{STATUSES[status]}"]
         head.each do |key, value|

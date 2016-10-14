@@ -69,7 +69,10 @@ Similarly field values can be flexed per action as well
       cardinality: 0..1
       type: id
       description: The logical id of the resource to update.
-      example: '{"id": "123412"}'
+      example: |
+        {
+          "id": "123412"
+        }
       note:
       - update: The id value must match the AllergyIntolerance/&lt;id> value.
       - create: The id field <b>must not</b> be set when performing an update operation.
@@ -92,4 +95,4 @@ The Type table cell will generate links based on URLs key-value pairs defined in
 
 The `description` and `note` fields also support linking via the use of \`\` and `[]` tags. Words enclosed in \`\` tags will be linked according to the `types.yaml` file, if possible, or just formatted as `<code>` tags if not. Words enclosed in `[]` will be assumed to be references to other fields in the same table.
 
-In generally it is best to not use \`\` tags in the `type` field, although it is possible. There can be conflicts which may result in duplicate replacements and unintended results. 
+In generally it is best to not use \`\` tags in the `type` field, although it is possible. There can be conflicts which may result in duplicate replacements and unintended results.

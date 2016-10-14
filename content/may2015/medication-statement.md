@@ -19,12 +19,12 @@ Search for MedicationStatements that meet supplied query parameters:
 
 ### Parameters
 
- Name                                                     | Required? | Type                                                             | Description
-----------------------------------------------------------|-----------|------------------------------------------------------------------|-----------------------------------------------------------------------------------
-`patient`                                                 | Y         | [`reference`](http://hl7.org/fhir/2015May/search.html#reference) | The identifier of a patient to list statements for. Example: `12345`
-`status`                                                  | N         | [`token`](http://hl7.org/fhir/2015May/search.html#token)         | The status of the medication statement, may be a list separated by commas.  Example: `in-progress,completed`
-`effectivedate`                                           | N         | [`date`](http://hl7.org/fhir/2015May/search.html#date)           | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by '>='  Example: `>=2015-01-01`
-[`_count`](http://hl7.org/fhir/2015May/search.html#count) | N         | [`number`](http://hl7.org/fhir/2015May/search.html#number)       | The maximum number of results to return. Defaults to `50`.
+ Name            | Required? | Type          | Description
+-----------------|-----------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `patient`       | Y         | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
+ `status`        | N         | [`token`]     | The status of the medication statement, may be a list separated by commas.  Example: `in-progress,completed`
+ `effectivedate` | N         | [`date`]      | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by '>='  Example: `>=2015-01-01`
+ [`_count`]      | N         | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
 ### Response
 
@@ -82,7 +82,7 @@ To successfully POST a MedicationStatement, the following headers must be provid
     x-xss-protection → 1; mode=block
 </pre>
 
-The `etag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ## Update
 
@@ -133,3 +133,9 @@ To successfully PUT a MedicationStatement, the following headers must be provide
     x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
+
+[`reference`]: http://hl7.org/fhir/2015May/search.html#reference
+[`token`]: http://hl7.org/fhir/2015May/search.html#token
+[`date`]: http://hl7.org/fhir/2015May/search.html#date
+[`_count`]: http://hl7.org/fhir/2015May/search.html#count
+[`number`]: http://hl7.org/fhir/2015May/search.html#number

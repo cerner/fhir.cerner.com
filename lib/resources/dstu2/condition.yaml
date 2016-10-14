@@ -7,7 +7,10 @@ fields:
   cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
-  example: '{"resourceType": "Condition"}'
+  example: |
+    {
+      "resourceType": "Condition"
+    }
   note: resourceType must be Condition
   url: http://hl7.org/fhir/DSTU2/json.html#resources
 
@@ -16,7 +19,10 @@ fields:
   cardinality: 0..1
   type: id
   description: The logical id of the resource to update.
-  example: '{"id": "p123412"}'
+  example: |
+    {
+      "id": "p123412"
+    }
   note: The id value must match the Condition/&lt;id> value.
   url: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
   action: update
@@ -27,9 +33,12 @@ fields:
   type: Reference (Patient)
   description: Who has the condition.
   example: |
-             {"patient": {
-                "reference": "Patient/2744123",
-                "display": "Joe, Test"}}
+    {
+      "patient": {
+        "reference": "Patient/2744123",
+        "display": "Joe, Test"
+      }
+    }
 
 - name: encounter
   required: 'No'
@@ -37,8 +46,11 @@ fields:
   type: Reference (Encounter)
   description: Encounter during which the condition was first asserted.
   example: |
-             {"encounter": {
-                "reference": "Encounter/1309819"}}
+    {
+      "encounter": {
+        "reference": "Encounter/1309819"
+      }
+    }
 
 - name: asserter
   required: 'No'
@@ -47,16 +59,22 @@ fields:
   description: Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
   note: Asserter must be a `Practitioner` reference.
   example: |
-             {"asserter": {
-                "reference": "Practitioner/2770007",
-                "display": "Song, River"}}
+    {
+      "asserter": {
+        "reference": "Practitioner/2770007",
+        "display": "Song, River"
+      }
+    }
 
 - name: dateRecorded
   required: 'No'
   cardinality: 0..1
   type: date
   description: Estimated or actual date the condition/problem/diagnosis was first entered.
-  example: '{"dateRecorded": "2013-02-08"}'
+  example: |
+    {
+      "dateRecorded": "2013-02-08"
+    }
   action: update
 
 - name: code
@@ -65,13 +83,19 @@ fields:
   type: CodeableConcept
   description: Identification of the condition, problem or diagnosis.
   example: |
-             {"code": {
-                "coding": [
-                  {"system": "http://hl7.org/fhir/sid/icd-9",
-                   "code": "345.0",
-                   "display": "Generalized nonconvulsive epilepsy",
-                   "userSelected": true}],
-                "text": "Absence seizures"}}
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-9",
+            "code": "345.0",
+            "display": "Generalized nonconvulsive epilepsy",
+            "userSelected": true
+          }
+        ],
+        "text": "Absence seizures"
+      }
+    }
   binding:
     description: Identification of the condition or diagnosis.
     terminology:
@@ -88,20 +112,31 @@ fields:
   type: CodeableConcept
   description: A category assigned to the condition.
   example: |
-             {"category": {
-                "coding": [
-                  {"system": "http://hl7.org/fhir/condition-category",
-                   "code": "diagnosis",
-                   "display": "Diagnosis"}],
-                "text": "Diagnosis"}}
-             OR
-
-             {"category": {
-                "coding": [
-                  {"system": "http://argonaut.hl7.org/extension-codes",
-                   "code": "problem",
-                   "display": "Problem"}],
-                "text": "Problem"}}
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/condition-category",
+            "code": "diagnosis",
+            "display": "Diagnosis"
+          }
+        ],
+        "text": "Diagnosis"
+      }
+    }
+    OR
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://argonaut.hl7.org/extension-codes",
+            "code": "problem",
+            "display": "Problem"
+          }
+        ],
+        "text": "Problem"
+      }
+    }
   binding:
     description: A category assigned to the condition.
     note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is bound to condition category codes and `problem` is bound to argonaut extenstion codes terminology system shown below.
@@ -128,7 +163,10 @@ fields:
   cardinality: 1..1
   type: code
   description: The verification status of the condition.
-  example: '{"verificationStatus": "confirmed"}'
+  example: |
+    {
+      "verificationStatus": "confirmed"
+    }
 
 - name: severity
   required: 'No'
@@ -136,12 +174,18 @@ fields:
   type: CodeableConcept
   description: Assessment of the severity of the condition as evaluated by the clinician.
   example: |
-             {"severity": {
-                "coding": [
-                  {"system": "http://snomed.info/sct",
-                   "code": "371923003",
-                   "display": "Mild to moderate"}],
-                "text": "Mild to moderate"}}
+    {
+      "severity": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "371923003",
+            "display": "Mild to moderate"
+          }
+        ],
+        "text": "Mild to moderate"
+      }
+    }
   binding:
     description: A subjective assessment of the severity of the condition as evaluated by the clinician.
     terminology:
@@ -153,7 +197,10 @@ fields:
   cardinality: 0..1
   type: dateTime
   description: Estimated or actual date the condition began, in the opinion of the clinician.
-  example: '{"onsetDateTime": "2015-10-14T13:13:20-06:00"}'
+  example: |
+    {
+      "onsetDateTime": "2015-10-14T13:13:20-06:00"
+    }
   url: http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.onset_x_
 
 - name: abatementBoolean
@@ -161,7 +208,10 @@ fields:
   cardinality: 0..1
   type: boolean
   description: Indicates if the condition is resolved or has gone into remission.
-  example: '{"abatementBoolean": true}'
+  example: |
+    {
+      "abatementBoolean": true
+    }
   url: http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.abatement_x_
 
 - name: abatementDateTime
@@ -169,7 +219,10 @@ fields:
   cardinality: 0..1
   type: dateTime
   description: Indicates the date and time the condition was resolved or has gone into remission.
-  example: '{"abatementDateTime": "2015-10-14T13:13:20-06:00"}'
+  example: |
+    {
+      "abatementDateTime": "2015-10-14T13:13:20-06:00"
+    }
   url: http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.abatement_x_
 
 - name: notes
@@ -177,4 +230,7 @@ fields:
   cardinality: 0..1
   type: string
   description: Additional information about the Condition.
-  example: '{"notes": "Information related to condition"}'
+  example: |
+    {
+      "notes": "Information related to condition"
+    }
