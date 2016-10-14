@@ -648,16 +648,25 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"contained": [
-  {"resourceType": "Medication",
-     "id": "2750067",
-     "code": {
-       "coding": [
-         {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "1191",
-          "display": "Aspirin",
-          "primary": false}],
-       "text": "aspirin"}}]}
+        <ul style="list-style-type: none"><li><pre>{
+  "contained": [
+    {
+      "resourceType": "Medication",
+      "id": "2750067",
+      "code": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "1191",
+            "display": "Aspirin",
+            "primary": false
+          }
+        ],
+        "text": "aspirin"
+      }
+    }
+  ]
+}
 </pre></li></ul>
       
       
@@ -691,13 +700,19 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-  "coding": [
-    {"system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-     "code": "1191",
-     "display": "Aspirin",
-     "primary": false}],
-  "text": "aspirin"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1191",
+        "display": "Aspirin",
+        "primary": false
+      }
+    ],
+    "text": "aspirin"
+  }
+}
 </pre></li></ul>
       
       
@@ -731,7 +746,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {"reference": "Patient/5366327"}}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
+</pre></li></ul>
       
       
       </ul>
@@ -762,7 +782,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"status": "in-progress"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "in-progress"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -792,9 +815,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"effectivePeriod": {
-   "start": "2015-05-05T14:00:00.000Z",
-   "end": "2015-05-06T01:00:00.000Z"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "effectivePeriod": {
+    "start": "2015-05-05T14:00:00.000Z",
+    "end": "2015-05-06T01:00:00.000Z"
+  }
+}
 </pre></li></ul>
       
       
@@ -828,7 +854,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"note": "do not take with alcohol"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": "do not take with alcohol"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -858,9 +887,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"medicationReference": {
-   "reference": "#456235",
-   "display": "Ibuprofen"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "medicationReference": {
+    "reference": "#456235",
+    "display": "Ibuprofen"
+  }
+}
 </pre></li></ul>
       
       
@@ -891,33 +923,51 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"dosage": [
-  {"text": "325 mg, Oral, q4hr, PRN: headache",
-   "schedule": {
-     "repeat": {
-       "bounds": {
-         "start": "2014-08-11T13:42:00.000-05:00"}},
-     "code": {
-       "text": "q4hr"}},
-   "asNeededCodeableConcept": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
-        "code": "25064002",
-        "display": "headache (finding)",
-        "primary": false}],
-     "text": "headache"},
-   "route": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
-        "code": "26643006",
-        "display": "Oral route (qualifier value)",
-        "primary": false}],
-     "text": "Oral"},
-   "quantity": {
-     "value": 325,
-     "units": "mg",
-     "system": "http://unitsofmeasure.org",
-     "code": "mg"}}]}
+        <ul style="list-style-type: none"><li><pre>{
+  "dosage": [
+    {
+      "text": "325 mg, Oral, q4hr, PRN: headache",
+      "schedule": {
+        "repeat": {
+          "bounds": {
+            "start": "2014-08-11T13:42:00.000-05:00"
+          }
+        },
+        "code": {
+          "text": "q4hr"
+        }
+      },
+      "asNeededCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "25064002",
+            "display": "headache (finding)",
+            "primary": false
+          }
+        ],
+        "text": "headache"
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "26643006",
+            "display": "Oral route (qualifier value)",
+            "primary": false
+          }
+        ],
+        "text": "Oral"
+      },
+      "quantity": {
+        "value": 325,
+        "units": "mg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg"
+      }
+    }
+  ]
+}
 </pre></li></ul>
       
       
@@ -951,7 +1001,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -981,17 +1034,26 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"schedule": {
-   "repeat": {
-     "bounds": {
-       "start": "2014-11-03T14:38:00.000-05:00"},
-     "count": 5},
-   "code": {
-     "coding": [
-       {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-        "code": "TID",
-        "display": "TID"}],
-     "text": "TID"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "schedule": {
+    "repeat": {
+      "bounds": {
+        "start": "2014-11-03T14:38:00.000-05:00"
+      },
+      "count": 5
+    },
+    "code": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+          "code": "TID",
+          "display": "TID"
+        }
+      ],
+      "text": "TID"
+    }
+  }
+}
 </pre></li></ul>
       
       
@@ -1022,10 +1084,14 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"repeat": {
-   "bounds": {
-     "start": "2014-11-03T14:38:00.000-05:00"},
-   "count": 5}}
+        <ul style="list-style-type: none"><li><pre>{
+  "repeat": {
+    "bounds": {
+      "start": "2014-11-03T14:38:00.000-05:00"
+    },
+    "count": 5
+  }
+}
 </pre></li></ul>
       
       
@@ -1056,8 +1122,11 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"bounds": {
-   "start": "2014-11-03T14:38:00.000-05:00"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "bounds": {
+    "start": "2014-11-03T14:38:00.000-05:00"
+  }
+}
 </pre></li></ul>
       
       
@@ -1088,7 +1157,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"count": 5}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "count": 5
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1118,12 +1190,18 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-      "code": "TID",
-      "display": "TID"}],
-   "text": "TID"}}}
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+        "code": "TID",
+        "display": "TID"
+      }
+    ],
+    "text": "TID"
+  }
+}
 </pre></li></ul>
       
       
@@ -1155,14 +1233,22 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>asNeededCodeableConcept
-  {"asNeededCodeableConcept": {
-     "coding": [
-       {"system": "http://snomed.info/sct",
+{
+  "asNeededCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
         "code": "25064002",
-        "display": "for headache"}]}}
+        "display": "for headache"
+      }
+    ]
+  }
+}
 
 asNeededBoolean
-  {"asNeededBoolean" : true}
+{
+  "asNeededBoolean": true
+}
 </pre></li></ul>
       
       
@@ -1194,12 +1280,18 @@ asNeededBoolean
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"route": {
-   "coding": [
-     {"system": "http://snomed.info/sct",
-      "code": "41974700",
-      "display": "Chew - dosing instruction imperative (qualifier value)"}],
-   "text": "Chewed"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "route": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "41974700",
+        "display": "Chew - dosing instruction imperative (qualifier value)"
+      }
+    ],
+    "text": "Chewed"
+  }
+}
 </pre></li></ul>
       
       
@@ -1230,11 +1322,14 @@ asNeededBoolean
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"quantity": {
-   "value": 2,
-   "unit": "tabs",
-   "system": "http://unitsofmeasure.org",
-   "code": "tbl"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "quantity": {
+    "value": 2,
+    "unit": "tabs",
+    "system": "http://unitsofmeasure.org",
+    "code": "tbl"
+  }
+}
 </pre></li></ul>
       
       
@@ -1319,7 +1414,7 @@ asNeededBoolean
     x-xss-protection → 1; mode=block
 </pre>
 
-<p>The <code>etag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <h2 id="update">Update</h2>
 
@@ -1405,7 +1500,10 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"id": "123412"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "123412"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -1438,7 +1536,12 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {"reference": "Patient/5366327"}}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1469,7 +1572,10 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"status": "in-progress"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "in-progress"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1520,55 +1626,56 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
     x-xss-protection → 1; mode=block
 </pre>
 
+
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3><a href="../">Overview</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../authorization">Authorization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../conformance/">Conformance Metadata</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../condition/">Condition</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../document-reference/">DocumentReference</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../encounter/">Encounter</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../immunization/">Immunization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="./">MedicationStatement</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../observation/">Observation</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../patient/">Patient</a></h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../">Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization">Authorization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../conformance/">Conformance Metadata</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../document-reference/">DocumentReference</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../encounter/">Encounter</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../immunization/">Immunization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="./">MedicationStatement</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../patient/">Patient</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
 </div>
 <!-- /sidebar-shell -->
 

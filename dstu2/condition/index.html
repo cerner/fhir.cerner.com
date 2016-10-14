@@ -351,7 +351,7 @@
   </tbody>
 </table>
 
-<p>Note: Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is from <a href="http://hl7.org/fhir/condition-category">condition-category</a> and <code>problem</code> is from <a href="http://argonaut.hl7.org/extension-codes">argonaut extenstion-codes</a> system.</p>
+<p>Note: Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is from the <a href="http://hl7.org/fhir/condition-category">condition-category</a> system and code <code>problem</code> is from the <a href="http://argonaut.hl7.org/extension-codes">argonaut extension-codes</a> system.</p>
 
 <h3 id="response">Response</h3>
 
@@ -554,7 +554,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"resourceType": "Condition"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Condition"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -587,9 +590,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {
-   "reference": "Patient/2744123",
-   "display": "Joe, Test"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/2744123",
+    "display": "Joe, Test"
+  }
+}
 </pre></li></ul>
       
       
@@ -620,8 +626,11 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"encounter": {
-   "reference": "Encounter/1309819"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/1309819"
+  }
+}
 </pre></li></ul>
       
       
@@ -652,9 +661,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"asserter": {
-   "reference": "Practitioner/2770007",
-   "display": "Song, River"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "asserter": {
+    "reference": "Practitioner/2770007",
+    "display": "Song, River"
+  }
+}
 </pre></li></ul>
       
       
@@ -688,13 +700,19 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/sid/icd-9",
-      "code": "345.0",
-      "display": "Generalized nonconvulsive epilepsy",
-      "userSelected": true}],
-   "text": "Absence seizures"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-9",
+        "code": "345.0",
+        "display": "Generalized nonconvulsive epilepsy",
+        "userSelected": true
+      }
+    ],
+    "text": "Absence seizures"
+  }
+}
 </pre></li></ul>
       
       
@@ -725,20 +743,31 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"category": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/condition-category",
-      "code": "diagnosis",
-      "display": "Diagnosis"}],
-   "text": "Diagnosis"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "category": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/condition-category",
+        "code": "diagnosis",
+        "display": "Diagnosis"
+      }
+    ],
+    "text": "Diagnosis"
+  }
+}
 OR
-
-{"category": {
-   "coding": [
-     {"system": "http://argonaut.hl7.org/extension-codes",
-      "code": "problem",
-      "display": "Problem"}],
-   "text": "Problem"}}
+{
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org/extension-codes",
+        "code": "problem",
+        "display": "Problem"
+      }
+    ],
+    "text": "Problem"
+  }
+}
 </pre></li></ul>
       
       
@@ -799,7 +828,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"verificationStatus": "confirmed"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "verificationStatus": "confirmed"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -829,12 +861,18 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"severity": {
-   "coding": [
-     {"system": "http://snomed.info/sct",
-      "code": "371923003",
-      "display": "Mild to moderate"}],
-   "text": "Mild to moderate"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "371923003",
+        "display": "Mild to moderate"
+      }
+    ],
+    "text": "Mild to moderate"
+  }
+}
 </pre></li></ul>
       
       
@@ -865,7 +903,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"onsetDateTime": "2015-10-14T13:13:20-06:00"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -895,7 +936,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"abatementBoolean": true}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementBoolean": true
+}
+</pre></li></ul>
       
       
       </ul>
@@ -925,7 +969,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"abatementDateTime": "2015-10-14T13:13:20-06:00"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -955,7 +1002,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"notes": "Information related to condition"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "notes": "Information related to condition"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1080,7 +1130,7 @@ OR
     x-xss-protection → 1; mode=block
 </pre>
 
-<p>The <code>etag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <h2 id="update">Update</h2>
 
@@ -1135,7 +1185,10 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"resourceType": "Condition"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Condition"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -1168,7 +1221,10 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"id": "p123412"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "p123412"
+}
+</pre></li></ul>
       
       
         <li><i>Notes</i></li>
@@ -1201,9 +1257,12 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"patient": {
-   "reference": "Patient/2744123",
-   "display": "Joe, Test"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/2744123",
+    "display": "Joe, Test"
+  }
+}
 </pre></li></ul>
       
       
@@ -1234,8 +1293,11 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"encounter": {
-   "reference": "Encounter/1309819"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/1309819"
+  }
+}
 </pre></li></ul>
       
       
@@ -1266,9 +1328,12 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"asserter": {
-   "reference": "Practitioner/2770007",
-   "display": "Song, River"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "asserter": {
+    "reference": "Practitioner/2770007",
+    "display": "Song, River"
+  }
+}
 </pre></li></ul>
       
       
@@ -1302,7 +1367,10 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"dateRecorded": "2013-02-08"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "dateRecorded": "2013-02-08"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1332,13 +1400,19 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"code": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/sid/icd-9",
-      "code": "345.0",
-      "display": "Generalized nonconvulsive epilepsy",
-      "userSelected": true}],
-   "text": "Absence seizures"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-9",
+        "code": "345.0",
+        "display": "Generalized nonconvulsive epilepsy",
+        "userSelected": true
+      }
+    ],
+    "text": "Absence seizures"
+  }
+}
 </pre></li></ul>
       
       
@@ -1369,20 +1443,31 @@ If-Match: W/"&lt;Current condition id&gt;"
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"category": {
-   "coding": [
-     {"system": "http://hl7.org/fhir/condition-category",
-      "code": "diagnosis",
-      "display": "Diagnosis"}],
-   "text": "Diagnosis"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "category": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/condition-category",
+        "code": "diagnosis",
+        "display": "Diagnosis"
+      }
+    ],
+    "text": "Diagnosis"
+  }
+}
 OR
-
-{"category": {
-   "coding": [
-     {"system": "http://argonaut.hl7.org/extension-codes",
-      "code": "problem",
-      "display": "Problem"}],
-   "text": "Problem"}}
+{
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org/extension-codes",
+        "code": "problem",
+        "display": "Problem"
+      }
+    ],
+    "text": "Problem"
+  }
+}
 </pre></li></ul>
       
       
@@ -1443,7 +1528,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"verificationStatus": "confirmed"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "verificationStatus": "confirmed"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1473,12 +1561,18 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"severity": {
-   "coding": [
-     {"system": "http://snomed.info/sct",
-      "code": "371923003",
-      "display": "Mild to moderate"}],
-   "text": "Mild to moderate"}}
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "371923003",
+        "display": "Mild to moderate"
+      }
+    ],
+    "text": "Mild to moderate"
+  }
+}
 </pre></li></ul>
       
       
@@ -1509,7 +1603,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"onsetDateTime": "2015-10-14T13:13:20-06:00"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1539,7 +1636,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"abatementBoolean": true}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementBoolean": true
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1569,7 +1669,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"abatementDateTime": "2015-10-14T13:13:20-06:00"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1599,7 +1702,10 @@ OR
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{"notes": "Information related to condition"}</pre></li></ul>
+        <ul style="list-style-type: none"><li><pre>{
+  "notes": "Information related to condition"
+}
+</pre></li></ul>
       
       
       </ul>
@@ -1694,55 +1800,56 @@ OR
     x-xss-protection → 1; mode=block
 </pre>
 
+
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3><a href="../">Overview</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../authorization">Authorization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../conformance/">Conformance Metadata</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="./">Condition</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../document-reference/">DocumentReference</a></h3>
-            </li>            
-            <li class="js-topic">
-                <h3><a href="../encounter/">Encounter</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../immunization/">Immunization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../medication-order/">MedicationOrder</a></h3>
-            </li>
-            <li class="js-topic">
-               <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-           </li>
-            <li class="js-topic">
-                <h3><a href="../observation/">Observation</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../patient/">Patient</a></h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../">Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization">Authorization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../conformance/">Conformance Metadata</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="./">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../document-reference/">DocumentReference</a></h3>
+      </li>            
+      <li class="js-topic">
+        <h3><a href="../encounter/">Encounter</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../immunization/">Immunization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-order/">MedicationOrder</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../patient/">Patient</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
 </div>
 <!-- /sidebar-shell -->
 

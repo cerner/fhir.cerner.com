@@ -76,6 +76,7 @@
 <h1 id="diagnosticreport">DiagnosticReport</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -83,6 +84,88 @@
     </ul>
   </li>
 </ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.category">DiagnosticReport.category</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes for diagnostic service sections.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/diagnostic-service-sections">Diagnostic Service Section Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.code">DiagnosticReport.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes that describe Diagnostic Reports.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/report-codes">LOINC Diagnostic Report Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -117,6 +200,19 @@
       <td>The subject (Patient) of the report. Example: <code>12345</code>
 </td>
     </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
+      <td>Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by ‘ge’ or present twice and prefixed by ‘ge’ / ‘lt’. EG: <code>date=ge2014-09-24T12:00:00.000Z</code> <code>&amp;date=lt2015-10-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return per page.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -126,208 +222,208 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "5bbc073e-1ebd-458a-b1f6-c1a2beace210",
+  "id": "9791066f-1dcb-42ff-838a-ade00f4037f0",
   "type": "searchset",
-  "total": 3,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=2744123"
+      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020&amp;_count=10"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5658748",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5153487",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "5658748",
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: XR Wrist Complete Right&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
+        "id": "5153487",
+        "meta": {
+          "versionId": "3",
+          "lastUpdated": "2015-08-06T20:03:21.000Z"
         },
-        "status": "final",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Wrist Complete Left&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Interfaced-Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Song, River&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "unknown",
         "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
+          "text": "RADRPT"
         },
         "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "169074008"
-            }
-          ],
-          "text": "XR Wrist Complete Right"
+          "text": "RADRPT"
         },
         "subject": {
-          "reference": "Patient/2744123"
+          "reference": "Patient/1316020",
+          "display": "Peralta, Jake"
         },
         "encounter": {
-          "reference": "Encounter/3519101"
+          "reference": "Encounter/2787906"
         },
-        "effectiveDateTime": "2015-11-25T22:00:11.000Z",
+        "effectiveDateTime": "2015-08-06T20:03:09.000Z",
+        "issued": "2015-08-06T20:03:21.000Z",
         "performer": {
-          "reference": "Practitioner/2770007",
-          "display": "Song, River"
-        }
+          "display": "Interfaced-Unknown"
+        },
+        "request": [
+          {
+            "reference": "DiagnosticOrder/18954087"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "text/html",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/5153487"
+          }
+        ]
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/6767035",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/4135365",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "6767035",
+        "id": "4135365",
         "meta": {
-          "versionId": "3"
+          "versionId": "5",
+          "lastUpdated": "2016-09-14T16:33:16.000Z"
         },
         "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: XR Wrist Complete Right&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: Chase, Robert&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
+          "status": "additional",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: CT Abdomen w/ Contrast&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Chase, Robert&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Cuddy, Lisa&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "final",
         "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
+          "text": "RADRPT"
         },
         "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "77477000"
-            }
-          ],
-          "text": "CT Pelvis w/ + w/o Contrast"
+          "text": "RADRPT"
         },
         "subject": {
-          "reference": "Patient/2744123"
+          "reference": "Patient/1316020",
+          "display": "Peralta, Jake"
         },
         "encounter": {
-          "reference": "Encounter/3519101"
+          "reference": "Encounter/2153909"
         },
-        "effectiveDateTime": "2015-11-24T23:04:50.000Z",
-        "issued": "2015-11-24T23:09:23.000Z",
+        "effectiveDateTime": "2014-12-05T22:31:02.000Z",
+        "issued": "2016-09-14T16:33:11.000Z",
         "performer": {
-          "reference": "Practitioner/4669118",
+          "reference": "Practitioner/1314015",
           "display": "Chase, Robert"
         },
-        "conclusion": "Conclusion of the report"
+        "request": [
+          {
+            "reference": "DiagnosticOrder/17233929"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "text/html",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/4135365"
+          }
+        ]
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5826385",
+      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/3411366",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "5826385",
+        "id": "3411366",
         "meta": {
-          "versionId": "3"
+          "versionId": "2",
+          "lastUpdated": "2014-05-05T18:43:26.000Z"
         },
         "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: XCT Abdomen w/ + w/o Contrast&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: House, Gregory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
+          "status": "additional",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Abdomen AP | XR Abdomen Series w/ Chest 1 View&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: House, Gregory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Wilson, James&lt;/li&gt;&lt;li&gt;Cameron, Allison&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "final",
+        "status": "unknown",
         "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
+          "text": "RADRPT"
         },
         "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org/",
-              "code": "41806-1"
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "77477000"
-            }
-          ],
-          "text": "CT Abdomen w/ + w/o Contrast"
+          "text": "RADRPT"
         },
         "subject": {
-          "reference": "Patient/2744123"
+          "reference": "Patient/1316020",
+          "display": "Peralta, Jake"
         },
         "encounter": {
-          "reference": "Encounter/3519101"
+          "reference": "Encounter/1309912"
         },
-        "effectiveDateTime": "2015-12-09T17:31:19.000Z",
-        "issued": "2015-12-09T17:31:52.000Z",
+        "effectiveDateTime": "2014-05-05T18:43:11.000Z",
+        "issued": "2014-05-05T18:43:26.000Z",
         "performer": {
           "reference": "Practitioner/1985700",
           "display": "House, Gregory"
         },
-        "conclusion": "Conclusion of the report"
+        "request": [
+          {
+            "reference": "DiagnosticOrder/15785901"
+          },
+          {
+            "reference": "DiagnosticOrder/15717975"
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "text/html",
+            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/3411366"
+          }
+        ]
       }
     }
   ]
 }</code></pre>
 
+
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
-    <div class="js-toggle-list sidebar-module expandable">
-        <ul>
-            <li class="js-topic">
-                <h3><a href="../">Overview</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../authorization">Authorization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../conformance/">Conformance Metadata</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../condition/">Condition</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="./">DiagnosticReport</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../document-reference/">DocumentReference</a></h3>
-            </li>            
-            <li class="js-topic">
-                <h3><a href="../encounter/">Encounter</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../immunization/">Immunization</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../medication-order/">MedicationOrder</a></h3>
-            </li>
-            <li class="js-topic">
-               <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-           </li>
-            <li class="js-topic">
-                <h3><a href="../observation/">Observation</a></h3>
-            </li>
-            <li class="js-topic">
-                <h3><a href="../patient/">Patient</a></h3>
-            </li>
-        </ul>
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module notice">
-        <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-    </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../">Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization">Authorization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../conformance/">Conformance Metadata</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="./">DiagnosticReport</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../document-reference/">DocumentReference</a></h3>
+      </li>            
+      <li class="js-topic">
+        <h3><a href="../encounter/">Encounter</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../immunization/">Immunization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-order/">MedicationOrder</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../patient/">Patient</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
 </div>
 <!-- /sidebar-shell -->
 
