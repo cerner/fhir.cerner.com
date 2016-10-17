@@ -35,7 +35,7 @@ end
 compile '/faq/' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || '/faq/'
+  layout '/faq/'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
@@ -51,7 +51,7 @@ end
 compile '/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || '/default/'
+  layout item[:layout]
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
