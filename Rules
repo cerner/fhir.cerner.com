@@ -21,21 +21,21 @@
 #  item.identifier.to_s.sub(/\A\/static/, '')
 #end
 
-compile '/CNAME/' do
+compile '/CNAME.*' do
 end
 
 compile '/dstu2/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2,3]
-  layout item[:layout] || '/dstu2_api/'
+  layout '/dstu2_api.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '/faq/' do
+compile '/faq.*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout '/faq/'
+  layout '/faq.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
@@ -43,7 +43,7 @@ end
 compile '/may2015/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || '/may2015_api/'
+  layout '/may2015_api.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
@@ -51,21 +51,29 @@ end
 compile '/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout]
+  layout  "/#{item[:layout].to_s}.*"
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
 route '/static/**/*' do
-  item.identifier[7..-2]
+  item.identifier.to_s[7..-2]
 end
 
-route '/CNAME/' do
+route '/CNAME.*' do
   '/CNAME'
 end
 
+route '/index.md' do
+  '/index.html'
+end
+
 route '/**/*' do
-  item.identifier + 'index.html'
+  item.identifier.without_ext + '/index.html'
+end
+
+route '/**/index.*' do
+  item.identifier.without_ext + '.html'
 end
 
 layout '/**/*', :erb

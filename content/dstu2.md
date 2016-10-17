@@ -1,5 +1,6 @@
 ---
 title: DSTU 2
+layout: dstu2_api
 ---
 
 # Overview
