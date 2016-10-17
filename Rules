@@ -24,6 +24,9 @@
 compile '/CNAME.*' do
 end
 
+compile '/static/**/*' do
+end
+
 compile '/dstu2/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2,3]
@@ -56,8 +59,10 @@ compile '/**/*' do
   filter :relativize_paths, :type => :html
 end
 
+
 route '/static/**/*' do
-  item.identifier.to_s[7..-2]
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
 end
 
 route '/CNAME.*' do

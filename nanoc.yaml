@@ -57,11 +57,11 @@ data_sources:
     # UTF-8 (which they should be!), change this.
     encoding: utf-8
 
-  #-
-  #  type: filesystem
-  #  items_root: /static
-  #  content_dir: 'static'
-  #  layouts_dir: null
+  -
+    type: filesystem
+    items_root: /static
+    content_dir: 'static'
+    layouts_dir: null
 
 # Configuration for the “check” command, which run unit tests on the site.
 checks:
