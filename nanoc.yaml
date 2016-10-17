@@ -29,8 +29,7 @@ prune:
   # .git, .svn etc.
   exclude: [ '.git', '.hg', '.svn', 'CVS' ]
 
-#Upgraded from Nanoc 3 to 4, use this for compatibility
-string_pattern_type: legacy
+string_pattern_type: glob
 
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,

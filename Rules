@@ -24,39 +24,39 @@
 compile '/CNAME/' do
 end
 
-compile '/dstu2/*' do
+compile '/dstu2/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2,3]
-  layout item[:layout] || 'dstu2_api'
+  layout item[:layout] || '/dstu2_api/'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '/faq/*' do
+compile '/faq/' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'faq'
+  layout item[:layout] || '/faq/'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '/may2015/*' do
+compile '/may2015/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'may2015_api'
+  layout item[:layout] || '/may2015_api/'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '*' do
+compile '/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'default'
+  layout item[:layout] || '/default/'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-route '/static/*' do
+route '/static/**/*' do
   item.identifier[7..-2]
 end
 
@@ -64,8 +64,8 @@ route '/CNAME/' do
   '/CNAME'
 end
 
-route '*' do
+route '/**/*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :erb
+layout '/**/*', :erb

@@ -1,7 +1,7 @@
-<%= render 'head' %>
+<%= render '/head/' %>
 
 <body class="dstu2_api">
-  <%= render 'header' %>
+  <%= render '/header/' %>
 
   <div class="sub-nav">
     <h2><a href="/dstu2/">DSTU 2 Final (1.0.2)</a></h2>
@@ -12,9 +12,9 @@
       <%= yield %>
     </div>
 
-    <%= render 'dstu2_sidebar' %>
+    <%= render '/dstu2_sidebar/' %>
   </div><!-- #wrapper -->
 
-  <%= render 'footer' %>
+  <%= render '/footer/' %>
 </body>
 </html>

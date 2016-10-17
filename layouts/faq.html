@@ -1,7 +1,7 @@
-<%= render 'head' %>
+<%= render '/head/' %>
 
 <body class="faq">
-  <%= render 'header' %>
+  <%= render '/header/' %>
 
   <div class="sub-nav">
     <h2><a href="/faq/">FAQ</a></h2>
@@ -12,9 +12,9 @@
       <%= yield %>
     </div>
 
-    <%= render 'faq_sidebar' %>
+    <%= render '/faq_sidebar/' %>
   </div><!-- #wrapper -->
 
-  <%= render 'footer' %>
+  <%= render '/footer/' %>
 </body>
 </html>
