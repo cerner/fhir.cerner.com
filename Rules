@@ -13,54 +13,72 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/static/*' do
+#compile '/static/**/*' do
+#end
+
+#route '/static/**/*' do
+#  # /static/foo.html → /foo.html
+#  item.identifier.to_s.sub(/\A\/static/, '')
+#end
+
+compile '/CNAME.*' do
 end
 
-compile '/CNAME/' do
+compile '/static/**/*' do
 end
 
-compile '/dstu2/*' do
+compile '/dstu2/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2,3]
-  layout item[:layout] || 'dstu2_api'
+  layout '/dstu2_api.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '/faq/*' do
+compile '/faq.*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'faq'
+  layout '/faq.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '/may2015/*' do
+compile '/may2015/**/*' do
   filter :erb
-  filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'may2015_api'
+  filter :kramdown, :toc_levels => [2,3]
+  layout '/may2015_api.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-compile '*' do
+compile '/**/*' do
   filter :erb
-  filter :kramdown, :toc_levels => [2]
-  layout item[:layout] || 'default'
+  filter :kramdown, :toc_levels => [2,3]
+  layout  "/#{item[:layout].to_s}.*"
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
 
-route '/static/*' do
-  item.identifier[7..-2]
+
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
 end
 
-route '/CNAME/' do
-  '/CNAME'
+route '/CNAME.*' do
+  item.identifier.chop
 end
 
-route '*' do
-  item.identifier + 'index.html'
+route '/index.md' do
+  '/index.html'
 end
 
-layout '*', :erb
+route '/**/*' do
+  item.identifier.without_ext + '/index.html'
+end
+
+route '/**/index.*' do
+  item.identifier.without_ext + '.html'
+end
+
+layout '/**/*', :erb

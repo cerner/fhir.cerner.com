@@ -9,9 +9,9 @@ class RedirectGenerator
       to_url = pairs[1]
 
       redirect = {:url => to_url}
-      items << Nanoc3::Item.new(redirect_template.result(binding),
-                                { :redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
-                                from_url)
+      @items.create(redirect_template.result(binding),
+                    {:redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
+                    from_url)
     end
   end
 end

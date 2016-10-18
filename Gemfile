@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.1'
 
 gem 'kramdown', '~> 1.6'
-gem 'nanoc', '~> 3.7'
+gem 'nanoc', '~> 4.0'
 gem 'yajl-ruby', '~> 1.2'
 
 group :development do

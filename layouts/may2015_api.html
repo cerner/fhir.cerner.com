@@ -1,7 +1,7 @@
-<%= render 'head' %>
+<%= render '/head.*' %>
 
 <body class="may2015_api">
-  <%= render 'header' %>
+  <%= render '/header.*' %>
 
   <div class="sub-nav">
     <h2><a href="/may2015/">DSTU 2 Ballot (0.5.0)</a></h2>
@@ -12,9 +12,9 @@
       <%= yield %>
     </div>
 
-    <%= render 'may2015_sidebar' %>
+    <%= render '/may2015_sidebar.*' %>
   </div><!-- #wrapper -->
 
-  <%= render 'footer' %>
+  <%= render '/footer.*' %>
 </body>
 </html>
