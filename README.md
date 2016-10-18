@@ -4,6 +4,14 @@ The public facing API documentation for Cerner's implementation of the FHIR<sup>
 
 ## Usage
 
+### Layouts
+We've added attributes at the top of some md files to assign a layout. These are usually only needed for pages that aren't actual API documentation (our compilation rule uses that layout attribute before falling back to the api layout).
+
+### Versioning
+There's a preprocessing rule that uses folder matching to add a version attribute to all md files for the API. The only thing you need to do to make this work is put resource documentation in a version-specific folder.
+
+This version attribute is currently used to flex the class, links, and navigation for the API documentation.
+
 ### Generating a field table
 
 Create and Update operations typically require JSON bodies which can be tedious to document manually through markdown. To simplify this process and to improve consistency we have added the `definition_table` helper to generate a table from a yaml content file.

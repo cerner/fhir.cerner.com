@@ -1,6 +1,6 @@
 ---
 title: DSTU 2
-layout: dstu2_api
+layout: api
 ---
 
 # Overview
@@ -13,8 +13,7 @@ please post to our [developer group](https://groups.google.com/d/forum/cerner-fh
 
 ## Current Version
 
-This documentation describes the DSTU 2 Final (1.0.2) implementation which is currently in development and is available in our sandbox environment.
-Documentation for our production implementation can be found at [DSTU 2 Ballot (0.5.0)](/may2015).
+Cerner's implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard.
 
 ## Schema
 

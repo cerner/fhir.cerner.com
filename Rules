@@ -13,26 +13,14 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-#compile '/static/**/*' do
-#end
-
-#route '/static/**/*' do
-#  # /static/foo.html → /foo.html
-#  item.identifier.to_s.sub(/\A\/static/, '')
-#end
+preprocess do
+  add_version_attribute
+end
 
 compile '/CNAME.*' do
 end
 
 compile '/static/**/*' do
-end
-
-compile '/dstu2/**/*' do
-  filter :erb
-  filter :kramdown, :toc_levels => [2,3]
-  layout '/dstu2_api.*'
-  filter :relativize_paths, :type => :css
-  filter :relativize_paths, :type => :html
 end
 
 compile '/faq.*' do
@@ -43,18 +31,10 @@ compile '/faq.*' do
   filter :relativize_paths, :type => :html
 end
 
-compile '/may2015/**/*' do
-  filter :erb
-  filter :kramdown, :toc_levels => [2,3]
-  layout '/may2015_api.*'
-  filter :relativize_paths, :type => :css
-  filter :relativize_paths, :type => :html
-end
-
 compile '/**/*' do
   filter :erb
   filter :kramdown, :toc_levels => [2,3]
-  layout  "/#{item[:layout].to_s}.*"
+  layout  item[:layout] ? "/#{item[:layout].to_s}.*" : '/api.*'
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end

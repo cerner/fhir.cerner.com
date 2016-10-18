@@ -1,10 +1,15 @@
 <%= render '/head.*' %>
 
-<body class="dstu2_api">
+<body class="<%= @item[:version].to_s %>_api">
   <%= render '/header.*' %>
 
   <div class="sub-nav">
+    <% case @item[:version]
+    when 'dstu2' %>
     <h2><a href="/dstu2/">DSTU 2 Final (1.0.2)</a></h2>
+    <% when 'may2015' %>
+    <h2><a href="/may2015/">DSTU 2 Ballot (0.5.0)</a></h2>
+    <% end %>
   </div>
 
   <div id="wrapper">
@@ -12,7 +17,7 @@
       <%= yield %>
     </div>
 
-    <%= render '/dstu2_sidebar.*' %>
+    <%= render "/#{@item[:version].to_s }_sidebar.*" %>
   </div><!-- #wrapper -->
 
   <%= render '/footer.*' %>
