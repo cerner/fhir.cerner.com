@@ -1,17 +1,20 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
+# The Rules file contains the processing instructions for all items in a Nanoc site. Three different kinds of rules exist:
+# http://nanoc.ws/doc/rules/
+# http://nanoc.ws/doc/identifiers-and-patterns/
 #
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
+# compilation rules
+#      These rules describe the actions that should be executed during compilation (filtering, layouting, and snapshotting).
+# routing rules
+#     These rules describe the path where the compiled items should be written to.
+# layouting rules
+#     These rules describe the filter that should be used for a given layout.
 #
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
+# For every item, Nanoc finds the first matching compilation rule. Similarly, for every layout, Nanoc finds the first
+# matching layouting rule. The first matching rule that is found in the rules file is used.
 #
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
+# If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
 
 preprocess do
   add_version_attribute
