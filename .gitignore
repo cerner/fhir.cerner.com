@@ -8,3 +8,4 @@ crash.log
 /bin/
 /.bundle/
 .idea
+output.diff
