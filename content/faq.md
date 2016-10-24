@@ -11,7 +11,7 @@ title: FAQs
 
 ### What is Cerner's roadmap for FHIR<sup>®</sup> standard implementation?
 
-Currently, resources documented on this web site use May2015 and are available to partners. Part of the roadmap is moving the May2015 resources forward to general availability, migrating to the Draft Standard for Trial Use 2, and helping provide feedback to the current draft of the FHIR<sup>®</sup> standard. Additionally, our roadmap is prioritized depending on maturity of the resources in the FHIR<sup>®</sup> standard (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR<sup>®</sup> standard resources we implement. If you would like to create a business partnership with us and help guide our roadmap, please complete the [Collaboration Request form](http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033).
+Both the deprecated May2015 and current DSTU 2 Final versions of our HL7 FHIR<sup>®</sup> standard implementation are available in production. Our roadmap always includes helping provide feedback to the current draft of the FHIR<sup>®</sup> standard, as well as updating to the latest release. Additionally, our roadmap is prioritized depending on maturity of the resources in the FHIR<sup>®</sup> standard (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR<sup>®</sup> standard resources we implement. If you would like to create a business partnership with us and help guide our roadmap, please complete the [Collaboration Request form](http://www.cerner.com/Smart_on_FHIR_Collaboration_Request_Form/?LangType=1033).
 
 ### What is Cerner's Millennium Web Services toolkit?
 
@@ -27,7 +27,7 @@ Cerner is currently in the process of implementing the FHIR<sup>®</sup> standar
 
 ### With Cerner's implementation of the FHIR<sup>®</sup> standard, what service and protocol is supported?
 
-The current FHIR<sup>®</sup> standard implementation supports the REST API through the HTTPS protocol. Any application capable of making an HTTPS call can consume Cerner's implementation of the FHIR<sup>®</sup> standard. In testing, we have desktop, web, and mobile applications that consume our resources. We will support the SMART platform, OAuth2 authentication, and authorization profiles.
+The current FHIR<sup>®</sup> standard implementation supports the REST API through the HTTPS protocol. Any application capable of making an HTTPS call can consume Cerner's implementation of the FHIR<sup>®</sup> standard. We currently have desktop, web, and mobile applications that consume our resources in varying stages of development. We support the SMART platform, OAuth2 authentication, and authorization profiles.
 
 ### What are SMART apps and what is Cerner's position on usage with the FHIR<sup>®</sup> standard?
 

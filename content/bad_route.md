@@ -9,5 +9,5 @@ layout: overview
     server but your request is to a bad route.
   </h1>
   <p class="intro">Please read our documentation here to see how to make a valid request.</p>
-  <a href="/may2015/" class="button">Browse the documentation</a>
+  <a href="/dstu2/" class="button">Browse the documentation</a>
 </div>
