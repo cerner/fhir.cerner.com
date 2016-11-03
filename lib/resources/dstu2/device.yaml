@@ -1,0 +1,141 @@
+---
+name: Device
+field_name_base_url: http://hl7.org/fhir/DSTU2/device-definitions.html#Device
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: Identifier(s) from manufacturer, owner and others.
+  example: |
+    {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/identifier-type",
+                "code": "SNO",
+                "display": "Serial Number"
+              }
+            ],
+          "text": "Serial Number"
+        },
+        "value": "SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+        }
+      ]
+    }
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      note: Currently will return SNO code from the below system.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+
+- name: type
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: The specific kind of device.
+  example: |
+    {
+      "type": {
+        "text": "Cochlear Implant Right Ear"
+      }
+    }
+  binding:
+    description: The type of device.
+    note: Currently not bound to any terminology and only 'Device.type.text' will be returned as of now.
+
+- name: manufacturer
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Name of the device manufacturer.
+  example: |
+    {
+      "manufacturer": "Smith and Nephew Wound Management D"
+    }
+
+- name: model
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Model id assigned by the manufacturer.
+  example: |
+    {
+      "model": "MODELNBR661488"
+    }
+
+- name: manufactureDate
+  required: 'No'
+  cardinality: 0..1
+  type: dateTime
+  description: The manufacturer date.
+  example: |
+    {
+      "manufactureDate": "2010-04-10T16:33:01.000Z"
+    }
+
+- name: expiry
+  required: 'No'
+  cardinality: 0..1
+  type: dateTime
+  description: Date and time of expiry of this device.
+  example: |
+    {
+      "expiry": "2020-07-07T16:01:01.000Z"
+    }
+
+- name: udi
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: FDA mandated Unique Device Identifier.
+  example: |
+    {
+      "udi": "UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+    }
+
+- name: lotNumber
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Lot number of manufacture.
+  example: |
+    {
+      "lotNumber": "LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+    }
+
+- name: owner
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Organization)
+  description: Organization responsible for device.
+  note: Owner must be a `Organization` reference.
+  example: |
+    {
+      "owner": {
+        "reference": "Organization/21500971"
+      }
+    }
+
+- name: patient
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Patient)
+  description: Patient on whom the device affixed.
+  note: Patient must be a `Patient` reference.
+  example: |
+    {
+      "patient": {
+        "reference": "Patient/21500971"
+      }
+    }

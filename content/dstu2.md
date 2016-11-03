@@ -107,6 +107,29 @@ Transfer-Encoding: chunked
           ]
         },
         {
+          "type": "Device",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the device affixed. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Device ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
           "type": "DocumentReference",
           "interaction": [
             {
