@@ -19,15 +19,31 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required? | Type          | Description
------------|-----------|---------------|-----------------------------------------------------------------
- `patient` | Y         | [`reference`] | Who the sensitivity is for. Example: `12345`
- `status`  | N         | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
+ Name      | Required?                                                          | Type          | Description
+-----------|--------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
+ `_id`     | This or patient, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
+ `patient` | This or `_id`                                                      | [`reference`] | Who the sensitivity is for. Example: `12345`
+ `status`  | N                                                                  | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
+
+### Response
+
+<%= headers 200, {Functionality: 'Search by patient'} %>
+<%= json(:dstu2_allergy_intolerance_bundle) %>
+<%= headers 200, {Functionality: 'Search by patient and status'} %>
+<%= json(:dstu2_allergy_intolerance_bundle_by_status) %>
+<%= headers 200, {Functionality: 'Search by id'} %>
+<%= json(:dstu2_allergy_intolerance_bundle_by_id) %>
+
+## Retrieve by id
+
+List an individual AllergyIntolerance by its id:
+
+    GET /AllergyIntolerance/:id
 
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_allergy_intolerance_bundle) %>
+<%= json(:dstu2_allergy_intolerance_resource ) %>
 
 ## Create
 

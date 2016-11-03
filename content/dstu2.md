@@ -67,14 +67,22 @@ Transfer-Encoding: chunked
           "type": "AllergyIntolerance",
           "interaction": [
             {
+              "code": "read"
+            },
+            {
               "code": "search-type"
             }
           ],
           "searchParam": [
             {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+            },
+            {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who the sensitivity is for. It is a required field"
+              "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
             },
             {
               "name": "status",
