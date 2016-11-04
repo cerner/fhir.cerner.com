@@ -49,8 +49,10 @@ class DefinitionTableGenerator
   def flatten_fields(fields:, base_url:, types:, parent: nil)
     results = []
 
+    return results if fields.nil? || fields.empty?
+
     fields.each do |field|
-      puts "Rendering: #{field['name']}"
+      puts "       - rendering: #{field['name']}"
 
       next unless supported_for_action?(field)
 
