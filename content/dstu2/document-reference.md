@@ -13,7 +13,7 @@ title: DocumentReference | DSTU 2 API
 
 ## Create
 
-Create new documents. Only documents that would be classified as notes are currently supported.
+Create new documents. Currently only XHTML formatted documents are supported. Only documents that need to be associated to the patient's chart should be written. Please validate your document is valid XHTML using any available validator like the one linked [here]. 
 
     POST /DocumentReference
 
@@ -109,3 +109,4 @@ _Implementation Notes_
 </pre>
 
 [relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
+[here]: https://html5.validator.nu/
