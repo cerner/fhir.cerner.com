@@ -33,6 +33,7 @@ Notes:
 - Either the `_id` or one of `actor`, `actor.identifier`, `patient.identifier`, or `subject` parameters must be provided.
 - The `actor`, `actor.identifier`, `patient.identifier`, or `subject` parameters may be provided exactly once and may have only a single value.
 - The `_include` parameter may be provided once for each resource to be included. Example: `_include=Contract:actor&_include=Contract:patient`
+- Additional OAuth2 scopes are required when the `_include` parameter is provided. To include with `Contract:actor` or `Contract:patient` values, the OAuth2 token must include scopes for one or both RelatedPerson.read and Patient.read, respectively, depending on the combination of resources to be included.
 
 ### Response
 
