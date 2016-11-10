@@ -9,15 +9,9 @@ title: Authorization | DSTU 2 API
 The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR<sup>®</sup>][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.
 
 ### Registration ###
-In order for your client application to utilize any protected resources, your client application must first register. To do this please [contact us][10] with the following fields, all fields are **required**.
+In order for your client application to utilize any protected resources, your client application must first register using our [code console][10].
 
-* Name - Application name, this should match what the name of the app will be in the app store  
-* Redirect/Callback URI  
-* Email address  
-* Logo URI - The logo will need to be a [Scalable Vector Graphics][6] image
-* SMART Launch URI
-
-Once approved, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
+Once registered, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
 
 ### Supported Scopes ###
 The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
@@ -26,9 +20,9 @@ The Cerner Authorization Server supports many, but not all, of the [SMART][4] or
 * launch
 * openid
 * profile
-* [User-level and patient-specific scopes][11] for requesting clinical data. 
+* [User-level and patient-specific scopes][11] for requesting clinical data.
 
-#### Wildcard Scopes #### 
+#### Wildcard Scopes ####
 [Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) are **not supported**
 
 An application is currently required to specifically request each scope that it needs to run.
@@ -88,7 +82,7 @@ If successful, the authorization server will return a **200 OK** response with a
 }
 </code></pre>
 
-The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.  
+The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.
 
 ### OpenID Connect ###
 If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
@@ -150,7 +144,7 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
 * **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
 * **urn:cerner:error:authorization-server:oauth2:grant:invalid-patient-id** - The patient id does not exist or the user does not have access to the selected patient id's records.
-* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.  
+* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.
 <br />
 * **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
 * **urn:cerner:error:authorization-server:oauth2:token:invalid-redirect-uri** - The URI provided did not match the original request, or is not a valid URI.
@@ -166,11 +160,11 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:oauth2:token:patient-scope-requires-one-patient-id** - There must be exactly one patient id selected when requesting a patient/*.* scope.
 * **urn:cerner:error:authorization-server:oauth2:token:tenant-not-enabled-for-testing** - The tenant is not enabled for obtaining testing tokens on behalf of users.
 * **urn:cerner:error:authorization-server:oauth2:token:client-not-enabled-for-testing** - The client is not enabled for obtaining testing tokens on behalf of users.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.  
+* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.
 <br />
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:token-invalid** - The refresh token presented is either invalid, expired, or was terminated by the user.
 * **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
-* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.  
+* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
 <br />
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:launch-code-required** - A launch scope was requested, but a launch code was not supplied.
@@ -180,7 +174,7 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unsupported-version** - The EHR does not support the version of launch that was requested.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unspecified** - Resolution of launch data failed at the EHR for unspecified reasons.
 * **urn:cerner:error:authorization-server:smart-v1:grant:launch:unregistered-service** - The launch resolution service was not configured for a given tenant.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.  
+* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.
 <br />
 * **urn:cerner:error:authorization-server:unregistered-authorized-representatives-server** - The Authorized Representatives service was not configured properly.
 * **urn:cerner:error:authorization-server:preauthentication** - A fatal error in the pre-authentication process.
@@ -189,14 +183,14 @@ There are numerous possible situations that can cause an error while attempting 
 * **urn:cerner:error:authorization-server:grant:session-service:authentication:error** - An unspecified server error occurred while authenticating.
 
 
-[1]: https://tools.ietf.org/html/rfc6749  
-[2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)  
-[3]: http://json.org/  
-[4]: http://docs.smarthealthit.org/authorization/  
-[5]: http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims  
-[6]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics  
-[7]: https://tools.ietf.org/html/rfc6750  
-[8]: http://openid.net/connect/  
-[9]: http://docs.smarthealthit.org/authorization/conformance-statement/  
-[10]: http://www.cerner.com/FHIR_Application_Authorization_Request/  
-[11]: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/  
+[1]: https://tools.ietf.org/html/rfc6749
+[2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
+[3]: http://json.org/
+[4]: http://docs.smarthealthit.org/authorization/
+[5]: http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims
+[6]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
+[7]: https://tools.ietf.org/html/rfc6750
+[8]: http://openid.net/connect/
+[9]: http://docs.smarthealthit.org/authorization/conformance-statement/
+[10]: https://code.cerner.com/developer/smart-on-fhir/
+[11]: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/
