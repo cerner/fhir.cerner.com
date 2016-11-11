@@ -13,7 +13,7 @@ fields:
       values:
       - 371537001 - Consent report (record artifact)
 
-- name: subtype
+- name: subType
   type: CodeableConcept
   binding:
     description: Detailed codes within the above.

@@ -7,6 +7,10 @@ title: Contract | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The Contract resource usage is limited to representing persons that are authorized to view patient data. The subject of the contract is the patient that is the target of this authorization. The actors on the contract are the related people that are authorized to view data. An example would be where a contract represents that a mother is authorized to view her children's data. The contract is that authorization in FHIR.
+
 ## Terminology Bindings
 
 <%= terminology_table(:contract, :dstu2) %>
