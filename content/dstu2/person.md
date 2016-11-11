@@ -7,6 +7,10 @@ title: Person | DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:person, :dstu2) %>
+
 ## Search
 
 Search for Persons that meet supplied query parameters:
