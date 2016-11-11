@@ -1,0 +1,56 @@
+---
+name: Contract
+field_name_base_url: http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract
+fields:
+
+- name: type
+  type: CodeableConcept
+  binding:
+    description: List of overall contract codes.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      values:
+      - 371537001 - Consent report (record artifact)
+
+- name: subType
+  type: CodeableConcept
+  binding:
+    description: Detailed codes within the above.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      values:
+      - 309370004 - Consent status (finding)
+
+- name: action
+  type: CodeableConcept
+  binding:
+    description: Detailed codes for the contract action.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      values:
+      - 441898007 - Consented (qualifier value)
+
+- name: actionReason
+  type: CodeableConcept
+  binding:
+    description: Detailed codes for the contract action reason.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct 
+      values:
+      - 425691002 - Consent given for electronic record sharing (finding)
+
+- name: actor
+  children:
+  - name: role
+    type: CodeableConcept
+    binding:
+      description: Detailed codes for the contract actor role.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct 
+        values:
+        - 442681007 - Recipient consented (qualifier value)
