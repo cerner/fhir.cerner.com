@@ -19,10 +19,10 @@ Search for Persons that meet supplied query parameters:
 
 ### Parameters
 
- Name         | Required?                                                    | Type       | Description
---------------|--------------------------------------------------------------|------------|------------------------------------------------------------------------------------
- `_id`        | No, if populated all other parameters are ignored            | [`token`]  | The logical resource id associated with the resource.
- `identifier` | Yes, or `_id`                                                | [`token`]  | The person identifier.  Example: `urn:oid:2.16.840.1.113883.3.13.6|01022228`
+ Name         | Required?                                         | Type       | Description
+--------------|---------------------------------------------------|------------|------------------------------------------------------------------------------------
+ `_id`        | No, if populated all other parameters are ignored | [`token`]  | The logical resource id associated with the resource.
+ `identifier` | Yes, or `_id`                                     | [`token`]  | The person identifier.  Example: `urn:oid:2.16.840.1.113883.3.13.6|01022228`
 
 Notes:
  
