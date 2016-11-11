@@ -7,6 +7,10 @@ title: RelatedPerson | DSTU 2 API
 * TOC
 {:toc}
 
+## Terminology Bindings
+
+<%= terminology_table(:related_person, :dstu2) %>
+
 ## Search
 
 Search for RelatedPersons that meet supplied query parameters:
