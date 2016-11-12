@@ -9,7 +9,7 @@ title: Authorization | MAY 2015 BALLOT API
 The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR<sup>®</sup>][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.
 
 ### Registration ###
-In order for your client application to utilize any protected resources, your client application must first register using our [code console][10]. A Cerner Care account is required to register applcaitons but is requires nothing but an email address.
+In order for your client application to utilize any protected resources, your client application must first register using our [code console][10]. A Cerner Care account is required to register applications. Obtaining a Cerner Care account is free and requires nothing but an email address.
 
 Once registered, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
 
