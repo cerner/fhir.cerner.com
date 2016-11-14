@@ -121,6 +121,104 @@ module Cerner
         }
       ]
     }
+    
+    DSTU2_ALLERGY_INTOLERANCE_BUNDLE_BY_STATUS ||= {
+      "resourceType":"Bundle",
+      "id":"ae87133e-a1ee-11e6-80f5-76304dec7eb7",
+      "type":"searchset",
+      "total":1,
+      "link":[
+        {
+          "relation":"self",
+          "url":"https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010?status=active"
+        }
+      ],
+      "entry":[
+        {
+          "fullUrl":"https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
+          "resource":{
+            "resourceType":"AllergyIntolerance",
+            "id":"2759741",
+            "meta":{
+              "versionId":"2759741",
+              "lastUpdated":"2014-09-24T23:16:54.000Z"
+            },
+            "text":{
+              "status":"generated",
+              "div":"&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Peanuts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Food&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+            },
+            "recordedDate":"2014-09-24T18:16:54.000",
+            "recorder":{
+              "reference":"Practitioner/2770007",
+              "display":"Song, River"
+            },
+            "patient":{
+              "reference":"Patient/2744010",
+              "display":"RHEUM, TEST ONE"
+            },
+            "substance":{
+              "text":"Peanuts"
+            },
+            "status":"active",
+            "type":"allergy",
+            "category":"food"
+          }
+        }
+      ]
+    }
+
+    DSTU2_ALLERGY_INTOLERANCE_BUNDLE_BY_ID ||= {
+      "resourceType":"Bundle",
+      "id":"d98fd4d0-a1ee-11e6-80f5-76304dec7eb7",
+      "type":"searchset",
+      "total":1,
+      "link":[
+        {
+          "relation":"self",
+          "url":"https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?_id=3643739"
+        }
+      ],
+      "entry":[
+        {
+          "fullUrl":"https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
+          "resource":{
+            "resourceType":"AllergyIntolerance",
+            "id":"3643739",
+            "meta":{
+              "versionId":"3643739",
+              "lastUpdated":"2015-03-11T20:36:08.000Z"
+            },
+            "text":{
+              "status":"generated",
+              "div":"&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+            },
+            "recordedDate":"2015-03-11T15:36:08.000",
+            "recorder":{
+              "reference":"Practitioner/3270007",
+              "display":"Who, Doctor"
+            },
+            "patient":{
+              "reference":"Patient/2744010",
+              "display":"RHEUM, TEST ONE"
+            },
+            "substance":{
+              "coding":[
+                {
+                  "system":"http://snomed.info/sct",
+                  "code":"390952000",
+                  "display":"Dust allergy (disorder)",
+                  "userSelected":true
+                }
+              ],
+              "text":"Dust allergy"
+            },
+            "status":"active",
+            "type":"allergy",
+            "category":"environment"
+          }
+        }
+      ]
+    }
 
     DSTU2_ALLERGY_INTOLERANCE_CREATE ||= {
         "resourceType": "AllergyIntolerance",
@@ -204,6 +302,42 @@ module Cerner
                 }
             ]
         }
+    }
+
+    DSTU2_ALLERGY_INTOLERANCE_RESOURCE ||= {
+      "resourceType": "AllergyIntolerance",
+      "id": "3643739",
+      "meta": {
+        "versionId": "3643739",
+        "lastUpdated": "2015-03-11T20:36:08.000Z"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+      },
+      "recordedDate": "2015-03-11T15:36:08.000",
+      "recorder": {
+        "reference": "Practitioner/3270007",
+        "display": "Who, Doctor"
+      },
+      "patient": {
+        "reference": "Patient/2744010",
+        "display": "RHEUM, TEST ONE"
+      },
+      "substance": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "390952000",
+            "display": "Dust allergy (disorder)",
+            "userSelected": true
+          }
+        ],
+        "text": "Dust allergy"
+      },
+      "status": "active",
+      "type": "allergy",
+      "category": "environment"
     }
     
   end
