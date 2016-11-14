@@ -96,7 +96,7 @@ _Implementation Notes_
    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
    access-control-max-age → 0
    cache-control → no-cache
-   location → https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789258
+   location → https://fhir-ehr.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789258
    server-response-time → 3751.0383859999997
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding

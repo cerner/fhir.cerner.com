@@ -10,12 +10,12 @@ module Cerner
         "link": [
           {
             "relation": "self",
-            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=1083999&_count=25"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=1083999&_count=25"
           }
         ],
         "entry": [
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12168993",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12168993",
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "12168993",
@@ -272,7 +272,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229327",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229327",
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "12229327",
@@ -353,7 +353,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229374",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229374",
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "12229374",
@@ -440,7 +440,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14958880",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/14958880",
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "14958880",
@@ -524,7 +524,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229319",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/12229319",
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "12229319",

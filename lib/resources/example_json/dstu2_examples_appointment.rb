@@ -9,12 +9,12 @@ module Cerner
         "link": [
           {
             "relation": "self",
-            "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment?date=2014&practitioner=18220111&status=arrived&_count=50"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment?date=2014&practitioner=18220111&status=arrived&_count=50"
           }
         ],
         "entry": [
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/20977581",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/20977581",
             "resource": {
               "resourceType": "Appointment",
               "id": "20977581",
@@ -94,7 +94,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/21057512",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/21057512",
             "resource": {
               "resourceType": "Appointment",
               "id": "21057512",
@@ -183,7 +183,7 @@ module Cerner
             }
           },
           {
-            "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/213776",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/213776",
             "resource": {
               "resourceType": "Appointment",
               "id": "213776",
