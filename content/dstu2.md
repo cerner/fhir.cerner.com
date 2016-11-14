@@ -21,7 +21,7 @@ All API access is over HTTPS. See [Service Root URL](#service-root-url) for more
 All data is sent and received as JSON.
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 200 OK
 Date: Tue, 05 Jan 2016 20:02:23 GMT
 cache-control: no-cache
@@ -43,7 +43,7 @@ Transfer-Encoding: chunked
     "status": "generated",
     "div": "&lt;div>Generated Conformance Statement&lt;/div>"
   },
-  "url": "https://fhir-open.sandboxcernerpowerchart.com/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+  "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
   "name": "Cerner Conformance Statement",
   "status": "draft",
   "publisher": "Cerner",
@@ -292,7 +292,7 @@ launch time. For standalone applications, the URL can be requested (or configure
 
 The open sandbox instance allows developers to experiment with the service without requiring
 authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
-this instance is: `https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
+this instance is: `https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
 
 Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.
 
@@ -300,7 +300,7 @@ Note: The open endpoint exposes read-only resources. No writes are available in 
 
 The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service 
 root URL for this instance is: 
-`https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
+`https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
 
 
 ### Resource
@@ -314,7 +314,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=2744010&status=active"
+$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=2744010&status=active"
 </pre>
 
 In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
@@ -388,11 +388,11 @@ follow these Link header values instead of constructing your own URLs.
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=0&_count=20"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=0&_count=20"
         },
         {
           "relation": "next",
-          "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=20&_count=20"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=20&_count=20"
         }
       ],
       ...
@@ -416,7 +416,7 @@ HTML 5 Security Guide.
 Here's a sample request sent from the origin `http://example.com`:
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -427,7 +427,7 @@ Access-Control-Allow-Credentials: true
 This is what a CORS preflight request looks like:
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD

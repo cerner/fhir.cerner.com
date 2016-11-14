@@ -84,7 +84,7 @@ module Cerner
             "status"=> "generated",
             "div"=> "&lt;div>Generated Conformance Statement&lt;/div>"
         },
-        "url"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+        "url"=> "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
         "name"=> "Cerner Conformance Statement",
         "publisher"=> "Cerner",
         "description"=> "Describes capabilities of this server",
@@ -264,7 +264,7 @@ module Cerner
             "status"=> "generated",
             "div"=> "&lt;div>Generated Conformance Statement&lt;/div>"
         },
-        "url"=> "https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+        "url"=> "https://fhir-ehr.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
         "name"=> "Cerner Conformance Statement",
         "publisher"=> "Cerner",
         "description"=> "Describes capabilities of this server",
@@ -468,11 +468,11 @@ module Cerner
         "resourceType"=> "Bundle",
         "id"=> "d457d75f-4d8d-439e-9aca-2d8294457652",
         "type"=> "searchset",
-        "base"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base"=> "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 5,
         "link" => [{
                        "relation"=> "self",
-                       "url"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
+                       "url"=> "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
                    }],
         "entry" => [{
                         "resource" => {
@@ -658,12 +658,12 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "c7d2abdd-0c20-433e-a9a9-53e655f79885",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 3,
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"
             }
         ],
         "entry" => [
@@ -874,12 +874,12 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "2cd77130-032f-4354-921e-d05141ca2184",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 2,
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?_id=3261906%2C2787906"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?_id=3261906%2C2787906"
             }
         ],
         "entry" => [
@@ -1189,12 +1189,12 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "d25d5d3c-ea8e-4e52-8085-3d29bdf790b7",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 8,
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=smert&_count=20"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=smert&_count=20"
             }
         ],
         "entry" => [
@@ -1753,11 +1753,11 @@ module Cerner
         "resourceType"=> "Bundle",
         "id"=> "5ab17194-bb85-45fe-94d5-a02a2e8699ab",
         "type"=> "searchset",
-        "base"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base"=> "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total"=> 2,
         "link"=> [{
                       "relation"=> "self",
-                      "url"=> "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
+                      "url"=> "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
                   }],
         "entry"=> [{
                        "resource"=> {
@@ -1833,12 +1833,12 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "6236583e-e881-4bce-9964-decd5457b02f",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 6,
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=1083999"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=1083999"
             }
         ],
         "entry" => [
@@ -2067,12 +2067,12 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "06d99b3a-ee60-493a-a700-b23cec4dfcf1",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "total" => 7,
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010&status=active%2Cdraft"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010&status=active%2Cdraft"
             }
         ],
         "entry" => [
@@ -2589,15 +2589,15 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "e8e295fb-9370-40bc-88ba-87d1311ac619",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5"
             },
             {
                 "relation" => "next",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5&scheduledtiming-bounds-end=%3C%3D2015-02-10T16%3A20%3A25.000Z&context=14199276"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=1316020&status=completed%2Con-hold%2Cstopped&_count=5&scheduledtiming-bounds-end=%3C%3D2015-02-10T16%3A20%3A25.000Z&context=14199276"
             }
         ],
         "entry" => [
@@ -2996,15 +2996,15 @@ module Cerner
       "resourceType": "Bundle",
       "id": "8f9835e3-04df-4249-9666-5191ec235a7d",
       "type": "searchset",
-      "base": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&_count=3"
+          "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&_count=3"
         },
         {
           "relation": "next",
-          "url": "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&-pageContext=H4sIAAAAAAAAAI1TzW7UMBAOlB9xRT1w41RupImTeDeUy_4UqVWhVbscOFVubJJUjp21nf3pM3HjwlPwJrwD4zjZbCUORNr1N5_H45n5xj_-eM-18j5msvIzpgRTflZL5ktFAdZKfi858yvuy7t7lhn_iuRsJoVhG2MXUsKJg-vfb0_efGieegfn3quamJIJc0bPvReNZuqMXngvM3fEeK8v7smKHHMi8uMbo0qRn2xqz36Hh7889z0xz35SprOjaB4eIczmxDDA75MIxzgO4T8IArshMmFU79UaXBIqBd8-MCVhY_BqSqqBQHiUpAE-QgmaIRymj3Ha4hCjMA0Dxyfpzj9M0nDA4zRFo84H73gU4Ogx7mIm8XBvEkSPcIj2eOcfxcNdUTwe7eJEQZqGY1vWpu4KLIgW0NuuD2DViq26vZIyAXBPXUoM8UmWMa2dyN1iNV42TG39TkBYc5DHv2ydrAZ72s8ZZ7mVBWHeyQPCQCk4aD_gK0a7lABRmQ2GkKoifLDhQrkWe3ZBVJXBX872SCUNlYbboPPJt9vLT7eL69PJ4vPpl4XzUJvBW5O-H4JaZEEhCCBoTwljZwkpXI5BayhatgljHAVoFAFX90drd9R1YsZlQ-fQYTS92UKMbQVoXZoCFgI_LkUOiyAVdGdqCsgETXUhG0gdTe9aUjUig65ZYl2AQmhKS11zsm0pm930araY2KtFU3WV1LsUYxQEY2ynoNblQ9skW0P91W1HoAKKgVhmvBSK8bYO67GUqswhzEBAW--1ka5Ue8tSG6LMzgEs0-hZ-3hwHMXYzWQL-_GPox70gxwnPYh7MO5A0vsk_QuL-6cQpz1wkXEYJ5Gt0k7zKvRtPivCXZHvGgUjM3FTDaCy9ISpyq9BJGn3tIDpz33DqvpWFbJ7ATAAPrwH2O8a9e9ImVSsCyUY_59ofwFt2Ei7SwUAAA&-pageDirection=NEXT"
+          "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=1316024&-pageContext=H4sIAAAAAAAAAI1TzW7UMBAOlB9xRT1w41RupImTeDeUy_4UqVWhVbscOFVubJJUjp21nf3pM3HjwlPwJrwD4zjZbCUORNr1N5_H45n5xj_-eM-18j5msvIzpgRTflZL5ktFAdZKfi858yvuy7t7lhn_iuRsJoVhG2MXUsKJg-vfb0_efGieegfn3quamJIJc0bPvReNZuqMXngvM3fEeK8v7smKHHMi8uMbo0qRn2xqz36Hh7889z0xz35SprOjaB4eIczmxDDA75MIxzgO4T8IArshMmFU79UaXBIqBd8-MCVhY_BqSqqBQHiUpAE-QgmaIRymj3Ha4hCjMA0Dxyfpzj9M0nDA4zRFo84H73gU4Ogx7mIm8XBvEkSPcIj2eOcfxcNdUTwe7eJEQZqGY1vWpu4KLIgW0NuuD2DViq26vZIyAXBPXUoM8UmWMa2dyN1iNV42TG39TkBYc5DHv2ydrAZ72s8ZZ7mVBWHeyQPCQCk4aD_gK0a7lABRmQ2GkKoifLDhQrkWe3ZBVJXBX872SCUNlYbboPPJt9vLT7eL69PJ4vPpl4XzUJvBW5O-H4JaZEEhCCBoTwljZwkpXI5BayhatgljHAVoFAFX90drd9R1YsZlQ-fQYTS92UKMbQVoXZoCFgI_LkUOiyAVdGdqCsgETXUhG0gdTe9aUjUig65ZYl2AQmhKS11zsm0pm930araY2KtFU3WV1LsUYxQEY2ynoNblQ9skW0P91W1HoAKKgVhmvBSK8bYO67GUqswhzEBAW--1ka5Ue8tSG6LMzgEs0-hZ-3hwHMXYzWQL-_GPox70gxwnPYh7MO5A0vsk_QuL-6cQpz1wkXEYJ5Gt0k7zKvRtPivCXZHvGgUjM3FTDaCy9ISpyq9BJGn3tIDpz33DqvpWFbJ7ATAAPrwH2O8a9e9ImVSsCyUY_59ofwFt2Ei7SwUAAA&-pageDirection=NEXT"
         }
       ],
       "entry": [
@@ -3293,15 +3293,15 @@ module Cerner
         "resourceType" => "Bundle",
         "id" => "17207056-05f2-4e07-9770-77cbe0cbc8b0",
         "type" => "searchset",
-        "base" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+        "base" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
         "link" => [
             {
                 "relation" => "self",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&_count=10&date=%3E2014-09-24T12%3A00%3A00.000Z&date=%3C2015-09-24T12%3A00%3A00.000Z"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&_count=10&date=%3E2014-09-24T12%3A00%3A00.000Z&date=%3C2015-09-24T12%3A00%3A00.000Z"
             },
             {
                 "relation" => "next",
-                "url" => "https://fhir-open.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&pageContext=H4sIAAAAAAAAAJ1TbW%2BbMBD%2BK63zlSJDSLvxqYQ4GxJJEJhor0IWOKklsCNjqmZt%2F%2FvOoVVfpEnbENJxvueeO%2B4536OOs37QvOPSbD0Uolp1bs215Nrt%2BtvarVshRc1afgsI9xXaZR37paR7YHsh92508jK257GSht%2BZyfW50QMH8%2FeUtRaGa8HcnBstID4%2FEgsquImfQufXk0HLcOQLO9GEXHfugeteybCXDZf70L8KAuxhgPrYCy7wxws%2FoJ4fYgyvizH%2BNoZmfwidUt9VqZXmrlYtP2i1Ey1%2FrkV%2FDBhPm9RJFuOXB7lyaFsw86hI4iqiNE%2FmJSUFHJHlksQ02ZJqEVECB1GanuWkKFN6VtjIZn2CrTL6tUqTgr53crIkOVnHpMqj9SfiRKecKss322RBciferFZkTZ1tlJaW32oA5p9keKvsXDRC89oIJVlrBS4MM%2FyFek2%2B0Cou82KT27FeYuzPZlMnCD5M%2FSvseIF%2FCdbH9gHAjrW9Tctysk02ZfGS%2BjQ1aPVh8oCRg3pVC9Z%2BFr1R%2Bmi38x7VUHoPXtz0KPz%2B00EHZgT0nDToWXYHscHcKNiXI%2BzzKBOQad4y%2Bw%2F9jThYNOCsnNkoZ5ksAPzfmgP%2FTshmfszGdlBoh%2FPowHUarOfhx999w9l9awMAAA%3D%3D&direction=NEXT"
+                "url" => "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&pageContext=H4sIAAAAAAAAAJ1TbW%2BbMBD%2BK63zlSJDSLvxqYQ4GxJJEJhor0IWOKklsCNjqmZt%2F%2FvOoVVfpEnbENJxvueeO%2B4536OOs37QvOPSbD0Uolp1bs215Nrt%2BtvarVshRc1afgsI9xXaZR37paR7YHsh92508jK257GSht%2BZyfW50QMH8%2FeUtRaGa8HcnBstID4%2FEgsquImfQufXk0HLcOQLO9GEXHfugeteybCXDZf70L8KAuxhgPrYCy7wxws%2FoJ4fYgyvizH%2BNoZmfwidUt9VqZXmrlYtP2i1Ey1%2FrkV%2FDBhPm9RJFuOXB7lyaFsw86hI4iqiNE%2FmJSUFHJHlksQ02ZJqEVECB1GanuWkKFN6VtjIZn2CrTL6tUqTgr53crIkOVnHpMqj9SfiRKecKss322RBciferFZkTZ1tlJaW32oA5p9keKvsXDRC89oIJVlrBS4MM%2FyFek2%2B0Cou82KT27FeYuzPZlMnCD5M%2FSvseIF%2FCdbH9gHAjrW9Tctysk02ZfGS%2BjQ1aPVh8oCRg3pVC9Z%2BFr1R%2Bmi38x7VUHoPXtz0KPz%2B00EHZgT0nDToWXYHscHcKNiXI%2BzzKBOQad4y%2Bw%2F9jThYNOCsnNkoZ5ksAPzfmgP%2FTshmfszGdlBoh%2FPowHUarOfhx999w9l9awMAAA%3D%3D&direction=NEXT"
             }
         ],
         "entry" => [
