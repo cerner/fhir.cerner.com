@@ -26,16 +26,24 @@ _Implementation Notes_
 
 ### Parameters
 
- Name         | Required?                                                    | Type       | Description
---------------|--------------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`        | N, if populated all other parameters are ignored             | [`token`]  | The logical resource id associated with the resource.
- `birthdate`  | At least one parameter must be populated other than `_count` | [`date`]   | The patient's date of birth.  Example: `1961-01-16`
- `identifier` | At least one parameter must be populated other than `_count` | [`token`]  | A patient identifier.  Example: `01022228`
- `name`       | At least one parameter must be populated other than `_count` | [`string`] | A portion of either family or given name of the patient. Example: `Peters`
- `telecom`    | At least one parameter must be populated other than `_count` | [`token`]  | The value in any kind of telecom details of the patient. Example: `(816) 475-2374`
- [`_count`]   | N                                                            | [`number`] | The maximum number of results to return. Defaults to `20`.
+ Name         | Required?                                         | Type       | Description
+--------------|---------------------------------------------------|------------|-------------------------------------------------------------------------------------
+ `_id`        | No, if populated all other parameters are ignored | [`token`]  | The logical resource id associated with the resource.
+ `identifier` | Yes, or `_id`                                     | [`token`]  | A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`
+ `birthdate`  | Yes, or `name`, `telecom` or `_id`                | [`date`]   | The patient's date of birth.  Example: `1961-01-16`
+ `name`       | Yes, or `birthdate`, `telecom` or `_id`           | [`string`] | A portion of either family or given name of the patient. Example: `Peters`
+ `telecom`    | Yes, or `birthdate`, `name` or `_id`              | [`token`]  | The value in any kind of telecom details of the patient. Example: `(816) 475-2374`
+ [`_count`]   | No                                                | [`number`] | The maximum number of results to return. Defaults to `20`.
 
-Note: Parameters (other than `_id`) will currently perform a "fuzzy" search.
+Notes: 
+
+- Either the `_id`, `identifier` or a combination of `birthdate`, `name` and `telecom` parameters must be provided.
+- The `identifier`, `birthdate`, `name`, or `telecom` parameters may be provided exactly once and may have only a single value.
+
+### Limitations
+
+- The `birthdate`, `name` and `telecom` search parameters are only available for the tenant `d075cf8b-3261-481d-97e5-ba6c48d3b41f` and will perform a "fuzzy" search.
+
 
 ### Response
 
