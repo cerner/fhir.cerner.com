@@ -13,7 +13,7 @@ title: DocumentReference | MAY 2015 BALLOT API
 
 ## Create
 
-Create new documents. Only documents that would be classified as notes are currently supported.
+Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.
 
     POST /DocumentReference
 
@@ -29,6 +29,7 @@ To successfully POST a document, the following headers must be provided. Documen
 _Implementation Notes_
 
 * The [relatesTo](http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.relatesTo) modifier element is not supported and will be ignored if present.
+* Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked [here].
 
 <%= definition_table(:document_reference, :create, :may2015) %>
 
@@ -106,3 +107,5 @@ _Implementation Notes_
    x-runtime → 3.751004
    x-xss-protection → 1; mode=block
 </pre>
+
+[here]: https://html5.validator.nu/

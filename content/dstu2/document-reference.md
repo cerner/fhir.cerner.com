@@ -13,7 +13,7 @@ title: DocumentReference | DSTU 2 API
 
 ## Create
 
-Create new documents. Currently only XHTML formatted documents are supported. Only documents that need to be associated to the patient's chart should be written. Please validate your document is valid XHTML using any available validator like the one linked [here]. 
+Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot. 
 
     POST /DocumentReference
 
@@ -29,6 +29,7 @@ To successfully POST a document, the following headers must be provided. Documen
 _Implementation Notes_   
 
 * The [relatesTo] modifier element is not supported and will be ignored if present.
+* Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked [here].
 
 <%= definition_table(:document_reference, :create, :dstu2) %>
 

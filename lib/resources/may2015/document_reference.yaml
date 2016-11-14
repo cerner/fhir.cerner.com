@@ -129,7 +129,7 @@ fields:
     required: 'Yes'
     cardinality: 0..1
     type: string
-    description: Data inline, base64-ed
+    description: Data inline, base64 encoded XHTML.
     example: |
       {
         "content": [
@@ -138,6 +138,12 @@ fields:
           }
         ]
       }
+    note: >
+      You can validate your document using any available XHTML validator like the one linked
+      <a href="https://html5.validator.nu/">here</a>.
+      Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be
+      removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be
+      removed but the text within will remain.
     url: http://hl7.org/fhir/2015May/datatypes-definitions.html#Attachment.data
 
 - name: context
