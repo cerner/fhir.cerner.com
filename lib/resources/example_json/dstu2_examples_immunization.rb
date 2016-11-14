@@ -265,6 +265,82 @@ module Cerner
           }
         ]
       }
-      
+
+    DSTU2_IMMUNIZATION_1 ||=
+      {
+        "resourceType": "Immunization",
+        "id": "M22335399",
+        "meta": {
+           "versionId": "1",
+           "lastUpdated": "2016-05-03T10:41:40-0500"
+          },
+          "text": {
+            "status": "generated",
+            "div": "&lt;div>&lt;p>&lt;b>Immunization&lt;/b>&lt;/p>&lt;p>&lt;b>Vaccine&lt;/b>: haemophilus b conjugate (PRP-T) vaccine&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2013-12-11T11:41:00-0600&lt;/p>&lt;p>&lt;b>Given&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Administered by&lt;/b>: Dr. Who&lt;/p>&lt;p>&lt;b>Site&lt;/b>: Left Deltoid&lt;/p>&lt;p>&lt;b>Route&lt;/b>: ID&lt;/p>&lt;/div>"
+          },
+        "status": "completed",
+        "date": "2013-12-11T11:41:00-0600",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "48",
+              "display": "Hib (PRP-T)",
+              "userSelected": false
+            }
+          ],
+          "text": "haemophilus b conjugate (PRP-T) vaccine"
+         },
+        "patient": {
+          "reference": "Patient/2100031",
+          "display": "River Song"
+        },
+        "wasNotGiven": false,
+        "reported": false,
+        "performer": {
+          "reference": "Practitioner/7750958",
+          "display": "Dr. Who"
+        },
+        "encounter": {
+          "reference": "Encounter/6456569"
+        },
+        "manufacturer": {
+          "display": "Biovail Pharmaceuticals Inc"
+        },
+        "location": {
+          "reference": "Location/4048128",
+          "display": "Baseline East"
+        },
+        "lotNumber": "245",
+        "expirationDate": "2016-05-04",
+        "site": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "37622008",
+              "display": "deltoid region structure (body structure)",
+              "userSelected": false
+            }
+          ],
+          "text": "Left Deltoid"
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "http://ncimeta.nci.nih.gov",
+              "code": "C38238",
+              "display": "INTRADERMAL",
+              "userSelected": false
+            }
+          ],
+          "text": "ID"
+        },
+        "doseQuantity": {
+          "value": 1,
+          "unit": "mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
+        }
+      }
   end
 end
