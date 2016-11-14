@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Encounter | MAY 2015 BALLOT API</title>
+  <title>Person | DSTU 2 API</title>
   
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="dstu2_api">
   <div id="header">
 
   <div id="top-header">
@@ -40,7 +40,7 @@
         </ul>  
       </nav>
 
-      <a id="start-coding" href="..">Start Coding</a>
+      <a id="start-coding" href="../../may2015">Start Coding</a>
 
     </div>
 <!-- /.header-wrapper -->
@@ -51,8 +51,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
+        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -68,16 +68,17 @@
 
   <div class="sub-nav">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
     
   </div>
 
   <div id="wrapper">
     <div class="content">
       
-<h1 id="encounter">Encounter</h1>
+<h1 id="person">Person</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -91,11 +92,69 @@
   </li>
 </ul>
 
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.identifier">Person.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/v2/0203">v2 Identifier Type</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
-<p>Search for Encounters that meet supplied query parameters:</p>
+<p>Search for Persons that meet supplied query parameters:</p>
 
-<pre><code>GET /Encounter?:parameters
+<pre><code>GET /Person?:parameters
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
@@ -111,143 +170,99 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>patient</code></td>
-      <td>This or _id</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The patient present at the encounter. Example: <code>12345</code>
-</td>
+      <td><code>_id</code></td>
+      <td>No, if populated all other parameters are ignored</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
-      <td><code>_id</code></td>
-      <td>This or patient</td>
-      <td><a href="http://hl7.org/fhir/2015May/datatypes.html#id"><code>id</code></a></td>
-      <td>A single or comma separated list of Encounter ids. Example: <code>45678,89765</code>
+      <td><code>identifier</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The person identifier.  Example: <code>urn:oid:2.16.840.1.113883.3.13.6|01022228</code>
 </td>
     </tr>
   </tbody>
 </table>
 
+<p>Notes:</p>
+
+<ul>
+  <li>
+<code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
+</li>
+</ul>
+
 <h3 id="response">Response</h3>
 
-<pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/Person/14149269</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "2cd77130-032f-4354-921e-d05141ca2184",
+  "id": "a9c100d2-eb56-4500-9178-8cbab089c18e",
   "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?_id=3261906%2C2787906"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AAC193C1A-9763-45E1-9FA2-C1C3AA4BA16D%3APRINCIPAL%3AR53HZ5ZL9ZX"
     }
   ],
   "entry": [
     {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/14149269",
       "resource": {
-        "resourceType": "Encounter",
-        "id": "3261906",
+        "resourceType": "Person",
+        "id": "14149269",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2016-10-18T18:22:32.000Z"
+        },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: NOAH, SANDRA&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1958-10-01&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
             "use": "usual",
-            "system": "http://cerner.com/fhir/identifier/FINNBR",
-            "value": "20001427"
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:R53HZ5ZL9ZX",
+            "period": {
+              "start": "2016-01-01T10:00:00.000Z"
+            }
           }
         ],
-        "status": "in-progress",
-        "class": "outpatient",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "participant": [
+        "name": [
           {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "ATND",
-                    "display": "attender"
-                  }
-                ],
-                "text": "attender"
-              }
+            "use": "official",
+            "text": "NOAH, SANDRA",
+            "family": [
+              "NOAH"
             ],
-            "individual": {
-              "reference": "Practitioner/2386008",
-              "display": "Howser, Doogie"
-            }
-          }
-        ],
-        "period": {
-          "start": "2015-08-06T13:00:00.000Z"
-        },
-        "reason": [
-          {
-            "text": "Checkup"
-          }
-        ],
-        "location": [
-          {
-            "location": {
-              "display": "Outpatient Ctr"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "2787906",
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-01-05T22:50:48.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "in-progress",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "participant": [
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "ATND",
-                    "display": "attender"
-                  }
-                ],
-                "text": "attender"
-              }
+            "given": [
+              "SANDRA"
             ],
-            "individual": {
-              "reference": "Practitioner/1746007",
-              "display": "Who, Doctor"
+            "period": {
+              "start": "2016-10-18T17:31:01.000Z"
             }
           }
         ],
-        "period": {
-          "start": "2015-01-05T22:50:48.000Z"
-        },
-        "reason": [
-          {
-            "text": "pain"
-          }
-        ],
-        "location": [
-          {
-            "location": {
-              "display": "Baseline East"
-            }
-          }
-        ]
+        "gender": "female",
+        "birthDate": "1958-10-01",
+        "active": true
       }
     }
   ]
@@ -255,69 +270,66 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual Encounter by its id:</p>
+<p>List an individual Person by its id:</p>
 
-<pre><code>GET /Encounter/:id
+<pre><code>GET /Person/:id
 </code></pre>
 
 <h3 id="response-1">Response</h3>
 
-<pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/Person?identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:R53HZ5ZL8ZX</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Encounter",
-  "id": "3261906",
+  "resourceType": "Person",
+  "id": "14149269",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2016-10-18T18:22:32.000Z"
+  },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: NOAH, SANDRA&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1958-10-01&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
   "identifier": [
     {
       "use": "usual",
-      "system": "http://cerner.com/fhir/identifier/FINNBR",
-      "value": "20001427"
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:R53HZ5ZL9ZX",
+      "period": {
+        "start": "2016-01-01T10:00:00.000Z"
+      }
     }
   ],
-  "status": "in-progress",
-  "class": "outpatient",
-  "patient": {
-    "reference": "Patient/1316020"
-  },
-  "participant": [
+  "name": [
     {
-      "type": [
-        {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v3/ParticipationType",
-              "code": "ATND",
-              "display": "attender"
-            }
-          ],
-          "text": "attender"
-        }
+      "use": "official",
+      "text": "NOAH, SANDRA",
+      "family": [
+        "NOAH"
       ],
-      "individual": {
-        "reference": "Practitioner/2386008",
-        "display": "Howser, Doogie"
+      "given": [
+        "SANDRA"
+      ],
+      "period": {
+        "start": "2016-10-18T17:31:01.000Z"
       }
     }
   ],
-  "period": {
-    "start": "2015-08-06T13:00:00.000Z"
-  },
-  "reason": [
-    {
-      "text": "Checkup"
-    }
-  ],
-  "location": [
-    {
-      "location": {
-        "display": "Outpatient Ctr"
-      }
-    }
-  ]
+  "gender": "female",
+  "birthDate": "1958-10-01",
+  "active": true
 }</code></pre>
 
 
@@ -331,30 +343,39 @@
       </li>
       <li class="js-topic">
         <h3><a href="../authorization">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
+      </li>            
       <li class="js-topic">
-        <h3><a href="./">Encounter</a></h3>
+        <h3><a href="../encounter/">Encounter</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../immunization/">Immunization</a></h3>
       </li>
       <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
+        <h3><a href="../medication-order/">MedicationOrder</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../medication-statement/">MedicationStatement</a></h3>
@@ -364,6 +385,12 @@
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="./">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

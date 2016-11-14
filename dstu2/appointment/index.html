@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Appointment | DSTU 2 API</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+
+      <a id="start-coding" href="../../may2015">Start Coding</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
+        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="appointment">Appointment</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type">Appointment.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Additional details about where the content was created (e.g. clinical specialty).</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/c80-practice-codes">Practice Setting Code Value Set</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for Appointments that meet supplied query parameters:</p>
+
+<pre><code>GET /Appointment?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>Yes, or one of <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the Appointment. Example: <code>1234</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td>Yes when using <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The Appointment date/time. Example: <code>2016</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Patient references. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>practitioner</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Practitioner references. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>location</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Location references. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>A single or comma separated list of appointment statuses. Example: <code>arrived</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Defaults to <code>50</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+    <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination with the others.
+For example, <code>patient=1234,9876</code> is supported but <code>patient=1234&amp;patient=9876</code> and <code>patient=1234&amp;location=9876</code> are not.</p>
+  </li>
+  <li>
+    <p>The <code>date</code> parameter may be provided:</p>
+    <ul>
+      <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;date=2016</code>, <code>&amp;date=2016-07</code>, <code>&amp;date=2016-07-04</code>)</li>
+      <li>once without a prefix and with a time component to indicate a specific date/time. (e.g <code>&amp;date=2016-07-04T13:00:00.000-05:00</code>)</li>
+      <li>twice with the prefixes <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> to indicate a specific range. The date and prefix pairs must create a define
+an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2014-03-15&amp;date=le2017</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "07f58859-b408-419f-b2ec-c0e22e3a179a",
+  "type": "searchset",
+  "total": 3,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment?date=2014&amp;practitioner=18220111&amp;status=arrived&amp;_count=50"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/20977581",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "20977581",
+        "meta": {
+          "versionId": "10",
+          "lastUpdated": "2014-05-22T10:04:29.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2014-05-22T09:53:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2014-05-22T10:53:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Arrived&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: Headache&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Doctor, The&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "arrived",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            }
+          ],
+          "text": "Same Day"
+        },
+        "reason": {
+          "text": "Headache"
+        },
+        "description": "Same Day",
+        "start": "2014-05-22T09:53:00.000-05:00",
+        "end": "2014-05-22T10:53:00.000-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "Resource"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/18220111",
+              "display": "Doctor, The"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/22269261",
+              "display": "Song, River"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/40481281",
+              "display": "Baseline East"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/21057512",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "21057512",
+        "meta": {
+          "versionId": "11",
+          "lastUpdated": "2014-06-11T10:38:10.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Surgery&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Surgery&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2014-05-29T12:30:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2014-05-29T14:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 90&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Arrived&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Main OR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Doctor, The&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participant&lt;/b&gt;: OR 011&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "arrived",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394609007",
+              "display": "Surgery-general",
+              "userSelected": false
+            }
+          ],
+          "text": "Surgery"
+        },
+        "description": "Surgery",
+        "start": "2014-05-29T12:30:00.000-05:00",
+        "end": "2014-05-29T14:00:00.000-05:00",
+        "minutesDuration": 90,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "OR Rooms"
+              }
+            ],
+            "actor": {
+              "display": "OR 011"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/22269261",
+              "display": "Song, River"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Surgeon1"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/18220111",
+              "display": "Doctor, The"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/667007",
+              "display": "Main OR"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Appointment/213776",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "213776",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2014-06-19T12:12:28.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Surgery&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Surgery&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2014-06-18T10:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2014-06-18T11:30:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 90&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Arrived&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Main OR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Doctor, The&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participant&lt;/b&gt;: OR 011&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "arrived",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394609007",
+              "display": "Surgery-general",
+              "userSelected": false
+            }
+          ],
+          "text": "Surgery"
+        },
+        "description": "Surgery",
+        "start": "2014-06-18T10:00:00.000-05:00",
+        "end": "2014-06-18T11:30:00.000-05:00",
+        "minutesDuration": 90,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "OR Rooms"
+              }
+            ],
+            "actor": {
+              "display": "OR 011"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/21260141",
+              "display": "Williams, Rory"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Surgeon1"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/18220111",
+              "display": "Doctor, The"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/667007",
+              "display": "Main OR"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Appointment by its id:</p>
+
+<pre><code>GET /Appointment/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Appointment",
+  "id": "20977581",
+  "meta": {
+    "versionId": "10",
+    "lastUpdated": "2014-05-22T10:04:29.000-05:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2014-05-22T09:53:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2014-05-22T10:53:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Arrived&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: Headache&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Doctor, The&lt;/p&gt;&lt;/div&gt;"
+  },
+  "status": "arrived",
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "394581000",
+        "display": "Community medicine",
+        "userSelected": false
+      }
+    ],
+    "text": "Same Day"
+  },
+  "reason": {
+    "text": "Headache"
+  },
+  "description": "Same Day",
+  "start": "2014-05-22T09:53:00.000-05:00",
+  "end": "2014-05-22T10:53:00.000-05:00",
+  "minutesDuration": 60,
+  "participant": [
+    {
+      "type": [
+        {
+          "text": "Resource"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/ParticipationType",
+              "code": "PPRF",
+              "display": "primary performer",
+              "userSelected": false
+            }
+          ]
+        }
+      ],
+      "actor": {
+        "reference": "Practitioner/18220111",
+        "display": "Doctor, The"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "type": [
+        {
+          "text": "Patient"
+        }
+      ],
+      "actor": {
+        "reference": "Patient/22269261",
+        "display": "Song, River"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/4048128",
+        "display": "Baseline East"
+      },
+      "required": "required",
+      "status": "accepted"
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../">Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization">Authorization</a></h3>
+      </li> 
+      <li class="js-topic">
+        <h3><a href="../conformance/">Conformance Metadata</a></h3>
+      </li>     
+      <li class="js-topic">
+        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
+      </li>
+      <li class="js-topic">
+          <h3><a href="./">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
+        <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../document-reference/">DocumentReference</a></h3>
+      </li>            
+      <li class="js-topic">
+        <h3><a href="../encounter/">Encounter</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../immunization/">Immunization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-order/">MedicationOrder</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

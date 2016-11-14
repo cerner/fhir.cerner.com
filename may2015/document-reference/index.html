@@ -158,7 +158,7 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create new documents. Only documents that would be classified as notes are currently supported.</p>
+<p>Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.</p>
 
 <pre><code>POST /DocumentReference
 </code></pre>
@@ -177,6 +177,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 
 <ul>
   <li>The <a href="http://hl7.org/fhir/2015May/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> modifier element is not supported and will be ignored if present.</li>
+  <li>Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>.</li>
 </ul>
 
 <table style="white-space: normal">
@@ -559,7 +560,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Data inline, base64-ed</li></ul>
+        <ul style="list-style-type: none"><li>Data inline, base64 encoded XHTML.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -572,6 +573,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 }
 </pre></li></ul>
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>. Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be removed but the text within will remain.
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -788,7 +793,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
    access-control-max-age → 0
    cache-control → no-cache
-   location → https://fhir.sandboxcernerpowerchart.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789258
+   location → https://fhir-ehr.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789258
    server-response-time → 3751.0383859999997
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding
@@ -798,6 +803,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
    x-runtime → 3.751004
    x-xss-protection → 1; mode=block
 </pre>
+
 
     </div>
 

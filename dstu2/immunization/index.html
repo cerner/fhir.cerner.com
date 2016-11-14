@@ -85,6 +85,11 @@
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -270,8 +275,17 @@
       <td>The patient for the vaccination record. Example: <code>12345</code>
 </td>
     </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>Date range into which the immunization administration date falls. Must be prefixed by ‘ge’ or ‘le’.</td>
+    </tr>
   </tbody>
 </table>
+
+<p>Notes:
+ - The <code>date</code> parameter value should be prefixed once by ‘ge’ representing the earliest date, and once by ‘le’ representing the latest date. Examples: <code>date=ge2015-01-01&amp;date=le2016-01-01</code>, <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code></p>
 
 <h3 id="response">Response</h3>
 
@@ -285,12 +299,12 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2100031"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization?patient=2100031"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335399",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335399",
       "resource": {
         "resourceType": "Immunization",
         "id": "M22335399",
@@ -368,7 +382,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335324",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335324",
       "resource": {
         "resourceType": "Immunization",
         "id": "M22335324",
@@ -437,7 +451,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335052",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/M22335052",
       "resource": {
         "resourceType": "Immunization",
         "id": "M22335052",
@@ -494,7 +508,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM4234847",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Immunization/HM4234847",
       "resource": {
         "resourceType": "Immunization",
         "id": "HM4234847",
@@ -541,6 +555,93 @@
   ]
 }</code></pre>
 
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Immunization by its id:</p>
+
+<pre><code>GET /Immunization/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Immunization",
+  "id": "M22335399",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2016-05-03T10:41:40-0500"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: haemophilus b conjugate (PRP-T) vaccine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2013-12-11T11:41:00-0600&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Dr. Who&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Deltoid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: ID&lt;/p&gt;&lt;/div&gt;"
+  },
+  "status": "completed",
+  "date": "2013-12-11T11:41:00-0600",
+  "vaccineCode": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/cvx",
+        "code": "48",
+        "display": "Hib (PRP-T)",
+        "userSelected": false
+      }
+    ],
+    "text": "haemophilus b conjugate (PRP-T) vaccine"
+  },
+  "patient": {
+    "reference": "Patient/2100031",
+    "display": "River Song"
+  },
+  "wasNotGiven": false,
+  "reported": false,
+  "performer": {
+    "reference": "Practitioner/7750958",
+    "display": "Dr. Who"
+  },
+  "encounter": {
+    "reference": "Encounter/6456569"
+  },
+  "manufacturer": {
+    "display": "Biovail Pharmaceuticals Inc"
+  },
+  "location": {
+    "reference": "Location/4048128",
+    "display": "Baseline East"
+  },
+  "lotNumber": "245",
+  "expirationDate": "2016-05-04",
+  "site": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "37622008",
+        "display": "deltoid region structure (body structure)",
+        "userSelected": false
+      }
+    ],
+    "text": "Left Deltoid"
+  },
+  "route": {
+    "coding": [
+      {
+        "system": "http://ncimeta.nci.nih.gov",
+        "code": "C38238",
+        "display": "INTRADERMAL",
+        "userSelected": false
+      }
+    ],
+    "text": "ID"
+  },
+  "doseQuantity": {
+    "value": 1,
+    "unit": "mL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mL"
+  }
+}</code></pre>
+
 
     </div>
 
@@ -552,15 +653,24 @@
       </li>
       <li class="js-topic">
         <h3><a href="../authorization">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
@@ -585,6 +695,12 @@
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

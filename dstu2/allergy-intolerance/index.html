@@ -86,11 +86,16 @@
     </ul>
   </li>
   <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
       <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
     </ul>
   </li>
   <li>
@@ -98,7 +103,7 @@
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-body-1" id="markdown-toc-example-body-1">Example Body</a></li>
-      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
+      <li><a href="#response-3" id="markdown-toc-response-3">Response</a></li>
     </ul>
   </li>
 </ul>
@@ -237,8 +242,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code>, if populated all other parameters are not allowed</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
+      <td>This or <code>_id</code>
+</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>Who the sensitivity is for. Example: <code>12345</code>
 </td>
@@ -256,7 +269,8 @@
 
 <h3 id="response">Response</h3>
 
-<pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by patient</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -266,12 +280,12 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
       "resource": {
         "resourceType": "AllergyIntolerance",
         "id": "2759741",
@@ -301,7 +315,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3643739",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3643739",
       "resource": {
         "resourceType": "AllergyIntolerance",
         "id": "3643739",
@@ -339,7 +353,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3643731",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/3643731",
       "resource": {
         "resourceType": "AllergyIntolerance",
         "id": "3643731",
@@ -377,6 +391,155 @@
       }
     }
   ]
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by patient and status</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "ae87133e-a1ee-11e6-80f5-76304dec7eb7",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010?status=active"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "2759741",
+        "meta": {
+          "versionId": "2759741",
+          "lastUpdated": "2014-09-24T23:16:54.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Peanuts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Food&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+        },
+        "recordedDate": "2014-09-24T18:16:54.000",
+        "recorder": {
+          "reference": "Practitioner/2770007",
+          "display": "Song, River"
+        },
+        "patient": {
+          "reference": "Patient/2744010",
+          "display": "RHEUM, TEST ONE"
+        },
+        "substance": {
+          "text": "Peanuts"
+        },
+        "status": "active",
+        "type": "allergy",
+        "category": "food"
+      }
+    }
+  ]
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "d98fd4d0-a1ee-11e6-80f5-76304dec7eb7",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?_id=3643739"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/2759741",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "3643739",
+        "meta": {
+          "versionId": "3643739",
+          "lastUpdated": "2015-03-11T20:36:08.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+        },
+        "recordedDate": "2015-03-11T15:36:08.000",
+        "recorder": {
+          "reference": "Practitioner/3270007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/2744010",
+          "display": "RHEUM, TEST ONE"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "390952000",
+              "display": "Dust allergy (disorder)",
+              "userSelected": true
+            }
+          ],
+          "text": "Dust allergy"
+        },
+        "status": "active",
+        "type": "allergy",
+        "category": "environment"
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual AllergyIntolerance by its id:</p>
+
+<pre><code>GET /AllergyIntolerance/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "AllergyIntolerance",
+  "id": "3643739",
+  "meta": {
+    "versionId": "3643739",
+    "lastUpdated": "2015-03-11T20:36:08.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+  },
+  "recordedDate": "2015-03-11T15:36:08.000",
+  "recorder": {
+    "reference": "Practitioner/3270007",
+    "display": "Who, Doctor"
+  },
+  "patient": {
+    "reference": "Patient/2744010",
+    "display": "RHEUM, TEST ONE"
+  },
+  "substance": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "390952000",
+        "display": "Dust allergy (disorder)",
+        "userSelected": true
+      }
+    ],
+    "text": "Dust allergy"
+  },
+  "status": "active",
+  "type": "allergy",
+  "category": "environment"
 }</code></pre>
 
 <h2 id="create">Create</h2>
@@ -1173,7 +1336,7 @@ Manifestation with a freetext value:
   }
 }</code></pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1192,7 +1355,7 @@ Manifestation with a freetext value:
     access-control-max-age → 0
     cache-control → no-cache
     etag → W/"35502191"
-    location → https://fhir.sandboxcernerpowerchart.com/dstu2/9e2aaa6d-3811-4d84-b5f9-93ccf529eefa/AllergyIntolerance/35502191
+    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/35502191
     server-response-time → 1260.984596
     strict-transport-security → max-age=631152000
     vary → Origin,User-Agent,Accept-Encoding
@@ -2073,7 +2236,7 @@ Manifestation with a freetext value:
   }
 }</code></pre>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2113,15 +2276,24 @@ Manifestation with a freetext value:
       </li>
       <li class="js-topic">
         <h3><a href="../authorization">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="./">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
@@ -2146,6 +2318,12 @@ Manifestation with a freetext value:
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

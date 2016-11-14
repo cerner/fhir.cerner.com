@@ -83,6 +83,7 @@
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#limitations" id="markdown-toc-limitations">Limitations</a></li>
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
@@ -221,29 +222,29 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>N, if populated all other parameters are ignored</td>
+      <td>No, if populated all other parameters are ignored</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
+      <td><code>identifier</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>A patient identifier.  Example: <code>urn:oid:1.1.1.1.1.1|1022228</code>
+</td>
+    </tr>
+    <tr>
       <td><code>birthdate</code></td>
-      <td>At least one parameter must be populated other than <code>_count</code>
+      <td>Yes, or <code>name</code>, <code>telecom</code> or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
       <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
 </td>
     </tr>
     <tr>
-      <td><code>identifier</code></td>
-      <td>At least one parameter must be populated other than <code>_count</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>A patient identifier.  Example: <code>01022228</code>
-</td>
-    </tr>
-    <tr>
       <td><code>name</code></td>
-      <td>At least one parameter must be populated other than <code>_count</code>
+      <td>Yes, or <code>birthdate</code>, <code>telecom</code> or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
       <td>A portion of either family or given name of the patient. Example: <code>Peters</code>
@@ -251,7 +252,7 @@
     </tr>
     <tr>
       <td><code>telecom</code></td>
-      <td>At least one parameter must be populated other than <code>_count</code>
+      <td>Yes, or <code>birthdate</code>, <code>name</code> or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The value in any kind of telecom details of the patient. Example: <code>(816) 475-2374</code>
@@ -259,14 +260,25 @@
     </tr>
     <tr>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Note: Parameters (other than <code>_id</code>) will currently perform a “fuzzy” search.</p>
+<p>Notes:</p>
+
+<ul>
+  <li>Either the <code>_id</code>, <code>identifier</code> or a combination of <code>birthdate</code>, <code>name</code> and <code>telecom</code> parameters must be provided.</li>
+  <li>The <code>identifier</code>, <code>birthdate</code>, <code>name</code>, or <code>telecom</code> parameters may be provided exactly once and may have only a single value.</li>
+</ul>
+
+<h3 id="limitations">Limitations</h3>
+
+<ul>
+  <li>The <code>birthdate</code>, <code>name</code> and <code>telecom</code> search parameters are only available for the tenant <code>d075cf8b-3261-481d-97e5-ba6c48d3b41f</code> and will perform a “fuzzy” search.</li>
+</ul>
 
 <h3 id="response">Response</h3>
 
@@ -280,12 +292,12 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Carr&amp;_count=20"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Carr&amp;_count=20"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/9827347",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/9827347",
       "resource": {
         "resourceType": "Patient",
         "id": "9827347",
@@ -447,7 +459,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/12389912",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/12389912",
       "resource": {
         "resourceType": "Patient",
         "id": "12389912",
@@ -737,15 +749,24 @@
       </li>
       <li class="js-topic">
         <h3><a href="../authorization">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
@@ -770,6 +791,12 @@
       </li>
       <li class="js-topic">
         <h3><a href="./">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

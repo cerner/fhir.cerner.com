@@ -82,17 +82,9 @@
 <p>The Cerner Authorization Server currently supports <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a> <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR<sup>®</sup></a> launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.</p>
 
 <h3 id="registration">Registration</h3>
-<p>In order for your client application to utilize any protected resources, your client application must first register. To do this please <a href="http://www.cerner.com/FHIR_Application_Authorization_Request/">contact us</a> with the following fields, all fields are <strong>required</strong>.</p>
+<p>In order for your client application to utilize any protected resources, your client application must first register using our <a href="https://code.cerner.com/developer/smart-on-fhir/">code console</a>. A Cerner Care account is required to register applications. Obtaining a Cerner Care account is free and requires nothing but an email address.</p>
 
-<ul>
-  <li>Name - Application name, this should match what the name of the app will be in the app store</li>
-  <li>Redirect/Callback URI</li>
-  <li>Email address</li>
-  <li>Logo URI - The logo will need to be a <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">Scalable Vector Graphics</a> image</li>
-  <li>SMART Launch URI</li>
-</ul>
-
-<p>Once approved, a <strong>client identifier</strong> will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.</p>
+<p>Once registered, a <strong>client identifier</strong> will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.</p>
 
 <h3 id="supported-scopes">Supported Scopes</h3>
 <p>The Cerner Authorization Server supports many, but not all, of the <a href="http://docs.smarthealthit.org/authorization/">SMART</a> or <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OAuth/OpenID Connect</a> scopes. The following scopes are <strong>supported</strong>.</p>
@@ -253,7 +245,7 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
   <li>
 <strong>urn:cerner:error:authorization-server:oauth2:grant:invalid-patient-id</strong> - The patient id does not exist or the user does not have access to the selected patient id’s records.</li>
   <li>
-<strong>urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error</strong> - A server error was received from the authorized representative service.<br>
+<strong>urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error</strong> - A server error was received from the authorized representative service.
 <br>
 </li>
   <li>
@@ -285,7 +277,7 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
   <li>
 <strong>urn:cerner:error:authorization-server:oauth2:token:client-not-enabled-for-testing</strong> - The client is not enabled for obtaining testing tokens on behalf of users.</li>
   <li>
-<strong>urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario</strong> - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.<br>
+<strong>urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario</strong> - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.
 <br>
 </li>
   <li>
@@ -293,7 +285,7 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
   <li>
 <strong>urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid</strong> - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.</li>
   <li>
-<strong>urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated</strong> - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.<br>
+<strong>urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated</strong> - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
 <br>
 </li>
   <li>
@@ -313,7 +305,7 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
   <li>
 <strong>urn:cerner:error:authorization-server:smart-v1:grant:launch:unregistered-service</strong> - The launch resolution service was not configured for a given tenant.</li>
   <li>
-<strong>urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed</strong> - The audience resource requested is not approved.<br>
+<strong>urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed</strong> - The audience resource requested is not approved.
 <br>
 </li>
   <li>
@@ -339,15 +331,24 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
       </li>
       <li class="js-topic">
         <h3><a href=".">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
@@ -372,6 +373,12 @@ grant_type=refresh_token&amp;refresh_token={REFRESH_TOKEN}
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

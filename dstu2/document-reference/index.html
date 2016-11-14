@@ -158,7 +158,7 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create new documents. Only documents that would be classified as notes are currently supported.</p>
+<p>Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.</p>
 
 <pre><code>POST /DocumentReference
 </code></pre>
@@ -176,7 +176,9 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> modifier element is not supported and will be ignored if present.</li>
+  <li>The modifier elements <a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>, <a href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> and <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> are not supported and will be rejected if
+present.</li>
+  <li>Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>.</li>
 </ul>
 
 <table style="white-space: normal">
@@ -305,7 +307,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
         
         
       </td>
-      <td>Yes </td>
+      <td>No </td>
       <td>0..1 </td>
       <td>
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
@@ -328,6 +330,9 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 }
 </pre></li></ul>
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If author is not provided, the author will be determined based on the access token.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -600,7 +605,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Data inline, base64-ed</li></ul>
+        <ul style="list-style-type: none"><li>Data inline, base64 encoded XHTML.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -615,6 +620,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 }
 </pre></li></ul>
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>. Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be removed but the text within will remain.
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -796,7 +805,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
    access-control-max-age → 0
    cache-control → no-cache
-   location → https://fhir.sandboxcernerpowerchart.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789254
+   location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789254
    server-response-time → 5497.564885
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding
@@ -818,15 +827,24 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       </li>
       <li class="js-topic">
         <h3><a href="../authorization">Authorization</a></h3>
-      </li>
+      </li> 
       <li class="js-topic">
         <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
+      </li>     
       <li class="js-topic">
         <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
       </li>
       <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>          
+      <li class="js-topic">
         <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
@@ -851,6 +869,12 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->
