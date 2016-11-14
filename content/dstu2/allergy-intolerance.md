@@ -19,11 +19,11 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required?                                                          | Type          | Description
------------|--------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
- `_id`     | This or patient, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient` | This or `_id`                                                      | [`reference`] | Who the sensitivity is for. Example: `12345`
- `status`  | N                                                                  | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
+ Name      | Required?                                                            | Type          | Description
+-----------|----------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
+ `_id`     | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
+ `patient` | This or `_id`                                                        | [`reference`] | Who the sensitivity is for. Example: `12345`
+ `status`  | N                                                                    | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
 
 ### Response
 
