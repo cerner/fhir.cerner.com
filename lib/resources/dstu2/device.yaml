@@ -1,0 +1,32 @@
+---
+name: Device
+field_name_base_url: http://hl7.org/fhir/DSTU2/device-definitions.html#Device
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: Identifier(s) from manufacturer, owner and others.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    url: http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      note: Currently will return SNO code from the below system.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+
+- name: type
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: The specific kind of device.
+  binding:
+    description: The type of device.
+    note: Currently not bound to any terminology and only 'Device.type.text' will be returned as of now.
