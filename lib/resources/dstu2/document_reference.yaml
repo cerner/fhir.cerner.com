@@ -46,7 +46,7 @@ fields:
       - 68608-9 - Summary Note
 
 - name: author
-  required: 'Yes'
+  required: 'No'
   cardinality: 0..1
   type: Reference (Practitioner)
   description: Who and/or what authored the document
@@ -58,6 +58,7 @@ fields:
         }
       ]
     }
+  note: If author is not provided, the author will be determined based on the access token.
 
 - name: indexed
   required: 'Yes'

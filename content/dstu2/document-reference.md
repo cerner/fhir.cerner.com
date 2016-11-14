@@ -13,7 +13,7 @@ title: DocumentReference | DSTU 2 API
 
 ## Create
 
-Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot. 
+Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.
 
     POST /DocumentReference
 
@@ -28,7 +28,8 @@ To successfully POST a document, the following headers must be provided. Documen
 
 _Implementation Notes_   
 
-* The [relatesTo] modifier element is not supported and will be ignored if present.
+* The modifier elements [implicitRules], [modifierExtension] and [relatesTo] are not supported and will be rejected if
+present.
 * Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked [here].
 
 <%= definition_table(:document_reference, :create, :dstu2) %>
@@ -109,5 +110,7 @@ _Implementation Notes_
    x-xss-protection → 1; mode=block
 </pre>
 
+[implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
+[modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [here]: https://html5.validator.nu/
