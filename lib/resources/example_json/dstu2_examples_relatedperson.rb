@@ -3,13 +3,13 @@ module Cerner
 
     DSTU2_RELATEDPERSON_ENTRY ||= {
       "resourceType": "RelatedPerson",
-      "id": "11325025",
+      "id": "5796399",
       "meta": {
-        "versionId": "3"
+        "versionId": "30"
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>RelatedPerson&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, GEORGE&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1960-03-15&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;/div>"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
         {
@@ -26,70 +26,121 @@ module Cerner
             "text": "Federated Person Principal"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.6",
-          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
           "period": {
-            "start": "2016-01-01T10:00:00.000Z"
+            "start": "2016-11-01T10:00:00.000Z"
+          }
+        },
+        {
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0203",
+                "code": "AN",
+                "display": "Account number",
+                "userSelected": false
+              }
+            ],
+            "text": "Federated Person Principal"
+          },
+          "system": "urn:oid:2.16.840.1.113883.3.13.6",
+          "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
+          "period": {
+            "start": "2016-11-01T10:00:00.000Z"
           }
         }
       ],
       "patient": {
-        "reference": "Patient/14067892",
-        "display": "NOAH, BRANDON"
-      },
-      "relationship": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v3/RoleCode",
-            "code": "SONC",
-            "display": "son",
-            "userSelected": false
-          }
-        ],
-        "text": "Son"
+        "reference": "Patient/3838011",
+        "display": "Peters, Timothy"
       },
       "name": {
         "use": "official",
-        "text": "NOAH, GEORGE",
+        "text": "PETERS, TIMOTHY",
         "family": [
-          "NOAH"
+          "PETERS"
         ],
         "given": [
-          "GEORGE"
+          "TIMOTHY"
         ],
         "period": {
-          "start": "2016-10-14T21:19:33.000Z"
+          "start": "2012-05-17T14:54:31.000Z"
         }
       },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "1231231231",
+          "use": "work",
+          "period": {
+            "start": "2013-03-11T07:17:03.000Z"
+          }
+        },
+        {
+          "system": "phone",
+          "value": "8168229121",
+          "use": "home",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        },
+        {
+          "system": "phone",
+          "value": "8162324455",
+          "use": "mobile",
+          "period": {
+            "start": "2013-01-30T14:56:59.000Z"
+          }
+        }
+      ],
       "gender": "male",
-      "birthDate": "1960-03-15",
+      "birthDate": "1961-04-30",
+      "address": [
+        {
+          "use": "home",
+          "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
+          "line": [
+            "9430 Blue Ridge Blvd"
+          ],
+          "city": "Kansas City",
+          "district": "Jackson",
+          "state": "MO",
+          "postalCode": "64199",
+          "country": "USA",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ],
       "period": {
-        "start": "2016-10-14T21:23:59.000Z"
+        "start": "2015-10-30T06:50:09.000Z"
       }
     }
 
     DSTU2_RELATEDPERSON_BUNDLE ||= {
       "resourceType": "Bundle",
-      "id": "76f9d039-9829-4e8b-b4b3-1cf44a9f3a08",
+      "id": "be20eb42-4ce3-47bd-a657-a9de36603300",
       "type": "searchset",
-      "total": 4,
+      "total": 1,
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AAC193C1A-9763-45E1-9FA2-C1C3AA4BA16D%3APRINCIPAL%3API98N2FK5TN"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/11325025",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/5796399",
           "resource": {
             "resourceType": "RelatedPerson",
-            "id": "11325025",
+            "id": "5796399",
             "meta": {
-              "versionId": "3"
+              "versionId": "30"
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>RelatedPerson&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, GEORGE&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1960-03-15&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;/div>"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
             },
             "identifier": [
               {
@@ -106,60 +157,11 @@ module Cerner
                   "text": "Federated Person Principal"
                 },
                 "system": "urn:oid:2.16.840.1.113883.3.13.6",
-                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
                 "period": {
-                  "start": "2016-01-01T10:00:00.000Z"
+                  "start": "2016-11-01T10:00:00.000Z"
                 }
-              }
-            ],
-            "patient": {
-              "reference": "Patient/14067892",
-              "display": "NOAH, BRANDON"
-            },
-            "relationship": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/RoleCode",
-                  "code": "SONC",
-                  "display": "son",
-                  "userSelected": false
-                }
-              ],
-              "text": "Son"
-            },
-            "name": {
-              "use": "official",
-              "text": "NOAH, GEORGE",
-              "family": [
-                "NOAH"
-              ],
-              "given": [
-                "GEORGE"
-              ],
-              "period": {
-                "start": "2016-10-14T21:19:33.000Z"
-              }
-            },
-            "gender": "male",
-            "birthDate": "1960-03-15",
-            "period": {
-              "start": "2016-10-14T21:23:59.000Z"
-            }
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/11324863",
-          "resource": {
-            "resourceType": "RelatedPerson",
-            "id": "11324863",
-            "meta": {
-              "versionId": "3"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>RelatedPerson&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, GEORGE&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1960-03-15&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;/div>"
-            },
-            "identifier": [
+              },
               {
                 "use": "usual",
                 "type": {
@@ -174,158 +176,76 @@ module Cerner
                   "text": "Federated Person Principal"
                 },
                 "system": "urn:oid:2.16.840.1.113883.3.13.6",
-                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+                "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
                 "period": {
-                  "start": "2016-01-01T10:00:00.000Z"
+                  "start": "2016-11-01T10:00:00.000Z"
                 }
               }
             ],
             "patient": {
-              "reference": "Patient/14067775",
-              "display": "NOAH, SALLY"
-            },
-            "relationship": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/RoleCode",
-                  "code": "DAUC",
-                  "display": "daughter",
-                  "userSelected": false
-                }
-              ],
-              "text": "Daughter"
+              "reference": "Patient/3838011",
+              "display": "Peters, Timothy"
             },
             "name": {
               "use": "official",
-              "text": "NOAH, GEORGE",
+              "text": "PETERS, TIMOTHY",
               "family": [
-                "NOAH"
+                "PETERS"
               ],
               "given": [
-                "GEORGE"
+                "TIMOTHY"
               ],
               "period": {
-                "start": "2016-10-14T21:19:33.000Z"
+                "start": "2012-05-17T14:54:31.000Z"
               }
             },
-            "gender": "male",
-            "birthDate": "1960-03-15",
-            "period": {
-              "start": "2016-10-14T21:20:53.000Z"
-            }
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/11325027",
-          "resource": {
-            "resourceType": "RelatedPerson",
-            "id": "11325027",
-            "meta": {
-              "versionId": "3"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>RelatedPerson&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, GEORGE&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1960-03-15&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;/div>"
-            },
-            "identifier": [
+            "telecom": [
               {
-                "use": "usual",
-                "type": {
-                  "coding": [
-                    {
-                      "system": "http://hl7.org/fhir/v2/0203",
-                      "code": "AN",
-                      "display": "Account number",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Federated Person Principal"
-                },
-                "system": "urn:oid:2.16.840.1.113883.3.13.6",
-                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+                "system": "phone",
+                "value": "1231231231",
+                "use": "work",
                 "period": {
-                  "start": "2016-01-01T10:00:00.000Z"
+                  "start": "2013-03-11T07:17:03.000Z"
                 }
-              }
-            ],
-            "patient": {
-              "reference": "Patient/14067892",
-              "display": "NOAH, BRANDON"
-            },
-            "name": {
-              "use": "official",
-              "text": "NOAH, GEORGE",
-              "family": [
-                "NOAH"
-              ],
-              "given": [
-                "GEORGE"
-              ],
-              "period": {
-                "start": "2016-10-14T21:19:33.000Z"
-              }
-            },
-            "gender": "male",
-            "birthDate": "1960-03-15",
-            "period": {
-              "start": "2016-10-14T21:23:59.000Z"
-            }
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/11324865",
-          "resource": {
-            "resourceType": "RelatedPerson",
-            "id": "11324865",
-            "meta": {
-              "versionId": "3"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>RelatedPerson&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, GEORGE&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1960-03-15&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;/div>"
-            },
-            "identifier": [
+              },
               {
-                "use": "usual",
-                "type": {
-                  "coding": [
-                    {
-                      "system": "http://hl7.org/fhir/v2/0203",
-                      "code": "AN",
-                      "display": "Account number",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Federated Person Principal"
-                },
-                "system": "urn:oid:2.16.840.1.113883.3.13.6",
-                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+                "system": "phone",
+                "value": "8168229121",
+                "use": "home",
                 "period": {
-                  "start": "2016-01-01T10:00:00.000Z"
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              },
+              {
+                "system": "phone",
+                "value": "8162324455",
+                "use": "mobile",
+                "period": {
+                  "start": "2013-01-30T14:56:59.000Z"
                 }
               }
             ],
-            "patient": {
-              "reference": "Patient/14067775",
-              "display": "NOAH, SALLY"
-            },
-            "name": {
-              "use": "official",
-              "text": "NOAH, GEORGE",
-              "family": [
-                "NOAH"
-              ],
-              "given": [
-                "GEORGE"
-              ],
-              "period": {
-                "start": "2016-10-14T21:19:33.000Z"
-              }
-            },
             "gender": "male",
-            "birthDate": "1960-03-15",
+            "birthDate": "1961-04-30",
+            "address": [
+              {
+                "use": "home",
+                "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
+                "line": [
+                  "9430 Blue Ridge Blvd"
+                ],
+                "city": "Kansas City",
+                "district": "Jackson",
+                "state": "MO",
+                "postalCode": "64199",
+                "country": "USA",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ],
             "period": {
-              "start": "2016-10-14T21:20:53.000Z"
+              "start": "2015-10-30T06:50:09.000Z"
             }
           }
         }

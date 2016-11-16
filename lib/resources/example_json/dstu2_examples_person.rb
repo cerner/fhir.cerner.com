@@ -3,14 +3,14 @@ module Cerner
 
     DSTU2_PERSON_ENTRY ||= {
       "resourceType": "Person",
-      "id": "14149269",
+      "id": "4342009",
       "meta": {
-        "versionId": "1",
-        "lastUpdated": "2016-10-18T18:22:32.000Z"
+        "versionId": "3",
+        "lastUpdated": "2016-11-11T18:10:13.000Z"
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, SANDRA&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1958-10-01&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Female&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
         {
@@ -27,57 +27,76 @@ module Cerner
             "text": "Federated Person Principal"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.6",
-          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:R53HZ5ZL9ZX",
+          "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:YP2qT7jS2sa",
           "period": {
-            "start": "2016-01-01T10:00:00.000Z"
+            "start": "2016-11-01T10:00:00.000Z"
+          }
+        },
+        {
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0203",
+                "code": "AN",
+                "display": "Account number",
+                "userSelected": false
+              }
+            ],
+            "text": "Federated Person Principal"
+          },
+          "system": "urn:oid:2.16.840.1.113883.3.13.6",
+          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:YP2QT7JS2SA",
+          "period": {
+            "start": "2016-11-01T10:00:00.000Z"
           }
         }
       ],
       "name": [
         {
           "use": "official",
-          "text": "NOAH, SANDRA",
+          "text": "Smart, Nancy",
           "family": [
-            "NOAH"
+            "Smart"
           ],
           "given": [
-            "SANDRA"
+            "Nancy"
           ],
           "period": {
-            "start": "2016-10-18T17:31:01.000Z"
+            "start": "2016-06-22T20:43:05.000Z"
           }
         }
       ],
       "gender": "female",
-      "birthDate": "1958-10-01",
+      "birthDate": "1980-08-11",
       "active": true
     }
 
-    
+
     DSTU2_PERSON_BUNDLE ||= {
       "resourceType": "Bundle",
-      "id": "a9c100d2-eb56-4500-9178-8cbab089c18e",
+      "id": "7e466362-8165-4aee-aad4-438e6b147689",
       "type": "searchset",
       "total": 1,
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AAC193C1A-9763-45E1-9FA2-C1C3AA4BA16D%3APRINCIPAL%3AR53HZ5ZL9ZX"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AuH3IW35N5RE"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/14149269",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/4478007",
           "resource": {
             "resourceType": "Person",
-            "id": "14149269",
+            "id": "4478007",
             "meta": {
-              "versionId": "1",
-              "lastUpdated": "2016-10-18T18:22:32.000Z"
+              "versionId": "7",
+              "lastUpdated": "2016-11-11T18:23:27.000Z"
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: NOAH, SANDRA&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1958-10-01&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Female&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1946-08-22&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
             },
             "identifier": [
               {
@@ -94,7 +113,26 @@ module Cerner
                   "text": "Federated Person Principal"
                 },
                 "system": "urn:oid:2.16.840.1.113883.3.13.6",
-                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:R53HZ5ZL9ZX",
+                "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:uH3IW35N5RE",
+                "period": {
+                  "start": "2016-01-01T10:00:00.000Z"
+                }
+              },
+              {
+                "use": "usual",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v2/0203",
+                      "code": "AN",
+                      "display": "Account number",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Federated Person Principal"
+                },
+                "system": "urn:oid:2.16.840.1.113883.3.13.6",
+                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:UH3IW35N5RE",
                 "period": {
                   "start": "2016-01-01T10:00:00.000Z"
                 }
@@ -103,20 +141,21 @@ module Cerner
             "name": [
               {
                 "use": "official",
-                "text": "NOAH, SANDRA",
+                "text": "SMART, FRED RICK",
                 "family": [
-                  "NOAH"
+                  "SMART"
                 ],
                 "given": [
-                  "SANDRA"
+                  "FRED",
+                  "RICK"
                 ],
                 "period": {
-                  "start": "2016-10-18T17:31:01.000Z"
+                  "start": "2016-08-31T18:24:54.000Z"
                 }
               }
             ],
-            "gender": "female",
-            "birthDate": "1958-10-01",
+            "gender": "male",
+            "birthDate": "1946-08-22",
             "active": true
           }
         }

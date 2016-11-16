@@ -42,11 +42,11 @@ Notes:
 ### Response
 
 Search for all Contracts subject to a specific patient
-<%= headers 200, GET: '[...]/Contract?subject:Patient=14067775' %>
+<%= headers 200, GET: '[...]/Contract?subject:Patient=4598008' %>
 <%= json(:dstu2_contract_bundle) %>
 
 Search for all Contracts and include referenced RelatedPerson entries in the response.
-<%= headers 200, GET: '[...]/Contract?subject:Patient=14067775&_include=Contract:actor' %>
+<%= headers 200, GET: '[...]/Contract?subject:Patient=4598008&_include=Contract:actor' %>
 <%= json(:dstu2_contract_bundle_include_actor) %>
 
 ## Retrieve by id
