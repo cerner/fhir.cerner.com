@@ -31,8 +31,8 @@ Notes:
 
 ### Response
 
-<%= headers 200, GET: '[...]/RelatedPerson/11325025' %>
-<%= json(:dstu2_relatedperson_entry) %>
+<%= headers 200, GET: '[...]/RelatedPerson?identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN' %>
+<%= json(:dstu2_relatedperson_bundle) %>
 
 ## Retrieve by id
 
@@ -42,8 +42,8 @@ List an individual RelatedPersons by its id:
 
 ### Response
 
-<%= headers 200, GET: '[...]/RelatedPerson?identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN' %>
-<%= json(:dstu2_relatedperson_bundle) %>
+<%= headers 200, GET: '[...]/RelatedPerson/11325025' %>
+<%= json(:dstu2_relatedperson_entry) %>
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
