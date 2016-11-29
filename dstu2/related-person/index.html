@@ -202,84 +202,6 @@
 <h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK
-GET: [...]/RelatedPerson/11325025</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "RelatedPerson",
-  "id": "11325025",
-  "meta": {
-    "versionId": "3"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: NOAH, GEORGE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1960-03-15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
-  },
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "AN",
-            "display": "Account number",
-            "userSelected": false
-          }
-        ],
-        "text": "Federated Person Principal"
-      },
-      "system": "urn:oid:2.16.840.1.113883.3.13.6",
-      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
-      "period": {
-        "start": "2016-01-01T10:00:00.000Z"
-      }
-    }
-  ],
-  "patient": {
-    "reference": "Patient/14067892",
-    "display": "NOAH, BRANDON"
-  },
-  "relationship": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/v3/RoleCode",
-        "code": "SONC",
-        "display": "son",
-        "userSelected": false
-      }
-    ],
-    "text": "Son"
-  },
-  "name": {
-    "use": "official",
-    "text": "NOAH, GEORGE",
-    "family": [
-      "NOAH"
-    ],
-    "given": [
-      "GEORGE"
-    ],
-    "period": {
-      "start": "2016-10-14T21:19:33.000Z"
-    }
-  },
-  "gender": "male",
-  "birthDate": "1960-03-15",
-  "period": {
-    "start": "2016-10-14T21:23:59.000Z"
-  }
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual RelatedPersons by its id:</p>
-
-<pre><code>GET /RelatedPerson/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK
 GET: [...]/RelatedPerson?identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
@@ -545,6 +467,84 @@ GET: [...]/RelatedPerson?identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:
       }
     }
   ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual RelatedPersons by its id:</p>
+
+<pre><code>GET /RelatedPerson/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/RelatedPerson/11325025</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "11325025",
+  "meta": {
+    "versionId": "3"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: NOAH, GEORGE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1960-03-15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:PI98N2FK5TN",
+      "period": {
+        "start": "2016-01-01T10:00:00.000Z"
+      }
+    }
+  ],
+  "patient": {
+    "reference": "Patient/14067892",
+    "display": "NOAH, BRANDON"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "SONC",
+        "display": "son",
+        "userSelected": false
+      }
+    ],
+    "text": "Son"
+  },
+  "name": {
+    "use": "official",
+    "text": "NOAH, GEORGE",
+    "family": [
+      "NOAH"
+    ],
+    "given": [
+      "GEORGE"
+    ],
+    "period": {
+      "start": "2016-10-14T21:19:33.000Z"
+    }
+  },
+  "gender": "male",
+  "birthDate": "1960-03-15",
+  "period": {
+    "start": "2016-10-14T21:23:59.000Z"
+  }
 }</code></pre>
 
 
