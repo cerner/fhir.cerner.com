@@ -81,9 +81,16 @@ token, and retrieve it from the JSON Web Key Set.
 
 ## Session Management
 
-SMART on FHIR<sup>®</sup> currently does not prescribe mechanisms for 
-managing session state between applications, or providing a sign-out
-experience for users.
+SMART<sup>®</sup> on FHIR<sup>®</sup> currently does not prescribe
+mechanisms for managing session state between applications, or
+providing a sign-out experience for users.
+
+## Additional User Information
+
+Cerner's implementation does not currently support the "profile"
+scope for OpenID Connect, which would traditionally provide
+access to demographic information and the FHIR<sup>®</sup>
+endpoint URL for an individual.
 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html
 [SMART]:  http://docs.smarthealthit.org/authorization/
