@@ -241,7 +241,7 @@ limited to) the following:
 The scope 'openid' will request that Cerner's authorization server supply
 and [OpenID Connect][OPENID] identity token as part of the authorization
 workflow.  Further details on utilizing the OpenID token can be found in
-the [OpenID Connect Guide](../openid_connect).
+the [OpenID Connect Guide](../openid-connect).
 
 The scope 'profile' will additionally request that the OpenID Connect
 token include the claim "profileURL", as defined by the 
