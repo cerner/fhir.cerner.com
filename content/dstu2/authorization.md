@@ -2,195 +2,1061 @@
 title: Authorization | DSTU 2 API
 ---
 
-# Authorization Server Client Documentation #
----------------------------------------------
+# Authorization #
+------------------------------------------------------------------------
+* TOC
+{:toc}
 
-### Introduction ###
-The Cerner Authorization Server currently supports [OAuth 2.0][1] [SMART on FHIR<sup>®</sup>][4] launch workflows. As a client, it will require interaction between the client (your client application), the user, the authorization server, a SMART Launch server and a resource server that implements the FHIR<sup>®</sup> standard.
+## Overview ##
 
-### Registration ###
-In order for your client application to utilize any protected resources, your client application must first register using our [code console][10]. A Cerner Care account is required to register applications. Obtaining a Cerner Care account is free and requires nothing but an email address.
+Cerner's implementation of the HL7<sup>®</sup> 
+FHIR<sup>®</sup> Standard is protected using the 
+SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.
+SMART<sup>®</sup> on FHIR<sup>®</sup> defines a profile of the 
+[OAuth 2][OAUTH] framework for obtaining authorization to act on behalf 
+of users; it is highly recommended that developers review and understand 
+the OAuth 2 framework prior to implementing their authorization 
+workflow.  Cerner recommends the following IETF publications for review:
 
-Once registered, a **client identifier** will be provided for use with the Cerner Authorization Server. As a registered client, Cerner organizations may then ask for your client application to be enabled, which is necessary in order to gain access to their protected resources.
+- [The OAuth 2.0 Authorization Framework][OAUTH] 
+- [OAuth 2.0 Threat Model and Security Considerations][OAUTH-THREAT]
+- [OAuth 2.0 Mix-Up Mitigation][OAUTH-MIXUP]
+- [The OAuth 2.0 Authorization Framework: Bearer Token Usage][RFC6750]
+- [OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-03][OAUTH-NATIVE]
+  (Primarily for developers writing "native" applications.)
 
-### Supported Scopes ###
-The Cerner Authorization Server supports many, but not all, of the [SMART][4] or [OAuth/OpenID Connect][5] scopes. The following scopes are **supported**.
+This guide offers:
 
-* online_access
-* launch
-* openid
-* profile
-* [User-level and patient-specific scopes][11] for requesting clinical data.
+- A technical overview for securely obtaining authorization on behalf of 
+  a user or a system, utilizing using Cerner's authorization server.
+- Guidance for providing an optimal authorization user experience
+  across a broad range of platforms.
+- Guidance for ensuring broad compatiblity across a diverse range of
+  deployment scenarios.
+- Answers to frequently asked questions. 
 
-#### Wildcard Scopes ####
-[Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) are **not supported**
+### Benefits of the Authorization Model ###
 
-An application is currently required to specifically request each scope that it needs to run.
+The use of an authorization protocol offers additional security for
+users/enterprises by abstracting the credentials that users use to
+authenticate to the EHR away from client applications.  Under this model,
+restrictions can be applied to what actions a client application can
+perform on behalf of the user; this is not possible in traditional
+models where the application has direct access to the user's credentials.
 
+Furthermore, by abstracting authentication away from client applications,
+there is less risk such credentials will be compromised, and organizations
+have more flexibility in offering differing forms of authentication
+(possible examples include the use of Windows Hello technology, Apple
+TouchID, etc.)
 
-### Requesting an authorization code ###
-Cerner currently supports the [SMART][4] launch workflow from within an EHR, such as Cerner Millennium's PowerChart. This allows for current context information (patient info, encounter info, user info, etc.) to be provided to the client application upon launching. Below is a flowchart of the EHR-initiated [SMART][4] launch workflow.
+Finally, the token model employed by the OAuth 2 authorization framework
+provides a useful means in a distributed service ecosystem to enforce
+frequent validation that access has not otherwise been revoked or
+expired.
 
-![alt text](http://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgRUhSIEFwcCBMYXVuY2ggRmxvdwoKTm90ZSAgbGVmdCBvZiBFSFI6IFVzZXIgbAAgBWVzIGFwcApFSFItPj5BcHA6IFJlZGlyZWN0IHRvIGFwcDoAIgYAQQZyaWdoAEIFACMHcXVlc3QgYXV0aG9yaXphdGlvbgpBcHAtPj4AYwUAPwxlaHI6ACEIZQCBARRPbiBhcHByb3ZhbABzHHIAgRgHX3VyaT9jb2RlPTEyMyYuLi4AcwYAgVsFUE9TVCAvdG9rZW4AGgkAggIGAIF6DUNyZWF0ZSAAIwU6XG4ge1xuYWNjZXNzXwA2BT1zZWNyZXQtAEMFLXh5eiZcbnBhdGllbnQ9NDU2JlxuZXhwaXJlc19pbjogMzYwMFxuLi4uXG59Cn0AgksGAIJLBVsATgYAYQYgcmVzcG9uc2VdAIMSBwCCRA5BACUGAF8HIGRhdGFcbnZpYSBGSElSIEFQSQCBWgtHRVQgL2ZoaXIvUACBDwYvNDU2XG5BAIMBDDogQmVhcmVyIACBOxAAg2wFAIEaB3tyZXNvdXJjZVR5cGU6ICIASAciLCAiYmlydGhEYXRlIjogLi4ufQo&s=default "SMART launch diagram")
+A formal technical specification for authorization may be found 
+in the [Cerner FHIR<sup>®</sup> Service Authorization Specification][AUTHZ-SPEC].
 
-Once a launch context is received by your client application from the EHR, it must be sent to the authorization server so that an authorization code may be requested. To request an authorization code, to turn in for an access code, you will need to issue a **GET** request to the authorization server's authorize endpoint, which is provided by the [SMART conformance statement][9]. At this point the authorization server will redirect the user to authenticate if they are not already authenticated. Your client application should use the system's browser for performing this exchange rather than an embedded browser. The **GET** request will **require** the following query parameters.
+### Differentiating SMART<sup>®</sup> and FHIR<sup>®</sup> ###
 
-* response_type - currently only support "code"
-* client_id
-* launch - Note: only required if using a [SMART][4] launch context
-* aud - Required if using a [SMART][4] launch. This should be the fhir server root url.
-* scope - Note: launch **must** be one of the scopes if using a [SMART][4] launch context. When requesting clinical data, [SMART scopes][11] for requesting clinical data must be provided. At minimum, one scope must be provided in order for a successful request to occur.
+The HL7<sup>®</sup> FHIR<sup>®</sup> Standard defines an API to
+access information within an electronic health record system.  The
+SMART<sup>®</sup> framework defines an API for applications to
+obtain an authorized context to access FHIR<sup>®</sup>
+resources and exchange context information with client applications.
 
-It is also **recommended** that your client application provides the following query parameters.
+## Registration ##
+In order for your client application to utilize any protected resources, 
+your client application must first register using our 
+[code console][CERNER-CODE-CONSOLE]. A Cerner Care account is required to 
+register applications. Obtaining a Cerner Care account is free and 
+requires nothing but an email address.
 
-* state - to prevent [cross-site request forgery attacks][2]
-* redirect_uri - Note: The redirect_uri **must** match what was originally registered and requested
+Once registered, a **client identifier** will be provided for use with 
+the Cerner Authorization Server. As a registered client, Cerner 
+organizations may then ask for your client application to be enabled, 
+which is necessary in order to gain access to their protected resources.
 
-The authorization server authorize URL can be found in the security section of the [conformance document](../conformance).
+## Requesting Authorization on Behalf of a User ##
 
-If the user does not currently have an active session, the Authorization Server will redirect the user to the identity provider for the client organization in order to authenticate.
+To access Cerner's FHIR<sup>®</sup> services on behalf of a user, 
+your client application must make an authorization request through
+a user agent on the user's device.  This involves the following
+steps:
 
-If successful, the authorization server will redirect the user-agent back to your client applications redirect_uri with a **code** query parameter. This is the authorization code that can be exchanged for an access token.
+- Discover the authorization and token endpoint URLs.
+- Construct an authorization grant request URL.
+- Invoking a browser with the authorization grant request URL.
+- Receive the OAuth callback.
+- Exchange the received grant for a token.
+- Close the browser.
+- Handle any exceptions encountered.
+- Utilizing "refresh" tokens.
 
-```
-https://test.com/cb?code=1234-567890ab-cdef
-```
+A formal technical specification for this process may be found
+in the 
+[Cerner FHIR<sup>®</sup> Service Authorization Specification][AUTHZ-SPEC].
 
-Note: Using embedded browsers prevents single sign-on and authentication may fail for certain organizations who implement third party authentication systems.
+### Discovering Authorization URLs ###
+Each instance of Cerner's FHIR<sup>®</sup> services advertise 
+the URL of itsrespective authorization server within its 
+FHIR<sup>®</sup> conformance document.
 
-### Requesting an access token ###
-Once an authorization code has been acquired, a back-channel **POST** to the authorization server's token endpoint can be made to request an access token. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** from your client application with the following information.
+The FHIR® Conformance resource can be retrieved by performing
+an HTTP GET against the resource located at the relative path
+of ``../Conformance`` from the FHIR<sup>®</sup> base URL.
 
-* grant_type - currently only support "authorization_code"
-* code
-* client_id
-* redirect_uri (only necessary if it was provided when the authorization code was requested)
+Within the structure of this document, two important URLs are
+advertised in an extension to ``Conformance.rest.security``, 
+identified via the URL of 
+``http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris``.
 
-The authorization server authorize URL can be found in the security section of the [conformance document](../conformance).
+The first URL is the location of the authorization endpoint,
+which is further identified by the sub-extension URL "authorize".
 
-```
-grant_type=authorization_code&code={AUTHORIZATION_CODE}&client_id={YOUR_CLIENT_ID}&redirect_uri={YOUR CALLBACK URI, IF PROVIDED}
-```
+The second URL of importance is the location of the authorization
+server's token endpoint, which is further identified by the
+sub-extension URL "token".
 
-If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the non-normative example below.
+The following is non-normative example of a conformance document
+containing this information:
 
-<pre class="body-response"><code class="language-javascript">{
-   "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTkzOTEsImlhdCI6MTQ1NTg5ODc5MSwianRpIjoiOTQ1YjQ5ZjctMTFiMi00NmQ2LWEwZjctZGJmNjcxMzVmYTJlIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.EnvJ8hRDIZcb9pKsfOaFGXhpAnfzi7rDMks0mAnAp0Lsbooe-JPoVPY8FT00xWP9JelbGdKGpoNLt0enGVGhnQ",
-   "token_type":"Bearer",
-   "expires_in":570,
-   "refresh_token":"1234-567890ab-cdef"
+<pre class="terminal">
+{
+  "resourceType": "Conformance", 
+  "rest": [{
+      "security": {
+        "extension": [{
+          "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+          "extension": [{
+            "url": "token",
+            "valueUri": "https://example.org/token"
+          },{
+            "url": "authorize",
+            "valueUri": "https://example.org/authorize"
+          }]
+        }]
+      }]
+}      
+</pre>
+
+### Construct the Authorization Request URL ###
+
+An authorization request takes the form of an x-www-form-urlencoded
+query string, appended to the authorization endpoint's URL (as 
+discovered from the previous section.)  The base specification 
+for the structure of this request is defined in
+[section 4.1 "Authorization Code Grant"](https://tools.ietf.org/html/rfc6749#section-4.1)
+of RFC6749.
+
+At minimum, the following parameters are included in the authorization 
+request; each are documented in the following sections:
+
+- Requested "scopes" for services to access.
+- A "state" parameter to prevent certain classes of malicious
+  attacks.
+- The target "audience" server URL.
+- (Optional) a launch code, when supporting application launches from
+  external sources.
+
+#### Scopes ####
+
+During the authorization process, client applications should identify
+at runtime:
+
+- The specific FHIR<sup>®</sup> resources that will be needed to accomplish 
+  the workflow.
+- The type of access needed to the given FHIR<sup>®</sup> resource (read, write).
+- If access should be constrained to a single patient, as selected by the user.
+- The duration for which access is needed.
+
+Each of the above pieces of information are presented in the authorization
+request to the server in the form of "scopes".  Per the 
+[OAUTH specification][OAUTH], the scope of a request is "...a list of 
+space-delimited, case-sensitive strings.  The strings are defined by the
+authorization server."  With SMART<sup>®</sup> on FHIR<sup>®</sup>, access 
+to FHIR<sup>®</sup> resources is controlled by scopes with the following 
+format:
+
+<pre class="terminal">
+scope-name            = resource-context "/" resource-type "." modification-rights
+resource-context      = ("user" / "patient" / "system") 
+resource-type         = (Name / "*")
+modification-rights   = ("read" / "write" / "*" ); 
+</pre>
+
+Examples of scopes include:
+
+- ``user/Observation.read`` (Read all values from the Observation resource
+  that the user has access to.)
+- ``patient/MedicationOrder.*`` (Read or write medications for a specific user.)
+- ``user/Appointment.write`` (Create appointments.)
+
+The "resource context" represents one of three possible choices:
+
+- user:  Access to the resource is only constrained by the access of the user.
+- patient:  Access to the resource is constrained within context of a single patient.
+- system:  Used in system-based authorization workflows, as described in
+  ["Requesting Authorization on Behalf of a System"](#system-authorization).
+
+In certain cases, the authenticated user will be presented a choice to allow your 
+application to utilize the requested scopes on the user's behalf.  As such,
+your application should request only the minimum scopes needed in order to
+fulfill its function.
+
+In addition to FHIR<sup>®</sup> resource scopes, the SMART<sup>®</sup> 
+on FHIR<sup>®</sup> authorization framework also defines these additional scopes 
+that further govern the behavior of authorization:
+
+- openid: Provides access to the "principal" of the authenticated user per the
+  [OpenID Connect][OPENID] specification.
+- profile: Provides an OpenID Connect "profile" that contains the URL of the
+  authenticated user's FHIR<sup>®</sup> resource.
+- online_access: Allows an application to obtain tokens via a "refresh" process 
+  while the authenticated user has an active session present at the device.
+- offline_access: Allows an application to continue to obtain tokens on behalf 
+  of the authenticated via a "refresh" process user until explicitly revoked by 
+  the user, an administrator, or your application.
+
+Further information on the usage of these special scopes are further detailed
+below.
+
+##### Identity Scopes: 'openid' and 'profile' #####
+
+Certain classes of applications may need to identify the user for whom it
+is acting on behalf of.  Such requirements may include (but are not
+limited to) the following:
+
+- Requirements to audit or log activity using the user identifier or person's 
+  name.
+- Display the user's name within the application or in out-of-band (e-mail)
+  communications with the user.
+- Performing identity matching to other non-EHR resources managed by the
+  application.
+- Authenticating the user in subsequent visits to provide an enriched
+  experience, such as retaining user preferences, or protecting access to
+  other non-EHR managed data (examples: user-created data).
+  
+The scope 'openid' will request that Cerner's authorization server supply
+and [OpenID Connect][OPENID] identity token as part of the authorization
+workflow.  Further details on utilizing the OpenID token can be found in
+the [OpenID Connect Guide](../openid_connect).
+
+The scope 'profile' will additionally request that the OpenID Connect
+token include the claim "profileURL", as defined by the 
+SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This 
+URL identifiesthe specific FHIR<sup>®</sup> resource URL of the 
+authenticated user.   This resource may be a Patient, Practitioner, or 
+Person resource, depending on the type of user whom is authenticated.
+
+_NOTE_:  As of this writing, Cerner's Ignite implementation does not 
+support authorization for retrieval of Person resources; you
+may proceed with a design that proactively attempts to retrieve the
+resource such that your app takes advantage of this capability once
+made available.
+
+##### Duration Scopes: 'online_access' and 'offline_access' #####
+
+The default duration of access received through the authorization grant
+workflow is a single token that is valid for 570 seconds (~10 minutes).
+For applications that need access to services for longer durations,
+Cerner's Ignite platform supports the concept of 
+["refresh tokens"](#refresh_tokens).
+
+With 'online_access', your application can continue to obtain access
+tokens on behalf of the user until:
+
+- The user explicitly logs out using their respective session 
+  authority.
+- The user's session expires or is administratively terminated.
+- Your application's access is terminated by the given
+  organization.
+  
+With 'offline_access', an application can continue to obtain
+access tokens in perpetuity on behalf of the user until:
+
+- The user or administrator explicitly terminates the original 
+  authorization grant.
+- The user's access to the resource(s) from the original authorization
+  grant is terminated.
+- Your application's access is terminated by the given
+  organization.
+
+##### Supported Scopes #####
+
+[Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) 
+are currently **not supported**.  An application is currently required to 
+specifically request each scope that it needs to run.
+
+Other combinations of scopes may be limited; please see the [FAQ](#faq) for
+known limitations.
+
+##### State ####
+
+When performing an authorization grant request, it is highly recommended
+that your client application establish a transient, one-time-use "state" value
+for each individual request you send.  If your application receives an 
+authorization response that does not include a value known to the current
+user's device, it should reject the response.  This mechanism is to protect your 
+application against "cross-site request forgery" classes of exploits.  For more
+information on these types of exploits, consult the RFC
+[OAuth 2.0 Threat Model and Security Considerations][OAUTH-THREAT].
+
+#### Audience ####
+
+When performing an authorization grant request, it is required your client
+application send the base URL of the FHIR<sup>®</sup> resource server for which 
+you will be sending access tokens to.  This is conveyed via an additional query 
+parameter in the grant request named "aud".  This parameter it utilized by Cerner's
+authorization server to protect your application against a form of exploit
+where an untrusted resource server advertises a legitimate authorization
+server in its conformance document.  Without this feature, a valid, authorized 
+access token could be inadvertently be sent by your application to the untrusted 
+party.
+
+Authorization grant requests that do not contain the audience parameter
+are automatically rejected by Cerner's authorization server.  The following
+is a fragment from a x-www-form-urlencoded grant request query string
+where the audience is provided:
+
+<pre class="terminal">
+&aud=https%3A%2F%2Fauthorization.cerner.com%2F
+</pre>
+
+#### Launch ####
+
+Some Cerner solutions support the "launch" feature of
+the SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This 
+feature provides three benefits to client applications:
+
+- Cerner solutions can provide links to client applications; when
+  invoked by the user, Cerner's solution will pass the appropriate 
+  FHIR<sup>®</sup> base URL to your application, thus avoiding the 
+  need to select which FHIR endpoints to interact with.
+- Your client application can request access to the current patient
+  in context.
+- Cerner's solution can provide context as to how your client
+  application will be displayed, allowing your application to
+  seamlessly integrate into the workflow.
+
+#### Examples ####
+
+The following are hypothetical examples of authorization requests:
+
+<pre class="terminal">
+client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
+scopes:       patient/Observation.read patient/MedicationHistory.read launch
+audience:     https://fhir.cernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/
+state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
+launch:       a17aba51-1395-48d3-b3a9-73f2baf784da
+
+https://authorization.sandboxcerner.com/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir.sandboxcernerpowerchart.com%2Fdstu2%2F2c400054-42d8-4e74-87b7-80b5bd5fde9f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+</pre>
+
+<pre class="terminal">
+client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
+scopes:       user/Observation.read user/MedicationHistory.read
+audience:     https://fhir.sandboxcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/
+state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
+
+https://authorization.sandboxcerner.com/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir.sandboxcernerpowerchart.com%2Fdstu2%2F2c400054-42d8-4e74-87b7-80b5bd5fde9f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+</pre>
+
+### Invoking an Appropriate User Agent ###
+
+Once an authorization code grant request URL has been generated, you
+will need to invoke an appropriate user agent to invoke the
+authorization request.  In all scenarios, this web page will interact
+with the user agent in order to determine the identity of the user.
+This process may involve further redirects to other identity providers
+(web applications designed to authenticate users), interaction with
+browser Javascript APIs, or direct interactions with the end user
+to obtain their approval during the authorization process.
+
+This particular part of the process has a number of complexities; the
+recommendations offered in this section are designed to ensure:
+
+- The user is offered a single sign-on and single log-out experience.
+- Browser (history) navigation is not affected by either the 
+  authorization or authentication workflow.
+- The authentication and authorization workflows are not interfered 
+  with by the use of browser frames or web views (clickjacking
+  defenses, browser plug-ins, and/or access to local storage or
+  certificates used in authentication may be interered with.)  
+
+The following sections discuss how to invoke the proper user agent
+for specific platforms.
+
+#### (Web) Client Applications Delivered via the Browser ####
+
+For applications delivered via the "https" scheme within a
+browser, it is recommended to invoke the authorization workflow
+within a separate pop-up window (for desktops) or tab (for
+mobile browsers).  The use of a pop-up / separate tab ensures
+that any navigation that occurs while servicing the
+authentication or authorization workflows are maintained
+separately from your initial tab, thus allowing the user to
+properly navigate backwards in their browser history once
+the authorization workflow has completed.  On desktop platforms
+and/or mobile platforms that offer split-screen browsing, 
+this methodology creates a clean delineation between your
+application's workflow and the authorization workflow.
+
+Due to the nature of built-in pop-up blocking functionality,
+it will generally be necessary for your application to trigger 
+the opening of the window based on a user interaction (click or
+touch).  In certain specific venues, alternatives may be
+possible to avoid this requirement; further guidance is outside
+the scope of this guide.
+
+Web-based applications must not attempt to perform the 
+authorization workflow within an iframe - doing so may have
+unexpected results caused by clickjacking protection mechanisms,
+anti-phishing protection mechanisms, browser third-party
+cookie policy, etc.
+
+When opening the additional browser window, it is recommended
+to include the location "chrome" of the browser such that 
+TLS/EVSSL indicators are included for display to the user.
+Such visual cues are an important part of security for
+some authentication systems.
+
+Your authorization repsonse comes in the form of a redirect
+(which is orchestrated within the child window) to your
+registered redirect URI.  Once your server has processed
+the response, Javascript can be utilized to notify the
+parent window that the workflow is complete; in turn,
+the parent window can close the child window.
+
+##### Example Javascript for Opening the Authorization Workflow #####
+
+The below Javascript demonstates how an application could
+open the authorization workflow as a modal on desktop
+platforms.  In addition to desktop platforms, this method
+automatically will function on mobile platforms by creating
+an additional tab or split-screen browsing windows.  
+
+<pre class="terminal">
+var width = 780,
+	height = 550,
+	left = (screen.width - width) / 2,
+	top = (screen.height - height) / 2,
+	uniqueWindowId = "authorization-" + yourAppClientId
+	params,
+    location;
+if (top > 20) {
+	top = top - 20;
 }
-</code></pre>
+params = 'width=' + width + ', height=' + height;
+params += ', top=' + top + ', left=' + left;
+params += 'titlebar=no, location=yes';
+location = build_oauth_request_url();
+loginWindow = window.open(location, uniqueWindowId, params);
+</pre>
 
-The [bearer access token][7] returned from the authorization server is what you provide to the protected resource. If a refresh token was also requested, it will be returned as well. Access tokens are good for 10 minutes and it is recommended refreshing it before use if less than 5 minutes remain before it expires.
+The following Javascript snippets demonstrate how your
+application can notify the parent window of the completion
+of the workflow.
 
-### OpenID Connect ###
-If the scopes "openid" and "profile" were originally provided, an [OpenID Connect][8] id_token will be included per the [SMART][4] specification that includes the user's URL (userfhirurl) as the "profile" claim. This is typically a link to a FHIR<sup>®</sup> standard Practitioner resource.
+This first script allows your main window to listen
+to postMessage calls from child windows:
 
-<pre class="body-response"><code class="language-javascript">{
-  "access_token" : "18adCadfj_lj13S3ada8.41jVCo_dgalL",
-  "encounter" : "91731344",
-  "patient" : "121341578",
-  "id_token" : "eyAiYWxnIjoibm9uZSIKfQ==.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb20vb2F1dGgyIiwKICAic3ViIjogIm1yNTE0QGNlcm5lci5jb20iLAogICJhdWQiOiAiY2xpZW50X2FwcCIsCiAgIm5vbmNlIjogIm4tMFM2X1d6QTJNaiIsCiAgImV4cCI6IDEzMTEyODE5NzAsCiAgImlhdCI6IDEzMTEyODA5NzAsCiAgInByb2ZpbGUiOiJodHRwczovL2V4YW1wbGUuY29tLzEyMzQiCn0="
+<pre class="terminal">
+window.addEventListener("message", function (e) {
+	var oauthMessage = e.data;
+	loginWindow.close();
+	processOAuthMessage(oauthMessage);
+}, false);
+</pre>
+
+The second script is served by the webpage at your
+callback URI:
+
+<pre class="terminal">
+window.opener.postMessage(oauthMessage, 'https://example.com/');
+</pre>
+
+The contents of the "oauthMessage" could be the entirety of
+the query string, or could be the result of any server-side
+processing handled by your server as a result of the HTTP GET
+to the callback URI.
+
+##### Other User Experience Considerations #####
+
+- By utilizing the same window name in the call to 
+  window.open(), you can avoid scenarios where a user 
+  accidentally opens multiple authorization windows for
+  your application simultaneously.
+- To demonstrate that your application is waiting on the
+  authorization process, it is recommended to include
+  visual cues, such as a translucent curtain, modal with
+  spinner, etc., along with text that indicates you are
+  waiting on user interaction in another window.
+- It is recommended to provide a cancellation button or
+  link that cancels the authorization process, and
+  closes the child window.
+- In the event that the user closes the original window
+  that initiated the authorization flow, it may be prudent
+  for your script served at your callback URI to check
+  for a parent window, and if not present, notify the
+  user.  Including a link whose target opens in a new 
+  window will allow the user to proceed with their
+  original workflow.
+  
+#### Native Client Applications on Mobile Platforms ####
+
+In recent years, OS platforms have been forced to lock
+down certain behaviors within their browsers that were
+traditionally used to facilitate OAuth2-based authorization
+workflows.  Specifically, browsers now interrupt any
+attempt to direct a user to a native application due to 
+absue from advertisers of mobile apps.  As a result,
+OS platforms now offer "in-app" browsers useful for
+orchestrating authorization workflows that are free of
+such impediments.  These "in-app" browsers also improve
+on the user experience of OAuth2-based workflows by
+preventing remnant browser tabs and smoothing the
+transition between browser and app (no OS app switching
+occurs.)
+
+For more information on best practices for OAuth2-based
+workflows for native applications, please refer to the
+IETF Best Current Practices (BCP) draft 
+["OAuth 2.0 for Native Apps"][OAUTH-NATIVE].
+
+_NOTE_: Cerner's Authorization Server does not currently 
+implement PKCE as noted in section 8.2 of the native
+applications BCP draft.
+
+The next sections discuss specific special cases not
+covered by the OAuth native application BCP guide.
+
+##### "Win32" Applications #####
+
+Cerner currently supports only explicit internet hosts
+or explicit URI activation schemes for redirection URIs;
+as such, developers of traditional Windows applications
+should [register a scheme][WIN-SCHEME] for their
+application.  The following is a sample registry file
+for a hypothetical scheme registration of 
+"sample.application://":
+
+<pre class="terminal">
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\sample.application]
+@="URL:Sample Authorization App"
+"URL Protocol"=""
+"UseOriginalUrlEncoding"="1"
+
+[HKEY_CLASSES_ROOT\sample.application\DefaultIcon]
+@="sample.exe,1"
+
+[HKEY_CLASSES_ROOT\sample.application\shell]
+
+[HKEY_CLASSES_ROOT\sample.application\shell\open]
+
+[HKEY_CLASSES_ROOT\sample.application\shell\open\command]
+@="c:\\sample.exe \"%1\""
+</pre>
+
+For the above registration, the client application would be
+registered with a redirection URI of "sample.application://".
+Upon redirection to this scheme, the Windows operating system
+will invoke the registered application with the OAuth2 response
+URI passed as the first argument.  The client application may
+then parse the URI and in turn determine which open instance
+of the application (if multiples are allowed) initiated the
+request via examination of the "state" parameter.
+
+### Processing the Authorization Grant Response ###
+
+The authorization grant response comes in the form of a 
+x-www-form-urlencoded query string, appended to your 
+redirection URI.  The base specification for the structure of 
+this response is defined in 
+[section 4.1 "Authorization Code Grant"](https://tools.ietf.org/html/rfc6749#section-4.1)
+of RFC6749 (the OAuth2 Framework).  The following is
+an example:
+
+<pre class="terminal">
+https://example.com/callback?code=0c8b259b-d716-4712-ad6a-1d22d92523fa&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+</pre>
+
+Within a successful response, a "code" parameter will be
+present, and a "state" parameter will be present if your
+application included "state" as part of the initial request.
+
+First, validate that the "state" parameter matches that of
+a request that was initiated by the current device / user
+agent.  Next, exchange the code for a token per section
+4.1 of the RFC6749 (the OAuth2 Framework).  The following
+are example requests / responses:
+
+Request:
+<pre class="terminal">
+POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.sandboxcerner.com
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 161
+Connection: close
+grant_type=authorization_code&code=0c8b259b-d716-4712-ad6a-1d22d92523fa&client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+</pre>
+
+Response:
+<pre class="terminal">
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: OPTIONS, POST
+Access-Control-Allow-Headers: Content-Type, Authorization
+Cache-Control: no-store
+Pragma: no-cache
+Content-Type: application/json
+Content-Length: 1462
+Date: Tue, 01 Nov 2016 19:20:25 GMT
+
+{
+  "access_token": "eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCJ9LCJhenAiOiJkZXZqcyIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb21cLyIsImV4cCI6MTQ3ODAyODYyNSwiaWF0IjoxNDc4MDI4MDI1LCJqdGkiOiI0OTNjMGNlOC03ZDg2LTQ3YjctOGI5ZS00OWFkZGI2MjlhMmQiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJ1c2VyXC9PYnNlcnZhdGlvbi5yZWFkIn19LCJjbGllbnQiOnsibmFtZSI6IkRldkpTIERlbW8gQXBwbGljYXRpb24gKGxlZ2FjeSBjbGllbnQgaWQpIiwiaWQiOiJkZXZqcyJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvd2VyY2hhcnQiLCJwZXJzb25hIjoicHJvdmlkZXIiLCJpZHNwIjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwicHJpbmNpcGFsVXJpIjoiaHR0cHM6XC9cL21pbGxlbm5pYS5zYW5kYm94Y2VybmVyLmNvbVwvaW5zdGFuY2VcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvcHJpbmNpcGFsXC8wMDAwLjAwMDAuMDAwRi4zMjVDIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2FjY291bnRzXC9kZXZlbmcubm9ydGhhbWVyaWNhLmNlcm5lci5uZXRcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvbG9naW4ifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.TE7PpJZWgW_V47mdqk8ihFek6Pf5jrk8dS3n6QIqNk0C0tzndXu5Q0OFEcf8CxzWJlIzsK_UYDj1SHPTySVDNQ",
+  "scope": "user/Observation.read",
+  "token_type": "Bearer",
+  "expires_in": 570
 }
-</code></pre>
+</pre>
 
-### Using an access token ###
-In order to use an access token, your client application needs to provide the access token received from the authorization server to the protected resource. The following is a non-normative example of the usage of the token to access a protected RESTful web service on a resource server.  It will need to be added as an authorization HTTP header.
+Three elements of the response should be evaluated:
 
-```
-Authorization: Bearer {ACCESS_TOKEN}
-```
+- access_token:  This is the secret content to send to a FHIR<sup>®</sup> 
+  service to prove authorization for acting on behalf of a user.
+- scope:  This is the space-delimited list of scopes that were
+  authorized for use.  This list may differ from the list of 
+  scopes included in the initial request.  In some circumstances,
+  the server may redact scopes - in others, users may have the
+  capacity to redact scopes.
+- expires_in:  The number of seconds before the token expires.
+  If access is required for longer than the expiration of the
+  token, consider requesting online_access or offline_access,
+  as needed.
+  
+The following additional elements may be returned:
 
-If the access token is valid and your application is authorized, the resource server will allow your client application to access its protected resources.
+- patient_id:  The FHIR® identifier of a Patient resource 
+  in context of the current "launch".
+- refresh_token:  A token that be exchanged at the token
+  endpoint for new access tokens.
+- id_token:  An OpenID Connect identity token that can be
+  used as "authentication" to your application.
 
-### Using a Refresh Token ###
-The authorization server has support for **online access** refresh tokens. Refresh tokens **must** be used in conjunction with the **online_access** scope. In order to use a refresh token, the user's session **must** remain active. To request a refresh token, **online_access** must be added to the scope query parameter when requesting an authorization code. If this scope is not added, a refresh token will not be returned. Following the [OAuth 2.0][1] spec, the authorization server accepts a content type of **application/x-www-form-urlencoded** **POST** from your client application with the following information.
+#### Closing the Grant Interaction ####
 
-* grant_type - "refresh_token"
-* refresh_token
+Once the authorization grant response has been received, the
+separate window / user agent for the facilitating the grant
+interaction should be automatically closed, where possible
+(an example of this for web-based applications is included 
+earlier in this document.)  In the event this step is either
+not successful or not possible, content is provided by the 
+authorization server to inform the user if it is safe to
+close the additional window.  The authorization server itself
+will not attempt to self-close the window, as this generally
+results in a prompt from the browser asking for permission.
+  
+#### Exception Handling ####
 
-```
-grant_type=refresh_token&refresh_token={REFRESH_TOKEN}
-```
+Both the authorization grant response and access token response
+can result in errors.  The following is an example error
+response from the grant workflow:
 
-If successful, the authorization server will return a **200 OK** response with a content-type of [**application/json**][3] similar to the non-normative example below.
+<pre class="terminal">
+https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3D2c400054-42d8-4e74-87b7-80b5bd5fde9f
+</pre>
 
-<pre class="body-response"><code class="language-javascript">{
-   "access_token":"eyJraWQiOiIyMDE2LTAyLTE2VDE2OjM2OjQ4LjY5MiIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJIRDAxNjUxNCIsInVybjpjb206Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zIjp7InZlciI6IjEuMCIsInRudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsImF6cyI6Im9ubGluZV9hY2Nlc3MifSwiYXpwIjoiZGV2anMiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5kZXZjZXJuZXIuY29tXC8iLCJleHAiOjE0NTU4OTk2NzAsImlhdCI6MTQ1NTg5OTA3MCwianRpIjoiZWI0Njg1ZDItZGM1MC00Y2NjLWE0YTktYWI1MjJlNzdjZTg1IiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoib25saW5lX2FjY2VzcyJ9fSwiY2xpZW50IjoiZGV2anMiLCJ1c2VyIjp7InN1YiI6IkhEMDE2NTE0IiwicGVyc29uYSI6InBhdGllbnQiLCJpZHNwIjoiOGUzM2FlM2QtNDg3Mi00ZDJmLWEwNTktNWYyMzA3ZmNiZjNiIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9hc3NvY2lhdGVzLmRldmNlcm5lci5jb21cL2FjY291bnRzXC9vcGVuaWQifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.FpGIHS438A9ocU4ozx5s8PzpZ4OhZ6St7S6uP5galSkxrgof07ao1bv2LtFqcbyaFGUTeU3J0NtV82Sfg7GpqA",
-   "token_type":"Bearer",
-   "expires_in":570
+The following is an example error response from an access
+token request:
+
+<pre class="terminal">
+{
+  "error": "invalid_grant",
+  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=2c400054-42d8-4e74-87b7-80b5bd5fde9f"
 }
-</code></pre>
+</pre>
 
-The refresh token issued is good while the user's session is still valid and can be used over and over again until the user's session is no longer valid or the refresh token has been revoked due to being compromised.
+In either circumstance, Cerner's authorization server communicates
+the parameter "error_uri", which represents a URI that contains
+additional information useful for end users, client app developers,
+and support personnel, along with support contact information
+for the associated organization.  It is recommended when such
+errors occur to present a "more information" link or button to 
+the user (hyperlinked to the value of the URI) in addition to
+other support instructions that your application displays to 
+the user.  Furthermore, it may be prudent for your application to
+display a "retry" or "start over" mechanism such that the user
+can retry the operation once the problem has been corrected.
 
-### Error Codes ###
-There are numerous possible situations that can cause an error while attempting to retrieve an access token. Some are displayed directly to users when the client application redirect URI cannot be trusted while others are returned to the client application in the error_uri as per section 4.1.2.1 of the [OAuth 2.0][1] specification. If an error is returned to the application, an application should display its own error page and include the link from the error response.
+<a id="refresh_tokens"></a>
 
-##### Error URNs for the Authorization Server #####
-* **urn:cerner:error:authorization-server:oauth2:grant:invalid-request** - The authorization request was syntactically invalid.
-* **urn:cerner:error:authorization-server:oauth2:grant:unknown-client** - The client application is not registered.
-* **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri** - The requested redirect URI does not match the one registered for the client application.
-* **urn:cerner:error:authorization-server:oauth2:grant:invalid-redirect-uri-trailing-slash** - The requested redirect URI does not match the one registered for the client application because of a trailing slash at the end of one of the URIs.
-* **urn:cerner:error:authorization-server:oauth2:grant:redirect-uri-not-absolute** - The requested or registered redirect URI is not absolute.
-* **urn:cerner:error:authorization-server:oauth2:grant:redirect-uri-not-registered** - The requested or registered redirect URI is not registered.
-* **urn:cerner:error:authorization-server:oauth2:grant:unknown-tenant** - The client redirect URI was known and valid, but the tenant provided was unknown.
-* **urn:cerner:error:authorization-server:oauth2:grant:tenant-not-configured** - The tenant id was known and valid, but the identity service provider id for the provided persona was not.
-* **urn:cerner:error:authorization-server:oauth2:grant:unauthorized-client-for-tenant** - The client redirect URI was known and valid, but is not authorized for use with the specified tenant.
-* **urn:cerner:error:authorization-server:oauth2:grant:server-error** - The client redirect URI was known and valid, but other fatal errors occurred during processing.
-* **urn:cerner:error:authorization-server:oauth2:grant:unsupported-response-type** - A response type other than "code" was requested.
-* **urn:cerner:error:authorization-server:oauth2:grant:csrf-security-failure** - The CSRF token used in confirming the user's approval was invalid; we will immediately notify the client app that we are unable to satisfy the request.
-* **urn:cerner:error:authorization-server:oauth2:grant:denied-by-server** - The server denied the grant because the client is not authorized for any of the scopes it requested.
-* **urn:cerner:error:authorization-server:oauth2:grant:denied-by-user** - The user denied the grant, either directly, or by choosing to cancel during the authentication process.
-* **urn:cerner:error:authorization-server:oauth2:grant:invalid-patient-id** - The patient id does not exist or the user does not have access to the selected patient id's records.
-* **urn:cerner:error:authorization-server:oauth2:grant:authorized-representative-server-error** - A server error was received from the authorized representative service.
-<br />
-* **urn:cerner:error:authorization-server:oauth2:token:unsupported-grant-type** - The grant type is not one supported by this server.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid-redirect-uri** - The URI provided did not match the original request, or is not a valid URI.
-* **urn:cerner:error:authorization-server:oauth2:token:empty-scopes** - The resulting token contains no scopes, either due to unsatisfied constraints specified in the token request, or because the client is no longer authorized for the scopes associated with the refresh token.
-* **urn:cerner:error:authorization-server:oauth2:token:terminated-client** - The client application has a valid token, but is no longer registered.
-* **urn:cerner:error:authorization-server:oauth2:token:code:invalid** - The authorization code presented is either invalid or has expired.
-* **urn:cerner:error:authorization-server:oauth2:token:code:client:mismatch** - The client provided did not match the original authorization code request.
-* **urn:cerner:error:authorization-server:oauth2:token:code:tenant:mismatch** - The tenant provided did not match the original authorization code request.
-* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-terminated** - The client application is no longer authorized to access tenant resources specified in the original authorization code.
-* **urn:cerner:error:authorization-server:oauth2:token:code:tenant-invalid** - The tenant for which a token requested in not registered.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid_authorization_header** - The Authorization Header used in client_credentials grants for B2B workflows is invalid.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid_client_credentials** - The client credentials were invalid.
-* **urn:cerner:error:authorization-server:oauth2:token:patient-scope-requires-one-patient-id** - There must be exactly one patient id selected when requesting a patient/*.* scope.
-* **urn:cerner:error:authorization-server:oauth2:token:tenant-not-enabled-for-testing** - The tenant is not enabled for obtaining testing tokens on behalf of users.
-* **urn:cerner:error:authorization-server:oauth2:token:client-not-enabled-for-testing** - The client is not enabled for obtaining testing tokens on behalf of users.
-* **urn:cerner:error:authorization-server:oauth2:token:invalid-testing-scenario** - The simulated testing scenario is not normally possible, such as combining system and user scopes, or providing too many (or no) patients in the request.
-<br />
-* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:token-invalid** - The refresh token presented is either invalid, expired, or was terminated by the user.
-* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:session-invalid** - The refresh token presented was valid, but was scoped for online_access, and the user session has been logged out or expired.
-* **urn:cerner:error:authorization-server:oauth2:token:refresh-token:tenant-terminated** - The client application is longer authorized to access tenant resources specified in the original grant for the refresh token.
-<br />
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-required** - A launch scope was requested, but an audience was not supplied.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:launch-code-required** - A launch scope was requested, but a launch code was not supplied.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unknown-resource-server** - An application received a launch originating from an unknown resource server.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:invalid-code** - An application sent an invalid launch code.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:mismatchted-identity** - A different user is currently authenticated on the user's device to the EHR launching mechanism.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unsupported-version** - The EHR does not support the version of launch that was requested.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unspecified** - Resolution of launch data failed at the EHR for unspecified reasons.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:unregistered-service** - The launch resolution service was not configured for a given tenant.
-* **urn:cerner:error:authorization-server:smart-v1:grant:launch:audience-not-white-listed** - The audience resource requested is not approved.
-<br />
-* **urn:cerner:error:authorization-server:unregistered-authorized-representatives-server** - The Authorized Representatives service was not configured properly.
-* **urn:cerner:error:authorization-server:preauthentication** - A fatal error in the pre-authentication process.
-* **urn:cerner:error:authorization-server:server-error** - An unspecified server error.
-* **urn:cerner:error:authorization-server:grant:session-service:authentication:cancelled** - The user or identity provider cancelled the authentication request.
-* **urn:cerner:error:authorization-server:grant:session-service:authentication:error** - An unspecified server error occurred while authenticating.
+### Utilizing Refresh Tokens ###
 
+If your application is designed to interact with a user over
+periods of time longer than that of a single access token,
+it will be necessary to utilize "refresh" tokens.  A
+refresh token is an additional secret value, returned as 
+part of the initial access token response, that can be
+used to obtain additional access tokens.  Two forms of
+access exist, each are requested as a special scope
+in the authorization grant request:
 
-[1]: https://tools.ietf.org/html/rfc6749
-[2]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
-[3]: http://json.org/
-[4]: http://docs.smarthealthit.org/authorization/
-[5]: http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims
-[6]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
-[7]: https://tools.ietf.org/html/rfc6750
-[8]: http://openid.net/connect/
-[9]: http://docs.smarthealthit.org/authorization/conformance-statement/
-[10]: https://code.cerner.com/developer/smart-on-fhir/
-[11]: http://docs.smarthealthit.org/authorization/scopes-and-launch-context/
+- online_access:  Grants a refresh token that can be used
+  for duration of a user's authenticated "session".  Such
+  refresh tokens are valid until either the user explicitly logs 
+  out, the session is terminated by an administrator, or
+  other risk mechanisms (timeouts, etc.) require a user
+  to be re-authenticated.
+- offline_access:  Grants a refresh token that can be
+  utilized until either a user or administrator revokes it.
+  
+As access tokens are valid for periods that are less than ten 
+minutes, it is recommended to retrieve and cache new tokens 
+in advance of the previous token expiring.  Doing so
+out-of-band of a user interaction will reduce the user's
+perception of application latency.  Refresh attempts at
+intervals lower than one minute may result in throttling.
+It is not recommended to utilize tokens that are near the
+precipice of expiry as latency could result in token rejection.
+
+#### Access Token Request / Response ####
+
+The following are examples of the request/response mechanism
+defined in section 6 "Refreshing an Access Token" of the 
+[OAuth2 Framework][OAUTH].
+
+Request:
+<pre class="terminal">
+POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.sandboxcerner.com
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 75
+Connection: close
+
+grant_type=refresh_token&refresh_token=b30911a8-9278-45aa-bbd9-aa05244faf3b
+</pre>
+
+Response:
+<pre class="terminal">
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: OPTIONS, POST
+Access-Control-Allow-Headers: Content-Type, Authorization
+Cache-Control: no-store
+Pragma: no-cache
+Content-Type: application/json
+Content-Length: 1514
+Date: Tue, 01 Nov 2016 20:48:32 GMT
+
+{
+  "access_token": "eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCBvbmxpbmVfYWNjZXNzIn0sImF6cCI6ImRldmpzIiwiaXNzIjoiaHR0cHM6XC9cL2F1dGhvcml6YXRpb24uZGV2Y2VybmVyLmNvbVwvIiwiZXhwIjoxNDc4MDMzOTEyLCJpYXQiOjE0NzgwMzMzMTIsImp0aSI6Ijg3MDY4MjYzLTI1NzItNDJmOC1iMDA3LTlmYTgwMzc5OGMxYiIsInVybjpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXM6dmVyc2lvbjoxIjp7InZlciI6IjEuMCIsInByb2ZpbGVzIjp7InNtYXJ0LXYxIjp7ImF6cyI6InVzZXJcL09ic2VydmF0aW9uLnJlYWQgb25saW5lX2FjY2VzcyJ9fSwiY2xpZW50Ijp7Im5hbWUiOiJEZXZKUyBEZW1vIEFwcGxpY2F0aW9uIChsZWdhY3kgY2xpZW50IGlkKSIsImlkIjoiZGV2anMifSwidXNlciI6eyJwcmluY2lwYWwiOiJwb3dlcmNoYXJ0IiwicGVyc29uYSI6InByb3ZpZGVyIiwiaWRzcCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsInByaW5jaXBhbFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2luc3RhbmNlXC8yYzQwMDA1NC00MmQ4LTRlNzQtODdiNy04MGI1YmQ1ZmRlOWZcL3ByaW5jaXBhbFwvMDAwMC4wMDAwLjAwMEYuMzI1QyIsImlkc3BVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLnNhbmRib3hjZXJuZXIuY29tXC9hY2NvdW50c1wvZGV2ZW5nLm5vcnRoYW1lcmljYS5jZXJuZXIubmV0XC8yYzQwMDA1NC00MmQ4LTRlNzQtODdiNy04MGI1YmQ1ZmRlOWZcL2xvZ2luIn0sInRlbmFudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiJ9fQ.q8WVBhrznHZDh0dlLkU-2ZO9FEwCAMMozlOT0No3ZPkfbTenPW58ausP31pX1vWwFDq1y6GIGQ-MqMO7nf8q7w",
+  "scope": "user/Observation.read online_access",
+  "token_type": "Bearer",
+  "expires_in": 570
+}
+</pre>
+
+_NOTE_: The token response from a refresh will not contain a new
+refresh token.  The original refresh token from the initial
+grant response must be retained.
+
+#### Considerations for Handling 'offline_access' ####
+
+To utilize refresh tokens issued with the offline_access scope,
+Cerner requires your application is present credentials as
+part of the access token request utilizing the [BASIC
+authentication scheme][RFC2617].  The rationale is such
+that if your solution compromises a large number of
+refresh tokens that such refresh tokens need not be revoked;
+only our client credentials need to be rotated to prevent
+misues of such compromised token values.  Client credentials for 
+applications using Cerner's authorization server as issued 
+via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
+
+It is currently not recommended to store offline_access tokens
+in persistent storage at a user's device.  Cerner's authorization 
+management workflows do not currently identify individual devices, 
+or provide revocation tools that would allow a user to revoke access
+to individual devices.  If your application will allow the user
+to obtain data at their client device, you must supply your
+own mechanism for authenticating and revoking such devices to
+the user and/or administrators.
+
+Cerner's authorization server can be used as an authentication 
+mechanism via the use of the "openid" scope.  In this scenario,
+an offline access refresh token could be stored in your 
+application's service tier and associated with the user's 
+OpenID Connect principal and issuer.  Upon subsequent
+access, the client application would invoke an authorization
+reuqest containing the "openid" scope to soley perform
+authentication to allow your service tier to identify the user
+and any refresh tokens your application currently possesses
+for the user.
+
+_NOTE_:  Cerner's authorization server currently does not
+support the stand-alone "openid" workflow for patients and/or
+their authorized representatives, nor does it support
+"offline_access" for providers at this time.
+
+When retrieving an access token utilizing using an
+online_access refresh, the most likely cause of failures
+is that access has been revoked.  The following steps are 
+recommended for the user experience:
+
+- Indicate that the application's access may have been
+  revoked.
+- Offer a "more information" link/button, hyperlinked to 
+  the value returned in the parameter "error_uri".
+- Offer the ability for the user to re-request
+  authorization for your client application.
+
+#### Considerations for Handling 'online_access' ####
+
+When retrieving an access token utilizing using an
+online_access refresh, the most likely cause of failures
+is that the user's session has been terminated.  The
+following steps are recommended for the user
+experience:
+
+- Indicate that the user may have logged out, or that
+  the server otherwise requires that they log in again.
+- If your application was invoked via a "launch", and
+  the persona being serviced is a provider, direct the
+  user to launch the application again.
+- Offer the user the opportunity to "log in again" 
+  (initiate the authorization grant workflow again) as
+  appropriate.
+- Offer a "more information" link/button, hyperlinked to 
+  the value returned in the parameter "error_uri".
+
+## Utilizing Authorization ##
+
+To utilize access Cerner FHIR<sup>®</sup> resources utilizing an
+access token, include a "bearer" authorization header
+in your HTTP request per [RFC 6750][RFC6750] as follows:
+
+<pre class="terminal">
+Authorization: Bearer eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCJ9LCJhenAiOiJkZXZqcyIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb21cLyIsImV4cCI6MTQ3ODAyODYyNSwiaWF0IjoxNDc4MDI4MDI1LCJqdGkiOiI0OTNjMGNlOC03ZDg2LTQ3YjctOGI5ZS00OWFkZGI2MjlhMmQiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJ1c2VyXC9PYnNlcnZhdGlvbi5yZWFkIn19LCJjbGllbnQiOnsibmFtZSI6IkRldkpTIERlbW8gQXBwbGljYXRpb24gKGxlZ2FjeSBjbGllbnQgaWQpIiwiaWQiOiJkZXZqcyJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvd2VyY2hhcnQiLCJwZXJzb25hIjoicHJvdmlkZXIiLCJpZHNwIjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwicHJpbmNpcGFsVXJpIjoiaHR0cHM6XC9cL21pbGxlbm5pYS5zYW5kYm94Y2VybmVyLmNvbVwvaW5zdGFuY2VcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvcHJpbmNpcGFsXC8wMDAwLjAwMDAuMDAwRi4zMjVDIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2FjY291bnRzXC9kZXZlbmcubm9ydGhhbWVyaWNhLmNlcm5lci5uZXRcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvbG9naW4ifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.TE7PpJZWgW_V47mdqk8ihFek6Pf5jrk8dS3n6QIqNk0C0tzndXu5Q0OFEcf8CxzWJlIzsK_UYDj1SHPTySVDNQ
+</pre>
+
+If the access token is invalid, the FHIR<sup>®</sup> resource will
+return a "WWW-Authenticate" header in the response with
+additional details per [RFC 6750][RFC6750].
+
+## User Experience ##
+
+The next sections include user experience recommendations
+your application should consider/incorporate in its design.
+
+### Handling the Authorization Request Window Being Closed ###
+
+When presenting an authorization request to the user, the
+possibility exists that the user might simply close the
+window.  This could occur as a result of the user choosing
+not to accept the terms, or could occur due to a failure
+to display the content.
+
+In this scenario, your application should check and detect
+if the window has closed, and react accordingly.  Offer
+the ability for the user to try again or to cancel, and
+explain any consequences of cancelling.
+
+### Provide a Link to "Manage Authorized Applications" ###
+
+If your application is interactive and utilizes 
+"online_access" or "offline_access", it should present
+a link to the end user that allows the user to manage
+their current authorizations.  Generally, such links
+are presented in conjunction with menu accessible from
+a status bar.
+
+For information on how to discover the management
+endpoint for a user, see 
+[Discovery](#../authorization-specification#discovery) in the
+authorization specification.
+
+<a id="system-authorization"></a>
+
+## Requesting Authorization on Behalf of a System ##
+
+Certain types of applications and automated processes
+do not act on behalf of end users.  For this use case,
+a client application may request access tokens directly
+by utilizing credentials issued via 
+[Cerner Central System Account Management][SYSTEM-ACCOUNTS].
+
+A client may request an access token directly using the
+"client credentials" flow of OAuth2, utilizing the
+[Basic authentication scheme][RFC2617] for passing
+account credentials.  The following is a non-normative
+example of such a request:
+
+Request:
+<pre class="terminal">
+POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.sandboxcerner.com
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 61
+Connection: close
+grant_type=client_credentials&scope=system%2FObservation.read
+</pre>
+
+<a id="faq"></a>
+
+## Frequently Asked Questions ##
+
+The next sections discuss questions that application
+developers may pose that are not covered by the
+preceding documentation.
+
+- How can I allow users to utilize devices that do
+  not provide a browser (user agent) to facilitate
+  the authorization workflow?
+  
+> Cerner currently does not have a mechanism to allow
+  such devices to participate in the authorization
+  ecosystem.  Cerner is tracking the progress
+  of the IETF draft RFC 
+  ["OAuth 2.0 Device Flow"](https://tools.ietf.org/html/draft-denniss-oauth-device-flow-00)
+  for further evaluation of such capabilities.
+
+- How can my application revoke a refresh token on
+  behalf of a user?
+  
+> Cerner currently does not have a mechanism that allows
+  client applications to revoke refresh tokens.  Cerner is
+  currently tracking the progress of the IETF Proposed
+  Standard RFC 
+  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009)
+  for further evaluation of such capabilities.
+
+- How can my application participate in log out
+  mechanisms provided by the organization's single
+  sign-on (SSO) ecosystem?
+
+> While the Cerner authorization server provides OpenID
+  Connect support, it does not currently implement any
+  of the draft log-out specifications currently
+  proposed by the community.  Cerner continues to track
+  on developments in this ecosystem.
+
+> As an alternative, you may offer the user a link to
+  "Manage Authorized Applications", which allows the user 
+  to log out via their SSO system.
+
+- A browser window/tab remains after the completion of the
+  authorization workflow.  How should my application handle
+  this?
+  
+> Depending on how the browser was launched, your application
+  may not have the ability to close the browser window.
+  If you launched a fresh browser window directly, you may
+  be able to use Windows APIs to find and send a close
+  command directly to the window.
+
+- Does the Cerner authorization server offer an
+  authentication-only workflow (via OpenID Connect) for 
+  patients  and/or their authorized representatives?
+  
+> Cerner currently does not offer this capability at this
+  time.
+
+- Can I append additional query parameters for my 
+  redirection URI when I send my authorization grant
+  request?
+  
+> Yes, Cerner's redirection URI validation allows for
+  additional query parameters, per the OAuth specification.
+
+> _NOTE_:  Cerner's implementation uses strict path
+  validation, which includes trailing slashes in your
+  redirection URI.
+
+- Can I register multiple redirect URIs?
+
+> Cerner does not currently support the registration of
+  multiple redirection URIs; it is under consideration.
+
+- My organization is a Cerner client that offers an
+  application directly to patients.  Can we skip the
+  authorization interaction with users for our app?
+  
+> Yes, Cerner offers the ability for organizations
+  providing their own app to disable the patient-mediated
+  authorization workflow when used in context with their
+  organization.
+
+> _NOTE_:  Cerner currently does not support 
+  offline_access support for such applications.
+ 
+- Can I require Cerner to force the use of client credentials
+  (also known as a "confidential client") when exchanging a 
+  grant code for an access token?
+
+> No, Cerner currently does not have this capability.  It
+  is currently under consideration.
+
+- How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup> 
+  application in another application, such as inside of a web 
+  view or iframe and still orchestrate the authorization 
+  workflow?
+  
+> A general-purpose framework for embedding SMART<sup>®</sup>
+  on FHIR<sup>®</sup> applications does not currently exist.
+
+- One or more offline access tokens stored by my application
+  may have been compromised.  What action should I take to
+  prevent their usage?
+  
+> Disable or rotate your system account via Cerner Central as
+  soon as possible via 
+  [Cerner Central System Account Management][SYSTEM-ACCOUNTS].  
+
+- Is offline_access supported for healthcare providers?
+
+> Cerner does not currently have support for offline_access
+  for providers.  It is currently under consideration.
+
+- How can I deliver my solution to users utilizing its own
+  Citrix instance with XenApp?
+  
+> Cerner currently does not have guidance on how to deliver
+  native applications running within their own dedicated
+  Citrix container.  Such applications would generally
+  interact with the authorization server from a browser 
+  hosted within the application's Citrix environment, 
+  unless other steps are taken to allow for interaction
+  with the browser on the device where Citrix Receiver
+  is run.
+
+## References ##
+- ["The OAuth 2.0 Authorization Framework"][OAUTH]
+- ["OAuth 2.0 Threat Model and Security Considerations"][OAUTH-THREAT]
+- ["OAuth 2.0 Mix-Up Mitigation"][OAUTH-MIXUP]
+- ["OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-05"][OAUTH-NATIVE]
+- ["OpenID Connect Core 1.0 incorporating errata set 1"][OPENID]
+- ["Registering an Application to a URI Scheme" (Windows API)][WIN-SCHEME]
+- ["HTTP Authentication: Basic and Digest Access Authentication"][RFC2617]
+- ["The OAuth 2.0 Authorization Framework: Bearer Token Usage"][RFC6750]
+- ["Cerner System Account Management Help"][SYSTEM-ACCOUNTS]
+- ["Cerner Code Console"][CERNER-CODE-CONSOLE]
+- ["Cerner FHIR<sup>®</sup> Service Authorization Specification"][AUTHZ-SPEC]
+
+[OAUTH]: https://tools.ietf.org/html/rfc6749 "The OAuth 2.0 Authorization Framework"
+[OAUTH-THREAT]: https://tools.ietf.org/html/rfc6819 "OAuth 2.0 Threat Model and Security Considerations"
+[OAUTH-MIXUP]: https://tools.ietf.org/html/draft-ietf-oauth-mix-up-mitigation-01 "OAuth 2.0 Mix-Up Mitigation"
+[OAUTH-NATIVE]: https://tools.ietf.org/html/draft-ietf-oauth-native-apps-05 "OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-05" 
+[OPENID]: http://openid.net/specs/openid-connect-core-1_0.html "OpenID Connect Core 1.0 incorporating errata set 1"
+[WIN-SCHEME]: https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx "Registering an Application to a URI Scheme"
+[RFC2617]: https://tools.ietf.org/html/rfc2617] "HTTP Authentication: Basic and Digest Access Authentication"
+[RFC6750]: https://tools.ietf.org/html/rfc6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage"
+[SYSTEM-ACCOUNTS]: https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help "Cerner System Account Management Help"
+[CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
+[AUTHZ-SPEC]: ../authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
