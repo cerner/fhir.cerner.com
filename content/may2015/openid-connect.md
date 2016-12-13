@@ -12,19 +12,19 @@ of message structures, a messaging protocol, and a security framework
 to allow a system that has authenticated a user to securely convey said
 identity to another service provider (relying party).  Cerner's 
 authorization server implements support for OpenID Connect in
-conjunction with the [SMART on FHIR<sup>®</sup>][SMART] profile 
+conjunction with the [SMART on FHIR<sup>Â®</sup>][SMART] profile 
 of OAuth 2.  Client applications may use this as a source of 
 "single sign-on" for users when protecting resources outside of the EMR 
 (example: user-generated data that is stored by the client application).
 
-In addition to SSO, SMART on FHIR<sup>®</sup> also leverages OpenID 
+In addition to SSO, SMART on FHIR<sup>Â®</sup> also leverages OpenID 
 Connect to convey the location of the authenticated user's 
-FHIR<sup>®</sup> endpoint, as described by the HL7<sup>®</sup>
-FHIR<sup>®</sup> standard.
+FHIR<sup>Â®</sup> endpoint, as described by the HL7<sup>Â®</sup>
+FHIR<sup>Â®</sup> standard.
 
 ## Requesting OpenID Connect
 
-Per [OpenID Connect][OPENID] and [SMART on FHIR<sup>®</sup>][SMART], 
+Per [OpenID Connect][OPENID] and [SMART on FHIR<sup>Â®</sup>][SMART], 
 a client application requests the scope of "openid" to receive an identity
 token within the access token response.
 
@@ -52,7 +52,7 @@ system.
 * A user's identifier is changed in the upstream authentication system.
 * The organization changes EHR systems.
 
-Neither OpenID Connect nor SMART on FHIR<sup>®</sup> prescribe mechanisms 
+Neither OpenID Connect nor SMART on FHIR<sup>Â®</sup> prescribe mechanisms 
 for addressing the above scenarios.  As such, application developers should
 consider proprietary mechansims for handling such scenarios if
 critical user information is managed outside of the EHR.
@@ -66,7 +66,7 @@ the audience (aud) claim matches its own client identifier, per section
 For applications interoperating only with Cerner's authorization 
 server, no explicit signature validation is required when retrieving
 the access token directly from the token endpoint (as advertised via
-the FHIR<sup>®</sup> conformance document).
+the FHIR<sup>Â®</sup> conformance document).
 
 For applications that interoperate with multiple implementations, or
 are distributed in nature, identity tokens should be verified (including
@@ -81,7 +81,7 @@ token, and retrieve it from the JSON Web Key Set.
 
 ## Session Management
 
-SMART<sup>®</sup> on FHIR<sup>®</sup> currently does not prescribe
+SMART<sup>Â®</sup> on FHIR<sup>Â®</sup> currently does not prescribe
 mechanisms for managing session state between applications, or
 providing a sign-out experience for users.
 
@@ -89,7 +89,7 @@ providing a sign-out experience for users.
 
 Cerner's implementation does not currently support the "profile"
 scope for OpenID Connect, which would traditionally provide
-access to demographic information and the FHIR<sup>®</sup>
+access to demographic information and the FHIR<sup>Â®</sup>
 endpoint URL for an individual.
 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html
