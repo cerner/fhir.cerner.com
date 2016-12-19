@@ -188,6 +188,39 @@ module Cerner
               ]
             },
             {
+              "type": "Goal",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "The identity of a patient to list goals for. It is a required field if _id or subject field are not given."
+                },
+                {
+                  "name": "targetdate",
+                  "type": "date",
+                  "documentation": "A date or date range from which to find Goals. The 'targetDate' parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with 'le, 'lt', 'ge', or 'gt' prefixes to search for goals within specific range. The date and prefix pairs must create a closed range."
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "One or more Goal ids separated by commas. It is a required field if patient or subject field are not given."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "The subject for whom the goal is established. Must be a Patient. It is a required field if patient or id fields are not provided."
+                }
+              ]
+            },
+            {
               "type": "Immunization",
               "interaction": [
                 {
@@ -610,6 +643,39 @@ module Cerner
                   "name": "_id",
                   "type": "token",
                   "documentation": "A single or comma separated list of Encounter ids. It is a required field if patient field is not given"
+                }
+              ]
+            },
+            {
+              "type": "Goal",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "The identity of a patient to list goals for. It is a required field if _id or subject field are not given."
+                },
+                {
+                  "name": "targetdate",
+                  "type": "date",
+                  "documentation": "A date or date range from which to find Goals. The 'targetDate' parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with 'le, 'lt', 'ge', or 'gt' prefixes to search for goals within specific range. The date and prefix pairs must create a closed range."
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "One or more Goal ids separated by commas. It is a required field if patient or subject field are not given."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "The subject for whom the goal is established. Must be a Patient. It is a required field if patient or id fields are not provided."
                 }
               ]
             },

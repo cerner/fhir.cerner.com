@@ -1,0 +1,14 @@
+---
+name: Goal
+field_name_base_url: http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal
+fields:
+- name: category
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: Indicates a category the goal falls within.
+  binding:
+    description: Codes for grouping and sorting goals.
+    terminology:
+    - display: Goal Category Codes
+      system: http://hl7.org/fhir/ValueSet/goal-category
