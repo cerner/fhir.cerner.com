@@ -110,7 +110,43 @@ present.
    x-xss-protection → 1; mode=block
 </pre>
 
+## Operation $docref
+
+Query for DocumentReference for the supplied parameters:
+
+    GET /DocumentReference/$docref?:parameters
+
+### Terminology Bindings
+
+<%= terminology_table(:document_reference_docref, :dstu2) %>
+
+### Parameters
+
+ Name     | Required? | Type          | Description
+----------|-----------|---------------|-------------------------------------------------
+`patient` | Yes       | [`reference`] | A reference to a patient whose document references are required. Example: `14067892`
+`type`    | Yes       | [`token`]     | The document reference type, can be a list of comma separated values. Example: `http://loinc.org|34133-9`
+`period`  | No        | [`date`]      | The date range for which the Binary CCD is to be generated. Example: `ge2014-09-24T12:00:00.000Z`
+
+Notes:   
+
+- The `type` value must include both a system and a code. (e.g. `&type=http://loinc.org|34133-9`)
+
+- The `period` parameter:  
+  - must be a valid [dateTime] with a time
+  - may be provided once with the prefix `ge` or `le` to specify an implied date range. (e.g. `&period=ge2014-09-24T12:00:00.000Z` or `&period=le2014-09-24T12:00:00.000Z`)
+  - may be provided twice with prefixes `ge` and `le` to indicate a specific date range. The date and prefix pairs must create an upper and lower bound. (e.g. `&period=ge2014-09-24T12:00:00.000Z` and `&period=le2016-10-19T12:00:00.000Z`)
+
+### Response
+
+<%= headers 200, GET: '[...]/DocumentReference/$docref?patient=1316024&type=http://loinc.org|34133-9' %>
+<%= json(:dstu2_document_reference_docref_bundle) %>
+
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [here]: https://html5.validator.nu/
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
