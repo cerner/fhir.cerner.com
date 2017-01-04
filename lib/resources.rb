@@ -62,6 +62,13 @@ module Cerner
           JSON.pretty_generate(hash) + "</code></pre>"
       end
 
+      def html(key)
+        html = get_resource(key)
+        html = yield html if block_given?
+
+        "<pre class=\"body-response\"><code class=\"language-markup\">#{html}</code></pre>"
+      end
+
       def get_resource(key)
         hash = case key
           when Hash

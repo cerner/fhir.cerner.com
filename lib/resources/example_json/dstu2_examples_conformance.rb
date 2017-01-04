@@ -11,7 +11,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-08-15",
+      "date": "2016-11-28",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -39,19 +39,35 @@ module Cerner
               "type": "AllergyIntolerance",
               "interaction": [
                 {
+                  "code": "read"
+                },
+                {
                   "code": "search-type"
                 }
               ],
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who the sensitivity is for. It is a required field"
+                  "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
                 },
                 {
                   "name": "status",
                   "type": "token",
                   "documentation": "Certainty of the allergy or intolerance"
+                }
+              ]
+            },
+            {
+              "type": "Binary",
+              "interaction": [
+                {
+                  "code": "read"
                 }
               ]
             },
@@ -182,7 +198,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient for the vaccination record. It is a required field"
+                  "documentation": "The patient for the vaccination record. It is a required field if _id is not given"
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "The date range into which the immunization falls. It is an optional field. This parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date"
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "One or more Immunization ids separated by commas. It is a required field if patient field is not given"
                 }
               ]
             },
@@ -303,32 +329,52 @@ module Cerner
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "The logical resource id associated with the resource (must be supported by all servers). It is a required field if no birthdate, identifier, name or telecom field is given"
-                },
-                {
-                  "name": "birthdate",
-                  "type": "date",
-                  "documentation": "The patient's date of birth. It is a required field if no _id, identifier, name or telecom field is given"
+                  "documentation": "A single or comma separated list of Patient ids. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "identifier",
                   "type": "token",
-                  "documentation": "A patient identifier. It is a requried field if no _id, birthdate, name or telecom field is given"
+                  "documentation": "A patient identifier. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "name",
                   "type": "string",
-                  "documentation": "A portion of either family or given name of the patient. It is a required field if no _id, birthday, identifier or telecom field is given"
+                  "documentation": "A portion of either family or given name of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+                },
+                {
+                  "name": "birthdate",
+                  "type": "date",
+                  "documentation": "The patient's date of birth. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "telecom",
                   "type": "token",
-                  "documentation": "The value in any kind of telecom details of the patient. It is a required field if no _id, birthdate, identifier or name is given"
+                  "documentation": "The value in any kind of telecom details of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "_count",
                   "type": "number",
-                  "documentation": "The maximum number of results to return"
+                  "documentation": "The maximum number of results to return. Not honoured when '_id' or 'identifier' are set."
+                }
+              ]
+            },
+            {
+              "type": "Person",
+              "interaction": [
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Person ids. It is a required field if no identifier is given."
+                },
+                {
+                  "name": "identifier",
+                  "type": "token",
+                  "documentation": "A person identifier. It is a required field if no _id field is given"
                 }
               ]
             }
@@ -347,7 +393,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-08-15",
+      "date": "2016-11-28",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -405,6 +451,9 @@ module Cerner
                   "code": "create"
                 },
                 {
+                  "code": "read"
+                },
+                {
                   "code": "update"
                 },
                 {
@@ -414,14 +463,27 @@ module Cerner
               "updateCreate": false,
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who the sensitivity is for. It is a required field"
+                  "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
                 },
                 {
                   "name": "status",
                   "type": "token",
                   "documentation": "Certainty of the allergy or intolerance"
+                }
+              ]
+            },
+            {
+              "type": "Binary",
+              "interaction": [
+                {
+                  "code": "read"
                 }
               ]
             },
@@ -562,7 +624,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient for the vaccination record. It is a required field"
+                  "documentation": "The patient for the vaccination record. It is a required field if _id is not given"
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "The date range into which the immunization falls. It is an optional field. This parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date"
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "One or more Immunization ids separated by commas. It is a required field if patient field is not given"
                 }
               ]
             },
@@ -690,32 +762,52 @@ module Cerner
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "The logical resource id associated with the resource (must be supported by all servers). It is a required field if no birthdate, identifier, name or telecom field is given"
-                },
-                {
-                  "name": "birthdate",
-                  "type": "date",
-                  "documentation": "The patient's date of birth. It is a required field if no _id, identifier, name or telecom field is given"
+                  "documentation": "A single or comma separated list of Patient ids. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "identifier",
                   "type": "token",
-                  "documentation": "A patient identifier. It is a requried field if no _id, birthdate, name or telecom field is given"
+                  "documentation": "A patient identifier. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "name",
                   "type": "string",
-                  "documentation": "A portion of either family or given name of the patient. It is a required field if no _id, birthday, identifier or telecom field is given"
+                  "documentation": "A portion of either family or given name of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+                },
+                {
+                  "name": "birthdate",
+                  "type": "date",
+                  "documentation": "The patient's date of birth. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "telecom",
                   "type": "token",
-                  "documentation": "The value in any kind of telecom details of the patient. It is a required field if no _id, birthdate, identifier or name is given"
+                  "documentation": "The value in any kind of telecom details of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
                 },
                 {
                   "name": "_count",
                   "type": "number",
-                  "documentation": "The maximum number of results to return"
+                  "documentation": "The maximum number of results to return. Not honoured when '_id' or 'identifier' are set."
+                }
+              ]
+            },
+            {
+              "type": "Person",
+              "interaction": [
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Person ids. It is a required field if no identifier is given."
+                },
+                {
+                  "name": "identifier",
+                  "type": "token",
+                  "documentation": "A person identifier. It is a required field if no _id field is given"
                 }
               ]
             }
