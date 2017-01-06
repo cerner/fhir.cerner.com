@@ -100,7 +100,7 @@ in the
 
 ### Discovering Authorization URLs ###
 Each instance of Cerner's FHIR<sup>®</sup> services advertise 
-the URL of itsrespective authorization server within its 
+the URL of its respective authorization server within its 
 FHIR<sup>®</sup> conformance document.
 
 The FHIR® Conformance resource can be retrieved by performing
@@ -901,6 +901,7 @@ Request:
 <pre class="terminal">
 POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
+Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 61
