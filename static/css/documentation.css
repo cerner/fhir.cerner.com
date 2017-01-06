@@ -281,23 +281,6 @@ a img {
   background: #8A939C;
 }
 
-#top-header #start-coding {
-  float: right;
-  height: 22px;
-  width: 190px;
-  padding: 15px 0 13px;
-  font-size: .9375rem;
-  color: #fff;
-  text-align: center;
-  background: #5C9A32;
-  border-radius: 3px;
-  text-transform: uppercase;
-}
-
-#top-header #start-coding:hover{
-  text-decoration: none;
-}
-
 #bottom-header {
   height: 50px;
   background: #393d41;
