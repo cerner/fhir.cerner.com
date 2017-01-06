@@ -35,7 +35,7 @@ _Implementation Notes_
  `telecom`    | Yes, or `birthdate`, `name` or `_id`              | [`token`]  | The value in any kind of telecom details of the patient. Example: `(816) 475-2374`
  [`_count`]   | No                                                | [`number`] | The maximum number of results to return. Defaults to `20`.
 
-Notes: 
+Notes:
 
 - Either the `_id`, `identifier` or a combination of `birthdate`, `name` and `telecom` parameters must be provided.
 - The `identifier`, `birthdate`, `name`, or `telecom` parameters may be provided exactly once and may have only a single value.
@@ -63,7 +63,7 @@ _Implementation Notes_
 ### Response
 
 <%= headers 200 %>
-<%= json(:dstu2_patient_1) %>
+<%= json(:dstu2_patient_entry) %>
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
