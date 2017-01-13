@@ -105,7 +105,7 @@ FHIR<sup>®</sup> conformance document.
 
 The FHIR® Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
-of ``../Conformance`` from the FHIR<sup>®</sup> base URL.
+of [``./metadata``](../conformance) from the FHIR<sup>®</sup> base URL.
 
 Within the structure of this document, two important URLs are
 advertised in an extension to ``Conformance.rest.security``, 
@@ -190,7 +190,7 @@ Examples of scopes include:
 
 - ``user/Observation.read`` (Read all values from the Observation resource
   that the user has access to.)
-- ``patient/MedicationOrder.*`` (Read or write medications for a specific user.)
+- ``patient/MedicationOrder.*`` (Read or write medications for a specific patient.)
 - ``user/Appointment.write`` (Create appointments.)
 
 The "resource context" represents one of three possible choices:
@@ -246,7 +246,7 @@ the [OpenID Connect Guide](../openid-connect).
 The scope 'profile' will additionally request that the OpenID Connect
 token include the claim "profileURL", as defined by the 
 SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This 
-URL identifiesthe specific FHIR<sup>®</sup> resource URL of the 
+URL identifies the specific FHIR<sup>®</sup> resource URL of the 
 authenticated user.   This resource may be a Patient, Practitioner, or 
 Person resource, depending on the type of user whom is authenticated.
 
@@ -321,7 +321,7 @@ is a fragment from a x-www-form-urlencoded grant request query string
 where the audience is provided:
 
 <pre class="terminal">
-&aud=https%3A%2F%2Fauthorization.cerner.com%2F
+&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F
 </pre>
 
 #### Launch ####
@@ -347,20 +347,20 @@ The following are hypothetical examples of authorization requests:
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       patient/Observation.read patient/MedicationHistory.read launch
-audience:     https://fhir.cernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/
+audience:     https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 launch:       a17aba51-1395-48d3-b3a9-73f2baf784da
 
-https://authorization.sandboxcerner.com/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir.sandboxcernerpowerchart.com%2Fdstu2%2F2c400054-42d8-4e74-87b7-80b5bd5fde9f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       user/Observation.read user/MedicationHistory.read
-audience:     https://fhir.sandboxcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/
+audience:     https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 
-https://authorization.sandboxcerner.com/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir.sandboxcernerpowerchart.com%2Fdstu2%2F2c400054-42d8-4e74-87b7-80b5bd5fde9f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 ### Invoking an Appropriate User Agent ###
@@ -596,7 +596,7 @@ are example requests / responses:
 
 Request:
 <pre class="terminal">
-POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -641,7 +641,9 @@ Three elements of the response should be evaluated:
   
 The following additional elements may be returned:
 
-- patient_id:  The FHIR® identifier of a Patient resource 
+- patient:  The FHIR® id of a Patient resource 
+  in context of the current "launch".
+- encounter:  The FHIR® id of an Encounter resource 
   in context of the current "launch".
 - refresh_token:  A token that be exchanged at the token
   endpoint for new access tokens.
@@ -668,7 +670,7 @@ can result in errors.  The following is an example error
 response from the grant workflow:
 
 <pre class="terminal">
-https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3D2c400054-42d8-4e74-87b7-80b5bd5fde9f
+https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3Dd075cf8b-3261-481d-97e5-ba6c48d3b41f
 </pre>
 
 The following is an example error response from an access
@@ -677,7 +679,7 @@ token request:
 <pre class="terminal">
 {
   "error": "invalid_grant",
-  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=2c400054-42d8-4e74-87b7-80b5bd5fde9f"
+  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=d075cf8b-3261-481d-97e5-ba6c48d3b41f"
 }
 </pre>
 
@@ -732,7 +734,7 @@ defined in section 6 "Refreshing an Access Token" of the
 
 Request:
 <pre class="terminal">
-POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -899,7 +901,7 @@ example of such a request:
 
 Request:
 <pre class="terminal">
-POST /tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
 Accept: application/json
