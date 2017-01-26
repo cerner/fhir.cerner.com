@@ -1,8 +1,8 @@
 ---
-title: Authorization | MAY 2015 BALLOT API
+title: FHIR<sup>®</sup> Service Authorization Specification | MAY 2015 BALLOT API
 ---
 
-# Cerner FHIR® Service Authorization Specification v1.0 #
+# FHIR<sup>®</sup> Service Authorization Specification v1.0 #
 ------------------------------------------------------------------------
 * TOC
 {:toc}
@@ -13,9 +13,11 @@ SMART<sup>®</sup> on FHIR<sup>®</sup> is a framework designed to enable
 the secure integration of applications with Electronic Health Records, 
 portals, Health Information Exchanges, and other Health IT systems via
 the [HL7<sup>®</sup> FHIR<sup>®</sup> Standard][FHIR] standard.  This
-document codifies a formal specification for accessing Cerner 
-FHIR<sup>®</sup> services based upon the SMART<sup>®</sup> on 
-FHIR<sup>®</sup> framework.
+document codifies a formal technical specification, based upon the 
+open source SMART<sup>®</sup> on FHIR<sup>®</sup> framework.  This
+specification is targeted at both client application developers and 
+developers of Electronic Health Records for securely consuming and
+securely offering FHIR<sup>®</sup> services, respectively.
 
 ###	License ##
 This document is licensed under the [Creative Commons Attribution 4.0 
@@ -47,8 +49,16 @@ The following terms are used within this specification:
 *	application
 
 	Synonymous with "client" or "SMART application", a piece computer 
-	software designed to utilize FHIR® services in order to 
+	software designed to utilize FHIR<sup>®</sup> services in order to 
 	orchestrate a desired activity for the user.
+
+	*	electronic health record (EHR)
+	
+	Computer software designed to store and process information about a 
+	person's health information, such as medications, allergies, medical 
+	history, etc.  The EHR acts as a resource server by providing 
+	FHIR<sup>®</sup> services, is responsible for authenticating end 
+	users, and is responsible for providing an authorization server. 
 
 *	healthcare institution
 
@@ -65,13 +75,7 @@ The following terms are used within this specification:
 	EHR.  A patient may	also be the end-user, acting in the capacity of 
 	a resource owner. 
 	
-*	electronic health record (EHR)
-	
-	Computer software designed to store and process information about a 
-	person's health information, such as medications, allergies, medical 
-	history, etc.  The EHR acts as a resource server by providing 
-	FHIR<sup>®</sup> services, is responsible for authenticating end 
-	users, and is responsible for providing an authorization server. 
+
 
 *	EHR application
 
@@ -142,8 +146,6 @@ workflows:
                             |               +--(11)------>              |
                             |               |            |              |
                             +---------------+            +--------------+
-
-
 </pre>
 __Figure 1__: SMART Application Contextless Flow Diagram
 

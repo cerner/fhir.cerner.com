@@ -103,7 +103,7 @@ Each instance of Cerner's FHIR<sup>®</sup> services advertise
 the URL of its respective authorization server within its 
 FHIR<sup>®</sup> conformance document.
 
-The FHIR® Conformance resource can be retrieved by performing
+The FHIR<sup>®</sup? Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
 of [``./metadata``](../conformance) from the FHIR<sup>®</sup> base URL.
 
@@ -204,6 +204,11 @@ In certain cases, the authenticated user will be presented a choice to allow you
 application to utilize the requested scopes on the user's behalf.  As such,
 your application should request only the minimum scopes needed in order to
 fulfill its function.
+
+_Note_:  Many combinations of scopes are possible to be requested and approved, 
+but not all may be recognized by then given version of a FHIR API resource being 
+used.  Please refer to the respective FHIR API resource documentation for a full 
+list of its capabilities. 
 
 In addition to FHIR<sup>®</sup> resource scopes, the SMART<sup>®</sup> 
 on FHIR<sup>®</sup> authorization framework also defines these additional scopes 
@@ -641,9 +646,9 @@ Three elements of the response should be evaluated:
   
 The following additional elements may be returned:
 
-- patient:  The FHIR® id of a Patient resource 
+- patient:  The FHIR<sup>®</sup> id of a Patient resource 
   in context of the current "launch".
-- encounter:  The FHIR® id of an Encounter resource 
+- encounter:  The FHIR<sup>®</sup> id of an Encounter resource 
   in context of the current "launch".
 - refresh_token:  A token that be exchanged at the token
   endpoint for new access tokens.
@@ -888,15 +893,19 @@ authorization specification.
 ## Requesting Authorization on Behalf of a System ##
 
 Certain types of applications and automated processes
-do not act on behalf of end users.  For this use case,
-a client application may request access tokens directly
-by utilizing credentials issued via 
+do not act on behalf of end users.  Such access is
+generally utilized by a covered entity itself, or another
+entity covered under a business associate agreement.
+
+Some FHIR<sup>®</sup> APIs support this model, allowing a 
+client application to directly authenticate for access 
+using a system account issued via 
 [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
 
-A client may request an access token directly using the
-"client credentials" flow of OAuth2, utilizing the
-[Basic authentication scheme][RFC2617] for passing
-account credentials.  The following is a non-normative
+A client performs this request utilizing the "client 
+credentials" flow of OAuth2 to request an access token,
+using the [Basic authentication scheme][RFC2617] for 
+passing credentials.  The following is a non-normative
 example of such a request:
 
 Request:
@@ -910,6 +919,10 @@ Content-Length: 61
 Connection: close
 grant_type=client_credentials&scope=system%2FObservation.read
 </pre>
+
+_Note_:  This access model is only supported on resources
+where explicitly indicated in their respective 
+FHIR<sup>®</sup> API resource documentation.
 
 <a id="faq"></a>
 
