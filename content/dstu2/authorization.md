@@ -103,7 +103,7 @@ Each instance of Cerner's FHIR<sup>®</sup> services advertise
 the URL of its respective authorization server within its 
 FHIR<sup>®</sup> conformance document.
 
-The FHIR<sup>®</sup? Conformance resource can be retrieved by performing
+The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
 of [``./metadata``](../conformance) from the FHIR<sup>®</sup> base URL.
 
@@ -1071,7 +1071,7 @@ preceding documentation.
 [OAUTH-NATIVE]: https://tools.ietf.org/html/draft-ietf-oauth-native-apps-05 "OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-05" 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html "OpenID Connect Core 1.0 incorporating errata set 1"
 [WIN-SCHEME]: https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx "Registering an Application to a URI Scheme"
-[RFC2617]: https://tools.ietf.org/html/rfc2617] "HTTP Authentication: Basic and Digest Access Authentication"
+[RFC2617]: https://tools.ietf.org/html/rfc2617 "HTTP Authentication: Basic and Digest Access Authentication"
 [RFC6750]: https://tools.ietf.org/html/rfc6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage"
 [SYSTEM-ACCOUNTS]: https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help "Cerner System Account Management Help"
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
