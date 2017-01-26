@@ -61,7 +61,7 @@ critical user information is managed outside of the EHR.
 
 The client application receiving the identity token must validate that 
 the audience (aud) claim matches its own client identifier, per section
-3.1.3.7 of [OpenID Connect Core][OPENID].
+3.1.3.7 of [OpenID Connect Core][OPENID-TokenValidation].
 
 For applications interoperating only with Cerner's authorization 
 server, no explicit signature validation is required when retrieving
@@ -70,11 +70,11 @@ the FHIR<sup>®</sup> conformance document).
 
 For applications that interoperate with multiple implementations, or
 are distributed in nature, identity tokens should be verified (including
-signature) per section 3.1.3.7 of [OpenID Connect Core][OPENID].
+signature) per section 3.1.3.7 of [OpenID Connect Core][OPENID-TokenValidation].
 Signing keys may be retrieved via the following steps:
 
 * The OpenID Provider Configuration Information should be retrieved per
-section 4.1 of [OpenID Connect Discovery][OPENID-DISCOVERY].
+section 4.1 of [OpenID Connect Discovery][OPENID-DISCOVERY-ProviderConfiguration].
 * The URI of the JSON Web Key Set ("jwks_uri") should be extracted.
 * Examine the id of the JSON Web Key used to sign the OpenID Connect
 token, and retrieve it from the JSON Web Key Set.
@@ -123,12 +123,12 @@ The following is example content of the configuration document:
     "require_request_uri_registration": false,
     "request_uri_parameter_supported": true,
     "claims_parameter_supported": false,
-    "jwks_uri": "https:\/\/authorization.sandboxcerner.com\/jwk",
+    "jwks_uri": "https://authorization.sandboxcerner.com/jwk",
     "subject_types_supported": ["public"],
     "id_token_signing_alg_values_supported": ["RS256"],
-    "issuer": "https:\/\/authorization.sandboxcerner.com\/tenants\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/oidc\/idsps\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/",
-    "authorization_endpoint": "https:\/\/authorization.sandboxcerner.com\/tenants\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/oidc\/idsps\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/",
-    "token_endpoint": "https:\/\/authorization.sandboxcerner.com\/tenants\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/oidc\/idsps\/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca\/"
+    "issuer": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
+    "authorization_endpoint": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
+    "token_endpoint": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/"
 }
 </pre>
 
@@ -148,6 +148,6 @@ access to demographic information and the FHIR<sup>®</sup>
 endpoint URL for an individual.
 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html
+[OPENID-TokenValidation]: http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation
 [SMART]:  http://docs.smarthealthit.org/authorization/
-[CLOUDKEY]: https://wiki.ucern.com/display/public/reference/Cloud+Key+Management
-[OPENID-DISCOVERY]: http://openid.net/specs/openid-connect-discovery-1_0.html
+[OPENID-DISCOVERY-ProviderConfiguration]: http://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest

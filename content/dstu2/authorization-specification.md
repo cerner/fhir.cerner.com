@@ -567,7 +567,7 @@ In Figure 4, the following workflow is described:
 
 ####  Access Token Request ####
 SMART applications __SHALL__ utilize an access token request as 
-described in [section 4.4.3 of OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.1.3).  
+described in [section 4.4.3 of OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4.3).  
 The application __MUST__ include credentials; it is __RECOMMENDED__ 
 that authorization servers support "basic authentication" per 
 [RFC 2617][], and __MAY__ offer other authentication mechanisms to 
