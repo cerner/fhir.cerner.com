@@ -52,7 +52,7 @@ The following terms are used within this specification:
 	software designed to utilize FHIR<sup>®</sup> services in order to 
 	orchestrate a desired activity for the user.
 
-	*	electronic health record (EHR)
+*	electronic health record (EHR)
 	
 	Computer software designed to store and process information about a 
 	person's health information, such as medications, allergies, medical 
@@ -114,38 +114,34 @@ workflows:
 
 ### Contextless Flow ###
 
-<pre class="terminal">                                                                                                                            
-+--------------+                                         +--------------+
-|              |                                         |              |
-| Resource     +--(1)------------------------------------> SMART        |
-| Owner        |                                         | Application  |
-|              |                                         |              |
-|              |                                         |              |
-|              |                                         |              |
-|              |                                         |              |
-|              |            +---------------+            |              |
-|              |            |               |            |              |
-|              <--(5)-------+ Authorization <--(4)-------+              |
-|              |            | Server        |            |              |
-|              +--(6)------->               +--(7)------->              |
-|              |            |               |            |              |
-+--------------+            |               <--(8)-------+              |
-                            |               |            |              |
-                            |               +--(9)------->              |
-                            |               |            |              |
-                            +---------------+            |              |
-                                                         |              |
-                            +---------------+            |              |
-                            |               |            |              |
-                            | FHIR Resource <--(2)-------+              |
-                            | Server        |            |              |
-                            |               +--(3)------->              |
-                            |               |            |              |
-                            |               <--(10)------+              |
-                            |               |            |              |
-                            |               +--(11)------>              |
-                            |               |            |              |
-                            +---------------+            +--------------+
+<pre class="terminal">
++---------------+                                 +---------------+
+|               |                                 |               |
+| Resource      +-(1)-----------------------------> SMART         |
+| Owner         |                                 | Application   |
+|               |        +---------------+        |               |
+|               |        |               |        |               |
+|               <-(5)----+ Authorization <-(4)----+               |
+|               |        | Server        |        |               |
+|               +-(6)---->               +-(7)---->               |
+|               |        |               |        |               |
++---------------+        |               <-(8)----+               |
+                         |               |        |               |
+                         |               +-(9)---->               |
+                         |               |        |               |
+                         +---------------+        |               |
+                                                  |               |
+                         +---------------+        |               |
+                         |               |        |               |
+                         | FHIR Resource <-(2)----+               |
+                         | Server        |        |               |
+                         |               +-(3)---->               |
+                         |               |        |               |
+                         |               <-(10)---+               |
+                         |               |        |               |
+                         |               +-(11)--->               |
+                         |               |        |               |
+                         +---------------+        +---------------+
 </pre>
 __Figure 1__: SMART Application Contextless Flow Diagram
 
@@ -262,38 +258,37 @@ send the bearer token as an authorization header, as defined in
 
 ### EHR Launch Flow ###
 
-<pre class="terminal">                                                   
-+--------------+            +---------------+            +--------------+
-|              |            |               |            |              |
-| Resource     +--(1)-------> EHR           +--(2)-------> SMART        |
-| Owner        |            | Application   |            | Application  |
-|              |            |               |            |              |
-|              |            |               |            |              |
-|              |            +---------------+            |              |
-|              |                                         |              |
-|              |            +---------------+            |              |
-|              |            |               |            |              |
-|              <--(6)-------+ Authorization <--(5)-------+              |
-|              |            | Server        |            |              |
-|              +--(7)------->               +--(8)------->              |
-|              |            |               |            |              |
-+--------------+            |               <--(9)-------+              |
-                            |               |            |              |
-                            |               +--(10)------>              |
-                            |               |            |              |
-                            +---------------+            |              |
-                                                         |              |
-                            +---------------+            |              |
-                            |               |            |              |
-                            | FHIR Resource <--(3)-------+              |
-                            | Server        |            |              |
-                            |               +--(4)------->              |
-                            |               |            |              |
-                            |               <--(11)------+              |
-                            |               |            |              |
-                            |               +--(12)------>              |
-                            |               |            |              |
-                            +---------------+            +--------------+
+<pre class="terminal">
++---------------+        +---------------+        +---------------+
+|               |        |               |        |               |
+| Resource      +-(1)----> EHR           +-(2)----> SMART         |
+| Owner         |        | Application   |        | Application   |
+|               |        |               |        |               |
+|               |        +---------------+        |               |
+|               |                                 |               |
+|               |        +---------------+        |               |
+|               |        |               |        |               |
+|               <-(6)----+ Authorization <-(5)----+               |
+|               |        | Server        |        |               |
+|               +-(7)---->               +-(8)---->               |
+|               |        |               |        |               |
++---------------+        |               <-(9)----+               |
+                         |               |        |               |
+                         |               +-(10)--->               |
+                         |               |        |               |
+                         +---------------+        |               |
+                                                  |               |
+                         +---------------+        |               |
+                         |               |        |               |
+                         | FHIR Resource <-(3)----+               |
+                         | Server        |        |               |
+                         |               +-(4)---->               |
+                         |               |        |               |
+                         |               <-(11)---+               |
+                         |               |        |               |
+                         |               +-(12)--->               |
+                         |               |        |               |
+                         +---------------+        +---------------+
 </pre>
 __Figure 2__: EHR Launch Flow Diagram
 
@@ -427,36 +422,34 @@ described previously in "Contextless Flow" to access resources.
 
 ### SMART Application Launch Flow ###
 
-<pre class="terminal">                         
-+--------------+                                         +--------------+
-|              |                                         |              |
-| Resource     |                                         | SMART        |
-| Owner        +--(1)------------------------------------> Application  |
-|              |                                         |              |
-|              |                                         |              |
-|              |            +---------------+            |              |
-|              |            |               |            |              |
-|              <--(5)-------+ Authorization <--(4)-------+              |
-|              |            | Server        |            |              |
-|              +--(6)------->               +--(7)------->              |
-|              |            |               |            |              |
-+--------------+            |               <--(8)-------+              |
-                            |               |            |              |
-                            |               +--(9)------->              |
-                            |               |            |              |
-                            +---------------+            |              |
-                                                         |              |
-                            +---------------+            |              |
-                            |               |            |              |
-                            | FHIR Resource <--(2)-------+              |
-                            | Server        |            |              |
-                            |               +--(3)------->              |
-                            |               |            |              |
-                            |               <--(10)------+              |
-                            |               |            |              |
-                            |               +--(11)------>              |
-                            |               |            |              |
-                            +---------------+            +--------------+
+<pre class="terminal">
++---------------+                                 +---------------+
+|               |                                 |               |
+| Resource      +-(1)-----------------------------> SMART         |
+| Owner         |                                 | Application   |
+|               |        +---------------+        |               |
+|               |        |               |        |               |
+|               <-(5)----+ Authorization <-(4)----+               |
+|               |        | Server        |        |               |
+|               +-(6)---->               +-(7)---->               |
+|               |        |               |        |               |
++---------------+        |               <-(8)----+               |
+                         |               |        |               |
+                         |               +-(9)---->               |
+                         |               |        |               |
+                         +---------------+        |               |
+                                                  |               |
+                         +---------------+        |               |
+                         |               |        |               |
+                         | FHIR Resource <-(2)----+               |
+                         | Server        |        |               |
+                         |               +-(3)---->               |
+                         |               |        |               |
+                         |               <-(10)---+               |
+                         |               |        |               |
+                         |               +-(11)--->               |
+                         |               |        |               |
+                         +---------------+        +---------------+
 </pre>
 __Figure 3__: SMART Launch Flow Diagram
 
@@ -528,27 +521,26 @@ as described previously in "Contextless Flow" to access resources.
 
 ### Client Credentials Flow ###
 
-<pre class="terminal">                         
-                             +--------------+
-+---------------+            |              |
-|               |            |              |
-| Authorization <--(3)-------+ SMART        |
-| Server        |            | Application  |
-|               +--(4)------->              |
-|               |            |              |
-+---------------+            |              |
-                             |              |
-+---------------+            |              |
-|               |            |              |
-|               <--(1)-------+              |
-| FHIR Resource |            |              |
-| Server        +--(2)------->              |
-|               |            |              |
-|               <--(5)-------+              |
-|               |            |              |
-|               +--(6)------->              |
-|               |            |              |
-+---------------+            +--------------+
+<pre class="terminal">
++---------------+        +---------------+
+|               |        |               |
+| Authorization <-(3)----+ SMART         |
+| Server        |        | Application   |
+|               +-(4)---->               |
+|               |        |               |
++---------------+        |               |
+                         |               |
++---------------+        |               |
+|               |        |               |
+|               <-(1)----+               |
+| FHIR Resource |        |               |
+| Server        +-(2)---->               |
+|               |        |               |
+|               <-(5)----+               |
+|               |        |               |
+|               +-(6)---->               |
+|               |        |               |
++---------------+        +---------------+
 </pre>
 __Figure 4__: Client Credentials Flow Diagram
 
@@ -851,24 +843,31 @@ Non-normative conformance example as JSON:
 <pre class="terminal">
 {
   "resourceType": "Conformance", 
-...
-  "rest": [{
-   ...
-      "security": {
-        "extension": [{
-          "url": "http://FHIR-registry.smarthealthit.org/StructureDefinition/oauth-uris",
-          "extension": [{
-            "url": "token",
-            "valueUri": "https://my-server.org/token"
-          },{
-            "url": "authorize",
-            "valueUri": "https://my-server.org/authorize"
-          },{
-            "url": "manage",
-            "valueUri": "https://my-server.org/manage"
-          }]
-        }],
+  ...
+  "rest": [
+    {
       ...
+      "security": {
+        "extension": [
+          {
+            "url": "http://FHIR-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://my-server.org/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://my-server.org/authorize"
+              },
+              {
+                "url": "manage",
+                "valueUri": "https://my-server.org/manage"
+              }
+            ]
+          }
+        ],
+        ...
 </pre>
 
 ### Client Authentication ###
@@ -966,10 +965,10 @@ for the elements defined in this specification using the notation of
 ### A.1. Resource Scope Syntax ###
 
 <pre class="terminal">
-scope-name            = resource-context "/" resource-type "." modification-rights
-resource-context      = ("user" / "patient") 
-resource-type         = (Name / "*")
-modification-rights   = ("read" / "write" / "*" ); 
+scope-name          = resource-context "/" resource-type "." modification-rights
+resource-context    = ("user" / "patient") 
+resource-type       = (Name / "*")
+modification-rights = ("read" / "write" / "*" ); 
 </pre>
 
 <a id="A.2"></a>
@@ -985,7 +984,7 @@ modification-rights   = ("read" / "write" / "*" );
 ### A.3. Launch Code Syntax ###
 
 <pre class="terminal">
-  launch-code      = 1*VSCHAR
+  launch-code       = 1*VSCHAR
 </pre>
 
 <a id="A.4"></a>
@@ -993,7 +992,7 @@ modification-rights   = ("read" / "write" / "*" );
 ### A.4. Launch Issuer Syntax ###
 
 <pre class="terminal">
-  launch-issuer    = URI-reference
+  launch-issuer     = URI-reference
 </pre>
 
 <a id="A.5"></a>
@@ -1001,7 +1000,7 @@ modification-rights   = ("read" / "write" / "*" );
 ### A.5. Launch Intent Syntax ###
 
 <pre class="terminal">
-  launch-intent    = 1*VSCHAR
+  launch-intent     = 1*VSCHAR
 </pre>
 
 ## References ##

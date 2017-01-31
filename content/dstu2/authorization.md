@@ -125,19 +125,27 @@ containing this information:
 <pre class="terminal">
 {
   "resourceType": "Conformance", 
-  "rest": [{
+  "rest": [
+    {
       "security": {
-        "extension": [{
-          "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
-          "extension": [{
-            "url": "token",
-            "valueUri": "https://example.org/token"
-          },{
-            "url": "authorize",
-            "valueUri": "https://example.org/authorize"
-          }]
-        }]
-      }]
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://example.org/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://example.org/authorize"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }      
 </pre>
 
@@ -444,11 +452,11 @@ an additional tab or split-screen browsing windows.
 
 <pre class="terminal">
 var width = 780,
-	height = 550,
-	left = (screen.width - width) / 2,
-	top = (screen.height - height) / 2,
-	uniqueWindowId = "authorization-" + yourAppClientId
-	params,
+    height = 550,
+	  left = (screen.width - width) / 2,
+	  top = (screen.height - height) / 2,
+	  uniqueWindowId = "authorization-" + yourAppClientId
+	  params,
     location;
 if (top > 20) {
 	top = top - 20;
