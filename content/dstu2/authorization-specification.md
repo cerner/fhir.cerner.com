@@ -836,7 +836,7 @@ associated with a valueUri:
 *   manage
 
     A valueUri indicating the user-facing authorization management 
-    workflow entry point for this FHIR server.
+    workflow entry point for this FHIR<sup>®</sup> server.
 
 Non-normative conformance example as JSON:
 

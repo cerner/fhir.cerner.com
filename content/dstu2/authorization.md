@@ -214,8 +214,8 @@ your application should request only the minimum scopes needed in order to
 fulfill its function.
 
 _Note_:  Many combinations of scopes are possible to be requested and approved, 
-but not all may be recognized by then given version of a FHIR API resource being 
-used.  Please refer to the respective FHIR API resource documentation for a full 
+but not all may be recognized by then given version of a FHIR<sup>®</sup> API resource being 
+used.  Please refer to the respective FHIR<sup>®</sup> API resource documentation for a full 
 list of its capabilities. 
 
 In addition to FHIR<sup>®</sup> resource scopes, the SMART<sup>®</sup> 
@@ -346,7 +346,7 @@ feature provides three benefits to client applications:
 - Cerner solutions can provide links to client applications; when
   invoked by the user, Cerner's solution will pass the appropriate 
   FHIR<sup>®</sup> base URL to your application, thus avoiding the 
-  need to select which FHIR endpoints to interact with.
+  need to select which FHIR<sup>®</sup> endpoints to interact with.
 - Your client application can request access to the current patient
   in context.
 - Cerner's solution can provide context as to how your client
@@ -453,10 +453,10 @@ an additional tab or split-screen browsing windows.
 <pre class="terminal">
 var width = 780,
     height = 550,
-	  left = (screen.width - width) / 2,
-	  top = (screen.height - height) / 2,
-	  uniqueWindowId = "authorization-" + yourAppClientId
-	  params,
+    left = (screen.width - width) / 2,
+    top = (screen.height - height) / 2,
+    uniqueWindowId = "authorization-" + yourAppClientId
+    params,
     location;
 if (top > 20) {
 	top = top - 20;
