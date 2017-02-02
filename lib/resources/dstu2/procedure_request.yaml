@@ -1,0 +1,86 @@
+---
+name: ProcedureRequest
+field_name_base_url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest
+fields:
+
+- name: code
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.code
+  binding:
+    description: A code to identify a specific procedure.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+
+- name: bodySite
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.bodySite
+  binding:
+    description: A code that identifies the anatomical location.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+
+- name: reasonCodeableConcept
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The reason why the procedure is being proposed or ordered.
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.bodySite
+  binding:
+    description: A code that explains the reason why a procedure is required.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+    - display: ICD-9-CM
+      system: http://hl7.org/fhir/sid/icd-9-cm
+      info_link: http://hl7.org/fhir/icd.html
+    - display: ICD-10-CM
+      system: http://hl7.org/fhir/sid/icd-10-cm
+      info_link: http://hl7.org/fhir/icd.html
+
+- name: scheduledTiming
+  required: 'No'
+  cardinality: 0..1
+  type: Timing
+  description: >
+    The timing schedule for the proposed or ordered procedure.
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.scheduled_x_
+  children:
+
+  - name: code
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: A code for the timing pattern.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
+    binding:
+      description: Code for a known / defined timing pattern.
+      terminology:
+      - display: TimingAbbreviation
+        system: http://hl7.org/fhir/timing-abbreviation
+        info_link: http://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
+
+- name: asNeeded[x]
+  required: 'No'
+  cardinality: 0..1
+  type: boolean | CodeableConcept
+  description: >
+    If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.asNeeded_x_
+  binding:
+    description: >
+      A coded concept identifying the pre-condition that should hold prior to performing a procedure.
+    note: Currently not bound to any terminology.
