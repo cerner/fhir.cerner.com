@@ -25,7 +25,7 @@ module Cerner
               },
               "text": {
                 "status": "generated",
-                "div": "<div><p><b>Medication Order</b></p><p><b>Patient Name</b>: Smart, Wilma</p><p><b>Medication Name</b>: morphine (morphine 24 hour extended release)</p><p><b>Dosage Instructions</b>: 30 mg, 1 caps, Oral, Daily, PRN: pain</p><p><b>Status</b>: Active</p></div>"
+                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: morphine (morphine 24 hour extended release)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 30 mg, 1 caps, Oral, Daily, PRN: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
               },
               "dateWritten": "2016-06-24T10:24:14.000-05:00",
               "status": "active",
