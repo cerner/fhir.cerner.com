@@ -28,7 +28,7 @@ _Implementation Notes_
  `_id`        | This, or one of `patient` or `subject`| [`token`]     | The logical resource id associated with the resource. Example: `_id=24110557`
  `patient`    | This, or one of `_id` or `subject`    | [`reference`] | The patient subject of the Procedure. Example: `patient=1316024`
  `subject`    | This, or one of `_id` or `patient`    | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
- `date`       | No                                    | [`date`]      | The date/time when the Procedure was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
+ `date`       | N                                     | [`date`]      | The date/time when the Procedure was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
 
 Notes:
 

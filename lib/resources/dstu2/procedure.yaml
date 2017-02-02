@@ -17,7 +17,8 @@ fields:
 - name: performer
   children:
   - name: role
-    description: A code that identifies the role of a performer of the procedure.
-    terminology:
-    - display: Procedure Performer Role Codes
-      system: http://snomed.info/sct
+    binding:
+      description: A code that identifies the role of a performer of the procedure.  
+      terminology:
+      - display: Procedure Performer Role Codes
+        system: http://hl7.org/fhir/ValueSet/performer-role
