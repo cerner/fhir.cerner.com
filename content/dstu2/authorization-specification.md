@@ -462,7 +462,7 @@ In Figure 3, the following workflow is described:
 	how the SMART application is provided the URL for the FHIR<sup>®</sup> 
 	server is not defined by this specification.
 3.  The FHIR<sup>®</sup> server returns the conformance statement, 
-    which provides the needed endpoints for steps 8 and 12.
+    which provides the needed endpoints for steps 4 and 8.
 4.	The SMART application creates an OAuth 2.0 authorization grant 
     request, then directs the end user to the authorization server's 
     authorization endpoint via a browser with said request.  This 
@@ -551,7 +551,7 @@ In Figure 4, the following workflow is described:
 	for how the SMART application is provided the URL for the 
     FHIR<sup>®</sup> server is not defined by this specification.
 2.  The FHIR<sup>®</sup> server returns the conformance statement, 
-    which provides the needed endpoints for steps 3 and 4.
+    which provides the needed endpoint for step 3.
 3.	The SMART application requests an access token using its client 
     credentials.
 4.	The authorization server returns the access token.
