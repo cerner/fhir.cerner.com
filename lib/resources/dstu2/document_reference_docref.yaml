@@ -1,0 +1,33 @@
+---
+name: DocumentReference
+field_name_base_url: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference
+fields:
+- name: type
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Kind of document.
+  binding:
+    description: Precise type of clinical document.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      values:
+      - 34133-9 - Summary of episode note
+
+- name: content
+  required: 'Yes'
+  cardinality: 1..*
+  type: BackboneElement
+  description: The referenced document
+  children:
+  - name: format
+    required: 'No'
+    cardinality: 0..*
+    type: Coding
+    description: An identifier of the document encoding, structure, and template that the document conforms to.
+    binding:
+      description: Document format codes.
+      terminology:
+      - display: DocumentReference Format Code Set
+        system: http://hl7.org/fhir/ValueSet/formatcodes

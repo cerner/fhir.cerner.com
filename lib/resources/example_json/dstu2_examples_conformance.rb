@@ -11,7 +11,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-11-28",
+      "date": "2017-01-18",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -64,6 +64,54 @@ module Cerner
               ]
             },
             {
+              "type": "Appointment",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Appointment ids. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "_count",
+                  "type": "number",
+                  "documentation": "The maximum number of items to include in a page."
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "A date or date range from which to find appointments. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for appointments within a specific range. The date and prefix pairs must create a closed range."
+                },
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Patient references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "practitioner",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Practitioner references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "location",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Location references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "status",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of appointment statuses."
+                }
+              ]
+            },
+            {
               "type": "Binary",
               "interaction": [
                 {
@@ -93,6 +141,48 @@ module Cerner
                   "name": "category",
                   "type": "token",
                   "documentation": "The category of the condition"
+                }
+              ]
+            },
+            {
+              "type": "Contract",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchInclude": [
+                "Contract:actor",
+                "Contract:patient"
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Contract ids. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "actor",
+                  "type": "reference",
+                  "documentation": "The single actor of the Contract. Must be a RelatedPerson. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "actor.identifier",
+                  "type": "token",
+                  "documentation": "The single identifier of the actor of the Contract. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "patient.identifier",
+                  "type": "token",
+                  "documentation": "The single identifier of the patient subject of the Contract. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "The single subject of the Contract. Must be a Patient. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
                 }
               ]
             },
@@ -395,6 +485,9 @@ module Cerner
               "type": "Person",
               "interaction": [
                 {
+                  "code": "read"
+                },
+                {
                   "code": "search-type"
                 }
               ],
@@ -410,6 +503,50 @@ module Cerner
                   "documentation": "A person identifier. It is a required field if no _id field is given"
                 }
               ]
+            },
+            {
+              "type": "RelatedPerson",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of logical resource id associated with the RelatedPerson. It is a required field if no patient or identifier field is given"
+                },
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "The patient the related persons are related to. It is a required field if no _id or identifier field is given"
+                },
+                {
+                  "name": "identifier",
+                  "type": "token",
+                  "documentation": "An identifier of the person. It is a required field if no _id or patient field is given"
+                }
+              ]
+            }
+          ],
+          "operation": [
+            {
+              "name": "$autogen-ccd-if",
+              "definition": {
+                "reference": "OperationDefinition/$autogen-ccd-if",
+                "display": "$autogen-ccd-if"
+              }
+            },
+            {
+              "name": "$docref",
+              "definition": {
+                "reference": "http://healthedatainc.com/go-ftp/Argo-DSTU2/operationdefinition-get-docref.html",
+                "display": "$docref"
+              }
             }
           ]
         }
@@ -426,7 +563,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-11-28",
+      "date": "2017-01-18",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -513,6 +650,54 @@ module Cerner
               ]
             },
             {
+              "type": "Appointment",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Appointment ids. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "_count",
+                  "type": "number",
+                  "documentation": "The maximum number of items to include in a page."
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "A date or date range from which to find appointments. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for appointments within a specific range. The date and prefix pairs must create a closed range."
+                },
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Patient references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "practitioner",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Practitioner references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "location",
+                  "type": "reference",
+                  "documentation": "A single or comma separated list of Location references. Either the '_id' parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                },
+                {
+                  "name": "status",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of appointment statuses."
+                }
+              ]
+            },
+            {
               "type": "Binary",
               "interaction": [
                 {
@@ -549,6 +734,48 @@ module Cerner
                   "name": "category",
                   "type": "token",
                   "documentation": "The category of the condition"
+                }
+              ]
+            },
+            {
+              "type": "Contract",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchInclude": [
+                "Contract:actor",
+                "Contract:patient"
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Contract ids. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "actor",
+                  "type": "reference",
+                  "documentation": "The single actor of the Contract. Must be a RelatedPerson. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "actor.identifier",
+                  "type": "token",
+                  "documentation": "The single identifier of the actor of the Contract. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "patient.identifier",
+                  "type": "token",
+                  "documentation": "The single identifier of the patient subject of the Contract. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "The single subject of the Contract. Must be a Patient. Either the '_id' parameter or one of the 'actor', 'actor.identifier', 'patient.identifier' or 'subject' parameters must be set.'"
                 }
               ]
             },
@@ -861,6 +1088,9 @@ module Cerner
               "type": "Person",
               "interaction": [
                 {
+                  "code": "read"
+                },
+                {
                   "code": "search-type"
                 }
               ],
@@ -876,6 +1106,50 @@ module Cerner
                   "documentation": "A person identifier. It is a required field if no _id field is given"
                 }
               ]
+            },
+            {
+              "type": "RelatedPerson",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of logical resource id associated with the RelatedPerson. It is a required field if no patient or identifier field is given"
+                },
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "The patient the related persons are related to. It is a required field if no _id or identifier field is given"
+                },
+                {
+                  "name": "identifier",
+                  "type": "token",
+                  "documentation": "An identifier of the person. It is a required field if no _id or patient field is given"
+                }
+              ]
+            }
+          ],
+          "operation": [
+            {
+              "name": "$autogen-ccd-if",
+              "definition": {
+                "reference": "OperationDefinition/$autogen-ccd-if",
+                "display": "$autogen-ccd-if"
+              }
+            },
+            {
+              "name": "$docref",
+              "definition": {
+                "reference": "http://healthedatainc.com/go-ftp/Argo-DSTU2/operationdefinition-get-docref.html",
+                "display": "$docref"
+              }
             }
           ]
         }
