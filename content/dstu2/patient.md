@@ -7,6 +7,26 @@ title: Patient | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+The Patient resource provides general demographic information about the person receiving health care services from a specific organization. Common demographic fields or
+values include the patient id, patient names, gender, date of birth, address, phone, and marital status. A person receiving care from multiple organizations may have data
+available in multiple Patient resources in multiple FHIR servers. The Patient resource is commonly referenced by many of the other resources.
+
+The following fields are returned if valued:
+
+   * Patient name
+   * Patient id
+   * Medical Record number (MRN)
+   * Phone (email is not supported at this time)
+   * Contact person (guardian, parent or emergency)
+   * Gender (administrative)
+   * Date of Birth
+   * Deceased
+   * Address
+   * Communication (preferred language)
+   * Link (if the patient record has been combined into another record)
+   * Marital status
+
 ## Terminology Bindings
 
 <%= terminology_table(:patient, :dstu2) %>
@@ -22,7 +42,7 @@ Search for Patients that meet supplied query parameters:
 
 _Implementation Notes_
 
-* The [Patient.animal] and [Patient.link] modifier elements are not supported and will not be returned.
+* The [Patient.animal] modifier element is not supported and will not be returned.
 
 ### Parameters
 
@@ -58,12 +78,21 @@ List an individual Patient by its id:
 
 _Implementation Notes_
 
-* The [Patient.animal] and [Patient.link] modifier elements are not supported and will not be returned.
+* The [Patient.animal] modifier element is not supported and will not be returned.
 
 ### Response
 
 <%= headers 200 %>
 <%= json(:dstu2_patient_entry) %>
+
+### Patient Combines
+
+If the requested patient record has been combined into another patient record, an inactive Patient entry will be
+returned which has a link to the Patient entry it has been combined into. Combined patient results will only be
+returned when retrieving by id values. They will not be returned when searching with other parameters.
+
+<%= headers 200 %>
+<%= json(:dstu2_combined_patient_entry) %>
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
@@ -72,4 +101,3 @@ _Implementation Notes_
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
-[Patient.link]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.link

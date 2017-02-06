@@ -59,6 +59,23 @@ module Cerner
       ]
     }
 
+    DSTU2_COMBINED_PATIENT_ENTRY ||= {
+      "resourceType": "Patient",
+      "id": "4860007",
+      "meta": {
+        "versionId": "0"
+      },
+      "active": false,
+      "link": [
+        {
+          "other": {
+            "reference": "Patient/4342008"
+          },
+          "type": "replace"
+        }
+      ]
+    }
+
     DSTU2_PATIENT_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "567efe76-2573-46be-85dc-8ea698dfa9d0",
