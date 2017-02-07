@@ -11,7 +11,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-11-28",
+      "date": "2017-01-23",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -68,6 +68,39 @@ module Cerner
               "interaction": [
                 {
                   "code": "read"
+                }
+              ]
+            },
+            {
+              "type": "CarePlan",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "Time period plan covers. The prefixes 'ge' and 'le' are supported for this parameter. Date may be provided once to imply a date range or twice to specify a range. When two dates are provided they must create a closed range."
+                },
+                {
+                  "name": "_count",
+                  "type": "number",
+                  "documentation": "The maximum number of results to return in a page."
                 }
               ]
             },
@@ -426,7 +459,7 @@ module Cerner
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2016-11-28",
+      "date": "2017-01-23",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -517,6 +550,39 @@ module Cerner
               "interaction": [
                 {
                   "code": "read"
+                }
+              ]
+            },
+            {
+              "type": "CarePlan",
+              "interaction": [
+                {
+                  "code": "read"
+                },
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "patient",
+                  "type": "reference",
+                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                },
+                {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                },
+                {
+                  "name": "date",
+                  "type": "date",
+                  "documentation": "Time period plan covers. The prefixes 'ge' and 'le' are supported for this parameter. Date may be provided once to imply a date range or twice to specify a range. When two dates are provided they must create a closed range."
+                },
+                {
+                  "name": "_count",
+                  "type": "number",
+                  "documentation": "The maximum number of results to return in a page."
                 }
               ]
             },

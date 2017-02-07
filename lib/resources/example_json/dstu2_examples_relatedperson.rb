@@ -184,7 +184,7 @@ module Cerner
             ],
             "patient": {
               "reference": "Patient/3838011",
-              "display": "Peters, Timothy"
+              "display": "Peters, Jennifer"
             },
             "name": {
               "use": "official",
