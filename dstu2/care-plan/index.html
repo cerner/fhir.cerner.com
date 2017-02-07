@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>CarePlan | DSTU 2 API</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+      
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
+        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="careplan">CarePlan</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/careplan-definitions.html#CarePlan.category">CarePlan.category</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Identifies what kind of plan this is. The code will be "assess-plan" from the linked value set.
+</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html">Argonaut Extension Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for CarePlans that meet supplied query parameters:</p>
+
+<pre><code>GET /CarePlan?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>
+    <p>The <a href="https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity">CarePlan.activity</a> element is not supported and will not be returned. This means that the <a href="https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity.detail.status">CarePlan.activity.detail.status</a> and <a href="https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity.detail.prohibited">CarePlan.activity.detail.prohibited</a> modifier elements will not be returned.</p>
+  </li>
+  <li>
+    <p>The description of the CarePlan is included in the <a href="https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.text.div">CarePlan.text.div</a> element as escaped XHTML. We will be making changes to increase the usability of the description.</p>
+  </li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This, or one of <code>patient</code> or <code>subject</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>Time period plan covers. Example: <code>date=ge2016-08</code> or <code>date=le2017-01-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This, or one of <code>_id</code> or <code>subject</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>Who care plan is for. Example: <code>patient=1316024</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>subject</code></td>
+      <td>This, or one of <code>_id</code> or <code>patient</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>Who care plan is for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/1316024</code> or <code>subject:Patient=1316024</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>Number of results per page. Defaults to <code>10</code>. Capped at <code>10</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+    <p>The <code>_id</code> parameter may not be provided at the same time as the <code>date</code>, <code>patient</code>, or <code>subject</code> parameters. When <code>_id</code> is provided, <code>_count</code> is ignored.</p>
+  </li>
+  <li>
+    <p>The <code>patient</code> parameter is preferred when set simultaneously with <code>subject</code>.</p>
+  </li>
+  <li>
+    <p>The <code>date</code> parameter may be provided up to two times, and must use the <code>ge</code> or <code>le</code> prefixes. When provided twice, the lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</p>
+  </li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "66a6d608-8d77-47c8-b210-2fd3f56d2c68",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan?patient=1316024&amp;_count=10"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan?patient=1316024&amp;-pageContext=eNqVUttq4zAQ_ZWW7KMjdHNtCwp1HBUM3TrYSujuizGKGgS2FGSn7JZ-fOUmodsNNC0IRqM5R3M70nZAKmeUA13_JIFstdGyadWTMgNouubZGrBtNtpsQPrmLZqNyqwZ1J9hcnMpP-Wvrdx140U6PSinG1CqwWkfnP3lI6JSQ3YIXd5Mds6w_Wes02umXAe2yvXWsN6sldkwRNAVxNRDURLBKUT-CAjZ2wEQwt8-hCGKphBPIREoZvCKIQpIgsYQgqdZpHUKONuqrbOPulXHXOL6Lsjn18gzzK5tvZmlVZ7VqRBlPlsKXvknfnvLM5GveD1PBfcPj03bq2_Y7DCvi_lhVP3468-F-FXf5ZX4WK60a7-HY4HeU4yEwecAnJwBEHgOQM8B0LkaQt9H6udU3NeLsljlc17-3-YHZ3C7cThf19dBqKfqKryAmkFb82Ov3lPEqOf3lPf8QdTZsqyKsUJCIhrSKIhokuA4ChCNwzDEFCdeawH8Z4-Lkq_yYlm9c3GMYRiTIAoRInjPTWJMSXzk-vZeJi_wFSyNJmU%3D&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan/7499295",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "7499295",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2017-01-27T16:32:54-06:00"
+        },
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: &amp;lt;?xml version="1.0" encoding="UTF-8"?&gt;&amp;lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&amp;lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;head&gt;&amp;lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;&amp;lt;title&gt;XSL FO Document&amp;lt;/title&gt;&amp;lt;/head&gt;&amp;lt;body bgcolor="white" marginwidth="6" marginheight="6" leftmargin="6" topmargin="6"&gt;&amp;lt;div valign="top"&gt;
+&amp;lt;div style="font-family: Helvetica,sans-serif,Lucida Sans Unicode; font-size: 12pt; font-weight: normal; font-style: normal; text-decoration: none; color: rgb(0,0,0); background-color: transparent; margin-top: 0.0pt; margin-bottom: 0.0pt; text-indent: 0.0in; margin-left: 0.0in; margin-right: 0.0in; text-align: left; border-style: none; border-width: 0.0pt; border-color: rgb(0,0,0); padding: 0.0pt; white-space: pre-wrap;"&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 24pt; font-weight: bold; margin-top: 16.05pt; margin-bottom: 16.05pt;"&gt;PETERS, TIMOTHY (55 yrs.)&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 18pt; font-weight: bold; margin-top: 14.9pt; margin-bottom: 14.9pt;"&gt;HEAR Score: 2&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; margin-top: 12.0pt; margin-bottom: 12.0pt;"&gt;Your patient has a LOW RISK HEAR score. Please obtain serial troponin at 0 and 3 hours. If serial troponins are negative, the HEART Pathway recommend discharge from the ED without stress testing or angiography.&amp;lt;/div&gt;&amp;lt;/div&gt;  &amp;lt;/div&gt;&amp;lt;/body&gt;&amp;lt;/html&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Argonaut, Test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Date/Time&lt;/b&gt;: 2017-01-27T16:32:53-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "subject": {
+          "reference": "Patient/1316024",
+          "display": "PETERS, TIMOTHY"
+        },
+        "status": "completed",
+        "context": {
+          "reference": "Encounter/2675906"
+        },
+        "period": {
+          "end": "2017-01-27T16:32:53-06:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/3622007",
+            "display": "Argonaut, Test"
+          }
+        ],
+        "modified": "2017-01-27T16:32:54-06:00",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://argonaut.hl7.org",
+                "code": "assess-plan"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan/7499291",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "7499291",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2017-01-27T15:27:34-06:00"
+        },
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: &amp;lt;?xml version="1.0" encoding="UTF-8"?&gt;&amp;lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&amp;lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;head&gt;&amp;lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;&amp;lt;title&gt;XSL FO Document&amp;lt;/title&gt;&amp;lt;/head&gt;&amp;lt;body bgcolor="white" marginwidth="6" marginheight="6" leftmargin="6" topmargin="6"&gt;&amp;lt;div valign="top"&gt;
+&amp;lt;div style="font-family: Helvetica,sans-serif,Lucida Sans Unicode; font-size: 12pt; font-weight: normal; font-style: normal; text-decoration: none; color: rgb(0,0,0); background-color: transparent; margin-top: 0.0pt; margin-bottom: 0.0pt; text-indent: 0.0in; margin-left: 0.0in; margin-right: 0.0in; text-align: left; border-style: none; border-width: 0.0pt; border-color: rgb(0,0,0); padding: 0.0pt; white-space: pre-wrap;"&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 24pt; font-weight: bold; margin-top: 16.05pt; margin-bottom: 16.05pt;"&gt;PETERS, TIMOTHY (55 yrs.)&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 18pt; font-weight: bold; margin-top: 14.9pt; margin-bottom: 14.9pt;"&gt;HEAR Score: 4&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; margin-top: 12.0pt; margin-bottom: 12.0pt;"&gt;Your patient is at risk for ACS! Further cardiac evaluation including serial troponins and stress testing or angiography is recommended.&amp;lt;/div&gt;&amp;lt;/div&gt;  &amp;lt;/div&gt;&amp;lt;/body&gt;&amp;lt;/html&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Argonaut, Test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Date/Time&lt;/b&gt;: 2017-01-27T15:27:10-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "subject": {
+          "reference": "Patient/1316024",
+          "display": "PETERS, TIMOTHY"
+        },
+        "status": "completed",
+        "context": {
+          "reference": "Encounter/2675906"
+        },
+        "period": {
+          "end": "2017-01-27T15:27:10-06:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/3622007",
+            "display": "Argonaut, Test"
+          }
+        ],
+        "modified": "2017-01-27T15:27:34-06:00",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://argonaut.hl7.org",
+                "code": "assess-plan"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual CarePlan by its id:</p>
+
+<pre><code>GET /CarePlan/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "CarePlan",
+  "id": "7499295",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2017-01-27T16:32:54-06:00"
+  },
+  "text": {
+    "status": "additional",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: &amp;lt;?xml version="1.0" encoding="UTF-8"?&gt;&amp;lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;&amp;lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;head&gt;&amp;lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;&amp;lt;title&gt;XSL FO Document&amp;lt;/title&gt;&amp;lt;/head&gt;&amp;lt;body bgcolor="white" marginwidth="6" marginheight="6" leftmargin="6" topmargin="6"&gt;&amp;lt;div valign="top"&gt;
+&amp;lt;div style="font-family: Helvetica,sans-serif,Lucida Sans Unicode; font-size: 12pt; font-weight: normal; font-style: normal; text-decoration: none; color: rgb(0,0,0); background-color: transparent; margin-top: 0.0pt; margin-bottom: 0.0pt; text-indent: 0.0in; margin-left: 0.0in; margin-right: 0.0in; text-align: left; border-style: none; border-width: 0.0pt; border-color: rgb(0,0,0); padding: 0.0pt; white-space: pre-wrap;"&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 24pt; font-weight: bold; margin-top: 16.05pt; margin-bottom: 16.05pt;"&gt;PETERS, TIMOTHY (55 yrs.)&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; font-size: 18pt; font-weight: bold; margin-top: 14.9pt; margin-bottom: 14.9pt;"&gt;HEAR Score: 2&amp;lt;/div&gt;&amp;lt;div style="font-family: sans-serif,Lucida Sans Unicode; margin-top: 12.0pt; margin-bottom: 12.0pt;"&gt;Your patient has a LOW RISK HEAR score. Please obtain serial troponin at 0 and 3 hours. If serial troponins are negative, the HEART Pathway recommend discharge from the ED without stress testing or angiography.&amp;lt;/div&gt;&amp;lt;/div&gt;  &amp;lt;/div&gt;&amp;lt;/body&gt;&amp;lt;/html&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Argonaut, Test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Date/Time&lt;/b&gt;: 2017-01-27T16:32:53-06:00&lt;/p&gt;&lt;/div&gt;"
+  },
+  "subject": {
+    "reference": "Patient/1316024",
+    "display": "PETERS, TIMOTHY"
+  },
+  "status": "completed",
+  "context": {
+    "reference": "Encounter/2675906"
+  },
+  "period": {
+    "end": "2017-01-27T16:32:53-06:00"
+  },
+  "author": [
+    {
+      "reference": "Practitioner/3622007",
+      "display": "Argonaut, Test"
+    }
+  ],
+  "modified": "2017-01-27T16:32:54-06:00",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://argonaut.hl7.org",
+          "code": "assess-plan"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../">Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization">Authorization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../conformance/">Conformance Metadata</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
+      </li>
+      <li class="js-topic">
+          <h3><a href="../appointment/">Appointment</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../binary">Binary</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="./">CarePlan</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../condition/">Condition</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../contract/">Contract</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../device/">Device</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../document-reference/">DocumentReference</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../encounter/">Encounter</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../goal/">Goal</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../immunization/">Immunization</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-order/">MedicationOrder</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../patient/">Patient</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../person/">Person</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../procedure/">Procedure</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../related-person/">RelatedPerson</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
