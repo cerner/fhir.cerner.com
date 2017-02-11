@@ -87,9 +87,12 @@ _Implementation Notes_
 
 ### Patient Combines
 
-If the requested patient record has been combined into another patient record, an inactive Patient entry will be
-returned which has a link to the Patient entry it has been combined into. Combined patient results will only be
-returned when retrieving by id values. They will not be returned when searching with other parameters.
+Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
+as a "patient combine". If necessary, this merging can later be undone by performing a "patient uncombine". When the requested patient record has been combined into another
+record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
+the entries directly by id. They will not be returned when searching with other parameters.
+
+The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.
 
 <%= headers 200 %>
 <%= json(:dstu2_combined_patient_entry) %>
