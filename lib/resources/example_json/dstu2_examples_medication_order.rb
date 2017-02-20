@@ -4,184 +4,396 @@ module Cerner
     DSTU2_MEDICATION_ORDER_BUNDLE ||=
       {
         "resourceType": "Bundle",
-        "id": "4f4c9bbd-dfb5-4144-8dfc-3e7431372776",
+        "id": "c9c3f145-c744-490f-8cc6-4faac8a060e1",
         "type": "searchset",
-        "total": 2,
-        "link": [
-          {
+        "total": 4,
+        "link": [{
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder?patient=4342008&_count=25"
-          }
-        ],
-        "entry": [
-          {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/21369989",
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=4342010&_count=25"
+        }],
+        "entry": [{
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder/21389901",
             "resource": {
-              "resourceType": "MedicationOrder",
-              "id": "21369989",
-              "meta": {
-                "versionId": "0",
-                "lastUpdated": "2016-06-24T15:27:06.000Z"
-              },
-              "text": {
-                "status": "generated",
-                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: morphine (morphine 24 hour extended release)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 30 mg, 1 caps, Oral, Daily, PRN: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-              },
-              "dateWritten": "2016-06-24T10:24:14.000-05:00",
-              "status": "active",
-              "patient": {
-                "reference": "Patient/4342008",
-                "display": "Smart, Wilma"
-              },
-              "prescriber": {
-                "reference": "Practitioner/1912007",
-                "display": "Forrest, Fhir"
-              },
-              "encounter": {
-                "reference": "Encounter/4027906"
-              },
-              "medicationCodeableConcept": {
-                "text": "morphine (morphine 24 hour extended release)"
-              },
-              "dosageInstruction": [
-                {
-                  "text": "30 mg, 1 caps, Oral, Daily, PRN: pain",
-                  "timing": {
-                    "repeat": {
-                      "boundsPeriod": {
-                        "start": "2016-06-24T08:24:00.000-07:00"
-                      }
+                "resourceType": "MedicationOrder",
+                "id": "21389901",
+                "meta": {
+                    "versionId": "0",
+                    "lastUpdated": "2016-06-27T15:00:00.000Z"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Medication Order&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol (Sectral)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 200 mg, 1 caps, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                },
+                "dateWritten": "2016-06-27T09:57:32.000-05:00",
+                "status": "active",
+                "patient": {
+                    "reference": "Patient/4342010",
+                    "display": "Smart, Joe"
+                },
+                "prescriber": {
+                    "reference": "Practitioner/1912007",
+                    "display": "Who, Doctor"
+                },
+                "encounter": {
+                    "reference": "Encounter/4027918"
+                },
+                "medicationCodeableConcept": {
+                    "coding": [{
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "9631",
+                        "display": "Sectral",
+                        "userSelected": false
+                    }],
+                    "text": "acebutolol (Sectral)"
+                },
+                "dosageInstruction": [{
+                    "text": "200 mg, 1 caps, Oral, Daily",
+                    "_text": {
+                        "extension": [{
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                            "valueString": "200 Milligram Oral every day. Refills: 0."
+                        }]
                     },
-                    "code": {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/timing-abbreviation",
-                          "code": "QD",
-                          "display": "QD",
-                          "userSelected": false
+                    "timing": {
+                        "repeat": {
+                            "boundsPeriod": {
+                                "start": "2016-06-27T09:00:00.000-07:00"
+                            }
+                        },
+                        "code": {
+                            "coding": [{
+                                "system": "http://hl7.org/fhir/timing-abbreviation",
+                                "code": "QD",
+                                "display": "QD",
+                                "userSelected": false
+                            }],
+                            "text": "Daily"
                         }
-                      ],
-                      "text": "Daily"
-                    }
-                  },
-                  "asNeededCodeableConcept": {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "22253000",
-                        "display": "pain (finding)",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "pain"
-                  },
-                  "route": {
-                    "coding": [
-                      {
-                        "system": "http://ncimeta.nci.nih.gov",
-                        "code": "C38288",
-                        "display": "ORAL",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Oral"
-                  },
-                  "doseQuantity": {
-                    "value": 30,
-                    "unit": "mg",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mg"
-                  }
-                }
-              ],
-              "dispenseRequest": {
-                "validityPeriod": {
-                  "start": "2016-06-24T10:24:14.000-05:00"
-                }
-              }
-            }
-          },
-          {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationOrder/21369987",
-            "resource": {
-              "resourceType": "MedicationOrder",
-              "id": "21369987",
-              "meta": {
-                "versionId": "0",
-                "lastUpdated": "2016-06-24T15:27:05.000Z"
-              },
-              "text": {
-                "status": "generated",
-                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: oxycodone (oxycodone extended release)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 80 mg, 2 tabs, Oral, q12hr, PRN: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-              },
-              "dateWritten": "2016-06-24T10:23:40.000-05:00",
-              "status": "active",
-              "patient": {
-                "reference": "Patient/4342008",
-                "display": "Smart, Wilma"
-              },
-              "prescriber": {
-                "reference": "Practitioner/1912007",
-                "display": "Forrest, Fhir"
-              },
-              "encounter": {
-                "reference": "Encounter/4027906"
-              },
-              "medicationCodeableConcept": {
-                "text": "oxycodone (oxycodone extended release)"
-              },
-              "dosageInstruction": [
-                {
-                  "text": "80 mg, 2 tabs, Oral, q12hr, PRN: pain",
-                  "timing": {
-                    "repeat": {
-                      "boundsPeriod": {
-                        "start": "2016-06-24T08:24:00.000-07:00"
-                      }
                     },
-                    "code": {
-                      "text": "q12hr"
+                    "route": {
+                        "coding": [{
+                            "system": "http://ncimeta.nci.nih.gov",
+                            "code": "C38288",
+                            "display": "ORAL",
+                            "userSelected": false
+                        }],
+                        "text": "Oral"
+                    },
+                    "doseQuantity": {
+                        "value": 200.0,
+                        "unit": "mg",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "mg"
                     }
-                  },
-                  "asNeededCodeableConcept": {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "22253000",
-                        "display": "pain (finding)",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "pain"
-                  },
-                  "route": {
-                    "coding": [
-                      {
-                        "system": "http://ncimeta.nci.nih.gov",
-                        "code": "C38288",
-                        "display": "ORAL",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Oral"
-                  },
-                  "doseQuantity": {
-                    "value": 80,
-                    "unit": "mg",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mg"
-                  }
+                }],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2016-06-27T09:57:32.000-05:00"
+                    }
                 }
-              ],
-              "dispenseRequest": {
-                "validityPeriod": {
-                  "start": "2016-06-24T10:23:40.000-05:00"
-                }
-              }
             }
-          }
-        ]
-      }
+        }, {
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder/21389899",
+            "resource": {
+                "resourceType": "MedicationOrder",
+                "id": "21389899",
+                "meta": {
+                    "versionId": "0",
+                    "lastUpdated": "2016-06-27T14:59:58.000Z"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Medication Order&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: furosemide (Lasix)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tabs, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                },
+                "dateWritten": "2016-06-27T09:56:37.000-05:00",
+                "status": "active",
+                "patient": {
+                    "reference": "Patient/4342010",
+                    "display": "Smart, Joe"
+                },
+                "prescriber": {
+                    "reference": "Practitioner/1912007",
+                    "display": "Who, Doctor"
+                },
+                "encounter": {
+                    "reference": "Encounter/4027918"
+                },
+                "medicationCodeableConcept": {
+                    "coding": [{
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "202991",
+                        "display": "Lasix",
+                        "userSelected": false
+                    }],
+                    "text": "furosemide (Lasix)"
+                },
+                "dosageInstruction": [{
+                    "text": "80 mg, 1 tabs, Oral, Daily",
+                    "_text": {
+                        "extension": [{
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                            "valueString": "80 Milligram Oral every day. Refills: 0."
+                        }]
+                    },
+                    "timing": {
+                        "repeat": {
+                            "boundsPeriod": {
+                                "start": "2016-06-27T09:00:00.000-07:00"
+                            }
+                        },
+                        "code": {
+                            "coding": [{
+                                "system": "http://hl7.org/fhir/timing-abbreviation",
+                                "code": "QD",
+                                "display": "QD",
+                                "userSelected": false
+                            }],
+                            "text": "Daily"
+                        }
+                    },
+                    "route": {
+                        "coding": [{
+                            "system": "http://ncimeta.nci.nih.gov",
+                            "code": "C38288",
+                            "display": "ORAL",
+                            "userSelected": false
+                        }],
+                        "text": "Oral"
+                    },
+                    "doseQuantity": {
+                        "value": 80.0,
+                        "unit": "mg",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "mg"
+                    }
+                }],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2016-06-27T09:56:37.000-05:00"
+                    }
+                }
+            }
+        }, {
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder/22298109",
+            "resource": {
+                "resourceType": "MedicationOrder",
+                "id": "22298109",
+                "meta": {
+                    "versionId": "0",
+                    "lastUpdated": "2017-02-09T16:31:47.000Z"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Medication Order&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 g, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
+                },
+                "dateWritten": "2017-02-09T10:31:00.000-06:00",
+                "status": "active",
+                "patient": {
+                    "reference": "Patient/4342010",
+                    "display": "Smart, Joe"
+                },
+                "prescriber": {
+                    "reference": "Practitioner/4474007",
+                    "display": "Song, River"
+                },
+                "encounter": {
+                    "reference": "Encounter/4027918"
+                },
+                "medicationCodeableConcept": {
+                    "coding": [{
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "11124",
+                        "display": "Vancomycin",
+                        "userSelected": false
+                    }],
+                    "text": "vancomycin"
+                },
+                "dosageInstruction": [{
+                    "text": "1 g, IV, q12hr",
+                    "_text": {
+                        "extension": [{
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                            "valueString": "1 Gram Intravenous every 12 hours. Refills: 0."
+                        }]
+                    },
+                    "timing": {
+                        "repeat": {
+                            "boundsPeriod": {
+                                "start": "2017-02-09T09:00:00.000-08:00"
+                            }
+                        },
+                        "code": {
+                            "text": "q12hr"
+                        }
+                    },
+                    "route": {
+                        "coding": [{
+                            "system": "http://ncimeta.nci.nih.gov",
+                            "code": "C38276",
+                            "display": "INTRAVENOUS",
+                            "userSelected": false
+                        }],
+                        "text": "IV"
+                    },
+                    "doseQuantity": {
+                        "value": 1.0,
+                        "unit": "g",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "g"
+                    }
+                }],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2017-02-09T10:31:00.000-06:00"
+                    }
+                }
+            }
+        }, {
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder/22298077",
+            "resource": {
+                "resourceType": "MedicationOrder",
+                "id": "22298077",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2017-02-09T16:30:45.000Z"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Medication Order&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin + Dextrose 5% in Water 100 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 100 mg, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered In Error&lt;/p>&lt;/div>"
+                },
+                "contained": [{
+                    "resourceType": "Medication",
+                    "id": "2770945",
+                    "code": {
+                        "text": "vancomycin + Dextrose 5% in Water 100 mL"
+                    },
+                    "product": {
+                        "ingredient": [{
+                            "item": {
+                                "reference": "#2770945-1",
+                                "display": "vancomycin"
+                            },
+                            "amount": {
+                                "numerator": {
+                                    "value": 100.0,
+                                    "unit": "mg",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "mg"
+                                },
+                                "denominator": {
+                                    "value": 100.0,
+                                    "unit": "mL",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "mL"
+                                }
+                            }
+                        }, {
+                            "item": {
+                                "reference": "#2778758-2",
+                                "display": "Dextrose 5% in Water"
+                            },
+                            "amount": {
+                                "numerator": {
+                                    "value": 100.0,
+                                    "unit": "mL",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "mL"
+                                },
+                                "denominator": {
+                                    "value": 100.0,
+                                    "unit": "mL",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "mL"
+                                }
+                            }
+                        }]
+                    }
+                }, {
+                    "resourceType": "Medication",
+                    "id": "2770945-1",
+                    "code": {
+                        "coding": [{
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "11124",
+                            "display": "Vancomycin",
+                            "userSelected": false
+                        }],
+                        "text": "vancomycin"
+                    }
+                }, {
+                    "resourceType": "Medication",
+                    "id": "2778758-2",
+                    "code": {
+                        "coding": [{
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "309778",
+                            "display": "Glucose 50 MG/ML Injectable Solution",
+                            "userSelected": false
+                        }],
+                        "text": "Dextrose 5% in Water"
+                    }
+                }],
+                "dateWritten": "2017-02-09T09:29:09.000-06:00",
+                "status": "entered-in-error",
+                "dateEnded": "2017-02-09T08:30:45.000-08:00",
+                "patient": {
+                    "reference": "Patient/4342010",
+                    "display": "Smart, Joe"
+                },
+                "prescriber": {
+                    "reference": "Practitioner/4474007",
+                    "display": "Song, River"
+                },
+                "encounter": {
+                    "reference": "Encounter/4027918"
+                },
+                "medicationReference": {
+                    "reference": "#2770945",
+                    "display": "vancomycin + Dextrose 5% in Water 100 mL"
+                },
+                "dosageInstruction": [{
+                    "text": "100 mg, IV, q12hr",
+                    "_text": {
+                        "extension": [{
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                            "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
+                        }]
+                    },
+                    "timing": {
+                        "repeat": {
+                            "boundsPeriod": {
+                                "start": "2017-02-09T08:00:00.000-08:00",
+                                "end": "2017-02-09T08:30:45.000-08:00"
+                            }
+                        },
+                        "code": {
+                            "text": "q12hr"
+                        }
+                    },
+                    "route": {
+                        "coding": [{
+                            "system": "http://ncimeta.nci.nih.gov",
+                            "code": "C38276",
+                            "display": "INTRAVENOUS",
+                            "userSelected": false
+                        }],
+                        "text": "IV"
+                    },
+                    "doseQuantity": {
+                        "value": 100.0,
+                        "unit": "mL",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "mL"
+                    }
+                }],
+                "dispenseRequest": {
+                    "validityPeriod": {
+                        "start": "2017-02-09T09:29:09.000-06:00"
+                    }
+                }
+            }
+        }]
+    }
 
   end
 end

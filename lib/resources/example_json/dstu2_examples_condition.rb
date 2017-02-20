@@ -9,12 +9,12 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=4342012"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=4342012"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/d35686553",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d35686553",
           "resource": {
             "resourceType": "Condition",
             "id": "d35686553",
@@ -57,7 +57,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/p6317881",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6317881",
           "resource": {
             "resourceType": "Condition",
             "id": "p6317881",

@@ -42,7 +42,7 @@ Notes:
 
 ### Limitations
 
-- The `birthdate`, `name` and `telecom` search parameters are only available for the tenant `d075cf8b-3261-481d-97e5-ba6c48d3b41f` and will perform a "fuzzy" search.
+- The `birthdate`, `name` and `telecom` search parameters are only available in the original sandbox (`https://fhir-*.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/`) and will perform a "fuzzy" search.
 
 
 ### Response

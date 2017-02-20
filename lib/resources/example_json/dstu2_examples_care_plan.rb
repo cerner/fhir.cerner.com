@@ -49,16 +49,16 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan?patient=1316024&_count=10"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316024&_count=10"
         },
         {
           "relation": "next",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan?patient=1316024&-pageContext=eNqVUttq4zAQ_ZWW7KMjdHNtCwp1HBUM3TrYSujuizGKGgS2FGSn7JZ-fOUmodsNNC0IRqM5R3M70nZAKmeUA13_JIFstdGyadWTMgNouubZGrBtNtpsQPrmLZqNyqwZ1J9hcnMpP-Wvrdx140U6PSinG1CqwWkfnP3lI6JSQ3YIXd5Mds6w_Wes02umXAe2yvXWsN6sldkwRNAVxNRDURLBKUT-CAjZ2wEQwt8-hCGKphBPIREoZvCKIQpIgsYQgqdZpHUKONuqrbOPulXHXOL6Lsjn18gzzK5tvZmlVZ7VqRBlPlsKXvknfnvLM5GveD1PBfcPj03bq2_Y7DCvi_lhVP3468-F-FXf5ZX4WK60a7-HY4HeU4yEwecAnJwBEHgOQM8B0LkaQt9H6udU3NeLsljlc17-3-YHZ3C7cThf19dBqKfqKryAmkFb82Ov3lPEqOf3lPf8QdTZsqyKsUJCIhrSKIhokuA4ChCNwzDEFCdeawH8Z4-Lkq_yYlm9c3GMYRiTIAoRInjPTWJMSXzk-vZeJi_wFSyNJmU%3D&-pageDirection=NEXT"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316024&-pageContext=eNqVUttq4zAQ_ZWW7KMjdHNtCwp1HBUM3TrYSujuizGKGgS2FGSn7JZ-fOUmodsNNC0IRqM5R3M70nZAKmeUA13_JIFstdGyadWTMgNouubZGrBtNtpsQPrmLZqNyqwZ1J9hcnMpP-Wvrdx140U6PSinG1CqwWkfnP3lI6JSQ3YIXd5Mds6w_Wes02umXAe2yvXWsN6sldkwRNAVxNRDURLBKUT-CAjZ2wEQwt8-hCGKphBPIREoZvCKIQpIgsYQgqdZpHUKONuqrbOPulXHXOL6Lsjn18gzzK5tvZmlVZ7VqRBlPlsKXvknfnvLM5GveD1PBfcPj03bq2_Y7DCvi_lhVP3468-F-FXf5ZX4WK60a7-HY4HeU4yEwecAnJwBEHgOQM8B0LkaQt9H6udU3NeLsljlc17-3-YHZ3C7cThf19dBqKfqKryAmkFb82Ov3lPEqOf3lPf8QdTZsqyKsUJCIhrSKIhokuA4ChCNwzDEFCdeawH8Z4-Lkq_yYlm9c3GMYRiTIAoRInjPTWJMSXzk-vZeJi_wFSyNJmU%3D&-pageDirection=NEXT"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan/7499295",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/7499295",
           "resource": {
             "resourceType": "CarePlan",
             "id": "7499295",
@@ -101,7 +101,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/CarePlan/7499291",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/7499291",
           "resource": {
             "resourceType": "CarePlan",
             "id": "7499291",

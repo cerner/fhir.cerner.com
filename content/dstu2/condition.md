@@ -78,7 +78,7 @@ Create Problem Example:
     access-control-max-age → 0
     cache-control → no-cache
     etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/p4736135
+    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p4736135
     server-response-time → 5418.609058
     strict-transport-security → max-age=631152000
     vary → Origin,User-Agent,Accept-Encoding
@@ -106,7 +106,7 @@ Create Diagnosis Example:
     access-control-max-age → 0
     cache-control → no-cache
     etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/d21591615
+    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d21591615
     server-response-time → 5418.609058
     strict-transport-security → max-age=631152000
     vary → Origin,User-Agent,Accept-Encoding

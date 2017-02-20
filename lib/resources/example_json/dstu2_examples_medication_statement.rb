@@ -2,409 +2,394 @@ module Cerner
   module Resources
 
     DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "97dee263-b655-4f6b-948b-b510516ab4c2",
-      "type": "searchset",
-      "total": 4,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=4342008&_count=50"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369961",
-          "resource": {
+    "resourceType": "Bundle",
+    "id": "7aa4c6ad-fa0c-4169-83d2-49dd3a2dde28",
+    "type": "searchset",
+    "total": 4,
+    "link": [{
+        "relation": "self",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement?patient=4342010&_count=50"
+    }],
+    "entry": [{
+        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/21389901",
+        "resource": {
             "resourceType": "MedicationStatement",
-            "id": "21369961",
+            "id": "21389901",
             "meta": {
-              "versionId": "0-21369975",
-              "lastUpdated": "2016-06-24T10:10:51.000-05:00"
+                "versionId": "0",
+                "lastUpdated": "2016-06-27T15:00:00.000Z"
             },
             "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin (aspirin 81 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol (Sectral)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 200 mg, 1 caps, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
             },
             "patient": {
-              "reference": "Patient/4342008",
-              "display": "Song, River"
-            },
-            "dateAsserted": "2016-06-24T10:10:51.000-05:00",
-            "status": "active",
-            "wasNotTaken": false,
-            "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
-            "medicationCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "243670",
-                  "display": "Aspirin 81 MG Oral Tablet",
-                  "userSelected": false
-                }
-              ],
-              "text": "aspirin (aspirin 81 mg oral tablet)"
-            },
-            "dosage": [
-              {
-                "text": "1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 30 tabs, 1 Refill(s)",
-                "timing": {
-                  "repeat": {
-                    "boundsPeriod": {
-                      "start": "2016-06-24T08:08:00.000-07:00"
-                    }
-                  },
-                  "code": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
-                        "code": "BID",
-                        "display": "BID",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "BID"
-                  }
-                },
-                "asNeededCodeableConcept": {
-                  "text": "pain | Take 1 - 2 tabs twice per day as needed"
-                },
-                "route": {
-                  "coding": [
-                    {
-                      "system": "http://ncimeta.nci.nih.gov",
-                      "code": "C38288",
-                      "display": "ORAL",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Oral"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369989",
-          "resource": {
-            "resourceType": "MedicationStatement",
-            "id": "21369989",
-            "meta": {
-              "versionId": "0-21369975",
-              "lastUpdated": "2016-06-24T15:27:06.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: morphine (morphine 24 hour extended release)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 30 mg, 1 caps, Oral, Daily, PRN: pain&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-            },
-            "patient": {
-              "reference": "Patient/4342008",
-              "display": "Song, River"
-            },
-            "dateAsserted": "2016-06-24T10:10:51.000-05:00",
-            "status": "active",
-            "wasNotTaken": false,
-            "effectiveDateTime": "2016-06-24T10:10:51.000-05:00",
-            "supportingInformation": [
-              {
-                "reference": "MedicationOrder/21369989"
-              }
-            ],
-            "medicationCodeableConcept": {
-              "text": "morphine (morphine 24 hour extended release)"
-            },
-            "dosage": [
-              {
-                "text": "30 mg, 1 caps, Oral, Daily, PRN: pain",
-                "timing": {
-                  "repeat": {
-                    "boundsPeriod": {
-                      "start": "2016-06-24T08:24:00.000-07:00"
-                    }
-                  },
-                  "code": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/timing-abbreviation",
-                        "code": "QD",
-                        "display": "QD",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Daily"
-                  }
-                },
-                "asNeededCodeableConcept": {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "22253000",
-                      "display": "pain (finding)",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "pain"
-                },
-                "route": {
-                  "coding": [
-                    {
-                      "system": "http://ncimeta.nci.nih.gov",
-                      "code": "C38288",
-                      "display": "ORAL",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Oral"
-                },
-                "quantityQuantity": {
-                  "value": 30,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/17498403",
-          "resource": {
-            "resourceType": "MedicationStatement",
-            "id": "17498403",
-            "meta": {
-              "versionId": "2-17498411",
-              "lastUpdated": "2015-01-19T18:54:25.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: atorvastatin (atorvastatin 80 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-            },
-            "patient": {
-              "reference": "Patient/4342008",
-              "display": "Song, River"
+                "reference": "Patient/4342010",
+                "display": "Smart, Joe"
             },
             "informationSource": {
-              "display": "Family"
+                "reference": "Practitioner/1912007",
+                "display": "Who, Doctor"
             },
-            "dateAsserted": "2015-01-19T12:50:48.000-06:00",
-            "status": "completed",
-            "wasNotTaken": false,
-            "effectiveDateTime": "2015-01-19T12:50:48.000-06:00",
-            "note": "Medication Compliance: only takes half a tab on a good day",
-            "medicationCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "259255",
-                  "display": "atorvastatin 80 MG Oral Tablet",
-                  "userSelected": false
-                }
-              ],
-              "text": "atorvastatin (atorvastatin 80 mg oral tablet)"
-            },
-            "dosage": [
-              {
-                "text": "80 mg, 1 tab(s), Oral, Daily, PRN: Instruct, 90 tab(s)",
-                "timing": {
-                  "repeat": {
-                    "boundsPeriod": {
-                      "start": "2015-01-19T12:51:00.000-06:00",
-                      "end": "2015-01-19T12:54:25.000-06:00"
-                    }
-                  },
-                  "code": {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/timing-abbreviation",
-                        "code": "QD",
-                        "display": "QD",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Daily"
-                  }
-                },
-                "asNeededCodeableConcept": {
-                  "text": "Instruct"
-                },
-                "route": {
-                  "coding": [
-                    {
-                      "system": "http://ncimeta.nci.nih.gov",
-                      "code": "C38288",
-                      "display": "ORAL",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Oral"
-                },
-                "quantityQuantity": {
-                  "value": 1,
-                  "unit": "tab(s)",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "{tbl}"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/9776226",
-          "resource": {
-            "resourceType": "MedicationStatement",
-            "id": "9776226",
-            "meta": {
-              "versionId": "5-13917251",
-              "lastUpdated": "2012-08-13T17:41:08.000-05:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 16.88 mL/hr, IV&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-            },
-            "contained": [
-              {
-                "resourceType": "Medication",
-                "id": "18925324",
-                "code": {
-                  "text": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
-                },
-                "product": {
-                  "form": {
-                    "coding": [
-                      {
-                        "system": "http://ncimeta.nci.nih.gov",
-                        "code": "C42986",
-                        "display": "SOLUTION",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Soln-IV"
-                  },
-                  "ingredient": [
-                    {
-                      "item": {
-                        "reference": "#18925322-1",
-                        "display": "Premix D5W"
-                      },
-                      "amount": {
-                        "numerator": {
-                          "value": 500,
-                          "unit": "mL",
-                          "system": "http://unitsofmeasure.org",
-                          "code": "mL"
-                        },
-                        "denominator": {
-                          "value": 500,
-                          "unit": "mL",
-                          "system": "http://unitsofmeasure.org",
-                          "code": "mL"
-                        }
-                      }
-                    },
-                    {
-                      "item": {
-                        "reference": "#4310611-2",
-                        "display": "DOPamine"
-                      },
-                      "amount": {
-                        "numerator": {
-                          "value": 400,
-                          "unit": "mg",
-                          "system": "http://unitsofmeasure.org",
-                          "code": "mg"
-                        },
-                        "denominator": {
-                          "value": 500,
-                          "unit": "mL",
-                          "system": "http://unitsofmeasure.org",
-                          "code": "mL"
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "resourceType": "Medication",
-                "id": "18925322-1",
-                "code": {
-                  "text": "Premix D5W"
-                }
-              },
-              {
-                "resourceType": "Medication",
-                "id": "4310611-2",
-                "code": {
-                  "text": "DOPamine"
-                }
-              }
-            ],
-            "patient": {
-              "reference": "Patient/4342008",
-              "display": "Song, River"
-            },
-            "dateAsserted": "2012-08-13T17:41:08.000-05:00",
+            "dateAsserted": "2016-06-27T09:57:32.000-05:00",
             "status": "active",
             "wasNotTaken": false,
-            "effectiveDateTime": "2012-08-13T17:41:08.000-05:00",
-            "supportingInformation": [
-              {
-                "reference": "MedicationOrder/9776226"
-              }
-            ],
-            "medicationReference": {
-              "reference": "#18925324",
-              "display": "DOPamine 400 mg [3 mcg/kg/min] + Premix D5W 500 mL"
+            "effectivePeriod": {
+                "start": "2016-06-27T09:00:00.000-07:00"
             },
-            "dosage": [
-              {
-                "text": "16.88 mL/hr, IV",
+            "supportingInformation": [{
+                "reference": "MedicationOrder/21389901"
+            }],
+            "medicationCodeableConcept": {
+                "coding": [{
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "9631",
+                    "display": "Sectral",
+                    "userSelected": false
+                }],
+                "text": "acebutolol (Sectral)"
+            },
+            "dosage": [{
+                "text": "200 mg, 1 caps, Oral, Daily",
+                "_text": {
+                    "extension": [{
+                        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                        "valueString": "200 Milligram Oral every day. Refills: 0."
+                    }]
+                },
                 "timing": {
-                  "repeat": {
-                    "boundsPeriod": {
-                      "start": "2009-06-25T12:52:00.000-05:00"
+                    "repeat": {
+                        "boundsPeriod": {
+                            "start": "2016-06-27T09:00:00.000-07:00"
+                        }
                     },
-                    "duration": 29.6,
-                    "durationUnits": "h"
-                  }
+                    "code": {
+                        "coding": [{
+                            "system": "http://hl7.org/fhir/timing-abbreviation",
+                            "code": "QD",
+                            "display": "QD",
+                            "userSelected": false
+                        }],
+                        "text": "Daily"
+                    }
                 },
                 "route": {
-                  "coding": [
-                    {
-                      "system": "http://ncimeta.nci.nih.gov",
-                      "code": "C38276",
-                      "display": "INTRAVENOUS",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "IV"
+                    "coding": [{
+                        "system": "http://ncimeta.nci.nih.gov",
+                        "code": "C38288",
+                        "display": "ORAL",
+                        "userSelected": false
+                    }],
+                    "text": "Oral"
                 },
                 "quantityQuantity": {
-                  "value": 500,
-                  "unit": "mL",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mL"
+                    "value": 200.0,
+                    "unit": "mg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg"
+                }
+            }]
+        }
+    }, {
+        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/21389899",
+        "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "21389899",
+            "meta": {
+                "versionId": "0",
+                "lastUpdated": "2016-06-27T14:59:58.000Z"
+            },
+            "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: furosemide (Lasix)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tabs, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
+            },
+            "patient": {
+                "reference": "Patient/4342010",
+                "display": "Smart, Joe"
+            },
+            "informationSource": {
+                "reference": "Practitioner/1912007",
+                "display": "Who, Doctor"
+            },
+            "dateAsserted": "2016-06-27T09:56:37.000-05:00",
+            "status": "active",
+            "wasNotTaken": false,
+            "effectivePeriod": {
+                "start": "2016-06-27T09:00:00.000-07:00"
+            },
+            "supportingInformation": [{
+                "reference": "MedicationOrder/21389899"
+            }],
+            "medicationCodeableConcept": {
+                "coding": [{
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "202991",
+                    "display": "Lasix",
+                    "userSelected": false
+                }],
+                "text": "furosemide (Lasix)"
+            },
+            "dosage": [{
+                "text": "80 mg, 1 tabs, Oral, Daily",
+                "_text": {
+                    "extension": [{
+                        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                        "valueString": "80 Milligram Oral every day. Refills: 0."
+                    }]
                 },
-                "rateRatio": {
-                  "numerator": {
-                    "value": 500,
+                "timing": {
+                    "repeat": {
+                        "boundsPeriod": {
+                            "start": "2016-06-27T09:00:00.000-07:00"
+                        }
+                    },
+                    "code": {
+                        "coding": [{
+                            "system": "http://hl7.org/fhir/timing-abbreviation",
+                            "code": "QD",
+                            "display": "QD",
+                            "userSelected": false
+                        }],
+                        "text": "Daily"
+                    }
+                },
+                "route": {
+                    "coding": [{
+                        "system": "http://ncimeta.nci.nih.gov",
+                        "code": "C38288",
+                        "display": "ORAL",
+                        "userSelected": false
+                    }],
+                    "text": "Oral"
+                },
+                "quantityQuantity": {
+                    "value": 80.0,
+                    "unit": "mg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg"
+                }
+            }]
+        }
+    }, {
+        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298109",
+        "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "22298109",
+            "meta": {
+                "versionId": "0",
+                "lastUpdated": "2017-02-09T16:31:47.000Z"
+            },
+            "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 g, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
+            },
+            "patient": {
+                "reference": "Patient/4342010",
+                "display": "Smart, Joe"
+            },
+            "informationSource": {
+                "reference": "Practitioner/4474007",
+                "display": "Song, River"
+            },
+            "dateAsserted": "2017-02-09T10:31:00.000-06:00",
+            "status": "active",
+            "wasNotTaken": false,
+            "effectivePeriod": {
+                "start": "2017-02-09T09:00:00.000-08:00"
+            },
+            "supportingInformation": [{
+                "reference": "MedicationOrder/22298109"
+            }],
+            "medicationCodeableConcept": {
+                "coding": [{
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "11124",
+                    "display": "Vancomycin",
+                    "userSelected": false
+                }],
+                "text": "vancomycin"
+            },
+            "dosage": [{
+                "text": "1 g, IV, q12hr",
+                "_text": {
+                    "extension": [{
+                        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                        "valueString": "1 Gram Intravenous every 12 hours. Refills: 0."
+                    }]
+                },
+                "timing": {
+                    "repeat": {
+                        "boundsPeriod": {
+                            "start": "2017-02-09T09:00:00.000-08:00"
+                        }
+                    },
+                    "code": {
+                        "text": "q12hr"
+                    }
+                },
+                "route": {
+                    "coding": [{
+                        "system": "http://ncimeta.nci.nih.gov",
+                        "code": "C38276",
+                        "display": "INTRAVENOUS",
+                        "userSelected": false
+                    }],
+                    "text": "IV"
+                },
+                "quantityQuantity": {
+                    "value": 1.0,
+                    "unit": "g",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "g"
+                }
+            }]
+        }
+    }, {
+        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077",
+        "resource": {
+            "resourceType": "MedicationStatement",
+            "id": "22298077",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2017-02-09T16:30:45.000Z"
+            },
+            "text": {
+                "status": "generated",
+                "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin + Dextrose 5% in Water 100 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 100 mg, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
+            },
+            "contained": [{
+                "resourceType": "Medication",
+                "id": "2770945",
+                "code": {
+                    "text": "vancomycin + Dextrose 5% in Water 100 mL"
+                },
+                "product": {
+                    "ingredient": [{
+                        "item": {
+                            "reference": "#2770945-1",
+                            "display": "vancomycin"
+                        },
+                        "amount": {
+                            "numerator": {
+                                "value": 100.0,
+                                "unit": "mg",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mg"
+                            },
+                            "denominator": {
+                                "value": 100.0,
+                                "unit": "mL",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mL"
+                            }
+                        }
+                    }, {
+                        "item": {
+                            "reference": "#2778758-2",
+                            "display": "Dextrose 5% in Water"
+                        },
+                        "amount": {
+                            "numerator": {
+                                "value": 100.0,
+                                "unit": "mL",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mL"
+                            },
+                            "denominator": {
+                                "value": 100.0,
+                                "unit": "mL",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mL"
+                            }
+                        }
+                    }]
+                }
+            }, {
+                "resourceType": "Medication",
+                "id": "2770945-1",
+                "code": {
+                    "coding": [{
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "11124",
+                        "display": "Vancomycin",
+                        "userSelected": false
+                    }],
+                    "text": "vancomycin"
+                }
+            }, {
+                "resourceType": "Medication",
+                "id": "2778758-2",
+                "code": {
+                    "coding": [{
+                        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                        "code": "309778",
+                        "display": "Glucose 50 MG/ML Injectable Solution",
+                        "userSelected": false
+                    }],
+                    "text": "Dextrose 5% in Water"
+                }
+            }],
+            "patient": {
+                "reference": "Patient/4342010",
+                "display": "Smart, Joe"
+            },
+            "informationSource": {
+                "reference": "Practitioner/4474007",
+                "display": "Song, River"
+            },
+            "dateAsserted": "2017-02-09T09:29:09.000-06:00",
+            "status": "entered-in-error",
+            "effectivePeriod": {
+                "start": "2017-02-09T08:00:00.000-08:00",
+                "end": "2017-02-09T08:30:45.000-08:00"
+            },
+            "supportingInformation": [{
+                "reference": "MedicationOrder/22298077"
+            }],
+            "medicationReference": {
+                "reference": "#2770945",
+                "display": "vancomycin + Dextrose 5% in Water 100 mL"
+            },
+            "dosage": [{
+                "text": "100 mg, IV, q12hr",
+                "_text": {
+                    "extension": [{
+                        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                        "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
+                    }]
+                },
+                "timing": {
+                    "repeat": {
+                        "boundsQuantity": {
+                            "value": 6,
+                            "unit": "days",
+                            "system": "http://unitsofmeasure.org",
+                            "code": "d"
+                        }
+                    },
+                    "code": {
+                        "text": "q12hr"
+                    }
+                },
+                "route": {
+                    "coding": [{
+                        "system": "http://ncimeta.nci.nih.gov",
+                        "code": "C38276",
+                        "display": "INTRAVENOUS",
+                        "userSelected": false
+                    }],
+                    "text": "IV"
+                },
+                "quantityQuantity": {
+                    "value": 100.0,
                     "unit": "mL",
                     "system": "http://unitsofmeasure.org",
                     "code": "mL"
-                  },
-                  "denominator": {
-                    "value": 29.6,
-                    "unit": "hr",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "h"
-                  }
                 }
-              }
-            ]
-          }
+            }]
         }
-      ]
-    }
+    }]
+  }
 
     DSTU2_MEDICATION_STATEMENT_CREATE ||= {
       "resourceType": "MedicationStatement",

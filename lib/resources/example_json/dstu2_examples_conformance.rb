@@ -7,7 +7,7 @@ module Cerner
         "status": "generated",
         "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
       },
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
@@ -479,7 +479,7 @@ module Cerner
         "status": "generated",
         "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
       },
-      "url": "https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+      "url": "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
@@ -502,11 +502,11 @@ module Cerner
                 "extension": [
                   {
                     "url": "token",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token"
+                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token"
                   },
                   {
                     "url": "authorize",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
+                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
                   }
                 ]
               }

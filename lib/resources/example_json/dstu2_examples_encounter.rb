@@ -2,295 +2,400 @@ module Cerner
   module Resources
 
     DSTU2_ENCOUNTER ||=
-      {
-        "resourceType": "Encounter",
-        "id": "8124712",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2016-02-15T18:57:38.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Emergency&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: Outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Fri Jan  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Pain in leg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Pond, Amy&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Location",
-            "id": "d312719",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/RoleCode",
-                  "code": "PTRES",
-                  "display": "Patient's Residence",
-                  "userSelected": false
-                }
-              ],
-              "text": "Home"
-            }
+        {
+          "resourceType": "Encounter",
+          "id": "4027918",
+          "meta": {
+              "versionId": "1",
+              "lastUpdated": "2016-06-27T15:01:18.000Z"
           },
-          {
-            "resourceType": "Location",
-            "id": "o589723",
-            "name": "Baseline West Medical Center",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/RoleCode",
-                  "code": "ER",
-                  "display": "Emergency room",
-                  "userSelected": false
-                }
-              ],
-              "text": "Emergency Room - Hospital"
-            }
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "text": "FIN NBR"
-            },
-            "value": "200124881",
-            "period": {
-              "start": "2016-02-15T18:57:37.000Z"
-            }
-          }
-        ],
-        "status": "in-progress",
-        "class": "outpatient",
-        "type": [
-          {
-            "text": "Emergency"
-          }
-        ],
-        "priority": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/encounter-priority",
-              "code": "emg",
-              "display": "Emergency",
-              "userSelected": false
-            }
-          ],
-          "text": "Emergency"
-        },
-        "patient": {
-          "reference": "Patient/9823498",
-          "display": "Song, River"
-        },
-        "participant": [
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "ATND",
-                    "display": "attender",
-                    "userSelected": false
-                  }
-                ],
-                "text": "Attending Physician"
-              }
-            ],
-            "period": {
-              "start": "2016-02-15T18:57:37.000Z"
-            },
-            "individual": {
-              "reference": "Practitioner/9349712",
-              "display": "Pond, Amy"
-            }
-          }
-        ],
-        "period": {
-          "start": "2016-01-01T18:56:00.000Z"
-        },
-        "reason": [
-          {
-            "text": "Pain in leg"
-          }
-        ],
-        "hospitalization": {
-          "admitSource": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/admit-source",
-                "code": "emd",
-                "display": "From accident/emergency department",
-                "userSelected": false
-              }
-            ],
-            "text": "Emergency Room"
+          "text": {
+              "status": "generated",
+              "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Discharged&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Wed Jun 22 21:05:00 2016 (UTC)&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Who, Doctor&lt;/p>&lt;/div>"
           },
-          "dietPreference": [
-            {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/diet",
-                  "code": "vegan",
-                  "display": "Vegan",
-                  "userSelected": false
-                }
-              ],
-              "text": "Vegan"
-            }
-          ],
-          "specialCourtesy": [
-            {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/EncounterSpecialCourtesy",
-                  "code": "VIP",
-                  "display": "very important person",
-                  "userSelected": false
-                }
-              ],
-              "text": "Yes"
-            }
-          ],
-          "specialArrangement": [
-            {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/encounter-special-arrangements",
-                  "code": "wheel",
-                  "display": "Wheelchair",
-                  "userSelected": false
-                }
-              ],
-              "text": "Wheelchair/Stretcher"
-            }
-          ],
-          "destination": {
-            "reference": "#d312719",
-            "display": "Home"
-          },
-          "dischargeDisposition": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/discharge-disposition",
-                "code": "home",
-                "display": "Home",
-                "userSelected": false
+          "identifier": [{
+              "use": "usual",
+              "type": {
+                  "text": "FIN NBR"
+              },
+              "system": "urn:oid:3.3.3.3.3.3",
+              "value": "20003412",
+              "period": {
+                  "start": "2016-06-22T21:06:58.000Z"
               }
-            ],
-            "text": "Self Care"
+          }],
+          "status": "finished",
+          "class": "inpatient",
+          "type": [{
+              "text": "Inpatient"
+          }],
+          "patient": {
+              "reference": "Patient/4342010",
+              "display": "Smart, Joe"
+          },
+          "participant": [{
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "ADM",
+                      "display": "admitter",
+                      "userSelected": false
+                  }],
+                  "text": "Admitting Physician"
+              }],
+              "period": {
+                  "start": "2016-11-09T18:07:16.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1",
+                  "display": "Who, Doctor"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "ADM",
+                      "display": "admitter",
+                      "userSelected": false
+                  }],
+                  "text": "Admitting Physician"
+              }],
+              "period": {
+                  "start": "2016-11-09T15:44:00.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/2048007",
+                  "display": "Song, River"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "ADM",
+                      "display": "admitter",
+                      "userSelected": false
+                  }],
+                  "text": "Admitting Physician"
+              }],
+              "period": {
+                  "start": "2016-06-22T21:06:58.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1912007",
+                  "display": "Who, Doctor"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "ATND",
+                      "display": "attender",
+                      "userSelected": false
+                  }],
+                  "text": "Attending Physician"
+              }],
+              "period": {
+                  "start": "2016-06-22T21:06:58.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1912007",
+                  "display": "Song, River"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "PPRF",
+                      "display": "primary performer",
+                      "userSelected": false
+                  }],
+                  "text": "Ordering Physician"
+              }],
+              "period": {
+                  "start": "2016-06-27T15:03:36.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1912007",
+                  "display": "Song, River"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "PART",
+                      "display": "Participation",
+                      "userSelected": false
+                  }],
+                  "text": "Other"
+              }],
+              "period": {
+                  "start": "2016-06-23T18:34:38.000Z",
+                  "end": "2016-06-23T18:34:38.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1590015",
+                  "display": "Strange, Doctor"
+              }
+          }, {
+              "type": [{
+                  "coding": [{
+                      "system": "http://hl7.org/fhir/v3/ParticipationType",
+                      "code": "REF",
+                      "display": "referrer",
+                      "userSelected": false
+                  }],
+                  "text": "Referring Physician"
+              }],
+              "period": {
+                  "start": "2016-06-22T21:06:58.000Z"
+              },
+              "individual": {
+                  "reference": "Practitioner/1912007",
+                  "display": "Song, River"
+              }
+          }],
+          "period": {
+              "start": "2016-06-22T21:05:00.000Z"
+          },
+          "location": [{
+              "location": {
+                  "reference": "Location/35646785",
+                  "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A"
+              },
+              "status": "completed"
+          }],
+          "serviceProvider": {
+              "reference": "Organization/619848"
           }
-        },
-        "location": [
-          {
-            "location": {
-              "reference": "#o589723",
-              "display": "Baseline West Medical Center"
-            },
-            "status": "active"
-          }
-        ],
-        "serviceProvider": {
-          "reference": "Organization/619848"
-        }
       }
 
     DSTU2_ENCOUNTER_BUNDLE ||=
       {
-        "resourceType": "Bundle",
-        "id": "8f6ceb97-af79-4cf1-b996-d7589b6eff7a",
-        "type": "searchset",
-        "total": 2,
-        "link": [
-          {
-            "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?patient=9823498"
-          }
-        ],
         "entry": [
           {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/8124712",
-            "resource": DSTU2_ENCOUNTER
-          },
-          {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter/89723347",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4027918",
             "resource": {
-              "resourceType": "Encounter",
-              "id": "89723347",
-              "meta": {
-                "versionId": "0",
-                "lastUpdated": "2016-07-21T11:25:40.000Z"
-              },
-              "text": {
-                "status": "generated",
-                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Discharged&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Fri Apr  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period End Date&lt;/b&gt;: Wed Jun  1 18:56:00 2016 (UTC)&lt;/p&gt;&lt;/div&gt;"
-              },
+              "class": "inpatient",
+              "id": "4027918",
               "identifier": [
                 {
-                  "use": "usual",
+                  "period": {
+                    "start": "2016-06-22T21:06:58.000Z"
+                  },
+                  "system": "urn:oid:3.3.3.3.3.3",
                   "type": {
                     "text": "FIN NBR"
                   },
-                  "value": "20013481",
-                  "period": {
-                    "start": "2016-07-21T11:25:40.000Z"
-                  }
+                  "use": "usual",
+                  "value": "20003412"
                 }
               ],
-              "status": "finished",
-              "class": "outpatient",
-              "type": [
+              "location": [
                 {
-                  "text": "Outpatient"
+                  "location": {
+                    "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A",
+                    "reference": "Location/35646785"
+                  },
+                  "status": "completed"
                 }
               ],
-              "patient": {
-                "reference": "Patient/9823498",
-                "display": "Song, River"
+              "meta": {
+                "lastUpdated": "2016-06-27T15:01:18.000Z",
+                "versionId": "1"
               },
               "participant": [
                 {
+                  "individual": {
+                    "display": "Who, Doctor",
+                    "reference": "Practitioner/1"
+                  },
+                  "period": {
+                    "start": "2016-11-09T18:07:16.000Z"
+                  },
                   "type": [
                     {
                       "coding": [
                         {
+                          "code": "ADM",
+                          "display": "admitter",
                           "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Admitting Physician"
+                    }
+                  ]
+                },
+                {
+                  "individual": {
+                    "display": "Song, River",
+                    "reference": "Practitioner/2048007"
+                  },
+                  "period": {
+                    "start": "2016-11-09T15:44:00.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "code": "ADM",
+                          "display": "admitter",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Admitting Physician"
+                    }
+                  ]
+                },
+                {
+                  "individual": {
+                    "display": "Strange, Doctor",
+                    "reference": "Practitioner/1912007"
+                  },
+                  "period": {
+                    "start": "2016-06-22T21:06:58.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "code": "ADM",
+                          "display": "admitter",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Admitting Physician"
+                    }
+                  ]
+                },
+                {
+                  "individual": {
+                    "display": "Strange, Doctor",
+                    "reference": "Practitioner/1912007"
+                  },
+                  "period": {
+                    "start": "2016-06-22T21:06:58.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
                           "code": "ATND",
                           "display": "attender",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
                           "userSelected": false
                         }
                       ],
                       "text": "Attending Physician"
                     }
-                  ],
-                  "period": {
-                    "start": "2016-07-20T10:36:00.000Z",
-                    "end": "2016-07-20T15:36:00.000Z"
-                  },
-                  "individual": {
-                    "reference": "Practitioner/2348712",
-                    "display": "Williams, River"
-                  }
-                }
-              ],
-              "period": {
-                "start": "2016-04-01T18:56:00.000Z",
-                "end": "2016-06-01T18:56:00.000Z"
-              },
-              "location": [
+                  ]
+                },
                 {
-                  "location": {
-                    "reference": "Location/4048128",
-                    "display": "Baseline East Medical Center"
+                  "individual": {
+                    "display": "Strange, Doctor",
+                    "reference": "Practitioner/1912007"
                   },
-                  "status": "completed"
+                  "period": {
+                    "start": "2016-06-27T15:03:36.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "code": "PPRF",
+                          "display": "primary performer",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Ordering Physician"
+                    }
+                  ]
+                },
+                {
+                  "individual": {
+                    "display": "Frankenstein, Doctor",
+                    "reference": "Practitioner/1590015"
+                  },
+                  "period": {
+                    "end": "2016-06-23T18:34:38.000Z",
+                    "start": "2016-06-23T18:34:38.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "code": "PART",
+                          "display": "Participation",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Other"
+                    }
+                  ]
+                },
+                {
+                  "individual": {
+                    "display": "Strange, Doctor",
+                    "reference": "Practitioner/1912007"
+                  },
+                  "period": {
+                    "start": "2016-06-22T21:06:58.000Z"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "code": "REF",
+                          "display": "referrer",
+                          "system": "http://hl7.org/fhir/v3/ParticipationType",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Referring Physician"
+                    }
+                  ]
                 }
               ],
+              "patient": {
+                "display": "Smart, Joe",
+                "reference": "Patient/4342010"
+              },
+              "period": {
+                "start": "2016-06-22T21:05:00.000Z"
+              },
+              "resourceType": "Encounter",
               "serviceProvider": {
                 "reference": "Organization/619848"
-              }
+              },
+              "status": "finished",
+              "text": {
+                "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Discharged&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Wed Jun 22 21:05:00 2016 (UTC)&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Strange, Doctor&lt;/p>&lt;/div>",
+                "status": "generated"
+              },
+              "type": [
+                {
+                  "text": "Inpatient"
+                }
+              ]
             }
           }
-        ]
+        ],
+        "id": "9ae23e0d-8335-4dec-ba53-6dabe322dd43",
+        "link": [
+          {
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?patient=4342010"
+          }
+        ],
+        "resourceType": "Bundle",
+        "total": 1,
+        "type": "searchset"
       }
+
 
   end
 end
