@@ -68,10 +68,18 @@ resources and exchange context information with client applications.
 
 ## Registration ##
 In order for your client application to utilize any protected resources, 
-your client application must first register using our 
-[code console][CERNER-CODE-CONSOLE]. A Cerner Care account is required to 
+your client application must first register. A Cerner Care account is required to 
 register applications. Obtaining a Cerner Care account is free and 
 requires nothing but an email address.
+
+If registering an application that is using the public app profile and requires access only when the user is online, 
+your client application must first register using our [code console][CERNER-CODE-CONSOLE]. 
+
+If registering a confidential client application (required for offline_access and
+access on behalf of a system), please first request an account via the **non-production** instance of 
+[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. Once the request is completed,
+you can then send the client identifier to your existing Cerner contact in order to complete
+the setup process.
 
 Once registered, a **client identifier** will be provided for use with 
 the Cerner Authorization Server. As a registered client, Cerner 
@@ -790,7 +798,7 @@ authentication scheme][RFC2617].  The rationale is such
 that if your solution compromises a large number of
 refresh tokens that such refresh tokens need not be revoked;
 only our client credentials need to be rotated to prevent
-misues of such compromised token values.  Client credentials for 
+misues of such compromised token values.  Client credentials for
 applications using Cerner's authorization server as issued 
 via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
 
@@ -1082,5 +1090,6 @@ preceding documentation.
 [RFC2617]: https://tools.ietf.org/html/rfc2617 "HTTP Authentication: Basic and Digest Access Authentication"
 [RFC6750]: https://tools.ietf.org/html/rfc6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage"
 [SYSTEM-ACCOUNTS]: https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help "Cerner System Account Management Help"
+[SYSTEM-ACCOUNT-REGISTRATION]: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account "Cerner System Account Registration"
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
 [AUTHZ-SPEC]: ../authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
