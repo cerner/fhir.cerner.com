@@ -68,23 +68,22 @@ resources and exchange context information with client applications.
 
 ## Registration ##
 In order for your client application to utilize any protected resources, 
-your client application must first register. A Cerner Care account is required to 
-register applications. Obtaining a Cerner Care account is free and 
-requires nothing but an email address.
-
-If registering an application that is using the public app profile and requires access only when the user is online, 
-your client application must first register using our [code console][CERNER-CODE-CONSOLE]. 
-
-If registering a confidential client application (required for offline_access and
-access on behalf of a system), please first request an account via the **non-production** instance of 
-[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. Once the request is completed,
-you can then send the client identifier to your existing Cerner contact in order to complete
-the setup process.
+your client application must register using Cerner's 
+[code console][CERNER-CODE-CONSOLE]. This tool requires you create a
+(free) Cerner Care account using your e-mail address as part of the
+registration process.
 
 Once registered, a **client identifier** will be provided for use with 
 the Cerner Authorization Server. As a registered client, Cerner 
 organizations may then ask for your client application to be enabled, 
 which is necessary in order to gain access to their protected resources.
+
+If registering a confidential client application (for use with
+offline_access or access on behalf of a system), please first request
+an account via our **non-production** instance of
+[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. 
+Once registered, use the assigned account identifier as your client
+identifier during the code console registration process.
 
 ## Requesting Authorization on Behalf of a User ##
 
@@ -798,9 +797,8 @@ authentication scheme][RFC2617].  The rationale is such
 that if your solution compromises a large number of
 refresh tokens that such refresh tokens need not be revoked;
 only our client credentials need to be rotated to prevent
-misues of such compromised token values.  Client credentials for
-applications using Cerner's authorization server as issued 
-via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
+misuses of such compromised token values.  Client credentials for
+are issued via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
 
 It is currently not recommended to store offline_access tokens
 in persistent storage at a user's device.  Cerner's authorization 
