@@ -110,7 +110,45 @@ present.
    x-xss-protection → 1; mode=block
 </pre>
 
+## Operation: docref
+
+Argonaut operation for querying DocumentReferences for the supplied parameters:
+
+    GET /DocumentReference/$docref?:parameters
+
+_Implementation Notes_
+
+* The [DocumentReference.relatesTo] modifier element is not supported and will not be returned.
+
+### Terminology Bindings
+
+<%= terminology_table(:document_reference_docref, :dstu2) %>
+
+### Parameters
+
+ Name     | Required? | Type          | Description
+----------|-----------|---------------|-------------------------------------------------
+`patient` | Y         | [`reference`] | A reference to the patient whose document references are required. Example: `14067892`
+`type`    | Y         | [`token`]     | The document reference type, can be a list of comma separated values. Example: `http://loinc.org|34133-9`
+`start`   | N         | [`date`]      | The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
+`end`     | N         | [`date`]      | The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
+
+Notes:   
+
+- The `type` parameter must include both a system and a code. (e.g. `&type=http://loinc.org|34133-9`)
+- The `start` and `end` parameters must be valid [dateTime]s with a time component. They must have prefixes of `eq` or nothing.
+
+### Response
+
+<%= headers 200, GET: '[...]/DocumentReference/$docref?patient=1316035&type=http://loinc.org|34133-9' %>
+<%= json(:dstu2_document_reference_docref_bundle) %>
+
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [here]: https://html5.validator.nu/
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
+[DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
