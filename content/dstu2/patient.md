@@ -8,24 +8,21 @@ title: Patient | DSTU 2 API
 {:toc}
 
 ## Overview
-The Patient resource provides general demographic information about the person receiving health care services from a specific organization. Common demographic fields or
-values include the patient id, patient names, gender, date of birth, address, phone, and marital status. A person receiving care from multiple organizations may have data
-available in multiple Patient resources in multiple FHIR servers. The Patient resource is commonly referenced by many of the other resources.
+The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
 
 The following fields are returned if valued:
 
-   * Patient name
-   * Patient id
-   * Medical Record number (MRN)
-   * Phone (email is not supported at this time)
-   * Contact person (guardian, parent or emergency)
-   * Gender (administrative)
-   * Date of Birth
-   * Deceased
-   * Address
-   * Communication (preferred language)
-   * Link (if the patient record has been combined into another record)
-   * Marital status
+   * [Patient name](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
+   * [Patient id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+   * [Medical Record number (MRN)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
+   * [Phone (email is not supported at this time)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
+   * [Contact person (guardian, parent or emergency)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
+   * [Gender (administrative)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender){:target="_blank"}
+   * [Date of Birth](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate){:target="_blank"}
+   * [Deceased](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
+   * [Address](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address){:target="_blank"}
+   * [Communication (preferred language)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language){:target="_blank"}
+   * [Marital status](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
 
 ## Terminology Bindings
 
