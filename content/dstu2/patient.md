@@ -30,6 +30,9 @@ The following fields are returned if valued:
 
 ## Extensions
 * [Time of day of birth]
+* [US Core Ethnicity]
+* [US Core Patient Birth Sex]
+* [US Core Race]
 
 ## Search
 
@@ -40,6 +43,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * The [Patient.animal] modifier element is not supported and will not be returned.
+* When using an OAuth 2 patient access token to call GET /Patient without parameters, a bundle will be returned which contains the patients listed in the access token.
 
 ### Parameters
 
@@ -95,6 +99,9 @@ The ability to perform patient combine or uncombine operations is not available 
 <%= json(:dstu2_combined_patient_entry) %>
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
+[US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
+[US Core Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
+[US Core Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
