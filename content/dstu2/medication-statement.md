@@ -110,7 +110,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 Update a MedicationStatement.
 
-    PUT /MedicationStatement
+    PUT /MedicationStatement/:id
 
 _Notes_
 

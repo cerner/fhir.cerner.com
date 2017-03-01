@@ -101,7 +101,7 @@ module Cerner
     DSTU2_CONDITION_PROBLEM_CREATE ||= {
       "resourceType": "Condition",
       "patient": {
-        "reference": "Patient/2744123"
+        "reference": "Patient/1316020"
       },
       "code": {
         "text": "Freetext Condition"
@@ -118,16 +118,16 @@ module Cerner
       },
       "clinicalStatus": "resolved",
       "verificationStatus": "differential",
-      "abatementDateTime": "2014-01-01T00:00:00Z"
+      "abatementDateTime": "2017-01-01T00:00:00Z"
     }
 
     DSTU2_CONDITION_DIAGNOSIS_CREATE ||= {
       "resourceType": "Condition",
       "patient": {
-        "reference": "Patient/2744123"
+        "reference": "Patient/1316020"
       },
       "code": {
-        "text": "Freetext Condition"
+        "text": "Freetext Diagnosis"
       },
       "category": {
         "coding": [
@@ -142,58 +142,71 @@ module Cerner
       "clinicalStatus": "active",
       "verificationStatus": "differential",
       "encounter": {
-        "reference": "Encounter/1309819"
+        "reference": "Encounter/2457909"
       }
     }
 
     DSTU2_CONDITION_PROBLEM_UPDATE ||= {
       "resourceType": "Condition",
-      "id": "d21591615",
-      "patient": {
-        "reference": "Patient/2770007"
+      "id": "p6809861",
+      "meta": {
+        "versionId": "6809861",
+        "lastUpdated": "2017-02-28T21:26:44.000Z"
       },
+      "patient": {
+        "reference": "Patient/1316020"
+      },
+      "asserter": {
+        "reference": "Practitioner/1316007"
+      },
+      "dateRecorded": "2017-02-28",
       "code": {
         "text": "Freetext Condition"
       },
       "category": {
-        "coding": [
-          {
-            "system": "http://argonaut.hl7.org/extension-codes",
-            "code": "problem",
-            "display": "Problem"
-          }
-        ],
+        "coding": [{
+          "system": "http://argonaut.hl7.org/extension-codes",
+          "code": "problem",
+          "display": "Problem"
+        }],
         "text": "Problem"
       },
       "clinicalStatus": "resolved",
       "verificationStatus": "differential",
-      "abatementDateTime": "2014-01-01T00:00:00Z"
+      "abatementDateTime": "2017-02-01"
     }
 
     DSTU2_CONDITION_DIAGNOSIS_UPDATE ||= {
       "resourceType": "Condition",
-      "id": "p1250846",
-      "patient": {
-        "reference": "Patient/2744123"
+      "id": "d36474555",
+      "meta": {
+        "versionId": "36474555",
+        "lastUpdated": "2017-02-28T21:30:28.000Z"
       },
+      "patient": {
+        "reference": "Patient/1316020"
+      },
+      "encounter": {
+        "reference": "Encounter/2457909"
+      },
+      "asserter": {
+        "reference": "Practitioner/1316007"
+      },
+      "dateRecorded": "2017-02-28",
       "code": {
-        "text": "Freetext Condition"
+        "text": "Freetext Diagnosis"
       },
       "category": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/condition-category",
-            "code": "diagnosis",
-            "display": "Diagnosis"
-          }
-        ],
+        "coding": [{
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "diagnosis",
+          "display": "Diagnosis"
+        }],
         "text": "Diagnosis"
       },
       "clinicalStatus": "resolved",
       "verificationStatus": "differential",
-      "encounter": {
-        "reference": "Encounter/1309819"
-      }
+      "onsetDateTime": "2017-02-28"
     }
     
   end

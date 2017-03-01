@@ -385,20 +385,16 @@ follow these Link header values instead of constructing your own URLs.
 
     {
       "resourceType": "Bundle",
-      "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
+      "id": "f22ca456-19a7-45ce-8586-0079495783ef",
       "type": "searchset",
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?name=Jones&start=0&_count=20"
-        },
-        {
-          "relation": "next",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?name=Jones&start=20&_count=20"
-        }
-      ],
-      ...
-    }
+      "link": [{
+        "relation": "self",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&_count=50"
+      }, {
+        "relation": "next",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
+      }], ...
+    }  
 
 The possible `relation` values are:
 

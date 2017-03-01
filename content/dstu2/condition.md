@@ -64,57 +64,47 @@ Note: abatementDateTime is not supported for diagnoses
 Create Problem Example:
 <%= headers 201 %>
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:03:21 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:03:27 GMT
+    Date → Tue, 28 Feb 2017 21:26:37 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 9272.410216999999
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → 78a19072002b8651623351cfedaffe70
+    Etag → W/"6809861"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 9.272318
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6809861
     Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p4736135
-    server-response-time → 5418.609058
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 0a0bbace-7879-4508-b375-0a534d1bb8ce
-    x-runtime → 5.418577
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 Create Diagnosis Example:
 <%= headers 201 %>
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:03:21 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:03:27 GMT
+    Date → Tue, 28 Feb 2017 21:30:28 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 767.841864
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → 1b0d589dde95bcafcefd3a1965b5cadf
+    Etag → W/"36474555"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 0.767820
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:30:28 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d36474555
     Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d21591615
-    server-response-time → 5418.609058
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 0a0bbace-7879-4508-b375-0a534d1bb8ce
-    x-runtime → 5.418577
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -123,7 +113,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 Update an existing condition.
 
-    PUT /Condition
+    PUT /Condition/:id
 
 Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
@@ -152,28 +142,23 @@ Note: abatementDateTime is not supported for diagnosis
 
 <%= headers 200 %>
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:10:57 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:10:57 GMT
+    Date → Wed, 01 Mar 2017 15:42:52 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 1227.508429
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → c58a2925586fa64a89568b9ceac14475
+    Etag → W/"6809873"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 1.227476
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Wed, 01 Mar 2017 15:42:52 GMT
     Status → 200 OK
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736153"
-    server-response-time → 303.05764800000003
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → c869c30e-d2e6-4315-9b6c-1966cde67ee4
-    x-runtime → 0.303026
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
