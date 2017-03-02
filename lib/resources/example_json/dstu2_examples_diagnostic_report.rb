@@ -8,12 +8,12 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020&_count=10"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport?patient=1316020&_count=10"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/5153487",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/5153487",
           "resource": {
             "resourceType": "DiagnosticReport",
             "id": "5153487",
@@ -52,13 +52,13 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/5153487"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/5153487"
               }
             ]
           }
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/4135365",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/4135365",
           "resource": {
             "resourceType": "DiagnosticReport",
             "id": "4135365",
@@ -98,13 +98,13 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/4135365"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/4135365"
               }
             ]
           }
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport/3411366",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/3411366",
           "resource": {
             "resourceType": "DiagnosticReport",
             "id": "3411366",
@@ -147,7 +147,7 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Binary/3411366"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/3411366"
               }
             ]
           }

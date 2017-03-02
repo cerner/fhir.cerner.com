@@ -70,29 +70,24 @@ To successfully POST an allergy, the following headers must be provided. Allergy
 
 <%= headers 201 %>
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Wed, 13 Jan 2016 21:45:47 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
+    Date → Tue, 28 Feb 2017 21:08:20 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 10023.126891
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → b0fee21c20d2a240d9b4b86cfbcbd87c
+    Etag → W/"6167733"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 10.023081
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:03:00 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6167733
     Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"35502191"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance/35502191
-    server-response-time → 1260.984596
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → edad5615-1f19-4ff0-9999-46f46a52368e
-    x-runtime → 1.260940
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -101,7 +96,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 Update an existing allergy.
 
-    PUT /AllergyIntolerance
+    PUT /AllergyIntolerance/:id
 
 Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
@@ -125,28 +120,23 @@ To successfully PUT an allergy, the following headers must be provided. Allergy 
 
 <%= headers 200 %>
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Wed, 13 Jan 2016 21:50:53 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
-    Status → 200 OK
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"35504311"
-    server-response-time → 653.7616069999999
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 9dba8326-899a-406f-a125-3fc3d6605dad
-    x-runtime → 0.653722
-    x-xss-protection → 1; mode=block
+    Date →  Tue, 28 Feb 2017 21:19:18 GMT
+    Cache-Control →  no-cache
+    Vary →  Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security →  max-age=631152000
+    Server-Response-Time →  647.014821
+    X-Xss-Protection →  1; mode=block
+    Pragma →  no-cache
+    X-Request-Id →  d30766e5445f973b32efa9ec516cb5db
+    Etag →  W/"6167741"
+    X-Frame-Options →  SAMEORIGIN
+    X-Runtime →  0.646992
+    X-Content-Type-Options →  nosniff
+    Expires →  Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified →  Tue, 28 Feb 2017 21:03:00 GMT
+    Status →  200 OK
+    Content-Length →  0
+    Content-Type →  application/json
 </pre>
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
