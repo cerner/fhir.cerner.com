@@ -7,12 +7,33 @@ title: Patient | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+
+The following fields are returned if valued:
+
+   * [Patient name](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
+   * [Patient id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+   * [Extensions including birth time, birth sex, ethnicity, and race](#extensions)
+   * [Medical Record number (MRN)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
+   * [Phone (email is not supported at this time)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
+   * [Contact person (guardian, parent or emergency)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
+   * [Gender (administrative)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender){:target="_blank"}
+   * [Date of Birth](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate){:target="_blank"}
+   * [Deceased](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
+   * [Address](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address){:target="_blank"}
+   * [Communication (preferred language)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language){:target="_blank"}
+   * [Marital status](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:patient, :dstu2) %>
 
 ## Extensions
 * [Time of day of birth]
+* [US Core Ethnicity]
+* [US Core Patient Birth Sex]
+* [US Core Race]
 
 ## Search
 
@@ -22,7 +43,8 @@ Search for Patients that meet supplied query parameters:
 
 _Implementation Notes_
 
-* The [Patient.animal] and [Patient.link] modifier elements are not supported and will not be returned.
+* The [Patient.animal] modifier element is not supported and will not be returned.
+* If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.
 
 ### Parameters
 
@@ -58,18 +80,32 @@ List an individual Patient by its id:
 
 _Implementation Notes_
 
-* The [Patient.animal] and [Patient.link] modifier elements are not supported and will not be returned.
+* The [Patient.animal] modifier element is not supported and will not be returned.
 
 ### Response
 
 <%= headers 200 %>
 <%= json(:dstu2_patient_entry) %>
 
+### Patient Combines
+
+Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
+as a "patient combine". If necessary, this merging can later be undone by performing a "patient uncombine". When the requested patient record has been combined into another
+record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
+the entries directly by id. They will not be returned when searching with other parameters.
+
+The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.
+
+<%= headers 200 %>
+<%= json(:dstu2_combined_patient_entry) %>
+
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
+[US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
+[US Core Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
+[US Core Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
-[Patient.link]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.link
