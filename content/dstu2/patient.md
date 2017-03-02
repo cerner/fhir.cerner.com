@@ -14,6 +14,7 @@ The following fields are returned if valued:
 
    * [Patient name](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
    * [Patient id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+   * [Extensions including birth time, birth sex, ethnicity, and race](#extensions)
    * [Medical Record number (MRN)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
    * [Phone (email is not supported at this time)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
    * [Contact person (guardian, parent or emergency)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
@@ -43,7 +44,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * The [Patient.animal] modifier element is not supported and will not be returned.
-* When using an OAuth 2 patient access token to call GET /Patient without parameters, a bundle will be returned which contains the patients listed in the access token.
+* If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.
 
 ### Parameters
 
