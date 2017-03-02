@@ -365,12 +365,12 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=4342012"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=4342012"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/d35686553",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d35686553",
       "resource": {
         "resourceType": "Condition",
         "id": "d35686553",
@@ -413,7 +413,7 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/p6317881",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6317881",
       "resource": {
         "resourceType": "Condition",
         "id": "p6317881",
@@ -972,7 +972,7 @@ OR
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
   "patient": {
-    "reference": "Patient/2744123"
+    "reference": "Patient/1316020"
   },
   "code": {
     "text": "Freetext Condition"
@@ -989,7 +989,7 @@ OR
   },
   "clinicalStatus": "resolved",
   "verificationStatus": "differential",
-  "abatementDateTime": "2014-01-01T00:00:00Z"
+  "abatementDateTime": "2017-01-01T00:00:00Z"
 }</code></pre>
 <p>Note: dateRecorded is currently not honored on a create.</p>
 
@@ -997,10 +997,10 @@ OR
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
   "patient": {
-    "reference": "Patient/2744123"
+    "reference": "Patient/1316020"
   },
   "code": {
-    "text": "Freetext Condition"
+    "text": "Freetext Diagnosis"
   },
   "category": {
     "coding": [
@@ -1015,7 +1015,7 @@ OR
   "clinicalStatus": "active",
   "verificationStatus": "differential",
   "encounter": {
-    "reference": "Encounter/1309819"
+    "reference": "Encounter/2457909"
   }
 }</code></pre>
 <p>Note: abatementDateTime is not supported for diagnoses</p>
@@ -1026,58 +1026,48 @@ OR
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:03:21 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:03:27 GMT
+    Date → Tue, 28 Feb 2017 21:26:37 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 9272.410216999999
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → 78a19072002b8651623351cfedaffe70
+    Etag → W/"6809861"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 9.272318
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6809861
     Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/p4736135
-    server-response-time → 5418.609058
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 0a0bbace-7879-4508-b375-0a534d1bb8ce
-    x-runtime → 5.418577
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 <p>Create Diagnosis Example:</p>
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:03:21 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:03:27 GMT
+    Date → Tue, 28 Feb 2017 21:30:28 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 767.841864
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → 1b0d589dde95bcafcefd3a1965b5cadf
+    Etag → W/"36474555"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 0.767820
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:30:28 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d36474555
     Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736135"
-    location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition/d21591615
-    server-response-time → 5418.609058
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 0a0bbace-7879-4508-b375-0a534d1bb8ce
-    x-runtime → 5.418577
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
@@ -1086,7 +1076,7 @@ OR
 
 <p>Update an existing condition.</p>
 
-<pre><code>PUT /Condition
+<pre><code>PUT /Condition/:id
 </code></pre>
 
 <p>Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</p>
@@ -1671,10 +1661,18 @@ OR
 <p>Update Problem Example:</p>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
-  "id": "d21591615",
-  "patient": {
-    "reference": "Patient/2770007"
+  "id": "p6809861",
+  "meta": {
+    "versionId": "6809861",
+    "lastUpdated": "2017-02-28T21:26:44.000Z"
   },
+  "patient": {
+    "reference": "Patient/1316020"
+  },
+  "asserter": {
+    "reference": "Practitioner/1316007"
+  },
+  "dateRecorded": "2017-02-28",
   "code": {
     "text": "Freetext Condition"
   },
@@ -1690,18 +1688,29 @@ OR
   },
   "clinicalStatus": "resolved",
   "verificationStatus": "differential",
-  "abatementDateTime": "2014-01-01T00:00:00Z"
+  "abatementDateTime": "2017-02-01"
 }</code></pre>
 
 <p>Update Diagnosis Example:</p>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
-  "id": "p1250846",
-  "patient": {
-    "reference": "Patient/2744123"
+  "id": "d36474555",
+  "meta": {
+    "versionId": "36474555",
+    "lastUpdated": "2017-02-28T21:30:28.000Z"
   },
+  "patient": {
+    "reference": "Patient/1316020"
+  },
+  "encounter": {
+    "reference": "Encounter/2457909"
+  },
+  "asserter": {
+    "reference": "Practitioner/1316007"
+  },
+  "dateRecorded": "2017-02-28",
   "code": {
-    "text": "Freetext Condition"
+    "text": "Freetext Diagnosis"
   },
   "category": {
     "coding": [
@@ -1715,9 +1724,7 @@ OR
   },
   "clinicalStatus": "resolved",
   "verificationStatus": "differential",
-  "encounter": {
-    "reference": "Encounter/1309819"
-  }
+  "onsetDateTime": "2017-02-28"
 }</code></pre>
 <p>Note: abatementDateTime is not supported for diagnosis</p>
 
@@ -1726,28 +1733,23 @@ OR
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="terminal">
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Tue, 05 Jan 2016 19:10:57 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 05 Jan 2016 19:10:57 GMT
+    Date → Wed, 01 Mar 2017 15:42:52 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 1227.508429
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → c58a2925586fa64a89568b9ceac14475
+    Etag → W/"6809873"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 1.227476
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Wed, 01 Mar 2017 15:42:52 GMT
     Status → 200 OK
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"4736153"
-    server-response-time → 303.05764800000003
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → c869c30e-d2e6-4315-9b6c-1966cde67ee4
-    x-runtime → 0.303026
-    x-xss-protection → 1; mode=block
+    Content-Length → 0
+    Content-Type → application/json
 </pre>
 
 
@@ -1809,6 +1811,9 @@ OR
       </li>
       <li class="js-topic">
         <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>

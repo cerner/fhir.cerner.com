@@ -81,6 +81,12 @@
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
+  <li>
+<a href="#operation-autogen-ccd-if" id="markdown-toc-operation-autogen-ccd-if">Operation: autogen-ccd-if</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
@@ -162,6 +168,275 @@ Signed by:  Potter, Harry&lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
+<h2 id="operation-autogen-ccd-if">Operation: autogen-ccd-if</h2>
+
+<p>Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:</p>
+
+<pre><code>GET /Binary/$autogen-ccd-if?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Requires both Binary.read and DocumentReference.read OAuth2 scopes.</li>
+  <li>Accepts <code>application/xml</code> mime type, in addition to <code>application/json+fhir</code>
+</li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to the patient that is the subject of the CCD. Example: <code>14067892</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: <code>2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>end</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: <code>2016-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
+</ul>
+
+<h3 id="response-1">Response</h3>
+
+<p>Generating the Continuity of Care Document with the JSON mime type</p>
+
+<pre><code>GET: [...]/Binary/$autogen-ccd-if?patient=1316035
+Accept: application/json+fhir
+</code></pre>
+
+<pre class="headers"><code>Status: 200 OK
+Content-Type: application/json+fhir</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Binary",
+  "id": "d1ba1b55-1fe7-47bc-9c94-7393d2c25028",
+  "meta": {
+    "lastUpdated": "2017-01-03T10:29:43-06:00"
+  },
+  "contentType": "application/xml",
+  "content": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48P3htbC1zdHlsZXNoZWV0IHR5cGU9InRleHQveHNsIiBocmVmPSJodHRwOi8vd3d3LmNlcm5lci5jb20vY2RhX3N0eWxlc2hlZXQvIj8+PENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOnYzIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczpvdXRDZFV0aWw9ImphdmE6Y29tLmNlcm5lci5mc2kuY29kZS50cmFuc2xhdGlvbi5PdXRib3VuZENvZGVVdGlsaXR5IiB4bWxuczpjZFVETz0iamF2YTpjb20uY2VybmVyLmZzaS51ZG8uZGF0YXR5cGVzLkNvZGVVRE8iIHhtbG5zOnNkdGM9InVybjpobDctb3JnOnNkdGMiIHhtbG5zOm9pZEVudGl0eT0iamF2YTpjb20uY2VybmVyLmZzaS5jb2RlLnRyYW5zbGF0aW9uLk9JREVudGl0eVR5cGUiIHhzaTpzY2hlbWFMb2NhdGlvbj0idXJuOmhsNy1vcmc6djMuLi8uLi8uLi9DREElMjBSMi9jZGEtc2NoZW1hcy1hbmQtc2FtcGxlcy9pbmZyYXN0cnVjdHVyZS9jZGEvQ0RBLnhzZCIgY2xhc3NDb2RlPSJET0NDTElOIiBtb29kQ29kZT0iRVZOIj48cmVhbG1Db2RlIGNvZGU9IlVTIi8+PHR5cGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4xLjMiIGV4dGVuc2lvbj0iUE9DRF9IRDAwMDA0MCIvPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjEuMSIvPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjEuMiIvPjxpZCByb290PSIyLjMuMi4zLjIuMy45OTkzNjIiIGV4dGVuc2lvbj0iMTk1MDAwNyIvPjxjb2RlIGNvZGU9IjM0MTMzLTkiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuMSIgZGlzcGxheU5hbWU9IlN1bW1hcml6YXRpb24gb2YgZXBpc29kZSBub3RlIi8+PHRpdGxlPlRyYW5zaXRpb24gb2YgQ2FyZS9SZWZlcnJhbCBTdW1tYXJ5PC90aXRsZT48ZWZmZWN0aXZlVGltZSB2YWx1ZT0iMjAxNzAxMDMxMDMwMjMuMDAzLTA2MDAiLz48Y29uZmlkZW50aWFsaXR5Q29kZSBjb2RlPSJOIiBkaXNwbGF5TmFtZT0iTm9ybWFsIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My41LjI1Ii8+PGxhbmd1YWdlQ29kZSBjb2RlPSJlbi1VUyIvPjxyZWNvcmRUYXJnZXQgdHlwZUNvZGU9IlJDVCIgY29udGV4dENvbnRyb2xDb2RlPSJPUCI+PHBhdGllbnRSb2xlIGNsYXNzQ29kZT0iUEFUIj48aWQgcm9vdD0iMi4yLjIuMi4yLjIiIGV4dGVuc2lvbj0iMTAwMDAxNjciIGFzc2lnbmluZ0F1dGhvcml0eU5hbWU9IkJXTUMgTVJOIi8+PGFkZHIgbnVsbEZsYXZvcj0iVU5LIi8+PHRlbGVjb20gbnVsbEZsYXZvcj0iTkkiLz48cGF0aWVudCBjbGFzc0NvZGU9IlBTTiIgZGV0ZXJtaW5lckNvZGU9IklOU1RBTkNFIj48bmFtZSB1c2U9IkwiPjxnaXZlbj5IZXJtaW9uZTwvZ2l2ZW4+PGZhbWlseT5HcmFuZ2VyPC9mYW1pbHk+PC9uYW1lPjxhZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGUgY29kZT0iRiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4xIiBjb2RlU3lzdGVtTmFtZT0iYWRtaW5pc3RyYXRpdmVHZW5kZXIiIGRpc3BsYXlOYW1lPSJGZW1hbGUiPjxvcmlnaW5hbFRleHQ+RmVtYWxlPC9vcmlnaW5hbFRleHQ+PC9hZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGU+PGJpcnRoVGltZSB2YWx1ZT0iMTk4MzAzMTUiLz48cmFjZUNvZGUgbnVsbEZsYXZvcj0iTkkiLz48ZXRobmljR3JvdXBDb2RlIG51bGxGbGF2b3I9Ik5JIi8+PGxhbmd1YWdlQ29tbXVuaWNhdGlvbj48bGFuZ3VhZ2VDb2RlIG51bGxGbGF2b3I9Ik5JIi8+PC9sYW5ndWFnZUNvbW11bmljYXRpb24+PC9wYXRpZW50PjwvcGF0aWVudFJvbGU+PC9yZWNvcmRUYXJnZXQ+PGF1dGhvciB0eXBlQ29kZT0iQVVUIiBjb250ZXh0Q29udHJvbENvZGU9Ik9QIj48dGltZSB2YWx1ZT0iMjAxNzAxMDMxMDMwMjMuMDAzLTA2MDAiLz48YXNzaWduZWRBdXRob3IgY2xhc3NDb2RlPSJBU1NJR05FRCI+PGlkIG51bGxGbGF2b3I9Ik5JIi8+PGFkZHIgbnVsbEZsYXZvcj0iTkkiLz48dGVsZWNvbSBudWxsRmxhdm9yPSJOSSIvPjxhc3NpZ25lZEF1dGhvcmluZ0RldmljZT48bWFudWZhY3R1cmVyTW9kZWxOYW1lPkNlcm5lciBDb3Jwb3JhdGlvbjwvbWFudWZhY3R1cmVyTW9kZWxOYW1lPjxzb2Z0d2FyZU5hbWU+TWlsbGVubml1bSBDbGluaWNhbCBEb2N1bWVudCBHZW5lcmF0b3I8L3NvZnR3YXJlTmFtZT48L2Fzc2lnbmVkQXV0aG9yaW5nRGV2aWNlPjxyZXByZXNlbnRlZE9yZ2FuaXphdGlvbiBjbGFzc0NvZGU9Ik9SRyIgZGV0ZXJtaW5lckNvZGU9IklOU1RBTkNFIj48aWQgcm9vdD0iMi4zLjIuMy4yLjMiLz48bmFtZT5CYXNlbGluZSBXZXN0IE1lZGljYWwgQ2VudGVyPC9uYW1lPjx0ZWxlY29tIHVzZT0iV1AiIHZhbHVlPSJ0ZWw6KDgxNik1NTUtMjEyMSIvPjxhZGRyIHVzZT0iV1AiPjxzdHJlZXRBZGRyZXNzTGluZT44IFByaXZldHQgRHJpdmU8L3N0cmVldEFkZHJlc3NMaW5lPjxjaXR5PlN1c3NlczwvY2l0eT48c3RhdGU+TE88L3N0YXRlPjxwb3N0YWxDb2RlPjExMjQyPC9wb3N0YWxDb2RlPjxjb3VudHJ5PlVLPC9jb3VudHJ5PjwvYWRkcj48L3JlcHJlc2VudGVkT3JnYW5pemF0aW9uPjwvYXNzaWduZWRBdXRob3I+PC9hdXRob3I+PGRvY3VtZW50YXRpb25PZiB0eXBlQ29kZT0iRE9DIj48c2VydmljZUV2ZW50IGNsYXNzQ29kZT0iUENQUiIgbW9vZENvZGU9IkVWTiI+PGVmZmVjdGl2ZVRpbWU+PGxvdyB2YWx1ZT0iMjAxNDA4MjMxNTQ1MzQuMDAwLTA1MDAiLz48aGlnaCB2YWx1ZT0iMjAxNjEyMjkxMzA4NDEuMDAwLTA2MDAiLz48L2VmZmVjdGl2ZVRpbWU+PHBlcmZvcm1lciB0eXBlQ29kZT0iUFJGIj48ZnVuY3Rpb25Db2RlIGNvZGU9IlBDUCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS44OCIgY29kZVN5c3RlbU5hbWU9IkhMNyBQYXJ0aWNpcGF0aW9uRnVuY3Rpb24iIGRpc3BsYXlOYW1lPSJwcmltYXJ5IGNhcmUgcGh5c2ljaWFuIi8+PGFzc2lnbmVkRW50aXR5PjxpZCBudWxsRmxhdm9yPSJOSSIvPjwvYXNzaWduZWRFbnRpdHk+PC9wZXJmb3JtZXI+PC9zZXJ2aWNlRXZlbnQ+PC9kb2N1bWVudGF0aW9uT2Y+PGNvbXBvbmVudCB0eXBlQ29kZT0iQ09NUCI+PHN0cnVjdHVyZWRCb2R5IGNsYXNzQ29kZT0iRE9DQk9EWSIgbW9vZENvZGU9IkVWTiI+PGNvbXBvbmVudCB0eXBlQ29kZT0iQ09NUCIgY29udGV4dENvbmR1Y3Rpb25JbmQ9InRydWUiPjxzZWN0aW9uIGNsYXNzQ29kZT0iRE9DU0VDVCIgbW9vZENvZGU9IkVWTiI+PHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMTAuMjAuMjIuMi41Ii8+PHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMTAuMjAuMjIuMi41LjEiLz48Y29kZSBjb2RlPSIxMTQ1MC00IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGRpc3BsYXlOYW1lPSJQcm9ibGVtIExpc3QiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIvPjx0aXRsZT5Qcm9ibGVtIExpc3Q8L3RpdGxlPjx0ZXh0Pjx0YWJsZSBib3JkZXI9IjEiIHdpZHRoPSI5NSUiPjxjb2xncm91cD48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48L2NvbGdyb3VwPjx0aGVhZD48dHI+PHRoPkNvbmRpdGlvbjwvdGg+PHRoPkVmZmVjdGl2ZSBEYXRlczwvdGg+PHRoPlN0YXR1czwvdGg+PHRoPkhlYWx0aCBTdGF0dXM8L3RoPjx0aD5JbmZvcm1hbnQ8L3RoPjwvdHI+PC90aGVhZD48dGJvZHk+PHRyPjx0ZD48Y29udGVudCBJRD0iUFJPQkxFTTE1Njc0MDIiPkJsb29keSBzdG9vbDwvY29udGVudD48L3RkPjx0ZD4gPC90ZD48dGQ+PGNvbnRlbnQgSUQ9IlBST0JTVDE1Njc0MDIiPkFjdGl2ZTwvY29udGVudD48L3RkPjx0ZD48Y29udGVudCBJRD0iUFJPQkhTVDE1Njc0MDIiPiA8L2NvbnRlbnQ+PC90ZD48dGQ+IDwvdGQ+PC90cj48L3Rib2R5PjwvdGFibGU+PC90ZXh0PjxlbnRyeSB0eXBlQ29kZT0iRFJJViIgY29udGV4dENvbmR1Y3Rpb25JbmQ9InRydWUiPjxhY3QgY2xhc3NDb2RlPSJBQ1QiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuMyIvPjxpZCByb290PSJDMkQxN0REQS1FMzY0LTQwQjMtODg4Ni1DMURFRjBENDQxMTIiLz48Y29kZSBjb2RlPSJDT05DIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My41LjYiIGRpc3BsYXlOYW1lPSJDb25jZXJuIiBjb2RlU3lzdGVtTmFtZT0iSEw3QWN0Q2xhc3MiLz48c3RhdHVzQ29kZSBjb2RlPSJhY3RpdmUiLz48ZWZmZWN0aXZlVGltZT48bG93IG51bGxGbGF2b3I9Ik5JIi8+PGhpZ2ggbnVsbEZsYXZvcj0iTkkiLz48L2VmZmVjdGl2ZVRpbWU+PGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJTVUJKIiBpbnZlcnNpb25JbmQ9ImZhbHNlIj48b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuNCIvPjxpZCByb290PSI3NjAzNDRDNC00MUQ2LTQ2RTMtOEQ1NC04NjU4RkY1MDk1OTkiLz48Y29kZSBjb2RlPSI1NTYwNzAwNiIgZGlzcGxheU5hbWU9IlByb2JsZW0iIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuOTYiLz48dGV4dD48cmVmZXJlbmNlIHZhbHVlPSIjUFJPQkxFTTE1Njc0MDIiLz48L3RleHQ+PHN0YXR1c0NvZGUgY29kZT0iY29tcGxldGVkIi8+PGVmZmVjdGl2ZVRpbWU+PGxvdyBudWxsRmxhdm9yPSJOSSIvPjxoaWdoIG51bGxGbGF2b3I9Ik5JIi8+PC9lZmZlY3RpdmVUaW1lPjx2YWx1ZSB4c2k6dHlwZT0iQ0QiIGNvZGU9IjQwNTcyOTAwOCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNi45NiIgY29kZVN5c3RlbU5hbWU9IlNOT01FRCBDVCIgZGlzcGxheU5hbWU9IkhlbWF0b2NoZXppYSAoZmluZGluZykiPjxvcmlnaW5hbFRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JMRU0xNTY3NDAyIi8+PC9vcmlnaW5hbFRleHQ+PC92YWx1ZT48YXV0aG9yPjx0aW1lIHZhbHVlPSIyMDE0MTAyMTEzNDk1OC4wMDAtMDUwMCIvPjxhc3NpZ25lZEF1dGhvciBjbGFzc0NvZGU9IkFTU0lHTkVEIj48aWQgbnVsbEZsYXZvcj0iTkkiLz48YWRkciBudWxsRmxhdm9yPSJVTksiLz48YXNzaWduZWRQZXJzb24+PG5hbWU+PGdpdmVuIG51bGxGbGF2b3I9Ik5BIi8+PGZhbWlseSBudWxsRmxhdm9yPSJOQSIvPjwvbmFtZT48L2Fzc2lnbmVkUGVyc29uPjwvYXNzaWduZWRBdXRob3I+PC9hdXRob3I+PGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJSRUZSIj48b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuNiIvPjxjb2RlIGNvZGU9IjMzOTk5LTQiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuMSIgY29kZVN5c3RlbU5hbWU9IkxPSU5DIiBkaXNwbGF5TmFtZT0iU3RhdHVzIi8+PHRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JTVDE1Njc0MDIiLz48L3RleHQ+PHN0YXR1c0NvZGUgY29kZT0iY29tcGxldGVkIi8+PHZhbHVlIHhzaTp0eXBlPSJDRCIgY29kZT0iNTU1NjEwMDMiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuOTYiIGNvZGVTeXN0ZW1OYW1lPSJTTk9NRUQgQ1QiPjxvcmlnaW5hbFRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JTVDE1Njc0MDIiLz48L29yaWdpbmFsVGV4dD48L3ZhbHVlPjwvb2JzZXJ2YXRpb24+PC9lbnRyeVJlbGF0aW9uc2hpcD48L29ic2VydmF0aW9uPjwvZW50cnlSZWxhdGlvbnNoaXA+PC9hY3Q+PC9lbnRyeT48L3NlY3Rpb24+PC9jb21wb25lbnQ+PC9zdHJ1Y3R1cmVkQm9keT48L2NvbXBvbmVudD48L0NsaW5pY2FsRG9jdW1lbnQ+"
+}</code></pre>
+
+<p>Generating the Continuity of Care Document with its native mime type</p>
+
+<pre><code>GET: [...]/Binary/$autogen-ccd-if?patient=1316035
+Accept: application/xml
+</code></pre>
+
+<pre class="headers"><code>Status: 200 OK
+Content-Type: application/xml</code></pre>
+
+<pre class="body-response"><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="http://www.cerner.com/cda_stylesheet/"?&gt;
+&lt;ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:outCdUtil="java:com.cerner.fsi.code.translation.OutboundCodeUtility" xmlns:cdUDO="java:com.cerner.fsi.udo.datatypes.CodeUDO" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:oidEntity="java:com.cerner.fsi.code.translation.OIDEntityType" xsi:schemaLocation="urn:hl7-org:v3../../../CDA%20R2/cda-schemas-and-samples/infrastructure/cda/CDA.xsd" classCode="DOCCLIN" moodCode="EVN"&gt;
+    &lt;realmCode code="US"/&gt;
+    &lt;typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/&gt;
+    &lt;templateId root="2.16.840.1.113883.10.20.22.1.1"/&gt;
+    &lt;templateId root="2.16.840.1.113883.10.20.22.1.2"/&gt;
+    &lt;id root="2.3.2.3.2.3.999362" extension="1950007"/&gt;
+    &lt;code code="34133-9" codeSystem="2.16.840.1.113883.6.1" displayName="Summarization of episode note"/&gt;
+    &lt;title&gt;Transition of Care/Referral Summary&lt;/title&gt;
+    &lt;effectiveTime value="20170103103023.003-0600"/&gt;
+    &lt;confidentialityCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.25"/&gt;
+    &lt;languageCode code="en-US"/&gt;
+    &lt;recordTarget typeCode="RCT" contextControlCode="OP"&gt;
+        &lt;patientRole classCode="PAT"&gt;
+            &lt;id root="2.2.2.2.2.2" extension="10000167" assigningAuthorityName="BWMC MRN"/&gt;
+            &lt;addr nullFlavor="UNK"/&gt;
+            &lt;telecom nullFlavor="NI"/&gt;
+            &lt;patient classCode="PSN" determinerCode="INSTANCE"&gt;
+                &lt;name use="L"&gt;
+                    &lt;given&gt;Hermione&lt;/given&gt;
+                    &lt;family&gt;Granger&lt;/family&gt;
+                &lt;/name&gt;
+                &lt;administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="administrativeGender" displayName="Female"&gt;
+                    &lt;originalText&gt;Female&lt;/originalText&gt;
+                &lt;/administrativeGenderCode&gt;
+                &lt;birthTime value="19830315"/&gt;
+                &lt;raceCode nullFlavor="NI"/&gt;
+                &lt;ethnicGroupCode nullFlavor="NI"/&gt;
+                &lt;languageCommunication&gt;
+                    &lt;languageCode nullFlavor="NI"/&gt;
+                &lt;/languageCommunication&gt;
+            &lt;/patient&gt;
+        &lt;/patientRole&gt;
+    &lt;/recordTarget&gt;
+    &lt;author typeCode="AUT" contextControlCode="OP"&gt;
+        &lt;time value="20170103103023.003-0600"/&gt;
+        &lt;assignedAuthor classCode="ASSIGNED"&gt;
+            &lt;id nullFlavor="NI"/&gt;
+            &lt;addr nullFlavor="NI"/&gt;
+            &lt;telecom nullFlavor="NI"/&gt;
+            &lt;assignedAuthoringDevice&gt;
+                &lt;manufacturerModelName&gt;Cerner Corporation&lt;/manufacturerModelName&gt;
+                &lt;softwareName&gt;Millennium Clinical Document Generator&lt;/softwareName&gt;
+            &lt;/assignedAuthoringDevice&gt;
+            &lt;representedOrganization classCode="ORG" determinerCode="INSTANCE"&gt;
+                &lt;id root="2.3.2.3.2.3"/&gt;
+                &lt;name&gt;Baseline West Medical Center&lt;/name&gt;
+                &lt;telecom use="WP" value="tel:(816)555-2121"/&gt;
+                &lt;addr use="WP"&gt;
+                    &lt;streetAddressLine&gt;8 Privett Drive&lt;/streetAddressLine&gt;
+                    &lt;city&gt;Sussex&lt;/city&gt;
+                    &lt;state&gt;LO&lt;/state&gt;
+                    &lt;postalCode&gt;11242&lt;/postalCode&gt;
+                    &lt;country&gt;UK&lt;/country&gt;
+                &lt;/addr&gt;
+            &lt;/representedOrganization&gt;
+        &lt;/assignedAuthor&gt;
+    &lt;/author&gt;
+    &lt;documentationOf typeCode="DOC"&gt;
+        &lt;serviceEvent classCode="PCPR" moodCode="EVN"&gt;
+            &lt;effectiveTime&gt;
+                &lt;low value="20140823154534.000-0500"/&gt;
+                &lt;high value="20161229130841.000-0600"/&gt;
+            &lt;/effectiveTime&gt;
+            &lt;performer typeCode="PRF"&gt;
+                &lt;functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" codeSystemName="HL7 ParticipationFunction" displayName="primary care physician"/&gt;
+                &lt;assignedEntity&gt;
+                    &lt;id nullFlavor="NI"/&gt;
+                &lt;/assignedEntity&gt;
+            &lt;/performer&gt;
+        &lt;/serviceEvent&gt;
+    &lt;/documentationOf&gt;
+    &lt;component typeCode="COMP"&gt;
+        &lt;structuredBody classCode="DOCBODY" moodCode="EVN"&gt;
+            &lt;component typeCode="COMP" contextConductionInd="true"&gt;
+                &lt;section classCode="DOCSECT" moodCode="EVN"&gt;
+                    &lt;templateId root="2.16.840.1.113883.10.20.22.2.5"/&gt;
+                    &lt;templateId root="2.16.840.1.113883.10.20.22.2.5.1"/&gt;
+                    &lt;code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List" codeSystemName="LOINC"/&gt;
+                    &lt;title&gt;Problem List&lt;/title&gt;
+                    &lt;text&gt;
+                        &lt;table border="1" width="95%"&gt;
+                            &lt;colgroup&gt;
+                                &lt;col width="20%"/&gt;
+                                &lt;col width="20%"/&gt;
+                                &lt;col width="20%"/&gt;
+                                &lt;col width="20%"/&gt;
+                                &lt;col width="20%"/&gt;
+                            &lt;/colgroup&gt;
+                            &lt;thead&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Condition&lt;/th&gt;
+                                    &lt;th&gt;Effective Dates&lt;/th&gt;
+                                    &lt;th&gt;Status&lt;/th&gt;
+                                    &lt;th&gt;Health Status&lt;/th&gt;
+                                    &lt;th&gt;Informant&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;
+                                        &lt;content ID="PROBLEM1567402"&gt;Bloody stool&lt;/content&gt;
+                                    &lt;/td&gt;
+                                    &lt;td&gt; &lt;/td&gt;
+                                    &lt;td&gt;
+                                        &lt;content ID="PROBST1567402"&gt;Active&lt;/content&gt;
+                                    &lt;/td&gt;
+                                    &lt;td&gt;
+                                        &lt;content ID="PROBHST1567402"&gt; &lt;/content&gt;
+                                    &lt;/td&gt;
+                                    &lt;td&gt; &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/text&gt;
+                    &lt;entry typeCode="DRIV" contextConductionInd="true"&gt;
+                        &lt;act classCode="ACT" moodCode="EVN"&gt;
+                            &lt;templateId root="2.16.840.1.113883.10.20.22.4.3"/&gt;
+                            &lt;id root="C2D17DDA-E364-40B3-8886-C1DEF0D44112"/&gt;
+                            &lt;code code="CONC" codeSystem="2.16.840.1.113883.5.6" displayName="Concern" codeSystemName="HL7ActClass"/&gt;
+                            &lt;statusCode code="active"/&gt;
+                            &lt;effectiveTime&gt;
+                                &lt;low nullFlavor="NI"/&gt;
+                                &lt;high nullFlavor="NI"/&gt;
+                            &lt;/effectiveTime&gt;
+                            &lt;entryRelationship typeCode="SUBJ" inversionInd="false"&gt;
+                                &lt;observation classCode="OBS" moodCode="EVN"&gt;
+                                    &lt;templateId root="2.16.840.1.113883.10.20.22.4.4"/&gt;
+                                    &lt;id root="760344C4-41D6-46E3-8D54-8658FF509599"/&gt;
+                                    &lt;code code="55607006" displayName="Problem" codeSystem="2.16.840.1.113883.6.96"/&gt;
+                                    &lt;text&gt;
+                                        &lt;reference value="#PROBLEM1567402"/&gt;
+                                    &lt;/text&gt;
+                                    &lt;statusCode code="completed"/&gt;
+                                    &lt;effectiveTime&gt;
+                                        &lt;low nullFlavor="NI"/&gt;
+                                        &lt;high nullFlavor="NI"/&gt;
+                                    &lt;/effectiveTime&gt;
+                                    &lt;value xsi:type="CD" code="405729008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hematochezia (finding)"&gt;
+                                        &lt;originalText&gt;
+                                            &lt;reference value="#PROBLEM1567402"/&gt;
+                                        &lt;/originalText&gt;
+                                    &lt;/value&gt;
+                                    &lt;author&gt;
+                                        &lt;time value="20141021134958.000-0500"/&gt;
+                                        &lt;assignedAuthor classCode="ASSIGNED"&gt;
+                                            &lt;id nullFlavor="NI"/&gt;
+                                            &lt;addr nullFlavor="UNK"/&gt;
+                                            &lt;assignedPerson&gt;
+                                                &lt;name&gt;
+                                                    &lt;given nullFlavor="NA"/&gt;
+                                                    &lt;family nullFlavor="NA"/&gt;
+                                                &lt;/name&gt;
+                                            &lt;/assignedPerson&gt;
+                                        &lt;/assignedAuthor&gt;
+                                    &lt;/author&gt;
+                                    &lt;entryRelationship typeCode="REFR"&gt;
+                                        &lt;observation classCode="OBS" moodCode="EVN"&gt;
+                                            &lt;templateId root="2.16.840.1.113883.10.20.22.4.6"/&gt;
+                                            &lt;code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status"/&gt;
+                                            &lt;text&gt;
+                                                &lt;reference value="#PROBST1567402"/&gt;
+                                            &lt;/text&gt;
+                                            &lt;statusCode code="completed"/&gt;
+                                            &lt;value xsi:type="CD" code="55561003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"&gt;
+                                                &lt;originalText&gt;
+                                                    &lt;reference value="#PROBST1567402"/&gt;
+                                                &lt;/originalText&gt;
+                                            &lt;/value&gt;
+                                        &lt;/observation&gt;
+                                    &lt;/entryRelationship&gt;
+                                &lt;/observation&gt;
+                            &lt;/entryRelationship&gt;
+                        &lt;/act&gt;
+                    &lt;/entry&gt;
+                &lt;/section&gt;
+            &lt;/component&gt;
+        &lt;/structuredBody&gt;
+    &lt;/component&gt;
+&lt;/ClinicalDocument&gt;</code></pre>
+
 
     </div>
 
@@ -221,6 +496,9 @@ Signed by:  Potter, Harry&lt;/div&gt;
       </li>
       <li class="js-topic">
         <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>

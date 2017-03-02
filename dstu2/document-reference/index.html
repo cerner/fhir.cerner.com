@@ -84,6 +84,13 @@
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
+  <li>
+<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
+      <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -803,7 +810,7 @@ present.</li>
    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
    access-control-max-age → 0
    cache-control → no-cache
-   location → https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DocumentReference/5789254
+   location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/5789254
    server-response-time → 5497.564885
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding
@@ -813,6 +820,216 @@ present.</li>
    x-runtime → 5.497541
    x-xss-protection → 1; mode=block
 </pre>
+
+<h2 id="operation-docref">Operation: docref</h2>
+
+<p>Argonaut operation for querying DocumentReferences for the supplied parameters:</p>
+
+<pre><code>GET /DocumentReference/$docref?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">DocumentReference.relatesTo</a> modifier element is not supported and will not be returned.</li>
+</ul>
+
+<h3 id="terminology-bindings-1">Terminology Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Precise type of clinical document.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://loinc.org">LOINC</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      
+                        <li>34133-9 - Summary of episode note</li>
+                      
+                      </ul>
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format">DocumentReference.content.format</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Document format codes.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/formatcodes">DocumentReference Format Code Set</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to the patient whose document references are required. Example: <code>14067892</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>type</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The document reference type, can be a list of comma separated values. Example: <code>http://loinc.org|34133-9</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: <code>2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>end</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: <code>2016-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>type</code> parameter must include both a system and a code. (e.g. <code>&amp;type=http://loinc.org|34133-9</code>)</li>
+  <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
+</ul>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/DocumentReference/$docref?patient=1316035&amp;type=http://loinc.org|34133-9</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "5d1a7f94-8ee4-45aa-bbe6-1dd087fba40c",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&amp;type=http%3A%2F%2Floinc.org%7C34133-9"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/e6e34022-942c-42b9-a1e3-5452bb274627",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "e6e34022-942c-42b9-a1e3-5452bb274627",
+        "subject": {
+          "reference": "Patient/1316035"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of episode note"
+            }
+          ],
+          "text": "Summary of episode note"
+        },
+        "indexed": "2017-01-03T11:08:02-06:00",
+        "status": "current",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035"
+            },
+            "format": [
+              {
+                "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+                "code": "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
+                "display": "For documents following C-CDA constraints using a structured body."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
 
 
     </div>
@@ -873,6 +1090,9 @@ present.</li>
       </li>
       <li class="js-topic">
         <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>

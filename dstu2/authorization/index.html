@@ -171,10 +171,20 @@ resources and exchange context information with client applications.</p>
 
 <h2 id="registration">Registration</h2>
 <p>In order for your client application to utilize any protected resources, 
-your client application must first register using our 
-<a href="https://code.cerner.com/developer/smart-on-fhir/" title="Cerner Code Console">code console</a>. A Cerner Care account is required to 
+your client application must first register. A Cerner Care account is required to 
 register applications. Obtaining a Cerner Care account is free and 
 requires nothing but an email address.</p>
+
+<p>If registering an application that is using the public app profile and requires access only when the user is online, 
+your client application must first register using our <a href="https://code.cerner.com/developer/smart-on-fhir/" title="Cerner Code Console">code console</a>.</p>
+
+<p>If registering a confidential client application (required for offline_access and
+access on behalf of a system), please first request an account via the <strong>non-production</strong> instance of 
+<a href="https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account" title="Cerner System Account Registration">Cerner Central System Account Registration</a>. This functionality is currently only
+available for applications that already have relationships with Cerner (for example, via our Developer Program).
+Once the request is completed, you can then send the client identifier to your existing Cerner contact in order to
+complete the setup process. We will update this documentation and announce when this functionality is rolled out more
+broadly.</p>
 
 <p>Once registered, a <strong>client identifier</strong> will be provided for use with 
 the Cerner Authorization Server. As a registered client, Cerner 
@@ -458,7 +468,7 @@ is a fragment from a x-www-form-urlencoded grant request query string
 where the audience is provided:</p>
 
 <pre class="terminal">
-&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F
+&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F
 </pre>
 
 <h4 id="launch">Launch</h4>
@@ -486,20 +496,20 @@ seamlessly integrate into the workflow.</li>
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       patient/Observation.read patient/MedicationHistory.read launch
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/
+audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 launch:       a17aba51-1395-48d3-b3a9-73f2baf784da
 
-https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&amp;response_type=code&amp;redirect_uri=&amp;scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&amp;launch=a17aba51-1395-48d3-b3a9-73f2baf784da&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F&amp;state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&amp;response_type=code&amp;redirect_uri=&amp;scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&amp;launch=a17aba51-1395-48d3-b3a9-73f2baf784da&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&amp;state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       user/Observation.read user/MedicationHistory.read
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/
+audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 
-https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&amp;response_type=code&amp;redirect_uri=&amp;scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&amp;launch=&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2Fd075cf8b-3261-481d-97e5-ba6c48d3b41f%2F&amp;state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&amp;response_type=code&amp;redirect_uri=&amp;scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&amp;launch=&amp;aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&amp;state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 <h3 id="invoking-an-appropriate-user-agent">Invoking an Appropriate User Agent</h3>
@@ -739,7 +749,7 @@ are example requests / responses:</p>
 
 <p>Request:</p>
 <pre class="terminal">
-POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -817,7 +827,7 @@ can result in errors.  The following is an example error
 response from the grant workflow:</p>
 
 <pre class="terminal">
-https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&amp;error=access_denied&amp;error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3Dd075cf8b-3261-481d-97e5-ba6c48d3b41f
+https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&amp;error=access_denied&amp;error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3D0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca
 </pre>
 
 <p>The following is an example error response from an access
@@ -826,7 +836,7 @@ token request:</p>
 <pre class="terminal">
 {
   "error": "invalid_grant",
-  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&amp;tenant=d075cf8b-3261-481d-97e5-ba6c48d3b41f"
+  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&amp;tenant=0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
 }
 </pre>
 
@@ -883,7 +893,7 @@ defined in section 6 “Refreshing an Access Token” of the
 
 <p>Request:</p>
 <pre class="terminal">
-POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -926,7 +936,7 @@ authentication scheme</a>.  The rationale is such
 that if your solution compromises a large number of
 refresh tokens that such refresh tokens need not be revoked;
 only our client credentials need to be rotated to prevent
-misues of such compromised token values.  Client credentials for 
+misues of such compromised token values.  Client credentials for
 applications using Cerner’s authorization server as issued 
 via <a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">Cerner Central System Account Management</a>.</p>
 
@@ -1058,7 +1068,7 @@ example of such a request:</p>
 
 <p>Request:</p>
 <pre class="terminal">
-POST /tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
 Host: authorization.sandboxcerner.com
 Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
 Accept: application/json
@@ -1268,7 +1278,7 @@ Citrix instance with XenApp?</li>
   <li><a href="https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx" title="Registering an Application to a URI Scheme">“Registering an Application to a URI Scheme” (Windows API)</a></li>
   <li><a href="https://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">“HTTP Authentication: Basic and Digest Access Authentication”</a></li>
   <li><a href="https://tools.ietf.org/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">“The OAuth 2.0 Authorization Framework: Bearer Token Usage”</a></li>
-  <li><a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">“Cerner System Account Management Help”</a></li>
+  <li><a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">“Requesting A System Account”</a></li>
   <li><a href="https://code.cerner.com/developer/smart-on-fhir/" title="Cerner Code Console">“Cerner Code Console”</a></li>
   <li><a href="../authorization-specification" title="Cerner FHIR&lt;sup&gt;®&lt;/sup&gt; Service Authorization Specification">“Cerner FHIR<sup>®</sup> Service Authorization Specification”</a></li>
 </ul>
@@ -1332,6 +1342,9 @@ Citrix instance with XenApp?</li>
       </li>
       <li class="js-topic">
         <h3><a href="../observation/">Observation</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
       </li>
       <li class="js-topic">
         <h3><a href="../patient/">Patient</a></h3>
