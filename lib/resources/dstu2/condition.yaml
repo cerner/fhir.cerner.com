@@ -81,7 +81,7 @@ fields:
   required: 'Yes'
   cardinality: 1..1
   type: CodeableConcept
-  description: Identification of the condition, problem or diagnosis.
+  description: Identification of the condition, problem, diagnosis or health concern.
   example: |
     {
       "code": {
@@ -129,7 +129,7 @@ fields:
       "category": {
         "coding": [
           {
-            "system": "http://argonaut.hl7.org/extension-codes",
+            "system": "http://argonaut.hl7.org",
             "code": "problem",
             "display": "Problem"
           }
@@ -139,12 +139,12 @@ fields:
     }
   binding:
     description: A category assigned to the condition.
-    note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is bound to condition category codes and `problem` is bound to argonaut extenstion codes terminology system shown below.
+    note: Category codes `diagnosis`, `problem` and `health-concern` are supported for search and retrieve functionality. Codes `diagnosis` and `problem` are supported for conditions add and update functionality.
     terminology:
     - display: Condition Category Codes
       system: http://hl7.org/fhir/condition-category
-    - display: Argonaut Extension Code
-      system: http://argonaut.hl7.org/extension-codes
+    - display: Argonaut Valueset Codes
+      system: http://www.fhir.org/guides/argonaut/r2/ValueSet-condition-category.html
 
 - name: clinicalStatus
   required: 'No'
