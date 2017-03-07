@@ -19,14 +19,25 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
 ### Parameters
 
- Name              | Required?                                                    | Type          | Description
--------------------|--------------------------------------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `patient`         | This or `subject`                                            | [`reference`] | The subject that the observation is about (if patient). EG: `123456`
- `subject:Patient` | This or `patient`                                            | [`reference`] | The subject (Patient) that the observation is about. EG: `123456`
- `code`            | Recommended to search by `code`, `component-code`, or `date` | [`token`]     | The code of the observation type, can be a list of comma separated values. The system portion of the code is required. EG: `http://loinc.org|3094-0`
- `component-code`  | Recommended to search by `code`, `component-code`, or `date` | [`token`]     | The component code of the observation type, can be a list of comma separated values. Results will qualify if their components match the code. The system portion of the code is required. EG: `http://loinc.org|3094-0`
- `date`            | Recommended to search by `code`, `component-code`, or `date` | [`date`]      | Date range into which the observation falls (effectiveDateTime). Single dates are treated as implied ranges. EG: `date=gt2014-09-24T12:00:00.000Z` `&date=lt2015-09-24T12:00:00.000Z`
- [`_count`]        | N                                                            | [`number`]    | The maximum number of results to return per page.
+ Name             | Required?         | Type          | Description
+------------------|-------------------|---------------|----------------------------------------------------------------------------------------------------------------------
+ `patient`        | This or `subject` | [`reference`] | The subject that the observation is about (if patient). Example: `patient=1316024`
+ `subject`        | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
+ `code`           | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`
+ `date`           | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`
+ [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page. Defaults to `50`. Capped at `100`.
+
+Notes:
+
+- The `subject` parameter must represent a Patient resource and may use the `:Patient` modifier.
+
+- It is recommended to search by either `code` or `date` (or both).
+
+- The `code` parameter:
+  - May be a list of comma separated values. A system must be provided for each code.
+  - Searches Observation.code and Observation.component.code.
+
+- The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
 ### Response
 
