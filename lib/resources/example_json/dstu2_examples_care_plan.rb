@@ -42,6 +42,117 @@ module Cerner
       ]
     }
 
+    DSTU2_CARE_TEAM_BUNDLE ||= {
+      "resourceType": "Bundle",
+      "id": "88d73a14-672b-4eea-adec-0c875239654f",
+      "type": "searchset",
+      "total": 1,
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=4342012&category=http%3A%2F%2Fargonaut.hl7.org%7Ccareteam"
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/L4342012",
+          "resource": {
+            "resourceType": "CarePlan",
+            "id": "L4342012",
+            "meta": {
+              "versionId": "4342012",
+              "lastUpdated": "2017-02-06T23:33:21Z"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Aliza&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: Primary Care Physician&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: CHLDMA, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT CHT LIFETIME PPR1&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: RR, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PG, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: JUX, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: HW, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: ML, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: careteam&lt;/p&gt;&lt;/div&gt;"
+            },
+            "subject": {
+              "reference": "Patient/4342012",
+              "display": "Smart, Timmy"
+            },
+            "status": "active",
+            "modified": "2017-02-06T23:33:21Z",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://argonaut.hl7.org",
+                    "code": "careteam"
+                  }
+                ]
+              }
+            ],
+            "participant": [
+              {
+                "member": {
+                  "reference": "Practitioner/1912007",
+                  "display": "Smart, Aliza"
+                },
+                "role": {
+                  "text": "Primary Care Physician"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/3902008",
+                  "display": "CHLDMA, PW"
+                },
+                "role": {
+                  "text": "PCTAUT CHT LIFETIME PPR1"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/4496008",
+                  "display": "RR, PW"
+                },
+                "role": {
+                  "text": "PCTAUT PRIV LIFETIME PPR"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/4506007",
+                  "display": "PG, PW"
+                },
+                "role": {
+                  "text": "PCTAUT PRIV LIFETIME PPR"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/4554007",
+                  "display": "JUX, PW"
+                },
+                "role": {
+                  "text": "PCTAUT PRIV LIFETIME PPR"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/4574007",
+                  "display": "HW, PW"
+                },
+                "role": {
+                  "text": "PCTAUT PRIV LIFETIME PPR"
+                }
+              },
+              {
+                "member": {
+                  "reference": "Practitioner/4612009",
+                  "display": "ML, PW"
+                },
+                "role": {
+                  "text": "PCTAUT PRIV LIFETIME PPR"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+
     DSTU2_CARE_PLAN_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "c4dac70c-1961-46e8-8662-f4e82b8475c6",
