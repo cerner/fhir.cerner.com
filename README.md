@@ -14,6 +14,7 @@ This version and solution attributes are currently used to flex the class, links
 
 ### Generating a field table
 
+#### Definition Tables
 Create and Update operations typically require JSON bodies which can be tedious to document manually through markdown. To simplify this process and to improve consistency we have added the `definition_table` helper to generate a table from a yaml content file.
 
 The `definition_table` helper requires 3 parameters: content, action, and version.  
@@ -33,7 +34,50 @@ Whereas the May 2015 version of AllergyIntolerance Update can be generated using
 
 In actuality, the `version` parameter is reference a subfolder in `lib/resources` where the content files for that version are stored. Thus `definition_table(:document_reference, :create, :dstu2)` is referencing `lib/resources/dstu2/document_reference.yaml`. Adding new versions or new content files is simply a matter of creating an appropriately named folder and content file.
 
-#### Content YAML
+`definition_table` reads these fields from the resource's content yaml definition:
+- name
+- field_name_base_url
+- fields
+  - name
+  - required
+  - cardinality
+  - type
+  - description
+  - children
+    - nested fields
+  - example
+  - note
+  - url
+  - action
+
+#### Terminology Tables
+The `terminolgy_table` helper is available to generate a terminology binding table from the same yaml content file as `definition_table`.
+
+The `terminolgy_table` helper requires 2 parameters: content and version
+- `content` indicates which content file to load.  
+- `version` indicates the version of the content file.  
+
+Generating a terminology table is done by invoking the `terminology_table` method through an ERB call in whichever documentation file needs the table.
+
+For example, the DSTU2 version of AllergyIntolerance can be generated using
+
+    <%= terminology_table(:allergy_intolerance, :dstu2) %>
+
+The `version` parameter processing is handled the same as `definition_table`.
+
+`terminology_table` reads these fields from the resource's content yaml definition:
+- name
+- fields
+  - name
+  - note
+  - binding
+    - terminology
+      - display
+      - note
+      - system
+      - values
+
+##### Content YAML
 
 The content is defined in YAML files and most fields are optional. If they are not provided the resulting table cell will just be empty.
 
@@ -47,9 +91,16 @@ The content is defined in YAML files and most fields are optional. If they are n
     - example: An example of how the field should be populated. The generated examples will be enclosed in &lt;pre&gt; tags to preserve formatting.
     - note: Additional implementation notes.
     - children: A list of nested fields. Each nested field item has the same structure as this `fields` list.
-    - url: Overrides the `field_name_base_url` generated URL if defined. 
+    - url: Overrides the `field_name_base_url` generated URL if defined.
+    - binding: A list terminology bindings supported for the field.
+      - description: Describes the purpose / intent of the binding.
+      - terminology: The list of terminologies supported by the field
+        - display: The terminology's display value.
+        - notes: Additional notes about the binding implementation.
+        - system: The actual system URI from which values may be returned.
+        - values: A list of individually supported values from the system.
 
-Standard YAML formatting rules apply 
+Standard YAML formatting rules apply
 
 ##### Action
 
