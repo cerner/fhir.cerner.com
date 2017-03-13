@@ -1,0 +1,24 @@
+---
+name: Practitioner
+field_name_base_url: http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: The identifier for the practitioner.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    url: http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+      - display: v2 Identifier Type
+        system: http://hl7.org/fhir/v2/0203
