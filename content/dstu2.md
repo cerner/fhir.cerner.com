@@ -432,3 +432,7 @@ Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
 Access-Control-Max-Age: 0
 Access-Control-Allow-Credentials: true
 </pre>
+
+## Additional information
+
+Please note that all ids and identifiers in Millennium EHR are unique when the complete URL is considered. A complete URL comprises of [service root url](http://hl7.org/fhir/dstu2/http.html#general) and parameters (if any).
