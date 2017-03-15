@@ -50,22 +50,26 @@ _Implementation Notes_
 
  Name         | Required?                                         | Type       | Description
 --------------|---------------------------------------------------|------------|-------------------------------------------------------------------------------------
- `_id`        | No, if populated all other parameters are ignored | [`token`]  | The logical resource id associated with the resource.
- `identifier` | Yes, or `_id`                                     | [`token`]  | A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`
- `birthdate`  | Yes, or `name`, `telecom` or `_id`                | [`date`]   | The patient's date of birth.  Example: `1961-01-16`
- `name`       | Yes, or `birthdate`, `telecom` or `_id`           | [`string`] | A portion of either family or given name of the patient. Example: `Peters`
- `telecom`    | Yes, or `birthdate`, `name` or `_id`              | [`token`]  | The value in any kind of telecom details of the patient. Example: `(816) 475-2374`
- [`_count`]   | No                                                | [`number`] | The maximum number of results to return. Defaults to `20`.
+ `_id`                   | This, or any other required search parameter        | [`token`]  | The logical resource id associated with the resource.
+ `identifier`            | This and/or any other search param, or `_id`        | [`token`]  | A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`
+ `name`                  | This and/or any other search param, or `_id`        | [`string`] | The start of either family or given name of the patient. Example: `Pete`
+ `family`                | This and/or any other search param, or `_id`        | [`string`] | The start of the family name of the patient. Example: `Adam`
+ `given`                 | This and/or any other search param, or `_id`        | [`string`] | The start of the given name of the patient. Example: `Tim`
+ `birthdate`             | This and/or any other search param, or `_id`        | [`date`]   | The patient's date of birth.  Example: `1961-01-16`
+ `phone`                 | This and/or any other search param, or `_id`        | [`token`]  | The patient's phone number. Example: `1111111111`
+ `email`                 | This and/or any other search param, or `_id`        | [`token`]  | The patient's email address. Example: `example@example.com`
+ `address-postalcode`    | This and/or any other search param, or `_id`        | [`string`] | The postal code in the address details of the patient. Example: `11111`
+ `gender`                | No                                                  | [`string`] | The gender of the patient. Example: `male`
+ [`_count`]              | No                                                  | [`number`] | The maximum number of results to return. Defaults to `20`.
 
 Notes:
 
-- Either the `_id`, `identifier` or a combination of `birthdate`, `name` and `telecom` parameters must be provided.
-- The `identifier`, `birthdate`, `name`, or `telecom` parameters may be provided exactly once and may have only a single value.
-
-### Limitations
-
-- The `birthdate`, `name` and `telecom` search parameters are only available in the original sandbox (`https://fhir-*.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/`) and will perform a "fuzzy" search.
-
+- Either the `_id`, or a combination of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters must be provided.
+- The `gender` parameter may only be provided if at least one of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters is provided.
+- The `name`, `family`, and `given` parameters support the ':exact' modifier and will search for current names only.
+- The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
+- The `birthdate` parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes 'le' and 'ge'
+- The `birthdate` parameter may be provided once with the following prefixes: 'ge', 'le', 'gt', 'lt', 'eq'
 
 ### Response
 
