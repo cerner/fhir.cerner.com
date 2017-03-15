@@ -85,12 +85,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                  "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                  "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "date",
@@ -591,12 +596,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                  "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                  "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "date",
