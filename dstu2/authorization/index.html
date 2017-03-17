@@ -222,7 +222,7 @@ FHIR<sup>®</sup> conformance document.</p>
 an HTTP GET against the resource located at the relative path
 of <a href="../conformance"><code>./metadata</code></a> from the FHIR<sup>®</sup> base URL.</p>
 
-<p>Within the structure of this document, two important URLs are
+<p>Within the structure of this document, three important URLs are
 advertised in an extension to <code>Conformance.rest.security</code>, 
 identified via the URL of 
 <code>http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris</code>.</p>
@@ -233,6 +233,12 @@ which is further identified by the sub-extension URL “authorize”.</p>
 <p>The second URL of importance is the location of the authorization
 server’s token endpoint, which is further identified by the
 sub-extension URL “token”.</p>
+
+<p>The third URL of importance is the location of the authorization
+server’s user-facing authorization management workflow entry point, which
+is further identified by the sub-extension URL “manage”. This
+sub-extension is advertised from user-facing instances of Cerner’s 
+FHIR<sup>®</sup> server.</p>
 
 <p>The following is non-normative example of a conformance document
 containing this information:</p>
@@ -254,6 +260,10 @@ containing this information:</p>
               {
                 "url": "authorize",
                 "valueUri": "https://example.org/authorize"
+              },
+              {
+                "url": "manage",
+                "valueUri": "https://example.org/patient/authorizations"
               }
             ]
           }

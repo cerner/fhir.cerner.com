@@ -184,22 +184,32 @@ Transfer-Encoding: chunked
           "type": "Condition",
           "interaction": [
             {
+              "code": "read"
+            },
+            {
               "code": "search-type"
             }
           ],
           "searchParam": [
             {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
               "name": "patient",
               "type": "reference",
-              "documentation": "The patient who has the condition. It is a required field if subject field is not given"
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
+            },
+            {
+              "name": "clinicalstatus",
+              "type": "token",
+              "documentation": "A list of desired clinical statuses of the condition"
             },
             {
               "name": "category",
               "type": "token",
-              "documentation": "The category of the condition",
-              "modifier": [
-                "not"
-              ]
+              "documentation": "The category of the condition"
             }
           ]
         },

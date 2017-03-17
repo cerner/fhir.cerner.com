@@ -82,7 +82,6 @@
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#limitations" id="markdown-toc-limitations">Limitations</a></li>
       <li><a href="#response" id="markdown-toc-response">Response</a></li>
     </ul>
   </li>
@@ -246,40 +245,79 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>No, if populated all other parameters are ignored</td>
+      <td>This, or any other required search parameter</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
-      <td>Yes, or <code>_id</code>
+      <td>This and/or any other search param, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>A patient identifier.  Example: <code>urn:oid:1.1.1.1.1.1|1022228</code>
 </td>
     </tr>
     <tr>
+      <td><code>name</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>The start of either family or given name of the patient. Example: <code>Pete</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>family</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>The start of the family name of the patient. Example: <code>Adam</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>given</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>The start of the given name of the patient. Example: <code>Tim</code>
+</td>
+    </tr>
+    <tr>
       <td><code>birthdate</code></td>
-      <td>Yes, or <code>name</code>, <code>telecom</code> or <code>_id</code>
+      <td>This and/or any other search param, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
       <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
 </td>
     </tr>
     <tr>
-      <td><code>name</code></td>
-      <td>Yes, or <code>birthdate</code>, <code>telecom</code> or <code>_id</code>
+      <td><code>phone</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
 </td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>A portion of either family or given name of the patient. Example: <code>Peters</code>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The patient’s phone number. Example: <code>1111111111</code>
 </td>
     </tr>
     <tr>
-      <td><code>telecom</code></td>
-      <td>Yes, or <code>birthdate</code>, <code>name</code> or <code>_id</code>
+      <td><code>email</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The value in any kind of telecom details of the patient. Example: <code>(816) 475-2374</code>
+      <td>The patient’s email address. Example: <code>example@example.com</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>address-postalcode</code></td>
+      <td>This and/or any other search param, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>The postal code in the address details of the patient. Example: <code>11111</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>gender</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>The gender of the patient. Example: <code>male</code>
 </td>
     </tr>
     <tr>
@@ -294,14 +332,12 @@
 <p>Notes:</p>
 
 <ul>
-  <li>Either the <code>_id</code>, <code>identifier</code> or a combination of <code>birthdate</code>, <code>name</code> and <code>telecom</code> parameters must be provided.</li>
-  <li>The <code>identifier</code>, <code>birthdate</code>, <code>name</code>, or <code>telecom</code> parameters may be provided exactly once and may have only a single value.</li>
-</ul>
-
-<h3 id="limitations">Limitations</h3>
-
-<ul>
-  <li>The <code>birthdate</code>, <code>name</code> and <code>telecom</code> search parameters are only available in the original sandbox (<code>https://fhir-*.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/</code>) and will perform a “fuzzy” search.</li>
+  <li>Either the <code>_id</code>, or a combination of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters must be provided.</li>
+  <li>The <code>gender</code> parameter may only be provided if at least one of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters is provided.</li>
+  <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the ‘:exact’ modifier and will search for current names only.</li>
+  <li>The <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, <code>address-postalcode</code>, or <code>gender</code> parameters may be provided exactly once and may have only a single value.</li>
+  <li>The <code>birthdate</code> parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes ‘le’ and ‘ge’</li>
+  <li>The <code>birthdate</code> parameter may be provided once with the following prefixes: ‘ge’, ‘le’, ‘gt’, ‘lt’, ‘eq’</li>
 </ul>
 
 <h3 id="response">Response</h3>

@@ -84,11 +84,16 @@
     </ul>
   </li>
   <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
       <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
     </ul>
   </li>
   <li>
@@ -96,7 +101,7 @@
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-body-1" id="markdown-toc-example-body-1">Example Body</a></li>
-      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
+      <li><a href="#response-3" id="markdown-toc-response-3">Response</a></li>
     </ul>
   </li>
 </ul>
@@ -192,7 +197,7 @@
           
             <li><i>Note</i></li>
             
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is bound to condition category codes and <code>problem</code> is bound to argonaut extenstion codes terminology system shown below.</li></ul>
+            <ul style="list-style-type: none"><li style="list-style-type: none">Category codes <code>diagnosis</code>, <code>problem</code> and <code>health-concern</code> are supported for search and retrieve functionality. Codes <code>diagnosis</code> and <code>problem</code> are supported for conditions add and update functionality.</li></ul>
           
 
           
@@ -212,7 +217,7 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://argonaut.hl7.org/extension-codes">Argonaut Extension Code</a>
+                      <a target="_blank" href="http://www.fhir.org/guides/argonaut/r2/ValueSet-condition-category.html">Argonaut Valueset Codes</a>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -328,8 +333,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code>, if populated all other parameters are not allowed</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>p12345</code>
+</td>
+    </tr>
+    <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
+      <td>This or <code>_id</code>
+</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The patient who has the condition. Example: <code>12345</code>
 </td>
@@ -338,7 +351,7 @@
       <td><code>category</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The <a href="http://hl7.org/fhir/DSTU2/valueset-condition-category.html">category</a> of the condition. Example: <code>diagnosis</code>, <code>problem</code>
+      <td>The <a href="http://hl7.org/fhir/DSTU2/valueset-condition-category.html">category</a> of the condition. Example: <code>diagnosis</code>, <code>problem</code>, <code>health-concern</code>
 </td>
     </tr>
     <tr>
@@ -351,17 +364,18 @@
   </tbody>
 </table>
 
-<p>Note: Currently <code>diagnosis</code> and <code>problem</code> category codes are supported. Code <code>diagnosis</code> is from the <a href="http://hl7.org/fhir/condition-category">condition-category</a> system and code <code>problem</code> is from the <a href="http://argonaut.hl7.org/extension-codes">argonaut extension-codes</a> system.</p>
+<p>Note: Currently <code>diagnosis</code>, <code>problem</code> and <code>health-concern</code> category codes are supported.</p>
 
 <h3 id="response">Response</h3>
 
-<pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by patient</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
   "id": "5a31a14a-9740-459c-bc52-b105b81ebebc",
   "type": "searchset",
-  "total": 2,
+  "total": 3,
   "link": [
     {
       "relation": "self",
@@ -440,7 +454,7 @@
         "category": {
           "coding": [
             {
-              "system": "http://argonaut.hl7.org/extension-codes",
+              "system": "http://argonaut.hl7.org",
               "code": "problem",
               "display": "Problem"
             }
@@ -450,8 +464,322 @@
         "clinicalStatus": "active",
         "verificationStatus": "confirmed"
       }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+        "meta": {
+          "versionId": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+          "lastUpdated": "2017-01-11T09:09:54.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Decs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2017-01-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+        },
+        "patient": {
+          "reference": "Patient/4342012",
+          "display": "Smart, Timmy"
+        },
+        "asserter": {
+          "reference": "Practitioner/1912007",
+          "display": "Forrest, Fhir"
+        },
+        "dateRecorded": "2017-01-11",
+        "code": {
+          "text": "Test Health Concern"
+        },
+        "category": {
+          "coding": [
+            {
+              "system": "http://argonaut.hl7.org",
+              "code": "health-concern",
+              "display": "Health Concern"
+            }
+          ],
+          "text": "Health Concern"
+        },
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "onsetDateTime": "2017-01-11",
+        "abatementBoolean": false
+      }
     }
   ]
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "5a31a14a-9740-459c-bc52-b105b81ebebc",
+  "type": "searchset",
+  "total": 3,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,7965c636-f343-4e96-8904-3bc35e9fd9f9"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d35686553",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "d35686553",
+        "meta": {
+          "versionId": "35686553",
+          "lastUpdated": "2016-06-27T19:02:31.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Ear Infection (Right)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2016-06-27&lt;/p&gt;&lt;/div&gt;"
+        },
+        "patient": {
+          "reference": "Patient/4342012",
+          "display": "Smart, Timmy"
+        },
+        "encounter": {
+          "reference": "Encounter/4027933"
+        },
+        "asserter": {
+          "reference": "Practitioner/1912007",
+          "display": "Forrest, Fhir"
+        },
+        "dateRecorded": "2016-06-27",
+        "code": {
+          "text": "Ear Infection (Right)"
+        },
+        "category": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/condition-category",
+              "code": "diagnosis",
+              "display": "Diagnosis"
+            }
+          ],
+          "text": "Diagnosis"
+        },
+        "clinicalStatus": "active",
+        "verificationStatus": "unknown",
+        "onsetDateTime": "2016-06-27"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6317881",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p6317881",
+        "meta": {
+          "versionId": "6317881",
+          "lastUpdated": "2016-06-27T18:51:27.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Ear infection&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+        },
+        "patient": {
+          "reference": "Patient/4342012",
+          "display": "Smart, Timmy"
+        },
+        "asserter": {
+          "reference": "Practitioner/1912007",
+          "display": "Forrest, Fhir"
+        },
+        "dateRecorded": "2016-06-27",
+        "code": {
+          "text": "Ear infection"
+        },
+        "category": {
+          "coding": [
+            {
+              "system": "http://argonaut.hl7.org",
+              "code": "problem",
+              "display": "Problem"
+            }
+          ],
+          "text": "Problem"
+        },
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+        "meta": {
+          "versionId": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+          "lastUpdated": "2017-01-11T09:09:54.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Decs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2017-01-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+        },
+        "patient": {
+          "reference": "Patient/4342012",
+          "display": "Smart, Timmy"
+        },
+        "asserter": {
+          "reference": "Practitioner/1912007",
+          "display": "Forrest, Fhir"
+        },
+        "dateRecorded": "2017-01-11",
+        "code": {
+          "text": "Test Health Concern"
+        },
+        "category": {
+          "coding": [
+            {
+              "system": "http://argonaut.hl7.org",
+              "code": "health-concern",
+              "display": "Health Concern"
+            }
+          ],
+          "text": "Health Concern"
+        },
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "onsetDateTime": "2017-01-11",
+        "abatementBoolean": false
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Condition by its id:</p>
+
+<pre><code>GET /Condition/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+Functionality: Retrieve diagnosis by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Condition",
+  "id": "d35686553",
+  "meta": {
+    "versionId": "35686553",
+    "lastUpdated": "2016-06-27T19:02:31.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Ear Infection (Right)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2016-06-27&lt;/p&gt;&lt;/div&gt;"
+  },
+  "patient": {
+    "reference": "Patient/4342012",
+    "display": "Smart, Timmy"
+  },
+  "encounter": {
+    "reference": "Encounter/4027933"
+  },
+  "asserter": {
+    "reference": "Practitioner/1912007",
+    "display": "Forrest, Fhir"
+  },
+  "dateRecorded": "2016-06-27",
+  "code": {
+    "text": "Ear Infection (Right)"
+  },
+  "category": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/condition-category",
+        "code": "diagnosis",
+        "display": "Diagnosis"
+      }
+    ],
+    "text": "Diagnosis"
+  },
+  "clinicalStatus": "active",
+  "verificationStatus": "unknown",
+  "onsetDateTime": "2016-06-27"
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Retrieve health concern by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Condition",
+  "id": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+  "meta": {
+    "versionId": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+    "lastUpdated": "2017-01-11T09:09:54.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Decs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2017-01-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+  },
+  "patient": {
+    "reference": "Patient/4342012",
+    "display": "Smart, Timmy"
+  },
+  "asserter": {
+    "reference": "Practitioner/1912007",
+    "display": "Forrest, Fhir"
+  },
+  "dateRecorded": "2017-01-11",
+  "code": {
+    "text": "Test Health Concern"
+  },
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org",
+        "code": "health-concern",
+        "display": "Health Concern"
+      }
+    ],
+    "text": "Health Concern"
+  },
+  "clinicalStatus": "active",
+  "verificationStatus": "confirmed",
+  "onsetDateTime": "2017-01-11",
+  "abatementBoolean": false
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Retrieve problem by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Condition",
+  "id": "p6317881",
+  "meta": {
+    "versionId": "6317881",
+    "lastUpdated": "2016-06-27T18:51:27.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Ear infection&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+  },
+  "patient": {
+    "reference": "Patient/4342012",
+    "display": "Smart, Timmy"
+  },
+  "asserter": {
+    "reference": "Practitioner/1912007",
+    "display": "Forrest, Fhir"
+  },
+  "dateRecorded": "2016-06-27",
+  "code": {
+    "text": "Ear infection"
+  },
+  "category": {
+    "coding": [
+      {
+        "system": "http://argonaut.hl7.org",
+        "code": "problem",
+        "display": "Problem"
+      }
+    ],
+    "text": "Problem"
+  },
+  "clinicalStatus": "active",
+  "verificationStatus": "confirmed"
 }</code></pre>
 
 <h2 id="create">Create</h2>
@@ -468,6 +796,12 @@
 <pre><code>Content-Type: application/json+fhir
 Authorization: &lt;OAuth2 Bearer Token&gt;
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Currently, <code>health-concern</code> category code is not supported for writing conditions.</li>
+</ul>
 
 <h3 id="body-fields">Body fields</h3>
 
@@ -646,7 +980,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Identification of the condition, problem or diagnosis.</li></ul>
+        <ul style="list-style-type: none"><li>Identification of the condition, problem, diagnosis or health concern.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -710,7 +1044,7 @@ OR
   "category": {
     "coding": [
       {
-        "system": "http://argonaut.hl7.org/extension-codes",
+        "system": "http://argonaut.hl7.org",
         "code": "problem",
         "display": "Problem"
       }
@@ -980,7 +1314,7 @@ OR
   "category": {
     "coding": [
       {
-        "system": "http://argonaut.hl7.org/extension-codes",
+        "system": "http://argonaut.hl7.org",
         "code": "problem",
         "display": "Problem"
       }
@@ -1020,7 +1354,7 @@ OR
 }</code></pre>
 <p>Note: abatementDateTime is not supported for diagnoses</p>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <p>Create Problem Example:</p>
 <pre class="headers"><code>Status: 201 Created</code></pre>
@@ -1089,6 +1423,12 @@ OR
 Authorization: &lt;OAuth2 Bearer Token&gt;
 If-Match: W/"&lt;Current condition id&gt;"
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Currently, <code>health-concern</code> category code is not supported for updating conditions.</li>
+</ul>
 
 <h3 id="body-fields-1">Body fields</h3>
 
@@ -1336,7 +1676,7 @@ If-Match: W/"&lt;Current condition id&gt;"
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Identification of the condition, problem or diagnosis.</li></ul>
+        <ul style="list-style-type: none"><li>Identification of the condition, problem, diagnosis or health concern.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -1400,7 +1740,7 @@ OR
   "category": {
     "coding": [
       {
-        "system": "http://argonaut.hl7.org/extension-codes",
+        "system": "http://argonaut.hl7.org",
         "code": "problem",
         "display": "Problem"
       }
@@ -1679,7 +2019,7 @@ OR
   "category": {
     "coding": [
       {
-        "system": "http://argonaut.hl7.org/extension-codes",
+        "system": "http://argonaut.hl7.org",
         "code": "problem",
         "display": "Problem"
       }
@@ -1728,7 +2068,7 @@ OR
 }</code></pre>
 <p>Note: abatementDateTime is not supported for diagnosis</p>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

@@ -179,12 +179,17 @@
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who care plan is for. It is a required field if _id field is not given"
+              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "_id",
               "type": "token",
-              "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+              "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "date",
@@ -202,14 +207,22 @@
           "type": "Condition",
           "interaction": [
             {
+              "code": "read"
+            },
+            {
               "code": "search-type"
             }
           ],
           "searchParam": [
             {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
               "name": "patient",
               "type": "reference",
-              "documentation": "The patient who has the condition. It is a required field"
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
             },
             {
               "name": "clinicalstatus",
@@ -689,12 +702,17 @@
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who care plan is for. It is a required field if _id field is not given"
+              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "_id",
               "type": "token",
-              "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+              "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "date",
@@ -715,18 +733,26 @@
               "code": "create"
             },
             {
-              "code": "update"
+              "code": "read"
             },
             {
               "code": "search-type"
+            },
+            {
+              "code": "update"
             }
           ],
           "updateCreate": false,
           "searchParam": [
             {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
               "name": "patient",
               "type": "reference",
-              "documentation": "The patient who has the condition. It is a required field"
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
             },
             {
               "name": "clinicalstatus",
