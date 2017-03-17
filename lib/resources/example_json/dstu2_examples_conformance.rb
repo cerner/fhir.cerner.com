@@ -113,14 +113,22 @@ module Cerner
               "type": "Condition",
               "interaction": [
                 {
+                  "code": "read"
+                },
+                {
                   "code": "search-type"
                 }
               ],
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient who has the condition. It is a required field"
+                  "documentation": "The patient who has the condition. It is a required field if _id field is not given"
                 },
                 {
                   "name": "clinicalstatus",
@@ -627,18 +635,26 @@ module Cerner
                   "code": "create"
                 },
                 {
-                  "code": "update"
+                  "code": "read"
                 },
                 {
                   "code": "search-type"
+                },
+                {
+                  "code": "update"
                 }
               ],
               "updateCreate": false,
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient who has the condition. It is a required field"
+                  "documentation": "The patient who has the condition. It is a required field if _id field is not given"
                 },
                 {
                   "name": "clinicalstatus",

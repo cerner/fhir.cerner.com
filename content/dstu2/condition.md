@@ -19,18 +19,36 @@ Search for Conditions that meet supplied query parameters:
 
 ### Parameters
 
- Name             | Required? | Type          | Description
-------------------|-----------|---------------|------------------------------------------------------------------
- `patient`        | Y         | [`reference`] | The patient who has the condition. Example: `12345`
- `category`       | N         | [`token`]     | The [category] of the condition. Example: `diagnosis`, `problem`
- `clinicalstatus` | N         | [`token`]     | The [clinical status] of the condition. Example: `resolved`
+ Name             | Required?                                                            | Type          | Description
+------------------|----------------------------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------
+ `_id`            | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `p12345`
+ `patient`        | This or `_id`                                                        | [`reference`] | The patient who has the condition. Example: `12345`
+ `category`       | N                                                                    | [`token`]     | The [category] of the condition. Example: `diagnosis`, `problem`, `health-concern`
+ `clinicalstatus` | N                                                                    | [`token`]     | The [clinical status] of the condition. Example: `resolved`
 
-Note: Currently `diagnosis` and `problem` category codes are supported. Code `diagnosis` is from the [condition-category] system and code `problem` is from the [argonaut extension-codes] system.
+Note: Currently `diagnosis`, `problem` and `health-concern` category codes are supported.
 
 ### Response
 
-<%= headers 200 %>
+<%= headers 200, {Functionality: 'Search by patient'} %>
 <%= json(:dstu2_condition_bundle) %>
+<%= headers 200, {Functionality: 'Search by id'} %>
+<%= json(:dstu2_condition_bundle_by_id) %>
+
+## Retrieve by id
+
+List an individual Condition by its id:
+
+    GET /Condition/:id
+
+### Response
+
+<%= headers 200, {Functionality: 'Retrieve diagnosis by id'} %>
+<%= json(:dstu2_condition_diagnosis_resource) %>
+<%= headers 200, {Functionality: 'Retrieve health concern by id'} %>
+<%= json(:dstu2_condition_health_concern_resource) %>
+<%= headers 200, {Functionality: 'Retrieve problem by id'} %>
+<%= json(:dstu2_condition_problem_resource) %>
 
 ## Create
 
@@ -44,6 +62,10 @@ To successfully POST a condition, the following headers must be provided. Condit
 
     Content-Type: application/json+fhir
     Authorization: <OAuth2 Bearer Token>
+
+_Implementation Notes_
+
+* Currently, `health-concern` category code is not supported for writing conditions.
 
 ### Body fields
 
@@ -125,6 +147,10 @@ To successfully PUT a condition, the following headers must be provided. Conditi
     Authorization: <OAuth2 Bearer Token>
     If-Match: W/"<Current condition id>"
 
+_Implementation Notes_
+
+* Currently, `health-concern` category code is not supported for updating conditions.
+
 ### Body fields
 
 <%= definition_table(:condition, :update, :dstu2) %>
@@ -166,5 +192,4 @@ Note: abatementDateTime is not supported for diagnosis
 [category]: http://hl7.org/fhir/DSTU2/valueset-condition-category.html
 [clinical status]: http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html
 [condition-category]: http://hl7.org/fhir/condition-category
-[argonaut extension-codes]: http://argonaut.hl7.org/extension-codes
 [FHIR<sup>®</sup> Update]: http://hl7.org/fhir/DSTU2/http.html#update

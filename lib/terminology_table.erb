@@ -22,7 +22,7 @@
           <% unless binding['note'].nil? %>
             <li><i>Note</i></li>
             <%
-              result = binding['note'].gsub(/`((\w|\s|\d|\.)+)`/) { |match|
+              result = binding['note'].gsub(/`((\w|\s|\d|-|\.)+)`/) { |match|
               tag = match.tr('\`', '')
               "<code>#{tag}</code>" }
             %>
