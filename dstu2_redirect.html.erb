@@ -1,7 +1,14 @@
 <div class="wrapper feature">
+    <% if deprecated %>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="/millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
+    <% else %>
     <h1>
         The page you're attempting to access has been moved. You will be redirected shortly.
     </h1>
+    <% end %>
     <p class="intro">Please update your bookmarks to the new location:</p>
     <a href="<%= redirect[:url] %>"><%= redirect[:url] %> </a>
 </div>

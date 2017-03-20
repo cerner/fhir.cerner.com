@@ -5,7 +5,6 @@ layout: api
 
 # Entities
 
-
 Entities are used to track, relate, and locate things and people across the healthcare spectrum. They include things
 like Location, but also the Person resource. The Person resource is used to index a real world person providing a means
 to identify the same person across different healthcare organizations and roles.

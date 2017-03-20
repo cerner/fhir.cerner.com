@@ -98,54 +98,93 @@ checks:
 
 redirects:
   /dstu2/allergy-intolerance:
-    /millennium/dstu2/general-clinical/allergy-intolerance
+    url: /millennium/dstu2/general-clinical/allergy-intolerance
   /dstu2/appointment:
-    /millennium/dstu2/scheduling/appointment
+    url: /millennium/dstu2/scheduling/appointment
   /dstu2/authorization:
-    /authorization
+    url: /authorization
   /dstu2/authorization-specification:
-    /authorization/authorization-specification
+    url: /authorization/authorization-specification
   /dstu2/binary:
-    /millennium/dstu2/infrastructure/binary
+    url: /millennium/dstu2/infrastructure/binary
   /dstu2/care-plan:
-    /millennium/dstu2/care-provision/care-plan
+    url: /millennium/dstu2/care-provision/care-plan
   /dstu2/condition:
-    /millennium/dstu2/general-clinical/condition
+    url: /millennium/dstu2/general-clinical/condition
   /dstu2/conformance:
-    /millennium/dstu2/conformance
+    url: /millennium/dstu2/conformance
   /dstu2/contract:
-    /millennium/dstu2/entities/contract
+    url: /millennium/dstu2/entities/contract
   /dstu2/device:
-    /millennium/dstu2/devices/device
+    url: /millennium/dstu2/devices/device
   /dstu2/diagnostic-report:
-    /millennium/dstu2/diagnostic/diagnostic-report
+    url: /millennium/dstu2/diagnostic/diagnostic-report
   /dstu2/document-reference:
-    /millennium/dstu2/infrastructure/document-reference
+    url: /millennium/dstu2/infrastructure/document-reference
   /dstu2/encounter:
-    /millennium/dstu2/encounter-workflow/encounter
+    url: /millennium/dstu2/encounters/encounter
   /dstu2/goal:
-    /millennium/dstu2/care-provision/goal
+    url: /millennium/dstu2/care-provision/goal
   /dstu2/immunization:
-    /millennium/dstu2/medications/immunization
+    url: /millennium/dstu2/medications/immunization
   /dstu2/medication-order:
-    /millennium/dstu2/medications/medication-order
+    url: /millennium/dstu2/medications/medication-order
   /dstu2/medication-statement:
-    /millennium/dstu2/medications/medication-statement
+    url: /millennium/dstu2/medications/medication-statement
   /dstu2/observation:
-    /millennium/dstu2/diagnostic/observation
+    url: /millennium/dstu2/diagnostic/observation
   /dstu2/openid-connect:
-    /authorization/openid-connect
+    url: /authorization/openid-connect
   /dstu2/operation-definition:
-    /millennium/dstu2/operation-definition
+    url: /millennium/dstu2/operation-definition
   /dstu2/patient:
-    /millennium/dstu2/individuals/patient
+    url: /millennium/dstu2/individuals/patient
   /dstu2/person:
-    /millennium/dstu2/entities/person
+    url: /millennium/dstu2/entities/person
   /dstu2/procedure:
-    /millennium/dstu2/general-clinical/procedure
+    url: /millennium/dstu2/general-clinical/procedure
   /dstu2/related-person:
-    /millennium/dstu2/individuals/related-person
+    url: /millennium/dstu2/individuals/related-person
   /dstu2:
-    /millennium/dstu2/
+    url: /millennium/dstu2/
   /faq:
-    /millennium/faq/
+    url: /millennium/faq/
+  /may2015:
+    url: /millennium/dstu2/
+    deprecated: true
+  /may2015/authorization:
+    url: /authorization
+    deprecated: true
+  /may2015/conformance:
+    url: /millennium/dstu2/conformance
+    deprecated: true
+  /may2015/allergy-intolerance:
+    url: /millennium/dstu2/general-clinical/allergy-intolerance
+    deprecated: true
+  /may2015/condition:
+    url: /millennium/dstu2/general-clinical/condition
+    deprecated: true
+  /may2015/diagnostic-report:
+    url: /millennium/dstu2/diagnostic/diagnostic-report
+    deprecated: true
+  /may2015/document-reference:
+    url: /millennium/dstu2/infrastructure/document-reference
+    deprecated: true
+  /may2015/encounter:
+    url: /millennium/dstu2/encounters/encounter
+    deprecated: true
+  /may2015/immunization:
+    url: /millennium/dstu2/medications/immunization
+    deprecated: true
+  /may2015/medication-prescription:
+    url: /millennium/dstu2/medications/medication-order
+    deprecated: true
+  /may2015/medication-statement:
+    url: /millennium/dstu2/medications/medication-statement
+    deprecated: true
+  /may2015/observation:
+    url: /millennium/dstu2/diagnostic/observation
+    deprecated: true
+  /may2015/patient:
+    url: /millennium/dstu2/individuals/patient
+    deprecated: true
