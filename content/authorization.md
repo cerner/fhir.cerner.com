@@ -914,7 +914,7 @@ a status bar.
 
 For information on how to discover the management
 endpoint for a user, see 
-[Discovery](../authorization-specification#discovery) in the
+[Discovery](authorization-specification#discovery) in the
 authorization specification.
 
 <a id="system-authorization"></a>

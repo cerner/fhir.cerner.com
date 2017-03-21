@@ -317,7 +317,7 @@ Patient Access: `https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c2
 
 ### Resource
 
-`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/dstu2/patient/">`Patient`</a>
+`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/millennium/dstu2/individuals/patient/">`Patient`</a>
 
 ### Parameters
 
@@ -386,7 +386,7 @@ Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP v
 We have an endpoint secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/).
 Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
 
-Please reference the <a href="/dstu2/authorization/">authorization</a> documentation for more information. 
+Please reference the <a href="/authorization/">authorization</a> documentation for more information. 
 
 ## Pagination
 
