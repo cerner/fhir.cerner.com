@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Person | DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Millennium</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="person">Person</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.identifier">Person.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/v2/0203">v2 Identifier Type</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for Persons that meet supplied query parameters:</p>
+
+<pre><code>GET /Person?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>No, if populated all other parameters are ignored</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>Yes, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The person identifier.  Example: <code>urn:oid:2.16.840.1.113883.3.13.6|01022228</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+<code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
+</li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/Person?identifier=urn:oid:2.16.840.1.113883.3.13.6|urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:uH3IW35N5RE</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "7e526ecc-99ef-4c34-bbaa-f17f732b36e9",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/1316024",
+      "resource": {
+        "resourceType": "Person",
+        "id": "1316024",
+        "meta": {
+          "versionId": "32",
+          "lastUpdated": "2017-01-12T17:51:03.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
+            "period": {
+              "start": "2016-11-01T10:00:00.000Z"
+            }
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
+            "period": {
+              "start": "2016-11-01T10:00:00.000Z"
+            }
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "NEW-FEDPRINCIPAL-ALIAS-12212016",
+            "period": {
+              "start": "2016-01-02T05:00:00.000Z",
+              "end": "2017-01-02T05:00:00.000Z"
+            }
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "text": "Williams, Rory",
+            "family": [
+              "Williams"
+            ],
+            "given": [
+              "Rory"
+            ],
+            "period": {
+              "start": "2012-05-17T14:54:31.000Z"
+            }
+          },
+          {
+            "given": [
+              "Rory"
+            ],
+            "period": {
+              "start": "2012-05-22T15:45:50.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "1231231231",
+            "use": "work",
+            "period": {
+              "start": "2013-03-11T07:17:03.000Z"
+            }
+          },
+          {
+            "system": "phone",
+            "value": "8168229121",
+            "use": "home",
+            "period": {
+              "start": "2012-05-17T15:33:18.000Z"
+            }
+          },
+          {
+            "system": "phone",
+            "value": "8162324455",
+            "use": "mobile",
+            "period": {
+              "start": "2013-01-30T14:56:59.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1961-04-30",
+        "address": [
+          {
+            "use": "home",
+            "text": "101 Someplace Cool\nKansas City, MO 64199\nUSA",
+            "line": [
+              "101 Someplace Cool"
+            ],
+            "city": "Kansas City",
+            "district": "Jackson",
+            "state": "MO",
+            "postalCode": "64199",
+            "country": "USA",
+            "period": {
+              "start": "2012-05-17T15:33:18.000Z"
+            }
+          }
+        ],
+        "active": true
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Person by its id:</p>
+
+<pre><code>GET /Person/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/Person/4342009</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Person",
+  "id": "4342009",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2016-11-11T18:10:13.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:YP2qT7jS2sa",
+      "period": {
+        "start": "2016-11-01T10:00:00.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:YP2QT7JS2SA",
+      "period": {
+        "start": "2016-11-01T10:00:00.000Z"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "text": "Smart, Nancy",
+      "family": [
+        "Smart"
+      ],
+      "given": [
+        "Nancy"
+      ],
+      "period": {
+        "start": "2016-06-22T20:43:05.000Z"
+      }
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1980-08-11",
+  "active": true
+}</code></pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../conformance/">Conformance Metadata</a></li>
+          <li><a href="../../operation-definition/">OperationDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../contract/">Contract</a></li>
+          <li><a href="./">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../infrastructure/binary/">Binary</a></li>
+          <li><a href="../../infrastructure/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>AllergyIntolerance | DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Millennium</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="allergyintolerance">AllergyIntolerance</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
+      <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
+      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#update" id="markdown-toc-update">Update</a>    <ul>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
+      <li><a href="#example-body-1" id="markdown-toc-example-body-1">Example Body</a></li>
+      <li><a href="#response-3" id="markdown-toc-response-3">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance">AllergyIntolerance.substance</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Type of the substance and negation codes for reporting no known allergies.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                    <li>SNOMED CT is supported for non-medication substances and for negations.</li>
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation">AllergyIntolerance.reaction.manifestation</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for AllergyIntolerances that meet supplied query parameters:</p>
+
+<pre><code>GET /AllergyIntolerance?:parameters
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code>, if populated all other parameters are not allowed</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>Who the sensitivity is for. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>
+<a href="http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html">Certainty of the allergy or intolerance</a>. Example: <code>confirmed</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by patient</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "c7330db8-59df-499b-9f97-9f89b79dbfb4",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?patient=4342010"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5703737",
+        "meta": {
+          "versionId": "5703737",
+          "lastUpdated": "2016-06-27T14:10:11.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Peanuts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Food&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: Dyspnea&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1982&lt;/p&gt;&lt;/div&gt;"
+        },
+        "onset": "1982",
+        "recordedDate": "2016-06-27T09:10:11.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1912007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/4342010",
+          "display": "Smart, Joe"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256349002",
+              "display": "Peanut - dietary (substance)",
+              "userSelected": false
+            }
+          ],
+          "text": "Peanuts"
+        },
+        "status": "active",
+        "criticality": "CRITH",
+        "type": "allergy",
+        "category": "food",
+        "reaction": [
+          {
+            "id": "5703739",
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "267036007",
+                    "display": "Dyspnea (finding)",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Dyspnea"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703733",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5703733",
+        "meta": {
+          "versionId": "5703733",
+          "lastUpdated": "2016-06-27T14:08:41.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: No known medicine allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "recordedDate": "2016-06-27T09:08:41.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1912007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/4342010",
+          "display": "Smart, Joe"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "409137002",
+              "display": "No known drug allergies (context-dependent category)",
+              "userSelected": false
+            }
+          ],
+          "text": "No known medicine allergy"
+        },
+        "status": "active",
+        "type": "allergy"
+      }
+    }
+  ]
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by patient and status</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "c7330db8-59df-499b-9f97-9f89b79dbfb4",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?patient=4342010&amp;status=active"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5703737",
+        "meta": {
+          "versionId": "5703737",
+          "lastUpdated": "2016-06-27T14:10:11.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Peanuts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Food&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: Dyspnea&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1982&lt;/p&gt;&lt;/div&gt;"
+        },
+        "onset": "1982",
+        "recordedDate": "2016-06-27T09:10:11.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1912007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/4342010",
+          "display": "Smart, Joe"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256349002",
+              "display": "Peanut - dietary (substance)",
+              "userSelected": false
+            }
+          ],
+          "text": "Peanuts"
+        },
+        "status": "active",
+        "criticality": "CRITH",
+        "type": "allergy",
+        "category": "food",
+        "reaction": [
+          {
+            "id": "5703739",
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "267036007",
+                    "display": "Dyspnea (finding)",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Dyspnea"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703733",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5703733",
+        "meta": {
+          "versionId": "5703733",
+          "lastUpdated": "2016-06-27T14:08:41.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: No known medicine allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "recordedDate": "2016-06-27T09:08:41.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1912007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/4342010",
+          "display": "Smart, Joe"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "409137002",
+              "display": "No known drug allergies (context-dependent category)",
+              "userSelected": false
+            }
+          ],
+          "text": "No known medicine allergy"
+        },
+        "status": "active",
+        "type": "allergy"
+      }
+    }
+  ]
+}</code></pre>
+<pre class="headers"><code>Status: 200 OK
+Functionality: Search by id</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "db663826-30c9-4278-a6e2-b2b6843334f7",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?_id=5703737"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "5703737",
+        "meta": {
+          "versionId": "5703737",
+          "lastUpdated": "2016-06-27T14:10:11.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Peanuts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Food&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: Dyspnea&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1982&lt;/p&gt;&lt;/div&gt;"
+        },
+        "onset": "1982",
+        "recordedDate": "2016-06-27T09:10:11.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1912007",
+          "display": "Who, Doctor"
+        },
+        "patient": {
+          "reference": "Patient/4342010",
+          "display": "Smart, Joe"
+        },
+        "substance": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "256349002",
+              "display": "Peanut - dietary (substance)",
+              "userSelected": false
+            }
+          ],
+          "text": "Peanuts"
+        },
+        "status": "active",
+        "criticality": "CRITH",
+        "type": "allergy",
+        "category": "food",
+        "reaction": [
+          {
+            "id": "5703739",
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "267036007",
+                    "display": "Dyspnea (finding)",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Dyspnea"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual AllergyIntolerance by its id:</p>
+
+<pre><code>GET /AllergyIntolerance/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "AllergyIntolerance",
+  "id": "3643739",
+  "meta": {
+    "versionId": "3643739",
+    "lastUpdated": "2015-03-11T20:36:08.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
+  },
+  "recordedDate": "2015-03-11T15:36:08.000",
+  "recorder": {
+    "reference": "Practitioner/3270007",
+    "display": "Who, Doctor"
+  },
+  "patient": {
+    "reference": "Patient/2744010",
+    "display": "RHEUM, TEST ONE"
+  },
+  "substance": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "390952000",
+        "display": "Dust allergy (disorder)",
+        "userSelected": true
+      }
+    ],
+    "text": "Dust allergy"
+  },
+  "status": "active",
+  "type": "allergy",
+  "category": "environment"
+}</code></pre>
+
+<h2 id="create">Create</h2>
+
+<p>Create new allergies.</p>
+
+<pre><code>POST /AllergyIntolerance
+</code></pre>
+
+<h3 id="headers">Headers</h3>
+
+<p>To successfully POST an allergy, the following headers must be provided. Allergy creation is supported from the closed endpoint only.</p>
+
+<pre><code>Content-Type: application/json+fhir
+Authorization: &lt;OAuth2 Bearer Token&gt;
+</code></pre>
+
+<h3 id="body-fields">Body fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>AllergyIntolerance</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be AllergyIntolerance</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-contained">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"><code>contained</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/resource.html"><code>Resource</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Contained, inline Resources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Contained RelatedPerson
+{
+  "contained": [
+    {
+      "resourceType": "RelatedPerson",
+      "id": "5366328",
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v3/RoleCode",
+            "code": "SIGOTHR"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+Contained Practitioner
+{
+  "contained": [
+    {
+      "resourceType": "Practitioner",
+      "id": "123",
+      "practitionerRole": [
+        {
+          "role": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0286",
+                "code": "RP"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>These should be either <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> resources that are referenced with the <a href="#create-reporter">reporter</a> field.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-onset">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.onset"><code>onset</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Date(/time) when manifestations showed.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onset: "2012-07-13T00:00:00Z"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-recordedDate">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"><code>recordedDate</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When the sensitivity was recorded.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recordedDate": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-recorder">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recorder"><code>recorder</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who recorded the sensitivity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recorder": {
+    "reference": "Practitioner/21500971"
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Recorder must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-patient">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who the sensitivity is for.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-reporter">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reporter"><code>reporter</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> | <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Source of the information about the allergy.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Reporter as a Patient Reference
+{
+  "reporter": {
+    "reference": "Patient/5366327"
+  }
+}
+
+Reporter as a contained reference
+{
+  "reporter": "#5366328"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If <a href="#create-reporter">reporter</a> is a contained reference, a matching <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference must be provided in the <a href="#create-contained">contained</a> field.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-substance">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance"><code>substance</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Substance, (or class) considered to be responsible for risk</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "substance": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "4125",
+        "display": "Ethiodized oil"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href="#create-substance">substance</a>.
+</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "resolved"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-criticality">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.criticality"><code>criticality</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href="#create-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "criticality": "CRITU"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-type">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.type"><code>type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identification of the underlying physiological mechanism for the reaction risk.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": "allergy"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-category">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Category of the identified <a href="#create-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": "food"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional text not captured in other fields.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "authorReference": {
+      "reference": "Practitioner/21500971"
+    },
+    "time": "2015-10-14T13:13:20-06:00",
+    "text": "Patient complains of discomfort"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note.authorReference">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_"><code>note.authorReference</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Individual responsible for the annotation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "authorReference": {
+      "reference": "Practitioner/21500971"
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note.time">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time"><code>note.time</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When the annotation was made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "time": "2015-10-14T13:13:20-06:00"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note.text">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text"><code>note.text</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The text content.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "text": "Patient complains of discomfort"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-reaction">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction"><code>reaction</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Adverse reaction events linked to exposure to <a href="#create-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39579001",
+              "display": "Anaphylactic reaction"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-reaction.manifestation">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"><code>reaction.manifestation</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Clinical symptoms/signs associated with the event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Manifestation with a coding:
+{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39579001",
+              "display": "Anaphylactic reaction"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+Manifestation with a freetext value:
+{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "text": "Anaphylactic reaction"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-body">Example Body</h3>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "AllergyIntolerance",
+  "category": "medication",
+  "criticality": "CRITL",
+  "recordedDate": "2017-02-28T15:03:00-06:00",
+  "status": "active",
+  "type": "allergy",
+  "onset": "2015-12-15T00:00:00Z",
+  "patient": {
+    "reference": "Patient/1316020"
+  },
+  "reporter": {
+    "reference": "Patient/1316020"
+  },
+  "recorder": {
+    "reference": "Practitioner/1316007"
+  },
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "text": "Hives"
+        }
+      ]
+    }
+  ],
+  "note": {
+    "authorReference": {
+      "reference": "Practitioner/41562141"
+    },
+    "time": "2017-02-28T09:03:00Z",
+    "text": "Note 1"
+  },
+  "substance": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "3498"
+      }
+    ]
+  }
+}</code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+    Date → Tue, 28 Feb 2017 21:08:20 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 10023.126891
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → b0fee21c20d2a240d9b4b86cfbcbd87c
+    Etag → W/"6167733"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 10.023081
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:03:00 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6167733
+    Status → 201 Created
+    Content-Length → 0
+    Content-Type → application/json
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h2 id="update">Update</h2>
+
+<p>Update an existing allergy.</p>
+
+<pre><code>PUT /AllergyIntolerance/:id
+</code></pre>
+
+<p>Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</p>
+
+<h3 id="headers-1">Headers</h3>
+
+<p>To successfully PUT an allergy, the following headers must be provided. Allergy updates are supported from the closed endpoint only.</p>
+
+<pre><code>Content-Type: application/json+fhir
+Authorization: &lt;OAuth2 Bearer Token&gt;
+If-Match: W/"&lt;Current allergy id&gt;"
+</code></pre>
+
+<h3 id="body-fields-1">Body fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="update-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>AllergyIntolerance</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be AllergyIntolerance</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-id">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"><code>id</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#id"><code>id</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The logical id of the resource to update.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "123412"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The id value must match the AllergyIntolerance/&lt;id&gt; value.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-contained">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"><code>contained</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/resource.html"><code>Resource</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Contained, inline Resources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Contained RelatedPerson
+{
+  "contained": [
+    {
+      "resourceType": "RelatedPerson",
+      "id": "5366328",
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v3/RoleCode",
+            "code": "SIGOTHR"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+Contained Practitioner
+{
+  "contained": [
+    {
+      "resourceType": "Practitioner",
+      "id": "123",
+      "practitionerRole": [
+        {
+          "role": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0286",
+                "code": "RP"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>These should be either <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> resources that are referenced with the <a href="#update-reporter">reporter</a> field.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-onset">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.onset"><code>onset</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Date(/time) when manifestations showed.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onset: "2012-07-13T00:00:00Z"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-recordedDate">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"><code>recordedDate</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When the sensitivity was recorded.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recordedDate": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-recorder">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recorder"><code>recorder</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who recorded the sensitivity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recorder": {
+    "reference": "Practitioner/21500971"
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Recorder must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-patient">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who the sensitivity is for.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/5366327"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reporter">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reporter"><code>reporter</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> | <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Source of the information about the allergy.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Reporter as a Patient Reference
+{
+  "reporter": {
+    "reference": "Patient/5366327"
+  }
+}
+
+Reporter as a contained reference
+{
+  "reporter": "#5366328"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If <a href="#update-reporter">reporter</a> is a contained reference, a matching <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference must be provided in the <a href="#update-contained">contained</a> field.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-substance">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance"><code>substance</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Substance, (or class) considered to be responsible for risk</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "substance": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "4125",
+        "display": "Ethiodized oil"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href="#update-substance">substance</a>.
+</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "resolved"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-criticality">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.criticality"><code>criticality</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href="#update-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "criticality": "CRITU"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-type">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.type"><code>type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identification of the underlying physiological mechanism for the reaction risk.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": "allergy"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-category">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Category of the identified <a href="#update-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": "food"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional text not captured in other fields.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "authorReference": {
+      "reference": "Practitioner/21500971"
+    },
+    "time": "2015-10-14T13:13:20-06:00",
+    "text": "Patient complains of discomfort"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note.authorReference">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_"><code>note.authorReference</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Individual responsible for the annotation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "authorReference": {
+      "reference": "Practitioner/21500971"
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note.time">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time"><code>note.time</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When the annotation was made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "time": "2015-10-14T13:13:20-06:00"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note.text">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text"><code>note.text</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The text content.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": {
+    "text": "Patient complains of discomfort"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction"><code>reaction</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Adverse reaction events linked to exposure to <a href="#update-substance">substance</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39579001",
+              "display": "Anaphylactic reaction"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction.id">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"><code>reaction.id</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#id"><code>id</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Logical id of the reaction event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "543123"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction.manifestation">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"><code>reaction.manifestation</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Clinical symptoms/signs associated with the event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Manifestation with a coding:
+{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "39579001",
+              "display": "Anaphylactic reaction"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+Manifestation with a freetext value:
+{
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "text": "Anaphylactic reaction"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-body-1">Example Body</h3>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "AllergyIntolerance",
+  "id": "6167733",
+  "meta": {
+    "versionId": "6167733",
+    "lastUpdated": "2017-02-28T21:08:25.000Z"
+  },
+  "contained": [
+    {
+      "resourceType": "RelatedPerson",
+      "id": "19775887",
+      "patient": {
+        "reference": "Patient/1316020"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v3/RoleCode",
+            "code": "ONESELF",
+            "display": "self"
+          }
+        ],
+        "text": "self"
+      }
+    }
+  ],
+  "onset": "2015-12-14T16:00:00.000-08:00",
+  "recordedDate": "2017-02-28T15:03:00.000-06:00",
+  "recorder": {
+    "reference": "Practitioner/1316007"
+  },
+  "patient": {
+    "reference": "Patient/1316020"
+  },
+  "reporter": {
+    "reference": "#19775887"
+  },
+  "substance": {
+    "text": "calamine-diphenhydrAMINE topical"
+  },
+  "status": "active",
+  "criticality": "CRITH",
+  "type": "allergy",
+  "category": "medication",
+  "note": {
+    "text": "2017-02-28T09:03:00.000Z - Note 1"
+  },
+  "reaction": [
+    {
+      "id": "6167735",
+      "manifestation": [
+        {
+          "text": "Hives"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h3 id="response-3">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+    Date →  Tue, 28 Feb 2017 21:19:18 GMT
+    Cache-Control →  no-cache
+    Vary →  Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security →  max-age=631152000
+    Server-Response-Time →  647.014821
+    X-Xss-Protection →  1; mode=block
+    Pragma →  no-cache
+    X-Request-Id →  d30766e5445f973b32efa9ec516cb5db
+    Etag →  W/"6167741"
+    X-Frame-Options →  SAMEORIGIN
+    X-Runtime →  0.646992
+    X-Content-Type-Options →  nosniff
+    Expires →  Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified →  Tue, 28 Feb 2017 21:03:00 GMT
+    Status →  200 OK
+    Content-Length →  0
+    Content-Type →  application/json
+</pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../conformance/">Conformance Metadata</a></li>
+          <li><a href="../../operation-definition/">OperationDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/contract/">Contract</a></li>
+          <li><a href="../../entities/person/">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="./">AllergyIntolerance</a></li>
+          <li><a href="../condition/">Condition</a></li>
+          <li><a href="../procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../infrastructure/binary/">Binary</a></li>
+          <li><a href="../../infrastructure/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

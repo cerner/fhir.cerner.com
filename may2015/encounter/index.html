@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Encounter | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/encounters/encounter">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,315 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="encounter">Encounter</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Encounters that meet supplied query parameters:</p>
-
-<pre><code>GET /Encounter?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This or _id</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The patient present at the encounter. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>_id</code></td>
-      <td>This or patient</td>
-      <td><a href="http://hl7.org/fhir/2015May/datatypes.html#id"><code>id</code></a></td>
-      <td>A single or comma separated list of Encounter ids. Example: <code>45678,89765</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "2cd77130-032f-4354-921e-d05141ca2184",
-  "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Encounter?_id=3261906%2C2787906"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "3261906",
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "use": "usual",
-            "system": "http://cerner.com/fhir/identifier/FINNBR",
-            "value": "20001427"
-          }
-        ],
-        "status": "in-progress",
-        "class": "outpatient",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "participant": [
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "ATND",
-                    "display": "attender"
-                  }
-                ],
-                "text": "attender"
-              }
-            ],
-            "individual": {
-              "reference": "Practitioner/2386008",
-              "display": "Howser, Doogie"
-            }
-          }
-        ],
-        "period": {
-          "start": "2015-08-06T13:00:00.000Z"
-        },
-        "reason": [
-          {
-            "text": "Checkup"
-          }
-        ],
-        "location": [
-          {
-            "location": {
-              "display": "Outpatient Ctr"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "2787906",
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-01-05T22:50:48.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "in-progress",
-        "patient": {
-          "reference": "Patient/1316020"
-        },
-        "participant": [
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "ATND",
-                    "display": "attender"
-                  }
-                ],
-                "text": "attender"
-              }
-            ],
-            "individual": {
-              "reference": "Practitioner/1746007",
-              "display": "Who, Doctor"
-            }
-          }
-        ],
-        "period": {
-          "start": "2015-01-05T22:50:48.000Z"
-        },
-        "reason": [
-          {
-            "text": "pain"
-          }
-        ],
-        "location": [
-          {
-            "location": {
-              "display": "Baseline East"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Encounter by its id:</p>
-
-<pre><code>GET /Encounter/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Encounter",
-  "id": "3261906",
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Outpatient Ctr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: outpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: 2015-08-06T13:00:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Checkup&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Howser, Doogie&lt;/p&gt;&lt;/div&gt;"
-  },
-  "identifier": [
-    {
-      "use": "usual",
-      "system": "http://cerner.com/fhir/identifier/FINNBR",
-      "value": "20001427"
-    }
-  ],
-  "status": "in-progress",
-  "class": "outpatient",
-  "patient": {
-    "reference": "Patient/1316020"
-  },
-  "participant": [
-    {
-      "type": [
-        {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v3/ParticipationType",
-              "code": "ATND",
-              "display": "attender"
-            }
-          ],
-          "text": "attender"
-        }
-      ],
-      "individual": {
-        "reference": "Practitioner/2386008",
-        "display": "Howser, Doogie"
-      }
-    }
-  ],
-  "period": {
-    "start": "2015-08-06T13:00:00.000Z"
-  },
-  "reason": [
-    {
-      "text": "Checkup"
-    }
-  ],
-  "location": [
-    {
-      "location": {
-        "display": "Outpatient Ctr"
-      }
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/encounters/encounter">/millennium/dstu2/encounters/encounter </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

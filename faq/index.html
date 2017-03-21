@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>FAQs</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/faq/">
   <link href="../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="faq">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="./" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,67 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
-    <h2><a href="./">FAQ</a></h2>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#faqs-on-cerners-implementation-of-the-hl7supsup-fhirsupsup-standard" id="markdown-toc-faqs-on-cerners-implementation-of-the-hl7supsup-fhirsupsup-standard">FAQs on Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> Standard</a></li>
-</ul>
-
-<h2 id="faqs-on-cerners-implementation-of-the-hl7supsup-fhirsupsup-standard">FAQs on Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> Standard</h2>
-
-<h3 id="what-is-cerners-roadmap-for-fhirsupsup-standard-implementation">What is Cerner’s roadmap for FHIR<sup>®</sup> standard implementation?</h3>
-
-<p>Both the deprecated May2015 and current DSTU 2 Final versions of our HL7 FHIR<sup>®</sup> standard implementation are available in production. Our roadmap always includes helping provide feedback to the current draft of the FHIR<sup>®</sup> standard, as well as updating to the latest release. Additionally, our roadmap is prioritized depending on maturity of the resources in the FHIR<sup>®</sup> standard (in other words, how stable they are considered), as well as the needs of our business partners. Some external forces, like Meaningful Use, also help determine the priorities and order for the FHIR<sup>®</sup> standard resources we implement. If you would like to create a business partnership with us and help guide our roadmap, please read the <a href="https://code.cerner.com/build">How It Works Section</a> on code.cerner.com. Once an application has been tested in our secure sandbox, fill out <a href="https://cernermarketing.wufoo.com/forms/z352gae0xcax6t/">this form</a>.</p>
-
-<h3 id="what-is-cerners-millennium-web-services-toolkit">What is Cerner’s Millennium Web Services toolkit?</h3>
-
-<p>Millennium Web Services is an application programming interface (API) that exposes a set of Cerner Millennium business and application logic through person-centric web interfaces. Cerner’s Millennium Web Services toolkit includes web services that provide access to a range of the clinical services that are available on the Cerner Millennium platform. These services include concepts around patient demographics, clinical results, clinical documentation, reporting, and scheduling. The Millennium Web Services are exposed using standard protocols (for example, SOAP, REST, and HTTPS).</p>
-
-<h3 id="what-is-the-future-of-millennium-web-services">What is the future of Millennium Web Services?</h3>
-
-<p>With the emergence of the FHIR<sup>®</sup> (Fast HealthCare Interoperability Resources) standard, we expect to migrate Millennium Web Services to the FHIR<sup>®</sup> standard for all services that have a standard resource equivalent. Cerner expects that some of the services may never have standard equivalents, and so we will maintain those services in addition to the Cerner FHIR<sup>®</sup> implementation.</p>
-
-<h3 id="how-will-cerner-implement-the-fhirsupsup-standard">How will Cerner implement the FHIR<sup>®</sup> standard?</h3>
-
-<p>Cerner is currently in the process of implementing the FHIR<sup>®</sup> standard to expose Cerner Millennium data to our clients and third-party developers. Cerner believes the FHIR<sup>®</sup> standard will become the public API that the JASON report and the JASON Task Force have called for. We believe the FHIR<sup>®</sup> standard, along with SMART and OAuth2, will enable Cerner Millennium to become an open electronic health record (EHR) platform that supports innovative developers.</p>
-
-<h3 id="with-cerners-implementation-of-the-fhirsupsup-standard-what-service-and-protocol-is-supported">With Cerner’s implementation of the FHIR<sup>®</sup> standard, what service and protocol is supported?</h3>
-
-<p>The current FHIR<sup>®</sup> standard implementation supports the REST API through the HTTPS protocol. Any application capable of making an HTTPS call can consume Cerner’s implementation of the FHIR<sup>®</sup> standard. We currently have desktop, web, and mobile applications that consume our resources in varying stages of development. We support the SMART platform, OAuth2 authentication, and authorization profiles.</p>
-
-<h3 id="what-are-smart-apps-and-what-is-cerners-position-on-usage-with-the-fhirsupsup-standard">What are SMART apps and what is Cerner’s position on usage with the FHIR<sup>®</sup> standard?</h3>
-
-<p>The SMART (Substitutable Medical Apps &amp; Reusable Technology) platform defines a specification for an EHR to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and will use the FHIR<sup>®</sup> standard to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of implementations of the FHIR<sup>®</sup> standard resources. We will also support access through mobile SMART applications, as those specifications emerge from the <a href="http://smarthealthit.org/">SMART</a> web site.</p>
-
-<h3 id="where-can-i-ask-a-question">Where can I ask a question?</h3>
-
-<p>A developer can post a question to the community using <a href="https://groups.google.com/forum/#!forum/cerner-fhir-developers">our google group</a>.</p>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="#frequently-asked-questions">Developer FAQs</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+  <div class="wrapper feature">
+    
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../millennium/faq/">/millennium/faq/ </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="./"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

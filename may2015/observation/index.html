@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Observation | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/diagnostic/observation">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,555 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="observation">Observation</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied query parameters:</p>
-
-<pre><code>GET /Observation?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>Either this or <code>subject</code>
-</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The subject that the observation is about (if patient). EG: <code>123456</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>subject:Patient</code></td>
-      <td>Either this or <code>patient</code>
-</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The subject (Patient) that the observation is about. EG: <code>123456</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>code</code></td>
-      <td>Recommended to send at least one <code>code</code> or <code>date</code> range</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>The code of the observation type, can be a list of comma separated values. The system portion of the code is required. EG: <code>http://loinc.org|3094-0</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>date</code></td>
-      <td>Recommended to send at least one <code>code</code> or <code>date</code> range</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the observation falls (appliesDateTime). Must request a range of time. EG: <code>date=&gt;2014-09-24T12:00:00.000Z</code> <code>&amp;date=&lt;2015-09-24T12:00:00.000Z</code>
-</td>
-    </tr>
-    <tr>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return per page.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "17207056-05f2-4e07-9770-77cbe0cbc8b0",
-  "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&amp;_count=10&amp;date=%3E2014-09-24T12%3A00%3A00.000Z&amp;date=%3C2015-09-24T12%3A00%3A00.000Z"
-    },
-    {
-      "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Observation?subject%3APatient=2744010&amp;pageContext=H4sIAAAAAAAAAJ1TbW%2BbMBD%2BK63zlSJDSLvxqYQ4GxJJEJhor0IWOKklsCNjqmZt%2F%2FvOoVVfpEnbENJxvueeO%2B4536OOs37QvOPSbD0Uolp1bs215Nrt%2BtvarVshRc1afgsI9xXaZR37paR7YHsh92508jK257GSht%2BZyfW50QMH8%2FeUtRaGa8HcnBstID4%2FEgsquImfQufXk0HLcOQLO9GEXHfugeteybCXDZf70L8KAuxhgPrYCy7wxws%2FoJ4fYgyvizH%2BNoZmfwidUt9VqZXmrlYtP2i1Ey1%2FrkV%2FDBhPm9RJFuOXB7lyaFsw86hI4iqiNE%2FmJSUFHJHlksQ02ZJqEVECB1GanuWkKFN6VtjIZn2CrTL6tUqTgr53crIkOVnHpMqj9SfiRKecKss322RBciferFZkTZ1tlJaW32oA5p9keKvsXDRC89oIJVlrBS4MM%2FyFek2%2B0Cou82KT27FeYuzPZlMnCD5M%2FSvseIF%2FCdbH9gHAjrW9Tctysk02ZfGS%2BjQ1aPVh8oCRg3pVC9Z%2BFr1R%2Bmi38x7VUHoPXtz0KPz%2B00EHZgT0nDToWXYHscHcKNiXI%2BzzKBOQad4y%2Bw%2F9jThYNOCsnNkoZ5ksAPzfmgP%2FTshmfszGdlBoh%2FPowHUarOfhx999w9l9awMAAA%3D%3D&amp;direction=NEXT"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "3025861",
-        "meta": {
-          "versionId": "3025861",
-          "lastUpdated": "2014-09-24T23:18:40.000Z"
-        },
-        "contained": [
-          {
-            "resourceType": "Observation",
-            "id": "3025861-q6930392",
-            "meta": {
-              "lastUpdated": "2014-09-24T23:18:40.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Question&lt;/b&gt;: SHX Alcohol use&lt;/p&gt;&lt;p&gt;&lt;b&gt;Response&lt;/b&gt;: Current&lt;/p&gt;&lt;/div&gt;"
-            },
-            "code": {
-              "text": "SHX Alcohol use"
-            },
-            "valueString": "Current",
-            "issued": "2014-09-24T23:18:40.000Z",
-            "status": "final",
-            "subject": {
-              "reference": "Patient/2744010"
-            }
-          },
-          {
-            "resourceType": "Observation",
-            "id": "3025861-q6930388",
-            "meta": {
-              "lastUpdated": "2014-09-24T23:18:40.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Question&lt;/b&gt;: SHX Alcohol type&lt;/p&gt;&lt;p&gt;&lt;b&gt;Response&lt;/b&gt;: Wine&lt;/p&gt;&lt;/div&gt;"
-            },
-            "code": {
-              "text": "SHX Alcohol type"
-            },
-            "valueString": "Wine",
-            "issued": "2014-09-24T23:18:40.000Z",
-            "status": "final",
-            "subject": {
-              "reference": "Patient/2744010"
-            }
-          },
-          {
-            "resourceType": "Observation",
-            "id": "3025861-q6930384",
-            "meta": {
-              "lastUpdated": "2014-09-24T23:18:40.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Question&lt;/b&gt;: SHX Alcohol frequency&lt;/p&gt;&lt;p&gt;&lt;b&gt;Response&lt;/b&gt;: Daily&lt;/p&gt;&lt;/div&gt;"
-            },
-            "code": {
-              "text": "SHX Alcohol frequency"
-            },
-            "valueString": "Daily",
-            "issued": "2014-09-24T23:18:40.000Z",
-            "status": "final",
-            "subject": {
-              "reference": "Patient/2744010"
-            }
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "363905002",
-              "display": "Details of alcohol drinking behavior (observable entity)"
-            }
-          ],
-          "text": "Alcohol"
-        },
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "related": [
-          {
-            "type": "has-component",
-            "target": {
-              "reference": "#3025861-q6930392"
-            }
-          },
-          {
-            "type": "has-component",
-            "target": {
-              "reference": "#3025861-q6930388"
-            }
-          },
-          {
-            "type": "has-component",
-            "target": {
-              "reference": "#3025861-q6930384"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "M4637256",
-        "meta": {
-          "versionId": "17-4637255",
-          "lastUpdated": "2015-10-16T07:17:08.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Sodium Lvl&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 234 mEq/dL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-04-17T06:32:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 135 mEq/dL High: 150 mEq/dL&lt;/p&gt;&lt;/div&gt;"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "2951-2",
-              "display": "SODIUM:SCNC:PT:SER/PLAS:QN:"
-            }
-          ],
-          "text": "Sodium Lvl"
-        },
-        "valueQuantity": {
-          "value": 234,
-          "units": "mEq/dL",
-          "system": "http://unitsofmeasure.org",
-          "code": "meq/dL"
-        },
-        "interpretation": {
-          "text": "CRIT"
-        },
-        "appliesDateTime": "2015-04-17T06:32:00.000Z",
-        "issued": "2015-04-17T06:36:44.000Z",
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "encounter": {
-          "reference": "Encounter/2951906"
-        },
-        "referenceRange": {
-          "low": {
-            "value": 135,
-            "units": "mEq/dL",
-            "system": "http://unitsofmeasure.org",
-            "code": "meq/dL"
-          },
-          "high": {
-            "value": 150,
-            "units": "mEq/dL",
-            "system": "http://unitsofmeasure.org",
-            "code": "meq/dL"
-          }
-        }
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "M4637264",
-        "meta": {
-          "versionId": "17-4637263",
-          "lastUpdated": "2015-10-16T07:17:23.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Chloride&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 233 mmol/L&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-04-17T06:24:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 98 mmol/L High: 107 mmol/L&lt;/p&gt;&lt;/div&gt;"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "2075-0",
-              "display": "CHLORIDE:SCNC:PT:SER/PLAS:QN:"
-            }
-          ],
-          "text": "Chloride"
-        },
-        "valueQuantity": {
-          "value": 233,
-          "units": "mmol/L",
-          "system": "http://unitsofmeasure.org",
-          "code": "mmol/L"
-        },
-        "interpretation": {
-          "text": "CRIT"
-        },
-        "appliesDateTime": "2015-04-17T06:24:00.000Z",
-        "issued": "2015-04-17T06:42:24.000Z",
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "encounter": {
-          "reference": "Encounter/2951906"
-        },
-        "referenceRange": {
-          "low": {
-            "value": 98,
-            "units": "mmol/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "mmol/L"
-          },
-          "high": {
-            "value": 107,
-            "units": "mmol/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "mmol/L"
-          }
-        }
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "M4637268",
-        "meta": {
-          "versionId": "17-4637267",
-          "lastUpdated": "2015-10-16T07:17:23.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: BUN&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 50 mg/dL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-04-17T06:24:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 10 mg/dL High: 20 mg/dL&lt;/p&gt;&lt;/div&gt;"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "3094-0",
-              "display": "UREA NITROGEN:MCNC:PT:SER/PLAS:QN:"
-            }
-          ],
-          "text": "BUN"
-        },
-        "valueQuantity": {
-          "value": 50,
-          "units": "mg/dL",
-          "system": "http://unitsofmeasure.org",
-          "code": "mg/dL"
-        },
-        "interpretation": {
-          "text": "CRIT"
-        },
-        "appliesDateTime": "2015-04-17T06:24:00.000Z",
-        "issued": "2015-04-17T06:58:07.000Z",
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "encounter": {
-          "reference": "Encounter/2951906"
-        },
-        "referenceRange": {
-          "low": {
-            "value": 10,
-            "units": "mg/dL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg/dL"
-          },
-          "high": {
-            "value": 20,
-            "units": "mg/dL",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg/dL"
-          }
-        }
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "M4637260",
-        "meta": {
-          "versionId": "17-4637259",
-          "lastUpdated": "2015-10-16T07:17:23.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Potassium Lvl&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 2.34 mEq/L&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-04-17T06:24:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 3.50 mEq/L High: 5.10 mEq/L&lt;/p&gt;&lt;/div&gt;"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "2823-3",
-              "display": "POTASSIUM:SCNC:PT:SER/PLAS:QN:"
-            }
-          ],
-          "text": "Potassium Lvl"
-        },
-        "valueQuantity": {
-          "value": 2.34,
-          "units": "mEq/L",
-          "system": "http://unitsofmeasure.org",
-          "code": "meq/L"
-        },
-        "interpretation": {
-          "text": "CRIT"
-        },
-        "appliesDateTime": "2015-04-17T06:24:00.000Z",
-        "issued": "2015-04-17T06:40:38.000Z",
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "encounter": {
-          "reference": "Encounter/2951906"
-        },
-        "referenceRange": {
-          "low": {
-            "value": 3.5,
-            "units": "mEq/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "meq/L"
-          },
-          "high": {
-            "value": 5.1,
-            "units": "mEq/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "meq/L"
-          }
-        }
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Observation",
-        "id": "M4483270",
-        "meta": {
-          "versionId": "1-4483269",
-          "lastUpdated": "2015-03-13T18:15:31.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: 2744010&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: CRP-hs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 3.1 mg/L&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level&lt;/b&gt;: Above high normal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-03-13T18:10:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Risk Level Detail&lt;/b&gt;: Low: 1.0 mg/L High: 3.0 mg/L&lt;/p&gt;&lt;/div&gt;"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "30522-7",
-              "display": "C REACTIVE PROTEIN:MCNC:PT:SER/PLAS:QN:HIGH SENSITIVITY"
-            }
-          ],
-          "text": "CRP-hs"
-        },
-        "valueQuantity": {
-          "value": 3.1,
-          "units": "mg/L",
-          "system": "http://unitsofmeasure.org",
-          "code": "mg/L"
-        },
-        "interpretation": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0078",
-              "code": "H",
-              "display": "Above high normal"
-            }
-          ],
-          "text": "HI"
-        },
-        "appliesDateTime": "2015-03-13T18:10:00.000Z",
-        "issued": "2015-03-13T18:15:30.000Z",
-        "status": "final",
-        "subject": {
-          "reference": "Patient/2744010"
-        },
-        "encounter": {
-          "reference": "Encounter/2951906"
-        },
-        "referenceRange": {
-          "low": {
-            "value": 1.0,
-            "units": "mg/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg/L"
-          },
-          "high": {
-            "value": 3.0,
-            "units": "mg/L",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg/L"
-          }
-        }
-      }
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/diagnostic/observation">/millennium/dstu2/diagnostic/observation </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>DSTU 2</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="./" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Millennium</h2>
+      <ul>
+      
+      <li><a href="./" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      <li><a href="../faq/" class="nav-faq">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="overview">Overview</h1>
+
+<p>This describes the resources that make up Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
+please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#current-version" id="markdown-toc-current-version">Current Version</a></li>
+  <li>
+<a href="#schema" id="markdown-toc-schema">Schema</a>    <ul>
+      <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a>    <ul>
+      <li><a href="#open-sandbox" id="markdown-toc-open-sandbox">Open Sandbox</a></li>
+      <li><a href="#secure-sandbox" id="markdown-toc-secure-sandbox">Secure Sandbox</a></li>
+      <li><a href="#resource" id="markdown-toc-resource">Resource</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+    </ul>
+  </li>
+  <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
+  <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
+  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
+  <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
+  <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
+</ul>
+
+<h2 id="current-version">Current Version</h2>
+
+<p>Cerner’s implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard.</p>
+
+<h2 id="schema">Schema</h2>
+
+<p>All API access is over HTTPS. See <a href="#service-root-url">Service Root URL</a> for more information on URL format. 
+All data is sent and received as JSON.</p>
+
+<pre class="terminal">
+$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 200 OK
+Date: Tue, 05 Jan 2016 20:02:23 GMT
+cache-control: no-cache
+vary: Origin,User-Agent
+strict-transport-security: max-age=631152000
+server-response-time: 6003.4422970000005
+x-xss-protection: 1; mode=block
+x-request-id: 637dd651-6943-4d45-8e8a-0577da7640a2
+x-runtime: 6.003411
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+Status: 200 OK
+Content-Type: application/json+fhir; charset=utf-8
+Transfer-Encoding: chunked
+
+{
+  "resourceType": "Conformance",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
+  },
+  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+  "name": "Cerner Conformance Statement",
+  "status": "draft",
+  "publisher": "Cerner",
+  "date": "2015-12-03T00:00:00+00:00",
+  "description": "Describes capabilities of this server",
+  "kind": "instance",
+  "fhirVersion": "1.0.2",
+  "acceptUnknown": "no",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "All the functionality defined in FHIR",
+      "security": {
+        "cors": true
+      },
+      "resource": [
+        {
+          "type": "AllergyIntolerance",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "Certainty of the allergy or intolerance"
+            }
+          ]
+        },
+        {
+          "type": "Condition",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
+            },
+            {
+              "name": "clinicalstatus",
+              "type": "token",
+              "documentation": "A list of desired clinical statuses of the condition"
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "The category of the condition"
+            }
+          ]
+        },
+        {
+          "type": "Device",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the device affixed. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Device ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient the document is about"
+            },
+            {
+              "name": "type",
+              "type": "token",
+              "documentation": "The type of the document"
+            }
+          ]
+        },
+        {
+          "type": "MedicationOrder",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list dispenses for. It is a required field"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "The status of the med, may be a list separated by commas. (Active and draft statuses must be queried separately from completed, on-hold, and stopped statuses. The superseded and entered-in-error statuses are not supported). It is a required field"
+            },
+            {
+              "name": "timing-boundsperiod-end",
+              "type": "date",
+              "documentation": "The stop time of the order. Must be prefixed by 'le' (currently only support querying for orders completed prior to a certain time). Not accepted when querying active or draft orders"
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The number of items to include in a page. Currently ignored if querying for active or draft statuses"
+            }
+          ]
+        },
+        {
+          "type": "MedicationStatement",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list statements for. It is a required field."
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "One or more medication statement status values separated by commas."
+            },
+            {
+              "name": "effectivedate",
+              "type": "date",
+              "documentation": "The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "The logical resource id associated with the resource (must be supported by all servers). It is a required field if no birthdate, identifier, name or telecom field is given"
+            },
+            {
+              "name": "birthdate",
+              "type": "date",
+              "documentation": "The patient's date of birth. It is a required field if no _id, identifier, name or telecom field is given"
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A patient identifier. It is a requried field if no _id, birthdate, name or telecom field is given"
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "documentation": "A portion of either family or given name of the patient. It is a required field if no _id, birthday, identifier or telecom field is given"
+            },
+            {
+              "name": "telecom",
+              "type": "string",
+              "documentation": "The value in any kind of telecom details of the patient. It is a required field if no _id, birthdate, identifier or name is given"
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</pre>
+
+<p>Blank fields are omitted.</p>
+
+<p>All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/dstu2/datatypes.html#date">FHIR<sup>®</sup> standard date/dateTime formats</a>.</p>
+
+<h3 id="media-types">Media Types</h3>
+
+<p>Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON content:</p>
+
+<pre><code>application/json+fhir
+application/json
+</code></pre>
+
+<p>We encourage you to explicitly request one of these types via the <code>Accept</code> header.</p>
+
+<h2 id="service-root-url">Service Root URL</h2>
+
+<p>URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the 
+application is a SMART application, the <a href="http://hl7.org/fhir/dstu2/http.html#general">service root url</a> is provided at 
+launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
+ against a specific tenant. FHIR calls will be made against URLs of the following format:</p>
+
+<p><code>:serviceRootURL/:resource[?:parameters]</code></p>
+
+<h3 id="open-sandbox">Open Sandbox</h3>
+
+<p>The open sandbox instance allows developers to experiment with the service without requiring
+authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
+this instance is: <code>https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code></p>
+
+<p>Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.</p>
+
+<h3 id="secure-sandbox">Secure Sandbox</h3>
+
+<p>The secure sandbox instance can be used for testing an application with <a href="#authorization">authorization</a>. The service 
+root URL for this instance is different if the patient or a patient’s proxy is logging in.</p>
+
+<p>Non-Patient: <code>https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code>
+Patient Access: <code>https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code></p>
+
+<h3 id="resource">Resource</h3>
+
+<p><code>:resource</code> represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="individuals/patient/"><code>Patient</code></a></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Many API methods take optional parameters. For GET requests, any parameters not
+specified as a segment in the path can be passed as an HTTP query string
+parameter:</p>
+
+<pre class="terminal">
+$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&amp;status=active"
+</pre>
+
+<p>In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while <code>patient</code> and <code>status</code> 
+ are passed in the query string.</p>
+
+<h2 id="client-errors">Client Errors</h2>
+
+<p>There are seven possible types of client errors on API calls that
+receive request bodies:</p>
+
+<ol>
+  <li>
+    <p>Failing to send a required query parameter will result in a <code>400 Bad Request</code> response.</p>
+
+    <pre><code> HTTP/1.1 400 Bad Request
+
+ no supported search parameters provided
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting the secure endpoint (non-<code>open</code>) without valid credentials will result in a <code>401 Unauthorized</code>
+response.</p>
+
+    <pre><code> HTTP/1.1 401 Unauthorized
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting data from an unknown instance or an instance where the application is not authorized will result in a <code>403 Forbidden</code> response.</p>
+
+    <pre><code> HTTP/1.1 403 Forbidden
+
+ Tenant not valid or accessible
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting a resource which does not exist will resule in a <code>404 Not Found</code> response.</p>
+
+    <pre><code> HTTP/1.1 404 Not Found
+</code></pre>
+  </li>
+  <li>
+    <p>Requested a media type other than JSON will result in a <code>406 Not Acceptable</code> response.</p>
+
+    <pre><code> HTTP/1.1 406 Not Acceptable
+ Content-Length: 0
+</code></pre>
+  </li>
+  <li>
+    <p>Performing an update with an out-of-date version id will result in a <code>409 Conflict Error</code> response.</p>
+
+    <pre><code> HTTP/1.1 409 Conflict Error
+</code></pre>
+  </li>
+  <li>
+    <p>Performing an add or update with syntactically correct JSON body which is invalid according to business rules will result in a <code>422 Unprocessable Entity</code> response.</p>
+
+    <pre><code> HTTP/1.1 422 Unprocessable Entity
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="http-verbs">HTTP Verbs</h2>
+
+<p>Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Verb</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>GET</code></td>
+      <td>Used for retrieving resources.</td>
+    </tr>
+    <tr>
+      <td><code>POST</code></td>
+      <td>Used for creating resources.</td>
+    </tr>
+    <tr>
+      <td><code>PUT</code></td>
+      <td>Used for updating resources.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="authorization">Authorization</h2>
+
+<p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>.
+Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
+
+<p>Please reference the <a href="../../authorization/">authorization</a> documentation for more information.</p>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>The pagination links are included in the Bundle when a resource returns multiple items. It is important to
+follow these Link header values instead of constructing your own URLs.</p>
+
+<pre><code>{
+  "resourceType": "Bundle",
+  "id": "f22ca456-19a7-45ce-8586-0079495783ef",
+  "type": "searchset",
+  "link": [{
+    "relation": "self",
+    "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&amp;_count=50"
+  }, {
+    "relation": "next",
+    "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&amp;pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&amp;direction=NEXT"
+  }], ...
+}  
+</code></pre>
+
+<p>The possible <code>relation</code> values are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>self</code></td>
+      <td>Shows the URL of the current page of results.</td>
+    </tr>
+    <tr>
+      <td><code>next</code></td>
+      <td>Shows the URL of the immediate next page of results.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
+
+<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
+any origin.
+You can read the <a href="http://www.w3.org/TR/cors">CORS W3C Recommendation</a>, or
+<a href="http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">this intro</a> from the
+HTML 5 Security Guide.</p>
+
+<p>Here’s a sample request sent from the origin <code>http://example.com</code>:</p>
+
+<pre class="terminal">
+$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+Access-Control-Max-Age: 0
+Access-Control-Allow-Credentials: true
+</pre>
+
+<p>This is what a CORS preflight request looks like:</p>
+
+<pre class="terminal">
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+Access-Control-Max-Age: 0
+Access-Control-Allow-Credentials: true
+</pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../authorization/">Authorization</a></li>
+          <li><a href="conformance/">Conformance Metadata</a></li>
+          <li><a href="operation-definition/">OperationDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="care-provision/goal/">Goal</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="entities/">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="entities/contract/">Contract</a></li>
+          <li><a href="entities/person/">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="general-clinical/condition/">Condition</a></li>
+          <li><a href="general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="infrastructure/binary/">Binary</a></li>
+          <li><a href="infrastructure/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="individuals/patient/">Patient</a></li>
+          <li><a href="individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="medications/immunization/">Immunization</a></li>
+          <li><a href="medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

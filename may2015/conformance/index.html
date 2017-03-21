@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Conformance | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/conformance">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,621 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="conformance">Conformance</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#metadata" id="markdown-toc-metadata">Metadata</a>    <ul>
-      <li><a href="#response-open-endpoint" id="markdown-toc-response-open-endpoint">Response (Open Endpoint)</a></li>
-      <li><a href="#response-closed-endpoint" id="markdown-toc-response-closed-endpoint">Response (Closed Endpoint)</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="metadata">Metadata</h2>
-
-<p>Get the capabilities and configurations for this implementation and deployment of the FHIR<sup>®</sup> standard:</p>
-
-<pre><code>GET /metadata
-</code></pre>
-
-<h3 id="response-open-endpoint">Response (Open Endpoint)</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Conformance",
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
-  },
-  "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
-  "name": "Cerner Conformance Statement",
-  "publisher": "Cerner",
-  "description": "Describes capabilities of this server",
-  "status": "draft",
-  "date": "2015-10-09T19:12:45.663+00:00",
-  "fhirVersion": "0.5.0",
-  "acceptUnknown": false,
-  "format": [
-    "json"
-  ],
-  "rest": [
-    {
-      "mode": "server",
-      "documentation": "All the functionality defined in FHIR",
-      "security": {
-        "cors": true
-      },
-      "resource": [
-        {
-          "type": "AllergyIntolerance",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who the sensitivity is for"
-            },
-            {
-              "name": "status",
-              "type": "token",
-              "documentation": "The status of the allergy"
-            }
-          ]
-        },
-        {
-          "type": "Condition",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            },
-            {
-              "name": "clinicalstatus",
-              "type": "token",
-              "documentation": "The clinical status of the condition"
-            },
-            {
-              "name": "category",
-              "type": "token",
-              "documentation": "The category of the condition"
-            }
-          ]
-        },
-        {
-          "type": "DiagnosticReport",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The subject of the report if a patient"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject of the report"
-            }
-          ]
-        },
-        {
-          "type": "Encounter",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient present at the encounter"
-            }
-          ]
-        },
-        {
-          "type": "Immunization",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient for the vaccination record"
-            }
-          ]
-        },
-        {
-          "type": "MedicationPrescription",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The identity of a patient to list dispenses for"
-            },
-            {
-              "name": "status",
-              "type": "token",
-              "documentation": "The status of the prescription"
-            },
-            {
-              "name": "scheduledtiming-bounds-end",
-              "type": "date",
-              "documentation": "The period end of the prescription timing schedule. This parameter value should be prefixed by &lt;="
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        },
-        {
-          "type": "Observation",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The subject that the observation is about (if patient)"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject that the observation is about"
-            },
-            {
-              "name": "code",
-              "type": "token",
-              "documentation": "The type of observation"
-            },
-            {
-              "name": "date",
-              "type": "date",
-              "documentation": "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '&gt;' representing the earliest date and once by '&lt;' representing the latest date."
-            }
-          ]
-        },
-        {
-          "type": "Patient",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "_id",
-              "type": "token",
-              "documentation": "The logical resource id associated with the resource (must be supported by all servers)"
-            },
-            {
-              "name": "birthdate",
-              "type": "date",
-              "documentation": "The patient's date of birth"
-            },
-            {
-              "name": "identifier",
-              "type": "token",
-              "documentation": "A patient identifier"
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "documentation": "A portion of either family or given name of the patient"
-            },
-            {
-              "name": "telecom",
-              "type": "string",
-              "documentation": "The value in any kind of telecom details of the patient"
-            },
-            {
-              "name": "start",
-              "type": "number",
-              "documentation": "The offset to use when returning results"
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}</code></pre>
-
-<h3 id="response-closed-endpoint">Response (Closed Endpoint)</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Conformance",
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
-  },
-  "url": "https://fhir-ehr.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
-  "name": "Cerner Conformance Statement",
-  "publisher": "Cerner",
-  "description": "Describes capabilities of this server",
-  "status": "draft",
-  "date": "2015-10-09T19:11:41.476+00:00",
-  "fhirVersion": "0.5.0",
-  "acceptUnknown": false,
-  "format": [
-    "json"
-  ],
-  "rest": [
-    {
-      "mode": "server",
-      "documentation": "All the functionality defined in FHIR",
-      "security": {
-        "extension": [
-          {
-            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
-            "extension": [
-              {
-                "url": "token",
-                "valueUri": "https://authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/token"
-              },
-              {
-                "url": "authorize",
-                "valueUri": "https://authorization.sandboxcerner.com/realms/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/smart/authorize"
-              }
-            ]
-          }
-        ],
-        "cors": true,
-        "service": [
-          {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/vs/restful-security-service",
-                "code": "OAuth2"
-              }
-            ],
-            "text": "OAuth version 2 (see oauth.net)."
-          }
-        ],
-        "description": "OAuth2 plus SMART extensions"
-      },
-      "resource": [
-        {
-          "type": "AllergyIntolerance",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who the sensitivity is for"
-            },
-            {
-              "name": "status",
-              "type": "token",
-              "documentation": "The status of the allergy"
-            }
-          ]
-        },
-        {
-          "type": "Condition",
-          "interaction": [
-            {
-              "code": "create"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "updateCreate": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "Who has the condition?"
-            },
-            {
-              "name": "clinicalstatus",
-              "type": "token",
-              "documentation": "The clinical status of the condition"
-            },
-            {
-              "name": "category",
-              "type": "token",
-              "documentation": "The category of the condition"
-            }
-          ]
-        },
-        {
-          "type": "DiagnosticReport",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The subject of the report if a patient"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject of the report"
-            }
-          ]
-        },
-        {
-          "type": "DocumentReference",
-          "interaction": [
-            {
-              "code": "create"
-            }
-          ],
-          "updateCreate": false
-        },
-        {
-          "type": "Encounter",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient present at the encounter"
-            }
-          ]
-        },
-        {
-          "type": "Immunization",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The patient for the vaccination record"
-            }
-          ]
-        },
-        {
-          "type": "MedicationPrescription",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The identity of a patient to list dispenses for"
-            },
-            {
-              "name": "status",
-              "type": "token",
-              "documentation": "The status of the prescription"
-            },
-            {
-              "name": "scheduledtiming-bounds-end",
-              "type": "date",
-              "documentation": "The period end of the prescription timing schedule. This parameter value should be prefixed by &lt;="
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        },
-        {
-          "type": "Observation",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The subject that the observation is about (if patient)"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject that the observation is about"
-            },
-            {
-              "name": "code",
-              "type": "token",
-              "documentation": "The type of observation"
-            },
-            {
-              "name": "date",
-              "type": "date",
-              "documentation": "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '&gt;' representing the earliest date and once by '&lt;' representing the latest date."
-            }
-          ]
-        },
-        {
-          "type": "Patient",
-          "interaction": [
-            {
-              "code": "read"
-            },
-            {
-              "code": "search-type"
-            }
-          ],
-          "readHistory": false,
-          "searchParam": [
-            {
-              "name": "_id",
-              "type": "token",
-              "documentation": "The logical resource id associated with the resource (must be supported by all servers)"
-            },
-            {
-              "name": "birthdate",
-              "type": "date",
-              "documentation": "The patient's date of birth"
-            },
-            {
-              "name": "identifier",
-              "type": "token",
-              "documentation": "A patient identifier"
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "documentation": "A portion of either family or given name of the patient"
-            },
-            {
-              "name": "telecom",
-              "type": "string",
-              "documentation": "The value in any kind of telecom details of the patient"
-            },
-            {
-              "name": "start",
-              "type": "number",
-              "documentation": "The offset to use when returning results"
-            },
-            {
-              "name": "_count",
-              "type": "number",
-              "documentation": "The maximum number of results to return"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/conformance">/millennium/dstu2/conformance </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

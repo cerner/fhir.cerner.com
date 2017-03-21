@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>DiagnosticReport | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/diagnostic/diagnostic-report">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,290 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="diagnosticreport">DiagnosticReport</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for DiagnosticReports that meet supplied query parameters:</p>
-
-<pre><code>GET /DiagnosticReport?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This or subject</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The subject of the report if a patient. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>subject:Patient</code></td>
-      <td>This or patient</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The subject (Patient) of the report. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>date</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#date"><code>date</code></a></td>
-      <td>The time or time-period the observed values are related to (diagnosticDateTime). If only start date is provided, must be prefixed by ‘&gt;=’. If range is provided, start date should be prefixed by ‘&gt;=’ and end date should be prefixed by ‘&lt;’. EG: <code>date=&gt;=2014-01-01T12:00:00.000Z</code> <code>&amp;date=&lt;2015-01-01T12:00:00.000Z</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "c7d2abdd-0c20-433e-a9a9-53e655f79885",
-  "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 3,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/DiagnosticReport?patient=1316020"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "5153487",
-        "meta": {
-          "versionId": "3"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: XR Wrist Complete Left&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
-        },
-        "name": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "169074008"
-            }
-          ],
-          "text": "XR Wrist Complete Left"
-        },
-        "status": "final",
-        "issued": "2015-08-06T20:03:21.000Z",
-        "subject": {
-          "reference": "Patient/1316020"
-        },
-        "performer": {
-          "reference": "Practitioner/2048007",
-          "display": "Who, Doctor"
-        },
-        "encounter": {
-          "reference": "Encounter/2787906"
-        },
-        "serviceCategory": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
-        },
-        "diagnosticDateTime": "2015-08-06T20:03:09.000Z",
-        "conclusion": "Report   Signature Line:***** Preliminary Report *****   Transcribed by: DW      Reason for exam:4061979"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "3153886",
-        "meta": {
-          "versionId": "6"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: XR Abdomen Series w/ Chest 1 View | XR Abdomen AP&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
-        },
-        "name": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "169074008"
-            }
-          ],
-          "text": "XR Abdomen Series w/ Chest 1 View | XR Abdomen AP"
-        },
-        "status": "final",
-        "issued": "2014-04-07T22:19:18.000Z",
-        "subject": {
-          "reference": "Patient/1316020"
-        },
-        "performer": {
-          "reference": "Practitioner/1666007",
-          "display": "Song, River"
-        },
-        "encounter": {
-          "reference": "Encounter/1309912"
-        },
-        "serviceCategory": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
-        },
-        "diagnosticDateTime": "2014-02-03T20:31:32.000Z",
-        "conclusion": "AddendumAddendum   Signature Line:***** Final *****    Signed (Electronic Signature):  04/07/2014 5:19 pm Signed by:  Song, River     ReportGas pattern is unremarkable.  No free air is seen.  There is no hepatosplenomegaly.     IMPRESSION: No acute findings.   Signature Line:***** Final *****    Signed (Electronic Signature):  02/03/2014 2:31 pm Signed by:  Song, River"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "4141333",
-        "meta": {
-          "versionId": "2"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Category&lt;/b&gt;: Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: CT Abdomen w/ Contrast | CT Cardiac w/Contrast&lt;/p&gt;&lt;p&gt;&lt;b&gt;Performer&lt;/b&gt;: Who, Doctor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
-        },
-        "name": {
-          "coding": [
-            {
-              "system": "http://loinc.org/",
-              "code": "41806-1"
-            },
-            {
-              "system": "http://loinc.org/",
-              "code": "42136-2"
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "77477000"
-            }
-          ],
-          "text": "CT Abdomen w/ Contrast | CT Cardiac w/Contrast"
-        },
-        "status": "final",
-        "issued": "2014-12-08T18:23:05.000Z",
-        "subject": {
-          "reference": "Patient/1316020"
-        },
-        "performer": {
-          "reference": "Practitioner/1628008",
-          "display": "Who, Doctor"
-        },
-        "encounter": {
-          "reference": "Encounter/2571909"
-        },
-        "serviceCategory": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v2/0074",
-              "code": "RAD",
-              "display": "Radiology"
-            }
-          ],
-          "text": "Radiology"
-        },
-        "diagnosticDateTime": "2014-12-08T18:19:51.000Z",
-        "conclusion": "Reporttesting in non-prod   Signature Line:***** Preliminary Report *****   Transcribed by: DW"
-      }
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/diagnostic/diagnostic-report">/millennium/dstu2/diagnostic/diagnostic-report </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

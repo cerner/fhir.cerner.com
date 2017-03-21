@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>AllergyIntolerance | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/general-clinical/allergy-intolerance">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,211 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="allergyintolerance">AllergyIntolerance</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for AllergyIntolerances that meet supplied query parameters:</p>
-
-<pre><code>GET /AllergyIntolerance?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>Who the sensitivity is for. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>status</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>
-<a href="http://hl7.org/fhir/2015May/allergy-intolerance-status.html">Certainty of the allergy or intolerance</a>. Example: <code>confirmed</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "5ab17194-bb85-45fe-94d5-a02a2e8699ab",
-  "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 2,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/AllergyIntolerance?patient=2744010"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "AllergyIntolerance",
-        "id": "3643731",
-        "meta": {
-          "versionId": "3643735",
-          "lastUpdated": "2015-03-11T20:34:59.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Penicillin&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Refuted&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Medication&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Comment&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
-        },
-        "recordedDate": "2015-03-11T15:34:59.000",
-        "recorder": {
-          "reference": "Practitioner/3270007",
-          "display": "Who, Doctor"
-        },
-        "patient": {
-          "reference": "Patient/2744010",
-          "display": "RHEUM, TEST ONE"
-        },
-        "substance": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "373270004",
-              "display": "Penicillin -class of antibiotic- (substance)",
-              "primary": true
-            }
-          ],
-          "text": "Penicillin"
-        },
-        "status": "refuted",
-        "type": "immune",
-        "category": "medication"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "AllergyIntolerance",
-        "id": "3643739",
-        "meta": {
-          "versionId": "3643739",
-          "lastUpdated": "2015-03-11T20:36:08.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Comment&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
-        },
-        "recordedDate": "2015-03-11T15:36:08.000",
-        "recorder": {
-          "reference": "Practitioner/3270007",
-          "display": "Who, Doctor"
-        },
-        "patient": {
-          "reference": "Patient/2744010",
-          "display": "RHEUM, TEST ONE"
-        },
-        "substance": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "390952000",
-              "display": "Dust allergy (disorder)",
-              "primary": true
-            }
-          ],
-          "text": "Dust allergy"
-        },
-        "type": "immune",
-        "category": "environment"
-      }
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/general-clinical/allergy-intolerance">/millennium/dstu2/general-clinical/allergy-intolerance </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

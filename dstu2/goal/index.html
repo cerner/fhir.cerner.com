@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Goal | DSTU 2 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/care-provision/goal">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,456 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="goal">Goal</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="terminology-bindings">Terminology Bindings</h2>
-
-<table style="display: table; white-space: normal">
-  <tbody>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.category">Goal.category</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Codes for grouping and sorting goals.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/goal-category">Goal Category Codes</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Goals that meet supplied query parameters:</p>
-
-<pre><code>GET /Goal?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>_id</code></td>
-      <td>This, or one of <code>patient</code>, or <code>subject</code>.</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Goal. Example: <code>_id=24110557</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This, or one of <code>_id</code>, or <code>subject</code>.</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the goal. Example: <code>patient=1316024</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>subject:Patient</code></td>
-      <td>This, or one of <code>_id</code>, or <code>patient</code>.</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject who this goal is intended for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/1316020</code> or <code>subject:Patient=1316020</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>targetdate</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>A date or date range from which to find Goals. Example: <code>targetdate=ge2016-10-01&amp;targetdate=le2016-12-01</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Notes:</p>
-
-<ul>
-  <li>
-    <p>The <code>_id</code> parameter may not be provided at the same time as the <code>patient</code>, <code>subject</code>, or <code>targetdate</code> parameters.</p>
-  </li>
-  <li>
-    <p>The <code>targetDate</code> parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with <code>le</code>, <code>lt</code>, <code>ge</code>, or <code>gt</code> prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.</p>
-  </li>
-</ul>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by patient</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "d134ea4c-e069-498b-9810-d52eb4d5658e",
-  "type": "searchset",
-  "total": 5,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=1045932"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563861",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563861",
-        "meta": {
-          "versionId": "1485364022000",
-          "lastUpdated": "2017-01-25T17:07:02.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-18&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2017-01-27&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-18",
-        "targetDate": "2017-01-27",
-        "description": "A New Goal",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563857",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563857",
-        "meta": {
-          "versionId": "1485363963000",
-          "lastUpdated": "2017-01-25T17:06:03.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: asdf&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-20&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2017-01-30&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-20",
-        "targetDate": "2017-01-30",
-        "description": "asdf",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563949",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563949",
-        "meta": {
-          "versionId": "1485368838000",
-          "lastUpdated": "2017-01-25T18:27:18.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-25",
-        "targetDate": "2017-01-25",
-        "category": [
-          {
-            "text": "Behavioral"
-          }
-        ],
-        "description": "A New Goal",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563953",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563953",
-        "meta": {
-          "versionId": "1485369827000",
-          "lastUpdated": "2017-01-25T18:43:47.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A newer goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-25",
-        "targetDate": "2017-01-25",
-        "category": [
-          {
-            "text": "Safety"
-          },
-          {
-            "text": "Behavioral"
-          },
-          {
-            "text": "Community"
-          },
-          {
-            "text": "Physiologic"
-          },
-          {
-            "text": "Family"
-          }
-        ],
-        "description": "A newer goal",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563849",
-        "meta": {
-          "versionId": "1485363855000",
-          "lastUpdated": "2017-01-25T17:04:15.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-25",
-        "description": "A New Goal",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    }
-  ]
-}</code></pre>
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by id</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "5c7be2b1-79b7-4387-abde-df3ffc2247ba",
-  "type": "searchset",
-  "total": 1,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59563849",
-        "meta": {
-          "versionId": "1485363855000",
-          "lastUpdated": "2017-01-25T17:04:15.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
-        },
-        "startDate": "2017-01-25",
-        "description": "A New Goal",
-        "status": "in-progress",
-        "statusDate": "2017-01-25"
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Goal by its id:</p>
-
-<pre><code>GET /Goal/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Goal",
-  "id": "59563849",
-  "meta": {
-    "versionId": "1485363855000",
-    "lastUpdated": "2017-01-25T17:04:15.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
-  },
-  "subject": {
-    "reference": "Patient/1045932",
-    "display": "TEST, LISA"
-  },
-  "startDate": "2017-01-25",
-  "description": "A New Goal",
-  "status": "in-progress",
-  "statusDate": "2017-01-25"
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-          <h3><a href="../appointment/">Appointment</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../binary">Binary</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../care-plan/">CarePlan</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../contract/">Contract</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../device/">Device</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Goal</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-order/">MedicationOrder</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../person/">Person</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../procedure/">Procedure</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../related-person/">RelatedPerson</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/care-provision/goal">/millennium/dstu2/care-provision/goal </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

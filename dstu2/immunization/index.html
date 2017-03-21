@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Immunization | DSTU 2 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/medications/immunization">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,480 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="immunization">Immunization</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="terminology-bindings">Terminology Bindings</h2>
-
-<table style="display: table; white-space: normal">
-  <tbody>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode">Immunization.vaccineCode</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Identifies the vaccine substance administered.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/sid/cvx">CVX</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.site">Immunization.site</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The site at which the vaccine was administered.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.route">Immunization.route</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The path the administered medication takes to get into the body or into contact with the body.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://ncimeta.nci.nih.gov">NCI Metathesaurus</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation.reasonNotGiven">Immunization.explanation.reasonNotGiven</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The reason why a vaccine was not administered.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/v3/ActReason">v3 Code System ActReason</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Immunizations that meet supplied query parameters:</p>
-
-<pre><code>GET /Immunization?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient for the vaccination record. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>date</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the immunization administration date falls. Must be prefixed by ‘ge’ or ‘le’.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Notes:
- - The <code>date</code> parameter value should be prefixed once by ‘ge’ representing the earliest date, and once by ‘le’ representing the latest date. Examples: <code>date=ge2015-01-01&amp;date=le2016-01-01</code>, <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code></p>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "820593c3-6f15-417b-83bd-f55fdb1ac720",
-  "type": "searchset",
-  "total": 1,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization?patient=4478007"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M6753285",
-      "resource": {
-        "resourceType": "Immunization",
-        "id": "M6753285",
-        "meta": {
-          "versionId": "1",
-          "lastUpdated": "2016-09-09T09:32:39-05:00"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: tetanus toxoid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-09-09T07:29:00-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Fhir, Mann&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Gluteus Medius&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: IM&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "completed",
-        "date": "2016-09-09T07:29:00-05:00",
-        "vaccineCode": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "112",
-              "display": "tetanus toxoid, unspecified formulation",
-              "userSelected": false
-            }
-          ],
-          "text": "tetanus toxoid"
-        },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART, FRED RICK"
-        },
-        "wasNotGiven": false,
-        "reported": false,
-        "performer": {
-          "reference": "Practitioner/4474007",
-          "display": "Fhir, Mann"
-        },
-        "encounter": {
-          "reference": "Encounter/4135906"
-        },
-        "manufacturer": {
-          "display": "Johnson and Johnson/Merck Consumer"
-        },
-        "location": {
-          "reference": "Location/35646793",
-          "display": "A"
-        },
-        "lotNumber": "L0909",
-        "expirationDate": "2017-09-11",
-        "site": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "78333006",
-              "display": "structure of gluteus medius muscle (body structure)",
-              "userSelected": false
-            }
-          ],
-          "text": "Left Gluteus Medius"
-        },
-        "route": {
-          "text": "IM"
-        },
-        "doseQuantity": {
-          "value": 1,
-          "unit": "mL",
-          "system": "http://unitsofmeasure.org",
-          "code": "mL"
-        }
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Immunization by its id:</p>
-
-<pre><code>GET /Immunization/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Immunization",
-  "id": "M5251276",
-  "meta": {
-    "versionId": "1",
-    "lastUpdated": "2015-09-03T22:37:49-05:00"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: Lyme disease vaccine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-09-03T20:35:00-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Fhir, Enginne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Thigh&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: IM&lt;/p&gt;&lt;/div&gt;"
-  },
-  "status": "completed",
-  "date": "2015-09-03T20:35:00-05:00",
-  "vaccineCode": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/sid/cvx",
-        "code": "66",
-        "display": "Lyme disease",
-        "userSelected": false
-      }
-    ],
-    "text": "Lyme disease vaccine"
-  },
-  "patient": {
-    "reference": "Patient/1316024",
-    "display": "PETERS, TIMOTHY"
-  },
-  "wasNotGiven": false,
-  "reported": false,
-  "performer": {
-    "reference": "Practitioner/2270007",
-    "display": "Fhir, Enginne"
-  },
-  "encounter": {
-    "reference": "Encounter/1589927"
-  },
-  "manufacturer": {
-    "display": "3M Pharmaceuticals"
-  },
-  "location": {
-    "reference": "Location/4048296",
-    "display": "FPC"
-  },
-  "lotNumber": "23234",
-  "expirationDate": "2015-09-14",
-  "site": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "61396006",
-        "display": "structure of left thigh (body structure)",
-        "userSelected": false
-      }
-    ],
-    "text": "Left Thigh"
-  },
-  "route": {
-    "text": "IM"
-  },
-  "doseQuantity": {
-    "value": 1,
-    "unit": "mL",
-    "system": "http://unitsofmeasure.org",
-    "code": "mL"
-  }
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-          <h3><a href="../appointment/">Appointment</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../binary">Binary</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../care-plan/">CarePlan</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../contract/">Contract</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../device/">Device</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../goal/">Goal</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-order/">MedicationOrder</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../person/">Person</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../procedure/">Procedure</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../related-person/">RelatedPerson</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/medications/immunization">/millennium/dstu2/medications/immunization </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

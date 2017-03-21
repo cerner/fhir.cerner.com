@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Patient | DSTU 2 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/individuals/patient">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,684 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="patient">Patient</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
-      <li><a href="#patient-combines" id="markdown-toc-patient-combines">Patient Combines</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="overview">Overview</h2>
-<p>The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.</p>
-
-<p>The following fields are returned if valued:</p>
-
-<ul>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name" target="_blank">Patient name</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Patient id</a></li>
-  <li><a href="#extensions">Extensions including birth time, birth sex, ethnicity, and race</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier" target="_blank">Medical Record number (MRN)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom" target="_blank">Phone (email is not supported at this time)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact" target="_blank">Contact person (guardian, parent or emergency)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender" target="_blank">Gender (administrative)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language" target="_blank">Communication (preferred language)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus" target="_blank">Marital status</a></li>
-</ul>
-
-<h2 id="terminology-bindings">Terminology Bindings</h2>
-
-<table style="display: table; white-space: normal">
-  <tbody>
-    
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier.type">Patient.identifier.type</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/v2/0203">v2 Identifier Type</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact.relationship">Patient.contact.relationship</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The nature of the relationship between a patient and a contact person for that patient.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/patient-contact-relationship">PatientContactRelationship</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-<h2 id="extensions">Extensions</h2>
-<ul>
-  <li><a href="http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html">Time of day of birth</a></li>
-  <li><a href="http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html">US Core Ethnicity</a></li>
-  <li><a href="http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html">US Core Patient Birth Sex</a></li>
-  <li><a href="http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html">US Core Race</a></li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Patients that meet supplied query parameters:</p>
-
-<pre><code>GET /Patient?:parameters
-</code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> modifier element is not supported and will not be returned.</li>
-  <li>If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.</li>
-</ul>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>_id</code></td>
-      <td>This, or any other required search parameter</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
-    </tr>
-    <tr>
-      <td><code>identifier</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>A patient identifier.  Example: <code>urn:oid:1.1.1.1.1.1|1022228</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>name</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>The start of either family or given name of the patient. Example: <code>Pete</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>family</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>The start of the family name of the patient. Example: <code>Adam</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>given</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>The start of the given name of the patient. Example: <code>Tim</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>birthdate</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The patient’s date of birth.  Example: <code>1961-01-16</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>phone</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The patient’s phone number. Example: <code>1111111111</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>email</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The patient’s email address. Example: <code>example@example.com</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>address-postalcode</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>The postal code in the address details of the patient. Example: <code>11111</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>gender</code></td>
-      <td>No</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
-      <td>The gender of the patient. Example: <code>male</code>
-</td>
-    </tr>
-    <tr>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
-      <td>No</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Notes:</p>
-
-<ul>
-  <li>Either the <code>_id</code>, or a combination of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters must be provided.</li>
-  <li>The <code>gender</code> parameter may only be provided if at least one of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters is provided.</li>
-  <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the ‘:exact’ modifier and will search for current names only.</li>
-  <li>The <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, <code>address-postalcode</code>, or <code>gender</code> parameters may be provided exactly once and may have only a single value.</li>
-  <li>The <code>birthdate</code> parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes ‘le’ and ‘ge’</li>
-  <li>The <code>birthdate</code> parameter may be provided once with the following prefixes: ‘ge’, ‘le’, ‘gt’, ‘lt’, ‘eq’</li>
-</ul>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "567efe76-2573-46be-85dc-8ea698dfa9d0",
-  "type": "searchset",
-  "total": 1,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009&amp;_count=20"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009",
-      "resource": {
-        "resourceType": "Patient",
-        "id": "4342009",
-        "meta": {
-          "versionId": "2",
-          "lastUpdated": "2016-06-22T20:51:35.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-            "valueDateTime": "1980-08-11T12:33:00.000-05:00"
-          },
-          {
-            "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
-            "valueCode": "F"
-          },
-          {
-            "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "http://hl7.org/fhir/v3/Race",
-                  "code": "2106-3",
-                  "display": "White",
-                  "userSelected": false
-                }
-              },
-              {
-                "url": "text",
-                "valueString": "White"
-              }
-            ]
-          },
-          {
-            "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-ethnicity",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "http://hl7.org/fhir/v3/Ethnicity",
-                  "code": "2186-5",
-                  "display": "Not Hispanic or Latino",
-                  "userSelected": false
-                }
-              },
-              {
-                "url": "text",
-                "valueString": "Not Hispanic or Latino"
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "MR",
-                  "display": "Medical record number",
-                  "userSelected": false
-                }
-              ],
-              "text": "MRN"
-            },
-            "system": "urn:oid:1.1.1.1.1.1",
-            "value": "10002701",
-            "period": {
-              "start": "2016-06-22T20:43:05.000Z"
-            }
-          }
-        ],
-        "active": true,
-        "name": [
-          {
-            "use": "official",
-            "text": "Smart, Nancy",
-            "family": [
-              "Smart"
-            ],
-            "given": [
-              "Nancy"
-            ],
-            "period": {
-              "start": "2016-06-22T20:43:05.000Z"
-            }
-          }
-        ],
-        "gender": "female",
-        "birthDate": "1980-08-11",
-        "maritalStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/v3/MaritalStatus",
-              "code": "M",
-              "display": "Married",
-              "userSelected": false
-            }
-          ],
-          "text": "Married"
-        },
-        "communication": [
-          {
-            "language": {
-              "coding": [
-                {
-                  "system": "urn:ietf:bcp:47",
-                  "code": "en",
-                  "display": "English",
-                  "userSelected": false
-                }
-              ],
-              "text": "English"
-            },
-            "preferred": true
-          }
-        ],
-        "careProvider": [
-          {
-            "reference": "Practitioner/1912007",
-            "display": "Forrest, Fhir"
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Patient by its id:</p>
-
-<pre><code>GET /Patient/:id
-</code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> modifier element is not supported and will not be returned.</li>
-</ul>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Patient",
-  "id": "4342008",
-  "meta": {
-    "versionId": "2",
-    "lastUpdated": "2016-06-22T20:27:38.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1947-03-16&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-  },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-      "valueDateTime": "1947-03-16T13:36:00.000-06:00"
-    },
-    {
-      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
-      "valueCode": "F"
-    },
-    {
-      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
-      "extension": [
-        {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/v3/Race",
-            "code": "2054-5",
-            "display": "Black or African American",
-            "userSelected": false
-          }
-        },
-        {
-          "url": "text",
-          "valueString": "Black or African American"
-        }
-      ]
-    },
-    {
-      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-ethnicity",
-      "extension": [
-        {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/v3/Ethnicity",
-            "code": "2135-2",
-            "display": "Hispanic or Latino",
-            "userSelected": false
-          }
-        },
-        {
-          "url": "text",
-          "valueString": "Hispanic or Latino"
-        }
-      ]
-    }
-  ],
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "MR",
-            "display": "Medical record number",
-            "userSelected": false
-          }
-        ],
-        "text": "MRN"
-      },
-      "system": "urn:oid:1.1.1.1.1.1",
-      "value": "10002700",
-      "period": {
-        "start": "2016-06-22T20:25:56.000Z"
-      }
-    }
-  ],
-  "active": true,
-  "name": [
-    {
-      "use": "official",
-      "text": "Smart, Wilma",
-      "family": [
-        "Smart"
-      ],
-      "given": [
-        "Wilma"
-      ],
-      "period": {
-        "start": "2016-06-22T20:25:58.000Z"
-      }
-    }
-  ],
-  "gender": "female",
-  "birthDate": "1947-03-16",
-  "communication": [
-    {
-      "language": {
-        "coding": [
-          {
-            "system": "urn:ietf:bcp:47",
-            "code": "en",
-            "display": "English",
-            "userSelected": false
-          }
-        ],
-        "text": "English"
-      },
-      "preferred": true
-    }
-  ],
-  "careProvider": [
-    {
-      "reference": "Practitioner/1912007",
-      "display": "Forrest, Fhir"
-    }
-  ]
-}</code></pre>
-
-<h3 id="patient-combines">Patient Combines</h3>
-
-<p>Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
-as a “patient combine”. If necessary, this merging can later be undone by performing a “patient uncombine”. When the requested patient record has been combined into another
-record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
-the entries directly by id. They will not be returned when searching with other parameters.</p>
-
-<p>The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.</p>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Patient",
-  "id": "4860007",
-  "meta": {
-    "versionId": "0"
-  },
-  "active": false,
-  "link": [
-    {
-      "other": {
-        "reference": "Patient/4342008"
-      },
-      "type": "replace"
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-          <h3><a href="../appointment/">Appointment</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../binary">Binary</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../care-plan/">CarePlan</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../contract/">Contract</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../device/">Device</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../goal/">Goal</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-order/">MedicationOrder</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Patient</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../person/">Person</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../procedure/">Procedure</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../related-person/">RelatedPerson</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/individuals/patient">/millennium/dstu2/individuals/patient </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

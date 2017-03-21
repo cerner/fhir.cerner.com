@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Conformance | DSTU 2 API</title>
+  
+  <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Millennium</h2>
+      <ul>
+      
+      <li><a href="../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="conformance">Conformance</h1>
+
+<ul id="markdown-toc">
+  <li>
+<a href="#metadata" id="markdown-toc-metadata">Metadata</a>    <ul>
+      <li><a href="#response-open-endpoint" id="markdown-toc-response-open-endpoint">Response (Open Endpoint)</a></li>
+      <li><a href="#response-closed-endpoint" id="markdown-toc-response-closed-endpoint">Response (Closed Endpoint)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="metadata">Metadata</h2>
+
+<p>Get the capabilities and configurations of this implementation and deployment of the FHIR<sup>®</sup> standard:</p>
+
+<pre><code>GET /metadata
+</code></pre>
+
+<h3 id="response-open-endpoint">Response (Open Endpoint)</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Conformance",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
+  },
+  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+  "name": "Cerner Conformance Statement",
+  "status": "draft",
+  "publisher": "Cerner",
+  "date": "2017-02-28",
+  "description": "Describes capabilities of this server",
+  "kind": "instance",
+  "fhirVersion": "1.0.2",
+  "acceptUnknown": "no",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "All the functionality defined in FHIR",
+      "security": {
+        "cors": true
+      },
+      "resource": [
+        {
+          "type": "Conformance",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "AllergyIntolerance",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "Certainty of the allergy or intolerance"
+            }
+          ]
+        },
+        {
+          "type": "Binary",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "CarePlan",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "Time period plan covers. The prefixes 'ge' and 'le' are supported for this parameter. Date may be provided once to imply a date range or twice to specify a range. When two dates are provided they must create a closed range."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return in a page."
+            }
+          ]
+        },
+        {
+          "type": "Condition",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
+            },
+            {
+              "name": "clinicalstatus",
+              "type": "token",
+              "documentation": "A list of desired clinical statuses of the condition"
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "The category of the condition"
+            }
+          ]
+        },
+        {
+          "type": "Device",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the device affixed. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Device ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "DiagnosticReport",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The subject of the report if a patient. It is a required field if subject field is not given"
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject of the report. It is a required field if patient field is not given"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The start date after which or date range in which the report occurs. If only start date is provided, must be prefixed by 'ge'. If range is provided, this parameter value should be present twice, prefixed once by 'ge' representing the earliest date and once by 'lt' representing the latest date"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient the document is about"
+            },
+            {
+              "name": "type",
+              "type": "token",
+              "documentation": "The type of the document"
+            }
+          ]
+        },
+        {
+          "type": "Encounter",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient present at the encounter. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Encounter ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "Goal",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list goals for. It is a required field if _id or subject field are not given."
+            },
+            {
+              "name": "targetdate",
+              "type": "date",
+              "documentation": "A date or date range from which to find Goals. The 'targetDate' parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with 'le, 'lt', 'ge', or 'gt' prefixes to search for goals within specific range. The date and prefix pairs must create a closed range."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Goal ids separated by commas. It is a required field if patient or subject field are not given."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject for whom the goal is established. Must be a Patient. It is a required field if patient or id fields are not provided."
+            }
+          ]
+        },
+        {
+          "type": "Immunization",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient for the vaccination record. It is a required field if _id is not given"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The date range into which the immunization falls. It is an optional field. This parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Immunization ids separated by commas. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "MedicationOrder",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list medication orders for. It is a required field"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "One or more medication order status values separated by commas."
+            },
+            {
+              "name": "-timing-boundsPeriod",
+              "type": "date",
+              "documentation": "The date-time which should fall within the period the medication should be given to the patient. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
+            }
+          ]
+        },
+        {
+          "type": "MedicationStatement",
+          "interaction": [
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list statements for. It is a required field."
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "One or more medication statement status values separated by commas."
+            },
+            {
+              "name": "effectivedate",
+              "type": "date",
+              "documentation": "The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Medication Statement ids separated by commas. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "Observation",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The subject that the observation is about (if patient). It is a required field if the subject field is not given"
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject that the observation is about. It is a required field if the patient field is not given"
+            },
+            {
+              "name": "code",
+              "type": "token",
+              "documentation": "One or more observation types separated by commas."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The date range into which the observation falls. This parameter value should be present twice, prefixed once by 'gt' representing the earliest date and once by 'lt' representing the latest date"
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return in a page."
+            }
+          ]
+        },
+        {
+          "type": "OperationDefinition",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Patient ids. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A patient identifier. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "documentation": "A portion of either family or given name of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "birthdate",
+              "type": "date",
+              "documentation": "The patient's date of birth. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "telecom",
+              "type": "token",
+              "documentation": "The value in any kind of telecom details of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return. Not honoured when '_id' or 'identifier' are set."
+            }
+          ]
+        },
+        {
+          "type": "Person",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Person ids. It is a required field if no identifier is given."
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A person identifier. It is a required field if no _id field is given"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "autogen-ccd-if",
+          "definition": {
+            "reference": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
+            "display": "Generate Continuity of Care Document (CCD)"
+          }
+        },
+        {
+          "name": "docref",
+          "definition": {
+            "reference": "http://fhir.org/guides/argonaut/OperationDefinition/docref",
+            "display": "Argonaut Get DocumentReferences"
+          }
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h3 id="response-closed-endpoint">Response (Closed Endpoint)</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Conformance",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
+  },
+  "url": "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+  "name": "Cerner Conformance Statement",
+  "status": "draft",
+  "publisher": "Cerner",
+  "date": "2017-02-28",
+  "description": "Describes capabilities of this server",
+  "kind": "instance",
+  "fhirVersion": "1.0.2",
+  "acceptUnknown": "no",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "All the functionality defined in FHIR",
+      "security": {
+        "extension": [
+          {
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
+              }
+            ]
+          }
+        ],
+        "cors": true,
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/restful-security-service",
+                "code": "SMART-on-FHIR"
+              }
+            ],
+            "text": "OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/)."
+          }
+        ],
+        "description": "OAuth2 plus SMART extensions"
+      },
+      "resource": [
+        {
+          "type": "Conformance",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "AllergyIntolerance",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "updateCreate": false,
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "Certainty of the allergy or intolerance"
+            }
+          ]
+        },
+        {
+          "type": "Binary",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "CarePlan",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "Time period plan covers. The prefixes 'ge' and 'le' are supported for this parameter. Date may be provided once to imply a date range or twice to specify a range. When two dates are provided they must create a closed range."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return in a page."
+            }
+          ]
+        },
+        {
+          "type": "Condition",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "update"
+            }
+          ],
+          "updateCreate": false,
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+            },
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
+            },
+            {
+              "name": "clinicalstatus",
+              "type": "token",
+              "documentation": "A list of desired clinical statuses of the condition"
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "The category of the condition"
+            }
+          ]
+        },
+        {
+          "type": "Device",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient who has the device affixed. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Device ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "DiagnosticReport",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The subject of the report if a patient. It is a required field if subject field is not given"
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject of the report. It is a required field if patient field is not given"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The start date after which or date range in which the report occurs. If only start date is provided, must be prefixed by 'ge'. If range is provided, this parameter value should be present twice, prefixed once by 'ge' representing the earliest date and once by 'lt' representing the latest date"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient the document is about"
+            },
+            {
+              "name": "type",
+              "type": "token",
+              "documentation": "The type of the document"
+            }
+          ]
+        },
+        {
+          "type": "Encounter",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient present at the encounter. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Encounter ids. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "Goal",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list goals for. It is a required field if _id or subject field are not given."
+            },
+            {
+              "name": "targetdate",
+              "type": "date",
+              "documentation": "A date or date range from which to find Goals. The 'targetDate' parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with 'le, 'lt', 'ge', or 'gt' prefixes to search for goals within specific range. The date and prefix pairs must create a closed range."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Goal ids separated by commas. It is a required field if patient or subject field are not given."
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject for whom the goal is established. Must be a Patient. It is a required field if patient or id fields are not provided."
+            }
+          ]
+        },
+        {
+          "type": "Immunization",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The patient for the vaccination record. It is a required field if _id is not given"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The date range into which the immunization falls. It is an optional field. This parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Immunization ids separated by commas. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "MedicationOrder",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list medication orders for. It is a required field"
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "One or more medication order status values separated by commas."
+            },
+            {
+              "name": "-timing-boundsPeriod",
+              "type": "date",
+              "documentation": "The date-time which should fall within the period the medication should be given to the patient. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
+            }
+          ]
+        },
+        {
+          "type": "MedicationStatement",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            },
+            {
+              "code": "read"
+            }
+          ],
+          "updateCreate": false,
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The identity of a patient to list statements for. It is a required field."
+            },
+            {
+              "name": "status",
+              "type": "token",
+              "documentation": "One or more medication statement status values separated by commas."
+            },
+            {
+              "name": "effectivedate",
+              "type": "date",
+              "documentation": "The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "One or more Medication Statement ids separated by commas. It is a required field if patient field is not given"
+            }
+          ]
+        },
+        {
+          "type": "Observation",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patient",
+              "type": "reference",
+              "documentation": "The subject that the observation is about (if patient). It is a required field if the subject field is not given"
+            },
+            {
+              "name": "subject",
+              "type": "reference",
+              "documentation": "The subject that the observation is about. It is a required field if the patient field is not given"
+            },
+            {
+              "name": "code",
+              "type": "token",
+              "documentation": "One or more observation types separated by commas."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "The date range into which the observation falls. This parameter value should be present twice, prefixed once by 'gt' representing the earliest date and once by 'lt' representing the latest date"
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return in a page."
+            }
+          ]
+        },
+        {
+          "type": "OperationDefinition",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Patient ids. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A patient identifier. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "documentation": "A portion of either family or given name of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "birthdate",
+              "type": "date",
+              "documentation": "The patient's date of birth. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "telecom",
+              "type": "token",
+              "documentation": "The value in any kind of telecom details of the patient. Either the '_id' parameter or 'identifier' parameter or any of combination of 'name', 'birthdate' and 'telecom' parameters must be set."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to return. Not honoured when '_id' or 'identifier' are set."
+            }
+          ]
+        },
+        {
+          "type": "Person",
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Person ids. It is a required field if no identifier is given."
+            },
+            {
+              "name": "identifier",
+              "type": "token",
+              "documentation": "A person identifier. It is a required field if no _id field is given"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "autogen-ccd-if",
+          "definition": {
+            "reference": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
+            "display": "Generate Continuity of Care Document (CCD)"
+          }
+        },
+        {
+          "name": "docref",
+          "definition": {
+            "reference": "http://fhir.org/guides/argonaut/OperationDefinition/docref",
+            "display": "Argonaut Get DocumentReferences"
+          }
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../../authorization/">Authorization</a></li>
+          <li><a href="./">Conformance Metadata</a></li>
+          <li><a href="../operation-definition/">OperationDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../care-provision/goal/">Goal</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../entities/">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../entities/contract/">Contract</a></li>
+          <li><a href="../entities/person/">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../general-clinical/condition/">Condition</a></li>
+          <li><a href="../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../infrastructure/binary/">Binary</a></li>
+          <li><a href="../infrastructure/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../individuals/patient/">Patient</a></li>
+          <li><a href="../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../medications/immunization/">Immunization</a></li>
+          <li><a href="../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Condition | MAY 2015 BALLOT API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/general-clinical/condition">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="may2015_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../../dstu2/" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,347 +61,43 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Ballot (0.5.0)</a></h2>
+    <h1>
+      The page you're attempting to access is a reference to a deprecated version of our API. You will be redirected to
+      the same page in the <a href="../../millennium/dstu2/">currently supported</a> version shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="condition">Condition</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="search">Search</h2>
-
-<p>Search for Conditions that meet supplied query parameters:</p>
-
-<pre><code>GET /Condition?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This or subject</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the condition. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>subject</code></td>
-      <td>This or patient</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the condition. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>clinicalstatus</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>The <a href="http://hl7.org/fhir/2015May/condition-status.html">clinical status</a> of the condition. Example: <code>confirmed</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>category</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/2015May/search.html#token"><code>token</code></a></td>
-      <td>The <a href="http://hl7.org/fhir/2015May/valueset-condition-category.html">category</a> of the condition. Note: Millennium currently categorizes as diagnosis or nothing. Example: <code>diagnosis</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "d457d75f-4d8d-439e-9aca-2d8294457652",
-  "type": "searchset",
-  "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
-  "total": 5,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Condition?patient=1316024"
-    }
-  ],
-  "entry": [
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "d21591516",
-        "meta": {
-          "versionId": "21591516",
-          "lastUpdated": "2013-02-08T18:03:09.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Diagnosis&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Absence seizures, 345.0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Severity&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2009-05-04&lt;/p&gt;&lt;/div&gt;"
-        },
-        "patient": {
-          "reference": "Patient/1316024",
-          "display": "Song, River"
-        },
-        "encounter": {
-          "reference": "Encounter/1309918"
-        },
-        "asserter": {
-          "reference": "Practitioner/1418008",
-          "display": "Howser, Doogie"
-        },
-        "dateAsserted": "2013-02-08",
-        "code": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/sid/icd-9",
-              "code": "345.0",
-              "display": "Generalized nonconvulsive epilepsy",
-              "primary": true
-            }
-          ],
-          "text": "Absence seizures"
-        },
-        "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/condition-category",
-              "code": "diagnosis",
-              "display": "Diagnosis"
-            }
-          ],
-          "text": "Diagnosis"
-        },
-        "clinicalStatus": "confirmed",
-        "onsetDateTime": "2009-05-04"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "p1147855",
-        "meta": {
-          "versionId": "1209866",
-          "lastUpdated": "2013-04-26T14:45:17.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Lumbar, 264082005&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Severity&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Abatement&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
-        },
-        "patient": {
-          "reference": "Patient/1316024",
-          "display": "Song, River"
-        },
-        "asserter": {
-          "reference": "Practitioner/605923",
-          "display": "Smith, John"
-        },
-        "dateAsserted": "2012-08-28",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "264082005",
-              "display": "Lumbar (qualifier value)",
-              "primary": true
-            }
-          ],
-          "text": "Lumbar"
-        },
-        "clinicalStatus": "entered-in-error"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "p1251556",
-        "meta": {
-          "versionId": "1251556",
-          "lastUpdated": "2015-09-30T18:07:26.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Red eye, 75705005&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Severity&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Abatement&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
-        },
-        "patient": {
-          "reference": "Patient/1316024",
-          "display": "Song, River"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "75705005",
-              "display": "Red eye (disorder)",
-              "primary": true
-            }
-          ],
-          "text": "Red eye"
-        },
-        "clinicalStatus": "unknown"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "p1242256",
-        "meta": {
-          "versionId": "1242256",
-          "lastUpdated": "2014-08-07T20:48:06.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Heartwater, 73896008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Severity&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Abatement&lt;/b&gt;: 2014-08-07&lt;/p&gt;&lt;/div&gt;"
-        },
-        "patient": {
-          "reference": "Patient/1316024",
-          "display": "Song, River"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "73896008",
-              "display": "Heartwater (disorder)",
-              "primary": true
-            }
-          ],
-          "text": "Heartwater"
-        },
-        "clinicalStatus": "unknown",
-        "onsetDateTime": "2008",
-        "abatementDate": "2014-08-07"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "d21786652",
-        "meta": {
-          "versionId": "21786656",
-          "lastUpdated": "2013-11-21T19:41:14.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Diagnosis&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Strep throat, 43878008&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Severity&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2013-11-21&lt;/p&gt;&lt;/div&gt;"
-        },
-        "patient": {
-          "reference": "Patient/1316024",
-          "display": "Song, River"
-        },
-        "encounter": {
-          "reference": "Encounter/1591906"
-        },
-        "asserter": {
-          "reference": "Practitioner/1348007",
-          "display": "Who, Doctor"
-        },
-        "dateAsserted": "2013-11-21",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "43878008",
-              "display": "Streptococcal sore throat (disorder)",
-              "primary": true
-            }
-          ],
-          "text": "Strep throat"
-        },
-        "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/condition-category",
-              "code": "diagnosis",
-              "display": "Diagnosis"
-            }
-          ],
-          "text": "Diagnosis"
-        },
-        "clinicalStatus": "confirmed",
-        "onsetDateTime": "2013-11-21",
-        "notes": "11/21/13 1:41 PM - Who, Doctor\r\nTest #2\r\n\r\n11/21/13 1:40 PM - Who, Doctor\r\nTest"
-      }
-    }
-  ]
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-prescription/">MedicationPrescription</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/general-clinical/condition">/millennium/dstu2/general-clinical/condition </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

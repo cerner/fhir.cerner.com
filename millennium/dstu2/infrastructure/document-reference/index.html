@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>DocumentReference | DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="../../../../">Cerner Corporation</a>
+
+      <nav id="navigation">
+        <ul>
+          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
+          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
+        </ul>  
+      </nav>
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Millennium</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="documentreference">DocumentReference</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
+      <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Precise type of clinical document.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://loinc.org">LOINC</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      
+                        <li>34840-9 - Rheumatology Note</li>
+                      
+                        <li>68608-9 - Summary Note</li>
+                      
+                      </ul>
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  </tbody>
+</table>
+
+<h2 id="create">Create</h2>
+
+<p>Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.</p>
+
+<pre><code>POST /DocumentReference
+</code></pre>
+
+<h3 id="headers">Headers</h3>
+
+<p>To successfully POST a document, the following headers must be provided. Document creation is supported from the closed endpoint only.</p>
+
+<pre><code>Content-Type: application/json+fhir
+Authorization: &lt;OAuth2 Bearer Token&gt;
+</code></pre>
+
+<h3 id="body-fields">Body fields</h3>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The modifier elements <a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>, <a href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> and <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> are not supported and will be rejected if
+present.</li>
+  <li>Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>.</li>
+</ul>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>DocumentReference</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be DocumentReference</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-subject">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who or what is the subject of the document.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "reference": "Patient/1234"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-type">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type"><code>type</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Kind of document.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "coding": [
+    {
+      "system": "http://loinc.org",
+      "code": "34840-9"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The type must include a loinc coding.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-author">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.author"><code>author</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Who and/or what authored the document</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "author": [
+    {
+      "reference": "Practitioner/2150097"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If author is not provided, the author will be determined based on the access token.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-indexed">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed"><code>indexed</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#instant"><code>instant</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When this document reference was created</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "indexed": "2015-05-16T091014Z"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The status of this document reference</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "current"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Currently support <code>current</code> only</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-docStatus">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus"><code>docStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The status of underlying document</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "final"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Currently support <code>final</code> and <code>preliminary</code>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-description">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description"><code>description</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Human-readable description (title)</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "description": "Rheumatology Note"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-content">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content"><code>content</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The referenced document</li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-content.attachment">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment"><code>content.attachment</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Attachment"><code>Attachment</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An array of document contents. Must contain exactly 1 attachment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/xhtml+xml;charset=utf-8",
+        "data": "snipped"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-content.attachment.contentType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType"><code>content.attachment.contentType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Mime type of the content, with charset etc.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/xhtml+xml;charset=utf-8"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>contentType must be 'application/xhtml+xml;charset=utf-8'</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-content.attachment.data">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.data"><code>content.attachment.data</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Data inline, base64 encoded XHTML.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "content": [
+    {
+      "attachment": {
+        "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>You can validate your document using any available XHTML validator like the one linked <a href="https://html5.validator.nu/">here</a>. Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be removed but the text within will remain.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-context">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context"><code>context</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical context in which the document was prepared</li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-context.encounter">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter"><code>context.encounter</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/encounter.html"><code>Encounter</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Context of the document content</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "context": {
+    "encounter": {
+      "reference": "Encounter/4208053"
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-context.period">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.period"><code>context.period</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>When the documented service was performed.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "context": {
+    "period" : {
+      "end": "2015-08-20T09:10:14Z"
+    }
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If provided, the service time must be set to <code>context.period.end</code>. If not provided, the document will be stored with the indexed dateTime.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h4 id="example-body">Example Body</h4>
+
+<pre><code>{
+  "resourceType": "DocumentReference",
+  "subject": {
+    "reference": "Patient/53663272"
+  },
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34840-9"
+      }
+    ]
+  },
+  "author": [
+    {
+      "reference": "Practitioner/21500981"
+    }
+  ],
+  "indexed": "2015-11-18T18:00:00Z",
+  "status": "current",
+  "docStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/composition-status",
+        "code": "final"
+      }
+    ]
+  },
+  "description": "Rheumatology Note",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/xhtml+xml;charset=utf-8",
+        "data": "&lt;snipped for brevity&gt;"
+      }
+    }
+  ],
+  "context": {
+    "encounter": {
+      "reference": "Encounter/4208059"
+    },
+    "period": {
+      "end": "2015-08-20T09:10:14Z"
+    }
+  }
+}
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+   Connection → Keep-Alive
+   Content-Encoding → gzip
+   Content-Length → 20
+   Content-Type → text/html; charset=UTF-8
+   Date → Wed, 06 Jan 2016 18:09:18 GMT
+   Keep-Alive → timeout=15, max=100
+   Status → 201 Created
+   access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
+   access-control-allow-origin → *
+   access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+   access-control-max-age → 0
+   cache-control → no-cache
+   location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/5789254
+   server-response-time → 5497.564885
+   strict-transport-security → max-age=631152000
+   vary → Origin,User-Agent,Accept-Encoding
+   x-content-type-options → nosniff
+   x-frame-options → SAMEORIGIN
+   x-request-id → 9c7510c0-0bb5-4148-b37e-51a774c4091b
+   x-runtime → 5.497541
+   x-xss-protection → 1; mode=block
+</pre>
+
+<h2 id="operation-docref">Operation: docref</h2>
+
+<p>Argonaut operation for querying DocumentReferences for the supplied parameters:</p>
+
+<pre><code>GET /DocumentReference/$docref?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">DocumentReference.relatesTo</a> modifier element is not supported and will not be returned.</li>
+</ul>
+
+<h3 id="terminology-bindings-1">Terminology Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Precise type of clinical document.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://loinc.org">LOINC</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      
+                        <li>34133-9 - Summary of episode note</li>
+                      
+                      </ul>
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format">DocumentReference.content.format</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Document format codes.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/formatcodes">DocumentReference Format Code Set</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to the patient whose document references are required. Example: <code>14067892</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>type</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The document reference type, can be a list of comma separated values. Example: <code>http://loinc.org|34133-9</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: <code>2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>end</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: <code>2016-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>type</code> parameter must include both a system and a code. (e.g. <code>&amp;type=http://loinc.org|34133-9</code>)</li>
+  <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
+</ul>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK
+GET: [...]/DocumentReference/$docref?patient=1316035&amp;type=http://loinc.org|34133-9</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "5d1a7f94-8ee4-45aa-bbe6-1dd087fba40c",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&amp;type=http%3A%2F%2Floinc.org%7C34133-9"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/e6e34022-942c-42b9-a1e3-5452bb274627",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "e6e34022-942c-42b9-a1e3-5452bb274627",
+        "subject": {
+          "reference": "Patient/1316035"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of episode note"
+            }
+          ],
+          "text": "Summary of episode note"
+        },
+        "indexed": "2017-01-03T11:08:02-06:00",
+        "status": "current",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035"
+            },
+            "format": [
+              {
+                "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+                "code": "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
+                "display": "For documents following C-CDA constraints using a structured body."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../conformance/">Conformance Metadata</a></li>
+          <li><a href="../../operation-definition/">OperationDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/contract/">Contract</a></li>
+          <li><a href="../../entities/person/">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../binary/">Binary</a></li>
+          <li><a href="./">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

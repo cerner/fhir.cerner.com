@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>RelatedPerson | DSTU 2 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/individuals/related-person">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,492 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="relatedperson">RelatedPerson</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="terminology-bindings">Terminology Bindings</h2>
-
-<table style="display: table; white-space: normal">
-  <tbody>
-    
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson-definitions.html#RelatedPerson.identifier">RelatedPerson.identifier.type</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-                      <a target="_blank" href="http://hl7.org/fhir/v2/0203">v2 Identifier Type</a>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-
-<h2 id="search">Search</h2>
-
-<p>Search for RelatedPersons that meet supplied query parameters:</p>
-
-<pre><code>GET /RelatedPerson?:parameters
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Required?</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>_id</code></td>
-      <td>No, if populated all other parameters are ignored</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
-    </tr>
-    <tr>
-      <td><code>identifier</code></td>
-      <td>Yes, if neither <code>_id</code> nor <code>patient</code> are set</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>A RelatedPerson identifier.</td>
-    </tr>
-    <tr>
-      <td><code>patient</code></td>
-      <td>Yes, if neither <code>_id</code> nor <code>identifier</code> are set</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A reference to a patient related which the RelatedPerson is associated. Example: <code>14067892</code>
-</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Notes:</p>
-
-<ul>
-  <li>
-<code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
-</li>
-</ul>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK
-GET: [...]/RelatedPerson?identifier=urn:oid:2.16.840.1.113883.3.13.6|urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "be20eb42-4ce3-47bd-a657-a9de36603300",
-  "type": "searchset",
-  "total": 1,
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/5796399",
-      "resource": {
-        "resourceType": "RelatedPerson",
-        "id": "5796399",
-        "meta": {
-          "versionId": "30"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
-                }
-              ],
-              "text": "Federated Person Principal"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
-            "period": {
-              "start": "2016-11-01T10:00:00.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
-                }
-              ],
-              "text": "Federated Person Principal"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
-            "period": {
-              "start": "2016-11-01T10:00:00.000Z"
-            }
-          }
-        ],
-        "patient": {
-          "reference": "Patient/3838011",
-          "display": "Peters, Jennifer"
-        },
-        "name": {
-          "use": "official",
-          "text": "PETERS, TIMOTHY",
-          "family": [
-            "PETERS"
-          ],
-          "given": [
-            "TIMOTHY"
-          ],
-          "period": {
-            "start": "2012-05-17T14:54:31.000Z"
-          }
-        },
-        "telecom": [
-          {
-            "system": "phone",
-            "value": "1231231231",
-            "use": "work",
-            "period": {
-              "start": "2013-03-11T07:17:03.000Z"
-            }
-          },
-          {
-            "system": "phone",
-            "value": "8168229121",
-            "use": "home",
-            "period": {
-              "start": "2012-05-17T15:33:18.000Z"
-            }
-          },
-          {
-            "system": "phone",
-            "value": "8162324455",
-            "use": "mobile",
-            "period": {
-              "start": "2013-01-30T14:56:59.000Z"
-            }
-          }
-        ],
-        "gender": "male",
-        "birthDate": "1961-04-30",
-        "address": [
-          {
-            "use": "home",
-            "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
-            "line": [
-              "9430 Blue Ridge Blvd"
-            ],
-            "city": "Kansas City",
-            "district": "Jackson",
-            "state": "MO",
-            "postalCode": "64199",
-            "country": "USA",
-            "period": {
-              "start": "2012-05-17T15:33:18.000Z"
-            }
-          }
-        ],
-        "period": {
-          "start": "2015-10-30T06:50:09.000Z"
-        }
-      }
-    }
-  ]
-}</code></pre>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual RelatedPerson by its id:</p>
-
-<pre><code>GET /RelatedPerson/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK
-GET: [...]/RelatedPerson/5796399</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "RelatedPerson",
-  "id": "5796399",
-  "meta": {
-    "versionId": "30"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
-  },
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "AN",
-            "display": "Account number",
-            "userSelected": false
-          }
-        ],
-        "text": "Federated Person Principal"
-      },
-      "system": "urn:oid:2.16.840.1.113883.3.13.6",
-      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
-      "period": {
-        "start": "2016-11-01T10:00:00.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "AN",
-            "display": "Account number",
-            "userSelected": false
-          }
-        ],
-        "text": "Federated Person Principal"
-      },
-      "system": "urn:oid:2.16.840.1.113883.3.13.6",
-      "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
-      "period": {
-        "start": "2016-11-01T10:00:00.000Z"
-      }
-    }
-  ],
-  "patient": {
-    "reference": "Patient/3838011",
-    "display": "Peters, Timothy"
-  },
-  "name": {
-    "use": "official",
-    "text": "PETERS, TIMOTHY",
-    "family": [
-      "PETERS"
-    ],
-    "given": [
-      "TIMOTHY"
-    ],
-    "period": {
-      "start": "2012-05-17T14:54:31.000Z"
-    }
-  },
-  "telecom": [
-    {
-      "system": "phone",
-      "value": "1231231231",
-      "use": "work",
-      "period": {
-        "start": "2013-03-11T07:17:03.000Z"
-      }
-    },
-    {
-      "system": "phone",
-      "value": "8168229121",
-      "use": "home",
-      "period": {
-        "start": "2012-05-17T15:33:18.000Z"
-      }
-    },
-    {
-      "system": "phone",
-      "value": "8162324455",
-      "use": "mobile",
-      "period": {
-        "start": "2013-01-30T14:56:59.000Z"
-      }
-    }
-  ],
-  "gender": "male",
-  "birthDate": "1961-04-30",
-  "address": [
-    {
-      "use": "home",
-      "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
-      "line": [
-        "9430 Blue Ridge Blvd"
-      ],
-      "city": "Kansas City",
-      "district": "Jackson",
-      "state": "MO",
-      "postalCode": "64199",
-      "country": "USA",
-      "period": {
-        "start": "2012-05-17T15:33:18.000Z"
-      }
-    }
-  ],
-  "period": {
-    "start": "2015-10-30T06:50:09.000Z"
-  }
-}</code></pre>
-
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-          <h3><a href="../appointment/">Appointment</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../binary">Binary</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../care-plan/">CarePlan</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../contract/">Contract</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../device/">Device</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../goal/">Goal</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-order/">MedicationOrder</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../operation-definition/">OperationDefinition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../person/">Person</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../procedure/">Procedure</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">RelatedPerson</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/individuals/related-person">/millennium/dstu2/individuals/related-person </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 

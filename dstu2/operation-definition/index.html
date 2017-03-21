@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>OperationDefinition | DSTU 2 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/dstu2/operation-definition">
   <link href="../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="dstu2_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
@@ -39,7 +39,6 @@
           <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
         </ul>  
       </nav>
-      
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -49,10 +48,8 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../may2015/" class="nav-may2015-api">DSTU 2 Ballot (0.5.0)</a></li>
-        <li><a href="../" class="nav-dstu2-api">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
     </div>
@@ -64,180 +61,42 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
+  <div class="wrapper feature">
     
-    <h2><a href="../">DSTU 2 Final (1.0.2)</a></h2>
+    <h1>
+        The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
     
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      
-<h1 id="operationdefinition">OperationDefinition</h1>
-
-<ul id="markdown-toc">
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual OperationDefinition by its id:</p>
-
-<pre><code>GET /OperationDefinition/:id
-</code></pre>
-
-<p><em>List of OperationDefinitions</em></p>
-
-<ul>
-  <li>
-<code>binary-autogen-ccd-if</code>: Generate Continuity of Care Document (CCD)</li>
-</ul>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 200 OK
-GET: [...]/OperationDefinition/binary-autogen-ccd-if</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "OperationDefinition",
-  "id": "binary-autogen-ccd-if",
-  "url": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
-  "name": "Generate Continuity of Care Document (CCD)",
-  "status": "active",
-  "kind": "operation",
-  "publisher": "Cerner",
-  "date": "2017-01-17",
-  "description": "Generates a copy of a patient's Continuity of Care Document (CCD) as a Binary",
-  "code": "autogen-ccd-if",
-  "system": false,
-  "type": [
-    "Binary"
-  ],
-  "instance": false,
-  "parameter": [
-    {
-      "name": "patient",
-      "use": "in",
-      "min": "1",
-      "max": "1",
-      "documentation": "The id of the patient that is the subject of the generated Continuity of Care Document (CCD).",
-      "type": "id"
-    },
-    {
-      "name": "start",
-      "use": "in",
-      "min": "0",
-      "max": "1",
-      "documentation": "The start of the date range for which the Continuity of Care Document (CCD) is to be generated. If no start date is provided, then the document will be generated with all records upto the end or current date",
-      "type": "date"
-    },
-    {
-      "name": "end",
-      "use": "in",
-      "min": "0",
-      "max": "1",
-      "documentation": "The end of the date range for which the Continuity of Care Document (CCD) is to be generated. If no end date is provided, then the document will be generated with records upto the current date",
-      "type": "date"
-    },
-    {
-      "name": "result",
-      "use": "out",
-      "min": "1",
-      "max": "1",
-      "documentation": "Binary for the generated Continuity of Care Document (CCD)",
-      "type": "Binary"
-    }
-  ]
-}</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3><a href="../">Overview</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../authorization">Authorization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../conformance/">Conformance Metadata</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../allergy-intolerance/">AllergyIntolerance</a></h3>
-      </li>
-      <li class="js-topic">
-          <h3><a href="../appointment/">Appointment</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../binary">Binary</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../care-plan/">CarePlan</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../condition/">Condition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../contract/">Contract</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../device/">Device</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../diagnostic-report/">DiagnosticReport</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../document-reference/">DocumentReference</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../encounter/">Encounter</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../goal/">Goal</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../immunization/">Immunization</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-order/">MedicationOrder</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../medication-statement/">MedicationStatement</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../observation/">Observation</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="./">OperationDefinition</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../patient/">Patient</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../person/">Person</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../procedure/">Procedure</a></h3>
-      </li>
-      <li class="js-topic">
-        <h3><a href="../related-person/">RelatedPerson</a></h3>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../../millennium/dstu2/operation-definition">/millennium/dstu2/operation-definition </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Have a look at HL7's <a href="http://www.hl7.org/implement/standards/fhir/summary.html">Summary</a> and <a href="http://www.hl7.org/implement/standards/fhir/overview.html">Overview</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Open Source FHIR<sup>®</sup> Implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="../../faq/"><span class="mega-octicon octicon-question"></span></a>
+      <h2><a href="../../millennium/faq/">FAQ</a></h2>
+      <p>Browse frequently asked questions to learn more about SMART on FHIR<sup>®</sup>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 
