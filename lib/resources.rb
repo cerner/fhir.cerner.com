@@ -81,6 +81,38 @@ module Cerner
         end
       end
 
+      def authorization_types(practitioner: true, patient: false, system: false)
+        html = "<div class=\"auth-types\">"
+        prev = false
+
+        if(practitioner)
+          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-user\" class=\"practitioner\">Practitioner</a>"
+          prev = true
+        end
+
+        if(patient)
+          if(prev)
+            html += " | "
+          end
+          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-user\" class=\"patient\">Patient</a>"
+          prev = true
+        end
+
+        if(system)
+          if(prev)
+            html += " | "
+          end
+          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-system\" class=\"system\">System</a>"
+        end
+
+        html += "</div>"
+
+        html
+
+      end
+
+
+
     end
 
   end
