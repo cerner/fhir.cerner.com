@@ -24,15 +24,30 @@ module Cerner
         502 => '502 Bad Gateway'
       }
 
-      def headers(status, head = {})
-        lines = ["Status: #{STATUSES[status]}"]
+      def headers(status: nil, head: {})
+        lines = []
+
+        if(status)
+          lines = ["Status: #{STATUSES[status]}"]
+        end
+
         head.each do |key, value|
           case key
             when :pagination
               lines << link_header(value)
+            when :Accept
+              lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+            when :'Content-Type'
+              lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+            when :Authorization
+              lines << "<a href=\"../../#authorization\">#{key}</a>: #{value}"
             else
               lines << "#{key}: #{value}"
           end
+        end
+
+        if(lines.empty?)
+          lines = default_headers
         end
 
         %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
@@ -52,6 +67,13 @@ module Cerner
 
       def link_header_rel(name, url)
         %Q{<#{url}>; rel="#{name}"}
+      end
+
+      def default_headers()
+        lines = ["<a href=\"../../#media-types\">Accept</a>: application/json+fhir"]
+        lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
+
+        lines
       end
 
       def json(key)

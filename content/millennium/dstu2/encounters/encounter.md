@@ -35,7 +35,7 @@ _Implementation Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_encounter_bundle) %>
 
 ## Retrieve by id
@@ -51,7 +51,7 @@ _Implementation Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_encounter) %>
 
 [contained]: http://hl7.org/fhir/DSTU2/references.html#contained

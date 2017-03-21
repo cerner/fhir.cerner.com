@@ -41,7 +41,7 @@ _Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_medication_statement_bundle) %>
 
 ## Create
@@ -77,7 +77,7 @@ To successfully POST a MedicationStatement, the following headers must be provid
 
 ### Response
 
-<%= headers 201 %>
+<%= headers status: 201 %>
 <pre class="terminal">
     Connection → Keep-Alive
     Content-Encoding → gzip
@@ -134,7 +134,7 @@ To successfully PUT a MedicationStatement, the following headers must be provide
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <pre class="terminal">
     Connection → Keep-Alive
     Content-Encoding → gzip

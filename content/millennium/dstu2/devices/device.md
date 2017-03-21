@@ -30,9 +30,9 @@ _Implementation Notes_
 
 ### Response
 
-<%= headers 200, {Functionality: 'Search by patient'} %>
+<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
 <%= json(:dstu2_device_bundle) %>
-<%= headers 200, {Functionality: 'Search by id'} %>
+<%= headers status: 200, head: {Functionality: 'Search by id'} %>
 <%= json(:dstu2_device_bundle_by_id) %>
 
 ## Retrieve by id
@@ -47,7 +47,7 @@ _Implementation Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_device) %>
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference

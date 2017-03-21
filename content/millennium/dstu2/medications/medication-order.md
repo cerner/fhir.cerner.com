@@ -36,7 +36,7 @@ _Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_medication_order_bundle) %>
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference

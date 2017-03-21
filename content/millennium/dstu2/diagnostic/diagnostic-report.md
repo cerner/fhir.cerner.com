@@ -28,7 +28,7 @@ Search for DiagnosticReports that meet supplied query parameters:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_diagnostic_report_bundle) %>
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference

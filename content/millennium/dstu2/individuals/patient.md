@@ -77,10 +77,7 @@ Notes:
 
 ### Headers
 
-To successfully GET a Patient, the following headers must be provided. Authorization must be provided if accessing the closed endpoint.
-
-        Accept-Type: application/json+fhir
-        Authorization: <OAuth2 Bearer Token>
+<%= headers %>
 
 ### Example
 
@@ -90,12 +87,12 @@ To successfully GET a Patient, the following headers must be provided. Authoriza
 
 #### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_patient_bundle) %>
 
 ### Errors
 
-The common [`errors`] may be returned.
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -113,19 +110,17 @@ _Implementation Notes_
 
 ### Headers
 
-To successfully GET a Patient, the following headers must be provided. Authorization must be provided if accessing the closed endpoint.
-
-        Accept-Type: application/json+fhir
-        Authorization: <OAuth2 Bearer Token>
+<%= headers %>
 
 ### Example
+
 #### Request
 
     GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342008
 
 #### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_patient_entry) %>
 
 ### Patient Combines Example
@@ -143,12 +138,12 @@ The ability to perform patient combine or uncombine operations is not available 
     
 #### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_combined_patient_entry) %>
 
 ### Errors
 
-The common [`errors`] may be returned.
+The common [errors] may be returned.
 
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
@@ -161,4 +156,4 @@ The common [`errors`] may be returned.
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
-[`errors`]: ../../#client-errors
+[errors]: ../../#client-errors
