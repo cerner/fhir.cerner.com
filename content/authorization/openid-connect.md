@@ -1,5 +1,6 @@
 ---
-title: OpenID Connect | DSTU 2 API
+title: OpenID Connect
+layout: authorization
 ---
 
 # Authorization Server OpenID Connect Support

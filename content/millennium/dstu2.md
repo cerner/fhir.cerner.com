@@ -1,5 +1,5 @@
 ---
-title: MAY 2015 BALLOT
+title: DSTU 2
 layout: api
 ---
 
@@ -13,27 +13,27 @@ please post to our [developer group](https://groups.google.com/d/forum/cerner-fh
 
 ## Current Version
 
-This documentation describes the DSTU 2 May Ballot (0.5.0) implementation, which is deprecated. 
-We recommend updating applications to the latest available production implementation: [DSTU 2 Final (1.0.2)](/dstu2).
+Cerner's implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard.
 
 ## Schema
 
-All API access is over HTTPS. See [Service Root URL](#service-root-url) for more information on URL format.
+All API access is over HTTPS. See [Service Root URL](#service-root-url) for more information on URL format. 
 All data is sent and received as JSON.
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
-
+$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
 HTTP/1.1 200 OK
-Date: Wed, 06 May 2015 15:46:52 GMT
-X-Frame-Options: SAMEORIGIN
-X-XSS-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-Cache-Control: no-cache
-X-Request-Id: 29232f0f-12fc-4140-8069-8816aca818e6
-X-Runtime: 0.011165
+Date: Tue, 05 Jan 2016 20:02:23 GMT
+cache-control: no-cache
+vary: Origin,User-Agent
+strict-transport-security: max-age=631152000
+server-response-time: 6003.4422970000005
+x-xss-protection: 1; mode=block
+x-request-id: 637dd651-6943-4d45-8e8a-0577da7640a2
+x-runtime: 6.003411
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
 Status: 200 OK
-Vary: User-Agent
 Content-Type: application/json+fhir; charset=utf-8
 Transfer-Encoding: chunked
 
@@ -43,14 +43,15 @@ Transfer-Encoding: chunked
     "status": "generated",
     "div": "&lt;div>Generated Conformance Statement&lt;/div>"
   },
-  "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
   "name": "Cerner Conformance Statement",
-  "publisher": "Cerner",
-  "description": "Describes capabilities of this server",
   "status": "draft",
-  "date": "2015-10-09T19:02:48.255+00:00",
-  "fhirVersion": "0.5.0",
-  "acceptUnknown": false,
+  "publisher": "Cerner",
+  "date": "2015-12-03T00:00:00+00:00",
+  "description": "Describes capabilities of this server",
+  "kind": "instance",
+  "fhirVersion": "1.0.2",
+  "acceptUnknown": "no",
   "format": [
     "json"
   ],
@@ -66,19 +67,27 @@ Transfer-Encoding: chunked
           "type": "AllergyIntolerance",
           "interaction": [
             {
+              "code": "read"
+            },
+            {
               "code": "search-type"
             }
           ],
           "searchParam": [
             {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of AllergyIntolerance ids. It is a required field if patient field is not given"
+            },
+            {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who the sensitivity is for"
+              "documentation": "Who the sensitivity is for. It is a required field if _id field is not given"
             },
             {
               "name": "status",
               "type": "token",
-              "documentation": "The status of the allergy"
+              "documentation": "Certainty of the allergy or intolerance"
             }
           ]
         },
@@ -86,24 +95,27 @@ Transfer-Encoding: chunked
           "type": "Condition",
           "interaction": [
             {
+              "code": "read"
+            },
+            {
               "code": "search-type"
             }
           ],
           "searchParam": [
             {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "Who has the condition?"
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
             },
             {
-              "name": "subject",
+              "name": "patient",
               "type": "reference",
-              "documentation": "Who has the condition?"
+              "documentation": "The patient who has the condition. It is a required field if _id field is not given"
             },
             {
               "name": "clinicalstatus",
               "type": "token",
-              "documentation": "The clinical status of the condition"
+              "documentation": "A list of desired clinical statuses of the condition"
             },
             {
               "name": "category",
@@ -113,27 +125,7 @@ Transfer-Encoding: chunked
           ]
         },
         {
-          "type": "DiagnosticReport",
-          "interaction": [
-            {
-              "code": "search-type"
-            }
-          ],
-          "searchParam": [
-            {
-              "name": "patient",
-              "type": "reference",
-              "documentation": "The subject of the report if a patient"
-            },
-            {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject of the report"
-            }
-          ]
-        },
-        {
-          "type": "Encounter",
+          "type": "Device",
           "interaction": [
             {
               "code": "read"
@@ -142,17 +134,21 @@ Transfer-Encoding: chunked
               "code": "search-type"
             }
           ],
-          "readHistory": false,
           "searchParam": [
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "The patient present at the encounter"
+              "documentation": "The patient who has the device affixed. It is a required field if _id field is not given"
+            },
+            {
+              "name": "_id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Device ids. It is a required field if patient field is not given"
             }
           ]
         },
         {
-          "type": "Immunization",
+          "type": "DocumentReference",
           "interaction": [
             {
               "code": "search-type"
@@ -162,12 +158,17 @@ Transfer-Encoding: chunked
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "The patient for the vaccination record"
+              "documentation": "The patient the document is about"
+            },
+            {
+              "name": "type",
+              "type": "token",
+              "documentation": "The type of the document"
             }
           ]
         },
         {
-          "type": "MedicationPrescription",
+          "type": "MedicationOrder",
           "interaction": [
             {
               "code": "search-type"
@@ -177,27 +178,27 @@ Transfer-Encoding: chunked
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "The identity of a patient to list dispenses for"
+              "documentation": "The identity of a patient to list dispenses for. It is a required field"
             },
             {
               "name": "status",
               "type": "token",
-              "documentation": "The status of the prescription"
+              "documentation": "The status of the med, may be a list separated by commas. (Active and draft statuses must be queried separately from completed, on-hold, and stopped statuses. The superseded and entered-in-error statuses are not supported). It is a required field"
             },
             {
-              "name": "scheduledtiming-bounds-end",
+              "name": "timing-boundsperiod-end",
               "type": "date",
-              "documentation": "The period end of the prescription timing schedule. This parameter value should be prefixed by <="
+              "documentation": "The stop time of the order. Must be prefixed by 'le' (currently only support querying for orders completed prior to a certain time). Not accepted when querying active or draft orders"
             },
             {
               "name": "_count",
               "type": "number",
-              "documentation": "The maximum number of results to return"
+              "documentation": "The number of items to include in a page. Currently ignored if querying for active or draft statuses"
             }
           ]
         },
         {
-          "type": "Observation",
+          "type": "MedicationStatement",
           "interaction": [
             {
               "code": "search-type"
@@ -207,22 +208,22 @@ Transfer-Encoding: chunked
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "The subject that the observation is about (if patient)"
+              "documentation": "The identity of a patient to list statements for. It is a required field."
             },
             {
-              "name": "subject",
-              "type": "reference",
-              "documentation": "The subject that the observation is about"
-            },
-            {
-              "name": "code",
+              "name": "status",
               "type": "token",
-              "documentation": "The type of observation"
+              "documentation": "One or more medication statement status values separated by commas."
             },
             {
-              "name": "date",
+              "name": "effectivedate",
               "type": "date",
-              "documentation": "The date range into which the observation falls. This parameter value should be present twice, prefixed once by '>' representing the earliest date and once by '<' representing the latest date."
+              "documentation": "The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'."
+            },
+            {
+              "name": "_count",
+              "type": "number",
+              "documentation": "The maximum number of results to include in a page."
             }
           ]
         },
@@ -236,37 +237,31 @@ Transfer-Encoding: chunked
               "code": "search-type"
             }
           ],
-          "readHistory": false,
           "searchParam": [
             {
               "name": "_id",
               "type": "token",
-              "documentation": "The logical resource id associated with the resource (must be supported by all servers)"
+              "documentation": "The logical resource id associated with the resource (must be supported by all servers). It is a required field if no birthdate, identifier, name or telecom field is given"
             },
             {
               "name": "birthdate",
               "type": "date",
-              "documentation": "The patient's date of birth"
+              "documentation": "The patient's date of birth. It is a required field if no _id, identifier, name or telecom field is given"
             },
             {
               "name": "identifier",
               "type": "token",
-              "documentation": "A patient identifier"
+              "documentation": "A patient identifier. It is a requried field if no _id, birthdate, name or telecom field is given"
             },
             {
               "name": "name",
               "type": "string",
-              "documentation": "A portion of either family or given name of the patient"
+              "documentation": "A portion of either family or given name of the patient. It is a required field if no _id, birthday, identifier or telecom field is given"
             },
             {
               "name": "telecom",
               "type": "string",
-              "documentation": "The value in any kind of telecom details of the patient"
-            },
-            {
-              "name": "start",
-              "type": "number",
-              "documentation": "The offset to use when returning results"
+              "documentation": "The value in any kind of telecom details of the patient. It is a required field if no _id, birthdate, identifier or name is given"
             },
             {
               "name": "_count",
@@ -283,7 +278,7 @@ Transfer-Encoding: chunked
 
 Blank fields are omitted.
 
-All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/2015may/datatypes.html#date).
+All timestamps are returned in [FHIR<sup>®</sup> standard date/dateTime formats](http://www.hl7.org/implement/standards/fhir/dstu2/datatypes.html#date).
 
 ### Media Types
 
@@ -297,7 +292,7 @@ We encourage you to explicitly request one of these types via the `Accept` heade
 ## Service Root URL
 
 URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the 
-application is a SMART application, the [service root url](http://hl7.org/fhir/2015May/http.html#general) is provided at 
+application is a SMART application, the [service root url](http://hl7.org/fhir/dstu2/http.html#general) is provided at 
 launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
  against a specific tenant. FHIR calls will be made against URLs of the following format:
 
@@ -307,19 +302,22 @@ launch time. For standalone applications, the URL can be requested (or configure
 
 The open sandbox instance allows developers to experiment with the service without requiring
 authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
-this instance is: `https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
+this instance is: `https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
 
 Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.
 
 ### Secure Sandbox
 
 The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service 
-root URL for this instance is: 
-`https://fhir-ehr.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/:resource[?:parameters]`
+root URL for this instance is different if the patient or a patient's proxy is logging in.
+
+Non-Patient: `https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
+Patient Access: `https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
+
 
 ### Resource
 
-`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/may2015/patient/">`Patient`</a>
+`:resource` represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="/millennium/dstu2/individuals/patient/">`Patient`</a>
 
 ### Parameters
 
@@ -328,10 +326,10 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationPrescription?patient=2744010&status=active"
+$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&status=active"
 </pre>
 
-In this example, MedicationPrescription is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
+In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
  are passed in the query string.
 
 ## Client Errors
@@ -388,7 +386,7 @@ Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP v
 We have an endpoint secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/).
 Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
 
-Please reference the <a href="/may2015/authorization/">authorization</a> documentation for more information. 
+Please reference the <a href="/authorization/">authorization</a> documentation for more information. 
 
 ## Pagination
 
@@ -397,21 +395,16 @@ follow these Link header values instead of constructing your own URLs.
 
     {
       "resourceType": "Bundle",
-      "id": "962a50b1-a367-475f-b9c9-810c1b3c6b35",
-      "base": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f",
+      "id": "f22ca456-19a7-45ce-8586-0079495783ef",
       "type": "searchset",
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=0&_count=20"
-        },
-        {
-          "relation": "next",
-          "url": "https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?name=Jones&start=20&_count=20"
-        }
-      ],
-      ...
-    }
+      "link": [{
+        "relation": "self",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&_count=50"
+      }, {
+        "relation": "next",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
+      }], ...
+    }  
 
 The possible `relation` values are:
 
@@ -424,14 +417,14 @@ The possible `relation` values are:
 
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
 any origin.
-You can read the [CORS W3C Recommendation](https://www.w3.org/TR/cors), or
+You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors), or
 [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the
 HTML 5 Security Guide.
 
 Here's a sample request sent from the origin `http://example.com`:
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -442,7 +435,7 @@ Access-Control-Allow-Credentials: true
 This is what a CORS preflight request looks like:
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/may2015/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD

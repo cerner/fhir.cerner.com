@@ -4,7 +4,15 @@
   <%= render '/header.*' %>
 
   <div class="sub-nav">
-    <h2><a href="/faq/">FAQ</a></h2>
+      <% if @item[:solution] == 'millennium' %>
+    <h2>Millennium</h2><ul>
+      <% elsif @item[:solution] == 'soarian' %>
+      <h2>Soarian</h2><ul>
+      <% end %>
+      <li><a href="/<%= @item[:solution] %>/dstu2/">DSTU 2 Final (1.0.2)</a></li>
+      <li><a href="/<%= @item[:solution] %>/faq/" class="active">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
   </div>
 
   <div id="wrapper">
@@ -12,7 +20,7 @@
       <%= yield %>
     </div>
 
-    <%= render '/faq_sidebar.*' %>
+    <%= render "/#{@item[:solution]}_faq_sidebar.*" %>
   </div><!-- #wrapper -->
 
   <%= render '/footer.*' %>

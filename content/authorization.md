@@ -1,5 +1,6 @@
 ---
-title: Authorization | DSTU 2 API
+title: Authorization
+layout: authorization
 ---
 
 # Authorization #
@@ -115,7 +116,7 @@ FHIR<sup>®</sup> conformance document.
 
 The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
-of [``./metadata``](../conformance) from the FHIR<sup>®</sup> base URL.
+of ``./metadata`` from the FHIR<sup>®</sup> base URL.
 
 Within the structure of this document, three important URLs are
 advertised in an extension to ``Conformance.rest.security``, 
@@ -274,7 +275,7 @@ limited to) the following:
 The scope 'openid' will request that Cerner's authorization server supply
 and [OpenID Connect][OPENID] identity token as part of the authorization
 workflow.  Further details on utilizing the OpenID token can be found in
-the [OpenID Connect Guide](../openid-connect).
+the [OpenID Connect Guide](../authorization/openid-connect).
 
 The scope 'profile' will additionally request that the OpenID Connect
 token include the claim "profileURL", as defined by the 
@@ -913,7 +914,7 @@ a status bar.
 
 For information on how to discover the management
 endpoint for a user, see 
-[Discovery](#../authorization-specification#discovery) in the
+[Discovery](authorization-specification#discovery) in the
 authorization specification.
 
 <a id="system-authorization"></a>
@@ -1104,4 +1105,4 @@ preceding documentation.
 [SYSTEM-ACCOUNTS]: https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help "Cerner System Account Management Help"
 [SYSTEM-ACCOUNT-REGISTRATION]: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account "Cerner System Account Registration"
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
-[AUTHZ-SPEC]: ../authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
+[AUTHZ-SPEC]: ../authorization/authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"

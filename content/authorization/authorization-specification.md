@@ -1,5 +1,6 @@
 ---
-title: FHIR<sup>®</sup> Service Authorization Specification | DSTU 2 API
+title: FHIR<sup>®</sup> Service Authorization Specification
+layout: authorization
 ---
 
 # FHIR<sup>®</sup> Service Authorization Specification v1.0 #

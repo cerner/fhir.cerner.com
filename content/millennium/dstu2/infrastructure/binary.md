@@ -77,7 +77,7 @@ Generating the Continuity of Care Document with its native mime type
 <%= headers 200, 'Content-Type': 'application/xml' %>
 <%= html(:dstu2_binary_ccd_xml) %>
 
-[DiagnosticReport]: ../diagnostic-report
+[DiagnosticReport]: ../../diagnostic/diagnostic-report
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime

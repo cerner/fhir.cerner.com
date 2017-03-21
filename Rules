@@ -18,6 +18,8 @@
 
 preprocess do
   add_version_attribute
+  add_solution_attribute
+  RedirectGenerator.generate(config[:redirects], @items)
 end
 
 compile '/CNAME.*' do
@@ -26,7 +28,7 @@ end
 compile '/static/**/*' do
 end
 
-compile '/faq.*' do
+compile '/**/faq.*' do
   filter :erb
   filter :kramdown, :toc_levels => [2]
   layout '/faq.*'
@@ -41,7 +43,6 @@ compile '/**/*' do
   filter :relativize_paths, :type => :css
   filter :relativize_paths, :type => :html
 end
-
 
 route '/static/**/*' do
   # /static/foo.html → /foo.html
