@@ -28,9 +28,9 @@ For example, the DSTU2 version of DocumentReference Create can be generated usin
 
     <%= definition_table(:document_reference, :create, :dstu2) %>
 
-Whereas the May 2015 version of AllergyIntolerance Update can be generated using
+Whereas other versions of AllergyIntolerance Update can be generated (assuming appropriate definitions are available) using 
 
-    <%= definition_table(:allergy_intolerance, :update, :may2015) %>
+    <%= definition_table(:allergy_intolerance, :update, :stu3) %>
 
 In actuality, the `version` parameter is reference a subfolder in `lib/resources` where the content files for that version are stored. Thus `definition_table(:document_reference, :create, :dstu2)` is referencing `lib/resources/dstu2/document_reference.yaml`. Adding new versions or new content files is simply a matter of creating an appropriately named folder and content file.
 
