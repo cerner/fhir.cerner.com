@@ -69,7 +69,7 @@ module Cerner
         %Q{<#{url}>; rel="#{name}"}
       end
 
-      def default_headers()
+      def default_headers
         lines = ["<a href=\"../../#media-types\">Accept</a>: application/json+fhir"]
         lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
 
