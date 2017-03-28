@@ -46,6 +46,10 @@ _Implementation Notes_
 * The [Patient.animal] modifier element is not supported and will not be returned.
 * If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
+
 ### Parameters
 
  Name         | Required?                                         | Type       | Description
@@ -71,10 +75,24 @@ Notes:
 - The `birthdate` parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes 'le' and 'ge'
 - The `birthdate` parameter may be provided once with the following prefixes: 'ge', 'le', 'gt', 'lt', 'eq'
 
-### Response
+### Headers
 
-<%= headers 200 %>
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_patient_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -86,12 +104,26 @@ _Implementation Notes_
 
 * The [Patient.animal] modifier element is not supported and will not be returned.
 
-### Response
+### Authorization Types
 
-<%= headers 200 %>
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342008
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_patient_entry) %>
 
-### Patient Combines
+### Patient Combines Example
 
 Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
 as a "patient combine". If necessary, this merging can later be undone by performing a "patient uncombine". When the requested patient record has been combined into another
@@ -100,8 +132,19 @@ the entries directly by id. They will not be returned when searching with other 
 
 The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.
 
-<%= headers 200 %>
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4860007
+    
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_combined_patient_entry) %>
+
+### Errors
+
+The common [errors] may be returned.
+
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
@@ -113,3 +156,4 @@ The ability to perform patient combine or uncombine operations is not available 
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
+[errors]: ../../#client-errors

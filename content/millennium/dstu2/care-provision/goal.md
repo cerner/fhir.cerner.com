@@ -34,9 +34,9 @@ Notes:
 
 ### Response
 
-<%= headers 200, {Functionality: 'Search by patient'} %>
+<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
 <%= json(:dstu2_goal_bundle) %>
-<%= headers 200, {Functionality: 'Search by id'} %>
+<%= headers status: 200, head: {Functionality: 'Search by id'} %>
 <%= json(:dstu2_goal_bundle_by_id) %>
 
 ## Retrieve by id
@@ -47,7 +47,7 @@ List an individual Goal by its id:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_goal) %>
 
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date

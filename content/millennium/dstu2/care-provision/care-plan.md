@@ -43,7 +43,7 @@ Notes:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_care_plan_bundle) %>
 
 ## Retrieve by id
@@ -54,7 +54,7 @@ List an individual CarePlan by its id:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_care_plan_entry) %>
 
 [CarePlan.activity]: https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity

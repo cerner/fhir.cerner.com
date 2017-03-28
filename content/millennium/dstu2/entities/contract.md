@@ -42,11 +42,11 @@ Notes:
 ### Response
 
 Search for all Contracts subject to a specific patient
-<%= headers 200, GET: '[...]/Contract?subject:Patient=4598008' %>
+<%= headers status: 200, head: {GET: '[...]/Contract?subject:Patient=4598008'} %>
 <%= json(:dstu2_contract_bundle) %>
 
 Search for all Contracts and include referenced RelatedPerson entries in the response.
-<%= headers 200, GET: '[...]/Contract?subject:Patient=4598008&_include=Contract:actor' %>
+<%= headers status: 200, head: {GET: '[...]/Contract?subject:Patient=4598008&_include=Contract:actor'} %>
 <%= json(:dstu2_contract_bundle_include_actor) %>
 
 ## Retrieve by id
@@ -57,7 +57,7 @@ List an individual Contract by its id:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_contract_entry) %>
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference

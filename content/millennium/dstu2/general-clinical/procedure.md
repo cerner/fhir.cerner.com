@@ -38,7 +38,7 @@ Notes:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_procedure_bundle) %>
 
 ## Retrieve by id
@@ -53,7 +53,7 @@ _Implementation Notes_
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_procedure_entry) %>
 
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date

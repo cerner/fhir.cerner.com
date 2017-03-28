@@ -27,11 +27,11 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Response
 
-<%= headers 200, {Functionality: 'Search by patient'} %>
+<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
 <%= json(:dstu2_allergy_intolerance_bundle) %>
-<%= headers 200, {Functionality: 'Search by patient and status'} %>
+<%= headers status: 200, head: {Functionality: 'Search by patient and status'} %>
 <%= json(:dstu2_allergy_intolerance_bundle_by_status) %>
-<%= headers 200, {Functionality: 'Search by id'} %>
+<%= headers status: 200, head: {Functionality: 'Search by id'} %>
 <%= json(:dstu2_allergy_intolerance_bundle_by_id) %>
 
 ## Retrieve by id
@@ -42,7 +42,7 @@ List an individual AllergyIntolerance by its id:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_resource ) %>
 
 ## Create
@@ -68,7 +68,7 @@ To successfully POST an allergy, the following headers must be provided. Allergy
 
 ### Response
 
-<%= headers 201 %>
+<%= headers status: 201 %>
 <pre class="terminal">
     Date → Tue, 28 Feb 2017 21:08:20 GMT
     Cache-Control → no-cache
@@ -118,7 +118,7 @@ To successfully PUT an allergy, the following headers must be provided. Allergy 
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <pre class="terminal">
     Date →  Tue, 28 Feb 2017 21:19:18 GMT
     Cache-Control →  no-cache

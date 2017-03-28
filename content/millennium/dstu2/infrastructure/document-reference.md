@@ -85,7 +85,7 @@ present.
 
 ### Response
 
-<%= headers 201 %>
+<%= headers status: 201 %>
 <pre class="terminal">
    Connection → Keep-Alive
    Content-Encoding → gzip
@@ -140,7 +140,7 @@ Notes:
 
 ### Response
 
-<%= headers 200, GET: '[...]/DocumentReference/$docref?patient=1316035&type=http://loinc.org|34133-9' %>
+<%= headers status: 200, head: {GET: '[...]/DocumentReference/$docref?patient=1316035&type=http://loinc.org|34133-9'} %>
 <%= json(:dstu2_document_reference_docref_bundle) %>
 
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules

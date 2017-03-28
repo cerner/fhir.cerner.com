@@ -30,9 +30,9 @@ Note: Currently `diagnosis`, `problem` and `health-concern` category codes are s
 
 ### Response
 
-<%= headers 200, {Functionality: 'Search by patient'} %>
+<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
 <%= json(:dstu2_condition_bundle) %>
-<%= headers 200, {Functionality: 'Search by id'} %>
+<%= headers status: 200, head: {Functionality: 'Search by id'} %>
 <%= json(:dstu2_condition_bundle_by_id) %>
 
 ## Retrieve by id
@@ -43,11 +43,11 @@ List an individual Condition by its id:
 
 ### Response
 
-<%= headers 200, {Functionality: 'Retrieve diagnosis by id'} %>
+<%= headers status: 200, head: {Functionality: 'Retrieve diagnosis by id'} %>
 <%= json(:dstu2_condition_diagnosis_resource) %>
-<%= headers 200, {Functionality: 'Retrieve health concern by id'} %>
+<%= headers status: 200, head: {Functionality: 'Retrieve health concern by id'} %>
 <%= json(:dstu2_condition_health_concern_resource) %>
-<%= headers 200, {Functionality: 'Retrieve problem by id'} %>
+<%= headers status: 200, head: {Functionality: 'Retrieve problem by id'} %>
 <%= json(:dstu2_condition_problem_resource) %>
 
 ## Create
@@ -84,7 +84,7 @@ Note: abatementDateTime is not supported for diagnoses
 ### Response
 
 Create Problem Example:
-<%= headers 201 %>
+<%= headers status: 201 %>
 <pre class="terminal">
     Date → Tue, 28 Feb 2017 21:26:37 GMT
     Cache-Control → no-cache
@@ -107,7 +107,7 @@ Create Problem Example:
 </pre>
 
 Create Diagnosis Example:
-<%= headers 201 %>
+<%= headers status: 201 %>
 <pre class="terminal">
     Date → Tue, 28 Feb 2017 21:30:28 GMT
     Cache-Control → no-cache
@@ -166,7 +166,7 @@ Note: abatementDateTime is not supported for diagnosis
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <pre class="terminal">
     Date → Wed, 01 Mar 2017 15:42:52 GMT
     Cache-Control → no-cache

@@ -42,7 +42,7 @@ Notes:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_appointment_bundle) %>
 
 ## Retrieve by id
@@ -53,5 +53,5 @@ List an individual Appointment by its id:
 
 ### Response
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_appointment_read) %>

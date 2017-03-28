@@ -25,7 +25,7 @@ Retrieving the Binary resource with the JSON mime type
     GET: [...]/Binary/TR-5927259
     Accept: application/json+fhir
 
-<%= headers 200, 'Content-Type': 'application/json+fhir' %>
+<%= headers status: 200, head: {'Content-Type': 'application/json+fhir'} %>
 <%= json(:dstu2_binary_json_entry) %>
 
 Retrieving the Binary resource with its native mime type
@@ -33,7 +33,7 @@ Retrieving the Binary resource with its native mime type
     GET: [...]/Binary/TR-5927259
     Accept: text/html
 
-<%= headers 200, 'Content-Type': 'text/html' %>
+<%= headers status: 200, head: {'Content-Type': 'text/html'} %>
 <%= html(:dstu2_binary_html) %>
 
 ## Operation: autogen-ccd-if
@@ -66,7 +66,7 @@ Generating the Continuity of Care Document with the JSON mime type
     GET: [...]/Binary/$autogen-ccd-if?patient=1316035
     Accept: application/json+fhir
 
-<%= headers 200, 'Content-Type': 'application/json+fhir' %>
+<%= headers status: 200, head:{'Content-Type': 'application/json+fhir'} %>
 <%= json(:dstu2_binary_ccd_json_entry) %>
 
 Generating the Continuity of Care Document with its native mime type
@@ -74,7 +74,7 @@ Generating the Continuity of Care Document with its native mime type
     GET: [...]/Binary/$autogen-ccd-if?patient=1316035
     Accept: application/xml
 
-<%= headers 200, 'Content-Type': 'application/xml' %>
+<%= headers status: 200, head:{'Content-Type': 'application/xml'} %>
 <%= html(:dstu2_binary_ccd_xml) %>
 
 [DiagnosticReport]: ../../diagnostic/diagnostic-report

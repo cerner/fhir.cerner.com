@@ -15,10 +15,10 @@ Get the capabilities and configurations of this implementation and deployment of
 
 ### Response (Open Endpoint)
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_open_metadata) %>
 
 ### Response (Closed Endpoint)
 
-<%= headers 200 %>
+<%= headers status: 200 %>
 <%= json(:dstu2_auth_metadata) %>
