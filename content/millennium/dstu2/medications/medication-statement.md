@@ -27,8 +27,8 @@ Search for MedicationStatements that meet supplied query parameters:
 
 _Notes_
 
-* [MedicationStatement.informationSource] may be a reference to a contained Practitioner or RelatedPerson.
-* [MedicationStatement.medication] may be a reference to a contained Medication.
+* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
+* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
 
 ### Parameters
 
@@ -54,7 +54,7 @@ _Notes_
 
 * [MedicationStatement.status] must be set to `active`.
 * [MedicationStatement.wasNotTaken] set to `true` is not supported.
-* If [MedicationStatement.medication] is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.
+* If [MedicationStatement.medication] is a reference, it must refer to a [contained] Medication with the code field populated and cannot have any product.ingredients populated.
 
 ### Headers
 
@@ -160,6 +160,7 @@ To successfully PUT a MedicationStatement, the following headers must be provide
     x-xss-protection → 1; mode=block
 </pre>
 
+[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
 [MedicationStatement.informationSource]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource
 [MedicationStatement.medication]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference

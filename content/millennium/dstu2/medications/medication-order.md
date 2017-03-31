@@ -32,7 +32,7 @@ Search for MedicationOrders that meet supplied query parameters:
 
 _Notes_
 
-* MedicationOrder may have a reference to a contained Medication when the Medication cannot be represented by a CodeableConcept.
+* MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
 
 ### Response
 
@@ -45,3 +45,4 @@ _Notes_
 [period]: http://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count
 [`number`]: http://hl7.org/fhir/dstu2/search.html#number
+[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
