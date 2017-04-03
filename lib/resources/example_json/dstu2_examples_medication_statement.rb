@@ -23,6 +23,17 @@ module Cerner
             "status": "generated",
             "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol (Sectral)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 200 mg, 1 caps, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
           },
+          "extension": [{
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [{
+                "system": "http://hl7.org/fhir/medication-statement-category",
+                "code": "inpatient",
+                "display": "Inpatient"
+              }],
+              "text": "Inpatient"
+            }
+          }],
           "patient": {
             "reference": "Patient/4342010",
             "display": "Smart, Joe"
@@ -99,6 +110,17 @@ module Cerner
             "versionId": "0",
             "lastUpdated": "2016-06-27T14:59:58.000Z"
           },
+          "extension": [{
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [{
+                "system": "http://hl7.org/fhir/medication-statement-category",
+                "code": "inpatient",
+                "display": "Inpatient"
+              }],
+              "text": "Inpatient"
+            }
+          }],
           "text": {
             "status": "generated",
             "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: furosemide (Lasix)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tabs, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
@@ -183,6 +205,17 @@ module Cerner
             "status": "generated",
             "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 g, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
           },
+          "extension": [{
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [{
+                "system": "http://hl7.org/fhir/medication-statement-category",
+                "code": "inpatient",
+                "display": "Inpatient"
+              }],
+              "text": "Inpatient"
+            }
+          }],
           "patient": {
             "reference": "Patient/4342010",
             "display": "Smart, Joe"
@@ -329,6 +362,17 @@ module Cerner
               "text": "Dextrose 5% in Water"
             }
           }],
+          "extension": [{
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [{
+                "system": "http://hl7.org/fhir/medication-statement-category",
+                "code": "inpatient",
+                "display": "Inpatient"
+              }],
+              "text": "Inpatient"
+            }
+          }],
           "patient": {
             "reference": "Patient/4342010",
             "display": "Smart, Joe"
@@ -389,6 +433,94 @@ module Cerner
           }]
         }
       }]
+    }
+
+    DSTU2_MEDICATION_STATEMENT_ENTRY ||= {
+      "resourceType": "MedicationStatement",
+      "id": "21369961",
+      "meta": {
+        "versionId": "4-0",
+        "lastUpdated": "2017-01-12T13:21:42.000-06:00"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin (aspirin 81 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 1 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
+      },
+      "extension": [{
+        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+        "valueCodeableConcept": {
+          "coding": [{
+            "system": "http://hl7.org/fhir/medication-statement-category",
+            "code": "patientspecified",
+            "display": "Patient Specified"
+          }],
+          "text": "Patient Specified"
+        }
+      }],
+      "patient": {
+        "reference": "Patient/4342008",
+        "display": "Song, River"
+      },
+      "dateAsserted": "2017-01-12T13:21:42.000-06:00",
+      "status": "entered-in-error",
+      "effectiveDateTime": "2017-01-12T13:21:42.000-06:00",
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "243670",
+            "display": "Aspirin 81 MG Oral Tablet",
+            "userSelected": false
+          }
+        ],
+        "text": "aspirin (aspirin 81 mg oral tablet)"
+      },
+      "dosage": [
+        {
+          "text": "1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 1 Refill(s)",
+          "_text": {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                "valueString": "1 - 2 tabs Oral 2 times a day as needed pain | Take 1 - 2 tabs twice per day as needed."
+              }
+            ]
+          },
+          "timing": {
+            "repeat": {
+              "boundsPeriod": {
+                "start": "2016-06-24T08:08:00.000-07:00",
+                "end": "2017-01-12T07:48:57.000-08:00"
+              }
+            },
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
+                  "code": "BID",
+                  "display": "BID",
+                  "userSelected": false
+                }
+              ],
+              "text": "BID"
+            }
+          },
+          "asNeededCodeableConcept": {
+            "text": "pain | Take 1 - 2 tabs twice per day as needed"
+          },
+          "route": {
+            "coding": [
+              {
+                "system": "http://ncimeta.nci.nih.gov",
+                "code": "C38288",
+                "display": "ORAL",
+                "userSelected": false
+              }
+            ],
+            "text": "Oral"
+          }
+        }
+      ]
     }
 
     DSTU2_MEDICATION_STATEMENT_CREATE ||= {
