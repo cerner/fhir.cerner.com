@@ -21,7 +21,7 @@ _Implementation Notes_
 
 * The [CarePlan.activity] element is not supported and will not be returned. This means that the [CarePlan.activity.detail.status] and [CarePlan.activity.detail.prohibited] modifier elements will not be returned.
 
-* The description of the CarePlan is included in the [CarePlan.text.div] element as escaped XHTML. We will be making changes to increase the usability of the description.
+* The description of the CarePlan is included in the [CarePlan.text.div] element as ASCII text.
 
 ### Parameters
 
