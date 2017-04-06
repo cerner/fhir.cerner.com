@@ -332,6 +332,26 @@ $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.co
 In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
  are passed in the query string.
 
+ ### Resource Identity
+
+ Please note that no ids or identifiers in the Millennium EHR are intended to be used outside of the context of their complete URL. A complete URL is comprised of the [service root url](http://hl7.org/fhir/dstu2/http.html#general), the resource, and the parameters (if any).
+
+ For example, one must take into account the entire url and not simply the id or resource + id:
+
+     https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/1316024
+
+ In another context the id "Patient/1316024" may identify another person entirely. In the following example a different resource may be returned because the context (service root url) has changed.
+
+     https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/1316024
+
+ Similarly when considering an identifier one must consider it only in its full context. Even though some identifiers may exist across multiple systems (ex: MRN) it is not guaranteed that they will refer to the same resource.
+
+     https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+
+ For example, when using the above MRN in a different system, we are not guaranteed that the same Patient resource is returned in the response bundle:
+
+     https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+
 ## Client Errors
 
 There are seven possible types of client errors on API calls that
