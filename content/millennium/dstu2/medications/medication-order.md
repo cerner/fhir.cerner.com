@@ -32,7 +32,7 @@ Search for MedicationOrders that meet supplied query parameters:
 
 _Notes_
 
-* MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
+* MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
 
 ### Response
 

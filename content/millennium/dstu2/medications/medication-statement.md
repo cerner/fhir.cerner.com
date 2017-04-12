@@ -28,7 +28,7 @@ Search for MedicationStatements that meet supplied query parameters:
 _Notes_
 
 * [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
-* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
+* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
 
 ### Parameters
 
