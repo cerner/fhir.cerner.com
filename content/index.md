@@ -10,6 +10,7 @@ layout: overview
   </h1>
   <p class="intro">Jump right into the API documentation to get started.</p>
   <a href="millennium/dstu2/" class="button">Browse the Millennium documentation</a>
+  <a href="soarian/dstu2/" class="button">Browse the Soarian documentation</a>
 </div>
 
 <div class="full-width dev-program-callout">
