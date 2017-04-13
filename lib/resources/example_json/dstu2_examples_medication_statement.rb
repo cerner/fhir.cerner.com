@@ -437,90 +437,156 @@ module Cerner
 
     DSTU2_MEDICATION_STATEMENT_ENTRY ||= {
       "resourceType": "MedicationStatement",
-      "id": "21369961",
+      "id": "22298077",
       "meta": {
-        "versionId": "4-0",
-        "lastUpdated": "2017-01-12T13:21:42.000-06:00"
+        "versionId": "1",
+        "lastUpdated": "2017-02-09T16:30:45.000Z"
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: aspirin (aspirin 81 mg oral tablet)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 1 Refill(s)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
+        "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin + Dextrose 5% in Water 100 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 100 mg, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
       },
+      "contained": [{
+        "resourceType": "Medication",
+        "id": "2770945",
+        "code": {
+          "text": "vancomycin + Dextrose 5% in Water 100 mL"
+        },
+        "product": {
+          "ingredient": [{
+            "item": {
+              "reference": "#2770945-1",
+              "display": "vancomycin"
+            },
+            "amount": {
+              "numerator": {
+                "value": 100.0,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              }
+            }
+          }, {
+            "item": {
+              "reference": "#2778758-2",
+              "display": "Dextrose 5% in Water"
+            },
+            "amount": {
+              "numerator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              },
+              "denominator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              }
+            }
+          }]
+        }
+      }, {
+        "resourceType": "Medication",
+        "id": "2770945-1",
+        "code": {
+          "coding": [{
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "11124",
+            "display": "Vancomycin",
+            "userSelected": false
+          }],
+          "text": "vancomycin"
+        }
+      }, {
+        "resourceType": "Medication",
+        "id": "2778758-2",
+        "code": {
+          "coding": [{
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "309778",
+            "display": "Glucose 50 MG/ML Injectable Solution",
+            "userSelected": false
+          }],
+          "text": "Dextrose 5% in Water"
+        }
+      }],
       "extension": [{
         "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
         "valueCodeableConcept": {
           "coding": [{
             "system": "http://hl7.org/fhir/medication-statement-category",
-            "code": "patientspecified",
-            "display": "Patient Specified"
+            "code": "inpatient",
+            "display": "Inpatient"
           }],
-          "text": "Patient Specified"
+          "text": "Inpatient"
         }
       }],
       "patient": {
-        "reference": "Patient/4342008",
+        "reference": "Patient/4342010",
+        "display": "Smart, Joe"
+      },
+      "informationSource": {
+        "reference": "Practitioner/4474007",
         "display": "Song, River"
       },
-      "dateAsserted": "2017-01-12T13:21:42.000-06:00",
+      "dateAsserted": "2017-02-09T09:29:09.000-06:00",
       "status": "entered-in-error",
-      "effectiveDateTime": "2017-01-12T13:21:42.000-06:00",
-      "medicationCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "243670",
-            "display": "Aspirin 81 MG Oral Tablet",
-            "userSelected": false
-          }
-        ],
-        "text": "aspirin (aspirin 81 mg oral tablet)"
+      "effectivePeriod": {
+        "start": "2017-02-09T08:00:00.000-08:00",
+        "end": "2017-02-09T08:30:45.000-08:00"
       },
-      "dosage": [
-        {
-          "text": "1 - 2 tabs, Oral, BID, PRN: pain | Take 1 - 2 tabs twice per day as needed, 1 Refill(s)",
-          "_text": {
-            "extension": [
-              {
-                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-                "valueString": "1 - 2 tabs Oral 2 times a day as needed pain | Take 1 - 2 tabs twice per day as needed."
-              }
-            ]
-          },
-          "timing": {
-            "repeat": {
-              "boundsPeriod": {
-                "start": "2016-06-24T08:08:00.000-07:00",
-                "end": "2017-01-12T07:48:57.000-08:00"
-              }
-            },
-            "code": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
-                  "code": "BID",
-                  "display": "BID",
-                  "userSelected": false
-                }
-              ],
-              "text": "BID"
+      "supportingInformation": [{
+        "reference": "MedicationOrder/22298077"
+      }],
+      "medicationReference": {
+        "reference": "#2770945",
+        "display": "vancomycin + Dextrose 5% in Water 100 mL"
+      },
+      "dosage": [{
+        "text": "100 mg, IV, q12hr",
+        "_text": {
+          "extension": [{
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+            "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
+          }]
+        },
+        "timing": {
+          "repeat": {
+            "boundsQuantity": {
+              "value": 6,
+              "unit": "days",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
             }
           },
-          "asNeededCodeableConcept": {
-            "text": "pain | Take 1 - 2 tabs twice per day as needed"
-          },
-          "route": {
-            "coding": [
-              {
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38288",
-                "display": "ORAL",
-                "userSelected": false
-              }
-            ],
-            "text": "Oral"
+          "code": {
+            "text": "q12hr"
           }
+        },
+        "route": {
+          "coding": [{
+            "system": "http://ncimeta.nci.nih.gov",
+            "code": "C38276",
+            "display": "INTRAVENOUS",
+            "userSelected": false
+          }],
+          "text": "IV"
+        },
+        "quantityQuantity": {
+          "value": 100.0,
+          "unit": "mL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
         }
-      ]
+      }]
     }
 
     DSTU2_MEDICATION_STATEMENT_CREATE ||= {

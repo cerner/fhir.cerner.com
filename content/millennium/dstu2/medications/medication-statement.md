@@ -22,6 +22,7 @@ The following fields are returned if valued:
 * [Was or Was Not Taken](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken){:target="_blank"}
 * [Date/Time started and ended](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_){:target="_blank"}
 * [Medication](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_){:target="_blank"}
+* [Reference to source MedicationOrder, if applicable](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation){:target="_blank"}
 * [Category Extension](#extensions)
 * Details of medication taken:
   * [Dosage](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage){:target="_blank"}
@@ -29,6 +30,8 @@ The following fields are returned if valued:
   * [Frequency](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing){:target="_blank"}
   * [Quantity](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_){:target="_blank"}
   * [Reason for use](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_){:target="_blank"}
+  * [Site](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_){:target="_blank"} 
+  * [Rate](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_){:target="_blank"}
   * [Order comments/special instructions](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note){:target="_blank"}
   * [Patient friendly display Extension](#extensions)
   
@@ -36,7 +39,7 @@ The following fields are returned if valued:
 
 To get all possible current medications, an application should query `MedicationStatement` with the `status` query parameter set to `active,intended`. Since `MedicationStatement` is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.
 
-To get the list of current medications that would likely be shown by default to a practitioner, then the `MedicationOrder` resource should be used in addition to the query above in order to ensure that `draft` orders are included. Duplicates can be removed using the `MedicationStatement.supportingInformation` reference. A duplicate is identified when `MedicationOrder.id` is equivalent to the `supportingInformation` referenced `MedicationOrder/[id]`)
+To get the list of current medications that would likely be shown by default to a practitioner, the `MedicationOrder` resource should be used in addition to the query above in order to ensure that `draft` orders are included. Duplicates can be removed using the `MedicationStatement.supportingInformation` reference. A duplicate is identified when `MedicationOrder.id` is equivalent to the `supportingInformation` referenced `MedicationOrder/[id]`
 
 
 
@@ -109,7 +112,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement?patient=4342008
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement?patient=4342010
 
 #### Response
 
@@ -143,7 +146,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/21369961
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077
 
 #### Response
 
@@ -186,7 +189,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/
 
 #### Body
 
@@ -254,7 +257,7 @@ _Implementation Notes_
 
 #### Request
 
-    PUT https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/MedicationStatement/
+    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/222
 
 #### Body
 
@@ -293,6 +296,10 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] may be returned.
+
+In addition, the following error may be returned:
+
+* Updating a MedicationStatement without sending the `If-Match` header will result in a `412 Precondition Failed` response.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
