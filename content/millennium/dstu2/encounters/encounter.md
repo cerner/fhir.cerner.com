@@ -26,6 +26,10 @@ _Implementation Notes_
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true)%>
+
 ### Parameters
 
  Name      | Required?       | Type          | Description
@@ -48,6 +52,10 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true)%>
 
 ### Response
 
