@@ -15,6 +15,6 @@ layout: overview
 <div class="full-width dev-program-callout">
   <div class="wrapper">
     <h2>Build a business relationship with Cerner around our implementation of the SMART and FHIR<sup>®</sup> standards.</h2>
-    <p>Interested in collaborating? <a href="https://code.cerner.com/build">Learn more</a>.</p>
+    <p>Interested in collaborating? <a href="https://code.cerner.com/ehr-api#howitworks">Learn more</a>.</p>
   </div>
 </div>
