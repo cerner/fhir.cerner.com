@@ -526,7 +526,7 @@
 <p><em>Notes</em></p>
 
 <ul>
-  <li>MedicationOrder may have a reference to a contained Medication when the Medication cannot be represented by a CodeableConcept.</li>
+  <li>MedicationOrder may have a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.</li>
 </ul>
 
 <h3 id="response">Response</h3>

@@ -81,34 +81,96 @@
 
 <ul id="markdown-toc">
   <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#querying-for-active-medications" id="markdown-toc-querying-for-active-medications">Querying for Active Medications</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
       <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
       <li><a href="#contained-practitioner-bindings" id="markdown-toc-contained-practitioner-bindings">Contained Practitioner Bindings</a></li>
     </ul>
   </li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
-      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
-      <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#update" id="markdown-toc-update">Update</a>    <ul>
-      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
-      <li><a href="#example-body-1" id="markdown-toc-example-body-1">Example Body</a></li>
-      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Medication Statement Resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient’s medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise. 
+<br><br>
+References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+<br><br>
+The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient" target="_blank">Patient</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource" target="_blank">Source of information</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted" target="_blank">Date/Time recorded</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken" target="_blank">Was or Was Not Taken</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_" target="_blank">Date/Time started and ended</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_" target="_blank">Medication</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation" target="_blank">Reference to source MedicationOrder, if applicable</a></li>
+  <li><a href="#extensions">Category Extension</a></li>
+  <li>Details of medication taken:
+    <ul>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage" target="_blank">Dosage</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route" target="_blank">Route</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing" target="_blank">Frequency</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_" target="_blank">Quantity</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_" target="_blank">Reason for use</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_" target="_blank">Site</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_" target="_blank">Rate</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note" target="_blank">Order comments/special instructions</a></li>
+      <li><a href="#extensions">Patient friendly display Extension</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="querying-for-active-medications">Querying for Active Medications</h3>
+
+<p>To get all possible current medications, an application should query <code>MedicationStatement</code> with the <code>status</code> query parameter set to <code>active,intended</code>. Since <code>MedicationStatement</code> is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.</p>
+
+<p>To get the list of current medications that would likely be shown by default to a practitioner, the <code>MedicationOrder</code> resource should be used in addition to the query above in order to ensure that <code>draft</code> orders are included. Duplicates can be removed using the <code>MedicationStatement.supportingInformation</code> reference. A duplicate is identified when <code>MedicationOrder.id</code> is equivalent to the <code>supportingInformation</code> referenced <code>MedicationOrder/[id]</code></p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -520,6 +582,39 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Patient friendly display</a></li>
+  <li><a href="#custom-extensions">Order category</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient-friendly-display</code></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
+      <td>The display that can be used for this field when producing a view suitable for a patient.</td>
+    </tr>
+    <tr>
+      <td><code>medication-statement-category</code></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>The <a href="http://hl7.org/fhir/stu3/valueset-medication-statement-category.html">category</a> of the order, for example: patientspecified, outpatient, etc.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
 <p>Search for MedicationStatements that meet supplied query parameters:</p>
@@ -527,14 +622,20 @@
 <pre><code>GET /MedicationStatement?:parameters
 </code></pre>
 
-<p><em>Notes</em></p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
   <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a contained Practitioner or RelatedPerson.</li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.</li>
   <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a contained Medication.</li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.</li>
 </ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -549,8 +650,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>_id</code></td>
+      <td>This, or <code>patient</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
+      <td>This, or <code>_id</code>
+</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The identifier of a patient to list statements for. Example: <code>12345</code>
 </td>
@@ -578,7 +687,25 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<p>Notes:</p>
+
+<ul>
+  <li>Either the <code>_id</code>, or a combination of <code>patient</code> , <code>status</code>, <code>effectivedate</code>, or <code>_count</code> parameters must be provided.</li>
+</ul>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement?patient=4342010
+</code></pre>
+
+<h4 id="response">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -607,6 +734,21 @@
           "status": "generated",
           "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: acebutolol (Sectral)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 200 mg, 1 caps, Oral, Daily&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/medication-statement-category",
+                  "code": "inpatient",
+                  "display": "Inpatient"
+                }
+              ],
+              "text": "Inpatient"
+            }
+          }
+        ],
         "patient": {
           "reference": "Patient/4342010",
           "display": "Smart, Joe"
@@ -696,6 +838,21 @@
           "versionId": "0",
           "lastUpdated": "2016-06-27T14:59:58.000Z"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/medication-statement-category",
+                  "code": "inpatient",
+                  "display": "Inpatient"
+                }
+              ],
+              "text": "Inpatient"
+            }
+          }
+        ],
         "text": {
           "status": "generated",
           "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: furosemide (Lasix)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 80 mg, 1 tabs, Oral, Daily&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
@@ -793,6 +950,21 @@
           "status": "generated",
           "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: vancomycin&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 1 g, IV, q12hr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Taken&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/medication-statement-category",
+                  "code": "inpatient",
+                  "display": "Inpatient"
+                }
+              ],
+              "text": "Inpatient"
+            }
+          }
+        ],
         "patient": {
           "reference": "Patient/4342010",
           "display": "Smart, Joe"
@@ -961,6 +1133,21 @@
             }
           }
         ],
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/medication-statement-category",
+                  "code": "inpatient",
+                  "display": "Inpatient"
+                }
+              ],
+              "text": "Inpatient"
+            }
+          }
+        ],
         "patient": {
           "reference": "Patient/4342010",
           "display": "Smart, Joe"
@@ -1032,6 +1219,229 @@
   ]
 }</code></pre>
 
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual MedicationStatement by its id:</p>
+
+<pre><code>GET /MedicationStatement/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.</li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.</li>
+</ul>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "MedicationStatement",
+  "id": "22298077",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2017-02-09T16:30:45.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Statement&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Name&lt;/b&gt;: vancomycin + Dextrose 5% in Water 100 mL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 100 mg, IV, q12hr&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;/div&gt;"
+  },
+  "contained": [
+    {
+      "resourceType": "Medication",
+      "id": "2770945",
+      "code": {
+        "text": "vancomycin + Dextrose 5% in Water 100 mL"
+      },
+      "product": {
+        "ingredient": [
+          {
+            "item": {
+              "reference": "#2770945-1",
+              "display": "vancomycin"
+            },
+            "amount": {
+              "numerator": {
+                "value": 100.0,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              }
+            }
+          },
+          {
+            "item": {
+              "reference": "#2778758-2",
+              "display": "Dextrose 5% in Water"
+            },
+            "amount": {
+              "numerator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              },
+              "denominator": {
+                "value": 100.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "2770945-1",
+      "code": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "11124",
+            "display": "Vancomycin",
+            "userSelected": false
+          }
+        ],
+        "text": "vancomycin"
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "2778758-2",
+      "code": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "309778",
+            "display": "Glucose 50 MG/ML Injectable Solution",
+            "userSelected": false
+          }
+        ],
+        "text": "Dextrose 5% in Water"
+      }
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/medication-statement-category",
+            "code": "inpatient",
+            "display": "Inpatient"
+          }
+        ],
+        "text": "Inpatient"
+      }
+    }
+  ],
+  "patient": {
+    "reference": "Patient/4342010",
+    "display": "Smart, Joe"
+  },
+  "informationSource": {
+    "reference": "Practitioner/4474007",
+    "display": "Song, River"
+  },
+  "dateAsserted": "2017-02-09T09:29:09.000-06:00",
+  "status": "entered-in-error",
+  "effectivePeriod": {
+    "start": "2017-02-09T08:00:00.000-08:00",
+    "end": "2017-02-09T08:30:45.000-08:00"
+  },
+  "supportingInformation": [
+    {
+      "reference": "MedicationOrder/22298077"
+    }
+  ],
+  "medicationReference": {
+    "reference": "#2770945",
+    "display": "vancomycin + Dextrose 5% in Water 100 mL"
+  },
+  "dosage": [
+    {
+      "text": "100 mg, IV, q12hr",
+      "_text": {
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+            "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
+          }
+        ]
+      },
+      "timing": {
+        "repeat": {
+          "boundsQuantity": {
+            "value": 6,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        },
+        "code": {
+          "text": "q12hr"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://ncimeta.nci.nih.gov",
+            "code": "C38276",
+            "display": "INTRAVENOUS",
+            "userSelected": false
+          }
+        ],
+        "text": "IV"
+      },
+      "quantityQuantity": {
+        "value": 100.0,
+        "unit": "mL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mL"
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="create">Create</h2>
 
 <p>Create a new MedicationStatement.</p>
@@ -1039,23 +1449,27 @@
 <pre><code>POST /MedicationStatement
 </code></pre>
 
-<p><em>Notes</em></p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
   <li>
 <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> must be set to <code>active</code>.</li>
   <li>
 <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken">MedicationStatement.wasNotTaken</a> set to <code>true</code> is not supported.</li>
-  <li>If <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a contained Medication with the code field populated and at most one product.ingredient.</li>
+  <li>If <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication with the code field populated and cannot have any product.ingredients populated.</li>
 </ul>
 
-<h3 id="headers">Headers</h3>
+<h3 id="authorization-types-2">Authorization Types</h3>
 
-<p>To successfully POST a MedicationStatement, the following headers must be provided. MedicationStatement creation is supported from the closed endpoint only.</p>
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
-<pre><code>Content-Type: application/json+fhir
-Authorization: &lt;OAuth2 Bearer Token&gt;
-</code></pre>
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
 
 <h3 id="body-fields">Body Fields</h3>
 
@@ -1818,7 +2232,14 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
   </tbody>
 </table>
 
-<h3 id="example-body">Example Body</h3>
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/
+</code></pre>
+
+<h4 id="body">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "MedicationStatement",
@@ -1861,7 +2282,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
   ]
 }</code></pre>
 
-<h3 id="response-1">Response</h3>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1893,6 +2314,10 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="update">Update</h2>
 
 <p>Update a MedicationStatement.</p>
@@ -1900,20 +2325,24 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
 <pre><code>PUT /MedicationStatement/:id
 </code></pre>
 
-<p><em>Notes</em></p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
   <li>The only supported change is to update the <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> to <code>completed</code>.</li>
 </ul>
 
-<h3 id="headers-1">Headers</h3>
+<h3 id="authorization-types-3">Authorization Types</h3>
 
-<p>To successfully PUT a MedicationStatement, the following headers must be provided. MedicationStatement updates are supported from the closed endpoint only.</p>
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
-<pre><code>Content-Type: application/json+fhir
-Authorization: &lt;OAuth2 Bearer Token&gt;
-If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
-</code></pre>
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir
+If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code></pre>
 
 <h3 id="body-fields-1">Body fields</h3>
 
@@ -2122,7 +2551,14 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
   </tbody>
 </table>
 
-<h3 id="example-body-1">Example Body</h3>
+<h3 id="example-3">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/222
+</code></pre>
+
+<h4 id="body-1">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "MedicationStatement",
@@ -2145,7 +2581,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
   }
 }</code></pre>
 
-<h3 id="response-2">Response</h3>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2173,6 +2609,18 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"
     x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<p>In addition, the following error may be returned:</p>
+
+<ul>
+  <li>Updating a MedicationStatement without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
+</ul>
 
 
     </div>
