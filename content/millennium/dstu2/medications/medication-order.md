@@ -34,6 +34,10 @@ _Notes_
 
 * MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true)%>
+
 ### Response
 
 <%= headers status: 200 %>
