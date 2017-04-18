@@ -85,12 +85,12 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                  "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "subject",
                   "type": "reference",
-                  "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                  "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
@@ -106,6 +106,16 @@ module Cerner
                   "name": "_count",
                   "type": "number",
                   "documentation": "The maximum number of results to return in a page."
+                },
+                {
+                  "name": 'category',
+                  "type": "token",
+                  "documentation": 'Determines if searching for care plan or care team, and if a care team then which type.'
+                },
+                {
+                  "name": 'context',
+                  "type": "reference",
+                  "documentation": 'The encounter for which this care team was responsible.'
                 }
               ]
             },
@@ -604,12 +614,12 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                  "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "subject",
                   "type": "reference",
-                  "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                  "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
@@ -625,6 +635,16 @@ module Cerner
                   "name": "_count",
                   "type": "number",
                   "documentation": "The maximum number of results to return in a page."
+                },
+                {
+                  "name": 'category',
+                  "type": "token",
+                  "documentation": 'Determines if searching for care plan or care team, and if a care team then which type.'
+                },
+                {
+                  "name": 'context',
+                  "type": "reference",
+                  "documentation": 'The encounter for which this care team was responsible.'
                 }
               ]
             },
