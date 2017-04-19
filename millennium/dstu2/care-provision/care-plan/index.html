@@ -29,16 +29,8 @@
   <div id="top-header">
     <div class="header-wrapper">
 
-      <a class="logo" href="../../../../">Cerner Corporation</a>
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
 
-      <nav id="navigation">
-        <ul>
-          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
-        </ul>  
-      </nav>
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -113,7 +105,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Identifies what kind of plan this is. The code will be "assess-plan" from the linked value set.
+            <ul style="list-style-type: none"><li>Identifies what kind of plan this is. This is also used to return a CareTeam (CarePlan with participants). "assess-plan" and "careteam" both belong to the Argonaut extension codes. "longitudinal" and "encounter" are CareTeam specific values from the CareTeam category codes. Currently these are the only category bindings which are supported.
 </li></ul>
           
           
@@ -124,6 +116,18 @@
                   <li>
                     
                       <a target="_blank" href="http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html">Argonaut Extension Codes</a>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <a target="_blank" href="http://build.fhir.org/valueset-care-team-category.html">CareTeam Category Codes</a>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -155,6 +159,9 @@
   </li>
   <li>
     <p>The description of the CarePlan is included in the <a href="https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.text.div">CarePlan.text.div</a> element as ASCII text.</p>
+  </li>
+  <li>
+    <p>In DSTU2 CareTeam is not a stand alone resource. It is a CarePlan with participants. A CareTeam will be returned only if a CareTeam specific category code is supplied.</p>
   </li>
 </ul>
 
@@ -206,14 +213,30 @@
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
       <td>Number of results per page. Defaults to <code>10</code>. Capped at <code>10</code>.</td>
     </tr>
+    <tr>
+      <td><code>category</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The scope of care plan being searched for. Examples: <code>category=assess-plan</code>, <code>category=http://argonaut.hl7.org|careteam</code>, <code>category=http://hl7.org/fhir/care-team-category|longitudinal</code>, or <code>category=careteam</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>context</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The encounter id of the care plan. Example: <code>context=1138</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
 <p>Notes:</p>
 
 <ul>
-  <li>
-    <p>The <code>_id</code> parameter may not be provided at the same time as the <code>date</code>, <code>patient</code>, or <code>subject</code> parameters. When <code>_id</code> is provided, <code>_count</code> is ignored.</p>
+  <li>The <code>_id</code> parameter may not be provided at the same time as the <code>category</code>, <code>date</code>, <code>patient</code>, or <code>subject</code> parameters.
+    <ul>
+      <li>When <code>_id</code> is provided, <code>_count</code> is ignored.</li>
+    </ul>
   </li>
   <li>
     <p>The <code>patient</code> parameter is preferred when set simultaneously with <code>subject</code>.</p>
@@ -221,6 +244,7 @@
   <li>
     <p>The <code>date</code> parameter may be provided up to two times, and must use the <code>ge</code> or <code>le</code> prefixes. When provided twice, the lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</p>
   </li>
+  <li>The <code>category</code> parameter only supports the codes <code>careteam</code>, <code>assess-plan</code>, <code>longitudinal</code>, and <code>encounter</code>. The <code>careteam</code> and <code>assess-plan</code> codes belong to the <a href="http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html">Argonaut system</a>. <code>longitudinal</code> and <code>encounter</code> are defined by the <a href="http://hl7.org/fhir/care-team-category">FHIR system</a>.</li>
 </ul>
 
 <h3 id="response">Response</h3>
@@ -367,6 +391,120 @@
                 "code": "assess-plan"
               }
             ]
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<pre class="headers"><code>Status: 200 OK
+Functionality: CareTeam (CarePlan with participants)</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "88d73a14-672b-4eea-adec-0c875239654f",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=4342012&amp;category=http%3A%2F%2Fargonaut.hl7.org%7Ccareteam"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/L4342012",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "L4342012",
+        "meta": {
+          "versionId": "4342012",
+          "lastUpdated": "2017-02-06T23:33:21Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Aliza&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: Primary Care Physician&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: CHLDMA, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT CHT LIFETIME PPR1&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: RR, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PG, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: JUX, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: HW, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: ML, PW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Role&lt;/b&gt;: PCTAUT PRIV LIFETIME PPR&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: careteam&lt;/p&gt;&lt;/div&gt;"
+        },
+        "subject": {
+          "reference": "Patient/4342012",
+          "display": "Smart, Timmy"
+        },
+        "status": "active",
+        "modified": "2017-02-06T23:33:21Z",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://argonaut.hl7.org",
+                "code": "careteam"
+              }
+            ]
+          }
+        ],
+        "participant": [
+          {
+            "member": {
+              "reference": "Practitioner/1912007",
+              "display": "Smart, Aliza"
+            },
+            "role": {
+              "text": "Primary Care Physician"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/3902008",
+              "display": "CHLDMA, PW"
+            },
+            "role": {
+              "text": "PCTAUT CHT LIFETIME PPR1"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/4496008",
+              "display": "RR, PW"
+            },
+            "role": {
+              "text": "PCTAUT PRIV LIFETIME PPR"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/4506007",
+              "display": "PG, PW"
+            },
+            "role": {
+              "text": "PCTAUT PRIV LIFETIME PPR"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/4554007",
+              "display": "JUX, PW"
+            },
+            "role": {
+              "text": "PCTAUT PRIV LIFETIME PPR"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/4574007",
+              "display": "HW, PW"
+            },
+            "role": {
+              "text": "PCTAUT PRIV LIFETIME PPR"
+            }
+          },
+          {
+            "member": {
+              "reference": "Practitioner/4612009",
+              "display": "ML, PW"
+            },
+            "role": {
+              "text": "PCTAUT PRIV LIFETIME PPR"
+            }
           }
         ]
       }

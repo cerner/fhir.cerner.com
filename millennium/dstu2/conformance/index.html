@@ -29,16 +29,8 @@
   <div id="top-header">
     <div class="header-wrapper">
 
-      <a class="logo" href="../../../">Cerner Corporation</a>
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
 
-      <nav id="navigation">
-        <ul>
-          <li><a target="_blank" href="http://code.cerner.com/learn">Learn</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/browse">Browse</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/build">Build</a></li>
-          <li><a target="_blank" href="http://code.cerner.com/engage">Engage</a></li>
-        </ul>  
-      </nav>
     </div>
 <!-- /.header-wrapper -->
   </div>
@@ -183,12 +175,12 @@
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+              "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "subject",
               "type": "reference",
-              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+              "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "_id",
@@ -204,6 +196,16 @@
               "name": "_count",
               "type": "number",
               "documentation": "The maximum number of results to return in a page."
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "Determines if searching for care plan or care team, and if a care team then which type."
+            },
+            {
+              "name": "context",
+              "type": "reference",
+              "documentation": "The encounter for which this care team was responsible."
             }
           ]
         },
@@ -706,12 +708,12 @@
             {
               "name": "patient",
               "type": "reference",
-              "documentation": "Who care plan is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+              "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "subject",
               "type": "reference",
-              "documentation": "Who care plan is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+              "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
             },
             {
               "name": "_id",
@@ -727,6 +729,16 @@
               "name": "_count",
               "type": "number",
               "documentation": "The maximum number of results to return in a page."
+            },
+            {
+              "name": "category",
+              "type": "token",
+              "documentation": "Determines if searching for care plan or care team, and if a care team then which type."
+            },
+            {
+              "name": "context",
+              "type": "reference",
+              "documentation": "The encounter for which this care team was responsible."
             }
           ]
         },
