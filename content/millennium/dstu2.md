@@ -332,7 +332,7 @@ $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.co
 In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
  are passed in the query string.
 
- ### Resource Identity
+### Resource Identity
 
  Please note that no ids or identifiers in the Millennium EHR are intended to be used outside of the context of their complete URL. A complete URL is comprised of the [service root url](http://hl7.org/fhir/dstu2/http.html#general), the resource, and the parameters (if any).
 
