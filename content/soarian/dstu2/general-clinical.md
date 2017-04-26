@@ -4,6 +4,6 @@ layout: api
 ---
 
 <%= render '/general-clinical.*' %>
-* [AllergyIntolerance](../general-clinical/allergy-intolerance)
+<!--* [AllergyIntolerance](../general-clinical/allergy-intolerance)-->
 * [Condition](../general-clinical/condition)
-* [Procedure](../general-clinical/procedure)
+<!--* [Procedure](../general-clinical/Procedure)-->
