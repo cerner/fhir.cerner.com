@@ -41,6 +41,7 @@
 
       <ul class="pages">
         <li><a href="./" class="nav-dstu2-api">Millennium</a></li>
+		  <li><a href="../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
       </ul>
 
@@ -61,7 +62,9 @@
       
       <li><a href="./" class="active">DSTU 2 Final (1.0.2)</a></li>
     
-      <li><a href="../faq/" class="nav-faq">FAQ</a></li>
+      
+        <li><a href="../faq/" class="nav-faq">FAQ</a></li>
+      
       <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
     </ul>
   </div>
@@ -87,6 +90,7 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
       <li><a href="#secure-sandbox" id="markdown-toc-secure-sandbox">Secure Sandbox</a></li>
       <li><a href="#resource" id="markdown-toc-resource">Resource</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#resource-identity" id="markdown-toc-resource-identity">Resource Identity</a></li>
     </ul>
   </li>
   <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
@@ -417,7 +421,7 @@ $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.co
 <p>In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while <code>patient</code> and <code>status</code> 
  are passed in the query string.</p>
 
-<p>### Resource Identity</p>
+<h3 id="resource-identity">Resource Identity</h3>
 
 <p>Please note that no ids or identifiers in the Millennium EHR are intended to be used outside of the context of their complete URL. A complete URL is comprised of the <a href="http://hl7.org/fhir/dstu2/http.html#general">service root url</a>, the resource, and the parameters (if any).</p>
 

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Soarian</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+		  <li><a href="./" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Soarian</h2>
+      <ul>
+      
+      <li><a href="./" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="overview">Overview</h1>
+
+<p>Soarian Clinicals includes an Application Programmer’s Interface (API).  The API is utilized in the United States by patients and their designated proxies via one or more connected Application(s) that are verified by Cerner to meet the API Technical and Terms of Use specifications.  This section provides an overview of the expected interaction of the Application User, Application, API, and the Cerner Soarian Clinicals solution. This overview provides a foundation to understand the subsequent technical specifications of the integration between the Application and the API. It provides a summary of features expected of the Application that uses the API in an effort to facilitate clients’ selection of Application(s). It summarizes the interactions of the Application and API to provide context for each detailed definition.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#trusted-connection" id="markdown-toc-trusted-connection">Trusted connection</a></li>
+  <li><a href="#purpose" id="markdown-toc-purpose">Purpose</a></li>
+  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
+  <li><a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a></li>
+  <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
+  <li><a href="#special-information-regarding-date-parameters" id="markdown-toc-special-information-regarding-date-parameters">Special information regarding date parameters</a></li>
+  <li>
+<a href="#bundle-message-extension" id="markdown-toc-bundle-message-extension">Bundle Message Extension</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+    </ul>
+  </li>
+  <li><a href="#common-errors" id="markdown-toc-common-errors">Common Errors</a></li>
+</ul>
+
+<h2 id="trusted-connection">Trusted connection</h2>
+
+<p>All API requests will use HTTPS for data transfer. The SHA2 (SHA 256) encryption within HTTPS is intended to provide benefits like confidentiality, integrity and identity. Information remains confidential because only the browser and the server can decrypt the traffic.</p>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>The purpose of the API is to support patient engagement capabilities. Cerner clients may select and connect whitelisted Application(s) designed to allow patients and their proxies to query Soarian Clinicals, via the API, for C-CDA (consolidated clinical document architecture) documents and/or Office of the National Coordinator (ONC) CCDS (common clinical data set) data categories that are represented as FHIR<sup>®</sup> resources. This capability might augment the client’s existing Patient Portal / Patient Engagement strategies. For example, the capability may provide a means for portals to become portals of portals, accessing data from a variety of clinical systems, thus reducing the number of portals with which a patient interacts which may increase his affinity to the remaining portal. The capability may encourage integration with a broader range of personal health management applications so that users can marry their health maintenance data with summary of care information such as medication lists, problem lists, and recent diagnostic results. The overall goal is to provide patients and their proxies with greater access to their health information, via means to which they have affinity, to stimulate them to be actively engaged in their health.</p>
+
+<p>An Application is EHRT/HIT (electronic health record technology / health information technology) that provides capabilities to users who are or become patients and/or patient-proxies. A patient-proxy is a user who is expressly authorized by a patient to access his/her information. The Application is responsible for managing user access to the Application and providing the patient and/or proxy user access to the API capabilities via accepting the Terms of Use and successfully connecting to the API in accordance with the Technical Document. Applications are encouraged to provide healthcare related capabilities for HIPAA including activity logging. The Application may or may not be offered by a HIPAA business associate or be covered under HIPAA requirements. The client who elects to connect an Application is responsible for determining the capabilities of that Application for Privacy, Security, Accessibility, and functionality to patient / proxy users as appropriate for its use with the API as well as successful Application connection with the Technical Document. Once the Application is whitelisted and registered with the API and becomes a trusted API consumer, its users may begin interacting with the API for health information. Application whitelisting is performed by Cerner and Application registration and API enabling is the responsibility of the client.</p>
+
+<p>The initial interaction between the user, Application, and API is to establish a common patient identity and link that identity to an Application user.  The client must have a patient-facing identity provider (IdP) capable of the SAML interaction with the API services. One and only one IdP per client for all API instances is supported.  Application users will establish user name and password in the IdP.  The Soarian proxy and token management capabilities will be enabled and the Application users will enter their temporary linking token in the Application to establish an association between the user ID and the patient.</p>
+
+<p>The Application interacts with the API using OAuth2 and the IdP with SAML for trusted user connections.  When the patient is seen for a healthcare encounter, Soarian Clinicals establishes a temporary linking token which is provided to the patient. Individual tokens may also be assigned to patient-authorized proxy(ies). The Soarian Clinicals user is responsible for state and federal guidelines for interacting with the patient and managing proxies as entered in Soarian. The Application must provide a means for the Application user to establish themselves in an approved identity server and then enter the temporary linking token into the Application. The Application interacts with an authorization server to establish a trusted connection and user authentication and then passes the temporary linking token to the Soarian Clinicals ActivateLinkToken API and Soarian Clinicals establishes a user-patient relationship that is used in subsequent interactions. This interaction provides the Application a trusted link between the user definition used for authentication and the identity of that user as a Soarian managed patient or proxy thus authorizing each user for a specific patient’s data. Each subsequent interaction between the Application and API utilizes the trusted connection and a patient scope selection that Soarian has authorized via the token exchange.</p>
+
+<p>The below figure shows the interaction summary between Application, IdP, Authorization server and Soarian API.</p>
+
+<p><img src="../../images/soarian-api-application-interaction.jpg" alt="Soarian API and Application interaction"></p>
+
+<p>Once the IdP, Application, and API are registered, API is enabled and the user-patient-proxy identity and authorization is established, the patient/proxy Application user can use Application capabilities to query the API for:</p>
+
+<ul>
+  <li>One or more C-CDA SOEN (consolidated clinical documentation architecture summary of episode note) containing an authorized patient’s health information</li>
+  <li>Each category of health data such as a medication list, allergy list, problem list, diagnostic test results, or other specified information.</li>
+</ul>
+
+<p>The Application is responsible for determining which of and how the API capabilities are exposed to the user. For each capability the Application offers the user, the specific resource pages define those API capabilities and, within each, which capabilities the Application must/shall support to be compliant with the API.</p>
+
+<h2 id="authorization">Authorization</h2>
+
+<p>For details on authorization to the API, see the <a href="soarian_authorization">authorization</a> section.</p>
+
+<h2 id="service-root-url">Service Root URL</h2>
+
+<p>URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. The 
+<a href="http://hl7.org/fhir/dstu2/http.html#general">service root url</a> is provided at registration time. FHIR calls will be 
+made against URLs of the following format:</p>
+
+<p><code>:serviceRootURL/:resource[?:parameters]</code></p>
+
+<p>For example:</p>
+
+<pre><code>https://fhir-myrecord.sandboxcerner.com/dstu2/abcd1234/Condition?patientId=4342008
+</code></pre>
+
+<p>Where <code>https://fhir-myrecord.sandboxcerner.com/dstu2/abcd1234/</code> is the the <code>:serviceRootURL</code>, <code>Condition</code> is the 
+<code>:resource</code>, and <code>patientId=4342008</code> is the <code>:parameters</code>.</p>
+
+<h2 id="media-types">Media Types</h2>
+
+<p>Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON content:</p>
+
+<pre><code>application/json+fhir
+application/json
+application/xml+fhir
+application/xml
+</code></pre>
+
+<p>We encourage you to explicitly request one of these types via the <code>Accept</code> header, or via the _format query parameter.</p>
+
+<pre><code>:serviceRootURL/:resource?...&amp;_format=xml
+:serviceRootURL/:resource?...&amp;_format=json
+</code></pre>
+
+<h2 id="special-information-regarding-date-parameters">Special information regarding date parameters</h2>
+
+<ul>
+  <li>
+    <p>All dates should be formatted using the ISO 8601 basic format as YYYYMMDD.</p>
+  </li>
+  <li>
+    <p>Dates are assumed to be formatted correctly. The API does not reject dates with out of bounds months or days. Instead, the API resolves them to valid amounts. For example, if a date of 20152101 is provided, MM is 21 or 12+9 months and the API will resolve 20152101 to 20160901.</p>
+  </li>
+  <li>
+    <p>While DSTU2 uses a letter syntax for date (e.g., ge, le, eq), the API utilizes symbols (e.g., &gt;=, &lt;=, =).  Syntax for optional date parameter entry includes:</p>
+
+    <ul>
+      <li>
+        <p>&amp;date=YYYYMMDD.  Exactly and inclusive of the specified date.  Note that a date passed without a comparator (e.g., &lt;) is interpreted as an exact date as per specification.</p>
+      </li>
+      <li>
+        <p>&amp;date=&lt;YYYYMMDD.  Less than the date, not inclusive of the date.</p>
+      </li>
+      <li>
+        <p>&amp;date=&lt;=YYYYMMDD.  Less than or equal to the date, inclusive of the date.</p>
+      </li>
+      <li>
+        <p>&amp;date=&gt;YYYYMMDD.  Greater than the date, not inclusive of the date.</p>
+      </li>
+      <li>
+        <p>&amp;date=&gt;=YYYYMMDD.  Greater than or equal to the date, inclusive of the date.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>When searching with multiple dates, the dates must compose a closed range. The order that the bounds are provided in does not matter. Some examples of date range searches are below.</p>
+
+<ul>
+  <li>
+    <p>&amp;date=&gt;YYYYMMDD&amp;date=&lt;YYYYMMDD.  Between date and date, not inclusive of either.</p>
+  </li>
+  <li>
+    <p>&amp;date=&gt;=YYYYMMDD&amp;date=&lt;=YYYYMMDD.  Between date and date, inclusive of both.</p>
+  </li>
+  <li>
+    <p>&amp;date=&gt;YYYYMMDD&amp;date=&lt;=YYYYMMDD.  Between date and date, inclusive of the high date, exclusive of the low date.</p>
+  </li>
+  <li>
+    <p>&amp;date=&gt;=YYYYMMDD&amp;date=&lt;YYYYMMDD.  Between date and date, exclusive of the high date, inclusive of the low date.</p>
+  </li>
+  <li>
+    <p>An example of an invalid range: &amp;date=&gt;20160101&amp;date=&lt;=20150601. This set of query parameters represents two date ranges of dates less than June 2015 and dates greater than or equal to January 2016. These invalid date ranges will be returned in the response to indicate that there was an issue with the date search.</p>
+  </li>
+</ul>
+
+<h2 id="bundle-message-extension">Bundle Message Extension</h2>
+
+<p>The URL for this custom extension is defined as <code>http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>bundle-result-messages</code></td>
+      <td><a href="http://hl7.org/fhir/dstu2/extensibility.html"><code>extension</code></a></td>
+      <td>This is a <a href="http://hl7.org/fhir/dstu2/extensibility.html">complex extension</a> that will be returned in a bundle, see sub-extensions below. This is used to communicate additional information about a search response.</td>
+    </tr>
+    <tr>
+      <td><code>bundle-result-messages/Severity</code></td>
+      <td><a href="http://hl7.org/fhir/dstu2/datatypes.html#string"><code>string</code></a></td>
+      <td>This can be <code>info</code> or <code>warning</code> to describe the severity of the message.</td>
+    </tr>
+    <tr>
+      <td><code>bundle-result-messages/Code</code></td>
+      <td><a href="http://hl7.org/fhir/dstu2/datatypes.html#string"><code>string</code></a></td>
+      <td>The codified representation of the message.</td>
+    </tr>
+    <tr>
+      <td><code>bundle-result-messages/Message</code></td>
+      <td><a href="http://hl7.org/fhir/dstu2/datatypes.html#string"><code>string</code></a></td>
+      <td>The detailed message for this result.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<pre class="body-response"><code class="language-javascript">{
+  "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+  "valueExtension": {
+    "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+    "extension": [
+      {
+        "url": "Severity",
+        "valueString": "info"
+      },
+      {
+        "url": "Code",
+        "valueString": "papi006"
+      },
+      {
+        "url": "Message",
+        "valueString": "No relevant problems exist."
+      }
+    ]
+  }
+}</code></pre>
+
+<h2 id="common-errors">Common Errors</h2>
+
+<p>Descriptions of common errors can be found <a href="./common-errors">here</a>.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="soarian_authorization/">Authorization</a></li>
+		   <li><a href="conformance/">Conformance Metadata</a></li>
+        </ul>
+      </li>  
+		<!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+        </ul>
+      </li> -->  	  
+       <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+         <!--  <li><a href="/soarian/dstu2/general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> -->
+		  <li><a href="general-clinical/condition/">Condition</a></li>         
+		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+        </ul>
+      </li>
+	  
+     <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/devices/device/">Device</a></li>
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/individuals/patient/">Patient</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>
+		  <li><a href="/soarian/dstu2/medications/medication-statement/">MedicationStatement</a></li>          
+        </ul>
+      </li> -->
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

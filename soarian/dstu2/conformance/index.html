@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Conformance | DSTU 2 API</title>
+  
+  <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+		  <li><a href="../" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Soarian</h2>
+      <ul>
+      
+      <li><a href="../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="conformance">Conformance</h1>
+
+<ul id="markdown-toc">
+  <li>
+<a href="#metadata" id="markdown-toc-metadata">Metadata</a>    <ul>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#request" id="markdown-toc-request">Request</a></li>
+      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="metadata">Metadata</h2>
+
+<p>Get the capabilities and configurations of this implementation and deployment of the FHIR<sup>®</sup> standard:</p>
+
+<h3 id="headers">Headers</h3>
+
+<pre><code>Accept: application/json+fhir
+</code></pre>
+
+<h3 id="request">Request</h3>
+
+<pre><code>GET /metadata
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Conformance",
+  "publisher": "Cerner Corporation",
+  "date": "2017-03-15T11:54:23-04:00",
+  "copyright": "Copyright © Cerner Health Services, Inc. All rights reserved. This document contains confidential and/or proprietary information belonging to Cerner Health Services, Inc. and/or its related affiliates (Cerner) which may not be reproduced or transmitted in any form or by any means without the express written consent of Cerner. The Applications may contain embedded third party software including free and open source software (FOSS). Soarian's FOSS manual provides details and limitations that apply.",
+  "kind": "capability",
+  "software": {
+    "name": "Soarian Clinicals CCDS API",
+    "version": "01.00.0000"
+  },
+  "fhirVersion": "1.0.2",
+  "acceptUnknown": "extensions",
+  "format": [
+    "application/xml+fhir",
+    "application/json+fhir"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "extension": [
+          {
+            "url": "http://cerner.hs.fhir.com/StructureDefinition/oauth-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/45343c0c-3f93-4721-874a-258fc4bae3a4/protocols/oauth2/profiles/smart-v1/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/45343c0c-3f93-4721-874a-258fc4bae3a4/protocols/oauth2/profiles/smart-v1/personas/patient/authorize"
+              }
+            ]
+          },
+          {
+            "url": "http://cerner.hs.fhir.com/StructureDefinition/SoarianIdLinking-uris",
+            "extension": [
+              {
+                "url": "token",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/45343c0c-3f93-4721-874a-258fc4bae3a4/protocols/oauth2/profiles/soarian-identity-linking-v1/token"
+              },
+              {
+                "url": "authorize",
+                "valueUri": "https://authorization.sandboxcerner.com/tenants/45343c0c-3f93-4721-874a-258fc4bae3a4/protocols/oauth2/profiles/soarian-identity-linking-v1/personas/patient/authorize"
+              }
+            ]
+          }
+        ],
+        "description": "OAuth2 with SMART extensions"
+      },
+      "resource": [
+        {
+          "type": "AllergyIntolerance",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/AllergyIntolerance"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "CarePlan",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/CarePlan"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "Condition",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Condition"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "Device",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Device"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "DiagnosticReport",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/DiagnosticReport"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "DocumentReference",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/DocumentReference"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "attachment",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "Immunization",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Immunization"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "MedicationStatement",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/MedicationStatement"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "Observation",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Observation"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "OperationDefinition",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/OperationDefinition"
+          },
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Patient"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "Procedure",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/Procedure"
+          },
+          "interaction": [
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "patientId",
+              "type": "string",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "documentation": "http://fhir.cerner.com/soarian/dstu2"
+            }
+          ]
+        },
+        {
+          "type": "StructureDefinition",
+          "profile": {
+            "reference": "http://hl7.org/fhir/profiles/StructureDefinition"
+          },
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../soarian_authorization/">Authorization</a></li>
+		   <li><a href="./">Conformance Metadata</a></li>
+        </ul>
+      </li>  
+		<!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+        </ul>
+      </li> -->  	  
+       <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+         <!--  <li><a href="/soarian/dstu2/general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> -->
+		  <li><a href="../general-clinical/condition/">Condition</a></li>         
+		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+        </ul>
+      </li>
+	  
+     <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/devices/device/">Device</a></li>
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/individuals/patient/">Patient</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>
+		  <li><a href="/soarian/dstu2/medications/medication-statement/">MedicationStatement</a></li>          
+        </ul>
+      </li> -->
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
