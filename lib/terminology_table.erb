@@ -34,7 +34,7 @@
               <% unless terminology['system'].nil? && terminology['display'].nil? %>
                   <li>
                     <% #TODO: Adjust displays to be consistent once all resource differentiate system from info url %>
-                    <% if terminology['display'] && terminology['system'] && terminology['info_link'] %>
+                    <% if terminology['info_link'] %>
 
                       <%= "<p>Details: <a target=\"_blank\" href=\"#{terminology['info_link']}\">#{terminology['display']}</a><br/>" %>
                       <%= "System: #{terminology['system']} </p>" %>

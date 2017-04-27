@@ -26,7 +26,4 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
-    - display: ICD-9
-      system: http://hl7.org/fhir/sid/icd-9
-    - display: ICD-10
-      system: http://hl7.org/fhir/sid/icd-10
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
