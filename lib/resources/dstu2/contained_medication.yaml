@@ -27,6 +27,7 @@ fields:
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
 
 - name: product
   required: 'No'
@@ -45,3 +46,4 @@ fields:
       terminology:
           - display: NCI Metathesaurus
             system: http://ncimeta.nci.nih.gov
+            info_link: http://hl7.org/fhir/dstu2/ncimeta.html
