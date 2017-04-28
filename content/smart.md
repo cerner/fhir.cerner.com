@@ -25,14 +25,14 @@ At a high level, provider facing applications must receive the following authori
 2. Each client decides whether they want to allow a SMART app to run on a domain-by-domain basis.
 3. Each client decides which users and roles can access the SMART app. Today, this access is determined with a configuration.
 
-To learn more about consideration one, see the SMART [App Authorization Guide][SMART-HEALTH-IT-AUTHZ].  For implementation information regarding Cerner's Authorization server, see the [Authorization page][CERNER-AUTHZ-DOC] at fhir.cerner.com.
+To learn more about general SMART on FHIR app authorization process, see the SMART [App Authorization Guide][SMART-HEALTH-IT-AUTHZ].  For implementation information regarding Cerner's Authorization server, see the [Authorization page][CERNER-AUTHZ-DOC] at fhir.cerner.com.
 
 ### Access Points ###
 
 Currently, end users can open SMART apps in the following ways:
 
 - Providers can access SMART apps from the *Cerner Millennium PowerChart* TOC (table of contents, a column of options that open different PowerChart components) and the Organizer view
-- Provoiders can access SMART apps from an *MPages* component that is embedded in *PowerChart*
+- Providers can access SMART apps from an *MPages* component that is embedded in *PowerChart*
 - Consumers can access SMART apps from HealtheLife to view their patient information
 Cerner is continuing to look at incorporating SMART app support into our other applications and platforms.
 
