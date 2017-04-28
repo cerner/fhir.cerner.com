@@ -33,7 +33,10 @@
             <% binding['terminology'].each do |terminology| %>
               <% unless terminology['system'].nil? && terminology['display'].nil? %>
                   <li>
-                    <% if terminology['display'] && terminology['system'] %>
+                    <% #TODO: Adjust displays to be consistent once all resourced differentiate system from info url %>
+                    <% if terminology['display'] && terminology['system'] && terminology['info_link'] %>
+                      <%= "<a target=\"_blank\" href=\"#{terminology['info_link']}\">#{terminology['display']}</a> (#{terminology['system']})" %>
+                    <% elsif terminology['display'] && terminology['system'] %>
                       <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['display']}</a>" %>
                     <% elsif terminology['system'] %>
                       <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['system']}</a>" %>
