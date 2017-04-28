@@ -7,6 +7,29 @@ title: Condition | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+The Condition Resource is used to record details about a patient's problems, diagnoses, or other health matters that are concerning. It is common to capture Conditions during the encounter or visit - both as initial suspected problems and confirmed or refuted problems or diagnoses at the time of discharge. This resource may be referenced by other resources as a "reason" for an action or order such as the reason for ordering a medication or procedure.
+
+This resource is NOT intended to record subjective or objective information that could lead to the recording of a condition such as signs or symptoms. Signs and symptoms are typically documented as Observations although some persistent symptoms such as fever or headache may be documented prior to the definitive diagnosis being recognized by a clinician.
+
+References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+
+The following fields are returned if valued:
+
+* [Id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Patient](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.patient){:target="_blank"}
+* [Patient encounter when first recorded (only applies to diagnoses)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter){:target="_blank"}
+* [Who recorded the condition](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter){:target="_blank"}
+* [Date recorded](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded){:target="_blank"}
+* [Condition](﻿﻿http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus){:target="_blank"}
+* [Category](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.category){:target="_blank"}
+* [Verification status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.verificationStatus){:target="_blank"}
+* [Onset](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.onset_x_){:target="_blank"}
+* [Resolved﻿ (either boolean or dateTime) (only applies to problems)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.abatement_x_){:target="_blank"}
+* [Severity](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.severity){:target="_blank"}
+* [Comment/Note﻿﻿](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.notes){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:condition, :dstu2) %>
@@ -17,6 +40,10 @@ Search for Conditions that meet supplied query parameters:
 
     GET /Condition?:parameters
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
+
 ### Parameters
 
  Name             | Required?                                                            | Type          | Description
@@ -26,14 +53,39 @@ Search for Conditions that meet supplied query parameters:
  `category`       | N                                                                    | [`token`]     | The [category] of the condition. Example: `diagnosis`, `problem`, `health-concern`
  `clinicalstatus` | N                                                                    | [`token`]     | The [clinical status] of the condition. Example: `resolved`
 
-Note: Currently `diagnosis`, `problem` and `health-concern` category codes are supported.
+Notes:
+ 
+* Currently only `diagnosis`, `problem` and `health-concern` category codes are supported.
 
-### Response
+### Headers
 
-<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=4342012
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle) %>
-<%= headers status: 200, head: {Functionality: 'Search by id'} %>
+
+### Example Read by Ids
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,7965c636-f343-4e96-8904-3bc35e9fd9f9
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle_by_id) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -41,14 +93,28 @@ List an individual Condition by its id:
 
     GET /Condition/:id
 
-### Response
+### Authorization Types
 
-<%= headers status: 200, head: {Functionality: 'Retrieve diagnosis by id'} %>
-<%= json(:dstu2_condition_diagnosis_resource) %>
-<%= headers status: 200, head: {Functionality: 'Retrieve health concern by id'} %>
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_condition_health_concern_resource) %>
-<%= headers status: 200, head: {Functionality: 'Retrieve problem by id'} %>
-<%= json(:dstu2_condition_problem_resource) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Create
 
@@ -56,34 +122,39 @@ Create a new condition.
 
     POST /Condition
 
-### Headers
-
-To successfully POST a condition, the following headers must be provided. Condition creation is supported from the closed endpoint only.
-
-    Content-Type: application/json+fhir
-    Authorization: <OAuth2 Bearer Token>
-
 _Implementation Notes_
 
 * Currently, `health-concern` category code is not supported for writing conditions.
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true)%>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
+
 ### Body fields
+
+Notes:
+
+* dateRecorded is currently not honored on a create for Conditions with a category of `problem`.
+* abatementDateTime is not supported for Conditions with a category of `diagnosis`.
 
 <%= definition_table(:condition, :create, :dstu2) %>
 
-### Example Body
+### Create Problem Example 
 
-Create Problem Example:
+#### Request
+
+    POST /Condition
+    
+#### Body
+
 <%= json(:dstu2_condition_problem_create) %>
-Note: dateRecorded is currently not honored on a create.
 
-Create Diagnosis Example:
-<%= json(:dstu2_condition_diagnosis_create) %>
-Note: abatementDateTime is not supported for diagnoses
+#### Response
 
-### Response
-
-Create Problem Example:
 <%= headers status: 201 %>
 <pre class="terminal">
     Date → Tue, 28 Feb 2017 21:26:37 GMT
@@ -106,7 +177,20 @@ Create Problem Example:
     Content-Type → application/json
 </pre>
 
-Create Diagnosis Example:
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Create Diagnosis Example 
+
+#### Request
+
+    POST /Condition
+
+#### Body
+
+<%= json(:dstu2_condition_diagnosis_create) %>
+
+#### Response
+
 <%= headers status: 201 %>
 <pre class="terminal">
     Date → Tue, 28 Feb 2017 21:30:28 GMT
@@ -131,40 +215,55 @@ Create Diagnosis Example:
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+### Errors
+
+The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+                                                                        
+ HTTP Status | Cause                              | Severity  | Code
+-------------|------------------------------------|-----------|---------------
+ 422         | Body contained modifier extensions | error     | extension
+ 422         | Body contained implicit rules      | error     | unsupported
+
+
 ## Update
 
 Update an existing condition.
 
     PUT /Condition/:id
 
-Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* Currently, `health-concern` category code is not supported for updating conditions.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true)%>
 
 ### Headers
 
-To successfully PUT a condition, the following headers must be provided. Condition updates are supported from the closed endpoint only.
-
-    Content-Type: application/json+fhir
-    Authorization: <OAuth2 Bearer Token>
-    If-Match: W/"<Current condition id>"
-
-_Implementation Notes_
-
-* Currently, `health-concern` category code is not supported for updating conditions.
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 
+                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Condition resource>"'} %>
 
 ### Body fields
 
+Notes:
+
+* abatementDateTime is not supported for Conditions with a category of `diagnosis`.
+
 <%= definition_table(:condition, :update, :dstu2) %>
 
-### Example Body
+### Example
 
-Update Problem Example:
-<%= json(:dstu2_condition_problem_update) %>
+#### Request
 
-Update Diagnosis Example:
+    PUT /Condition/p6809861
+    
+#### Body
+
 <%= json(:dstu2_condition_diagnosis_update) %>
-Note: abatementDateTime is not supported for diagnosis
 
-### Response
+#### Response
 
 <%= headers status: 200 %>
 <pre class="terminal">
@@ -187,9 +286,23 @@ Note: abatementDateTime is not supported for diagnosis
     Content-Type → application/json
 </pre>
 
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+                                    
+ HTTP Status | Cause                              | Severity  | Code
+-------------|------------------------------------|-----------|---------------
+ 422         | Body contained modifier extensions | error     | extension
+ 422         | Body contained implicit rules      | error     | unsupported
+ 
+
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [category]: http://hl7.org/fhir/DSTU2/valueset-condition-category.html
 [clinical status]: http://hl7.org/fhir/DSTU2/valueset-condition-clinical.html
 [condition-category]: http://hl7.org/fhir/condition-category
 [FHIR<sup>®</sup> Update]: http://hl7.org/fhir/DSTU2/http.html#update
+[errors]: ../../#client-errors
+[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
