@@ -8,11 +8,11 @@ title: Condition | DSTU 2 API
 {:toc}
 
 ## Overview
-The Condition Resource is used to record details about a patient's problems, diagnoses, or other health matters that are concerning. It is common to capture Conditions during the encounter or visit - both as initial suspected problems and confirmed or refuted problems or diagnoses at the time of discharge. This resource may be referenced by other resources as a "reason" for an action or order such as the reason for ordering a medication or procedure.
+The Condition Resource is used to record details about a patient's problems, diagnoses, or other health matters that are concerning. It is common to capture Conditions during the encounter or visit. This is usually captured both as initial suspected problems and confirmed or refuted problems or diagnoses at the time of discharge. This resource may be referenced by other resources as a "reason" for an action or order such as the reason for ordering a medication or procedure.
 
 This resource is NOT intended to record subjective or objective information that could lead to the recording of a condition such as signs or symptoms. Signs and symptoms are typically documented as Observations although some persistent symptoms such as fever or headache may be documented prior to the definitive diagnosis being recognized by a clinician.
 
-References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+References to `implicitRules` and `modifierExtension` fields are NOT supported and will fail a Create or Update request.
 
 The following fields are returned if valued:
 
@@ -21,11 +21,11 @@ The following fields are returned if valued:
 * [Patient encounter when first recorded (only applies to diagnoses)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter){:target="_blank"}
 * [Who recorded the condition](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter){:target="_blank"}
 * [Date recorded](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded){:target="_blank"}
-* [Condition](﻿﻿http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code){:target="_blank"}
+* [Condition code](﻿﻿http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus){:target="_blank"}
 * [Category](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.category){:target="_blank"}
 * [Verification status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.verificationStatus){:target="_blank"}
-* [Onset](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.onset_x_){:target="_blank"}
+* [Onset (dateTime)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.onset_x_){:target="_blank"}
 * [Resolved﻿ (either boolean or dateTime) (only applies to problems)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.abatement_x_){:target="_blank"}
 * [Severity](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.severity){:target="_blank"}
 * [Comment/Note﻿﻿](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.notes){:target="_blank"}
@@ -138,8 +138,8 @@ _Implementation Notes_
 
 Notes:
 
-* dateRecorded is currently not honored on a create for Conditions with a category of `problem`.
-* abatementDateTime is not supported for Conditions with a category of `diagnosis`.
+* `dateRecorded` is currently not honored on a create for Conditions with a category of `problem`.
+* `abatementDateTime` is not supported for Conditions with a category of `diagnosis`.
 
 <%= definition_table(:condition, :create, :dstu2) %>
 
@@ -249,7 +249,7 @@ _Implementation Notes_
 
 Notes:
 
-* abatementDateTime is not supported for Conditions with a category of `diagnosis`.
+* `abatementDateTime` is not supported for Conditions with a category of `diagnosis`.
 
 <%= definition_table(:condition, :update, :dstu2) %>
 
