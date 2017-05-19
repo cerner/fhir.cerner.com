@@ -95,7 +95,7 @@ Cerner's implementation of SMART on FHIR ecosystem allows you to register, updat
 
 ### Launch Context ###
 
-See the [Scopes and Launch Content](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/) page for more information on how you can obtain the context. Generally, your app must able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
+See the [Scopes and Launch Content](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/) page for more information on how you can obtain the context. Generally, your app must be able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
 
 ## Testing ##
 
@@ -105,7 +105,7 @@ For provider and patient facing apps, you can select any patient from a list of 
 
 ### PowerChart ###
 
-Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/ehr-api](https://code.cerner.com/ehr-api), and we can provide access to *PowerChart* to test your app. For a provider facing apps, PowerChart is the environment where providers will access your app in a production environment, so it is very important to test the app in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
+Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/ehr-api](https://code.cerner.com/ehr-api), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
 ### HealtheLife ###
 
