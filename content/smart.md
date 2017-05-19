@@ -11,7 +11,7 @@ layout: smart
 ## General ##
 
 ### Introduction ###
-The SMART<sup>®</sup> (Substitutable Medical Apps and Reusable Technology) platform defines a specification for an electronic health record (EHR) to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and that use HL7® FHIR® [standard][https://www.hl7.org/fhir/] to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of FHIR resources. We will also support FHIR access through mobile SMART applications, as those specifications emerge from the SMART [web site][http://smartplatforms.org/].
+The SMART<sup>®</sup> (Substitutable Medical Apps and Reusable Technology) platform defines a specification for an electronic health record (EHR) to safely and securely open other applications with context. These SMART applications are commonly web applications but may also be native mobile applications and that use HL7® FHIR® [standard](https://www.hl7.org/fhir/) to read and write data from the EHR. With SMART, Cerner can embed a SMART app in the EHR. Cerner believes that SMART applications will be a major user of FHIR resources. We will also support FHIR access through mobile SMART applications, as those specifications emerge from the SMART [web site](http://smartplatforms.org/).
 
 ### SaaS Model ###
 
@@ -25,7 +25,7 @@ At a high level, provider facing applications must receive the following authori
 2. Each client decides whether they want to allow a SMART app to run on a domain-by-domain basis.
 3. Each client decides which users and roles can access the SMART app.
 
-To learn more about general SMART on FHIR app authorization process, see the SMART [App Authorization Guide][http://docs.smarthealthit.org/authorization/].  For implementation information regarding Cerner's Authorization server, see the [Authorization page][http://fhir.cerner.com/authorization/] at fhir.cerner.com.
+To learn more about general SMART on FHIR app authorization process, see the SMART [App Authorization Guide](http://docs.smarthealthit.org/authorization/).  For implementation information regarding Cerner's Authorization server, see the [Authorization page](http://fhir.cerner.com/authorization/) at fhir.cerner.com.
 
 ### Access Points ###
 
@@ -76,36 +76,36 @@ What technology and framework you use is really up to you and your company. Rega
 
 ### Open Source FHIR Client Libraries ###
 
-To start development quickly, there is an open source [fhir-client JavaScript library][https://github.com/smart-on-fhir/client-js] that takes care of the OAuth2 handshake and provides a built-in library to call FHIR resources. The library is usable but has several known issues in previous versions. One particular issue is around the usage of the `sessionStorage` property. Cerner *requires* that you upgrade the library to version [v0.1.10][https://github.com/smart-on-fhir/client-js/tree/v0.1.10] or higher to correct a known patient safety issue. You also *must* download and include this [additional code][https://github.com/cerner/fhir-client-cerner-additions] into your project to correct this issue.
+To start development quickly, there is an open source [fhir-client JavaScript library](https://github.com/smart-on-fhir/client-js) that takes care of the OAuth2 handshake and provides a built-in library to call FHIR resources. The library is usable but has several known issues in previous versions. One particular issue is around the usage of the `sessionStorage` property. Cerner *requires* that you upgrade the library to version [v0.1.10](https://github.com/smart-on-fhir/client-js/tree/v0.1.10) or higher to correct a known patient safety issue. You also *must* download and include this [additional code](https://github.com/cerner/fhir-client-cerner-additions) into your project to correct this issue.
 
 Other additional FHIR clients are available:
 
-- Java: [http://hapifhir.io/doc_rest_client.html][http://hapifhir.io/doc_rest_client.html]
-- .NET: [https://github.com/ewoutkramer/fhir-net-api][https://github.com/ewoutkramer/fhir-net-api]
-- Python: [https://github.com/smart-on-fhir/client-py][https://github.com/smart-on-fhir/client-py]
-- iOS: [https://github.com/smart-on-fhir/Swift-FHIR][https://github.com/smart-on-fhir/Swift-FHIR]
+- Java: [http://hapifhir.io/doc_rest_client.html](http://hapifhir.io/doc_rest_client.html)
+- .NET: [https://github.com/ewoutkramer/fhir-net-api](https://github.com/ewoutkramer/fhir-net-api)
+- Python: [https://github.com/smart-on-fhir/client-py](https://github.com/smart-on-fhir/client-py)
+- iOS: [https://github.com/smart-on-fhir/Swift-FHIR](https://github.com/smart-on-fhir/Swift-FHIR)
 
 ### Tutorial ###
 
-Creating your first app can be overwhelming, so Cerner has created a [step by step tutorial][http://engineering.cerner.com/smart-on-fhir-tutorial/#introduction] on how to start creating your very first SMART app.  The app is written in HTML and JavaScript with some CSS.  We highly recommend that you take a look at the tutorial.
+Creating your first app can be overwhelming, so Cerner has created a [step by step tutorial](http://engineering.cerner.com/smart-on-fhir-tutorial/#introduction) on how to start creating your very first SMART app.  The app is written in HTML and JavaScript with some CSS.  We highly recommend that you take a look at the tutorial.
 
 ### code Console and Sandbox ###
 
-Cerner's implementation of SMART on FHIR ecosystem allows you to register, update, and delete your SMART app from our [code Console][https://code.cerner.com/developer/smart-on-fhir].  Additionally, you can open and test your app from code Console in our Sandbox environment.  Currently, there is a 15-minute waiting period for new or updated app configurations to take effect.  If you cannot open the application after the 15-minute period, post a question to the [Cerner FHIR Developers Google Group][https://groups.google.com/forum/#!forum/cerner-fhir-developers].
+Cerner's implementation of SMART on FHIR ecosystem allows you to register, update, and delete your SMART app from our [code Console](https://code.cerner.com/developer/smart-on-fhir).  Additionally, you can open and test your app from code Console in our Sandbox environment.  Currently, there is a 15-minute waiting period for new or updated app configurations to take effect.  If you cannot open the application after the 15-minute period, post a question to the [Cerner FHIR Developers Google Group](https://groups.google.com/forum/#!forum/cerner-fhir-developers).
 
 ### Launch Context ###
 
-See the [Scopes and Launch Content][http://docs.smarthealthit.org/authorization/scopes-and-launch-context/] page for more information on how you can obtain the context. Generally, your app must able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
+See the [Scopes and Launch Content](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/) page for more information on how you can obtain the context. Generally, your app must able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
 
 ## Testing ##
 
 ### code Console ###
 
-For provider and patient facing apps, you can select any patient from a list of patients in our Sandbox environment to begin testing. After selecting a patient to test, you can open your app from a new web browser in [code Console][https://code.cerner.com/developer/smart-on-fhir]. Testing from Code Console through the browser helps you start developing and testing your app quickly.
+For provider and patient facing apps, you can select any patient from a list of patients in our Sandbox environment to begin testing. After selecting a patient to test, you can open your app from a new web browser in [code Console](https://code.cerner.com/developer/smart-on-fhir). Testing from Code Console through the browser helps you start developing and testing your app quickly.
 
 ### PowerChart ###
 
-Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/ehr-api][https://code.cerner.com/ehr-api], and we can provide access to *PowerChart* to test your app. For a provider facing apps, PowerChart is the environment where providers will access your app in a production environment, so it is very important to test the app in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
+Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/ehr-api](https://code.cerner.com/ehr-api), and we can provide access to *PowerChart* to test your app. For a provider facing apps, PowerChart is the environment where providers will access your app in a production environment, so it is very important to test the app in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
 ### HealtheLife ###
 
@@ -121,6 +121,6 @@ In order for *PowerChart* to open and display your app, the URL of your app need
 
 ## Additional Resources ##
 
-- [Cerner Millennium FHIR API Documentation][http://fhir.cerner.com/millennium/dstu2/]
-- [Cerner Authorization Documentation][http://fhir.cerner.com/authorization/]
-- [Cerner FHIR Developers Google Group][https://groups.google.com/forum/#!forum/cerner-fhir-developers]
+- [Cerner Millennium FHIR API Documentation](http://fhir.cerner.com/millennium/dstu2/)
+- [Cerner Authorization Documentation](http://fhir.cerner.com/authorization/)
+- [Cerner FHIR Developers Google Group](https://groups.google.com/forum/#!forum/cerner-fhir-developers)
