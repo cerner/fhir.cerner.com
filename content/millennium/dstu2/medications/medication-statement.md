@@ -95,13 +95,12 @@ _Implementation Notes_
 `_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
 `patient`       | This, or `_id`     | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
 `status`        | N                  | [`token`]     | The status of the medication statement, may be a list separated by commas.  Example: `active,completed`
-`effectivedate` | N                  | [`date`]      | The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by 'ge'  Example: `ge2015-01-01`
 [`_count`]      | N                  | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
 
 Notes:
 
-- Either the `_id`, or a combination of `patient` , `status`, `effectivedate`, or `_count` parameters must be provided.
+- Either the `_id`, or a combination of `patient`, `status`, or `_count` parameters must be provided.
 
 
 ### Headers
