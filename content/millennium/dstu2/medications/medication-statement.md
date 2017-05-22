@@ -100,7 +100,7 @@ _Implementation Notes_
 
 Notes:
 
-- Either the `_id`, or a combination of `patient` , `status`, or `_count` parameters must be provided.
+- Either the `_id`, or a combination of `patient`, `status`, or `_count` parameters must be provided.
 
 
 ### Headers
