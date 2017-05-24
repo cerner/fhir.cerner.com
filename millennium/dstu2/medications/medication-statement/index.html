@@ -667,13 +667,6 @@ The following fields are returned if valued:</p>
 </td>
     </tr>
     <tr>
-      <td><code>effectivedate</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The date-time which should fall within the period the patient was taking (or not taking) the medication. Must be prefixed by ‘ge’  Example: <code>ge2015-01-01</code>
-</td>
-    </tr>
-    <tr>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
@@ -685,7 +678,7 @@ The following fields are returned if valued:</p>
 <p>Notes:</p>
 
 <ul>
-  <li>Either the <code>_id</code>, or a combination of <code>patient</code> , <code>status</code>, <code>effectivedate</code>, or <code>_count</code> parameters must be provided.</li>
+  <li>Either the <code>_id</code>, or a combination of <code>patient</code>, <code>status</code>, or <code>_count</code> parameters must be provided.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

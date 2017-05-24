@@ -75,34 +75,70 @@
 <h1 id="condition">Condition</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-read-by-ids" id="markdown-toc-example-read-by-ids">Example Read by Ids</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
-      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
-      <li><a href="#example-body" id="markdown-toc-example-body">Example Body</a></li>
-      <li><a href="#response-2" id="markdown-toc-response-2">Response</a></li>
+      <li><a href="#create-problem-example" id="markdown-toc-create-problem-example">Create Problem Example</a></li>
+      <li><a href="#create-diagnosis-example" id="markdown-toc-create-diagnosis-example">Create Diagnosis Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#update" id="markdown-toc-update">Update</a>    <ul>
-      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
-      <li><a href="#example-body-1" id="markdown-toc-example-body-1">Example Body</a></li>
-      <li><a href="#response-3" id="markdown-toc-response-3">Response</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<p>The Condition Resource is used to record details about a patient’s problems, diagnoses, or other health matters that are concerning. It is common to capture Conditions during the encounter or visit. This is usually captured both as initial suspected problems and confirmed or refuted problems or diagnoses at the time of discharge. This resource may be referenced by other resources as a “reason” for an action or order such as the reason for ordering a medication or procedure.</p>
+
+<p>This resource is NOT intended to record subjective or objective information that could lead to the recording of a condition such as signs or symptoms. Signs and symptoms are typically documented as Observations although some persistent symptoms such as fever or headache may be documented prior to the definitive diagnosis being recognized by a clinician.</p>
+
+<p>References to <code>implicitRules</code> and <code>modifierExtension</code> fields are NOT supported and will fail a Create or Update request.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.patient" target="_blank">Patient</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter" target="_blank">Patient encounter when first recorded (only applies to diagnoses)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter" target="_blank">Who recorded the condition</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded" target="_blank">Date recorded</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code" target="_blank">Condition code</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.category" target="_blank">Category</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.verificationStatus" target="_blank">Verification status</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.onset_x_" target="_blank">Onset (dateTime)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.abatement_x_" target="_blank">Resolved (either boolean or dateTime) (only applies to problems)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.severity" target="_blank">Severity</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.notes" target="_blank">Comment/Note</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -139,7 +175,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -151,7 +189,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-9">ICD-9</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-9-CM</a><br>
+                      System: http://hl7.org/fhir/sid/icd-9-cm </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -163,7 +203,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-10">ICD-10</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-10-CM</a><br>
+                      System: http://hl7.org/fhir/sid/icd-10-cm </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -204,7 +246,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/condition-category">Condition Category Codes</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-condition-category.html">Condition Category Codes</a><br>
+                      System: http://hl7.org/fhir/condition-category </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -216,7 +260,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://www.fhir.org/guides/argonaut/r2/ValueSet-condition-category.html">Argonaut Valueset Codes</a>
+
+                      <p>Details: <a target="_blank" href="http://www.fhir.org/guides/argonaut/r2/ValueSet-condition-category.html">Argonaut Valueset Codes</a><br>
+                      System: http://argonaut.hl7.org </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -253,7 +299,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/condition-clinical">Condition Clinical</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-condition-clinical.html">Clinical Status</a><br>
+                      System: http://hl7.org/fhir/condition-clinical </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -291,7 +339,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -318,6 +368,12 @@
 
 <pre><code>GET /Condition?:parameters
 </code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -363,12 +419,27 @@
   </tbody>
 </table>
 
-<p>Note: Currently <code>diagnosis</code>, <code>problem</code> and <code>health-concern</code> category codes are supported.</p>
+<p>Notes:</p>
 
-<h3 id="response">Response</h3>
+<ul>
+  <li>Currently only <code>diagnosis</code>, <code>problem</code> and <code>health-concern</code> category codes are supported.</li>
+</ul>
 
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by patient</code></pre>
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=4342012
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -507,8 +578,17 @@ Functionality: Search by patient</code></pre>
     }
   ]
 }</code></pre>
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by id</code></pre>
+
+<h3 id="example-read-by-ids">Example Read by Ids</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,7965c636-f343-4e96-8904-3bc35e9fd9f9
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -648,6 +728,10 @@ Functionality: Search by id</code></pre>
   ]
 }</code></pre>
 
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <p>List an individual Condition by its id:</p>
@@ -655,53 +739,27 @@ Functionality: Search by id</code></pre>
 <pre><code>GET /Condition/:id
 </code></pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="authorization-types-1">Authorization Types</h3>
 
-<pre class="headers"><code>Status: 200 OK
-Functionality: Retrieve diagnosis by id</code></pre>
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Condition",
-  "id": "d35686553",
-  "meta": {
-    "versionId": "35686553",
-    "lastUpdated": "2016-06-27T19:02:31.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Ear Infection (Right)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2016-06-27&lt;/p&gt;&lt;/div&gt;"
-  },
-  "patient": {
-    "reference": "Patient/4342012",
-    "display": "Smart, Timmy"
-  },
-  "encounter": {
-    "reference": "Encounter/4027933"
-  },
-  "asserter": {
-    "reference": "Practitioner/1912007",
-    "display": "Forrest, Fhir"
-  },
-  "dateRecorded": "2016-06-27",
-  "code": {
-    "text": "Ear Infection (Right)"
-  },
-  "category": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/condition-category",
-        "code": "diagnosis",
-        "display": "Diagnosis"
-      }
-    ],
-    "text": "Diagnosis"
-  },
-  "clinicalStatus": "active",
-  "verificationStatus": "unknown",
-  "onsetDateTime": "2016-06-27"
-}</code></pre>
-<pre class="headers"><code>Status: 200 OK
-Functionality: Retrieve health concern by id</code></pre>
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
@@ -741,45 +799,10 @@ Functionality: Retrieve health concern by id</code></pre>
   "onsetDateTime": "2017-01-11",
   "abatementBoolean": false
 }</code></pre>
-<pre class="headers"><code>Status: 200 OK
-Functionality: Retrieve problem by id</code></pre>
 
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Condition",
-  "id": "p6317881",
-  "meta": {
-    "versionId": "6317881",
-    "lastUpdated": "2016-06-27T18:51:27.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Ear infection&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
-  },
-  "patient": {
-    "reference": "Patient/4342012",
-    "display": "Smart, Timmy"
-  },
-  "asserter": {
-    "reference": "Practitioner/1912007",
-    "display": "Forrest, Fhir"
-  },
-  "dateRecorded": "2016-06-27",
-  "code": {
-    "text": "Ear infection"
-  },
-  "category": {
-    "coding": [
-      {
-        "system": "http://argonaut.hl7.org",
-        "code": "problem",
-        "display": "Problem"
-      }
-    ],
-    "text": "Problem"
-  },
-  "clinicalStatus": "active",
-  "verificationStatus": "confirmed"
-}</code></pre>
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -788,21 +811,34 @@ Functionality: Retrieve problem by id</code></pre>
 <pre><code>POST /Condition
 </code></pre>
 
-<h3 id="headers">Headers</h3>
-
-<p>To successfully POST a condition, the following headers must be provided. Condition creation is supported from the closed endpoint only.</p>
-
-<pre><code>Content-Type: application/json+fhir
-Authorization: &lt;OAuth2 Bearer Token&gt;
-</code></pre>
-
 <p><em>Implementation Notes</em></p>
 
 <ul>
   <li>Currently, <code>health-concern</code> category code is not supported for writing conditions.</li>
 </ul>
 
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
+
 <h3 id="body-fields">Body fields</h3>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+<code>dateRecorded</code> is currently not honored on a create for Conditions with a category of <code>problem</code>.</li>
+  <li>
+<code>abatementDateTime</code> is not supported for Conditions with a category of <code>diagnosis</code>.</li>
+</ul>
 
 <table style="white-space: normal">
   <thead>
@@ -987,7 +1023,7 @@ Authorization: &lt;OAuth2 Bearer Token&gt;
   "code": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm",
         "code": "345.0",
         "display": "Generalized nonconvulsive epilepsy",
         "userSelected": true
@@ -1299,9 +1335,15 @@ OR
   </tbody>
 </table>
 
-<h3 id="example-body">Example Body</h3>
+<h3 id="create-problem-example">Create Problem Example</h3>
 
-<p>Create Problem Example:</p>
+<h4 id="request-3">Request</h4>
+
+<pre><code>POST /Condition
+</code></pre>
+
+<h4 id="body">Body</h4>
+
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
   "patient": {
@@ -1324,9 +1366,43 @@ OR
   "verificationStatus": "differential",
   "abatementDateTime": "2017-01-01T00:00:00Z"
 }</code></pre>
-<p>Note: dateRecorded is currently not honored on a create.</p>
 
-<p>Create Diagnosis Example:</p>
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+    Date → Tue, 28 Feb 2017 21:26:37 GMT
+    Cache-Control → no-cache
+    Vary → Origin,User-Agent,Accept-Encoding
+    Strict-Transport-Security → max-age=631152000
+    Server-Response-Time → 9272.410216999999
+    X-Xss-Protection → 1; mode=block
+    Pragma → no-cache
+    X-Request-Id → 78a19072002b8651623351cfedaffe70
+    Etag → W/"6809861"
+    X-Frame-Options → SAMEORIGIN
+    X-Runtime → 9.272318
+    X-Content-Type-Options → nosniff
+    Expires → Mon, 01 Jan 1990 00:00:00 GMT
+    Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
+    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6809861
+    Status → 201 Created
+    Content-Length → 0
+    Content-Type → application/json
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="create-diagnosis-example">Create Diagnosis Example</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>POST /Condition
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
   "patient": {
@@ -1351,35 +1427,9 @@ OR
     "reference": "Encounter/2457909"
   }
 }</code></pre>
-<p>Note: abatementDateTime is not supported for diagnoses</p>
 
-<h3 id="response-2">Response</h3>
+<h4 id="response-4">Response</h4>
 
-<p>Create Problem Example:</p>
-<pre class="headers"><code>Status: 201 Created</code></pre>
-
-<pre class="terminal">
-    Date → Tue, 28 Feb 2017 21:26:37 GMT
-    Cache-Control → no-cache
-    Vary → Origin,User-Agent,Accept-Encoding
-    Strict-Transport-Security → max-age=631152000
-    Server-Response-Time → 9272.410216999999
-    X-Xss-Protection → 1; mode=block
-    Pragma → no-cache
-    X-Request-Id → 78a19072002b8651623351cfedaffe70
-    Etag → W/"6809861"
-    X-Frame-Options → SAMEORIGIN
-    X-Runtime → 9.272318
-    X-Content-Type-Options → nosniff
-    Expires → Mon, 01 Jan 1990 00:00:00 GMT
-    Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
-    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6809861
-    Status → 201 Created
-    Content-Length → 0
-    Content-Type → application/json
-</pre>
-
-<p>Create Diagnosis Example:</p>
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="terminal">
@@ -1405,6 +1455,35 @@ OR
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>unsupported</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="update">Update</h2>
 
 <p>Update an existing condition.</p>
@@ -1412,24 +1491,34 @@ OR
 <pre><code>PUT /Condition/:id
 </code></pre>
 
-<p>Note that any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</p>
-
-<h3 id="headers-1">Headers</h3>
-
-<p>To successfully PUT a condition, the following headers must be provided. Condition updates are supported from the closed endpoint only.</p>
-
-<pre><code>Content-Type: application/json+fhir
-Authorization: &lt;OAuth2 Bearer Token&gt;
-If-Match: W/"&lt;Current condition id&gt;"
-</code></pre>
-
 <p><em>Implementation Notes</em></p>
 
 <ul>
+  <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
   <li>Currently, <code>health-concern</code> category code is not supported for updating conditions.</li>
 </ul>
 
+<h3 id="authorization-types-3">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir
+If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
+
 <h3 id="body-fields-1">Body fields</h3>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+<code>abatementDateTime</code> is not supported for Conditions with a category of <code>diagnosis</code>.</li>
+</ul>
 
 <table style="white-space: normal">
   <thead>
@@ -1683,7 +1772,7 @@ If-Match: W/"&lt;Current condition id&gt;"
   "code": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/sid/icd-9",
+        "system": "http://hl7.org/fhir/sid/icd-9-cm",
         "code": "345.0",
         "display": "Generalized nonconvulsive epilepsy",
         "userSelected": true
@@ -1995,42 +2084,15 @@ OR
   </tbody>
 </table>
 
-<h3 id="example-body-1">Example Body</h3>
+<h3 id="example-2">Example</h3>
 
-<p>Update Problem Example:</p>
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Condition",
-  "id": "p6809861",
-  "meta": {
-    "versionId": "6809861",
-    "lastUpdated": "2017-02-28T21:26:44.000Z"
-  },
-  "patient": {
-    "reference": "Patient/1316020"
-  },
-  "asserter": {
-    "reference": "Practitioner/1316007"
-  },
-  "dateRecorded": "2017-02-28",
-  "code": {
-    "text": "Freetext Condition"
-  },
-  "category": {
-    "coding": [
-      {
-        "system": "http://argonaut.hl7.org",
-        "code": "problem",
-        "display": "Problem"
-      }
-    ],
-    "text": "Problem"
-  },
-  "clinicalStatus": "resolved",
-  "verificationStatus": "differential",
-  "abatementDateTime": "2017-02-01"
-}</code></pre>
+<h4 id="request-5">Request</h4>
 
-<p>Update Diagnosis Example:</p>
+<pre><code>PUT /Condition/p6809861
+</code></pre>
+
+<h4 id="body-2">Body</h4>
+
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Condition",
   "id": "d36474555",
@@ -2065,9 +2127,8 @@ OR
   "verificationStatus": "differential",
   "onsetDateTime": "2017-02-28"
 }</code></pre>
-<p>Note: abatementDateTime is not supported for diagnosis</p>
 
-<h3 id="response-3">Response</h3>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2090,6 +2151,37 @@ OR
     Content-Length → 0
     Content-Type → application/json
 </pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>unsupported</td>
+    </tr>
+  </tbody>
+</table>
 
 
     </div>
