@@ -9,7 +9,7 @@ title: Device | DSTU 2 API
 
 ## Overview
 
-The Device Resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.
+The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.
 
 The following fields are returned if valued:
 
@@ -19,7 +19,8 @@ The following fields are returned if valued:
 * [Model](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.model){:target="_blank"}
 * [Manufacture date](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.manufactureDate){:target="_blank"}
 * [Expiration date](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.expiry){:target="_blank"}
-* [udi (FDA Unique Device Identifier)](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.udi){:target="_blank"}
+* [UDI (FDA Unique Device Identifier)](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.udi){:target="_blank"}
+* [Serial number](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier){:target="_blank"}
 * [Lot #](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.lotNumber){:target="_blank"}
 * [Owner (Facility)](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.owner){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.patient){:target="_blank"}
@@ -44,7 +45,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -76,7 +77,7 @@ _Implementation Notes_
 
 #### Response
 
-<%= headers status: 200%>
+<%= headers status: 200 %>
 <%= json(:dstu2_device_bundle_by_id) %>
 
 ### Errors
@@ -95,7 +96,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Headers
 
