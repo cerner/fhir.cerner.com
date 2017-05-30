@@ -58,7 +58,7 @@ Apps should be designed to work in any browser for best user experience. For pro
 
 ### HTML5 DOCTYPE ###
 
-The doctype declaration tells the browser what version of HTML the document is written in. It is a good idea to include this declaration so that the browser will render the document correctly. It must be included at the very first line of the document, right above the `<html>` tag. 
+The doctype declaration tells the browser what version of HTML the document is written in. It is a good idea to include this declaration so that the browser will render the document correctly. It must be included at the very first line of the document, right above the `<html>` tag.
 
 ```<!DOCTYPE html>```
 
@@ -117,7 +117,9 @@ Your app must be reachable through an https endpoint. Also, you need a valid SSL
 
 #### Public Access ####
 
-In order for *PowerChart* to open and display your app, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
+In order for *PowerChart* to open and display your app in Cerner's Sandbox FHIRPLAY environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
+
+If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible.
 
 ## Additional Resources ##
 
