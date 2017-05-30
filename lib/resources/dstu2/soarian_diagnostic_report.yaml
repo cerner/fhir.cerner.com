@@ -11,5 +11,6 @@ fields:
   binding:
     description: Codes that describe Diagnostic Reports.
     terminology:
-    - display: LOINC Diagnostic Report Codes
-      system: http://hl7.org/fhir/dstu2/valueset-report-codes.html
+    - display: LOINC
+      system: http://loinc.org
+      info_link: http://loinc.org
