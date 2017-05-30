@@ -21,6 +21,7 @@ fields:
       terminology:
       - display: Identifier Type Codes
         system: http://hl7.org/fhir/identifier-type
+        info_link: http://hl7.org/fhir/DSTU2/valueset-identifier-type.html
 
 - name: type
   required: 'Yes'

@@ -8,7 +8,7 @@ title: Patient | DSTU 2 API
 {:toc}
 
 ## Overview
-The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+The Patient resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
 
 The following fields are returned if valued:
 
@@ -48,7 +48,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -106,7 +106,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Headers
 

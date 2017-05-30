@@ -9,7 +9,7 @@ title: MedicationStatement | DSTU 2 API
 
 ## Overview
 
-The Medication Statement Resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise. 
+The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise. 
 <br/><br/>
 References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
 <br/><br/>
@@ -84,7 +84,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 
 ### Parameters
@@ -135,7 +135,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -170,7 +170,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true)%>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -241,7 +241,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true)%>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
 
