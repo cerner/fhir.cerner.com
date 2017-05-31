@@ -1,0 +1,14 @@
+<%= render '/head.*' %>
+
+<body class="<%= @item[:version].to_s %>_api">
+<%= render '/header.*' %>
+
+<div id="wrapper">
+  <div class="content">
+    <%= yield %>
+  </div>
+</div><!-- #wrapper -->
+
+<%= render '/footer.*' %>
+</body>
+</html>
