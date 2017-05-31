@@ -41,8 +41,9 @@
 
       <ul class="pages">
         <li><a href="../../" class="nav-dstu2-api">Millennium</a></li>
-		  <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
       </ul>
 
     </div>
@@ -75,18 +76,47 @@
 <h1 id="device">Device</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-read-by-ids" id="markdown-toc-example-read-by-ids">Example Read by Ids</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Device id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.type" target="_blank">Type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.manufacturer" target="_blank">Manufacturer</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.model" target="_blank">Model</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.manufactureDate" target="_blank">Manufacture date</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.expiry" target="_blank">Expiration date</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.udi" target="_blank">UDI (FDA Unique Device Identifier)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier" target="_blank">Serial number</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.lotNumber" target="_blank">Lot #</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.owner" target="_blank">Owner (Facility)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.patient" target="_blank">Patient</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -122,7 +152,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/identifier-type">Identifier Type Codes</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      System: http://hl7.org/fhir/identifier-type </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -166,6 +198,12 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/dstu2/extension-data-absent-reason.html">Data Absent Reason</a></li>
+</ul>
+
 <h2 id="search">Search</h2>
 
 <p>Search for Devices that meet supplied query parameters:</p>
@@ -178,6 +216,12 @@
 <ul>
   <li>The <a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.status">Device.status</a> modifier element is not supported and will not be returned.</li>
 </ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -210,10 +254,21 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="headers">Headers</h3>
 
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by patient</code></pre>
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -430,8 +485,17 @@ Functionality: Search by patient</code></pre>
     }
   ]
 }</code></pre>
-<pre class="headers"><code>Status: 200 OK
-Functionality: Search by id</code></pre>
+
+<h3 id="example-read-by-ids">Example Read by Ids</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -499,6 +563,10 @@ Functionality: Search by id</code></pre>
   ]
 }</code></pre>
 
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <p>List an individual Device by its id:</p>
@@ -512,7 +580,25 @@ Functionality: Search by id</code></pre>
   <li>The <a href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.status">Device.status</a> modifier element is not supported and will not be returned.</li>
 </ul>
 
-<h3 id="response-1">Response</h3>
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768
+</code></pre>
+
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -564,6 +650,10 @@ Functionality: Search by id</code></pre>
     "display": "SMART, FRED RICK"
   }
 }</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
 
     </div>

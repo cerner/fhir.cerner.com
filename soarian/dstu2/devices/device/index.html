@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Device | Soarian DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Soarian</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="device">Device</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors-and-informational-messages" id="markdown-toc-errors-and-informational-messages">Errors and Informational messages</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>For the Device resource query, the API returns a list of charted procedures that include Unique Device Identifiers (UDIs) for the patient.  The list represents the most current procedure with UDI list that has been charted in Soarian.</p>
+
+<p>Note that traditional charting practices have procedures resolved and charted in coding/billing systems and not interfaced back to the EMR, therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient’s billing record.  The list of procedures in completed or aborted state with UDIs will be as charted in Soarian but may not represent a comprehensive state of implanted devices for a variety of operational reasons.  The charting process flow for UDIs, both their implantation and ongoing status, is not fully mature and the charting at the point of care, material management and interventional/surgical systems is evolving.  Clients may continue to chart patient devices outside a UDI process flow and the UDI list will not represent a comprehensive view of patient’s devices.  Therefore, the Soarian Clinicals UDI information may not be complete nor representative of the current state of a patient’s implanted devices.</p>
+
+<p>Note that the data returned with the UDI may be incomplete or inconsistent because the FDA (Food and Drug Administration) requirement for UDI labelling, effective 2017, states that manufacturers are responsible for populating an FDA database (GUDID) with information related to their devices; this UDI labelling and GUDID population is a new process and inconsistencies and gaps may exist in the data available. Soarian Clinicals has an ability to enter / scan and parse a UDI, query the FDA database (GUDID), and store information returned from the query.  If the GUDID database is not available, empty, or partially populated, Soarian will store the UDI itself and any available information from the GUDID.  The storage format, and therefore API response format is standardized, but GUDID-available data translated and stored may be inconsistent.  The Soarian documentation defines any translation that is performed.</p>
+
+<p>The FHIR definition of device is broader than the ONC definition of implantable device.  The API Device response is per the ONC definition of those devices that are implanted and have a UDI.  They are charted per encounter, per procedure where a patient may have:</p>
+
+<ul>
+  <li>1 or more visits, where each visit may have:</li>
+  <li>0 or more procedures charted in completed or aborted state, where each procedure may have:</li>
+  <li>0 or more devices with UDIs charted.</li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier">Device.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+            <li><i>Note</i></li>
+            
+            <ul style="list-style-type: none"><li style="list-style-type: none">Currently will return SNO code from the below system.</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      System: http://hl7.org/fhir/identifier-type </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.type">Device.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type of device.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm">FDA Product Code Classification</a><br>
+                      System: urn:oid:2.16.840.1.113883.6.303 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
+
+<h2 id="search">Search</h2>
+
+<pre><code>GET /Device?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The API returns the most current device list.</li>
+  <li>The Narrative includes additional information pertaining to the device, and should be shown to the user to ensure completeness of clinical content and context. The structured component of the FHIR Device resource response will primarily contain the UDI and issuing authority for any entries in the list returned in the Narrative. This portion of the response may not be relevant to the user and should not be displayed.</li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientId</td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td>The patient identifier provided in a pre-requisite authorization step.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "80e6f1f5-5c79-482f-ab46-f27d6031e1c6",
+  "meta": {
+    "lastUpdated": "2017-04-27T10:52:59.689-04:00"
+  },
+  "extension": [
+    {
+      "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+      "valueExtension": {
+        "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+        "extension": [
+          {
+            "url": "Severity",
+            "valueString": "info"
+          },
+          {
+            "url": "Code",
+            "valueString": "papi013"
+          },
+          {
+            "url": "Message",
+            "valueString": "This represents data charted for a procedure(s) performed on implanted devices with unique device identifiers. It may not represent a comprehensive device list or current device status.  It is the responsibility of the patient or patient representative to confirm all implanted devices to appropriate care providers. "
+          }
+        ]
+      }
+    }
+  ],
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387+++++&amp;_format=json"
+    }
+  ],
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Device",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div ccdRefId=\"3001\"&gt;&lt;b&gt;Introduction of Cardiac Pacemaker System via Vein [ Procedure Date: 10/5/2011 12:00 AM ] &lt;/b&gt;&lt;br/&gt;    Device Description: CRT-D DTBA1QQ VIVA QUAD XT US IS4/DF4&lt;br/&gt;    Surgical type: IMPLANT&lt;br/&gt;    Device ID: (01)00643169007222(17)160128(21)BLC200461H&lt;br/&gt;    MRI Safe: Labeling does not contain MRI Safety Information&lt;br/&gt;    Natural Rubber/Latex indicator: No&lt;br/&gt;    Company Name: MEDTRONIC, INC.&lt;br/&gt;    Brand Name: Viva? Quad XT CRT-D&lt;br/&gt;    Model #: DTBA1QQ&lt;br/&gt;    Serial #: BLC200461H&lt;br/&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/identifier-type",
+                  "code": "SNO",
+                  "display": "Serial Number"
+                }
+              ],
+              "text": "Serial Number"
+            },
+            "value": "BLC200461H"
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.303",
+              "code": "KRG",
+              "display": "Programmer, pacemaker"
+            }
+          ],
+          "text": "Programmer, pacemaker"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors-and-informational-messages">Errors and Informational messages</h3>
+
+<p>The common <a href="../../common-errors">errors and informational messages</a> can be returned.</p>
+
+<p>These additional informational messages may be returned within the <a href="../../#bundle-message-extension">bundle extension</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>papi014</td>
+      <td>No implantable medical devices are associated with this query.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../soarian_authorization/">Authorization</a></li>
+		   <li><a href="../../conformance/">Conformance Metadata</a></li>
+        </ul>
+      </li>  
+		<!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+        </ul>
+      </li> -->  	  
+       <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+         <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> 
+		  <li><a href="../../general-clinical/condition/">Condition</a></li>         
+		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+        </ul>
+      </li>
+	  
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="./">Device</a></li>
+        </ul>
+      </li>
+	 <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+        </ul>
+      </li>-->
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+       <!--   <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>-->
+		  <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>          
+        </ul>
+      </li> 
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

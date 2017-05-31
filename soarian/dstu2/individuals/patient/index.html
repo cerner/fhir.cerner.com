@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Patient | Soarian DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Soarian</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="patient">Patient</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors-and-informational-messages" id="markdown-toc-errors-and-informational-messages">Errors and Informational messages</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>For the Patient resource query, the API returns a set of data stored for the patient as a result of Soarian admission, discharge, transfer (ADT) conversations.  The response represents the most current information about the patient charted in Soarian at the time of query.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier" target="_blank">Identifier</a></li>
+  <li><a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name" target="_blank">Patient name</a></li>
+  <li>
+<a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender" target="_blank">Gender</a> see <a href="#search">Implementation notes</a>
+</li>
+  <li><a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
+  <li><a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
+  <li><a href="https://www.hl7.org/fhir/DSTU2/patient-definitions.html#Patient.language" target="_blank">Language</a></li>
+  <li>One or more patient races and ethnicities will be returned as extensions, see <a href="./#extensions">Extensions</a>
+</li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier.type">Patient.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      System: http://hl7.org/fhir/identifier-type </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">v2 Identifier Type</a><br>
+                      System: http://hl7.org/fhir/v2/0203 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
+
+<p>The following extensions can also be returned:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/extension-us-core-race.html" target="_blank">US Core Race</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/extension-us-core-ethnicity.html" target="_blank">US Core Ethnicity</a></li>
+</ul>
+
+<h2 id="search">Search</h2>
+
+<pre><code>GET /Patient?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The API returns the most current patient list.</li>
+  <li>Returns the administrative gender only. Birth sex, if charted and configured, is returned from the Observation resource. </li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientId</td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td>The patient identifier provided in a pre-requisite authorization step.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Patient?patientId=393EC770-CFC9-4F5A-8B3A-784F2508F245
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "9c745c40-93f8-4cfe-9540-78c2a3a44902",
+  "meta": {
+    "lastUpdated": "2017-03-01T11:17:27.125-05:00"
+  },
+  "extension": [
+    {
+      "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+      "valueExtension": {
+        "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+        "extension": [
+          {
+            "url": "Severity",
+            "valueString": "info"
+          },
+          {
+            "url": "Code",
+            "valueString": "papi003"
+          },
+          {
+            "url": "Message",
+            "valueString": "This is the most current, known Patient data and may not reflect the state of information known at a previous date."
+          }
+        ]
+      }
+    }
+  ],
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/Patient?patientId=393EC770-CFC9-4F5A-8B3A-784F2508F245&amp;_format=json"
+    }
+  ],
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "393EC770-CFC9-4F5A-8B3A-784F2508F245",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-birth-sex",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/administrative-gender",
+                  "code": "M",
+                  "display": "Male"
+                }
+              ],
+              "text": "Male"
+            }
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;b&gt;Name&lt;/b&gt;: testy test&lt;br/&gt;&lt;b&gt;Date of Birth&lt;/b&gt;: 1992-08-09&lt;br/&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;br/&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "value": "Downtown (Usability) - 2342344"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "text": "testy,test null null",
+            "family": [
+              "testy"
+            ],
+            "given": [
+              "test"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1992-08-09",
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/NullFlavor",
+              "code": "UNK"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors-and-informational-messages">Errors and Informational messages</h3>
+
+<p>The common <a href="../../common-errors">errors and informational messages</a> can be returned.</p>
+
+<p>These additional informational messages may be returned within the <a href="../../#bundle-message-extension">bundle extension</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>papi003</td>
+      <td>This is the most current, known Patient data and may not reflect the state of information known at a previous date.</td>
+    </tr>
+    <tr>
+      <td>papi004</td>
+      <td>No patient information is available.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../soarian_authorization/">Authorization</a></li>
+		   <li><a href="../../conformance/">Conformance Metadata</a></li>
+        </ul>
+      </li>  
+		<!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+        </ul>
+      </li> -->  	  
+       <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+         <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> 
+		  <li><a href="../../general-clinical/condition/">Condition</a></li>         
+		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+        </ul>
+      </li>
+	  
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+	 <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+        </ul>
+      </li>-->
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="./">Patient</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+       <!--   <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>-->
+		  <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>          
+        </ul>
+      </li> 
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

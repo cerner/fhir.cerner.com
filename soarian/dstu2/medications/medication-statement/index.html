@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>MedicationStatement | Soarian DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../millennium/dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      
+      <h2>Soarian</h2>
+      <ul>
+      
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+    
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<h1 id="medicationstatement">MedicationStatement</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+    </ul>
+  </li>
+  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors-and-informational-messages" id="markdown-toc-errors-and-informational-messages">Errors and Informational messages</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>For the MedicationStatement resource query, the API returns a consolidated list of medications that the provider has defined for the patient.  The list represents the most current discharge medication reconciliation (DMR) list the provider has charted in Soarian.</p>
+
+<p>As the most current medication list, if a patient was taking a medication prior to admission or was given a medication during his or her stay, but during the discharge process the physician determined the medication no longer applies, it will be marked stopped.  Soarian clients can configure a preference to only show active medications or to also show stopped medications.</p>
+
+<p>To avoid patient confusion about the definitive active medication list, no in-progress medications during an active visit are returned; these medications are managed by providers.  If there is an active visit without a DMR, an Informational Message indicating that Medication reconciliation has not been performed will be returned.</p>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<h3 id="contained-medication-bindings">Contained Medication Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the type of medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/rxnorm.html">RxNorm</a><br>
+                      System: http://www.nlm.nih.gov/research/umls/rxnorm </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="custom-extensions">Custom Extensions</h2>
+
+<p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
+
+<p>Status Extension:</p>
+
+<p>The URL for this status extension is defined as <code>http://cerner.hs.fhir.com/StructureDefinition/additional-status</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>additional-status</code></td>
+      <td><a href="http://hl7.org/fhir/dstu2/datatypes.html#string"><code>string</code></a></td>
+      <td>This element further qualifies medications that have a status of “active” by adding the more specific state of the MedicationOrder determined during medication reconciliation. Possible values are <code>new</code>, <code>continued</code> and <code>modified</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<pre><code>GET /MedicationStatement?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The API returns qualifying results dated within the implicit or explicitly defined date query parameter.  For response time, response may be limited to 1000 records.  For any non-null response, the API will provide the informational message including the record dates included in the response.  This informational message may be augmented with further detail if noted below.</li>
+  <li>The Narrative includes additional information pertaining to the MedicationStatement, and should be shown to the user to ensure completeness of clinical content and context.</li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is always a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication.  Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.</li>
+</ul>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientId</td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The patient identifier provided in a pre-requisite authorization step.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/MedicationStatement?patientId=393EC770-CFC9-4F5A-8B3A-784F2508F245
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "7b5ba1a8-8d5f-4122-83fb-1e6192d1662b",
+  "meta": {
+    "lastUpdated": "2016-07-29T15:55:32.360-04:00"
+  },
+  "extension": [
+    {
+      "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+      "valueExtension": {
+        "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
+        "extension": [
+          {
+            "url": "Severity",
+            "valueString": "info"
+          },
+          {
+            "url": "Code",
+            "valueString": "papi025"
+          },
+          {
+            "url": "Message",
+            "valueString": "This is the most current, known medication list and may not reflect the state of medications known at a previous date. It is the responsibility of the patient or patient representative to confirm the list of medications with either the patient's personal care provider or the patient's follow-up care provider to ensure the patient has an appropriate list of medications to take at home."
+          }
+        ]
+      }
+    }
+  ],
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "base-url/a7a929b8-2a11-4ed4-9803-c22906517844/MedicationStatement?patientId=393EC770-CFC9-4F5A-8B3A-784F2508F245&amp;_format=json"
+    }
+  ],
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;acetaminophen (Tylenol Extra Strength) 500 mg Tablet, Ordered By: Admin  Admin&lt;br/&gt;Directions: 2 tablet oral daily&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "Medication",
+            "id": "1",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "209459",
+                  "display": "acetaminophen (Tylenol Extra Strength) 500 mg Tablet"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "value": "I607_p_64533_1"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/JacksonHerman324567"
+        },
+        "status": "active",
+        "_status": {
+          "extension": [
+            {
+              "url": "http://cerner.hs.fhir.com/StructureDefinition/additional-status",
+              "valueString": "modified"
+            }
+          ]
+        },
+        "wasNotTaken": false,
+        "medicationReference": {
+          "reference": "#1",
+          "display": "Medication/I607_p_64533_1"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;diltiazem HCl (Cardizem) 180 mg Tablet, Ordered By: Admin  Admin&lt;br/&gt;Directions: 1 tablet oral daily&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "Medication",
+            "id": "1",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "display": "diltiazem HCl (Cardizem) 180 mg Tablet"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "value": "I607_p_64533_3"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/JacksonHerman324567"
+        },
+        "status": "active",
+        "_status": {
+          "extension": [
+            {
+              "url": "http://cerner.hs.fhir.com/StructureDefinition/additional-status",
+              "valueString": "modified"
+            }
+          ]
+        },
+        "wasNotTaken": false,
+        "medicationReference": {
+          "reference": "#1",
+          "display": "Medication/I607_p_64533_3"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;diltiazem HCl 180 mg Tablet Extended Release 24 hr, Held By: Admin  Admin&lt;br/&gt;Directions: 1 tablet oral twice a day&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "Medication",
+            "id": "1",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "830877",
+                  "display": "diltiazem HCl 180 mg Tablet Extended Release 24 hr"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "value": "I607_p_73019_0"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/JacksonHerman324567"
+        },
+        "status": "intended",
+        "wasNotTaken": true,
+        "medicationReference": {
+          "reference": "#1",
+          "display": "Medication/I607_p_73019_0"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "text": {
+          "status": "additional",
+          "div": "&lt;div&gt;atorvastatin 40 mg Tablet&lt;br/&gt;Directions: 1 tablet oral once&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "Medication",
+            "id": "1",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "display": "atorvastatin 40 mg Tablet"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "value": "I607_p_73020_0"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/JacksonHerman324567"
+        },
+        "status": "completed",
+        "wasNotTaken": true,
+        "medicationReference": {
+          "reference": "#1",
+          "display": "Medication/I607_p_73020_0"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors-and-informational-messages">Errors and Informational messages</h3>
+
+<p>The common <a href="../../common-errors">errors and informational messages</a> can be returned.</p>
+
+<p>These additional informational messages may be returned within the <a href="../../#bundle-message-extension">bundle extension</a>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>papi023</td>
+      <td>No relevant clinical data exists.</td>
+    </tr>
+    <tr>
+      <td>papi024</td>
+      <td>Medication reconciliation has not been performed.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../soarian_authorization/">Authorization</a></li>
+		   <li><a href="../../conformance/">Conformance Metadata</a></li>
+        </ul>
+      </li>  
+		<!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+        </ul>
+      </li> -->  	  
+       <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+         <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> 
+		  <li><a href="../../general-clinical/condition/">Condition</a></li>         
+		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+        </ul>
+      </li>
+	  <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+        </ul>
+      </li>
+	  
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+	 <!-- <li class="js-topic">
+        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+        </ul>
+      </li>-->
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Medications</a>
+        </h3>
+        <ul class="js-guides">
+       <!--   <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>-->
+		  <li><a href="./">MedicationStatement</a></li>          
+        </ul>
+      </li> 
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
