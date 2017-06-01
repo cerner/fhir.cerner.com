@@ -68,7 +68,7 @@ In order for the embedded IE browser to render the app in the latest supported I
 
 ```<meta http-equiv="X-UA-Compatible" content="IE=edge">```
 
-If this tag is not present as the first <head> element on a page, the page and all associated JavaScript will be rendered in IE 7 mode, often times resulting in errors and unwanted behavior.
+If this tag is not present as the first &lt;head> element on a page, the page and all associated JavaScript will be rendered in IE 7 mode, often times resulting in errors and unwanted behavior.
 
 ### Technology and Framework for SMART Apps ###
 
@@ -105,7 +105,7 @@ For provider and patient facing apps, you can select any patient from a list of 
 
 ### PowerChart ###
 
-Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/ehr-api](https://code.cerner.com/ehr-api), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
+Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/millennium](https://code.cerner.com/millennium), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
 ### HealtheLife ###
 
