@@ -1,0 +1,206 @@
+---
+name: DocumentReference
+field_name_base_url: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource
+  example: DocumentReference
+  note: resourceType must be DocumentReference
+  url: http://hl7.org/fhir/DSTU2/json.html#resources
+
+- name: subject
+  required: 'Yes'
+  cardinality: 0..1
+  type: Reference (Patient)
+  description: Who or what is the subject of the document.
+  example: |
+    {
+      "reference": "Patient/1234"
+    }
+
+- name: type
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Kind of document.
+  example: |
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9"
+        }
+      ]
+    }
+  note: The type must include a loinc coding.
+  binding:
+    description: Precise type of clinical document.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      values:
+      - 34133 - Summary of episode note
+
+- name: author
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Practitioner)
+  description: Who and/or what authored the document
+  example: |
+    {
+      "author": [
+        {
+          "reference": "Practitioner/2150097"
+        }
+      ]
+    }
+  note: If author is not provided, the author will be determined based on the access token.
+
+- name: indexed
+  required: 'Yes'
+  cardinality: 1..1
+  type: instant
+  description: When this document reference was created
+  example: |
+    {
+      "indexed": "2015-05-16T091014Z"
+    }
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: The status of this document reference
+  example: |
+    {
+      "status": "current"
+    }
+  note: Currently support `current` only
+
+- name: docStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The status of underlying document
+  example: |
+    {
+      "status": "final"
+    }
+  note: Currently support `final` and `preliminary`
+
+- name: description
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Human-readable description (title)
+  example: |
+    {
+      "description": "Summary of episode note"
+    }
+
+- name: content
+  required: 'Yes'
+  cardinality: 1..*
+  type: BackboneElement
+  description: The referenced document
+  children:
+
+  - name: attachment
+    required: 'Yes'
+    cardinality: 1..1
+    type: Attachment
+    description: An array of document contents. Must contain exactly 1 attachment.
+    example: |
+      {
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xhtml+xml;charset=utf-8",
+              "data": "snipped"
+            }
+          }
+        ]
+      }
+    children:
+
+    - name: contentType
+      required: 'Yes'
+      cardinality: 0..1
+      type: string
+      description: Mime type of the content, with charset etc.
+      example: |
+        {
+          "content": [
+            {
+              "attachment": {
+                "contentType": "application/xhtml+xml;charset=utf-8"
+              }
+            }
+          ]
+        }
+      note: contentType must be 'application/xhtml+xml;charset=utf-8'
+      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType
+
+    - name: data
+      required: 'Yes'
+      cardinality: 0..1
+      type: string
+      description: Data inline, base64 encoded XHTML.
+      example: |
+        {
+          "content": [
+            {
+              "attachment": {
+                "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"
+              }
+            }
+          ]
+        }
+      note: >
+        You can validate your document using any available XHTML validator like the one linked
+        <a href="https://html5.validator.nu/">here</a>.
+        Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be
+        removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be
+        removed but the text within will remain.
+      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.data
+
+- name: context
+  required: 'Yes'
+  cardinality: 0..1
+  type: BackboneElement
+  description: The clinical context in which the document was prepared
+  children:
+
+  - name: encounter
+    required: 'Yes'
+    cardinality: 0..1
+    type: Reference (Encounter)
+    description: Context of the document content
+    example: |
+      {
+        "context": {
+          "encounter": {
+            "reference": "Encounter/4208053"
+          }
+        }
+      }
+
+  - name: period
+    required: 'No'
+    cardinality: 0..1
+    type: Period
+    description: When the documented service was performed.
+    example: |
+      {
+        "context": {
+          "period" : {
+            "end": "2015-08-20T09:10:14Z"
+          }
+        }
+      }
+    note: >
+      If provided, the service time must be set to `context.period.end`. If not provided, the document will be stored
+      with the indexed dateTime.

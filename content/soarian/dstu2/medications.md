@@ -5,4 +5,4 @@ layout: api
 
 <%= render '/medications.*' %>
 * [MedicationStatement](../medications/medication-statement)
-<!-- * [Immunization](../medications/immunization) -->
+* [Immunization](../medications/immunization) 

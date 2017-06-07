@@ -1,0 +1,5 @@
+---
+name: CarePlan
+field_name_base_url: http://hl7.org/fhir/DSTU2/careplan-definitions.html#CarePlan
+fields:
+
