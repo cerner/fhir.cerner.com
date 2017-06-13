@@ -21,7 +21,7 @@ The following fields are returned if valued:
 * [Expiration date](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.expiry){:target="_blank"}
 * [UDI (FDA Unique Device Identifier)](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.udi){:target="_blank"}
 * [Serial number](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier){:target="_blank"}
-* [Lot #](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.lotNumber){:target="_blank"}
+* [Lot number](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.lotNumber){:target="_blank"}
 * [Owner (Facility)](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.owner){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/device-definitions.html#Device.patient){:target="_blank"}
 
