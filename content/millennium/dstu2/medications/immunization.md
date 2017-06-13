@@ -31,7 +31,7 @@ The following fields are returned if valued:
 * [Vaccine manufacturer](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.manufacturer){:target="_blank"}
 * [Lot number](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.lotNumber){:target="_blank"}
 * [Expiration date](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.expirationDate){:target="_blank"}
-* [Dosage](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
+* [Dose](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
 
 ## Terminology Bindings
 
