@@ -9,7 +9,7 @@ title: MedicationOrder | DSTU 2 API
 
 ## Overview
 
-The Medication Order resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to be taken by patient, significant other or another provider. 
+The Medication Order resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to have been taken by patient, significant other or another provider. 
 
 If the Medication Order represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.
 
