@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>DiagnosticReport | DSTU 2 API</title>
+  <title>Practitioner | DSTU 2 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -73,16 +73,45 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="diagnosticreport">DiagnosticReport</h1>
+<h1 id="practitioner">Practitioner</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include and are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Practitioner id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier" target="_blank">Identifiers/Aliases such as NPI and DEA</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active" target="_blank">Active</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name" target="_blank">Name</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom" target="_blank">Contact (secure email and phone)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address" target="_blank">Address</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.birthDate" target="_blank">Date of birth</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -92,10 +121,11 @@
     
       
       
+      
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.category">DiagnosticReport.category</a>
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier">Practitioner.identifier.type</a>
       
       </td>
     </tr>
@@ -104,7 +134,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Codes for diagnostic service sections.</li></ul>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
           
           
 
@@ -113,7 +143,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/diagnostic-service-sections">Diagnostic Service Section Codes</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      System: http://hl7.org/fhir/identifier-type </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -122,35 +154,12 @@
                   </ul>
               
             
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.code">DiagnosticReport.code</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Codes that describe Diagnostic Reports.</li></ul>
-          
-          
-
-          
-            
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/report-codes">LOINC Diagnostic Report Codes</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">v2 Identifier Type</a><br>
+                      System: http://hl7.org/fhir/v2/0203 </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -169,10 +178,16 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for DiagnosticReports that meet supplied query parameters:</p>
+<p>Search for Practitioners that meet supplied query parameters:</p>
 
-<pre><code>GET /DiagnosticReport?:parameters
+<pre><code>GET /Practitioner?:parameters
 </code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -187,192 +202,200 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>patient</code></td>
-      <td>This or subject</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject of the report if a patient. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>subject:Patient</code></td>
-      <td>This or patient</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject (Patient) of the report. Example: <code>12345</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>date</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by ‘ge’ or present twice and prefixed by ‘ge’ / ‘lt’. EG: <code>date=ge2014-09-24T12:00:00.000Z</code> <code>&amp;date=lt2015-10-24T12:00:00.000Z</code>
-</td>
-    </tr>
-    <tr>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return per page.</td>
+      <td><code>_id</code></td>
+      <td>Yes</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="headers">Headers</h3>
 
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021
+</code></pre>
+
+<h4 id="response">Response</h4>
 <pre class="headers"><code>Status: 200 OK</code></pre>
-
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "9791066f-1dcb-42ff-838a-ade00f4037f0",
+  "id": "5c966d5a-966c-499b-aa3c-6f903a628dd8",
   "type": "searchset",
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport?patient=1316020&amp;_count=10"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/5153487",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1994021",
       "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "5153487",
+        "resourceType": "Practitioner",
+        "id": "1994021",
         "meta": {
-          "versionId": "3",
-          "lastUpdated": "2015-08-06T20:03:21.000Z"
+          "versionId": "0",
+          "lastUpdated": "2013-11-04T13:25:17.000-06:00"
         },
         "text": {
-          "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Wrist Complete Left&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Interfaced-Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Song, River&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PCTAUT, OrdersPhy3&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Birthdate&lt;/b&gt;: 1975-10-12&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "unknown",
-        "category": {
-          "text": "RADRPT"
-        },
-        "code": {
-          "text": "RADRPT"
-        },
-        "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
-        },
-        "encounter": {
-          "reference": "Encounter/2787906"
-        },
-        "effectiveDateTime": "2015-08-06T20:03:09.000Z",
-        "issued": "2015-08-06T20:03:21.000Z",
-        "performer": {
-          "display": "Interfaced-Unknown"
-        },
-        "request": [
+        "identifier": [
           {
-            "reference": "DiagnosticOrder/18954087"
+            "use": "usual",
+            "type": {
+              "text": "DOCDEA"
+            },
+            "value": "234234123",
+            "period": {
+              "start": "2013-11-08T00:00:00.000-06:00"
+            }
           }
         ],
-        "presentedForm": [
-          {
-            "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/5153487"
+        "active": true,
+        "name": {
+          "use": "usual",
+          "text": "PCTAUT, OrdersPhy3",
+          "family": [
+            "PCTAUT"
+          ],
+          "given": [
+            "OrdersPhy3"
+          ],
+          "period": {
+            "start": "2013-11-04T13:25:17.000-06:00"
           }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/4135365",
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "4135365",
-        "meta": {
-          "versionId": "5",
-          "lastUpdated": "2016-09-14T16:33:16.000Z"
         },
-        "text": {
-          "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: CT Abdomen w/ Contrast&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Chase, Robert&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Cuddy, Lisa&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "final",
-        "category": {
-          "text": "RADRPT"
-        },
-        "code": {
-          "text": "RADRPT"
-        },
-        "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
-        },
-        "encounter": {
-          "reference": "Encounter/2153909"
-        },
-        "effectiveDateTime": "2014-12-05T22:31:02.000Z",
-        "issued": "2016-09-14T16:33:11.000Z",
-        "performer": {
-          "reference": "Practitioner/1314015",
-          "display": "Chase, Robert"
-        },
-        "request": [
+        "telecom": [
           {
-            "reference": "DiagnosticOrder/17233929"
+            "value": "8165550192",
+            "use": "work"
           }
         ],
-        "presentedForm": [
+        "address": [
           {
-            "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/4135365"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/3411366",
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "3411366",
-        "meta": {
-          "versionId": "2",
-          "lastUpdated": "2014-05-05T18:43:26.000Z"
-        },
-        "text": {
-          "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Abdomen AP | XR Abdomen Series w/ Chest 1 View&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: House, Gregory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Wilson, James&lt;/li&gt;&lt;li&gt;Cameron, Allison&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "unknown",
-        "category": {
-          "text": "RADRPT"
-        },
-        "code": {
-          "text": "RADRPT"
-        },
-        "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
-        },
-        "encounter": {
-          "reference": "Encounter/1309912"
-        },
-        "effectiveDateTime": "2014-05-05T18:43:11.000Z",
-        "issued": "2014-05-05T18:43:26.000Z",
-        "performer": {
-          "reference": "Practitioner/1985700",
-          "display": "House, Gregory"
-        },
-        "request": [
-          {
-            "reference": "DiagnosticOrder/15785901"
-          },
-          {
-            "reference": "DiagnosticOrder/15717975"
+            "use": "work",
+            "text": "123 Main St.\nBirmingham, AL 56265\nUSA",
+            "line": [
+              "123 Main St."
+            ],
+            "city": "Birmingham",
+            "state": "AL",
+            "postalCode": "56265",
+            "country": "USA"
           }
         ],
-        "presentedForm": [
-          {
-            "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/3411366"
-          }
-        ]
+        "gender": "male",
+        "birthDate": "1975-10-12"
       }
     }
   ]
 }</code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Practitioner by its id:</p>
+
+<pre><code>GET /Practitioner/:id
+</code></pre>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1994021
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Practitioner",
+  "id": "1994021",
+  "meta": {
+    "versionId": "0",
+    "lastUpdated": "2013-11-04T13:25:17.000-06:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PCTAUT, OrdersPhy3&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Birthdate&lt;/b&gt;: 1975-10-12&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "text": "DOCDEA"
+      },
+      "value": "234234123",
+      "period": {
+        "start": "2013-11-08T00:00:00.000-06:00"
+      }
+    }
+  ],
+  "active": true,
+  "name": {
+    "use": "usual",
+    "text": "PCTAUT, OrdersPhy3",
+    "family": [
+      "PCTAUT"
+    ],
+    "given": [
+      "OrdersPhy3"
+    ],
+    "period": {
+      "start": "2013-11-04T13:25:17.000-06:00"
+    }
+  },
+  "telecom": [
+    {
+      "value": "8165550192",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "text": "123 Main St.\nBirmingham, AL 56265\nUSA",
+      "line": [
+        "123 Main St."
+      ],
+      "city": "Birmingham",
+      "state": "AL",
+      "postalCode": "56265",
+      "country": "USA"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1975-10-12"
+}</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
 
     </div>
@@ -401,11 +424,11 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Diagnostic</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
         </h3>
         <ul class="js-guides">
-          <li><a href="./">DiagnosticReport</a></li>
-          <li><a href="../observation/">Observation</a></li>
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -454,12 +477,12 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Individuals</a>
         </h3>
         <ul class="js-guides">
-          <li><a href="../../individuals/patient/">Patient</a></li>
-          <li><a href="../../individuals/practitioner/">Practitioner</a></li>
-          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+          <li><a href="../patient/">Patient</a></li>
+          <li><a href="./">Practitioner</a></li>
+          <li><a href="../related-person/">RelatedPerson</a></li>
         </ul>
       </li>
       <li class="js-topic">
