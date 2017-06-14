@@ -9,13 +9,13 @@ title: Practitioner | DSTU 2 API
 
 ## Overview
 
-The Practitioner Resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include and are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
+The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include and are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
 
 The following fields are returned if valued:
 
   * [Practitioner id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
   * [Identifiers/Aliases such as NPI and DEA](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
-  * [Active (true/false)](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active){:target="_blank"}
+  * [Active](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active){:target="_blank"}
   * [Name](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name){:target="_blank"}
   * [Contact (secure email and phone)](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
   * [Address](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address){:target="_blank"}
@@ -38,9 +38,9 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Parameters
 
- Name         | Required?                                         | Type       | Description
---------------|---------------------------------------------------|------------|-------------------------------------------------------------------------------------
-`_id`         | Yes                                               | [`token`]  | The logical resource id associated with the resource.
+ Name  | Required? | Type       | Description
+-------|-----------|------------|------------------------------------------------------
+`_id`  | Yes       | [`token`]  | The logical resource id associated with the resource.
 
 ### Headers
 
@@ -50,7 +50,7 @@ Search for Practitioners that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1478007
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021
 
 #### Response
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_bundle) %>
@@ -77,7 +77,7 @@ List an individual Practitioner by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1478007
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1994021
 
 #### Response
 
