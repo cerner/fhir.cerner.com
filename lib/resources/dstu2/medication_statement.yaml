@@ -305,6 +305,10 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
+      - display: NCI Metathesaurus
+        system: http://ncimeta.nci.nih.gov
+        info_link: http://hl7.org/fhir/dstu2/ncimeta.html
 
   - name: quantityQuantity
     required: 'No'
