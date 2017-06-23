@@ -32,37 +32,32 @@ _Implementation Notes_
 
 ### Parameters
 
-|Name |Required? | Type | Description
-| --- | --- | --- | --- |
-| patient | Y | [reference](http://hl7.org/fhir/DSTU2/search.html#reference) | The patient identifier provided in a pre-requisite authorization step. |
-| date | N | [date](http://hl7.org/fhir/DSTU2/search.html#date) as adjusted per implementation notes | Null or specific date or a date range. |
-| attachment | N |URL encoded String| attachmentId is retrived from attachment section base url | 
+ Name      | Required? | Type                                          | Description
+-----------|-----------|-----------------------------------------------|------------------------------------------------------------------------
+ patientId | Y         | [`reference`]                                 | The patient identifier provided in a pre-requisite authorization step.
+ date      | N         | [`date`] as adjusted per implementation notes | Null or specific date or a date range.
+ attachment| N         | URL encoded String                            | Attachment is the value that is returned in the element “content.attachement.url” as part of the response to the initial “DocumentReference” request. | 
 
 
 Notes:
 
-* See details regarding special [date](../../#special-information-regarding-date-parameters) requirements.
-
-* If the query date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of query as limited by the lesser of 1000 records or 30 days inclusive of the query date.  
-
-* If a single date parameter is included, the response will include qualifying records dated that day as limited by 1000 records.  
-
-* If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit date specified.
-
-* If a date range is used greater than 30 days, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit date specified and include in the informational response in the narrative extension that the date range entered is greater than 30 days and please refine your response.
-
-* If an invalid date range is specified in the query, the API will error.
+* See details regarding special [date][date-parameter] requirements.
+* If the date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of the query as limited by the lesser of 1000 records or 30 days inclusive of the query date.
+* If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.  
+* If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.
+* If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.
+* If an invalid date range is used in the query, the API will error with code [500] [common-errors].Please refer to [Special information regarding date parameters] [date-parameter].
  
 
 ### Headers
 
 <%= headers %>
 
-### Example
+### Example 
 
 #### Request without attachment
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=FaresRoni3425778&attachment=docKey%3D101607B8CE55A4F20111E5B4F8D4AE526B7A48%26objNum%3D1%26created%3D20160301%26indexed%3D20160301
+	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
 	
 
 #### Response without attachment
@@ -73,7 +68,7 @@ Notes:
 
 #### Request with attachment
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?_format=json&attachment=docKey%3D101607B8CE55A4F20111E5B4F8D4AE526B7A48%26objNum%3D1%26created%3D20160301%26indexed%3D20160301&patientId=FaresRoni3425778"
+	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?_format=json&attachment=docKey%3D101607B8CE55A4F20111E5B4F8D4AE526B7A48%26objNum%3D1%26created%3D20160301%26indexed%3D20160301&patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E 
 	
 	
 #### Response with attachment
@@ -82,16 +77,23 @@ Notes:
 <%= json(:SOARIAN_DOCUMENT_REFERENCE_DOCREF_BUNDLE_ATTACHMENT) %>
 
 ### Errors and Informational messages
-The common [errors and informational messages](../../common-errors) can be returned.
+The common [errors and informational messages][common-errors] can be returned.
 
 These additional informational messages may be returned within the [bundle extension]:
 
-| Code | Message |
-| --- | --- |
-| papi019 | No applicable document is available inclusive of startdate through enddate.  Please refine your search.|
-| papi020 | Range requested is greater than 30 days, and no applicable document is available inclusive of startdate through enddate.  Please refine your search.|
-| papi021 | Range requested is greater than 30 days, information provided is for documents created from startdate through enddate inclusive.  Please refine your search.|
-| papi022 | Information provided is for documents created from startdate through enddate inclusive.|
+Code    | Message
+---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ papi019 | No applicable document is available inclusive of startdate through enddate.  Please refine your search.
+ papi020 | Range requested is greater than 30 days, and no applicable document is available inclusive of startdate through enddate.  Please refine your search.
+ papi021 | Range requested is greater than 30 days, information provided is for documents created from startdate through enddate inclusive.  Please refine your search.
+ papi022 | Information provided is for documents created from startdate through enddate inclusive.
+ fsp001  | Date parameter values passed with request were:"passed date input parameters".
 
 [bundle extension]: ../../#bundle-message-extension
 [errors section]: #errors-and-informational-messages
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[common-errors]: ../../common-errors 
+[date-parameter]: ../../#special-information-regarding-date-parameters

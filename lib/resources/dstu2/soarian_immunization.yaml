@@ -13,14 +13,8 @@ fields:
     terminology:
     - display: CVX
       system: http://hl7.org/fhir/sid/cvx
+    - display: NDC
+      system: http://hl7.org/fhir/sid/ndc
 
-
-- name: explanation
-  required: 'No'
-  cardinality: 0..1
-  type: BackboneElement
-  description: Reasons why a vaccine was or was not administered.
-
-  children:
 
  
