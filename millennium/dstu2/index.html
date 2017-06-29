@@ -534,7 +534,10 @@ response.</p>
 <p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>.
 Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
 
-<p>Please reference the <a href="../../authorization/">authorization</a> documentation for more information.</p>
+<p>Each resource interaction documents the type of authentication acceptable (patient, provider, and/or system). While an
+interaction may list system authentication, this is currently available only in sandbox for beta testing and is not available in production yet.</p>
+
+<p>Please reference the <a href="../../authorization/">authorization</a> documentation for details on how to authorize with our server.</p>
 
 <h2 id="pagination">Pagination</h2>
 
