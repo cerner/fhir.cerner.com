@@ -78,13 +78,12 @@ your client application must first register using our [code console][CERNER-CODE
 
 If registering a confidential client application (required for offline_access and
 access on behalf of a system), please first request an account via the **non-production** instance of 
-[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. This functionality is currently only
-available for applications that already have relationships with Cerner (for example, via our Developer Program).
-Once the request is completed, you can then send the client identifier to your existing Cerner contact in order to
-complete the setup process. We will update this documentation and announce when this functionality is rolled out more
-broadly.
+[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. Once the request is completed, use the
+issued system account GUID when registering the application in the [code console][CERNER-CODE-CONSOLE]. Be aware that
+access on behalf of a system currently has limited availability. Check the respective FHIR<sup>®</sup> implementation
+documentation to determine availability.
 
-Once registered, a **client identifier** will be provided for use with 
+Once registered, the **client identifier** will be provided for use with 
 the Cerner Authorization Server. As a registered client, Cerner 
 organizations may then ask for your client application to be enabled, 
 which is necessary in order to gain access to their protected resources.

@@ -406,7 +406,10 @@ Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP v
 We have an endpoint secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/).
 Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
 
-Please reference the <a href="/authorization/">authorization</a> documentation for more information. 
+Each resource interaction documents the type of authentication acceptable (patient, provider, and/or system). While an
+interaction may list system authentication, this is currently available only in sandbox for beta testing and is not available in production yet.
+
+Please reference the <a href="/authorization/">authorization</a> documentation for details on how to authorize with our server. 
 
 ## Pagination
 
