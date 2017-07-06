@@ -9,7 +9,7 @@ title: Procedure | Soarian DSTU 2 API
 
 ## Overview
 
-The API returns procedures charted in Soarian Clinicals. Procedures in completed, aborted, or erroneous status are not returned. Note that traditional charting practices have procedures resolved and charted in coding and billing systems and not interfaced back to the EMR; therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient's billing record.  
+The API returns procedures charted in Soarian Clinicals. Procedures in completed or aborted status are returned; procedures in erroneous status are not returned. Note that traditional charting practices have procedures resolved and charted in coding and billing systems and not interfaced back to the EMR; therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient's billing record.  
 
 ## Terminology Bindings
 
@@ -27,7 +27,9 @@ _Implementation Notes_
 
 * The API returns the most current procedure list.
 
-* Procedures in erroneous state are not returned.
+* Procedures in completed or aborted status are returned.
+
+* Procedures in erroneous status are not returned.
 
 * The Narrative includes additional information pertaining to the procedures, and should be shown to the user to ensure completeness of clinical content and context.
 
@@ -45,7 +47,7 @@ Notes:
 * If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.  
 * If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.
 * If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.
-* If an invalid date range is used in the query, the API will error with code [500] [common-errors].Please refer to [Special information regarding date parameters] [date-parameter].
+* If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
 
 ### Headers 
 

@@ -9,7 +9,7 @@ title: DocumentReference | Soarian DSTU 2 API
 
 ## Overview
 
-For the DocumentReference resource query, the API returns one or more links to Summary of Episode Note (SOEN) consolidated clinical document architecture (C-CDA) documents stored in the Soarian Clinicals C-CDA archive for the subject patient.  If more than one C-CDA link is returned, they are sequenced in reverse chronological order by C-CDA creation date for user selection and display.  Note that each instance of a C-CDA is a unique document. Therefore, if multiple C-CDAs are created for a patient during an encounter where the creation date qualifies them for the query response, all qualified records are returned.  The C-CDA document archive may contain documents created by Soarian or by external systems; all qualifying (SOEN type by create date) records are returned regardless of their source.
+For the DocumentReference resource query, the API returns one or more links to Summary of Episode Note (SOEN) consolidated clinical document architecture (C-CDA) documents stored in the Soarian Clinicals C-CDA archive for the subject patient. If more than one C-CDA link is returned, they are sequenced in reverse chronological order by C-CDA creation date for user selection and display. Note that each instance of a C-CDA is a unique document. Therefore, if multiple C-CDAs are created for a patient during an encounter where the creation date qualifies them for the query response, all qualified records are returned. The C-CDA document archive may contain documents created by Soarian or by external systems; all qualifying (SOEN type by create date) records are returned regardless of their source.
 
 ## Terminology Bindings
 
@@ -28,6 +28,15 @@ _Implementation Notes_
 * The API returns the most current DocumentReference list.
 
 * The Narrative includes additional information pertaining to the document reference, and should be shown to the user to ensure completeness of clinical content and context.
+
+* The API returns one or more links to Summary of Episode Note (SOEN) consolidated clinical document architecture (C-CDA) documents.
+
+* If more than one C-CDA link is returned, they are sequenced in reverse chronological order by C-CDA creation date.
+
+* The API returns one C-CDA document per request. If a patient has more than one C-CDA document, then the first document is returned, and links for the remaining documents are provided in the response section “content.attachement.url”.
+
+* Subsequent calls, each made with the attachment parameter valued to a link provided in the first response, must be made to retrieve the remaining documents.
+
   
 
 ### Parameters
@@ -46,7 +55,7 @@ Notes:
 * If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.  
 * If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.
 * If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.
-* If an invalid date range is used in the query, the API will error with code [500] [common-errors].Please refer to [Special information regarding date parameters] [date-parameter].
+* If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
  
 
 ### Headers
@@ -87,7 +96,7 @@ Code    | Message
  papi020 | Range requested is greater than 30 days, and no applicable document is available inclusive of startdate through enddate.  Please refine your search.
  papi021 | Range requested is greater than 30 days, information provided is for documents created from startdate through enddate inclusive.  Please refine your search.
  papi022 | Information provided is for documents created from startdate through enddate inclusive.
- fsp001  | Date parameter values passed with request were:"passed date input parameters".
+ fsp001  | Date parameter values passed with request were: <date parameter values>.
 
 [bundle extension]: ../../#bundle-message-extension
 [errors section]: #errors-and-informational-messages

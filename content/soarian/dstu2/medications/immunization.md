@@ -31,7 +31,7 @@ _Implementation Notes_
 
 * The API returns the most current immunization list.
 
-* The API returns a consolidated list of immunizations charted as complete.
+* The API returns a consolidated list of those immunizations that are charted as complete.
 
 * The Narrative includes additional information pertaining to the immunization, and should be shown to the user to ensure completeness of clinical content and context.
 

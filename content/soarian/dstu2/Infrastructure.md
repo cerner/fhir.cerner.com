@@ -3,5 +3,5 @@ title: DocumentReference
 layout: api
 ---
 
-<%= render '/infrastructure.*' %>
+<%= render '/infrastructure.*'%>
 * [DocumentReference](../infrastructure/documentReference)
