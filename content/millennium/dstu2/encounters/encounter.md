@@ -28,7 +28,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -55,7 +55,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true)%>
+<%= authorization_types(practitioner: true, patient: true, system: true)%>
 
 ### Response
 
