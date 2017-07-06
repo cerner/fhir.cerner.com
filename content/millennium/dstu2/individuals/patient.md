@@ -63,7 +63,7 @@ _Implementation Notes_
  `phone`                 | This and/or any other search param, or `_id`        | [`token`]  | The patient's phone number. Example: `1111111111`
  `email`                 | This and/or any other search param, or `_id`        | [`token`]  | The patient's email address. Example: `example@example.com`
  `address-postalcode`    | This and/or any other search param, or `_id`        | [`string`] | The postal code in the address details of the patient. Example: `11111`
- `gender`                | No                                                  | [`string`] | The gender of the patient. Example: `male`
+ `gender`                | No                                                  | [`token`]  | The gender of the patient. Example: `male`
  [`_count`]              | No                                                  | [`number`] | The maximum number of results to return. Defaults to `20`.
 
 Notes:
