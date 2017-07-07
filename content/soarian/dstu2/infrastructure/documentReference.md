@@ -33,9 +33,7 @@ _Implementation Notes_
 
 * If more than one C-CDA link is returned, they are sequenced in reverse chronological order by C-CDA creation date.
 
-* The API returns one C-CDA document per request. If a patient has more than one C-CDA document, then the first document is returned, and links for the remaining documents are provided in the response section “content.attachement.url”.
-
-* Subsequent calls, each made with the attachment parameter valued to a link provided in the first response, must be made to retrieve the remaining documents.
+* For performance considerations, only the binary document(content.attachment.data) representing the most recent encounter is included in DocumentReference. To retrieve the related binary documents, use the links provided in content.attachment.url to request the corresponding DocumentReference resources.
 
   
 
