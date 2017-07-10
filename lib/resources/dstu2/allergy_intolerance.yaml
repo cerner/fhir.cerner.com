@@ -161,8 +161,10 @@ fields:
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
       note: SNOMED CT is supported for non-medication substances and for negations.
 
 - name: status
@@ -343,3 +345,4 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
