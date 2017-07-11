@@ -7,6 +7,22 @@ title: Procedure | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The Procedure resource returns current and historical procedures performed on a patient. The current implementation doesn't include surgical or radiology procedures. 
+
+The following fields are returned if valued:
+
+* [Procedure id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Patient](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.subject){:target="_blank"}
+* [Status (completed, entered-in-error)](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.status){:target="_blank"}
+* [Procedure](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.code){:target="_blank"}
+* [Reason performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.reason_x_){:target="_blank"}
+* [Who performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performer){:target="_blank"}
+* [Date performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
+* [Patient encounter](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.encounter){:target="_blank"}
+* [Notes](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notes){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:procedure, :dstu2) %>
@@ -21,6 +37,10 @@ _Implementation Notes_
 
 * The [Procedure.notPerformed] modifier element is not supported and will not be returned.
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+ 
 ### Parameters
 
  Name         | Required?                             | Type          | Description
@@ -36,10 +56,24 @@ Notes:
 
   - The `date` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
 
-### Response
+### Headers
+
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure?patient=1316020
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -51,12 +85,31 @@ _Implementation Notes_
 
 * The [Procedure.notPerformed] modifier element is not supported and will not be returned.
 
-### Response
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/24110557
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_entry) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [Procedure.notPerformed]: http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notPerformed
+[errors]: ../../#client-errors
