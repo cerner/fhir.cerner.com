@@ -33,7 +33,7 @@ _Implementation Notes_
 
 * If more than one C-CDA link is returned, they are sequenced in reverse chronological order by C-CDA creation date.
 
-* For performance considerations, only the binary document(content.attachment.data) representing the most recent encounter is included in DocumentReference. To retrieve the related binary documents, use the links provided in content.attachment.url to request the corresponding DocumentReference resources.
+* For performance considerations, only the binary document (content.attachment.data) representing the most recent encounter is included in DocumentReference. To retrieve the related binary documents, use the links provided in content.attachment.url to request the corresponding DocumentReference resources.
 
   
 

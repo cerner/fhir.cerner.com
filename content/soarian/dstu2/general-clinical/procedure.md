@@ -7,7 +7,7 @@ title: Procedure | Soarian DSTU 2 API
 * TOC
 {:toc}
 
-## Overview
+## Overview 
 
 The API returns procedures charted in Soarian Clinicals. Procedures in completed or aborted status are returned; procedures in erroneous status are not returned. Note that traditional charting practices have procedures resolved and charted in coding and billing systems and not interfaced back to the EMR; therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient's billing record.  
 
@@ -32,6 +32,8 @@ _Implementation Notes_
 * Procedures in erroneous status are not returned.
 
 * The Narrative includes additional information pertaining to the procedures, and should be shown to the user to ensure completeness of clinical content and context.
+
+* 
 
 ### Parameters
 

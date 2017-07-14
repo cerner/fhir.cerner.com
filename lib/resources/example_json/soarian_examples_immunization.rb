@@ -45,7 +45,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.10400115510\'>&lt;b>FLU VAC TV 2015(18 YR+)RCM/PF&lt;/b> (FLUBLOK 2015-2016, ABBVIE US LLC, Lot # 124578AQ); Administered 2/28/2017 11:16 AM; 135 MCG = 0.5 ML, Intramuscular&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -75,7 +75,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.1040014511\'>&lt;b>Hep B, NOS&lt;/b> (ABBVIE US LLC, Lot # 124578A); Administered 2/28/2017 12:00 AM; 0.5 ml, Intramuscular&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -100,7 +100,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.10400110612\'>&lt;b>DTaP, 5 pertussis antigens&lt;/b> Administered 10/5/2015 12:00 AM&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -125,7 +125,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.1040012013\'>&lt;b>DTaP&lt;/b> Not Administered 10/8/2014 12:00 AM; Patient decision&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -150,7 +150,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.10400116614\'>&lt;b>influenza, intradermal, quadrivalent, PF&lt;/b> Not Administered 10/1/2014 12:00 AM; Parental decision&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -175,7 +175,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.1040018815\'>&lt;b>influenza, NOS&lt;/b> Administered 5/10/2014 12:00 AM&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -200,7 +200,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.1040013516\'>&lt;b>tetanus toxoid&lt;/b> Administered 10/2/2013 12:00 AM&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {
@@ -225,7 +225,7 @@ module Cerner
                     "status": "additional",
                     "div": "&lt;li ccdRefId=\'ZImmunizations.Immunizations.10400111217\'>&lt;b>tetanus toxoid, NOS&lt;/b> Administered 1/4/2012 12:00 AM&lt;/li>"
                 },
-                "status": "Completed",
+                "status": "completed",
                 "vaccineCode": {
                     "coding": [
                         {

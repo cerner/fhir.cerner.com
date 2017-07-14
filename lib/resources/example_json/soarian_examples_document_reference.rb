@@ -62,8 +62,8 @@ module Cerner
             "resource": {
                 "resourceType": "DocumentReference",
                 "masterIdentifier": {
-                    "system": "http://loinc.org",
-                    "value": "2.16.840.1.113883.10.20.22.1.2"
+                    "system": "urn:ietf:rfc:3986",
+                    "value": "urn:oid:2.16.840.1.113883.10.20.22.1.2"
                 },
                 "subject": {
                     "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E"
@@ -123,8 +123,8 @@ module Cerner
             "resource": {
                 "resourceType": "DocumentReference",
                 "masterIdentifier": {
-                    "system": "http://loinc.org",
-                    "value": "2.16.840.1.113883.10.20.22.1.2"
+                    "system": "urn:ietf:rfc:3986",
+                    "value": "urn:oid:2.16.840.1.113883.10.20.22.1.2"
                 },
                 "subject": {
                     "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E"
@@ -185,8 +185,8 @@ module Cerner
             "resource": {
                 "resourceType": "DocumentReference",
                 "masterIdentifier": {
-                    "system": "http://loinc.org",
-                    "value": "2.16.840.1.113883.10.20.22.1.2"
+                    "system": "urn:ietf:rfc:3986",
+                    "value": "urn:oid:2.16.840.1.113883.10.20.22.1.2"
                 },
                 "subject": {
                     "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E "

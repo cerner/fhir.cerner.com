@@ -47,6 +47,8 @@ _Implementation Notes_
 
 * The API returns charted content that is not marked as erroneous.
 
+* The API will not return charted content that is marked as cancelled or entered-in-error status.
+
 * The Narrative includes additional information pertaining to the observation, and should be shown to the user to ensure completeness of clinical content and context.
 
 

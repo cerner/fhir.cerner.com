@@ -5,7 +5,9 @@ fields:
 - name: code
   type: CodeableConcept
   binding:
-    description: A code to identify a specific procedure
+    description: A code to identify a specific procedure. Only one terminology systems will be returned, depending on configuration.
+ 
+
     terminology:
     - display: Procedure Codes (SNOMED CT)
       system: http://snomed.info/

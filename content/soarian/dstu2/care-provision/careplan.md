@@ -52,6 +52,8 @@ _Implementation Notes_
 
 * The API returns charted content that is not marked as erroneous.
 
+* The API will not return a careplan with cancelled status.
+
 * The Narrative represents the entire care plan, and contains information that is not included in the structured portion of the response. As such, it should be shown to the user to ensure completeness of clinical content and context.
 
 
