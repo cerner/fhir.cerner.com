@@ -27,13 +27,9 @@ _Implementation Notes_
 
 * The API returns the most current procedure list.
 
-* Procedures in completed or aborted status are returned.
-
-* Procedures in erroneous status are not returned.
+* The API returns procedures in a `completed` or `aborted` status. It will not return procedures marked as `entered-in-error`.
 
 * The Narrative includes additional information pertaining to the procedures, and should be shown to the user to ensure completeness of clinical content and context.
-
-* 
 
 ### Parameters
 

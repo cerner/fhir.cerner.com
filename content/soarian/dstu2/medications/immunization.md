@@ -31,9 +31,7 @@ _Implementation Notes_
 
 * The API returns the most current immunization list.
 
-* The API returns immunizations that are marked as complete.
-
-* The API will not return immunizations that are marked as entered-in-error.
+* The API returns immunizations that are marked as `complete`. It will not return immunizations that are marked as `entered-in-error`.
 
 * The Narrative includes additional information pertaining to the immunization, and should be shown to the user to ensure completeness of clinical content and context.
 

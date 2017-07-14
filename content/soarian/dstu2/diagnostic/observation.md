@@ -43,11 +43,7 @@ _Implementation Notes_
 
 * The API returns values in reverse chronological order by the most currently charted date.
 
-* The API returns charted content in final status.
-
-* The API returns charted content that is not marked as erroneous.
-
-* The API will not return charted content that is marked as cancelled or entered-in-error status.
+* The API returns charted content in `final` status. It will not return charted content that is marked as `cancelled` or `entered-in-error`.
 
 * The Narrative includes additional information pertaining to the observation, and should be shown to the user to ensure completeness of clinical content and context.
 

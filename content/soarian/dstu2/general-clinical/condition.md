@@ -28,6 +28,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 _Implementation Notes_
 
 * The API returns the most current charted problem list. 
+* The API returns conditions in `active` and `resolved` statuses. It will not return conditions marked as `entered-in-error`.
 * The Narrative includes additional information pertaining to the results, and should be shown to the user to ensure completeness of clinical content and context.
 
 ### Parameters      

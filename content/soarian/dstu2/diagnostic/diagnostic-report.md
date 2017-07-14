@@ -27,6 +27,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 _Implementation Notes_
 
 * The API returns qualifying results dated within the implicit or explicitly defined date query parameter.  For response time, response may be limited to 1000 records.  For any non-null response, the API will provide the informational message including the record dates included in the response.  This informational message may be augmented with further detail if noted below.    
+* The API will return reports with a status of `final` and `corrected`. It will not return reports marked as `entered-in-error`. 
 * The Narrative includes additional information pertaining to the results, and should be shown to the user to ensure completeness of clinical content and context.
 
 ### Parameters
