@@ -54,7 +54,7 @@ The recommended screen resolution varies based on the available screen's real es
 
 ### Browser Requirement ###
 
-Apps should be designed to work in any browser for best user experience. For provider facing apps that run on the *Cerner Millennium* platform, Cerner currently supports only the embedded Internet Explorer browser (IE) at the moment. The minimum-supported embedded browser is IE 10. The latest supported browser varies based on the version of the browser that is currently installed on the device.
+For provider-facing apps that run from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.
 
 ### HTML5 DOCTYPE ###
 
