@@ -15,6 +15,7 @@ fields:
     terminology:
     - display: Observation Category Codes
       system: http://hl7.org/fhir/observation-category
+      info_link: http://hl7.org/fhir/dstu2/valueset-observation-category.html
 
 - name: code
   required: 'Yes'
@@ -26,8 +27,10 @@ fields:
     terminology:
     - display: LOINC
       system: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/loinc.html
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
 
 - name: interpretation
   required: 'No'
@@ -41,7 +44,8 @@ fields:
     description: Codes identifying interpretations of observations.
     terminology:
     - display: v2 Interpretation Codes
-      system: http://hl7.org/fhir/DSTU2/v2/0078
+      system: http://hl7.org/fhir/v2/0078
+      info_link: http://hl7.org/fhir/dstu2/valueset-observation-interpretation.html
 
 - name: component
   required: 'No'
@@ -63,5 +67,7 @@ fields:
       terminology:
       - display: LOINC
         system: http://loinc.org
+        info_link: http://hl7.org/fhir/dstu2/loinc.html
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
