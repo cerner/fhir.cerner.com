@@ -96,6 +96,7 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
  422         | Body contained implicit rules      | error     | unsupported
+ 422         | Body contained relatesTo           | error     | unsupported
 
 
 ## Operation: docref
