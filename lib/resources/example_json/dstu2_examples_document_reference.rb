@@ -53,5 +53,52 @@ module Cerner
       ]
     }
 
+    DSTU2_DOCUMENT_REFERENCE_DOCREF_CREATE ||= {
+      "resourceType": "DocumentReference",
+      "subject": {
+        "reference": "Patient/53663272"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "34840-9"
+          }
+        ]
+      },
+      "author": [
+        {
+          "reference": "Practitioner/21500981"
+        }
+      ],
+      "indexed": "2015-11-18T18:00:00Z",
+      "status": "current",
+      "docStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/composition-status",
+            "code": "final"
+          }
+        ]
+      },
+      "description": "Rheumatology Note",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/xhtml+xml;charset=utf-8",
+            "data": "&lt;snipped for brevity>"
+          }
+        }
+      ],
+      "context": {
+        "encounter": {
+          "reference": "Encounter/4208059"
+        },
+        "period": {
+          "end": "2015-08-20T09:10:14Z"
+        }
+      }
+    }
+
   end
 end

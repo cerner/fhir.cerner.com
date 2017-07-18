@@ -7,6 +7,22 @@ title: DocumentReference | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The DocumentReference resource is used to reference a document within the health system. This resource supports reading Continuity of Care Documents (CCD), or writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.
+
+For fields supported on write, see the [create](#create) section.
+
+The following fields are returned if valued for the docref operation (CCD read):
+
+* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id)
+* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject)
+* [Type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type)
+* [Index date/time (when document reference created)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed)
+* [Status (current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status)
+* [Format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format)
+* [ContentType and URL (fully qualified link to the Binary CCD)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment)
+
 ## Terminology Bindings
 
 <%= terminology_table(:document_reference, :dstu2) %>
@@ -16,74 +32,36 @@ title: DocumentReference | DSTU 2 API
 Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.
 
     POST /DocumentReference
+    
+_Implementation Notes_   
+    
+* The modifier elements [implicitRules], [modifierExtension] and [relatesTo] are not supported and will be rejected if present.
+* Currently only XHTML formatted documents are supported. You can validate your document using any available strict XHTML 1.0 validator (eg: [w3 validator] or this [html5 validator]).
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Headers
 
-To successfully POST a document, the following headers must be provided. Document creation is supported from the closed endpoint only.
-
-    Content-Type: application/json+fhir
-    Authorization: <OAuth2 Bearer Token>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
 
 ### Body fields
 
-_Implementation Notes_   
-
-* The modifier elements [implicitRules], [modifierExtension] and [relatesTo] are not supported and will be rejected if
-present.
-* Currently only XHTML formatted documents are supported. You can validate your document using any available XHTML validator like the one linked [here].
-
 <%= definition_table(:document_reference, :create, :dstu2) %>
 
-#### Example Body
+### Example
 
-    {
-      "resourceType": "DocumentReference",
-      "subject": {
-        "reference": "Patient/53663272"
-      },
-      "type": {
-        "coding": [
-          {
-            "system": "http://loinc.org",
-            "code": "34840-9"
-          }
-        ]
-      },
-      "author": [
-        {
-          "reference": "Practitioner/21500981"
-        }
-      ],
-      "indexed": "2015-11-18T18:00:00Z",
-      "status": "current",
-      "docStatus": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/composition-status",
-            "code": "final"
-          }
-        ]
-      },
-      "description": "Rheumatology Note",
-      "content": [
-        {
-          "attachment": {
-            "contentType": "application/xhtml+xml;charset=utf-8",
-            "data": "<snipped for brevity>"
-          }
-        }
-      ],
-      "context": {
-        "encounter": {
-          "reference": "Encounter/4208059"
-        },
-        "period": {
-          "end": "2015-08-20T09:10:14Z"
-        }
-      }
-    }
 
-### Response
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference
+
+#### Body
+
+<%= json(:dstu2_document_reference_docref_create) %>    
+
+#### Response
 
 <%= headers status: 201 %>
 <pre class="terminal">
@@ -110,6 +88,17 @@ present.
    x-xss-protection → 1; mode=block
 </pre>
 
+### Errors
+
+The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+                                    
+ HTTP Status | Cause                              | Severity  | Code
+-------------|------------------------------------|-----------|---------------
+ 422         | Body contained modifier extensions | error     | extension
+ 422         | Body contained implicit rules      | error     | unsupported
+ 422         | Body contained relatesTo           | error     | unsupported
+
+
 ## Operation: docref
 
 Argonaut operation for querying DocumentReferences for the supplied parameters:
@@ -119,6 +108,10 @@ Argonaut operation for querying DocumentReferences for the supplied parameters:
 _Implementation Notes_
 
 * The [DocumentReference.relatesTo] modifier element is not supported and will not be returned.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Terminology Bindings
 
@@ -138,17 +131,34 @@ Notes:
 - The `type` parameter must include both a system and a code. (e.g. `&type=http://loinc.org|34133-9`)
 - The `start` and `end` parameters must be valid [dateTime]s with a time component. They must have prefixes of `eq` or nothing.
 
-### Response
+### Headers
 
-<%= headers status: 200, head: {GET: '[...]/DocumentReference/$docref?patient=1316035&type=http://loinc.org|34133-9'} %>
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&type=http%3A%2F%2Floinc.org%7C34133-9
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
-[here]: https://html5.validator.nu/
+[html5 validator]: https://html5.validator.nu/
+[w3 validator]: http://validator.w3.org/#validate_by_upload+with_options
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
+[errors]: ../../#client-errors
+[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
