@@ -11,7 +11,7 @@ title: DiagnosticReport | Soarian DSTU 2 API
 
 For the DiagnosticReport resource query, the API returns test names and result values for test types that the Soarian client has configured as appropriate for the API.  The ONC (Office of the National Coordinator) CCDS (common clinical data set) definition includes laboratory tests and values, however, clients may configure additional qualifying test types such as radiology, cardiology, etc.  The configuration of qualifying test types is a single configuration that applies to both the API and the Consolidated Clinical Document Architecture (C-CDA) document available to the patients. 
 
-The API returns the test names and values in reverse chronological order by result date and, within that, the sequence that is configured in the Soarian flowsheet that defines the qualified tests.  Qualified results of status Final, Corrected, or Cannot Obtain are returned.  Result values of numeric or text are returned; image only results, including those encapsulated in non-text formats such as pdf, are not returned.  Since each result is individually dated and the value is unambiguously relevant for that date, this resource supports date-based queries.
+The API returns the test names and values in reverse chronological order by result date and, within that, the sequence that is configured in the Soarian flowsheet that defines the qualified tests.  Qualified results of status Final, Corrected and Cancelled are returned.  Result values of numeric or text are returned; image only results, including those encapsulated in non-text formats such as pdf, are not returned.  Since each result is individually dated and the value is unambiguously relevant for that date, this resource supports date-based queries.
 
 ## Terminology Bindings      
 
@@ -20,6 +20,14 @@ The API returns the test names and values in reverse chronological order by resu
 ## Custom Extensions
 The [bundle extension] can be returned, see possible codes in the [errors section] below.
 
+	Status Extension: 
+
+The URL for this status extension is defined as `http://cerner.hs.fhir.com/StructureDefinition/additional-status`
+
+ ID                         | Value\[x] Type | Description
+----------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------
+`additional-status`         | [`string`]     | This element further qualifies DiagnosticReport resources that have a status of “cancelled”. Possible value is "Can not obtain".
+
 ## Search
 
     GET /DiagnosticReport?:parameters
@@ -27,7 +35,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 _Implementation Notes_
 
 * The API returns qualifying results dated within the implicit or explicitly defined date query parameter.  For response time, response may be limited to 1000 records.  For any non-null response, the API will provide the informational message including the record dates included in the response.  This informational message may be augmented with further detail if noted below.    
-* The API will return reports with a status of `final` and `corrected`. It will not return reports marked as `entered-in-error`. 
+* The API will return reports with a status of `final` `corrected` and `cancelled`. It will not return reports marked as `entered-in-error`. 
 * The Narrative includes additional information pertaining to the results, and should be shown to the user to ensure completeness of clinical content and context.
 
 ### Parameters
