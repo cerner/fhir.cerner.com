@@ -1,8 +1,7 @@
 module Cerner
   module Resources
 
-    SOARIAN_IMMUNIZATION_BUNDLE ||=
-     {
+    SOARIAN_IMMUNIZATION_BUNDLE ||= {
     "resourceType": "Bundle",
     "id": "debcb450-dcf0-492d-8768-eb8360c159e2",
     "meta": {
@@ -245,5 +244,6 @@ module Cerner
         }
     ]
 }
+
   end
 end

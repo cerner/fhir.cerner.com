@@ -25,4 +25,3 @@ fields:
       info_link: http://hl7.org/fhir/dstu2/loinc.html
       values:
       - 34133 - Summary of episode note
-

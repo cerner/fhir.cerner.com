@@ -2,7 +2,6 @@ module Cerner
   module Resources
 
     SOARIAN_DOCUMENT_REFERENCE_DOCREF_BUNDLE ||= {
-	
     "resourceType": "Bundle",
     "id": "3def23df-44bf-4006-ab1c-72d0c176b1b0",
     "meta": {
@@ -166,8 +165,7 @@ module Cerner
     ]
 }
 
-   SOARIAN_DOCUMENT_REFERENCE_DOCREF_BUNDLE_ATTACHMENT ||= {
-
+    SOARIAN_DOCUMENT_REFERENCE_DOCREF_BUNDLE_ATTACHMENT ||= {
     "resourceType": "Bundle",
     "id": "f74a5b3b-6b9b-4c92-9039-7e7a631e2b78",
     "meta": {
@@ -243,9 +241,7 @@ module Cerner
             }
         }
     ]
-
 }
-
 
   end
 end

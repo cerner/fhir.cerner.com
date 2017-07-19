@@ -4,4 +4,4 @@ layout: api
 ---
 
 <%= render '/care-provision.*' %>
-* [Careplan](../care-provision/careplan)
+* [CarePlan](../care-provision/careplan)

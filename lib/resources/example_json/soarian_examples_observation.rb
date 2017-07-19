@@ -1,9 +1,7 @@
 module Cerner
   module Resources
 
-    SOARIAN_OBSERVATION_BUNDLE ||= 
-    
-   {
+    SOARIAN_OBSERVATION_BUNDLE ||= {
     "resourceType": "Bundle",
     "id": "44900955-4315-4c77-a85e-8a8800677d3f",
     "meta": {
@@ -156,6 +154,6 @@ module Cerner
         }
     ]
 }
-         
+
   end
 end

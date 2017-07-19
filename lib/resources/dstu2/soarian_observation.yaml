@@ -16,6 +16,3 @@ fields:
     - display: SNOMED CT
       system: http://snomed.info/
       info_link: http://hl7.org/fhir/dstu2/snomedct.html
-
-
-

@@ -16,6 +16,3 @@ fields:
     - display: NDC
       system: http://hl7.org/fhir/sid/ndc
       info_link: http://hl7.org/fhir/dstu2/ndc.html
-
-
- 
