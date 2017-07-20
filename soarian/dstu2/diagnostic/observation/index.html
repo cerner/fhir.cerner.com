@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Device | Soarian DSTU 2 API</title>
+  <title>Observation | Soarian DSTU 2 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -71,12 +71,12 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="device">Device</h1>
+<h1 id="observation">Observation</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -89,19 +89,23 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>For the Device resource query, the API returns a list of charted procedures that include Unique Device Identifiers (UDIs) for the patient.  The list represents the most current procedure with UDI list that has been charted in Soarian.</p>
+<p>For the Observation resource query,the API returns observation names and values for elements that the Soarian client has configured as appropriate for the API. The ONC (Office of the National Coordinator) CCDS (common clinical data set) definition includes at least two types of data relevant to this resource: smoking status and vital signs. The API will return any data, not marked as erroneous, the client has configured as relevant for the API. Note that ONC has clarified CCDS sex as the sex recorded at birth and this may be included in the Observation resource if client-configured as part of the social history template. Data is returned in the sequence defined for these sections. The configuration of qualifying data (data configured for social history and vital signs sections) is a single configuration that applies to both the API and the Consolidated Clinical Document Architecture (C-CDA) document, social history and vital signs sections, available to the patients.</p>
 
-<p>Note that traditional charting practices have procedures resolved and charted in coding/billing systems and not interfaced back to the EMR, therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient’s billing record.  The list of procedures in completed or aborted state with UDIs will be as charted in Soarian but may not represent a comprehensive state of implanted devices for a variety of operational reasons.  The charting process flow for UDIs, both their implantation and ongoing status, is not fully mature and the charting at the point of care, material management and interventional/surgical systems is evolving.  Clients may continue to chart patient devices outside a UDI process flow and the UDI list will not represent a comprehensive view of patient’s devices.  Therefore, the Soarian Clinicals UDI information may not be complete nor representative of the current state of a patient’s implanted devices.</p>
-
-<p>Note that the data returned with the UDI may be incomplete or inconsistent because the FDA (Food and Drug Administration) requirement for UDI labelling, effective 2017, states that manufacturers are responsible for populating an FDA database (GUDID) with information related to their devices; this UDI labelling and GUDID population is a new process and inconsistencies and gaps may exist in the data available. Soarian Clinicals has an ability to enter / scan and parse a UDI, query the FDA database (GUDID), and store information returned from the query.  If the GUDID database is not available, empty, or partially populated, Soarian will store the UDI itself and any available information from the GUDID.  The storage format, and therefore API response format is standardized, but GUDID-available data translated and stored may be inconsistent.  The Soarian documentation defines any translation that is performed.</p>
-
-<p>The FHIR definition of device is broader than the ONC definition of implantable device.  The API Device response is per the ONC definition of those devices that are implanted and have a UDI.  They are charted per encounter, per procedure where a patient may have:</p>
+<p>The API handles vital signs similarly to results in the DiagnosticReport resource; the API returns vital sign names, values, and units of measure in reverse chronological order by charted date. Since each vital sign value is individually dated and the value is unambiguously relevant for that date, this resource supports date-based queries for vital signs. Vital signs include:</p>
 
 <ul>
-  <li>1 or more visits, where each visit may have:</li>
-  <li>0 or more procedures charted in completed or aborted state, where each procedure may have:</li>
-  <li>0 or more devices with UDIs charted.</li>
+  <li>Temperature</li>
+  <li>Systolic BP</li>
+  <li>Diastolic BP</li>
+  <li>Respiratory Rate</li>
+  <li>Pulse (Heart Rate)</li>
+  <li>SPO2</li>
+  <li>Height</li>
+  <li>Weight</li>
+  <li>Inhaled O2 saturation</li>
 </ul>
+
+<p>Social History data, such as smoking status, birth sex or any additional client-configured qualifying data, reflects a currently charted state and the most current values will always be returned. ONC requires specific smoking status values and codes which will be returned in the structured portion of the response; charted names will be represented in the narrative extension.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -110,11 +114,10 @@
     
       
       
-      
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier">Device.identifier.type</a>
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.code">Observation.code</a>
       
       </td>
     </tr>
@@ -123,12 +126,8 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+            <ul style="list-style-type: none"><li>Codes identifying names of simple observations.</li></ul>
           
-          
-            <li><i>Note</i></li>
-            
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently will return SNO code from the below system.</li></ul>
           
 
           
@@ -137,8 +136,8 @@
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
-                      System: http://hl7.org/fhir/identifier-type </p>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/loinc.html">LOINC</a><br>
+                      System: http://loinc.org </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -147,37 +146,12 @@
                   </ul>
               
             
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.type">Device.type</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type of device.</li></ul>
-          
-          
-
-          
-            
               
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm">FDA Product Code Classification</a><br>
-                      System: urn:oid:2.16.840.1.113883.6.303 </p>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/ </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -194,20 +168,22 @@
   </tbody>
 </table>
 
-<h2 id="extensions">Extensions</h2>
+<h2 id="custom-extensions">Custom Extensions</h2>
 
 <p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
 
 <h2 id="search">Search</h2>
 
-<pre><code>GET /Device?:parameters
+<pre><code>GET /Observation?:parameters
 </code></pre>
 
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The API returns the most current device list.</li>
-  <li>The Narrative includes additional information pertaining to the device, and should be shown to the user to ensure completeness of clinical content and context. The structured component of the FHIR Device resource response will primarily contain the UDI and issuing authority for any entries in the list returned in the Narrative. This portion of the response may not be relevant to the user and should not be displayed.</li>
+  <li>The API returns the most current charted Observation list.</li>
+  <li>The API returns values in reverse chronological order by the most currently charted date.</li>
+  <li>The API returns charted content in <code>final</code> status. It will not return charted content that is marked as <code>cancelled</code> or <code>entered-in-error</code>.</li>
+  <li>The Narrative includes additional information pertaining to the observation, and should be shown to the user to ensure completeness of clinical content and context.</li>
 </ul>
 
 <h3 id="parameters">Parameters</h3>
@@ -225,11 +201,29 @@
     <tr>
       <td>patientId</td>
       <td>Y</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The patient identifier provided in a pre-requisite authorization step.</td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>N</td>
+      <td>
+<a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a> as adjusted per implementation notes</td>
+      <td>Null or specific date or a date range.</td>
     </tr>
   </tbody>
 </table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>See details regarding special <a href="../../#special-information-regarding-date-parameters">date</a> requirements.</li>
+  <li>If the date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of the query as limited by the lesser of 1000 records or 30 days inclusive of the query date.</li>
+  <li>If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.</li>
+  <li>If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.</li>
+  <li>If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.</li>
+  <li>If an invalid date range is used in the query, the API will error with code <a href="../../common-errors">500</a>. Please refer to <a href="../../#special-information-regarding-date-parameters">Special information regarding date parameters</a>.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -240,7 +234,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Observation?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -249,9 +243,9 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "80e6f1f5-5c79-482f-ab46-f27d6031e1c6",
+  "id": "44900955-4315-4c77-a85e-8a8800677d3f",
   "meta": {
-    "lastUpdated": "2017-04-27T10:52:59.689-04:00"
+    "lastUpdated": "2017-05-30T02:44:10.364-04:00"
   },
   "extension": [
     {
@@ -265,11 +259,11 @@
           },
           {
             "url": "Code",
-            "valueString": "papi013"
+            "valueString": "papi029"
           },
           {
             "url": "Message",
-            "valueString": "This represents data charted for a procedure(s) performed on implanted devices with unique device identifiers. It may not represent a comprehensive device list or current device status.  It is the responsibility of the patient or patient representative to confirm all implanted devices to appropriate care providers. "
+            "valueString": "Information provided is from 2017-05-01 through 2017-05-30 inclusive."
           }
         ]
       }
@@ -279,41 +273,122 @@
   "link": [
     {
       "relation": "self",
-      "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387+++++&amp;_format=json"
+      "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/Observation?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E&amp;_format=json"
     }
   ],
   "entry": [
     {
       "resource": {
-        "resourceType": "Device",
+        "resourceType": "Observation",
         "text": {
           "status": "additional",
-          "div": "&lt;div ccdRefId=\"3001\"&gt;&lt;b&gt;Introduction of Cardiac Pacemaker System via Vein [ Procedure Date: 10/5/2011 12:00 AM ] &lt;/b&gt;&lt;br/&gt;    Device Description: CRT-D DTBA1QQ VIVA QUAD XT US IS4/DF4&lt;br/&gt;    Surgical type: IMPLANT&lt;br/&gt;    Device ID: (01)00643169007222(17)160128(21)BLC200461H&lt;br/&gt;    MRI Safe: Labeling does not contain MRI Safety Information&lt;br/&gt;    Natural Rubber/Latex indicator: No&lt;br/&gt;    Company Name: MEDTRONIC, INC.&lt;br/&gt;    Brand Name: Viva? Quad XT CRT-D&lt;br/&gt;    Model #: DTBA1QQ&lt;br/&gt;    Serial #: BLC200461H&lt;br/&gt;&lt;/div&gt;"
+          "div": "&lt;ul ccdRefId=\"ZSocial_History.Social_History.121415.91005.value.0\"&gt;&lt;li&gt;Tobacco Use? : Light Tobacco Smoker&lt;/li&gt;&lt;/ul&gt;"
         },
         "identifier": [
           {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/identifier-type",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "BLC200461H"
+            "use": "official",
+            "value": "ZSocial_History.Social_History.121415.91005.value.0"
           }
         ],
-        "type": {
+        "status": "final",
+        "code": {
           "coding": [
             {
-              "system": "urn:oid:2.16.840.1.113883.6.303",
-              "code": "KRG",
-              "display": "Programmer, pacemaker"
+              "system": "http://loinc.org",
+              "code": "72166-2",
+              "display": "A_Tobacco?"
             }
           ],
-          "text": "Programmer, pacemaker"
+          "text": "A_Tobacco?"
+        },
+        "subject": {
+          "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E"
+        },
+        "effectiveDateTime": "2017-05-23",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "428061000124105",
+              "display": "Light Tobacco Smoker"
+            }
+          ],
+          "text": "Light Tobacco Smoker"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "additional",
+          "div": "&lt;ul ccdRefId=\"ZSocial_History.Social_History.117449.86444.value.0\"&gt;&lt;li&gt;Patient Birth Sex : Unknown&lt;/li&gt;&lt;/ul&gt;"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "value": "ZSocial_History.Social_History.117449.86444.value.0"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "76689-9",
+              "display": "Patient_BirthSex"
+            }
+          ],
+          "text": "Patient_BirthSex"
+        },
+        "subject": {
+          "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E"
+        },
+        "effectiveDateTime": "2017-04-21",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/NullFlavor",
+              "code": "UNK",
+              "display": "Unknown"
+            }
+          ],
+          "text": "Unknown"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "text": {
+          "status": "additional",
+          "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vitals.121415.91009\"&gt;&lt;li&gt;A_Temperature : 97 F&lt;/li&gt;&lt;/ul&gt;"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "value": "ZVitalSigns.Vitals.121415.91009"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8310-5",
+              "display": "A_Temperature"
+            }
+          ],
+          "text": "A_Temperature"
+        },
+        "subject": {
+          "reference": "Patient/FCC941D7-60B9-491D-BEED-27629E47CD4E"
+        },
+        "effectiveDateTime": "2017-05-23",
+        "valueQuantity": {
+          "value": 36.111154,
+          "unit": "Cel",
+          "system": "http://unitsofmeasure.org/"
         }
       }
     }
@@ -335,8 +410,8 @@
   </thead>
   <tbody>
     <tr>
-      <td>papi014</td>
-      <td>No implantable medical devices are associated with this query.</td>
+      <td>papi016</td>
+      <td>No relevant clinical data exists.</td>
     </tr>
   </tbody>
 </table>
@@ -376,19 +451,19 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Diagnostic</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
-          <li><a href="../../diagnostic/observation/">Observation</a></li>
+          <li><a href="../diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="./">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Devices</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="./">Device</a></li>
+          <li><a href="../../devices/device/">Device</a></li>
         </ul>
       </li>
       <li class="js-topic">

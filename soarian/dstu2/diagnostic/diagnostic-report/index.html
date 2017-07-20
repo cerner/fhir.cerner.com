@@ -89,9 +89,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>For the DiagnosticReport resource query, the API returns test names and result values for test types that the Soarian client has configured as appropriate for the API.  The ONC (Office of the National Coordinator) CCDS (common clinical data set) definition includes laboratory tests and values, however, clients may configure additional qualifying test types such as radiology, cardiology, etc.  The configuration of qualifying test types is a single configuration that applies to both the API and the Consolidated Clinical Document Architecture (C-CDA) document available to the patients.</p>
+<p>For the DiagnosticReport resource query, the API returns test names and result values for test types that the Soarian client has configured as appropriate for the API. The ONC (Office of the National Coordinator) CCDS (common clinical data set) definition includes laboratory tests and values, however, clients may configure additional qualifying test types such as radiology, cardiology, etc. The configuration of qualifying test types is a single configuration that applies to both the API and the Consolidated Clinical Document Architecture (C-CDA) document available to the patients.</p>
 
-<p>The API returns the test names and values in reverse chronological order by result date and, within that, the sequence that is configured in the Soarian flowsheet that defines the qualified tests.  Qualified results of status Final, Corrected, or Cannot Obtain are returned.  Result values of numeric or text are returned; image only results, including those encapsulated in non-text formats such as pdf, are not returned.  Since each result is individually dated and the value is unambiguously relevant for that date, this resource supports date-based queries.</p>
+<p>The API returns the test names and values in reverse chronological order by result date and, within that, the sequence that is configured in the Soarian flowsheet that defines the qualified tests. Qualified results of status Final, Corrected and Cancelled are returned. Result values of numeric or text are returned; image only results, including those encapsulated in non-text formats such as pdf, are not returned. Since each result is individually dated and the value is unambiguously relevant for that date, this resource supports date-based queries.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -122,7 +122,7 @@
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="http://loinc.org">LOINC</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/loinc.html">LOINC</a><br>
                       System: http://loinc.org </p>
                     
                   </li>
@@ -141,7 +141,29 @@
 </table>
 
 <h2 id="custom-extensions">Custom Extensions</h2>
+
 <p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
+
+<p>Status Extension:</p>
+
+<p>The URL for this status extension is defined as <code>http://cerner.hs.fhir.com/StructureDefinition/additional-status</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>additional-status</code></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#string"><code>string</code></a></td>
+      <td>This element further qualifies DiagnosticReport resources that have a status of “cancelled”. Possible value is “Can not obtain”.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -151,7 +173,8 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The API returns qualifying results dated within the implicit or explicitly defined date query parameter.  For response time, response may be limited to 1000 records.  For any non-null response, the API will provide the informational message including the record dates included in the response.  This informational message may be augmented with further detail if noted below.</li>
+  <li>The API returns qualifying results dated within the implicit or explicitly defined date query parameter. For response time, response may be limited to 1000 records. For any non-null response, the API will provide the informational message including the record dates included in the response. This informational message may be augmented with further detail if noted below.</li>
+  <li>The API will return reports with a status of <code>final</code>, <code>corrected</code>, or <code>cancelled</code>. It will not return reports marked as <code>entered-in-error</code>.</li>
   <li>The Narrative includes additional information pertaining to the results, and should be shown to the user to ensure completeness of clinical content and context.</li>
 </ul>
 
@@ -170,14 +193,14 @@
     <tr>
       <td>patientId</td>
       <td>Y</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference">reference</a></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The patient identifier provided in a pre-requisite authorization step.</td>
     </tr>
     <tr>
       <td>date</td>
       <td>N</td>
       <td>
-<a href="http://hl7.org/fhir/DSTU2/search.html#date">date</a> as adjusted per implementation notes</td>
+<a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a> as adjusted per implementation notes</td>
       <td>Null or specific date or a date range.</td>
     </tr>
   </tbody>
@@ -719,58 +742,59 @@
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
-        </h3>
+</h3>
         <ul class="js-guides">
           <li><a href="../../soarian_authorization/">Authorization</a></li>
-		   <li><a href="../../conformance/">Conformance Metadata</a></li>
+          <li><a href="../../conformance/">Conformance Metadata</a></li>
         </ul>
-      </li>  
-		<!-- <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/care-provision/">Care Provision</a>
-        </h3>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+</h3>
         <ul class="js-guides">
-          <li><a href="/soarian/dstu2/care-provision/careplan/">CarePlan</a></li>
+          <li><a href="../../care-provision/careplan/">CarePlan</a></li>
         </ul>
-      </li> -->  	  
-       <li class="js-topic">
+      </li>
+      <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
-        </h3>
+</h3>
         <ul class="js-guides">
-         <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li> 
-		  <li><a href="../../general-clinical/condition/">Condition</a></li>         
-		  <!-- <li><a href="/soarian/dstu2/general-clinical/procedure/">Procedure</a></li> -->
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>
-	  <li class="js-topic">
+      <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Diagnostic</a>
-        </h3>
+</h3>
         <ul class="js-guides">
           <li><a href="./">DiagnosticReport</a></li>
-         <!--  <li><a href="/soarian/dstu2/diagnostic/observation/">Observation</a></li> -->
+          <li><a href="../observation/">Observation</a></li>
         </ul>
       </li>
-	  
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
-        </h3>
+</h3>
         <ul class="js-guides">
           <li><a href="../../devices/device/">Device</a></li>
         </ul>
       </li>
-	 <!-- <li class="js-topic">
-        <h3><a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="/soarian/dstu2/infrastructure/">Infrastructure</a>
-        </h3>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../infrastructure/">Infrastructure</a>
+</h3>
         <ul class="js-guides">
-          <li><a href="/soarian/dstu2/infrastructure/documentReference/">DocumentReference</a></li>
+          <li><a href="../../infrastructure/document-reference/">DocumentReference</a></li>
         </ul>
-      </li>-->
+      </li>
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
-        </h3>
+</h3>
         <ul class="js-guides">
           <li><a href="../../individuals/patient/">Patient</a></li>
         </ul>
@@ -778,17 +802,16 @@
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
-        </h3>
+</h3>
         <ul class="js-guides">
-       <!--   <li><a href="/soarian/dstu2/medications/immunization/">Immunization</a></li>-->
-		  <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>          
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
         </ul>
-      </li> 
+      </li>
     </ul>
   </div> <!-- /sidebar-module -->
   <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
-      repository</a>. Please help us by forking the project and adding to it.</p>
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
   </div>
 </div>
 <!-- /sidebar-shell -->

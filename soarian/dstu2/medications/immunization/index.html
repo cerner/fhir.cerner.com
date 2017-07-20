@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Device | Soarian DSTU 2 API</title>
+  <title>Immunization | Soarian DSTU 2 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -71,12 +71,12 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="device">Device</h1>
+<h1 id="immunization">Immunization</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -89,19 +89,11 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>For the Device resource query, the API returns a list of charted procedures that include Unique Device Identifiers (UDIs) for the patient.  The list represents the most current procedure with UDI list that has been charted in Soarian.</p>
+<p>For the Immunization resource query, the API returns a consolidated list of immunizations charted as complete (administered, not administered or historical) for the patient. The list may include immunizations administered internally and/or those externally reported as administered, including records reconciled from external sources such as the patient, state registries and/or consolidated clinical document architecture (C-CDA) documents. The API does not return immunizations that may be ordered or scheduled but not yet administered.</p>
 
-<p>Note that traditional charting practices have procedures resolved and charted in coding/billing systems and not interfaced back to the EMR, therefore, the procedure record in Soarian may not be complete nor precise to a procedure list provided as part of a patient’s billing record.  The list of procedures in completed or aborted state with UDIs will be as charted in Soarian but may not represent a comprehensive state of implanted devices for a variety of operational reasons.  The charting process flow for UDIs, both their implantation and ongoing status, is not fully mature and the charting at the point of care, material management and interventional/surgical systems is evolving.  Clients may continue to chart patient devices outside a UDI process flow and the UDI list will not represent a comprehensive view of patient’s devices.  Therefore, the Soarian Clinicals UDI information may not be complete nor representative of the current state of a patient’s implanted devices.</p>
+<p>The information available for immunization records may vary depending on their source; for example, immunizations administered locally or as reconciled from a registry record may include ingredient details, codes, precise administration dates, etc. while an immunization reported by a patient or as received in a C-CDA may not. The API will return the level of detail charted.</p>
 
-<p>Note that the data returned with the UDI may be incomplete or inconsistent because the FDA (Food and Drug Administration) requirement for UDI labelling, effective 2017, states that manufacturers are responsible for populating an FDA database (GUDID) with information related to their devices; this UDI labelling and GUDID population is a new process and inconsistencies and gaps may exist in the data available. Soarian Clinicals has an ability to enter / scan and parse a UDI, query the FDA database (GUDID), and store information returned from the query.  If the GUDID database is not available, empty, or partially populated, Soarian will store the UDI itself and any available information from the GUDID.  The storage format, and therefore API response format is standardized, but GUDID-available data translated and stored may be inconsistent.  The Soarian documentation defines any translation that is performed.</p>
-
-<p>The FHIR definition of device is broader than the ONC definition of implantable device.  The API Device response is per the ONC definition of those devices that are implanted and have a UDI.  They are charted per encounter, per procedure where a patient may have:</p>
-
-<ul>
-  <li>1 or more visits, where each visit may have:</li>
-  <li>0 or more procedures charted in completed or aborted state, where each procedure may have:</li>
-  <li>0 or more devices with UDIs charted.</li>
-</ul>
+<p>The dates associated with immunizations may reflect both charted dates and administration dates which are most likely the same for internally administered records but will vary for externally sourced records. Further, administration dates may vary in precision and accuracy depending on the source; specifically patient expressed dates may be fuzzy dates. To avoid ambiguity of intended date context, the API will always return all configured and charted records; no date/date range parameters are supported.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -110,11 +102,10 @@
     
       
       
-      
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier">Device.identifier.type</a>
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode">Immunization.vaccineCode</a>
       
       </td>
     </tr>
@@ -123,12 +114,8 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+            <ul style="list-style-type: none"><li>Identifies the vaccine substance administered.</li></ul>
           
-          
-            <li><i>Note</i></li>
-            
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently will return SNO code from the below system.</li></ul>
           
 
           
@@ -137,8 +124,8 @@
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
-                      System: http://hl7.org/fhir/identifier-type </p>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/cvx.html">CVX</a><br>
+                      System: http://hl7.org/fhir/sid/cvx </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -147,37 +134,12 @@
                   </ul>
               
             
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/device-definitions.html#Device.type">Device.type</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type of device.</li></ul>
-          
-          
-
-          
-            
               
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm">FDA Product Code Classification</a><br>
-                      System: urn:oid:2.16.840.1.113883.6.303 </p>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ndc.html">NDC</a><br>
+                      System: http://hl7.org/fhir/sid/ndc </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -194,20 +156,27 @@
   </tbody>
 </table>
 
-<h2 id="extensions">Extensions</h2>
+<h2 id="custom-extensions">Custom Extensions</h2>
 
 <p>The <a href="../../#bundle-message-extension">bundle extension</a> can be returned, see possible codes in the <a href="#errors-and-informational-messages">errors section</a> below.</p>
 
 <h2 id="search">Search</h2>
 
-<pre><code>GET /Device?:parameters
+<pre><code>GET /Immunization?:parameters
 </code></pre>
 
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The API returns the most current device list.</li>
-  <li>The Narrative includes additional information pertaining to the device, and should be shown to the user to ensure completeness of clinical content and context. The structured component of the FHIR Device resource response will primarily contain the UDI and issuing authority for any entries in the list returned in the Narrative. This portion of the response may not be relevant to the user and should not be displayed.</li>
+  <li>
+    <p>The API returns the most current immunization list.</p>
+  </li>
+  <li>
+    <p>The API returns immunizations that are marked as <code>complete</code>. It will not return immunizations that are marked as <code>entered-in-error</code>.</p>
+  </li>
+  <li>
+    <p>The Narrative includes additional information pertaining to the immunization, and should be shown to the user to ensure completeness of clinical content and context.</p>
+  </li>
 </ul>
 
 <h3 id="parameters">Parameters</h3>
@@ -225,7 +194,7 @@
     <tr>
       <td>patientId</td>
       <td>Y</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The patient identifier provided in a pre-requisite authorization step.</td>
     </tr>
   </tbody>
@@ -240,7 +209,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Immunization?patientId=52930295-B52D-4685-B922-DC5F181CF786
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -249,9 +218,9 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "80e6f1f5-5c79-482f-ab46-f27d6031e1c6",
+  "id": "debcb450-dcf0-492d-8768-eb8360c159e2",
   "meta": {
-    "lastUpdated": "2017-04-27T10:52:59.689-04:00"
+    "lastUpdated": "2017-02-28T11:15:03.930-05:00"
   },
   "extension": [
     {
@@ -265,11 +234,11 @@
           },
           {
             "url": "Code",
-            "valueString": "papi013"
+            "valueString": "papi009"
           },
           {
             "url": "Message",
-            "valueString": "This represents data charted for a procedure(s) performed on implanted devices with unique device identifiers. It may not represent a comprehensive device list or current device status.  It is the responsibility of the patient or patient representative to confirm all implanted devices to appropriate care providers. "
+            "valueString": "This is the most current, known Immunization list and may not reflect the state of immunizations known at a previous date."
           }
         ]
       }
@@ -279,42 +248,213 @@
   "link": [
     {
       "relation": "self",
-      "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/Device?patientId=7568F2F3-FC76-4185-A540-1DB56331A387+++++&amp;_format=json"
+      "url": "base-url/123abc/Immunization?patientId=52930295-B52D-4685-B922-DC5F181CF786&amp;_format=json"
     }
   ],
   "entry": [
     {
       "resource": {
-        "resourceType": "Device",
+        "resourceType": "Immunization",
         "text": {
           "status": "additional",
-          "div": "&lt;div ccdRefId=\"3001\"&gt;&lt;b&gt;Introduction of Cardiac Pacemaker System via Vein [ Procedure Date: 10/5/2011 12:00 AM ] &lt;/b&gt;&lt;br/&gt;    Device Description: CRT-D DTBA1QQ VIVA QUAD XT US IS4/DF4&lt;br/&gt;    Surgical type: IMPLANT&lt;br/&gt;    Device ID: (01)00643169007222(17)160128(21)BLC200461H&lt;br/&gt;    MRI Safe: Labeling does not contain MRI Safety Information&lt;br/&gt;    Natural Rubber/Latex indicator: No&lt;br/&gt;    Company Name: MEDTRONIC, INC.&lt;br/&gt;    Brand Name: Viva? Quad XT CRT-D&lt;br/&gt;    Model #: DTBA1QQ&lt;br/&gt;    Serial #: BLC200461H&lt;br/&gt;&lt;/div&gt;"
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.10400115510'&gt;&lt;b&gt;FLU VAC TV 2015(18 YR+)RCM/PF&lt;/b&gt; (FLUBLOK 2015-2016, ABBVIE US LLC, Lot # 124578AQ); Administered 2/28/2017 11:16 AM; 135 MCG = 0.5 ML, Intramuscular&lt;/li&gt;"
         },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/identifier-type",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "BLC200461H"
-          }
-        ],
-        "type": {
+        "status": "completed",
+        "vaccineCode": {
           "coding": [
             {
-              "system": "urn:oid:2.16.840.1.113883.6.303",
-              "code": "KRG",
-              "display": "Programmer, pacemaker"
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "155",
+              "display": "FLU VAC TV 2015(18 YR+)RCM/PF"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/ndc",
+              "code": "42874-0015-10",
+              "display": "FLU VAC TV 2015(18 YR+)RCM/PF"
             }
           ],
-          "text": "Programmer, pacemaker"
-        }
+          "text": "FLU VAC TV 2015(18 YR+)RCM/PF"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.1040014511'&gt;&lt;b&gt;Hep B, NOS&lt;/b&gt; (ABBVIE US LLC, Lot # 124578A); Administered 2/28/2017 12:00 AM; 0.5 ml, Intramuscular&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "45",
+              "display": "Hep B, NOS"
+            }
+          ],
+          "text": "Hep B, NOS"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.10400110612'&gt;&lt;b&gt;DTaP, 5 pertussis antigens&lt;/b&gt; Administered 10/5/2015 12:00 AM&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "106",
+              "display": "DTaP, 5 pertussis antigens"
+            }
+          ],
+          "text": "DTaP, 5 pertussis antigens"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.1040012013'&gt;&lt;b&gt;DTaP&lt;/b&gt; Not Administered 10/8/2014 12:00 AM; Patient decision&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "20",
+              "display": "DTaP"
+            }
+          ],
+          "text": "DTaP"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": true,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.10400116614'&gt;&lt;b&gt;influenza, intradermal, quadrivalent, PF&lt;/b&gt; Not Administered 10/1/2014 12:00 AM; Parental decision&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "166",
+              "display": "influenza, intradermal, quadrivalent, PF"
+            }
+          ],
+          "text": "influenza, intradermal, quadrivalent, PF"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": true,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.1040018815'&gt;&lt;b&gt;influenza, NOS&lt;/b&gt; Administered 5/10/2014 12:00 AM&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "88",
+              "display": "influenza, NOS"
+            }
+          ],
+          "text": "influenza, NOS"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.1040013516'&gt;&lt;b&gt;tetanus toxoid&lt;/b&gt; Administered 10/2/2013 12:00 AM&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "35",
+              "display": "tetanus toxoid"
+            }
+          ],
+          "text": "tetanus toxoid"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "text": {
+          "status": "additional",
+          "div": "&lt;li ccdRefId='ZImmunizations.Immunizations.10400111217'&gt;&lt;b&gt;tetanus toxoid, NOS&lt;/b&gt; Administered 1/4/2012 12:00 AM&lt;/li&gt;"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "112",
+              "display": "tetanus toxoid, NOS"
+            }
+          ],
+          "text": "tetanus toxoid, NOS"
+        },
+        "patient": {
+          "reference": "Patient/52930295-B52D-4685-B922-DC5F181CF786"
+        },
+        "wasNotGiven": false,
+        "reported": true
       }
     }
   ]
@@ -335,8 +475,16 @@
   </thead>
   <tbody>
     <tr>
-      <td>papi014</td>
-      <td>No implantable medical devices are associated with this query.</td>
+      <td>papi009</td>
+      <td>This is the most current, known Immunization list and may not reflect the state of immunizations known at a previous date.</td>
+    </tr>
+    <tr>
+      <td>papi010</td>
+      <td>No relevant immunizations exist.</td>
+    </tr>
+    <tr>
+      <td>papi030</td>
+      <td>No immunization information could be retrieved.</td>
     </tr>
   </tbody>
 </table>
@@ -385,10 +533,10 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Devices</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="./">Device</a></li>
+          <li><a href="../../devices/device/">Device</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -409,11 +557,11 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Medications</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../medications/immunization/">Immunization</a></li>
-          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
+          <li><a href="./">Immunization</a></li>
+          <li><a href="../medication-statement/">MedicationStatement</a></li>
         </ul>
       </li>
     </ul>
