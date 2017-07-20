@@ -2,7 +2,6 @@
 name: DiagnosticReport
 field_name_base_url: http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport
 fields:
-
 - name: code
   required: 'No'
   cardinality: 1..1
@@ -13,4 +12,4 @@ fields:
     terminology:
     - display: LOINC
       system: http://loinc.org
-      info_link: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/loinc.html

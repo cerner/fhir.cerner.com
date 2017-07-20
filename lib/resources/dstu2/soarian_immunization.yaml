@@ -1,0 +1,18 @@
+---
+name: Immunization
+field_name_base_url: http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization
+fields:
+- name: vaccineCode
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: The vaccine that was administered or was to be administered.
+  binding:
+    description: Identifies the vaccine substance administered.
+    terminology:
+    - display: CVX
+      system: http://hl7.org/fhir/sid/cvx
+      info_link: http://hl7.org/fhir/dstu2/cvx.html
+    - display: NDC
+      system: http://hl7.org/fhir/sid/ndc
+      info_link: http://hl7.org/fhir/dstu2/ndc.html
