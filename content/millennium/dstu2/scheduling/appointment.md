@@ -19,15 +19,15 @@ Search for Appointments that meet supplied query parameters:
 
 ### Parameters
 
- Name                                                    | Required? | Type                                                     | Description
----------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
-`_id`                                                    | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`](http://hl7.org/fhir/DSTU2/search.html#token)  | The logical resource id associated with the Appointment. Example: `1234`
-`date`                                                   | Yes when using `patient`, `practitioner`, or `location`. | [`date`](http://hl7.org/fhir/DSTU2/search.html#date) | The Appointment date/time. Example: `2016`
-`patient`                                                | Yes, or `_id` | [`reference`](http://hl7.org/fhir/DSTU2/search.html#reference) | A single or comma separated list of Patient references. Example: `12345`
-`practitioner`                                           | Yes, or `_id` | [`reference`](http://hl7.org/fhir/DSTU2/search.html#reference) | A single or comma separated list of Practitioner references. Example: `12345`
-`location`                                               | Yes, or `_id` | [`reference`](http://hl7.org/fhir/DSTU2/search.html#reference) | A single or comma separated list of Location references. Example: `12345`
-`status`                                                 | No | [`token`](http://hl7.org/fhir/DSTU2/search.html#token) | A single or comma separated list of appointment statuses. Example: `arrived`
-[`_count`](http://hl7.org/fhir/DSTU2/search.html#count)| No | [`number`](http://hl7.org/fhir/DSTU2/search.html#number)| The maximum number of results to return. Defaults to `50`.
+ Name          | Required?                                                | Type          | Description
+---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
+`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `1234`
+`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date/time. Example: `2016`
+`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `12345`
+`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `12345`
+`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `12345`
+`status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
 Notes:   
 
@@ -55,3 +55,86 @@ List an individual Appointment by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_read) %>
+
+### Errors
+
+The common [errors] may be returned.
+
+
+## Create
+
+Create a new Appointment.
+
+    POST /Appointment
+
+_Implementation Notes_
+
+* [Appointment.status] must be set to `proposed`.
+* [Appointment.slot] must be a reference to the Slot in which this appointment is being booked.
+* [Appointment.participant] should have exactly one participant.
+* [Appointment.participant.status] must be set to `needs-action`.
+* [Appointment.participant.type] must not be set.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
+
+### Body Fields
+
+<%= definition_table(:appointment, :create, :dstu2) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/
+
+#### Body
+
+<%= json(:dstu2_appointment_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+    Connection → Keep-Alive
+    Content-Encoding → gzip
+    Content-Length → 20
+    Content-Type → text/html; charset=UTF-8
+    Date → Wed, 13 Jan 2016 21:45:47 GMT
+    Keep-Alive → timeout=15, max=100
+    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
+    Status → 201 Created
+    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
+    access-control-allow-origin → *
+    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+    access-control-max-age → 0
+    cache-control → no-cache
+    etag → W/"0"
+    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
+    server-response-time → 1260.984596
+    strict-transport-security → max-age=631152000
+    vary → Origin,User-Agent,Accept-Encoding
+    x-content-type-options → nosniff
+    x-frame-options → SAMEORIGIN
+    x-request-id → 682c633c-b20f-4f6f-8fae-c58b3aeffe04
+    x-runtime → 1.260940
+    x-xss-protection → 1; mode=block
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] may be returned.
+
+[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
+[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
+[errors]: ../../#client-errors

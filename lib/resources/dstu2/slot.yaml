@@ -1,0 +1,22 @@
+---
+name: Slot
+field_name_base_url: http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot
+fields:
+- name: type
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The type of appointments that can be booked into this slot.
+  example: |
+             {"type": {
+                "coding": [
+                  {"system": "http://snomed.info/sct",
+                   "code": "394581000",
+                   "display": "Community medicine",
+                   "userSelected": false}],
+                "text": "Same Day"}
+  binding:
+    description:  Additional details about where the content was created (e.g. clinical specialty).
+    terminology:
+    - display: Practice Setting Code Value Set
+      system: http://hl7.org/fhir/ValueSet/c80-practice-codes
