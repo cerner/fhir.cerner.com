@@ -60,7 +60,9 @@ Apps should be designed to work in any browser for best user experience. For pro
 
 Cerner understands that it's counter-intuitive to prompt the user for their credential when launching a SMART application within *PowerChart*, where the user is already logged into the system. With that in mind, we designed the system to provide a good SSO experience for the users when any SMART application is launched within *PowerChart*. As a developer, you can help us give the users the best experience possible by following the following guideline when developing your apps to be embedded within *PowerChart*.
 
-- Due to technical limitations (see 'No Shared Cookies' section below), apps should use the same embedded browser (no pop-up) to authorize and launch when embedded in *PowerChart*. We still recommend using a pop-up for authorization and authentication in other workflows outside of *PowerChart*.
+- Due to technical limitations (see '[No Shared Cookies](#no-shared-cookies)' section below), apps should use the same embedded browser (no pop-up) to authorize and launch when embedded in *PowerChart*. We still recommend using a pop-up for authorization and authentication in other workflows outside of *PowerChart*.
+
+- If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
 
 ### Embedded Browser Control ###
 
@@ -68,11 +70,15 @@ There have been a lot of questions and interests around what embedded browser co
 
 #### No Shared Cookies ####
 
-If your app uses a pop-up window for the authorization flow to allow users to authenticate with the system, that is fine for web and stand-alone apps.  However, if the app is going to be embedded within *PowerChart*, browser cookies will *NOT* be shared between the embedded browser and the newly pop-up browser window. What does this mean? It means that single-sign-on (SSO) will not work; the user would need to manually type in their credential when prompted, which is not the best experience for the users. It's best to perform all navigations and redirects using the embedded browser without needing to pop-up a new browser while embedding in *PowerChart*.  To learn more about the technical details of IE inner workings, please visit this [page](https://blogs.msdn.microsoft.com/ie/2008/03/11/ie8-and-loosely-coupled-ie-lcie/) and this [page](https://blogs.msdn.microsoft.com/ie/2010/03/04/tab-isolation/).
+If your app uses a pop-up window for the authorization flow to allow users to authenticate with the system, that is fine for web and stand-alone apps.  However, if the app is going to be embedded within *PowerChart*, browser cookies will *NOT* be shared between the embedded browser and the newly popped-up browser window. What does this mean? It means that single-sign-on (SSO) will not work; the user would need to manually type in their credential when prompted, which is not the best experience for the users. It's best to perform all navigations and redirects using the embedded browser without needing to pop-up a new browser while embedding in *PowerChart*.  To learn more about the technical details of IE inner workings, please visit this [page](https://blogs.msdn.microsoft.com/ie/2008/03/11/ie8-and-loosely-coupled-ie-lcie/) and this [page](https://blogs.msdn.microsoft.com/ie/2010/03/04/tab-isolation/).
+
+If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
 
 #### HTML5 Session Storage ####
 
 With the introduction of HTML5, [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is a good way to persist data within a browser's session. If your app is going to be embedded within *PowerChart*, we do *NOT* recommend using `sessionStorage`. The reason is because due to our technical implementation of the embedded browser, the session is not sandboxed to per "tab" like the documentation states. With our implementation of the embedded browser, the session is shared across all instances of the embedded browser. This in turn, would leak the session to other "tabs".
+
+If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
 
 #### Embedded in *PowerChart*? ####
 
