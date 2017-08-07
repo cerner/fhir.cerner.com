@@ -10,6 +10,7 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
       values:
       - 371537001 - Consent report (record artifact)
 
@@ -20,6 +21,7 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
       values:
       - 309370004 - Consent status (finding)
 
@@ -30,6 +32,7 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
       values:
       - 441898007 - Consented (qualifier value)
 
@@ -39,7 +42,8 @@ fields:
     description: Detailed codes for the contract action reason.
     terminology:
     - display: SNOMED CT
-      system: http://snomed.info/sct 
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
       values:
       - 425691002 - Consent given for electronic record sharing (finding)
 
@@ -51,6 +55,7 @@ fields:
       description: Detailed codes for the contract actor role.
       terminology:
       - display: SNOMED CT
-        system: http://snomed.info/sct 
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
         values:
         - 442681007 - Recipient consented (qualifier value)
