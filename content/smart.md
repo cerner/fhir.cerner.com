@@ -56,6 +56,8 @@ The recommended screen resolution varies based on the available screen's real es
 
 Apps should be designed to work in any browser for best user experience. For provider facing apps that run on the *Cerner Millennium* platform, Cerner currently supports only the embedded Internet Explorer browser (IE) at the moment. The embedded browser control that we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum-supported embedded browser is IE 10. Apps *must* be designed to work with IE 10. The latest supported browser varies based on the version of the browser that is currently installed on the device.
 
+Microsoft offers a free IE 10 VM and others on various versions of Windows for application testing at [https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
 ### Single Sign On (SSO) ###
 
 Cerner understands that it's counter-intuitive to prompt the user for their credential when launching a SMART application within *PowerChart*, where the user is already logged into the system. With that in mind, we designed the system to provide a good SSO experience for the users when any SMART application is launched within *PowerChart*. As a developer, you can help us give the users the best experience possible by following the following guideline when developing your apps to be embedded within *PowerChart*.
