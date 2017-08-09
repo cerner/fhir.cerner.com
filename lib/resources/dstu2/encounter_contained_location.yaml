@@ -12,3 +12,4 @@ fields:
     terminology:
     - display: v3 Code System RoleCode
       system: http://hl7.org/fhir/v3/RoleCode
+      info_link: http://hl7.org/fhir/dstu2/v3/ServiceDeliveryLocationRoleType/index.html
