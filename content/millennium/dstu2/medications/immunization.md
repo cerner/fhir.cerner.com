@@ -20,13 +20,13 @@ The following fields are returned if valued:
 * [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Vaccine administered](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
 * [Administration date/time](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.date){:target="_blank"}
-* [Status](http://hl7.org/fhir/immunization-definitions.html#Immunization.status){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.status){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.patient){:target="_blank"}
 * [Was not given](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.wasNotGiven){:target="_blank"}
 * [Reason not given](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation.reasonNotGiven){:target="_blank"}
-* [Patient encounter](http://hl7.org/fhir/immunization-definitions.html#Immunization.encounter){:target="_blank"}
+* [Patient encounter](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.encounter){:target="_blank"}
 * [Who administered](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.performer){:target="_blank"}
-* [Administration site](http://hl7.org/fhir/immunization-definitions.html#Immunization.location){:target="_blank"}
+* [Administration site](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.location){:target="_blank"}
 * [Administration route](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.route){:target="_blank"}
 * [Vaccine manufacturer](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.manufacturer){:target="_blank"}
 * [Lot number](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.lotNumber){:target="_blank"}
