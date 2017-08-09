@@ -54,9 +54,9 @@ The recommended screen resolution varies based on the available screen's real es
 
 ### Browser Requirement ###
 
-Apps should be designed to work in any browser for best user experience. For provider facing apps that run on the *Cerner Millennium* platform, Cerner currently supports only the embedded Internet Explorer browser (IE) at the moment. The embedded browser control that we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum-supported embedded browser is IE 10. Apps *must* be designed to work with IE 10. The latest supported browser varies based on the version of the browser that is currently installed on the device.
+Apps should be designed to work in any browser for best user experience. For provider facing apps that run on the *Cerner Millennium* platform, Cerner currently supports only the embedded Internet Explorer browser (IE) at the moment. The embedded browser control that we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum-supported embedded browser is IE 10; the latest supported browser varies based on the version of the browser that is currently installed on the device.
 
-Microsoft offers a free IE 10 VM and others on various versions of Windows for application testing at [https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+Microsoft offers a free IE 10 VM and newer on various versions of Windows for application testing at [https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
 ### Single Sign On (SSO) ###
 
@@ -78,7 +78,7 @@ If you'd like to flex your app based on the current execution context (embedded 
 
 #### HTML5 Session Storage ####
 
-With the introduction of HTML5, [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is a good way to persist data within a browser's session. If your app is going to be embedded within *PowerChart*, we do *NOT* recommend using `sessionStorage`. The reason is because due to our technical implementation of the embedded browser, the session is not sandboxed to per "tab" like the documentation states. With our implementation of the embedded browser, the session is shared across all instances of the embedded browser. This in turn, would leak the session to other "tabs".
+With the introduction of HTML5, [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is a good way to persist data within a browser's session. Depending on the *Cerner Millennium PowerChart* release, `sessionStorage` may not be isolated per instances of the embedded browser. As such, if your app is going to be embedded within *PowerChart*, we do *NOT* recommend using `sessionStorage`.
 
 If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
 
