@@ -7,6 +7,27 @@ title: Appointment | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+Appointment resources are used to provide information about a planned meeting that may be in the future or past. The resource only describes a single meeting, a series of repeating visits would require multiple appointment resources be created for each instance.
+<br/><br/>
+The following fields are returned if valued:
+
+* [Participant](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant){:target="_blank"}
+* [Comment](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment){:target="_blank"}
+* [Description](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description){:target="_blank"}
+* [Start](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start){:target="_blank"}
+* [End](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
+* [MinutesDuration](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
+* [Reason](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status){:target="_blank"}
+* [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type){:target="_blank"}
+* Details of participants involved in the appointment:
+  * [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
+  * [Actor](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
+  * [Required](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
+  * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:appointment, :dstu2) %>
@@ -16,6 +37,10 @@ title: Appointment | DSTU 2 API
 Search for Appointments that meet supplied query parameters:
 
     GET /Appointment?:parameters
+    
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -40,10 +65,24 @@ Notes:
   - twice with the prefixes `ge`, `gt`, `le`, or `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2014-03-15&date=le2017`)   
 
-### Response
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2014&date=lt2016&patient=4342010
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -51,7 +90,21 @@ List an individual Appointment by its id:
 
     GET /Appointment/:id
 
-### Response
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_read) %>
@@ -59,7 +112,6 @@ List an individual Appointment by its id:
 ### Errors
 
 The common [errors] may be returned.
-
 
 ## Create
 
@@ -69,11 +121,11 @@ Create a new Appointment.
 
 _Implementation Notes_
 
-* [Appointment.status] must be set to `proposed`.
-* [Appointment.slot] must be a reference to the Slot in which this appointment is being booked.
-* [Appointment.participant] should have exactly one participant.
-* [Appointment.participant.status] must be set to `needs-action`.
-* [Appointment.participant.type] must not be set.
+* `Appointment.status` must be set to `proposed`.
+* `Appointment.slot` must be a reference to the Slot in which this appointment is being booked.
+* `Appointment.participant` must have exactly one participant.
+* `Appointment.participant.status` must be set to `needs-action`.
+* `Appointment.participant.type` must not be set.
 
 ### Authorization Types
 

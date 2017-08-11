@@ -23,15 +23,15 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Location]
+* [Scheduling Location]
 
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
-ID             | Value\[x] Type    | Description
----------------|-------------------|----------------------------------------------------------------------------------
-`location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
+ID                         | Value\[x] Type         | Description
+---------------------------|------------------------|----------------------------------------------------------------------------------
+`scheduling-location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
 
 ## Search
 
@@ -104,4 +104,4 @@ The common [errors] may be returned.
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
 [errors]: ../../#client-errors
-[Location]: #custom-extensions
+[Scheduling Location]: #custom-extensions

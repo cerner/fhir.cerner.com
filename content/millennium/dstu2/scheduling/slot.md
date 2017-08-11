@@ -22,7 +22,7 @@ The following fields are returned if valued:
 
 ## Terminology Bindings
 
-<%= terminology_table(:schedule, :dstu2) %>
+<%= terminology_table(:slot, :dstu2) %>
 
 ## Extensions
 
@@ -34,7 +34,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
 ID             | Value\[x] Type    | Description
 ---------------|-------------------|----------------------------------------------------------------------------------
-`location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
+`-location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
 
 ## Search
 
@@ -48,21 +48,21 @@ Search for Schedules that meet supplied query parameters:
 
 ### Parameters
 
- Name             | Required?                                                  | Type           | Description
-------------------|------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
-`_id`             | This, or `type`                                            | [`token`]      | The logical resource id associated with the resource.
-`type`            | Yes when using `schedule.actor` and\or `location`, or `id` | [`token`]      | The type of appointments that can be booked into this slot. Example: `12345`
-`schedule.actor`  | This and `type`, or `id`                                   | [`reference`]  | A single or comma separated list of Practitioner references. Example: `12345`
-`location`        | This and `type`, or `id`                                   | [`reference`]  | A single or comma separated list of Location references. Example: `12345`
-`date`            | Yes when using `type`                                      | [`date`]       | The Slot date-time. Example: `2016`
-[`_count`]        | No                                                         | [`number`]     | The maximum number of results to return. Defaults to `50`.
+ Name             | Required?                                                   | Type           | Description
+------------------|-------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
+`_id`             | This, or `slot-type`                                             | [`token`]      | The logical resource id associated with the resource.
+`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`  | [`token`]      | The type of appointments that can be booked into this slot. Example: `12345`
+`schedule.actor`  | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/12345`
+`-location`       | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Location references. Example: `12345`
+`date`            | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
+[`_count`]        | No                                                          | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
 
 Notes:   
 
-- The `type`, `schedule.actor`, and `location` parameters may be included only once.
-  For example, `location=1234,9876` is supported but `location=1234&location=9876`
-- `type` is a required search parameter and must be specified along with `schedule.actor` and\or `location`
-  For example, `type=1234&location=9876` and `type=1234&location=95671&schedule.actor=9876` are supported but `location=9876` and `location=95671&schedule.actor=9876` are not.
+- The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
+  For example, `-location=1234,9876` is supported but `-location=1234&-location=9876`
+- `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
+  For example, `type=1234&-location=9876` and `type=1234&-location=95671&schedule.actor=9876` are supported but `-location=9876` and `-location=95671&schedule.actor=9876` are not.
 
 - The `date` parameter may be provided:  
   - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`) 

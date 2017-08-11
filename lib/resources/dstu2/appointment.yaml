@@ -19,6 +19,7 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: The type of appointment that is being booked.
+  action: read
   example: |
              {"type": {
                 "coding": [
@@ -32,10 +33,11 @@ fields:
     description:  Additional details about where the content was created (e.g. clinical specialty).
     terminology:
     - display: Practice Setting Code Value Set
-      system: http://hl7.org/fhir/ValueSet/c80-practice-codes
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
 
 - name: slot
-  required: 'No'
+  required: 'Yes'
   cardinality: 0..1
   type: Reference (Slot)
   description: The slot that this appointment is filling. If provided, then no schedule and start/end values MUST match the ones from the slot.
@@ -65,7 +67,7 @@ fields:
   required: 'Yes'
   cardinality: 1..*
   type: BackboneElement
-  description: 	Participants involved in appointment.
+  description: Participants involved in appointment.
   note: When creating a new appointment, at most one participant can be populated.
   action: create
   example: |
@@ -83,35 +85,17 @@ fields:
       }
   children:
 
-  - name: type
-    required: 'No'
-    cardinality: 1..*
-    type: CodeableConcept
-    description: Role of participant in the appointment
-    note: When creating a new appointment, type cannot be populated.
-
   - name: actor
     required: 'Yes'
     cardinality: 0..1
     type: Reference (Patient)
-    description: Free text dosage information as reported about a patient's medication use.
+    description: A Person, Location/HealthcareService or Device that is participating in the appointment..
     note: When creating a new appointment, this must be a Patient participant.
     example: |
       "actor": {
               "reference": "Patient/3886413",
               "display": "Patient, Test"
        }
-
-  - name: required
-    required: 'Yes'
-    cardinality: 0..1
-    type: code
-    description: Is this participant required to be present at the meeting.
-    note: When creating a new appointment, this value must be "required".
-    example: |
-      {
-        "required": "required"
-      }
 
   - name: status
     required: 'Yes'

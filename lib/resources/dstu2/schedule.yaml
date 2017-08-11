@@ -19,4 +19,5 @@ fields:
     description:  Additional details about where the content was created (e.g. clinical specialty).
     terminology:
     - display: Practice Setting Code Value Set
-      system: http://hl7.org/fhir/ValueSet/c80-practice-codes
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
