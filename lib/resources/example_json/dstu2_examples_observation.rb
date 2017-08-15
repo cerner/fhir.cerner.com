@@ -341,10 +341,10 @@ module Cerner
             }
           }
         }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-5525861",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-a5525861",
           "resource": {
             "resourceType": "Observation",
-            "id": "93-5525861",
+            "id": "93-a5525861",
             "meta": {
               "versionId": "5525861",
               "lastUpdated": "2016-01-26T21:58:41.000Z"
