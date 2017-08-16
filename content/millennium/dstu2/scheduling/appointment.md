@@ -9,23 +9,24 @@ title: Appointment | DSTU 2 API
 
 ## Overview
 
-Appointment resources are used to provide information about a planned meeting that may be in the future or past. The resource only describes a single meeting, a series of repeating visits would require multiple appointment resources be created for each instance.
+The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location
 <br/><br/>
 The following fields are returned if valued:
 
-* [Participant](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant){:target="_blank"}
-* [Comment](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment){:target="_blank"}
-* [Description](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description){:target="_blank"}
-* [Start](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start){:target="_blank"}
-* [End](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
-* [MinutesDuration](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
-* [Reason](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason){:target="_blank"}
+* [Appointment id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status){:target="_blank"}
 * [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type){:target="_blank"}
+* [Participant](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant){:target="_blank"}
+* [Reason](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason){:target="_blank"}
+* [Description](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description){:target="_blank"}
+* [Start date/time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start){:target="_blank"}
+* [End date/time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
+* [Duration in minutes](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
+* [Comment](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * Details of participants involved in the appointment:
   * [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
-  * [Actor](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
-  * [Required](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
+  * [Actor (name)](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
+  * [Required (always 'required')](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
   * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
 
 ## Terminology Bindings
@@ -102,7 +103,7 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/22298077
 
 #### Response
 

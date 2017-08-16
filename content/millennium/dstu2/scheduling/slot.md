@@ -9,16 +9,17 @@ title: Slot | DSTU 2 API
 
 ## Overview
 
-Slot resources are used to provide time-slots that can be booked using an appointment. They do not provide any information about appointments that are available, just the time, and optionally what the time can be used for.
+The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no information about actual appointments; only availability and type.
 <br/><br/>
 The following fields are returned if valued:
 
+* [Slot id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Type](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.type){:target="_blank"}
 * [Schedule](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.schedule){:target="_blank"}
 * [Start](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.start){:target="_blank"}
 * [End](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.end){:target="_blank"}
 * [Free-Busy Type](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.freeBusyType){:target="_blank"}
-* [Location Extension](#extensions)
+* [Scheduling Location Extension](#extensions)
 
 ## Terminology Bindings
 
@@ -26,15 +27,15 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Location]
+* [Scheduling Location]
 
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
-ID             | Value\[x] Type    | Description
----------------|-------------------|----------------------------------------------------------------------------------
-`-location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
+ID                         | Value\[x] Type         | Description
+---------------------------|------------------------|-----------------------------------------------------------------------------------------------
+`scheduling-location`      | [`Reference`]          | Reference to the location corresponding to this schedule, where the appointment can be booked.
 
 ## Search
 
@@ -48,14 +49,14 @@ Search for Schedules that meet supplied query parameters:
 
 ### Parameters
 
- Name             | Required?                                                   | Type           | Description
-------------------|-------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
+ Name             | Required?                                                        | Type           | Description
+------------------|------------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
 `_id`             | This, or `slot-type`                                             | [`token`]      | The logical resource id associated with the resource.
-`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`  | [`token`]      | The type of appointments that can be booked into this slot. Example: `12345`
+`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`      | [`token`]      | The type of appointments that can be booked into this slot. Example: `12345`
 `schedule.actor`  | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/12345`
 `-location`       | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Location references. Example: `12345`
 `date`            | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
-[`_count`]        | No                                                          | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
+[`_count`]        | No                                                               | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
 
 Notes:   
 
@@ -126,4 +127,4 @@ The common [errors] may be returned.
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
 [errors]: ../../#client-errors
-[Location]: #custom-extensions
+[Scheduling Location]: #custom-extensions

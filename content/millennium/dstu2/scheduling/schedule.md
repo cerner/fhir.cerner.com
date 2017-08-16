@@ -9,13 +9,14 @@ title: Schedule | DSTU 2 API
 
 ## Overview
 
-Schedule resources provide a container for time-slots that can be booked using an appointment. It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
+The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.
 <br/><br/>
 The following fields are returned if valued:
 
+* [Schedule id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Type](http://hl7.org/fhir/DSTU2/schedule-definitions.html#Schedule.type){:target="_blank"}
 * [Actor](http://hl7.org/fhir/DSTU2/schedule-definitions.html#Schedule.actor){:target="_blank"}
-* [Location Extension](#extensions)
+* [Scheduling Location Extension](#extensions)
 
 ## Terminology Bindings
 

@@ -78,7 +78,6 @@ fields:
               "reference": "Patient/3886413",
               "display": "STRECKER, TESTA"
             },
-            "required": "required",
             "status": "needs-action"
           }
         ]
@@ -89,7 +88,7 @@ fields:
     required: 'Yes'
     cardinality: 0..1
     type: Reference (Patient)
-    description: A Person, Location/HealthcareService or Device that is participating in the appointment..
+    description: A person, location, healthcare service or device that is participating in the appointment.
     note: When creating a new appointment, this must be a Patient participant.
     example: |
       "actor": {
