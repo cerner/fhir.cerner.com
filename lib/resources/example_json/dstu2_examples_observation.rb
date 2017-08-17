@@ -43,45 +43,8 @@ module Cerner
             "subject": {
               "reference": "Patient/3998008"
             },
-            "related": [{
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867"
-              }
-            }]
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "229819007",
-                "display": "Tobacco use and exposure (observable entity)"
-              }, {
-                "system": "http://loinc.org",
-                "code": "72166-2",
-                "display": "Tobacco smoking status NHIS"
-              }],
-              "text": "Tobacco"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
+            "valueCodeableConcept": {
+              "text": "Medium Risk"
             },
             "related": [{
               "type": "has-member",
@@ -378,10 +341,10 @@ module Cerner
             }
           }
         }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-5525861",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-a5525861",
           "resource": {
             "resourceType": "Observation",
-            "id": "93-5525861",
+            "id": "93-a5525861",
             "meta": {
               "versionId": "5525861",
               "lastUpdated": "2016-01-26T21:58:41.000Z"
