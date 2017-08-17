@@ -7,6 +7,34 @@ title: Encounter | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
+
+The following fields are returned if valued:
+
+* [Encounter id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Encounter identifier (eg: FIN)](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.identifier){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.status){:target="_blank"}
+* [Class](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.class){:target="_blank"}
+* [Type](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.type){:target="_blank"}
+* [Priority](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.priority){:target="_blank"}
+* [Patient](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.patient){:target="_blank"}
+* Participants:
+     * [Type](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
+     * [Name](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
+* [Start/end time of the encounter](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.period){:target="_blank"}
+* [Discharge disposition](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
+* [Reason for visit](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.reason){:target="_blank"}
+* [Location](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.location.location){:target="_blank"}
+* [Organization](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
+* Hospitalization:
+   * [Admit source](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
+   * [Diet preference](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
+   * [Special Courtesy](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
+   * [Special Arrangement](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
+   * [Destination](http://hl7.org/fhir/dstu2/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:encounter, :dstu2) %>
@@ -37,10 +65,24 @@ _Implementation Notes_
  `_id`     | This or patient | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
  `patient` | This or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
 
-### Response
+### Headers
+
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?patient=4342010
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_encounter_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -57,13 +99,28 @@ _Implementation Notes_
 
 <%= authorization_types(practitioner: true, patient: true, system: true)%>
 
-### Response
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4027918
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_encounter) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 [contained]: http://hl7.org/fhir/DSTU2/references.html#contained
 [Encounter.hospitalization.destination]: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.location.location
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[errors]: ../../#client-errors
