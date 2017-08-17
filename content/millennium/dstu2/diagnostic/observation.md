@@ -56,6 +56,7 @@ _Implementation Notes_
  `subject`        | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
  `code`           | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`
  `date`           | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`
+ `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  `category`       | N                 | [`token`]     | The category of observations. Example: `category=laboratory`
  [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page. Defaults to `50`. Capped at `100`.
 
@@ -69,7 +70,9 @@ Notes:
   - May be a list of comma separated values. A system must be provided for each code.
   - Searches Observation.code and Observation.component.code.
 
-- The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+- The `date` and `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+
+- The `date` and `_lastUpdated` parameters may not be provided together.
 
 ### Headers
 
