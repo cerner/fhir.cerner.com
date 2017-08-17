@@ -9,12 +9,12 @@ title: Binary | DSTU 2 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and pdfs.  This resource is currently limited to Continuity of Care Documents (CCD) and diagnostic reports. 
+The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD) and diagnostic reports. 
 
 It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource. 
 
 The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see [the Binary Documentation](http://hl7.org/fhir/dstu2/binary.html#rest).
- 
+
 The following fields are returned if valued: 
 
 * [Binary id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
