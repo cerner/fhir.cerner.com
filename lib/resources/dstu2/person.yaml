@@ -20,5 +20,7 @@ fields:
       terminology:
       - display: Identifier Type Codes
         system: http://hl7.org/fhir/identifier-type
+        info_link: http://hl7.org/fhir/DSTU2/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: http://hl7.org/fhir/v2/0203
+        info_link: http://hl7.org/fhir/DSTU2/valueset-identifier-type.html
