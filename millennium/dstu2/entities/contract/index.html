@@ -80,20 +80,41 @@
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-include" id="markdown-toc-example-with-include">Example with Include</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Contract resource usage is limited to representing persons that are authorized to view patient data. The subject of the contract is the patient that is the target of this authorization. The actors on the contract are the related people that are authorized to view data. An example would be where a contract represents that a mother is authorized to view her children’s data. The contract is that authorization in FHIR.</p>
+<p>The Contract resource is currently limited to representing people who are authorized to view a patient’s data. For this reason, contract type, subtype, action and reason are always set to values related to consent for EHR sharing. The subject of the contract is the patient. The actors on the contract are the related people who are authorized to view the subject patient’s data. An example is a contract authorizing a mother (actor) to view her child’s data (subject).</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Contract id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.applies" target="_blank">Effective date</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.subject" target="_blank">Subject (patient)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.type" target="_blank">Contract type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.subType" target="_blank">Contract subtype</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.action" target="_blank">Action</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.actionReason" target="_blank">Reason</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.term.actor.entity" target="_blank">Actor (related person)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.term.actor.role" target="_blank">Role</a></li>
+</ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -123,7 +144,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -167,7 +190,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -211,7 +236,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -255,7 +282,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -300,7 +329,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -330,6 +361,12 @@
 
 <pre><code>GET /Contract?:parameters
 </code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -401,11 +438,21 @@
   <li>Additional OAuth2 scopes are required when the <code>_include</code> parameter is provided. To include with <code>Contract:actor</code> or <code>Contract:patient</code> values, the OAuth2 token must include scopes for one or both RelatedPerson.read and Patient.read, respectively, depending on the combination of resources to be included.</li>
 </ul>
 
-<h3 id="response">Response</h3>
+<h3 id="headers">Headers</h3>
 
-<p>Search for all Contracts subject to a specific patient</p>
-<pre class="headers"><code>Status: 200 OK
-GET: [...]/Contract?subject:Patient=4598008</code></pre>
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Contract?subject:Patient=4598008
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -586,9 +633,16 @@ GET: [...]/Contract?subject:Patient=4598008</code></pre>
   ]
 }</code></pre>
 
-<p>Search for all Contracts and include referenced RelatedPerson entries in the response.</p>
-<pre class="headers"><code>Status: 200 OK
-GET: [...]/Contract?subject:Patient=4598008&amp;_include=Contract:actor</code></pre>
+<h3 id="example-with-include">Example with Include</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Contract?subject=Patient%2F4598008&amp;_include=Contract%3Aactor
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
@@ -887,6 +941,10 @@ GET: [...]/Contract?subject:Patient=4598008&amp;_include=Contract:actor</code></
   ]
 }</code></pre>
 
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <p>List an individual Contract by its id:</p>
@@ -894,7 +952,25 @@ GET: [...]/Contract?subject:Patient=4598008&amp;_include=Contract:actor</code></
 <pre><code>GET /Contract/:id
 </code></pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Contract/7470218
+</code></pre>
+
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -977,6 +1053,10 @@ GET: [...]/Contract?subject:Patient=4598008&amp;_include=Contract:actor</code></
     }
   ]
 }</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
 
     </div>

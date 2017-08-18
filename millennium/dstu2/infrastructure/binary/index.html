@@ -76,17 +76,42 @@
 <h1 id="binary">Binary</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#fhir-accept-example" id="markdown-toc-fhir-accept-example">FHIR Accept Example</a></li>
+      <li><a href="#native-accept-example" id="markdown-toc-native-accept-example">Native Accept Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#operation-autogen-ccd-if" id="markdown-toc-operation-autogen-ccd-if">Operation: autogen-ccd-if</a>    <ul>
+<a href="#autogen-ccd-if" id="markdown-toc-autogen-ccd-if">$autogen-ccd-if</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#fhir-accept-example-1" id="markdown-toc-fhir-accept-example-1">FHIR Accept Example</a></li>
+      <li><a href="#native-accept-example-1" id="markdown-toc-native-accept-example-1">Native Accept Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD) and diagnostic reports.</p>
+
+<p>It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource. </p>
+
+<p>The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see <a href="http://hl7.org/fhir/dstu2/binary.html#rest">the Binary Documentation</a>.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Binary id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/binary-definitions.html#Binary.contentType" target="_blank">Content type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/binary-definitions.html#Binary.content" target="_blank">Content</a></li>
 </ul>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
@@ -96,20 +121,41 @@
 <pre><code>GET /Binary/:id
 </code></pre>
 
-<p><em>Implementation Notes - Binary for <a href="../../diagnostic/diagnostic-report">DiagnosticReport</a></em></p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Requires both Binary.read and DiagnosticReport.read OAuth2 scopes.</li>
-  <li>Accepts <code>html</code>, <code>text/html</code> or <code>application/xhtml+xml</code> mime types, in addition to JSON</li>
+  <li>This is usually linked from DiagnosticReport and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.</li>
+  <li>See the <a href="#headers">headers</a> section for concerns about the Accept header.</li>
+  <li>See the <a href="#authorization-types">authorization</a> section for concerns about the required OAuth scopes.</li>
 </ul>
 
-<h3 id="response">Response</h3>
+<h3 id="authorization-types">Authorization Types</h3>
 
-<p>Retrieving the Binary resource with the JSON mime type</p>
+<p>Requires both the appropriate Binary.read and DiagnosticReport.read scopes to be granted to the caller.</p>
 
-<pre><code>GET: [...]/Binary/TR-5927259
-Accept: application/json+fhir
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers">Headers</h3>
+
+<p>The <code>DiagnosticReport.presentedForm.contentType</code> should be used to set the <code>Accept</code> header. An <code>Accept</code> header of <code>application/json+fhir</code> could be supplied instead, if the JSON Binary resource is desired insetad of the raw data.</p>
+
+<p>This resource will not accept the <code>application/json</code> mime type unless the underlying binary data is json.</p>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="fhir-accept-example">FHIR Accept Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir</code></pre>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259  
 </code></pre>
+
+<h4 id="response">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK
 <a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
@@ -125,11 +171,16 @@ Accept: application/json+fhir
   "content": "PCFET0NUWVBFIGh0bWwgImFib3V0OmxlZ2FjeS1jb21wYXQiPg0KPGh0bWw+DQogIDxoZWFkPg0KICAgIDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPg0KICAgIDx0aXRsZT5SQURSUFQ8L3RpdGxlPg0KICA8L2hlYWQ+DQogIDxib2R5IG1hcmdpbndpZHRoPSI2IiBtYXJnaW5oZWlnaHQ9IjYiIGxlZnRtYXJnaW49IjYiIHRvcG1hcmdpbj0iNiI+DQogICAgPGRpdiB2YWxpZ249InRvcCI+DQogICAgICA8ZGl2IGNsYXNzPSJsaW5rZWQtcmFkLXByb2NlZHVyZSIgZGF0YS1ldmVudC1jZD0iNDA2MjU1MSIgZGF0YS1ldmVudC1pZD0iMjgzNzEyIiBkYXRhLWRvYy1zdGF0dXM9IkFVVEgiPg0KICAgICAgICA8ZGl2IGNsYXNzPSJyZWFzb24tZm9yLWV4YW0iIGRhdGEtY29tbWVudC1pZD0iNjQ3MDQ1MSIgZGF0YS1jb21tZW50LXR5cGU9IlJFQVNPTkZPUkVYTSI+DQogICAgICAgICAgPGRpdiBjbGFzcz0ic3ViamVjdCIgc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyB3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij5SZWFzb24gZm9yIGV4YW06PC9kaXY+DQogICAgICAgICAgPGRpdiBjbGFzcz0iY29udGVudCIgc3R5bGU9IndoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPkRpenppbmVzcw0KICAgICAgICAgICAgPGRpdiBzdHlsZT0id2hpdGUtc3BhY2U6IHByZS13cmFwOyI+PC9kaXY+DQogICAgICAgICAgPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICAgICAgPC9kaXY+DQogICAgICA8ZGl2IGNsYXNzPSJzZWN0aW9uIiBkYXRhLWRvYy1zdGF0dXM9IkFVVEgiIGRhdGEtaXMtYWRkZW5kdW09ImZhbHNlIiBkYXRhLXN1YmplY3Q9IlJlcG9ydCIgZGF0YS1ldmVudC1pZD0iMjgzNzEyIiBkYXRhLWV2ZW50LWNkPSI0MDYyNjY4IiBkYXRhLXNlY3Rpb24tc2VxdWVuY2U9IjAiPg0KICAgICAgICA8ZGl2IGNsYXNzPSJzdWJqZWN0IiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IHdoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPlJlcG9ydDwvZGl2Pg0KICAgICAgICA8ZGl2IGNsYXNzPSJjb250ZW50IiBzdHlsZT0iZm9udC1mYW1pbHk6IEhlbHZldGljYSxzYW5zLXNlcmlmLEx1Y2lkYSBTYW5zIFVuaWNvZGU7IGZvbnQtc2l6ZTogMTJwdDsgZm9udC13ZWlnaHQ6IG5vcm1hbDsgZm9udC1zdHlsZTogbm9ybWFsOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiByZ2IoMCwwLDApOyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgbWFyZ2luLXRvcDogMC4wcHQ7IG1hcmdpbi1ib3R0b206IDAuMHB0OyB0ZXh0LWluZGVudDogMC4waW47IG1hcmdpbi1sZWZ0OiAwLjBpbjsgbWFyZ2luLXJpZ2h0OiAwLjBpbjsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyLXN0eWxlOiBub25lOyBib3JkZXItd2lkdGg6IDAuMHB0OyBib3JkZXItY29sb3I6IHJnYigwLDAsMCk7IHBhZGRpbmc6IDAuMHB0OyB3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij4NCiAgICAgICAgICA8ZGl2IHN0eWxlPSJmb250LXNpemU6IDExcHQ7Ij5Db25maXJtZWQ8L2Rpdj4NCiAgICAgICAgICA8ZGl2IHN0eWxlPSJ3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij48L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgICAgIDxkaXYgY2xhc3M9InNpZ24tbGluZS1oZWFkZXIiIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgd2hpdGUtc3BhY2U6IHByZS13cmFwOyI+U2lnbmF0dXJlIExpbmU6DQogICAgICAgICAgPGRpdiBjbGFzcz0ic2lnbi1saW5lIiBzdHlsZT0id2hpdGUtc3BhY2U6IHByZS13cmFwOyI+KioqKiogRmluYWwgKioqKioNCg0KU2lnbmVkIChFbGVjdHJvbmljIFNpZ25hdHVyZSk6ICAxMC8zMS8yMDE0IDM6MzcgcG0NClNpZ25lZCBieTogIFBvdHRlciwgSGFycnk8L2Rpdj4NCiAgICAgICAgICA8ZGl2IHN0eWxlPSJ3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij48L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgICA8L2Rpdj4NCiAgICA8L2Rpdj4NCiAgPC9ib2R5Pg0KPC9odG1sPg=="
 }</code></pre>
 
-<p>Retrieving the Binary resource with its native mime type</p>
+<h3 id="native-accept-example">Native Accept Example</h3>
 
-<pre><code>GET: [...]/Binary/TR-5927259
-Accept: text/html
+<h4 id="request-1">Request</h4>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: text/html</code></pre>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259  
 </code></pre>
+
+<h4 id="response-1">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK
 <a href="../../#media-types">Content-Type</a>: text/html</code></pre>
@@ -168,7 +219,11 @@ Signed by:  Potter, Harry&lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-<h2 id="operation-autogen-ccd-if">Operation: autogen-ccd-if</h2>
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<h2 id="autogen-ccd-if">$autogen-ccd-if</h2>
 
 <p>Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:</p>
 
@@ -178,10 +233,18 @@ Signed by:  Potter, Harry&lt;/div&gt;
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Requires both Binary.read and DocumentReference.read OAuth2 scopes.</li>
-  <li>Accepts <code>application/xml</code> mime type, in addition to <code>application/json+fhir</code>
-</li>
+  <li>This is usually linked from DocumentReference, and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.</li>
+  <li>See the <a href="#headers-1">headers</a> section for concerns about the Accept header.</li>
+  <li>See the <a href="#authorization-types-1">authorization</a> section for concerns about the required OAuth scopes.</li>
 </ul>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<p>Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.</p>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -225,13 +288,25 @@ Signed by:  Potter, Harry&lt;/div&gt;
   <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
 </ul>
 
-<h3 id="response-1">Response</h3>
+<h3 id="headers-1">Headers</h3>
 
-<p>Generating the Continuity of Care Document with the JSON mime type</p>
+<p>The <code>DocumentReference.content.attachment.contentType</code> should be used to set the <code>Accept</code> header. An <code>Accept</code> header of <code>application/json+fhir</code> could be supplied instead, if the JSON Binary resource is desired insetad of the raw data.</p>
 
-<pre><code>GET: [...]/Binary/$autogen-ccd-if?patient=1316035
-Accept: application/json+fhir
+<p>This resource will not accept the <code>application/json</code> mime type unless the underlying binary data is json.</p>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="fhir-accept-example-1">FHIR Accept Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir</code></pre>
+
+<pre><code>GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
 </code></pre>
+
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK
 <a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
@@ -246,11 +321,16 @@ Accept: application/json+fhir
   "content": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48P3htbC1zdHlsZXNoZWV0IHR5cGU9InRleHQveHNsIiBocmVmPSJodHRwOi8vd3d3LmNlcm5lci5jb20vY2RhX3N0eWxlc2hlZXQvIj8+PENsaW5pY2FsRG9jdW1lbnQgeG1sbnM9InVybjpobDctb3JnOnYzIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczpvdXRDZFV0aWw9ImphdmE6Y29tLmNlcm5lci5mc2kuY29kZS50cmFuc2xhdGlvbi5PdXRib3VuZENvZGVVdGlsaXR5IiB4bWxuczpjZFVETz0iamF2YTpjb20uY2VybmVyLmZzaS51ZG8uZGF0YXR5cGVzLkNvZGVVRE8iIHhtbG5zOnNkdGM9InVybjpobDctb3JnOnNkdGMiIHhtbG5zOm9pZEVudGl0eT0iamF2YTpjb20uY2VybmVyLmZzaS5jb2RlLnRyYW5zbGF0aW9uLk9JREVudGl0eVR5cGUiIHhzaTpzY2hlbWFMb2NhdGlvbj0idXJuOmhsNy1vcmc6djMuLi8uLi8uLi9DREElMjBSMi9jZGEtc2NoZW1hcy1hbmQtc2FtcGxlcy9pbmZyYXN0cnVjdHVyZS9jZGEvQ0RBLnhzZCIgY2xhc3NDb2RlPSJET0NDTElOIiBtb29kQ29kZT0iRVZOIj48cmVhbG1Db2RlIGNvZGU9IlVTIi8+PHR5cGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4xLjMiIGV4dGVuc2lvbj0iUE9DRF9IRDAwMDA0MCIvPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjEuMSIvPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjEuMiIvPjxpZCByb290PSIyLjMuMi4zLjIuMy45OTkzNjIiIGV4dGVuc2lvbj0iMTk1MDAwNyIvPjxjb2RlIGNvZGU9IjM0MTMzLTkiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuMSIgZGlzcGxheU5hbWU9IlN1bW1hcml6YXRpb24gb2YgZXBpc29kZSBub3RlIi8+PHRpdGxlPlRyYW5zaXRpb24gb2YgQ2FyZS9SZWZlcnJhbCBTdW1tYXJ5PC90aXRsZT48ZWZmZWN0aXZlVGltZSB2YWx1ZT0iMjAxNzAxMDMxMDMwMjMuMDAzLTA2MDAiLz48Y29uZmlkZW50aWFsaXR5Q29kZSBjb2RlPSJOIiBkaXNwbGF5TmFtZT0iTm9ybWFsIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My41LjI1Ii8+PGxhbmd1YWdlQ29kZSBjb2RlPSJlbi1VUyIvPjxyZWNvcmRUYXJnZXQgdHlwZUNvZGU9IlJDVCIgY29udGV4dENvbnRyb2xDb2RlPSJPUCI+PHBhdGllbnRSb2xlIGNsYXNzQ29kZT0iUEFUIj48aWQgcm9vdD0iMi4yLjIuMi4yLjIiIGV4dGVuc2lvbj0iMTAwMDAxNjciIGFzc2lnbmluZ0F1dGhvcml0eU5hbWU9IkJXTUMgTVJOIi8+PGFkZHIgbnVsbEZsYXZvcj0iVU5LIi8+PHRlbGVjb20gbnVsbEZsYXZvcj0iTkkiLz48cGF0aWVudCBjbGFzc0NvZGU9IlBTTiIgZGV0ZXJtaW5lckNvZGU9IklOU1RBTkNFIj48bmFtZSB1c2U9IkwiPjxnaXZlbj5IZXJtaW9uZTwvZ2l2ZW4+PGZhbWlseT5HcmFuZ2VyPC9mYW1pbHk+PC9uYW1lPjxhZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGUgY29kZT0iRiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4xIiBjb2RlU3lzdGVtTmFtZT0iYWRtaW5pc3RyYXRpdmVHZW5kZXIiIGRpc3BsYXlOYW1lPSJGZW1hbGUiPjxvcmlnaW5hbFRleHQ+RmVtYWxlPC9vcmlnaW5hbFRleHQ+PC9hZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGU+PGJpcnRoVGltZSB2YWx1ZT0iMTk4MzAzMTUiLz48cmFjZUNvZGUgbnVsbEZsYXZvcj0iTkkiLz48ZXRobmljR3JvdXBDb2RlIG51bGxGbGF2b3I9Ik5JIi8+PGxhbmd1YWdlQ29tbXVuaWNhdGlvbj48bGFuZ3VhZ2VDb2RlIG51bGxGbGF2b3I9Ik5JIi8+PC9sYW5ndWFnZUNvbW11bmljYXRpb24+PC9wYXRpZW50PjwvcGF0aWVudFJvbGU+PC9yZWNvcmRUYXJnZXQ+PGF1dGhvciB0eXBlQ29kZT0iQVVUIiBjb250ZXh0Q29udHJvbENvZGU9Ik9QIj48dGltZSB2YWx1ZT0iMjAxNzAxMDMxMDMwMjMuMDAzLTA2MDAiLz48YXNzaWduZWRBdXRob3IgY2xhc3NDb2RlPSJBU1NJR05FRCI+PGlkIG51bGxGbGF2b3I9Ik5JIi8+PGFkZHIgbnVsbEZsYXZvcj0iTkkiLz48dGVsZWNvbSBudWxsRmxhdm9yPSJOSSIvPjxhc3NpZ25lZEF1dGhvcmluZ0RldmljZT48bWFudWZhY3R1cmVyTW9kZWxOYW1lPkNlcm5lciBDb3Jwb3JhdGlvbjwvbWFudWZhY3R1cmVyTW9kZWxOYW1lPjxzb2Z0d2FyZU5hbWU+TWlsbGVubml1bSBDbGluaWNhbCBEb2N1bWVudCBHZW5lcmF0b3I8L3NvZnR3YXJlTmFtZT48L2Fzc2lnbmVkQXV0aG9yaW5nRGV2aWNlPjxyZXByZXNlbnRlZE9yZ2FuaXphdGlvbiBjbGFzc0NvZGU9Ik9SRyIgZGV0ZXJtaW5lckNvZGU9IklOU1RBTkNFIj48aWQgcm9vdD0iMi4zLjIuMy4yLjMiLz48bmFtZT5CYXNlbGluZSBXZXN0IE1lZGljYWwgQ2VudGVyPC9uYW1lPjx0ZWxlY29tIHVzZT0iV1AiIHZhbHVlPSJ0ZWw6KDgxNik1NTUtMjEyMSIvPjxhZGRyIHVzZT0iV1AiPjxzdHJlZXRBZGRyZXNzTGluZT44IFByaXZldHQgRHJpdmU8L3N0cmVldEFkZHJlc3NMaW5lPjxjaXR5PlN1c3NlczwvY2l0eT48c3RhdGU+TE88L3N0YXRlPjxwb3N0YWxDb2RlPjExMjQyPC9wb3N0YWxDb2RlPjxjb3VudHJ5PlVLPC9jb3VudHJ5PjwvYWRkcj48L3JlcHJlc2VudGVkT3JnYW5pemF0aW9uPjwvYXNzaWduZWRBdXRob3I+PC9hdXRob3I+PGRvY3VtZW50YXRpb25PZiB0eXBlQ29kZT0iRE9DIj48c2VydmljZUV2ZW50IGNsYXNzQ29kZT0iUENQUiIgbW9vZENvZGU9IkVWTiI+PGVmZmVjdGl2ZVRpbWU+PGxvdyB2YWx1ZT0iMjAxNDA4MjMxNTQ1MzQuMDAwLTA1MDAiLz48aGlnaCB2YWx1ZT0iMjAxNjEyMjkxMzA4NDEuMDAwLTA2MDAiLz48L2VmZmVjdGl2ZVRpbWU+PHBlcmZvcm1lciB0eXBlQ29kZT0iUFJGIj48ZnVuY3Rpb25Db2RlIGNvZGU9IlBDUCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS44OCIgY29kZVN5c3RlbU5hbWU9IkhMNyBQYXJ0aWNpcGF0aW9uRnVuY3Rpb24iIGRpc3BsYXlOYW1lPSJwcmltYXJ5IGNhcmUgcGh5c2ljaWFuIi8+PGFzc2lnbmVkRW50aXR5PjxpZCBudWxsRmxhdm9yPSJOSSIvPjwvYXNzaWduZWRFbnRpdHk+PC9wZXJmb3JtZXI+PC9zZXJ2aWNlRXZlbnQ+PC9kb2N1bWVudGF0aW9uT2Y+PGNvbXBvbmVudCB0eXBlQ29kZT0iQ09NUCI+PHN0cnVjdHVyZWRCb2R5IGNsYXNzQ29kZT0iRE9DQk9EWSIgbW9vZENvZGU9IkVWTiI+PGNvbXBvbmVudCB0eXBlQ29kZT0iQ09NUCIgY29udGV4dENvbmR1Y3Rpb25JbmQ9InRydWUiPjxzZWN0aW9uIGNsYXNzQ29kZT0iRE9DU0VDVCIgbW9vZENvZGU9IkVWTiI+PHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMTAuMjAuMjIuMi41Ii8+PHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMTAuMjAuMjIuMi41LjEiLz48Y29kZSBjb2RlPSIxMTQ1MC00IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGRpc3BsYXlOYW1lPSJQcm9ibGVtIExpc3QiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIvPjx0aXRsZT5Qcm9ibGVtIExpc3Q8L3RpdGxlPjx0ZXh0Pjx0YWJsZSBib3JkZXI9IjEiIHdpZHRoPSI5NSUiPjxjb2xncm91cD48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48Y29sIHdpZHRoPSIyMCUiLz48L2NvbGdyb3VwPjx0aGVhZD48dHI+PHRoPkNvbmRpdGlvbjwvdGg+PHRoPkVmZmVjdGl2ZSBEYXRlczwvdGg+PHRoPlN0YXR1czwvdGg+PHRoPkhlYWx0aCBTdGF0dXM8L3RoPjx0aD5JbmZvcm1hbnQ8L3RoPjwvdHI+PC90aGVhZD48dGJvZHk+PHRyPjx0ZD48Y29udGVudCBJRD0iUFJPQkxFTTE1Njc0MDIiPkJsb29keSBzdG9vbDwvY29udGVudD48L3RkPjx0ZD4gPC90ZD48dGQ+PGNvbnRlbnQgSUQ9IlBST0JTVDE1Njc0MDIiPkFjdGl2ZTwvY29udGVudD48L3RkPjx0ZD48Y29udGVudCBJRD0iUFJPQkhTVDE1Njc0MDIiPiA8L2NvbnRlbnQ+PC90ZD48dGQ+IDwvdGQ+PC90cj48L3Rib2R5PjwvdGFibGU+PC90ZXh0PjxlbnRyeSB0eXBlQ29kZT0iRFJJViIgY29udGV4dENvbmR1Y3Rpb25JbmQ9InRydWUiPjxhY3QgY2xhc3NDb2RlPSJBQ1QiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuMyIvPjxpZCByb290PSJDMkQxN0REQS1FMzY0LTQwQjMtODg4Ni1DMURFRjBENDQxMTIiLz48Y29kZSBjb2RlPSJDT05DIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My41LjYiIGRpc3BsYXlOYW1lPSJDb25jZXJuIiBjb2RlU3lzdGVtTmFtZT0iSEw3QWN0Q2xhc3MiLz48c3RhdHVzQ29kZSBjb2RlPSJhY3RpdmUiLz48ZWZmZWN0aXZlVGltZT48bG93IG51bGxGbGF2b3I9Ik5JIi8+PGhpZ2ggbnVsbEZsYXZvcj0iTkkiLz48L2VmZmVjdGl2ZVRpbWU+PGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJTVUJKIiBpbnZlcnNpb25JbmQ9ImZhbHNlIj48b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuNCIvPjxpZCByb290PSI3NjAzNDRDNC00MUQ2LTQ2RTMtOEQ1NC04NjU4RkY1MDk1OTkiLz48Y29kZSBjb2RlPSI1NTYwNzAwNiIgZGlzcGxheU5hbWU9IlByb2JsZW0iIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuOTYiLz48dGV4dD48cmVmZXJlbmNlIHZhbHVlPSIjUFJPQkxFTTE1Njc0MDIiLz48L3RleHQ+PHN0YXR1c0NvZGUgY29kZT0iY29tcGxldGVkIi8+PGVmZmVjdGl2ZVRpbWU+PGxvdyBudWxsRmxhdm9yPSJOSSIvPjxoaWdoIG51bGxGbGF2b3I9Ik5JIi8+PC9lZmZlY3RpdmVUaW1lPjx2YWx1ZSB4c2k6dHlwZT0iQ0QiIGNvZGU9IjQwNTcyOTAwOCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNi45NiIgY29kZVN5c3RlbU5hbWU9IlNOT01FRCBDVCIgZGlzcGxheU5hbWU9IkhlbWF0b2NoZXppYSAoZmluZGluZykiPjxvcmlnaW5hbFRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JMRU0xNTY3NDAyIi8+PC9vcmlnaW5hbFRleHQ+PC92YWx1ZT48YXV0aG9yPjx0aW1lIHZhbHVlPSIyMDE0MTAyMTEzNDk1OC4wMDAtMDUwMCIvPjxhc3NpZ25lZEF1dGhvciBjbGFzc0NvZGU9IkFTU0lHTkVEIj48aWQgbnVsbEZsYXZvcj0iTkkiLz48YWRkciBudWxsRmxhdm9yPSJVTksiLz48YXNzaWduZWRQZXJzb24+PG5hbWU+PGdpdmVuIG51bGxGbGF2b3I9Ik5BIi8+PGZhbWlseSBudWxsRmxhdm9yPSJOQSIvPjwvbmFtZT48L2Fzc2lnbmVkUGVyc29uPjwvYXNzaWduZWRBdXRob3I+PC9hdXRob3I+PGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJSRUZSIj48b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPjx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEwLjIwLjIyLjQuNiIvPjxjb2RlIGNvZGU9IjMzOTk5LTQiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuMSIgY29kZVN5c3RlbU5hbWU9IkxPSU5DIiBkaXNwbGF5TmFtZT0iU3RhdHVzIi8+PHRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JTVDE1Njc0MDIiLz48L3RleHQ+PHN0YXR1c0NvZGUgY29kZT0iY29tcGxldGVkIi8+PHZhbHVlIHhzaTp0eXBlPSJDRCIgY29kZT0iNTU1NjEwMDMiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjYuOTYiIGNvZGVTeXN0ZW1OYW1lPSJTTk9NRUQgQ1QiPjxvcmlnaW5hbFRleHQ+PHJlZmVyZW5jZSB2YWx1ZT0iI1BST0JTVDE1Njc0MDIiLz48L29yaWdpbmFsVGV4dD48L3ZhbHVlPjwvb2JzZXJ2YXRpb24+PC9lbnRyeVJlbGF0aW9uc2hpcD48L29ic2VydmF0aW9uPjwvZW50cnlSZWxhdGlvbnNoaXA+PC9hY3Q+PC9lbnRyeT48L3NlY3Rpb24+PC9jb21wb25lbnQ+PC9zdHJ1Y3R1cmVkQm9keT48L2NvbXBvbmVudD48L0NsaW5pY2FsRG9jdW1lbnQ+"
 }</code></pre>
 
-<p>Generating the Continuity of Care Document with its native mime type</p>
+<h3 id="native-accept-example-1">Native Accept Example</h3>
 
-<pre><code>GET: [...]/Binary/$autogen-ccd-if?patient=1316035
-Accept: application/xml
+<h4 id="request-3">Request</h4>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/xml</code></pre>
+
+<pre><code>GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
 </code></pre>
+
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK
 <a href="../../#media-types">Content-Type</a>: application/xml</code></pre>
@@ -436,6 +516,10 @@ Accept: application/xml
         &lt;/structuredBody&gt;
     &lt;/component&gt;
 &lt;/ClinicalDocument&gt;</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
 
     </div>

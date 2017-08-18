@@ -372,6 +372,13 @@
 </td>
     </tr>
     <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the observation was last updated. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
       <td><code>category</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
@@ -402,7 +409,13 @@
       <li>Searches Observation.code and Observation.component.code.</li>
     </ul>
   </li>
-  <li>The <code>date</code> parameter may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</li>
+  <li>
+    <p>The <code>date</code> and <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</p>
+  </li>
+  <li>
+    <p>The <code>date</code> and <code>_lastUpdated</code> parameters may not be provided together.</p>
+  </li>
+  <li>The <code>_lastUpdated</code> query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -470,53 +483,8 @@
         "subject": {
           "reference": "Patient/3998008"
         },
-        "related": [
-          {
-            "type": "has-member",
-            "target": {
-              "reference": "Observation/5525867"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867",
-      "resource": {
-        "resourceType": "Observation",
-        "id": "5525867",
-        "meta": {
-          "versionId": "1252402",
-          "lastUpdated": "2016-01-26T21:58:41.000Z"
-        },
-        "status": "final",
-        "category": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/observation-category",
-              "code": "social-history",
-              "display": "Social History"
-            }
-          ],
-          "text": "Social History"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "229819007",
-              "display": "Tobacco use and exposure (observable entity)"
-            },
-            {
-              "system": "http://loinc.org",
-              "code": "72166-2",
-              "display": "Tobacco smoking status NHIS"
-            }
-          ],
-          "text": "Tobacco"
-        },
-        "subject": {
-          "reference": "Patient/3998008"
+        "valueCodeableConcept": {
+          "text": "Medium Risk"
         },
         "related": [
           {
@@ -857,10 +825,10 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-5525861",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-a5525861",
       "resource": {
         "resourceType": "Observation",
-        "id": "93-5525861",
+        "id": "93-a5525861",
         "meta": {
           "versionId": "5525861",
           "lastUpdated": "2016-01-26T21:58:41.000Z"
