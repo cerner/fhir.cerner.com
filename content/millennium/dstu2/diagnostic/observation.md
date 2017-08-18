@@ -74,6 +74,8 @@ Notes:
 
 - The `date` and `_lastUpdated` parameters may not be provided together.
 
+- The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
+
 ### Headers
 
  <%= headers %>
