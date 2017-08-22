@@ -137,10 +137,6 @@ For provider and patient facing apps, you can select any patient from a list of 
 
 Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/millennium](https://code.cerner.com/millennium), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
-### HealtheLife ###
-
-Direct to consumers apps may also be launched from our patient portal, HealtheLife. Once our patient portal is available for developers, developers in our program will have the ability to launch SMART applications from HealtheLife. This is how you can test as a consumer accessing your application.
-
 #### SSL Certificate ####
 
 Your app must be reachable through an https endpoint. Also, you need a valid SSL certificate for your site to test your app in *PowerChart*. A good resource to check your server's SSL certificates is [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). Ensure your server's certificate gets A grade or higher.
@@ -150,6 +146,14 @@ Your app must be reachable through an https endpoint. Also, you need a valid SSL
 In order for *PowerChart* to open and display your app in Cerner's Sandbox FHIRPLAY environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
 
 If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible. However, the app's URL will need to be accessible from your organization's Citrix servers. A good way to test the connectivity is by opening IE browser from Citrix servers to your app's URL.
+
+#### No Custom TCP Port ####
+
+When testing your app in Cerner's Sandbox environment via *PowerChart*, your app *must* be hosted on a standard https port 443. When other non-standard ports are used, *PowerChart* will not be able to load the app's URL. This is due to an existing firewall rule set in place for security reasons.
+
+### HealtheLife ###
+
+Direct to consumers apps may also be launched from our patient portal, HealtheLife. Once our patient portal is available for developers, developers in our program will have the ability to launch SMART applications from HealtheLife. This is how you can test as a consumer accessing your application.
 
 ## Additional Resources ##
 
