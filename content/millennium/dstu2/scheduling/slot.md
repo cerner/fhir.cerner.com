@@ -70,6 +70,7 @@ Notes:
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2016-07&date=lt2017-07`)   
 
+- The retrieved slots are sorted first by `Start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
 
 ### Headers
 
