@@ -47,7 +47,7 @@ fields:
         }
       ]
     }
-    
+
     Contained Practitioner
     {
       "contained": [
@@ -130,7 +130,7 @@ fields:
         "reference": "Patient/5366327"
       }
     }
-    
+
     Reporter as a contained reference
     {
       "reporter": "#5366328"
@@ -224,6 +224,66 @@ fields:
         "text": "Patient complains of discomfort"
       }
     }
+  action: create
+  children:
+
+  - name: authorReference
+    required: 'No'
+    cardinality: 0..1
+    type: Reference (Practitioner)
+    description: Individual responsible for the annotation.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_
+    example: |
+      {
+        "note": {
+          "authorReference": {
+            "reference": "Practitioner/21500971"
+          }
+        }
+      }
+  - name: time
+    required: 'No'
+    cardinality: 0..1
+    type: dateTime
+    description: When the annotation was made.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time
+    example: |
+      {
+        "note": {
+          "time": "2015-10-14T13:13:20-06:00"
+        }
+      }
+
+  - name: text
+    required: 'Yes'
+    cardinality: 1..1
+    type: string
+    description: The text content.
+    url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text
+    example: |
+      {
+        "note": {
+          "text": "Patient complains of discomfort"
+        }
+      }
+
+- name: note
+  required: 'No'
+  cardinality: 0..1
+  type: Annotation
+  description: Additional text not captured in other fields.
+  example: |
+    {
+      "note": {
+        "authorReference": {
+          "reference": "Practitioner/21500971"
+        },
+        "time": "2015-10-14T13:13:20-06:00",
+        "text": "Patient complains of discomfort"
+      }
+    }
+  note: A note cannot be added if there is an existing note. Existing notes cannot be modified.
+  action: update
   children:
 
   - name: authorReference
@@ -327,7 +387,7 @@ fields:
           }
         }
       }
-      
+
       Manifestation with a freetext value:
       {
         "reaction": [
