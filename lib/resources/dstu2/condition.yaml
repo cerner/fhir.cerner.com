@@ -237,6 +237,20 @@ fields:
   cardinality: 0..1
   type: string
   description: Additional information about the Condition.
+  action: create
+  example: |
+    {
+      "notes": "Information related to condition"
+    }
+
+
+- name: notes
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Additional information about the Condition.
+  note: Notes cannot be added if there are existing notes. Existing notes cannot be modified.
+  action: update
   example: |
     {
       "notes": "Information related to condition"
