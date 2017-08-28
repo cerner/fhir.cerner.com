@@ -54,7 +54,7 @@ Search for Conditions that meet supplied query parameters:
  `clinicalstatus` | N                                                                    | [`token`]     | The [clinical status] of the condition. Example: `resolved`
 
 Notes:
- 
+
 * Currently only `diagnosis`, `problem` and `health-concern` category codes are supported.
 
 ### Headers
@@ -143,12 +143,12 @@ Notes:
 
 <%= definition_table(:condition, :create, :dstu2) %>
 
-### Create Problem Example 
+### Create Problem Example
 
 #### Request
 
     POST /Condition
-    
+
 #### Body
 
 <%= json(:dstu2_condition_problem_create) %>
@@ -179,7 +179,7 @@ Notes:
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-### Create Diagnosis Example 
+### Create Diagnosis Example
 
 #### Request
 
@@ -218,7 +218,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                                                        
+
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
@@ -242,7 +242,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
                    'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Condition resource>"'} %>
 
 ### Body fields
@@ -250,6 +250,7 @@ _Implementation Notes_
 Notes:
 
 * `abatementDateTime` is not supported for Conditions with a category of `diagnosis`.
+* `notes` cannot be added if `notes` already exists. An existing `notes` field cannot be modified.
 
 <%= definition_table(:condition, :update, :dstu2) %>
 
@@ -258,7 +259,7 @@ Notes:
 #### Request
 
     PUT /Condition/p6809861
-    
+
 #### Body
 
 <%= json(:dstu2_condition_diagnosis_update) %>
@@ -291,12 +292,12 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                    
+
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
  422         | Body contained implicit rules      | error     | unsupported
- 
+
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
