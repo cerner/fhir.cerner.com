@@ -79,7 +79,7 @@ _Implementation Notes_
  `patient`                 | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
  `status`                  | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
  `-timing-boundsPeriod`    | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
- [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
+ [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Defaults to `25`. Capped at `60`. Example: `50`
 
 ### Headers
 
