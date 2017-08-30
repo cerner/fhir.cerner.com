@@ -95,9 +95,9 @@ displayed as intended.
 ### Requests by Specific LOINC Codes
 
 Cerner creates concept mappings as part of our SMART on FHIR
-implementation that follow the [concept map](https://www.hl7.org/fhir/conceptmap.html)
+implementation that follow the [concept map](https://www.hl7.org/fhir/dstu2/conceptmap.html)
 specification defined by HL7. The specification maps proprietary codes
-used in client systems with standardized [LOINC codes](https://www.hl7.org/fhir/loinc.html).
+used in client systems with standardized [LOINC codes](https://www.hl7.org/fhir/dstu2/loinc.html).
 In some cases, these mappings do not cover all the possible variances in
 the ways hospitals have implemented their EHRs. When EHRs were
 originally implemented, it was common to use proprietary codes to
@@ -148,7 +148,7 @@ considerations that might exist.
 
 We have seen a lot of instances of developers performing post-query
 filtering rather than leveraging the
-[query parameters](https://www.hl7.org/fhir/searchparameter-registry.html)
+[query parameters](https://www.hl7.org/fhir/dstu2/search.html#table)
 defined by the API.  We recommend using the available query parameters, such as
 [this example for the Patient resource](http://fhir.cerner.com/millennium/dstu2/individuals/patient/#parameters).
 Query parameters make the dataset more predictable, speed up your searches, and
@@ -171,7 +171,7 @@ or [Observation](http://fhir.cerner.com/millennium/dstu2/diagnostic/observation/
 resources. It would be a patient safety issue if an uncharted value was
 displayed to a user. Please double-check the status codes you use from
 the FHIR [MedicationOrderStatus](http://hl7.org/fhir/DSTU2/valueset-medication-order-status.html)
-or [ObservationStatus](https://www.hl7.org/fhir/valueset-observation-status.html)
+or [ObservationStatus](https://www.hl7.org/fhir/dstu2/valueset-observation-status.html)
 value sets.
 
 Typically, for MedicationOrder, only medications in `Active`, `On-Hold`, or
