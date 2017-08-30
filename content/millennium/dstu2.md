@@ -17,7 +17,7 @@ Cerner's implementation currently supports the DSTU 2 Final (1.0.2) version of t
 
 ## Schema
 
-All API access is over HTTPS. See [Service Root URL](#service-root-url) for more information on URL format. 
+All API access is over HTTPS. See [Service Root URL](#service-root-url) for more information on URL format.
 All data is sent and received as JSON.
 
 <pre class="terminal">
@@ -291,8 +291,8 @@ We encourage you to explicitly request one of these types via the `Accept` heade
 
 ## Service Root URL
 
-URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the 
-application is a SMART application, the [service root url](http://hl7.org/fhir/dstu2/http.html#general) is provided at 
+URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the
+application is a SMART application, the [service root url](http://hl7.org/fhir/dstu2/http.html#general) is provided at
 launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
  against a specific tenant. FHIR calls will be made against URLs of the following format:
 
@@ -308,7 +308,7 @@ Note: The open endpoint exposes read-only resources. No writes are available in 
 
 ### Secure Sandbox
 
-The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service 
+The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service
 root URL for this instance is different if the patient or a patient's proxy is logging in.
 
 Non-Patient: `https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
@@ -329,7 +329,7 @@ parameter:
 $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&status=active"
 </pre>
 
-In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status` 
+In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status`
  are passed in the query string.
 
 ### Resource Identity
@@ -351,6 +351,12 @@ In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource bein
  For example, when using the above MRN in a different system, we are not guaranteed that the same Patient resource is returned in the response bundle:
 
      https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+
+## Common Application Errors
+
+It is recommended that you visit our list of
+[common issues](/millennium/faq/common-issues) we see to help troubleshoot your app and to verify that your app is free from any of the aforementioned issues.
+
 
 ## Client Errors
 
@@ -409,7 +415,7 @@ Refer to the extensions on the `Conformance.rest.security` element in our server
 Each resource interaction documents the type of authentication acceptable (patient, provider, and/or system). While an
 interaction may list system authentication, this is currently available only in sandbox for beta testing and is not available in production yet.
 
-Please reference the <a href="/authorization/">authorization</a> documentation for details on how to authorize with our server. 
+Please reference the <a href="/authorization/">authorization</a> documentation for details on how to authorize with our server.
 
 ## Pagination
 

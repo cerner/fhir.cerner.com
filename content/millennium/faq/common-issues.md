@@ -25,9 +25,9 @@ identical each time and if they are retrieving the same data set.
 
 ### Implement Paging
 
-To be compatible with a wide variety of FHIR services and for future-
-proofing, we require that you implement a paging data retrieval scheme
-as defined by the [HL7 FHIR specification](https://www.hl7.org/fhirhttp.html#paging).
+To be compatible with a wide variety of FHIR services and for future-proofing,
+we require that you implement a paging data retrieval scheme
+as defined by the [HL7 FHIR specification](https://www.hl7.org/fhir/dstu2/http.html#paging).
 Your app should handle paging for all resources, even if our FHIR server
 does not support it yet. This ensures your app is compatible with more
 FHIR servers and for ours if we add paging in the future for
@@ -144,12 +144,24 @@ LOINC codes are used.  If your app uses specific LOINC codes to query
 for information, reach out to us and we will help you work through any
 considerations that might exist.
 
+### Leverage Query Parameters
+
+We have seen a lot of instances of developers performing post-query
+filtering rather than leveraging the
+[query parameters](https://www.hl7.org/fhir/searchparameter-registry.html)
+defined by the API.  We recommend using the available query parameters, such as
+[this example for the Patient resource](http://fhir.cerner.com/millennium/dstu2/individuals/patient/#parameters).
+Query parameters make the dataset more predictable, speed up your searches, and
+are more reliable than relying on post-query filtering.
+
 ### Review Filtering Options
 
-In the Cerner EMR, if a medication or result is documented erroneously
-in the system and then is deleted by a user, it is commonly represented
-in the system as In Error. In Error results are frequently filtered out
-and are not displayed by native Cerner applications.
+Using Query Parameters is what we recommend instead of post-query filtering,
+but if you are filtering, here is one consideration to be aware of. In the
+Cerner EMR, if a medication or result is documented erroneously in the
+system and then is deleted by a user, it is commonly represented in the
+system as In Error. In Error results are frequently filtered out and are
+not displayed by native Cerner apps.
 
 You should review your app’s status filtering logic to ensure that the
 appropriate results are displayed. For Cerner’s implementation of the
@@ -171,7 +183,82 @@ in-error results on multiple blood pressures values, one blood pressure
 with an unknown status, and one entered-in-error CO2 and glucose value
 for you to review and test with.
 
+The [Condition](http://fhir.cerner.com/millennium/dstu2/general-clinical/condition/),
+[MedicationStatement](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/),
+and [Observation](http://fhir.cerner.com/millennium/dstu2/diagnostic/observation/)
+resources do not support filtering by the encounter parameter in
+the current implantation of Ignite APIs for Millennium. If you do
+use these resources, your app may need to implement a post-filter
+to display only the current encounter.
+
+### Using Appropriate Scopes for SMART Launch
+
+[SMART on FHIR defines OAuth2 access scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/)
+that correspond directly to FHIR resource types. We define read and write
+permissions for patient-specific and user-level access. Patient-specific scopes
+allow access to specific data about a single patient. User-level scopes
+allow access to specific data that a user can access.
+
+We have seen some situations where it is appropriate to use user-level
+scopes, but in most cases with a patient in context, you should be using
+patient-centric scopes.
+
+### Registering More Scopes than App Uses
+
+Ensure you are only requesting scopes that are used. We will ask you
+to remove unused scopes from registration if you do not use those resources
+or actions.
+
+### Authorization Durations Longer than 10 Minutes
+
+The default duration of access received through the authorization
+grant workflow is a single token that is valid for 570 seconds
+(~10 minutes). For apps that need access to services for longer
+durations, some apps we have validated request a new token each
+time, but there is a more streamlined method available.
+
+By requesting the `online_access` scope, the system grants a
+[refresh token](http://fhir.cerner.com/authorization/#refresh_tokens)
+that can be used for duration of a user’s authenticated session.
+Such refresh tokens are valid until either the user explicitly logs out,
+the session is terminated by an administrator, or other risk mechanisms
+(timeouts, etc.) require a user to be re-authenticated.
+
 ## Cerner Client Deployment
+
+### Using Video in Your App
+
+Most Cerner clients deploy Cerner Millennium user apps as a Citrix XenApp<sup>®</sup>
+session connected from a shared server-based computing environment. If your
+app uses videos, we have found this can challenge the Citrix connection because
+only so much bandwidth can be assigned to each Citrix connection.
+
+We determined that the preferred method for your app to play video is to open
+a new window using a custom code and load the web page containing video.  
+This way the video opens using the hospital’s network and the Citrix
+connection is not affected.
+
+Also, when the app is deployed, the hospital’s IT staff need to ensure that:
+
+-	The device running the video has the correct video codec installed
+-	A proper speaker or headset is connected for sound
+
+To open a new window through content redirection, the underlying Cerner platform
+supports the following “APPLINK” routine for launching a new window through
+content redirection instead of 'window.open' through JavaScript.
+If content redirection is enabled and the URL is accessible by the local device,
+the video is played locally. If neither of those conditions are met, it is
+opened on the Citrix server.
+
+For this routine to work, the following META tag must be included in the
+HEAD of the HTML file: `<META content='APPLINK' name='discern'>`
+
+The following example illustrates opening a web page through a shell execute.
+When Citrix is configured for server-to-client redirection and the link is
+clicked, your local default web browser opens and is directed to the link provided.  
+
+`<a href='javascript:APPLINK(100," "http://www.cerner.com","">Launch "http://www.cerner.com" in local web browser</a>`
+
 
 ### Single Patient and Multi-Patient Views
 
@@ -224,7 +311,7 @@ them restart their validation process once that functionality was
 removed.
 
 ### Session Bleed Issue
- 
+
 When you are running a SMART app in multiple open charts in PowerChart,
 there is potential that the app instance will share patient context and
 show same patient’s data on two separate charts.
@@ -255,3 +342,81 @@ To recreate the issue:
    refresh the content of PowerChart. If the application displays the
    information for Patient B within the chart for Patient A, then you
    need to implement the change mentioned above.
+
+## Security
+
+### Static Analysis
+
+An automated security analysis of the app must be completed prior to
+the security review. There are many tools available for this including
+paid and free offerings. If available, producing a report from tools
+such as HP Fortify, IBM AppScan and Veracode are preferred.
+
+OpenVAS, BurpSuite, FindSecBugs and ZAP can also be used to produce a
+report if the above analysis tools are not available to the development team.
+
+The reports should produce results that are free of critical and high
+results. In the event that medium results are found, the submitter will
+be asked for a mitigation plan and timelines to resolve the found
+vulnerabilities.
+
+### TLS Configuration
+
+It is required that you test your app’s SSL/TLS status against
+[SSLLabs](https://www.ssllabs.com/ssltest/) during a security review.
+The app must at least score an A on SSLLabs to pass the security review.
+To assist in reaching this score, the items below should be taken into
+consideration:
+
+-	Disable all SSL versions
+-	Disable TLS version 1.0
+-	Review the list of cipher suites and remove any insecure cipher suites
+-	Ensure that the handshake simulation user agents that are relevant to the app are functional
+-	Enable forward secrecy, if practical
+-	Ensure that TLS_FALLBACK_SCSV is enabled
+
+### Data Flow Diagram
+
+Ensure that the data flow diagram displays the flow of data, including
+PHI (protected health information), during the course of normal usage.
+ The data flow diagram should also display the authentication and
+ authorization decisions that are being made.
+
+### Threat Model
+
+The threat model should make use of a tool like
+[Microsoft Threat Model 2016](https://www.microsoft.com/en-us/download/details.aspx?id=49168)
+or similar. The threat model must show the assets that the app uses during
+runtime as well as the other apps and systems that it connects to or
+accepts connections from.
+
+The threat model must also include the following:
+
+- Authentication interactions with external sources (for example, the Cerner Oauth service)
+- Information related to the hosting environment that the app is hosted in (for example, AWS, Azure, third-party, or a self-run data center)
+- Define the trust boundaries crossed during runtime
+
+If using the MS Threat Model 2016 tool, the found threats must be responded to in the Analysis view.
+
+### Third-Party Tools and Libraries
+
+The use of a tool like
+[OWASP’s Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check)
+greatly reduces the exposure to malicious dependencies prior to deploying your app.
+Dependency Check is a utility that identifies project dependencies
+and checks if there are any known, publicly disclosed, vulnerabilities.
+
+We recommend that you use this tool to reveal any issues with the
+libraries that are used by the app and assist with the manual review
+of the list of third party libraries that are requested during
+a security review. If using Dependency Check, you should submit
+a report during security review.
+
+### Patching Policy
+
+The patching policy must include how the app owner plans to patch
+its software in the event that a critical vulnerability is discovered.
+The patching policy must include timeframes for when a vulnerability
+will be patched (for example, within 48 hours of knowledge of
+a critical vulnerability, within seven days of a high vulnerability,
+and so on).
