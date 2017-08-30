@@ -35,15 +35,23 @@ fields:
         }
       ]
     }
-  note: The type must include a loinc coding.
+  note: The type must include a loinc coding. Any LOINC representing a clinical document or note is supported and we will map the appropriate LOINCs in Production as applications get deployed to client sites.
   binding:
     description: Precise type of clinical document.
     terminology:
     - display: LOINC
       system: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/loinc.html
       values:
+      - 18842-5 - Discharge Summary
+      - 11488-4 - Consult Note
+      - 11506-3 - Provider-unspecified Progress Note
       - 34840-9 - Rheumatology Note
+      - 34839-1 - Rheumatology Consult Note
       - 68608-9 - Summary Note
+      - 34133-9 - Summary of episode Note
+      - 78280-5 - Surgery Education Note
+
 
 - name: author
   required: 'No'
@@ -161,8 +169,8 @@ fields:
           ]
         }
       note: >
-        You can validate your document using any available XHTML validator like the one linked
-        <a href="https://html5.validator.nu/">here</a>.
+        You can validate your document using any available strict XHTML 1.0 validator (eg: <a href="http://validator.w3.org/#validate_by_upload+with_options">w3 validator</a>
+        or this <a href="https://html5.validator.nu/">html5 validator</a>).
         Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be
         removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be
         removed but the text within will remain.

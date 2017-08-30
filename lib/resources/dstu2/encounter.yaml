@@ -19,8 +19,10 @@ fields:
       terminology:
       - display: Identifier Type Codes
         system: http://hl7.org/fhir/identifier-type
+        info_link: http://hl7.org/fhir/DSTU2/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: http://hl7.org/fhir/v2/0203
+        info_link: http://hl7.org/fhir/DSTU2/valueset-identifier-type.html
 
 - name: type
   required: 'No'
@@ -41,6 +43,7 @@ fields:
     terminology:
     - display: Encounter Priority
       system: http://hl7.org/fhir/encounter-priority
+      info_link: http://hl7.org/fhir/dstu2/valueset-encounter-priority.html
 
 - name: participant
   required: 'No'
@@ -59,8 +62,10 @@ fields:
       terminology:
       - display: ParticipantType
         system: http://hl7.org/fhir/participant-type
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-participant-type.html
       - display: v3 Code System ParticipationType
         system: http://hl7.org/fhir/v3/ParticipationType
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-participant-type.html
 
 - name: reason
   required: 'No'
@@ -88,6 +93,7 @@ fields:
       terminology:
       - display: AdmitSource
         system: http://hl7.org/fhir/admit-source
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-admit-source.html
 
   - name: dietPreference
     required: 'No'
@@ -99,6 +105,7 @@ fields:
       terminology:
       - display: Diet
         system: http://hl7.org/fhir/diet
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-diet.html
 
   - name: specialCourtesy
     required: 'No'
@@ -110,6 +117,7 @@ fields:
       terminology:
       - display: v3 Code System EncounterSpecialCourtesy
         system: http://hl7.org/fhir/v3/EncounterSpecialCourtesy
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-special-courtesy.html
 
   - name: specialArrangement
     required: 'No'
@@ -121,6 +129,7 @@ fields:
       terminology:
       - display: SpecialArrangements
         system: http://hl7.org/fhir/encounter-special-arrangements
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-special-arrangements.html
 
   - name: dischargeDisposition
     required: 'No'
@@ -132,3 +141,4 @@ fields:
       terminology:
       - display: DischargeDisposition
         system: http://hl7.org/fhir/discharge-disposition
+        info_link: http://hl7.org/fhir/dstu2/valueset-encounter-discharge-disposition.html

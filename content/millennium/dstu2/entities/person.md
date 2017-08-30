@@ -7,6 +7,21 @@ title: Person | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The Person resource identifies an individual outside of a specific health care context providing a mechanism to link person resources across different facilities or organizations.
+
+The following fields are returned if valued:
+
+* [Person id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Identifier (Cerner alias Federated Person Principal)](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.identifier){:target="_blank"}
+* [Name](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.name){:target="_blank"}
+* [Telecom](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.telecom){:target="_blank"}
+* [Gender](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.gender){:target="_blank"}
+* [Date of birth](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.birthDate){:target="_blank"}
+* [Address](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.address){:target="_blank"}
+* [Active](http://hl7.org/fhir/DSTU2/person-definitions.html#Person.active){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:person, :dstu2) %>
@@ -16,6 +31,10 @@ title: Person | DSTU 2 API
 Search for Persons that meet supplied query parameters:
 
     GET /Person?:parameters
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -28,10 +47,24 @@ Notes:
 
 - `identifier` value must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN`
 
-### Response
+### Headers
 
-<%= headers status: 200, head: {GET: '[...]/Person?identifier=urn:oid:2.16.840.1.113883.3.13.6|urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:uH3IW35N5RE'} %>
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_person_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -39,9 +72,28 @@ List an individual Person by its id:
 
     GET /Person/:id
 
-### Response
+### Authorization Types
 
-<%= headers status: 200, head: {GET: '[...]/Person/4342009'} %>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/4342009
+
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_person_entry) %>
 
+### Errors
+
+The common [errors] may be returned.
+
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[errors]: ../../#client-errors

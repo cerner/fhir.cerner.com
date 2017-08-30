@@ -34,7 +34,7 @@ Currently, end users can open SMART apps in the following ways:
 - Providers can access SMART apps from the *Cerner Millennium PowerChart* TOC (table of contents, a column of options that open different PowerChart components) and the Organizer view
 - Providers can access SMART apps from an *MPages* component that is embedded in *PowerChart*
 - Consumers can access SMART apps from HealtheLife to view their patient information
-- Providers/Consumers can access SMART apps from a standalone provider/patient facing SMART apps
+- Providers/Consumers can access SMART apps from a stand-alone provider/patient facing SMART apps
 
 Cerner is continuing to look at incorporating SMART app support into our other applications and platforms.
 
@@ -54,7 +54,38 @@ The recommended screen resolution varies based on the available screen's real es
 
 ### Browser Requirement ###
 
-For provider-facing apps that run from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.
+For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The embedded browser control we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.
+
+Microsoft offers a free IE 10 VM and newer on various versions of Windows for application testing at [https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
+### Single Sign On (SSO) ###
+
+Cerner understands that it's counter-intuitive to prompt the user for their credential when launching a SMART application within *PowerChart*, where the user is already logged into the system. With that in mind, we designed the system to provide a good SSO experience for the users when any SMART application is launched within *PowerChart*. As a developer, you can help us give the users the best experience possible by following the following guideline when developing your apps to be embedded within *PowerChart*.
+
+- Due to technical limitations (see '[No Shared Cookies](#no-shared-cookies)' section below), apps should use the same embedded browser (no pop-up) to authorize and launch when embedded in *PowerChart*. We still recommend using a pop-up for authorization and authentication in other workflows outside of *PowerChart*.
+
+- If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
+
+### Embedded Browser Control ###
+
+There have been a lot of questions and interests around what embedded browser control Cerner's implementation uses. In this section, you'll learn more about the embedded browser control. The actual browser control that we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE browser. See below for these limitations.
+
+#### No Shared Cookies ####
+
+If your app uses a pop-up window for the authorization flow to allow users to authenticate with the system, that is fine for web and stand-alone apps.  However, if the app is going to be embedded within *PowerChart*, browser cookies will *NOT* be shared between the embedded browser and the newly popped-up browser window. What does this mean? It means that single-sign-on (SSO) will not work; the user would need to manually type in their credential when prompted, which is not the best experience for the users. It's best to perform all navigations and redirects using the embedded browser without needing to pop-up a new browser while embedding in *PowerChart*.  To learn more about the technical details of IE inner workings, please visit this [page](https://blogs.msdn.microsoft.com/ie/2008/03/11/ie8-and-loosely-coupled-ie-lcie/) and this [page](https://blogs.msdn.microsoft.com/ie/2010/03/04/tab-isolation/).
+
+If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
+
+#### HTML5 Session Storage ####
+
+With the introduction of HTML5, [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is a good way to persist data within a browser's session. Depending on the *Cerner Millennium PowerChart* release, `sessionStorage` may not be isolated per instances of the embedded browser. As such, if your app is going to be embedded within *PowerChart*, we do *NOT* recommend using `sessionStorage`.
+
+If you'd like to flex your app based on the current execution context (embedded vs stand-alone mode), please see this [section](#embedded-in-powerchart) for more information.
+
+#### Embedded in *PowerChart*? ####
+
+If I want to flex my app based on where it's being loaded, how do I programmatically determine when my app is embedded within *PowerChart*? Good question! Check out this [method](https://github.com/cerner/fhir-client-cerner-additions/blob/master/src/js/utils.js#L14) which checks for certain conditions to exist and determine if the app is loaded within PowerChart or not.
+>>>>>>> origin/master
 
 ### HTML5 DOCTYPE ###
 
@@ -107,19 +138,23 @@ For provider and patient facing apps, you can select any patient from a list of 
 
 Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/millennium](https://code.cerner.com/millennium), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
-### HealtheLife ###
-
-Direct to consumers apps may also be launched from our patient portal, HealtheLife. Once our patient portal is available for developers, developers in our program will have the ability to launch SMART applications from HealtheLife. This is how you can test as a consumer accessing your application.
-
 #### SSL Certificate ####
 
-Your app must be reachable through an https endpoint. Also, you need a valid SSL certificate for your site to test your app in *PowerChart*.
+Your app must be reachable through an https endpoint. Also, you need a valid SSL certificate for your site to test your app in *PowerChart*. A good resource to check your server's SSL certificates is [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). Ensure your server's certificate gets A grade or higher.
 
 #### Public Access ####
 
 In order for *PowerChart* to open and display your app in Cerner's Sandbox FHIRPLAY environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
 
-If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible.
+If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible. However, the app's URL will need to be accessible from your organization's Citrix servers. A good way to test the connectivity is by opening IE browser from Citrix servers to your app's URL.
+
+#### No Custom TCP Port ####
+
+When testing your app in Cerner's Sandbox environment via *PowerChart*, your app *must* be hosted on a standard https port 443. When other non-standard ports are used, *PowerChart* will not be able to load the app's URL. This is due to an existing firewall rule set in place for security reasons.
+
+### HealtheLife ###
+
+Direct to consumers apps may also be launched from our patient portal, HealtheLife. Once our patient portal is available for developers, developers in our program will have the ability to launch SMART applications from HealtheLife. This is how you can test as a consumer accessing your application.
 
 ## Additional Resources ##
 

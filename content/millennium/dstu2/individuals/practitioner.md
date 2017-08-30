@@ -20,7 +20,6 @@ The following fields are returned if valued:
   * [Contact (secure email and phone)](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
   * [Address](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address){:target="_blank"}
   * [Gender](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
-  * [Date of birth](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.birthDate){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -34,7 +33,7 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -53,6 +52,7 @@ Search for Practitioners that meet supplied query parameters:
     GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021
 
 #### Response
+
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_bundle) %>
 
 ### Errors
@@ -67,7 +67,7 @@ List an individual Practitioner by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Headers
 

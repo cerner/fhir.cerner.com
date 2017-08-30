@@ -28,7 +28,9 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 _Implementation Notes_
 
 * The API returns the most current charted problem list. 
-* The Narrative includes additional information pertaining to the results, and should be shown to the user to ensure completeness of clinical content and context.
+* The API returns conditions in `active`, `inactive`, and `resolved` statuses. It will not return conditions marked as `entered-in-error`.
+* The Narrative represents the entire condition and contains information that is not included in the structured portion of the response. As such, it should be shown to the user to ensure completeness of clinical content and context.
+* The status entry in the narrative is valued “Additional” indicating that more information is provided in the narrative than is provided in the structure. Therefore, if the Application is using the structured entries for any purpose, care must be taken to ensure the clinical content/context of the narrative is preserved.
 
 ### Parameters      
 

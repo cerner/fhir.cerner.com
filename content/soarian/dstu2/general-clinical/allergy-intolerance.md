@@ -30,6 +30,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 _Implementation Notes_
 
 * The API returns the most current AllergyIntolerance list.
+* The API only returns allergies in an `active` status. It will not return allergies marked as `entered-in-error`.
 * The Narrative includes additional information pertaining to the AllergyIntolerance and should be shown to the user to ensure completeness of clinical content and context.
 * At this time, non-medication allergies are not coded and will be returned as freetext.
 
