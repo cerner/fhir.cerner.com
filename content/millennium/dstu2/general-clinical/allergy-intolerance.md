@@ -72,7 +72,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_bundle) %>
 
-### Search by status Example 
+### Search by status Example
 
 #### Request
 
@@ -96,7 +96,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Errors
 
-The common [errors] may be returned. 
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -184,7 +184,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                    
+
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
@@ -207,10 +207,14 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
                    'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the AllergyIntolerance resource>"'} %>
 
 ### Body fields
+
+Notes:
+
+* `note` cannot be added if `note` already exists. An existing `note` field cannot be modified.
 
 <%= definition_table(:allergy_intolerance, :update, :dstu2) %>
 
@@ -252,7 +256,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                    
+
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
