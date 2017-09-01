@@ -19,6 +19,7 @@
 preprocess do
   add_version_attribute
   add_solution_attribute
+  add_button_attribute
   RedirectGenerator.generate(config[:redirects], @items)
 end
 
