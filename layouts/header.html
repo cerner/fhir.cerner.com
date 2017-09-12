@@ -4,6 +4,9 @@
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      <% if @item[:header_button] %>
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">Code Portal</a>
+      <% end %>
 
     </div><!-- /.header-wrapper -->
   </div><!-- /#top-header -->
