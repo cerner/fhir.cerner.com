@@ -354,9 +354,7 @@ In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource bein
 
 ## Common Application Errors
 
-It is recommended that you visit our list of
-[common issues](/millennium/faq/common-issues) we see to help troubleshoot your app and to verify that your app is free from any of the aforementioned issues.
-
+Please visit our list of [common issues](/millennium/faq/common-issues) on our [FAQ](/millennium/faq) page to be aware of the common issues we've identify when validating apps to run on our platform.
 
 ## Client Errors
 
