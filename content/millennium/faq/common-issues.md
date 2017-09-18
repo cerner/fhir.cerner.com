@@ -33,12 +33,14 @@ does not support it yet. This ensures your app is compatible with more
 FHIR servers and for ours if we add paging in the future for
 performance.
 
-You can view the default and max page sizes by following the links
-below. Queries on these resources can result in large data sets. If you
+We've documented the default and max pages sizes for each resouce.
+Queries on these resources can result in large data sets. If you
 do not implement paging logic, the application can miss relevant
 information because the system will not load more than just the initial
 page. This creates potential for the system to not account for the
-entire patient dataset.  There are two ways we recommend that you test
+entire patient dataset.
+
+There are two ways we recommend that you test
 your logic once implemented.  First, you can set page size to a lower
 value using the `_count` parameter in the API calls.  Another way is to
 make calls for a patient named Timothy Peters in the Sandbox domain.
@@ -141,8 +143,9 @@ any of these hospital-specific considerations.
 The above examples use lead, but similar considerations could exist for
 virtually any lab or measurement where concept mapping and specific
 LOINC codes are used.  If your app uses specific LOINC codes to query
-for information, reach out to us and we will help you work through any
-considerations that might exist.
+for information,
+[contact us](https://groups.google.com/d/forum/cerner-fhir-developers)
+and we will help you work through any considerations that might exist.
 
 ### Leverage Query Parameters
 
