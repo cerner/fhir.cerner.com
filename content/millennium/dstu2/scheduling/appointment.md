@@ -124,6 +124,7 @@ Create a new Appointment.
 
 _Implementation Notes_
 
+* The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
 * `Appointment.status` must be set to `proposed`.
 * `Appointment.slot` must be a reference to the Slot in which this appointment is being booked.
 * `Appointment.participant` must have exactly one participant.
@@ -185,7 +186,12 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+                                    
+ HTTP Status | Cause                              | Severity  | Code
+-------------|------------------------------------|-----------|---------------
+ 422         | Body contained modifier extensions | error     | extension
+ 422         | Body contained implicit rules      | error     | unsupported
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
@@ -193,3 +199,6 @@ The common [errors] may be returned.
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [errors]: ../../#client-errors
+[implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
+[modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
+[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
