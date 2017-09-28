@@ -63,10 +63,10 @@ Notes:
 - The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
   For example, `-location=1234,9876` is supported but `-location=1234&-location=9876`
 - `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
-  For example, `type=1234&-location=9876` and `type=1234&-location=95671&schedule.actor=9876` are supported but `-location=9876` and `-location=95671&schedule.actor=9876` are not.
+  For example, `slot-type=1234&-location=9876` and `slot-type=1234&-location=95671&schedule.actor=9876` are supported but `-location=9876` and `-location=95671&schedule.actor=9876` are not.
 
 - The `date` parameter may be provided:  
-  - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`) 
+  - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2016-07&date=lt2017-07`)   
 
@@ -80,7 +80,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_id=166627791-4048128-9331486-0
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_id=21265426-633867-3120917-20
 
 #### Response
 <%= headers status: 200 %>

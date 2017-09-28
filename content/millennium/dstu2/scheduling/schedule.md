@@ -58,7 +58,7 @@ Search for Schedules that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=166627791-4048128-9331486-0
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3120917-20
 
 #### Response
 <%= headers status: 200 %>
