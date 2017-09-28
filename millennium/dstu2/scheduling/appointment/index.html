@@ -30,6 +30,9 @@
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">Code Portal</a>
+      
 
     </div>
 <!-- /.header-wrapper -->
@@ -76,16 +79,59 @@
 <h1 id="appointment">Appointment</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#response" id="markdown-toc-response">Response</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#response-1" id="markdown-toc-response-1">Response</a></li>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location
+<br><br>
+The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Appointment id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type" target="_blank">Type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant" target="_blank">Participant</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason" target="_blank">Reason</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description" target="_blank">Description</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start" target="_blank">Start date/time</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end" target="_blank">End date/time</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration" target="_blank">Duration in minutes</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
+  <li>Details of participants involved in the appointment:
+    <ul>
+      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.type" target="_blank">Type</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor" target="_blank">Actor (name)</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required" target="_blank">Required (always ‘required’)</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status" target="_blank">Status</a></li>
     </ul>
   </li>
 </ul>
@@ -95,6 +141,7 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
+      
       
       
     <tr>
@@ -118,7 +165,9 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/ValueSet/c80-practice-codes">Practice Setting Code Value Set</a>
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
+                      System: http://snomed.info/sct </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -132,6 +181,11 @@
       </td>
     </tr>
     
+      
+      
+      
+      
+      
   </tbody>
 </table>
 
@@ -141,6 +195,12 @@
 
 <pre><code>GET /Appointment?:parameters
 </code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -215,8 +275,7 @@
     <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination with the others.
 For example, <code>patient=1234,9876</code> is supported but <code>patient=1234&amp;patient=9876</code> and <code>patient=1234&amp;location=9876</code> are not.</p>
   </li>
-  <li>
-    <p>The <code>date</code> parameter may be provided:</p>
+  <li>The <code>date</code> parameter may be provided:
     <ul>
       <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;date=2016</code>, <code>&amp;date=2016-07</code>, <code>&amp;date=2016-07-04</code>)</li>
       <li>once without a prefix and with a time component to indicate a specific date/time. (e.g <code>&amp;date=2016-07-04T13:00:00.000-05:00</code>)</li>
@@ -224,9 +283,22 @@ For example, <code>patient=1234,9876</code> is supported but <code>patient=1234&
 an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2014-03-15&amp;date=le2017</code>)</li>
     </ul>
   </li>
+  <li>The retrieved appointments are sorted first by <code>Start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>Start</code> time ascending (earliest first).</li>
 </ul>
 
-<h3 id="response">Response</h3>
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2014&amp;date=lt2016&amp;patient=4342010
+</code></pre>
+
+<h4 id="response">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -324,6 +396,10 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   ]
 }</code></pre>
 
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <p>List an individual Appointment by its id:</p>
@@ -331,7 +407,25 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 <pre><code>GET /Appointment/:id
 </code></pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1685769
+</code></pre>
+
+<h4 id="response-1">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -403,6 +497,374 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
     }
   ]
 }</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create a new Appointment.</p>
+
+<pre><code>POST /Appointment
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The modifier elements <a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a> and <a href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> are not supported and will be rejected if present.</li>
+  <li>
+<code>Appointment.status</code> must be set to <code>proposed</code>.</li>
+  <li>
+<code>Appointment.slot</code> must be a reference to the Slot in which this appointment is being booked.</li>
+  <li>
+<code>Appointment.participant</code> must have exactly one participant.</li>
+  <li>
+<code>Appointment.participant.status</code> must be set to <code>needs-action</code>.</li>
+  <li>
+<code>Appointment.participant.type</code> must not be set.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType: "Appointment"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Appointment</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-slot">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"><code>slot</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<code>Slot</code>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The slot that this appointment is filling. If provided, then no schedule and start/end values MUST match the ones from the slot.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "slot": {
+    "reference": "Slot/337947169-4048128-9537620-0"
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "proposed"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>When creating a new appointment, the status must be "proposed".</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-participant">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Participants involved in appointment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/3886413",
+        "display": "STRECKER, TESTA"
+      },
+      "status": "needs-action"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>When creating a new appointment, at most one participant can be populated.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-participant.actor">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A person, location, healthcare service or device that is participating in the appointment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>"actor": {
+        "reference": "Patient/3886413",
+        "display": "Patient, Test"
+ }
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>When creating a new appointment, this must be a Patient participant.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-participant.status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Participation status of the Patient.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "needs-action"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>When creating a new appointment, this value must be "needs-action".</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Appointment",
+  "slot": {
+    "reference": "Slot/21265426-633867-3120917-20"
+  },
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/3886413",
+        "display": "PATIENT, TEST"
+      },
+      "required": "required",
+      "status": "needs-action"
+    }
+  ],
+  "status": "proposed"
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+    Connection → Keep-Alive
+    Content-Encoding → gzip
+    Content-Length → 20
+    Content-Type → text/html; charset=UTF-8
+    Date → Wed, 13 Jan 2016 21:45:47 GMT
+    Keep-Alive → timeout=15, max=100
+    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
+    Status → 201 Created
+    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
+    access-control-allow-origin → *
+    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+    access-control-max-age → 0
+    cache-control → no-cache
+    etag → W/"0"
+    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
+    server-response-time → 1260.984596
+    strict-transport-security → max-age=631152000
+    vary → Origin,User-Agent,Accept-Encoding
+    x-content-type-options → nosniff
+    x-frame-options → SAMEORIGIN
+    x-request-id → 682c633c-b20f-4f6f-8fae-c58b3aeffe04
+    x-runtime → 1.260940
+    x-xss-protection → 1; mode=block
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>unsupported</td>
+    </tr>
+  </tbody>
+</table>
+
 
     </div>
 
@@ -507,6 +969,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
         </h3>
         <ul class="js-guides">
           <li><a href="./">Appointment</a></li>
+          <li><a href="../schedule/">Schedule</a></li>
+          <li><a href="../slot/">Slot</a></li>
         </ul>
       </li>
     </ul>

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Immunization | DSTU 2 API</title>
+  <title>Slot | DSTU 2 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -76,11 +76,16 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="immunization">Immunization</h1>
+<h1 id="slot">Slot</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -102,30 +107,18 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Immunization resource includes the view of current and historical administration of vaccinations to a patient in all healthcare settings. This resource contains the functionality to query a patient’s immunization history.</p>
-
-<p>Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.</p>
-
-<p>An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.</p>
-
-<p>The following fields are returned if valued:</p>
+<p>The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no information about actual appointments; only availability and type.
+<br><br>
+The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode" target="_blank">Vaccine administered</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.date" target="_blank">Administration date/time</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.wasNotGiven" target="_blank">Was not given</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation.reasonNotGiven" target="_blank">Reason not given</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.encounter" target="_blank">Patient encounter</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.performer" target="_blank">Who administered</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.location" target="_blank">Administration site</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.route" target="_blank">Administration route</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.manufacturer" target="_blank">Vaccine manufacturer</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.lotNumber" target="_blank">Lot number</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.expirationDate" target="_blank">Expiration date</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.doseQuantity" target="_blank">Dose</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Slot id</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.type" target="_blank">Type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.schedule" target="_blank">Schedule</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.start" target="_blank">Start</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.end" target="_blank">End</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.freeBusyType" target="_blank">Free-Busy Type</a></li>
+  <li><a href="#extensions">Scheduling Location Extension</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -138,7 +131,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode">Immunization.vaccineCode</a>
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.type">Slot.type</a>
       
       </td>
     </tr>
@@ -147,7 +140,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Identifies the vaccine substance administered.</li></ul>
+            <ul style="list-style-type: none"><li>Additional details about where the content was created (e.g. clinical specialty).</li></ul>
           
           
 
@@ -157,140 +150,8 @@
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/cvx.html">CVX</a><br>
-                      System: http://hl7.org/fhir/sid/cvx </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.site">Immunization.site</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The site at which the vaccine was administered.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
                       System: http://snomed.info/sct </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.route">Immunization.route</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The path the administered medication takes to get into the body or into contact with the body.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
-                      System: http://snomed.info/sct </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
-                      System: http://ncimeta.nci.nih.gov </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation.reasonNotGiven">Immunization.explanation.reasonNotGiven</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The reason why a vaccine was not administered.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-no-immunization-reason.html">v3 Code System ActReason</a><br>
-                      System: http://hl7.org/fhir/v3/ActReason </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -307,11 +168,38 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Scheduling Location</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>scheduling-location</code></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>Reference</code></a></td>
+      <td>Reference to the location corresponding to this schedule, where the appointment can be booked.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
-<p>Search for Immunizations that meet supplied query parameters:</p>
+<p>Search for Schedules that meet supplied query parameters:</p>
 
-<pre><code>GET /Immunization?:parameters
+<pre><code>GET /Slot?:parameters
 </code></pre>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -333,23 +221,72 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>patient</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient for the vaccination record. Example: <code>12345</code>
+      <td><code>_id</code></td>
+      <td>This, or <code>slot-type</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>slot-type</code></td>
+      <td>Yes when using <code>schedule.actor</code> and\or <code>-location</code>, or <code>id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The type of appointments that can be booked into this slot. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>schedule.actor</code></td>
+      <td>This and <code>slot-type</code>, or <code>id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Practitioner references. Example: <code>Practitioner/12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-location</code></td>
+      <td>This and <code>slot-type</code>, or <code>id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Location references. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
-      <td>N</td>
+      <td>Yes when using <code>slot-type</code>
+</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the immunization administration date falls. Must be prefixed by ‘ge’ or ‘le’.</td>
+      <td>The Slot date-time. Example: <code>2016</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to be returned per page. Defaults to <code>50</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:
- - The <code>date</code> parameter value should be prefixed once by ‘ge’ representing the earliest date, and once by ‘le’ representing the latest date. Examples: <code>date=ge2015-01-01&amp;date=le2016-01-01</code>, <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code></p>
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>slot-type</code>, <code>schedule.actor</code>, and <code>-location</code> parameters may be included only once.
+For example, <code>-location=1234,9876</code> is supported but <code>-location=1234&amp;-location=9876</code>
+</li>
+  <li>
+    <p><code>slot-type</code> is a required search parameter and must be specified along with <code>schedule.actor</code> and\or <code>-location</code>
+For example, <code>slot-type=1234&amp;-location=9876</code> and <code>slot-type=1234&amp;-location=95671&amp;schedule.actor=9876</code> are supported but <code>-location=9876</code> and <code>-location=95671&amp;schedule.actor=9876</code> are not.</p>
+  </li>
+  <li>The <code>date</code> parameter may be provided:
+    <ul>
+      <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;date=2016</code>, <code>&amp;date=2016-07</code>, <code>&amp;date=2016-07-04</code>)</li>
+      <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define
+an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2016-07&amp;date=lt2017-07</code>)</li>
+    </ul>
+  </li>
+  <li>The retrieved slots are sorted first by <code>Start</code> date-time ascending (earliest first), followed by <code>slot-type</code> and <code>Scheduling Location</code> display.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -360,93 +297,54 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization?patient=4478007
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_id=21265426-633867-3120917-20
 </code></pre>
 
 <h4 id="response">Response</h4>
-
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "820593c3-6f15-417b-83bd-f55fdb1ac720",
+  "id": "130a16db-b509-4cda-b221-047f53384c1e",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization?patient=4478007"
+      "url": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Slot?_id=166627791-4048128-9331486-0"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M6753285",
+      "fullUrl": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Slot/166627791-4048128-9331486-0",
       "resource": {
-        "resourceType": "Immunization",
-        "id": "M6753285",
+        "resourceType": "Slot",
+        "id": "166627791-4048128-9331486-0",
         "meta": {
           "versionId": "1",
-          "lastUpdated": "2016-09-09T09:32:39-05:00"
+          "lastUpdated": "2017-07-07T12:40:56.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: tetanus toxoid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-09-09T07:29:00-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Fhir, Mann&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Gluteus Medius&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: IM&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-06-28T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-06-28T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Busy&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "completed",
-        "date": "2016-09-09T07:29:00-05:00",
-        "vaccineCode": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "112",
-              "display": "tetanus toxoid, unspecified formulation",
-              "userSelected": false
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128"
             }
-          ],
-          "text": "tetanus toxoid"
+          }
+        ],
+        "type": {
+          "text": "Unscheduled walkins"
         },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART, FRED RICK"
+        "schedule": {
+          "reference": "Schedule/166627791-4048128-9331486-0"
         },
-        "wasNotGiven": false,
-        "reported": false,
-        "performer": {
-          "reference": "Practitioner/4474007",
-          "display": "Fhir, Mann"
-        },
-        "encounter": {
-          "reference": "Encounter/4135906"
-        },
-        "manufacturer": {
-          "display": "Johnson and Johnson/Merck Consumer"
-        },
-        "location": {
-          "reference": "Location/35646793",
-          "display": "A"
-        },
-        "lotNumber": "L0909",
-        "expirationDate": "2017-09-11",
-        "site": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "78333006",
-              "display": "structure of gluteus medius muscle (body structure)",
-              "userSelected": false
-            }
-          ],
-          "text": "Left Gluteus Medius"
-        },
-        "route": {
-          "text": "IM"
-        },
-        "doseQuantity": {
-          "value": 1,
-          "unit": "mL",
-          "system": "http://unitsofmeasure.org",
-          "code": "mL"
-        }
+        "freeBusyType": "busy",
+        "start": "2017-06-28T08:00:00.000-05:00",
+        "end": "2017-06-28T09:00:00.000-05:00"
       }
     }
   ]
@@ -458,9 +356,9 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual Immunization by its id:</p>
+<p>List an individual Schedule by its id:</p>
 
-<pre><code>GET /Immunization/:id
+<pre><code>GET /Slot/:id
 </code></pre>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -478,7 +376,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M5251276
+<pre><code>GET  https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/166627791-4048128-9331486-0
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -486,71 +384,33 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Immunization",
-  "id": "M5251276",
+  "resourceType": "Slot",
+  "id": "166627791-4048128-9331486-0",
   "meta": {
     "versionId": "1",
-    "lastUpdated": "2015-09-03T22:37:49-05:00"
+    "lastUpdated": "2017-07-07T12:40:56.000-05:00"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Immunization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vaccine&lt;/b&gt;: Lyme disease vaccine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2015-09-03T20:35:00-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Given&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered by&lt;/b&gt;: Fhir, Enginne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Site&lt;/b&gt;: Left Thigh&lt;/p&gt;&lt;p&gt;&lt;b&gt;Route&lt;/b&gt;: IM&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-06-28T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-06-28T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Busy&lt;/p&gt;&lt;/div&gt;"
   },
-  "status": "completed",
-  "date": "2015-09-03T20:35:00-05:00",
-  "vaccineCode": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/sid/cvx",
-        "code": "66",
-        "display": "Lyme disease",
-        "userSelected": false
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+      "valueReference": {
+        "reference": "Location/4048128"
       }
-    ],
-    "text": "Lyme disease vaccine"
+    }
+  ],
+  "type": {
+    "text": "Unscheduled walkins"
   },
-  "patient": {
-    "reference": "Patient/1316024",
-    "display": "PETERS, TIMOTHY"
+  "schedule": {
+    "reference": "Schedule/166627791-4048128-9331486-0"
   },
-  "wasNotGiven": false,
-  "reported": false,
-  "performer": {
-    "reference": "Practitioner/2270007",
-    "display": "Fhir, Enginne"
-  },
-  "encounter": {
-    "reference": "Encounter/1589927"
-  },
-  "manufacturer": {
-    "display": "3M Pharmaceuticals"
-  },
-  "location": {
-    "reference": "Location/4048296",
-    "display": "FPC"
-  },
-  "lotNumber": "23234",
-  "expirationDate": "2015-09-14",
-  "site": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "61396006",
-        "display": "structure of left thigh (body structure)",
-        "userSelected": false
-      }
-    ],
-    "text": "Left Thigh"
-  },
-  "route": {
-    "text": "IM"
-  },
-  "doseQuantity": {
-    "value": 1,
-    "unit": "mL",
-    "system": "http://unitsofmeasure.org",
-    "code": "mL"
-  }
+  "freeBusyType": "busy",
+  "start": "2017-06-28T08:00:00.000-05:00",
+  "end": "2017-06-28T09:00:00.000-05:00"
 }</code></pre>
 
 <h3 id="errors-1">Errors</h3>
@@ -647,22 +507,22 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Medications</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
         </h3>
         <ul class="js-guides">
-          <li><a href="./">Immunization</a></li>
-          <li><a href="../medication-order/">MedicationOrder</a></li>
-          <li><a href="../medication-statement/">MedicationStatement</a></li>
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
         </ul>
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Scheduling</a>
         </h3>
         <ul class="js-guides">
-          <li><a href="../../scheduling/appointment/">Appointment</a></li>
-          <li><a href="../../scheduling/schedule/">Schedule</a></li>
-          <li><a href="../../scheduling/slot/">Slot</a></li>
+          <li><a href="../appointment/">Appointment</a></li>
+          <li><a href="../schedule/">Schedule</a></li>
+          <li><a href="./">Slot</a></li>
         </ul>
       </li>
     </ul>

@@ -218,6 +218,12 @@ a img {
   position: relative;
 }
 
+#header-button {
+  background: #5C9A32;
+  margin: 10px 0 0;
+  float: right;
+}
+
 #top-header {
   height: 50px;
   padding: 15px 0;
