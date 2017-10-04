@@ -52,10 +52,10 @@ Search for Schedules that meet supplied query parameters:
  Name             | Required?                                                        | Type           | Description
 ------------------|------------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
 `_id`             | This, or `slot-type`                                             | [`token`]      | The logical resource id associated with the resource.
-`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`      | [`token`]      | The type of appointments that can be booked into this slot. Example: `12345`
+`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`      | [`token`]      | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
 `schedule.actor`  | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/12345`
 `-location`       | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Location references. Example: `12345`
-`date`            | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
+`start`            | Yes when using `slot-type`                                      | [`date`]       | The Slot date-time. Example: `2016`
 [`_count`]        | No                                                               | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
 
 Notes:   
@@ -63,14 +63,15 @@ Notes:
 - The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
   For example, `-location=1234,9876` is supported but `-location=1234&-location=9876`
 - `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
-  For example, `slot-type=1234&-location=9876` and `slot-type=1234&-location=95671&schedule.actor=9876` are supported but `-location=9876` and `-location=95671&schedule.actor=9876` are not.
+  For example, `slot-type=http://snomed.info/sct|394581000&-location=9876` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=9876` 
+  are supported but `-location=9876` and `-location=95671&schedule.actor=Practitioner/9876` are not.
 
-- The `date` parameter may be provided:  
-  - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)
+- The `start` parameter may be provided:  
+  - once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2016-07&date=lt2017-07`)   
+    an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)   
 
-- The retrieved slots are sorted first by `Start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
+- The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
 
 ### Headers
 
@@ -80,7 +81,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_id=21265426-633867-3120917-20
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2016&slot-type=http://snomed.info/sct|394581000&_count=5
 
 #### Response
 <%= headers status: 200 %>
@@ -108,7 +109,7 @@ List an individual Schedule by its id:
 
 #### Request
 
-    GET  https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/166627791-4048128-9331486-0
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0
 
 #### Response
 
