@@ -32,6 +32,7 @@ fields:
                    }
                  ],
                 "text": "Same Day"
+               }
              }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type
   binding:
@@ -96,9 +97,11 @@ fields:
     description: A person, location, healthcare service or device that is participating in the appointment.
     note: When creating a new appointment, this must be a Patient participant.
     example: |
-      "actor": {
-        "reference": "Patient/4704007",
-        "display": "PATIENT, TEST"
+      {
+        "actor": {
+          "reference": "Patient/4704007",
+          "display": "PATIENT, TEST"
+        }
       }
 
   - name: status

@@ -6,7 +6,7 @@ module Cerner
       "id": "21265426-633867-3121665-0",
       "text": {
         "status": "generated",
-        "div": "&lt;div&gt;&lt;p>&lt;b>Schedule&lt;/b>&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Practitioner&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;/div>"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
       },
       "extension": [
         {
@@ -54,7 +54,7 @@ module Cerner
             "id": "21265426-633867-3121665-15",
             "text": {
               "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Schedule&lt;/b>&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Practitioner&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;/div>"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -90,7 +90,7 @@ module Cerner
             "id": "21265426-633867-3121665-0",
             "text": {
               "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Schedule&lt;/b>&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Practitioner&lt;/b>: Song, River&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;/div>"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {

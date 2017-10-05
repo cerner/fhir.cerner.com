@@ -9,8 +9,9 @@ title: Appointment | DSTU 2 API
 
 ## Overview
 
-The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location
-<br/><br/>
+The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
+visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.
+
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}

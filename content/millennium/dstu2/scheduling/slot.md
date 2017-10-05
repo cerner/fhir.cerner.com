@@ -53,7 +53,7 @@ Search for Schedules that meet supplied query parameters:
  Name             | Required?                                                        | Type           | Description
 ------------------|------------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
 `_id`             | This, or `slot-type`                                             | [`token`]      | The logical resource id associated with the resource.
-`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `_id`     | [`token`]      | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
+`slot-type`       | Yes when using either `schedule.actor` or `-location`, or `_id`  | [`token`]      | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
 `schedule.actor`  | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
 `-location`       | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Location references. Example: `633867`
 `start`           | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
@@ -62,7 +62,7 @@ Search for Schedules that meet supplied query parameters:
 Notes:   
 
 - The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
-  For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128`
+  For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
 - `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
   For example, `slot-type=http://snomed.info/sct|394581000&-location=4048128` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=Practitioner/2578010` 
   are supported but `-location=4048128` and `-location=4048128&schedule.actor=Practitioner/2578010` are not.
