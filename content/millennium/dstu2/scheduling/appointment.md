@@ -66,7 +66,7 @@ _Implementation Notes_
 `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
 `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
 `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
-[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return. Defaults to `50`.
+[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
 Notes:   
 

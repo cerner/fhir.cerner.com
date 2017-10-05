@@ -46,7 +46,7 @@ fields:
   required: 'Yes'
   cardinality: 0..1
   type: Reference (Slot)
-  description: The slot that this appointment is filling. If provided, then no schedule and start/end values MUST match the ones from the slot.
+  description: The availability to which the appointment is booked.
   example: |
     {
       "slot": {

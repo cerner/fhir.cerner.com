@@ -69,7 +69,7 @@ _Implementation Notes_
 `schedule.actor`  | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
 `-location`       | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Location references. Example: `633867`
 `start`           | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
-[`_count`]        | No                                                               | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
+[`_count`]        | No                                                               | [`number`]     | The maximum number of results to be returned per page.
 
 Notes:   
 
