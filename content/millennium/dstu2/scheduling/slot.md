@@ -9,8 +9,7 @@ title: Slot | DSTU 2 API
 
 ## Overview
 
-The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are 
-supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no 
+The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no 
 information about actual appointments; only availability and type.
 
 The following fields are returned if valued:
@@ -74,6 +73,8 @@ Notes:
     an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)   
 
 - The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
+
+- The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the `_id` parameter.
 
 ### Headers
 
