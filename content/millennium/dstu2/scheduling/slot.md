@@ -22,6 +22,15 @@ The following fields are returned if valued:
 * [Free-Busy Type](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.freeBusyType){:target="_blank"}
 * [Scheduling Location Extension](#extensions)
 
+### Developer Notes
+
+When integrating your application with a client's production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.
+
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.
+
 ## Terminology Bindings
 
 <%= terminology_table(:slot, :dstu2) %>
