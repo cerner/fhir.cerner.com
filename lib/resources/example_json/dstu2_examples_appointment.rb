@@ -2,167 +2,397 @@ module Cerner
   module Resources
 
     DSTU2_APPOINTMENT_BUNDLE ||= {
-        "resourceType": "Bundle",
-        "id": "67284a19-6a27-4638-9f04-9bff71324a58",
-        "type": "searchset",
-        "total": 1,
-        "link": [
-          {
-            "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2007&practitioner=709932&_count=50"
-          }
-        ],
-        "entry": [
-          {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/759729",
-            "resource": {
-              "resourceType": "Appointment",
-              "id": "759729",
-              "meta": {
-                "versionId": "2",
-                "lastUpdated": "2007-02-28T20:04:18.000-06:00"
-              },
-              "text": {
-                "status": "generated",
-                "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: CV Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: CV Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2007-02-28T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2007-02-28T08:15:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: Chest Pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BE Cardiology&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Paddack, Dustin Lee&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Harris, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-              },
-              "type": {
-                "coding": [
+      "resourceType": "Bundle",
+      "id": "4344d30c-0b5b-4be9-851a-adabb0fda827",
+      "type": "searchset",
+      "total": 4,
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&patient=4704007&_count=50"
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
+          "resource": {
+            "resourceType": "Appointment",
+            "id": "3005756",
+            "meta": {
+              "versionId": "0",
+              "lastUpdated": "2017-10-04T13:06:34.000-05:00"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "394581000",
+                  "display": "Community medicine",
+                  "userSelected": false
+                }
+              ],
+              "text": "Same Day"
+            },
+            "description": "Same Day",
+            "start": "2017-10-04T08:00:00.000-05:00",
+            "end": "2017-10-04T09:00:00.000-05:00",
+            "minutesDuration": 60,
+            "participant": [
+              {
+                "type": [
                   {
-                    "system": "http://snomed.info/sct",
-                    "code": "394579002",
-                    "display": "Cardiology",
-                    "userSelected": false
+                    "text": "Resource"
+                  },
+                  {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/ParticipationType",
+                        "code": "PPRF",
+                        "display": "primary performer",
+                        "userSelected": false
+                      }
+                    ]
                   }
                 ],
-                "text": "CV Echo"
-              },
-              "reason": {
-                "text": "Chest Pain"
-              },
-              "description": "CV Echo",
-              "start": "2007-02-28T08:00:00.000-06:00",
-              "end": "2007-02-28T08:15:00.000-06:00",
-              "minutesDuration": 15,
-              "participant": [
-                {
-                  "type": [
-                    {
-                      "text": "Resource"
-                    },
-                    {
-                      "coding": [
-                        {
-                          "system": "http://hl7.org/fhir/v3/ParticipationType",
-                          "code": "PPRF",
-                          "display": "primary performer",
-                          "userSelected": false
-                        }
-                      ]
-                    }
-                  ],
-                  "actor": {
-                    "reference": "Practitioner/709932",
-                    "display": "Harris, Sarah"
-                  },
-                  "required": "required",
-                  "status": "accepted"
+                "actor": {
+                  "reference": "Practitioner/2578010",
+                  "display": "Song, River"
                 },
-                {
-                  "type": [
-                    {
-                      "text": "Patient"
-                    }
-                  ],
-                  "actor": {
-                    "reference": "Patient/861933",
-                    "display": "Paddack, Dustin Lee"
-                  },
-                  "required": "required",
-                  "status": "accepted"
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "type": [
+                  {
+                    "text": "Patient"
+                  }
+                ],
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
                 },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "actor": {
+                  "reference": "Location/4048128",
+                  "display": "Baseline East"
+                },
+                "required": "required",
+                "status": "accepted"
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005759",
+          "resource": {
+            "resourceType": "Appointment",
+            "id": "3005759",
+            "meta": {
+              "versionId": "0",
+              "lastUpdated": "2017-10-04T13:11:41.000-05:00"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T10:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+            },
+            "type": {
+              "coding": [
                 {
-                  "actor": {
-                    "reference": "Location/4048278",
-                    "display": "BE Cardiology"
+                  "system": "http://snomed.info/sct",
+                  "code": "394581000",
+                  "display": "Community medicine",
+                  "userSelected": false
+                }
+              ],
+              "text": "Same Day"
+            },
+            "description": "Same Day",
+            "start": "2017-10-04T09:00:00.000-05:00",
+            "end": "2017-10-04T10:00:00.000-05:00",
+            "minutesDuration": 60,
+            "participant": [
+              {
+                "type": [
+                  {
+                    "text": "Patient"
+                  }
+                ],
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "type": [
+                  {
+                    "text": "Resource"
                   },
-                  "required": "required",
-                  "status": "accepted"
+                  {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/ParticipationType",
+                        "code": "PPRF",
+                        "display": "primary performer",
+                        "userSelected": false
+                      }
+                    ]
+                  }
+                ],
+                "actor": {
+                  "reference": "Practitioner/2578010",
+                  "display": "Song, River"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "actor": {
+                  "reference": "Location/633867",
+                  "display": "Baseline West"
+                },
+                "required": "required",
+                "status": "accepted"
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005753",
+          "resource": {
+            "resourceType": "Appointment",
+            "id": "3005753",
+            "meta": {
+              "versionId": "0",
+              "lastUpdated": "2017-10-04T13:01:43.000-05:00"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T22:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T23:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Physician, PowerChartTouch&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "394581000",
+                  "display": "Community medicine",
+                  "userSelected": false
+                }
+              ],
+              "text": "Same Day"
+            },
+            "description": "Same Day",
+            "start": "2017-10-04T22:54:00.000-05:00",
+            "end": "2017-10-04T23:54:00.000-05:00",
+            "minutesDuration": 60,
+            "participant": [
+              {
+                "type": [
+                  {
+                    "text": "Resource"
+                  },
+                  {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/ParticipationType",
+                        "code": "PPRF",
+                        "display": "primary performer",
+                        "userSelected": false
+                      }
+                    ]
+                  }
+                ],
+                "actor": {
+                  "reference": "Practitioner/1376007",
+                  "display": "Physician, PowerChartTouch"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "type": [
+                  {
+                    "text": "Patient"
+                  }
+                ],
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "actor": {
+                  "reference": "Location/4048128",
+                  "display": "Baseline East"
+                },
+                "required": "required",
+                "status": "accepted"
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005760",
+          "resource": {
+            "resourceType": "Appointment",
+            "id": "3005760",
+            "meta": {
+              "versionId": "0",
+              "lastUpdated": "2017-10-04T13:33:07.000-05:00"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-05T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-05T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Franks, StaceyPhys&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "394581000",
+                  "display": "Community medicine",
+                  "userSelected": false
+                }
+              ],
+              "text": "Same Day"
+            },
+            "description": "Same Day",
+            "start": "2017-10-05T08:00:00.000-05:00",
+            "end": "2017-10-05T09:00:00.000-05:00",
+            "minutesDuration": 60,
+            "participant": [
+              {
+                "type": [
+                  {
+                    "text": "Patient"
+                  }
+                ],
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "type": [
+                  {
+                    "text": "Resource"
+                  },
+                  {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/ParticipationType",
+                        "code": "PPRF",
+                        "display": "primary performer",
+                        "userSelected": false
+                      }
+                    ]
+                  }
+                ],
+                "actor": {
+                  "reference": "Practitioner/1314012",
+                  "display": "Franks, StaceyPhys"
+                },
+                "required": "required",
+                "status": "accepted"
+              },
+              {
+                "actor": {
+                  "reference": "Location/4048128",
+                  "display": "Baseline East"
+                },
+                "required": "required",
+                "status": "accepted"
+              }
+            ]
+          }
+        }
+      ]
+    }
+
+    DSTU2_APPOINTMENT_READ ||= {
+      "resourceType": "Appointment",
+      "id": "3005756",
+      "meta": {
+        "versionId": "0",
+        "lastUpdated": "2017-10-04T13:06:34.000-05:00"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "394581000",
+            "display": "Community medicine",
+            "userSelected": false
+          }
+        ],
+        "text": "Same Day"
+      },
+      "description": "Same Day",
+      "start": "2017-10-04T08:00:00.000-05:00",
+      "end": "2017-10-04T09:00:00.000-05:00",
+      "minutesDuration": 60,
+      "participant": [
+        {
+          "type": [
+            {
+              "text": "Resource"
+            },
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ParticipationType",
+                  "code": "PPRF",
+                  "display": "primary performer",
+                  "userSelected": false
                 }
               ]
             }
-          }
-        ]
-      }
-
-    DSTU2_APPOINTMENT_READ ||= {
-        "resourceType": "Appointment",
-        "id": "647723",
-        "meta": {
-          "versionId": "1",
-          "lastUpdated": "2006-09-29T14:29:22.000-05:00"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2006-09-29T15:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2006-09-29T15:15:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BE Cardiology&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERSON, FAITH&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Harris, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-        },
-        "type": {
-          "text": "Echo"
-        },
-        "reason": {
-          "text": "test"
-        },
-        "description": "Echo",
-        "start": "2006-09-29T15:00:00.000-05:00",
-        "end": "2006-09-29T15:15:00.000-05:00",
-        "minutesDuration": 15,
-        "participant": [
-          {
-            "type": [
-              {
-                "text": "Resource"
-              },
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/v3/ParticipationType",
-                    "code": "PPRF",
-                    "display": "primary performer",
-                    "userSelected": false
-                  }
-                ]
-              }
-            ],
-            "actor": {
-              "reference": "Practitioner/709932",
-              "display": "Harris, Sarah"
-            },
-            "required": "required",
-            "status": "accepted"
+          ],
+          "actor": {
+            "reference": "Practitioner/2578010",
+            "display": "Howdeshell, Tami"
           },
-          {
-            "type": [
-              {
-                "text": "Patient"
-              }
-            ],
-            "actor": {
-              "reference": "Patient/725945",
-              "display": "PETERSON, FAITH"
-            },
-            "required": "required",
-            "status": "accepted"
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "type": [
+            {
+              "text": "Patient"
+            }
+          ],
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
           },
-          {
-            "actor": {
-              "reference": "Location/4048278",
-              "display": "BE Cardiology"
-            },
-            "required": "required",
-            "status": "accepted"
-          }
-        ]
-      }
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "actor": {
+            "reference": "Location/4048128",
+            "display": "Baseline East"
+          },
+          "required": "required",
+          "status": "accepted"
+        }
+      ]
+    }
 
 
     DSTU2_APPOINTMENT_CREATE ||= {

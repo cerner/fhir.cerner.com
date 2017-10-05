@@ -58,7 +58,7 @@ Search for Appointments that meet supplied query parameters:
 Notes:   
 
 - The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
-  For example, `patient=1234,9876` is supported but `patient=1234&patient=9876` and `patient=1234&location=9876` are not.
+  For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
 
 - The `date` parameter may be provided:  
   - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)   
@@ -76,7 +76,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2014&date=lt2016&patient=4342010
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&patient=4704007
 
 #### Response
 
@@ -105,7 +105,7 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1685769
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
 
 #### Response
 
