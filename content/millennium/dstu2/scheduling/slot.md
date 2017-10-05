@@ -12,6 +12,13 @@ title: Slot | DSTU 2 API
 The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no 
 information about actual appointments; only availability and type.
 
+When integrating your application with a client's production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.
+
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.
+
 The following fields are returned if valued:
 
 * [Slot id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -21,15 +28,6 @@ The following fields are returned if valued:
 * [End](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.end){:target="_blank"}
 * [Free-Busy Type](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.freeBusyType){:target="_blank"}
 * [Scheduling Location Extension](#extensions)
-
-### Developer Notes
-
-When integrating your application with a client's production environment you will work with the client to determine the 
-Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
-to third-party applications for enabling scheduling functionality.
-
-We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
-the future.
 
 ## Terminology Bindings
 
@@ -53,6 +51,11 @@ Search for Schedules that meet supplied query parameters:
 
     GET /Slot?:parameters
 
+_Implementation Notes_
+
+- Valid ids for the `schedule.actor` and `-location` search parameters will be determined by the client and provided 
+  when integrating your application with the client's production environment. See [overview](#overview) for details.
+  
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>

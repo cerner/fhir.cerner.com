@@ -12,6 +12,13 @@ title: Appointment | DSTU 2 API
 The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
 visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.
 
+When integrating your application with a client's production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.
+
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.
+
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -30,15 +37,6 @@ The following fields are returned if valued:
   * [Required (always 'required')](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
   * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
 
-### Developer Notes
-
-When integrating your application with a client's production environment you will work with the client to determine the 
-Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
-to third-party applications for enabling scheduling functionality.
-
-We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
-the future.
- 
 ## Terminology Bindings
 
 <%= terminology_table(:appointment, :dstu2) %>
@@ -48,7 +46,12 @@ the future.
 Search for Appointments that meet supplied query parameters:
 
     GET /Appointment?:parameters
-    
+
+_Implementation Notes_
+
+- Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when
+  integrating your application with the client's production environment. See [overview](#overview) for details.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
