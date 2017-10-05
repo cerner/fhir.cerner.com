@@ -21,13 +21,18 @@ fields:
   description: The type of appointment that is being booked.
   action: read
   example: |
-             {"type": {
-                "coding": [
-                  {"system": "http://snomed.info/sct",
-                   "code": "394581000",
-                   "display": "Community medicine",
-                   "userSelected": false}],
-                "text": "Same Day"}
+             {
+               "type": {
+                 "coding": [
+                   {
+                     "system": "http://snomed.info/sct",
+                     "code": "394581000",
+                     "display": "Community medicine",
+                     "userSelected": false
+                   }
+                 ],
+                "text": "Same Day"
+             }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type
   binding:
     description:  Additional details about where the content was created (e.g. clinical specialty).
@@ -44,7 +49,7 @@ fields:
   example: |
     {
       "slot": {
-        "reference": "Slot/337947169-4048128-9537620-0"
+        "reference": "Slot/21265426-633867-6828001-60"
       }
     }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot
@@ -75,8 +80,8 @@ fields:
         "participant": [
           {
             "actor": {
-              "reference": "Patient/3886413",
-              "display": "STRECKER, TESTA"
+              "reference": "Patient/4704007",
+              "display": "PATIENT, TEST"
             },
             "status": "needs-action"
           }
@@ -92,9 +97,9 @@ fields:
     note: When creating a new appointment, this must be a Patient participant.
     example: |
       "actor": {
-              "reference": "Patient/3886413",
-              "display": "Patient, Test"
-       }
+        "reference": "Patient/4704007",
+        "display": "PATIENT, TEST"
+      }
 
   - name: status
     required: 'Yes'

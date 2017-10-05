@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:00:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:00:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
       },
       "extension": [
         {
@@ -63,7 +63,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:00:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:00:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -101,7 +101,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:05:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:05:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:05:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:05:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -139,7 +139,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:10:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:10:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:10:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:10:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -177,7 +177,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:15:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:15:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:15:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:15:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -215,7 +215,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&gt;div&lt;&gt;p&lt;&gt;b&lt;Slot&gt;/b&lt;&gt;/p&lt;&gt;p&lt;&gt;b&lt;Type&gt;/b&lt;: Same Day&gt;/p&lt;&gt;p&lt;&gt;b&lt;Start&gt;/b&lt;: 2016-01-01T08:20:00.000-06:00&gt;/p&lt;&gt;p&lt;&gt;b&lt;End&gt;/b&lt;: 2016-01-01T09:20:00.000-06:00&gt;/p&lt;&gt;/div&lt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:20:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:20:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {

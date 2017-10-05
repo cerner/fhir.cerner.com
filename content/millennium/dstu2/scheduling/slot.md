@@ -9,8 +9,10 @@ title: Slot | DSTU 2 API
 
 ## Overview
 
-The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no information about actual appointments; only availability and type.
-<br/><br/>
+The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are 
+supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no 
+information about actual appointments; only availability and type.
+
 The following fields are returned if valued:
 
 * [Slot id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -52,10 +54,10 @@ Search for Schedules that meet supplied query parameters:
  Name             | Required?                                                        | Type           | Description
 ------------------|------------------------------------------------------------------|----------------|------------------------------------------------------------------------------------
 `_id`             | This, or `slot-type`                                             | [`token`]      | The logical resource id associated with the resource.
-`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `id`      | [`token`]      | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
-`schedule.actor`  | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/12345`
-`-location`       | This and `slot-type`, or `id`                                    | [`reference`]  | A single or comma separated list of Location references. Example: `12345`
-`start`            | Yes when using `slot-type`                                      | [`date`]       | The Slot date-time. Example: `2016`
+`slot-type`       | Yes when using `schedule.actor` and\or `-location`, or `_id`     | [`token`]      | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
+`schedule.actor`  | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
+`-location`       | This and `slot-type`, or `_id`                                   | [`reference`]  | A single or comma separated list of Location references. Example: `633867`
+`start`           | Yes when using `slot-type`                                       | [`date`]       | The Slot date-time. Example: `2016`
 [`_count`]        | No                                                               | [`number`]     | The maximum number of results to be returned per page. Defaults to `50`.
 
 Notes:   

@@ -47,11 +47,11 @@ Search for Appointments that meet supplied query parameters:
 
  Name          | Required?                                                | Type          | Description
 ---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
-`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `1234`
+`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
 `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date/time. Example: `2016`
-`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `12345`
-`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `12345`
-`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `12345`
+`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
 `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
 [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
@@ -66,7 +66,7 @@ Notes:
   - twice with the prefixes `ge`, `gt`, `le`, or `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2014-03-15&date=le2017`)
 
-- The retrieved appointments are sorted first by `Start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `Start` time ascending (earliest first).
+- The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
 ### Headers
 
