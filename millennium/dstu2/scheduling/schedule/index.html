@@ -107,9 +107,12 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.
-<br><br>
-The following fields are returned if valued:</p>
+<p>The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. 
+Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the 
+references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any 
+information about actual appointments.</p>
+
+<p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Schedule id</a></li>
@@ -235,7 +238,7 @@ The following fields are returned if valued:</p>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3120917-20
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3121665-0,21265426-633867-3121665-15
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -243,42 +246,85 @@ The following fields are returned if valued:</p>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "d2399ae0-2462-45d9-a598-5530ced9aab6",
+  "id": "9ff44def-1f82-4184-8639-5e6b3ab03ed7",
   "type": "searchset",
-  "total": 1,
+  "total": 2,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Schedule?_id=166627791-4048128-9331486-0"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3121665-0%2C21265426-633867-3121665-15"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Schedule/166627791-4048128-9331486-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121665-15",
       "resource": {
         "resourceType": "Schedule",
-        "id": "166627791-4048128-9331486-0",
+        "id": "21265426-633867-3121665-15",
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Hall, Mark&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
             "valueReference": {
-              "reference": "Location/4048128",
-              "display": "Baseline East"
+              "reference": "Location/633867",
+              "display": "Baseline West"
             }
           }
         ],
         "type": [
           {
-            "text": "Unscheduled walkins"
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
           }
         ],
         "actor": {
-          "reference": "Practitioner/23151427",
-          "display": "Hall, Mark"
+          "reference": "Practitioner/2578010",
+          "display": "Song, River"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121665-0",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-633867-3121665-0",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867",
+              "display": "Baseline West"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Song, River"
         }
       }
     }
@@ -311,7 +357,7 @@ The following fields are returned if valued:</p>
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET  https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/166627791-4048128-9331486-0
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/166627791-4048128-9331486-0
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -320,28 +366,35 @@ The following fields are returned if valued:</p>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Schedule",
-  "id": "166627791-4048128-9331486-0",
+  "id": "21265426-633867-3121665-0",
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Hall, Mark&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
     {
       "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
       "valueReference": {
-        "reference": "Location/4048128",
-        "display": "Baseline East"
+        "reference": "Location/633867",
+        "display": "Baseline West"
       }
     }
   ],
   "type": [
     {
-      "text": "Unscheduled walkins"
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394581000",
+          "display": "Community medicine"
+        }
+      ],
+      "text": "Same Day"
     }
   ],
   "actor": {
-    "reference": "Practitioner/23151427",
-    "display": "Hall, Mark"
+    "reference": "Practitioner/2578010",
+    "display": "Song, River"
   }
 }</code></pre>
 

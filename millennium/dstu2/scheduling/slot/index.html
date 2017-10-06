@@ -107,9 +107,17 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Slot resource provides time slots on a schedule used for booking an appointment. Currently, only free slots are supported. This resource is used to obtain the schedule ids in order to query for the schedules. Slots contain no information about actual appointments; only availability and type.
-<br><br>
-The following fields are returned if valued:</p>
+<p>The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no 
+information about actual appointments; only availability and type.</p>
+
+<p>When integrating your application with a client’s production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.</p>
+
+<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.</p>
+
+<p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Slot id</a></li>
@@ -202,6 +210,13 @@ The following fields are returned if valued:</p>
 <pre><code>GET /Slot?:parameters
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Valid ids for the <code>schedule.actor</code> and <code>-location</code> search parameters will be determined by the client and provided 
+when integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
+</ul>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -222,37 +237,37 @@ The following fields are returned if valued:</p>
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or <code>slot-type</code>
+      <td>Yes or <code>slot-type</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>slot-type</code></td>
-      <td>Yes when using <code>schedule.actor</code> and\or <code>-location</code>, or <code>id</code>
+      <td>Yes or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The type of appointments that can be booked into this slot. Example: <code>12345</code>
+      <td>The type of appointments that can be booked into this slot. Example: <code>http://snomed.info/sct|394581000</code>
 </td>
     </tr>
     <tr>
       <td><code>schedule.actor</code></td>
-      <td>This and <code>slot-type</code>, or <code>id</code>
+      <td>Yes (or <code>-location</code>) when using <code>slot-type</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>Practitioner/12345</code>
+      <td>A single or comma separated list of Practitioner references. Example: <code>Practitioner/2578010</code>
 </td>
     </tr>
     <tr>
       <td><code>-location</code></td>
-      <td>This and <code>slot-type</code>, or <code>id</code>
+      <td>Yes (or <code>schedule.actor</code>) when using <code>slot-type</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Location references. Example: <code>12345</code>
+      <td>A single or comma separated list of Location references. Example: <code>633867</code>
 </td>
     </tr>
     <tr>
-      <td><code>date</code></td>
+      <td><code>start</code></td>
       <td>Yes when using <code>slot-type</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
@@ -263,7 +278,7 @@ The following fields are returned if valued:</p>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to be returned per page. Defaults to <code>50</code>.</td>
+      <td>The maximum number of results to be returned per page.</td>
     </tr>
   </tbody>
 </table>
@@ -272,20 +287,23 @@ The following fields are returned if valued:</p>
 
 <ul>
   <li>The <code>slot-type</code>, <code>schedule.actor</code>, and <code>-location</code> parameters may be included only once.
-For example, <code>-location=1234,9876</code> is supported but <code>-location=1234&amp;-location=9876</code>
-</li>
+For example, <code>-location=633867,4048128</code> is supported but <code>-location=633867&amp;-location=4048128</code> is not.</li>
   <li>
     <p><code>slot-type</code> is a required search parameter and must be specified along with <code>schedule.actor</code> and\or <code>-location</code>
-For example, <code>slot-type=1234&amp;-location=9876</code> and <code>slot-type=1234&amp;-location=95671&amp;schedule.actor=9876</code> are supported but <code>-location=9876</code> and <code>-location=95671&amp;schedule.actor=9876</code> are not.</p>
+For example, <code>slot-type=http://snomed.info/sct|394581000&amp;-location=4048128</code> and <code>slot-type=http://snomed.info/sct|394581000&amp;-location=95671&amp;schedule.actor=Practitioner/2578010</code> 
+are supported but <code>-location=4048128</code> and <code>-location=4048128&amp;schedule.actor=Practitioner/2578010</code> are not.</p>
   </li>
-  <li>The <code>date</code> parameter may be provided:
+  <li>The <code>start</code> parameter may be provided:
     <ul>
-      <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;date=2016</code>, <code>&amp;date=2016-07</code>, <code>&amp;date=2016-07-04</code>)</li>
+      <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;start=2016</code>, <code>&amp;start=2016-07</code>, <code>&amp;start=2016-07-04</code>)</li>
       <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define
-an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2016-07&amp;date=lt2017-07</code>)</li>
+an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, <code>&amp;start=ge2016-07&amp;start=lt2017-07</code>)</li>
     </ul>
   </li>
-  <li>The retrieved slots are sorted first by <code>Start</code> date-time ascending (earliest first), followed by <code>slot-type</code> and <code>Scheduling Location</code> display.</li>
+  <li>
+    <p>The retrieved slots are sorted first by <code>start</code> date-time ascending (earliest first), followed by <code>slot-type</code> and <code>Scheduling Location</code> display.</p>
+  </li>
+  <li>The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the <code>_id</code> parameter.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -297,7 +315,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_id=21265426-633867-3120917-20
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2016&amp;slot-type=http://snomed.info/sct|394581000&amp;_count=5
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -305,46 +323,212 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "130a16db-b509-4cda-b221-047f53384c1e",
+  "id": "e5dd4ff4-116b-4bf8-90d1-c867bb21b0fb",
   "type": "searchset",
-  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Slot?_id=166627791-4048128-9331486-0"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&amp;schedule.actor=Practitioner%2F2578010&amp;start=2016&amp;_count=5"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=26d86acd-529c-4d12-8f6f-3a10209fcb2a&amp;-pageDirection=NEXT"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.devcernerpowerchart.com/dstu2/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Slot/166627791-4048128-9331486-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0",
       "resource": {
         "resourceType": "Slot",
-        "id": "166627791-4048128-9331486-0",
+        "id": "21265426-633867-3121665-0",
         "meta": {
-          "versionId": "1",
-          "lastUpdated": "2017-07-07T12:40:56.000-05:00"
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-06-28T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-06-28T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Busy&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
             "valueReference": {
-              "reference": "Location/4048128"
+              "reference": "Location/633867"
             }
           }
         ],
         "type": {
-          "text": "Unscheduled walkins"
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine"
+            }
+          ],
+          "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/166627791-4048128-9331486-0"
+          "reference": "Schedule/21265426-633867-3121665-0"
         },
-        "freeBusyType": "busy",
-        "start": "2017-06-28T08:00:00.000-05:00",
-        "end": "2017-06-28T09:00:00.000-05:00"
+        "freeBusyType": "free",
+        "start": "2016-01-01T08:00:00.000-06:00",
+        "end": "2016-01-01T09:00:00.000-06:00"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-5",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121665-5",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:05:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:05:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine"
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121665-5"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-01T08:05:00.000-06:00",
+        "end": "2016-01-01T09:05:00.000-06:00"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-10",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121665-10",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:10:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:10:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine"
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121665-10"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-01T08:10:00.000-06:00",
+        "end": "2016-01-01T09:10:00.000-06:00"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-15",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121665-15",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:15:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:15:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine"
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121665-15"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-01T08:15:00.000-06:00",
+        "end": "2016-01-01T09:15:00.000-06:00"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-20",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121665-20",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:20:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:20:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine"
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121665-20"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-01T08:20:00.000-06:00",
+        "end": "2016-01-01T09:20:00.000-06:00"
       }
     }
   ]
@@ -376,7 +560,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET  https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/166627791-4048128-9331486-0
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -385,32 +569,39 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Slot",
-  "id": "166627791-4048128-9331486-0",
+  "id": "21265426-633867-3121665-0",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2017-07-07T12:40:56.000-05:00"
+    "versionId": "0",
+    "lastUpdated": "2015-06-10T10:40:33.000-05:00"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Unscheduled walkins&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-06-28T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-06-28T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Busy&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
     {
       "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
       "valueReference": {
-        "reference": "Location/4048128"
+        "reference": "Location/633867"
       }
     }
   ],
   "type": {
-    "text": "Unscheduled walkins"
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "394581000",
+        "display": "Community medicine"
+      }
+    ],
+    "text": "Same Day"
   },
   "schedule": {
-    "reference": "Schedule/166627791-4048128-9331486-0"
+    "reference": "Schedule/21265426-633867-3121665-0"
   },
   "freeBusyType": "busy",
-  "start": "2017-06-28T08:00:00.000-05:00",
-  "end": "2017-06-28T09:00:00.000-05:00"
+  "start": "2016-01-01T08:00:00.000-06:00",
+  "end": "2016-01-01T09:00:00.000-06:00"
 }</code></pre>
 
 <h3 id="errors-1">Errors</h3>

@@ -111,9 +111,17 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location
-<br><br>
-The following fields are returned if valued:</p>
+<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
+visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.</p>
+
+<p>When integrating your application with a client’s production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.</p>
+
+<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.</p>
+
+<p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Appointment id</a></li>
@@ -196,6 +204,13 @@ The following fields are returned if valued:</p>
 <pre><code>GET /Appointment?:parameters
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Valid ids for the <code>practitioner</code> and <code>location</code> search parameters will be determined by the client and provided when
+integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
+</ul>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -218,7 +233,7 @@ The following fields are returned if valued:</p>
       <td><code>_id</code></td>
       <td>Yes, or one of <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Appointment. Example: <code>1234</code>
+      <td>The logical resource id associated with the Appointment. Example: <code>3005759</code>
 </td>
     </tr>
     <tr>
@@ -233,7 +248,7 @@ The following fields are returned if valued:</p>
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Patient references. Example: <code>12345</code>
+      <td>A single or comma separated list of Patient references. Example: <code>4704007</code>
 </td>
     </tr>
     <tr>
@@ -241,7 +256,7 @@ The following fields are returned if valued:</p>
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>12345</code>
+      <td>A single or comma separated list of Practitioner references. Example: <code>2578010</code>
 </td>
     </tr>
     <tr>
@@ -249,7 +264,7 @@ The following fields are returned if valued:</p>
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Location references. Example: <code>12345</code>
+      <td>A single or comma separated list of Location references. Example: <code>633867</code>
 </td>
     </tr>
     <tr>
@@ -263,7 +278,7 @@ The following fields are returned if valued:</p>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>50</code>.</td>
+      <td>The maximum number of results to return.</td>
     </tr>
   </tbody>
 </table>
@@ -273,7 +288,7 @@ The following fields are returned if valued:</p>
 <ul>
   <li>
     <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination with the others.
-For example, <code>patient=1234,9876</code> is supported but <code>patient=1234&amp;patient=9876</code> and <code>patient=1234&amp;location=9876</code> are not.</p>
+For example, <code>patient=4704007,1316024</code> is supported but <code>patient=4704007&amp;patient=1316024</code> and <code>patient=4704007&amp;location=633867</code> are not.</p>
   </li>
   <li>The <code>date</code> parameter may be provided:
     <ul>
@@ -283,7 +298,7 @@ For example, <code>patient=1234,9876</code> is supported but <code>patient=1234&
 an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2014-03-15&amp;date=le2017</code>)</li>
     </ul>
   </li>
-  <li>The retrieved appointments are sorted first by <code>Start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>Start</code> time ascending (earliest first).</li>
+  <li>The retrieved appointments are sorted first by <code>start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>start</code> time ascending (earliest first).</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -295,7 +310,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2014&amp;date=lt2016&amp;patient=4342010
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&amp;patient=4704007
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -304,47 +319,44 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "67284a19-6a27-4638-9f04-9bff71324a58",
+  "id": "4344d30c-0b5b-4be9-851a-adabb0fda827",
   "type": "searchset",
-  "total": 1,
+  "total": 4,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2007&amp;practitioner=709932&amp;_count=50"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&amp;patient=4704007&amp;_count=50"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/759729",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
       "resource": {
         "resourceType": "Appointment",
-        "id": "759729",
+        "id": "3005756",
         "meta": {
-          "versionId": "2",
-          "lastUpdated": "2007-02-28T20:04:18.000-06:00"
+          "versionId": "0",
+          "lastUpdated": "2017-10-04T13:06:34.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: CV Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: CV Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2007-02-28T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2007-02-28T08:15:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: Chest Pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BE Cardiology&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Paddack, Dustin Lee&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Harris, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
         },
         "type": {
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394579002",
-              "display": "Cardiology",
+              "code": "394581000",
+              "display": "Community medicine",
               "userSelected": false
             }
           ],
-          "text": "CV Echo"
+          "text": "Same Day"
         },
-        "reason": {
-          "text": "Chest Pain"
-        },
-        "description": "CV Echo",
-        "start": "2007-02-28T08:00:00.000-06:00",
-        "end": "2007-02-28T08:15:00.000-06:00",
-        "minutesDuration": 15,
+        "description": "Same Day",
+        "start": "2017-10-04T08:00:00.000-05:00",
+        "end": "2017-10-04T09:00:00.000-05:00",
+        "minutesDuration": 60,
         "participant": [
           {
             "type": [
@@ -363,8 +375,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
               }
             ],
             "actor": {
-              "reference": "Practitioner/709932",
-              "display": "Harris, Sarah"
+              "reference": "Practitioner/2578010",
+              "display": "Song, River"
             },
             "required": "required",
             "status": "accepted"
@@ -376,16 +388,244 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
               }
             ],
             "actor": {
-              "reference": "Patient/861933",
-              "display": "Paddack, Dustin Lee"
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
             },
             "required": "required",
             "status": "accepted"
           },
           {
             "actor": {
-              "reference": "Location/4048278",
-              "display": "BE Cardiology"
+              "reference": "Location/4048128",
+              "display": "Baseline East"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005759",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "3005759",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2017-10-04T13:11:41.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T10:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            }
+          ],
+          "text": "Same Day"
+        },
+        "description": "Same Day",
+        "start": "2017-10-04T09:00:00.000-05:00",
+        "end": "2017-10-04T10:00:00.000-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Resource"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/2578010",
+              "display": "Song, River"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/633867",
+              "display": "Baseline West"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005753",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "3005753",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2017-10-04T13:01:43.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T22:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T23:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Physician, PowerChartTouch&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            }
+          ],
+          "text": "Same Day"
+        },
+        "description": "Same Day",
+        "start": "2017-10-04T22:54:00.000-05:00",
+        "end": "2017-10-04T23:54:00.000-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "Resource"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/1376007",
+              "display": "Physician, PowerChartTouch"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/4048128",
+              "display": "Baseline East"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005760",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "3005760",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2017-10-04T13:33:07.000-05:00"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-05T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-05T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Franks, StaceyPhys&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            }
+          ],
+          "text": "Same Day"
+        },
+        "description": "Same Day",
+        "start": "2017-10-05T08:00:00.000-05:00",
+        "end": "2017-10-05T09:00:00.000-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "type": [
+              {
+                "text": "Patient"
+              }
+            ],
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
+              {
+                "text": "Resource"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer",
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "actor": {
+              "reference": "Practitioner/1314012",
+              "display": "Franks, StaceyPhys"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/4048128",
+              "display": "Baseline East"
             },
             "required": "required",
             "status": "accepted"
@@ -422,7 +662,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1685769
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -431,25 +671,30 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
-  "id": "647723",
+  "id": "3005756",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2006-09-29T14:29:22.000-05:00"
+    "versionId": "0",
+    "lastUpdated": "2017-10-04T13:06:34.000-05:00"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Echo&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2006-09-29T15:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2006-09-29T15:15:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 15&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason&lt;/b&gt;: test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BE Cardiology&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERSON, FAITH&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Harris, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
   },
   "type": {
-    "text": "Echo"
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "394581000",
+        "display": "Community medicine",
+        "userSelected": false
+      }
+    ],
+    "text": "Same Day"
   },
-  "reason": {
-    "text": "test"
-  },
-  "description": "Echo",
-  "start": "2006-09-29T15:00:00.000-05:00",
-  "end": "2006-09-29T15:15:00.000-05:00",
-  "minutesDuration": 15,
+  "description": "Same Day",
+  "start": "2017-10-04T08:00:00.000-05:00",
+  "end": "2017-10-04T09:00:00.000-05:00",
+  "minutesDuration": 60,
   "participant": [
     {
       "type": [
@@ -468,8 +713,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
         }
       ],
       "actor": {
-        "reference": "Practitioner/709932",
-        "display": "Harris, Sarah"
+        "reference": "Practitioner/2578010",
+        "display": "Howdeshell, Tami"
       },
       "required": "required",
       "status": "accepted"
@@ -481,16 +726,16 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
         }
       ],
       "actor": {
-        "reference": "Patient/725945",
-        "display": "PETERSON, FAITH"
+        "reference": "Patient/4704007",
+        "display": "Smart, Barney R"
       },
       "required": "required",
       "status": "accepted"
     },
     {
       "actor": {
-        "reference": "Location/4048278",
-        "display": "BE Cardiology"
+        "reference": "Location/4048128",
+        "display": "Baseline East"
       },
       "required": "required",
       "status": "accepted"
@@ -604,13 +849,13 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The slot that this appointment is filling. If provided, then no schedule and start/end values MUST match the ones from the slot.</li></ul>
+        <ul style="list-style-type: none"><li>The availability to which the appointment is booked.</li></ul>
       
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
   "slot": {
-    "reference": "Slot/337947169-4048128-9537620-0"
+    "reference": "Slot/21265426-633867-6828001-60"
   }
 }
 </pre></li></ul>
@@ -683,8 +928,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   "participant": [
     {
       "actor": {
-        "reference": "Patient/3886413",
-        "display": "STRECKER, TESTA"
+        "reference": "Patient/4704007",
+        "display": "PATIENT, TEST"
       },
       "status": "needs-action"
     }
@@ -723,10 +968,12 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>"actor": {
-        "reference": "Patient/3886413",
-        "display": "Patient, Test"
- }
+        <ul style="list-style-type: none"><li><pre>{
+  "actor": {
+    "reference": "Patient/4704007",
+    "display": "PATIENT, TEST"
+  }
+}
 </pre></li></ul>
       
       
@@ -789,15 +1036,14 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
   "slot": {
-    "reference": "Slot/21265426-633867-3120917-20"
+    "reference": "Slot/21265426-633867-6828001-60"
   },
   "participant": [
     {
       "actor": {
-        "reference": "Patient/3886413",
+        "reference": "Patient/4704007",
         "display": "PATIENT, TEST"
       },
-      "required": "required",
       "status": "needs-action"
     }
   ],
