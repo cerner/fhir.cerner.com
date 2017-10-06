@@ -33,6 +33,7 @@ module Cerner
       "schedule": {
         "reference": "Schedule/21265426-633867-3121665-0"
       },
+      "freeBusyType": "busy",
       "start": "2016-01-01T08:00:00.000-06:00",
       "end": "2016-01-01T09:00:00.000-06:00"
     }
@@ -86,6 +87,7 @@ module Cerner
             "schedule": {
               "reference": "Schedule/21265426-633867-3121665-0"
             },
+            "freeBusyType": "free",
             "start": "2016-01-01T08:00:00.000-06:00",
             "end": "2016-01-01T09:00:00.000-06:00"
           }
@@ -124,6 +126,7 @@ module Cerner
             "schedule": {
               "reference": "Schedule/21265426-633867-3121665-5"
             },
+            "freeBusyType": "free",
             "start": "2016-01-01T08:05:00.000-06:00",
             "end": "2016-01-01T09:05:00.000-06:00"
           }
@@ -162,6 +165,7 @@ module Cerner
             "schedule": {
               "reference": "Schedule/21265426-633867-3121665-10"
             },
+            "freeBusyType": "free",
             "start": "2016-01-01T08:10:00.000-06:00",
             "end": "2016-01-01T09:10:00.000-06:00"
           }
@@ -200,6 +204,7 @@ module Cerner
             "schedule": {
               "reference": "Schedule/21265426-633867-3121665-15"
             },
+            "freeBusyType": "free",
             "start": "2016-01-01T08:15:00.000-06:00",
             "end": "2016-01-01T09:15:00.000-06:00"
           }
@@ -238,6 +243,7 @@ module Cerner
             "schedule": {
               "reference": "Schedule/21265426-633867-3121665-20"
             },
+            "freeBusyType": "free",
             "start": "2016-01-01T08:20:00.000-06:00",
             "end": "2016-01-01T09:20:00.000-06:00"
           }
