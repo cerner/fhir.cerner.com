@@ -9,8 +9,16 @@ title: Appointment | DSTU 2 API
 
 ## Overview
 
-The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location
-<br/><br/>
+The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
+visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.
+
+When integrating your application with a client's production environment you will work with the client to determine the 
+Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+to third-party applications for enabling scheduling functionality.
+
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+the future.
+
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -38,7 +46,12 @@ The following fields are returned if valued:
 Search for Appointments that meet supplied query parameters:
 
     GET /Appointment?:parameters
-    
+
+_Implementation Notes_
+
+- Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when
+  integrating your application with the client's production environment. See [overview](#overview) for details.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
@@ -47,18 +60,18 @@ Search for Appointments that meet supplied query parameters:
 
  Name          | Required?                                                | Type          | Description
 ---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
-`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `1234`
+`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
 `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date/time. Example: `2016`
-`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `12345`
-`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `12345`
-`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `12345`
+`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
 `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
-[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return. Defaults to `50`.
+[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
 Notes:   
 
 - The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
-  For example, `patient=1234,9876` is supported but `patient=1234&patient=9876` and `patient=1234&location=9876` are not.
+  For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
 
 - The `date` parameter may be provided:  
   - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)   
@@ -66,7 +79,7 @@ Notes:
   - twice with the prefixes `ge`, `gt`, `le`, or `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2014-03-15&date=le2017`)
 
-- The retrieved appointments are sorted first by `Start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `Start` time ascending (earliest first).
+- The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
 ### Headers
 
@@ -76,7 +89,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2014&date=lt2016&patient=4342010
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&patient=4704007
 
 #### Response
 
@@ -105,7 +118,7 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1685769
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
 
 #### Response
 

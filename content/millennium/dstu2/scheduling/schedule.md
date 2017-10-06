@@ -9,8 +9,11 @@ title: Schedule | DSTU 2 API
 
 ## Overview
 
-The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.
-<br/><br/>
+The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. 
+Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the 
+references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any 
+information about actual appointments.
+
 The following fields are returned if valued:
 
 * [Schedule id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -58,7 +61,7 @@ Search for Schedules that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3120917-20
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule?_id=21265426-633867-3121665-0,21265426-633867-3121665-15
 
 #### Response
 <%= headers status: 200 %>
@@ -86,7 +89,7 @@ List an individual Schedule by its id:
 
 #### Request
 
-    GET  https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/166627791-4048128-9331486-0
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/166627791-4048128-9331486-0
 
 #### Response
 
