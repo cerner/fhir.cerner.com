@@ -3,140 +3,111 @@ module Cerner
 
     DSTU2_GOAL_BUNDLE ||= {
         "resourceType": "Bundle",
-        "id": "d134ea4c-e069-498b-9810-d52eb4d5658e",
+        "id": "5ecc9ee8-8a52-4676-a2c6-b8698d30e284",
         "type": "searchset",
-        "total": 5,
+        "total": 3,
         "link": [{
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=1045932"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925"
         }],
         "entry": [{
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563861",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59475953",
             "resource": {
                 "resourceType": "Goal",
-                "id": "59563861",
+                "id": "59475953",
                 "meta": {
-                    "versionId": "1485364022000",
-                    "lastUpdated": "2017-01-25T17:07:02.000Z"
+                    "versionId": "1485975664000",
+                    "lastUpdated": "2017-02-01T19:01:04.000Z"
                 },
                 "text": {
                     "status": "generated",
-                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A New Goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-18&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2017-01-27&lt;/p>&lt;/div>"
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Test goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-11-09&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2016-11-30&lt;/p>&lt;/div>"
                 },
                 "subject": {
-                    "reference": "Patient/1045932",
-                    "display": "TEST, LISA"
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
                 },
-                "startDate": "2017-01-18",
-                "targetDate": "2017-01-27",
-                "description": "A New Goal",
-                "status": "in-progress",
-                "statusDate": "2017-01-25"
-            }
-        }, {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563857",
-            "resource": {
-                "resourceType": "Goal",
-                "id": "59563857",
-                "meta": {
-                    "versionId": "1485363963000",
-                    "lastUpdated": "2017-01-25T17:06:03.000Z"
-                },
-                "text": {
-                    "status": "generated",
-                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: asdf&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-20&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2017-01-30&lt;/p>&lt;/div>"
-                },
-                "subject": {
-                    "reference": "Patient/1045932",
-                    "display": "TEST, LISA"
-                },
-                "startDate": "2017-01-20",
-                "targetDate": "2017-01-30",
-                "description": "asdf",
-                "status": "in-progress",
-                "statusDate": "2017-01-25"
-            }
-        }, {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563949",
-            "resource": {
-                "resourceType": "Goal",
-                "id": "59563949",
-                "meta": {
-                    "versionId": "1485368838000",
-                    "lastUpdated": "2017-01-25T18:27:18.000Z"
-                },
-                "text": {
-                    "status": "generated",
-                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A New Goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-25&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2017-01-25&lt;/p>&lt;/div>"
-                },
-                "subject": {
-                    "reference": "Patient/1045932",
-                    "display": "TEST, LISA"
-                },
-                "startDate": "2017-01-25",
-                "targetDate": "2017-01-25",
+                "startDate": "2016-11-09",
+                "targetDate": "2016-11-30",
                 "category": [{
-                    "text": "Behavioral"
+                    "text": "Community"
                 }],
-                "description": "A New Goal",
+                "description": "Test goal",
                 "status": "in-progress",
-                "statusDate": "2017-01-25"
+                "statusDate": "2016-11-09",
+                "note": [{
+                    "authorReference": {
+                        "reference": "Practitioner/4594024",
+                        "display": "Pomfrey, Poppy"
+                    },
+                    "time": "2017-02-01T19:01:04.000Z",
+                    "text": "Test comment for the goal \"Test goal\""
+                }]
             }
         }, {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563953",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535837",
             "resource": {
                 "resourceType": "Goal",
-                "id": "59563953",
+                "id": "59535837",
                 "meta": {
-                    "versionId": "1485369827000",
-                    "lastUpdated": "2017-01-25T18:43:47.000Z"
+                    "versionId": "1482335249000",
+                    "lastUpdated": "2016-12-21T15:47:29.000Z"
                 },
                 "text": {
                     "status": "generated",
-                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A newer goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-25&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2017-01-25&lt;/p>&lt;/div>"
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Met goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Achieved&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-12-13&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2016-12-23&lt;/p>&lt;/div>"
                 },
                 "subject": {
-                    "reference": "Patient/1045932",
-                    "display": "TEST, LISA"
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
                 },
-                "startDate": "2017-01-25",
-                "targetDate": "2017-01-25",
+                "startDate": "2016-12-13",
+                "targetDate": "2016-12-23",
                 "category": [{
-                    "text": "Safety"
-                }, {
-                    "text": "Behavioral"
-                }, {
                     "text": "Community"
                 }, {
-                    "text": "Physiologic"
-                }, {
-                    "text": "Family"
+                    "text": "Safety"
                 }],
-                "description": "A newer goal",
-                "status": "in-progress",
-                "statusDate": "2017-01-25"
+                "description": "Met goal",
+                "status": "achieved",
+                "statusDate": "2016-12-21"
             }
         }, {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535833",
             "resource": {
                 "resourceType": "Goal",
-                "id": "59563849",
+                "id": "59535833",
                 "meta": {
-                    "versionId": "1485363855000",
-                    "lastUpdated": "2017-01-25T17:04:15.000Z"
+                    "versionId": "1485975696000",
+                    "lastUpdated": "2017-02-01T19:01:36.000Z"
                 },
                 "text": {
                     "status": "generated",
-                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A New Goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-25&lt;/p>&lt;/div>"
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Test Goal without a target date&lt;/p>&lt;p>&lt;b>Author&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-12-21&lt;/p>&lt;/div>"
                 },
                 "subject": {
-                    "reference": "Patient/1045932",
-                    "display": "TEST, LISA"
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
                 },
-                "startDate": "2017-01-25",
-                "description": "A New Goal",
+                "startDate": "2016-12-21",
+                "category": [{
+                    "text": "Behavioral"
+                }],
+                "description": "Test Goal without a target date",
                 "status": "in-progress",
-                "statusDate": "2017-01-25"
+                "statusDate": "2016-12-21",
+                "author": {
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
+                },
+                "note": [{
+                    "authorReference": {
+                        "reference": "Practitioner/4594024",
+                        "display": "Pomfrey, Poppy"
+                    },
+                    "time": "2017-02-01T19:01:36.000Z",
+                    "text": "This is a test. I repeat, this is only a test!"
+                }]
             }
         }]
     }

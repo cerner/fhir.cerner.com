@@ -7,6 +7,23 @@ title: Goal | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The Goal resource describes intended objectives for a patient.  A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or specific point in time.  A Goal may address preventative health or mitigation of a diagnosis or problem.  Goals can be non-health care related (e.g. dance at a wedding).
+
+The following fields are returned if valued:
+
+* [id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Subject (patient)](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.subject){:target="_blank"}
+* [Start date](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.start_x_){:target="_blank"}
+* [Target date](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.target_x_){:target="_blank"}
+* [Category](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.category){:target="_blank"}
+* [Description of goal](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.description){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.status){:target="_blank"}
+* [Status date](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.statusDate){:target="_blank"}
+* [Author](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.author){:target="_blank"}
+* [Note](http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.note){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:goal, :dstu2) %>
@@ -16,6 +33,10 @@ title: Goal | DSTU 2 API
 Search for Goals that meet supplied query parameters:
 
     GET /Goal?:parameters
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -32,12 +53,36 @@ Notes:
 
   - The `targetDate` parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
 
-### Response
+### Headers
 
-<%= headers status: 200, head: {Functionality: 'Search by patient'} %>
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925
+    
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_goal_bundle) %>
-<%= headers status: 200, head: {Functionality: 'Search by id'} %>
+
+
+### Example Search by Id
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849
+    
+#### Response
+
+<%= headers status: 200 %>
 <%= json(:dstu2_goal_bundle_by_id) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Retrieve by id
 
@@ -45,11 +90,30 @@ List an individual Goal by its id:
 
     GET /Goal/:id
 
-### Response
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_goal) %>
 
+### Errors
+
+The common [errors] may be returned.
+
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[errors]: ../../#client-errors

@@ -11,4 +11,5 @@ fields:
     description: Codes for grouping and sorting goals.
     terminology:
     - display: Goal Category Codes
-      system: http://hl7.org/fhir/ValueSet/goal-category
+      system: http://hl7.org/fhir/goal-category
+      info_link: http://hl7.org/fhir/dstu2/valueset-goal-category.html
