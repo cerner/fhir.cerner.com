@@ -23,7 +23,7 @@ workflow.  Cerner recommends the following IETF publications for review:
 - [OAuth 2.0 Threat Model and Security Considerations][OAUTH-THREAT]
 - [OAuth 2.0 Mix-Up Mitigation][OAUTH-MIXUP]
 - [The OAuth 2.0 Authorization Framework: Bearer Token Usage][RFC6750]
-- [OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-03][OAUTH-NATIVE]
+- [OAuth 2.0 for Native Apps][OAUTH-NATIVE]
   (Primarily for developers writing "native" applications.)
 
 This guide offers:
@@ -555,12 +555,12 @@ occurs.)
 
 For more information on best practices for OAuth2-based
 workflows for native applications, please refer to the
-IETF Best Current Practices (BCP) draft 
+IETF Best Current Practices (BCP) 
 ["OAuth 2.0 for Native Apps"][OAUTH-NATIVE].
 
 _NOTE_: Cerner's Authorization Server does not currently 
 implement PKCE as noted in section 8.2 of the native
-applications BCP draft.
+applications BCP.
 
 The next sections discuss specific special cases not
 covered by the OAuth native application BCP guide.
@@ -1084,7 +1084,7 @@ preceding documentation.
 - ["The OAuth 2.0 Authorization Framework"][OAUTH]
 - ["OAuth 2.0 Threat Model and Security Considerations"][OAUTH-THREAT]
 - ["OAuth 2.0 Mix-Up Mitigation"][OAUTH-MIXUP]
-- ["OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-05"][OAUTH-NATIVE]
+- ["OAuth 2.0 for Native Apps"][OAUTH-NATIVE]
 - ["OpenID Connect Core 1.0 incorporating errata set 1"][OPENID]
 - ["Registering an Application to a URI Scheme" (Windows API)][WIN-SCHEME]
 - ["HTTP Authentication: Basic and Digest Access Authentication"][RFC2617]
@@ -1096,7 +1096,7 @@ preceding documentation.
 [OAUTH]: https://tools.ietf.org/html/rfc6749 "The OAuth 2.0 Authorization Framework"
 [OAUTH-THREAT]: https://tools.ietf.org/html/rfc6819 "OAuth 2.0 Threat Model and Security Considerations"
 [OAUTH-MIXUP]: https://tools.ietf.org/html/draft-ietf-oauth-mix-up-mitigation-01 "OAuth 2.0 Mix-Up Mitigation"
-[OAUTH-NATIVE]: https://tools.ietf.org/html/draft-ietf-oauth-native-apps-05 "OAuth 2.0 for Native Apps draft-ietf-oauth-native-apps-05" 
+[OAUTH-NATIVE]: https://tools.ietf.org/html/rfc8252 "OAuth 2.0 for Native Apps" 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html "OpenID Connect Core 1.0 incorporating errata set 1"
 [WIN-SCHEME]: https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx "Registering an Application to a URI Scheme"
 [RFC2617]: https://tools.ietf.org/html/rfc2617 "HTTP Authentication: Basic and Digest Access Authentication"
