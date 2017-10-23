@@ -9,7 +9,7 @@ title: Goal | DSTU 2 API
 
 ## Overview
 
-The Goal resource describes intended objectives for a patient.  A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or specific point in time.  A Goal may address preventative health or mitigation of a diagnosis or problem.  Goals can be non-health care related (e.g. dance at a wedding).
+The Goal resource describes intended objectives for a patient.  A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time.  A Goal may address preventative health or mitigation of a diagnosis or problem.  Goals can be non-health care related (e.g. dance at a wedding).
 
 The following fields are returned if valued:
 
@@ -51,7 +51,7 @@ Notes:
 
   - The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `targetdate` parameters.
 
-  - The `targetDate` parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
+  - The `targetdate` parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
 
 ### Headers
 
