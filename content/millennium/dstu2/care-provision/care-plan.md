@@ -9,7 +9,7 @@ title: CarePlan | DSTU 2 API
 
 ## Overview
 
-The DSTU 2 CarePlan resource can be used to represent both care plans and care teams.
+The DSTU2 CarePlan resource can be used to represent both care plans and care teams.
 
 ### Care Plans
 
@@ -29,7 +29,7 @@ The following fields are returned if valued:
 
 ### Care Teams
 
-The CareTeam resource will be available in FHIR STU3. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioner (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
+The CareTeam resource will be available in the STU3 version to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
 
 The following fields are returned if valued:
 
@@ -80,7 +80,7 @@ _Implementation Notes_
  `date`       | N                                      | [`date`]      | Time period plan covers. Example: `date=ge2016-08` or `date=le2017-01-24T12:00:00.000Z`
  `patient`    | This, or one of `_id` or `subject`     | [`reference`] | Who care plan is for. Example: `patient=1316024`
  `subject`    | This, or one of `_id` or `patient`     | [`reference`] | Who care plan is for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
- [`_count`]   | N                                      | [`number`]    | Number of results per page. Defaults to `10`. Capped at `10`.
+ [`_count`]   | N                                      | [`number`]    | Number of results per page.
  `category`   | N                                      | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`, `category=http://argonaut.hl7.org|careteam`, `category=http://hl7.org/fhir/care-team-category|longitudinal`, or `category=careteam`
  `context`    | N                                      | [`reference`] | The encounter id of the care plan. Example: `context=1138`
 
@@ -94,7 +94,7 @@ Notes:
 
 - The `date` parameter may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
 
-- The `category` parameter only supports the codes `careteam`, `assess-plan`, `longitudinal`, and `encounter`. The `careteam` and `assess-plan` codes belong to the [Argonaut system]. `longitudinal` and `encounter` are defined by the [FHIR system].
+- The `category` parameter only supports the codes `careteam`, `assess-plan`, `longitudinal`, and `encounter`. The `careteam` and `assess-plan` codes belong to the [Argonaut system]. `longitudinal` and `encounter` are defined by the [CareTeam category system].
 
 ### Headers
 
@@ -163,7 +163,7 @@ The common [errors] may be returned.
 [contained]: http://hl7.org/fhir/DSTU2/references.html#contained
 [Argonaut profile]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-careteam.html
 [Argonaut system]: http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html
-[FHIR system]: http://hl7.org/fhir/care-team-category
+[CareTeam category system]: http://hl7.org/fhir/stu3/valueset-care-team-category.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
