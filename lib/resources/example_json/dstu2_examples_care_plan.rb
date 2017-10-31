@@ -49,7 +49,7 @@ module Cerner
         "total": 1,
         "link": [{
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=4734007\u0026category=careteam"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=4734007&category=careteam"
         }],
         "entry": [{
             "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/L4734007",
@@ -134,7 +134,7 @@ module Cerner
       "type": "searchset",
       "link": [{
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316020&_count=10"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316020&category=assess-plan&_count=10"
         },
         {
           "relation": "next",
