@@ -12,7 +12,7 @@ The Observation resource provides measurements or simple assertions about a pati
 
 The following fields will be returned if valued:
 
-* [Observation id](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.identifier){:target="_blank"}
+* [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.status){:target="_blank"}
 * [Category (laboratory, social history)](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.category){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.subject){:target="_blank"}

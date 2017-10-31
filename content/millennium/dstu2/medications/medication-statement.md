@@ -15,6 +15,7 @@ References to implicitRules and modifierExtensions are NOT supported and will fa
 <br/><br/>
 The following fields are returned if valued:
 
+* [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient){:target="_blank"}
 * [Source of information](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource){:target="_blank"}
 * [Date/Time recorded](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted){:target="_blank"}
