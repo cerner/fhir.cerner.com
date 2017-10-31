@@ -39,7 +39,7 @@ The following fields are returned if valued:
 * [Context (patient encounter)](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.context){:target="_blank"}
 * [Time period](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.period){:target="_blank"}
 * [Last modified](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.modified){:target="_blank"}
-* [Category (careteam, Longitudinal, or encounter)](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.category){:target="_blank"}
+* [Category (careteam, longitudinal, or encounter)](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.category){:target="_blank"}
 * [Participant](http://hl7.org/fhir/dstu2/careplan-definitions.html#CarePlan.participant){:target="_blank"}
 * Participant details (only applies to references to contained RelatedPerson)
   * [Patient](http://hl7.org/fhir/dstu2/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
