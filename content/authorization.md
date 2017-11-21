@@ -115,7 +115,10 @@ FHIR<sup>®</sup> conformance document.
 
 The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
-of ``./metadata`` from the FHIR<sup>®</sup> base URL.
+of ``./metadata?_format=json`` from the FHIR<sup>®</sup> base URL. An
+example of this API call is 
+``https://fhir-ehr.sandboxcerner.com/dstu2/<client id>/metadata?_format=json``
+where the client id is obtained once registering the app in the sandbox. 
 
 Within the structure of this document, three important URLs are
 advertised in an extension to ``Conformance.rest.security``, 
