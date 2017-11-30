@@ -46,7 +46,7 @@ module Cerner
             },
             "request": [
               {
-                "reference": "DiagnosticOrder/18954087"
+                "reference": "ProcedureRequest/18954087"
               }
             ],
             "presentedForm": [
@@ -92,7 +92,7 @@ module Cerner
             },
             "request": [
               {
-                "reference": "DiagnosticOrder/17233929"
+                "reference": "ProcedureRequest/17233929"
               }
             ],
             "presentedForm": [
@@ -138,10 +138,10 @@ module Cerner
             },
             "request": [
               {
-                "reference": "DiagnosticOrder/15785901"
+                "reference": "ProcedureRequest/15785901"
               },
               {
-                "reference": "DiagnosticOrder/15717975"
+                "reference": "ProcedureRequest/15717975"
               }
             ],
             "presentedForm": [
