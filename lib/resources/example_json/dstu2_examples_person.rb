@@ -72,6 +72,18 @@ module Cerner
       "active": true
     }
 
+    DSTU2_COMBINED_PERSON_ENTRY ||= {
+      "resourceType": "Person",
+      "id": "4860007",
+      "active": false,
+      "link": [
+        {
+          "target": {
+            "reference": "Person/4342008"
+          }
+        }
+      ]
+    }
 
     DSTU2_PERSON_BUNDLE ||= {
       "resourceType": "Bundle",
