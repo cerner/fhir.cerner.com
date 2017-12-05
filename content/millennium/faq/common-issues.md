@@ -25,31 +25,36 @@ identical each time and if they are retrieving the same data set.
 
 ### Implement Paging
 
-To be compatible with a wide variety of FHIR services and for future-proofing,
+To be compatible with a wide variety of implementations and for future-proofing,
 we require that you implement a paging data retrieval scheme
-as defined by the [HL7 FHIR specification](https://www.hl7.org/fhir/dstu2/http.html#paging).
-Your app should handle paging for all resources, even if our FHIR server
+as defined by the [HL7 FHIR<sup>®</sup> specification](https://www.hl7.org/fhir/dstu2/http.html#paging).
+Your app should handle paging for all resources, even if our server
 does not support it yet. This ensures your app is compatible with more
-FHIR servers and for ours if we add paging in the future for
-performance.
+implementations (including future versions of our server if we add paging in the future for
+performance).
 
-We've documented the default and max pages sizes for each resouce.
-Queries on these resources can result in large data sets. If you
+Queries on some resources can result in large data sets. If you
 do not implement paging logic, the application can miss relevant
 information because the system will not load more than just the initial
 page. This creates potential for the system to not account for the
 entire patient dataset.
 
+In addition, if your application is showing results directly to the user, it probably
+does not want to show hundreds of records at a time to a user. It's also possible your application 
+may not have the memory available to hold all data at one time. These are 
+all factors that you should consider when determining a page size that is 
+right for your application.
+
 There are two ways we recommend that you test
 your logic once implemented.  First, you can set page size to a lower
 value using the `_count` parameter in the API calls.  Another way is to
-make calls for a patient named Timothy Peters in the Sandbox domain.
-This patient has a very large data set and will often return more than
-the max page size.
+make calls for a patient with a lot of data in the Sandbox domain. You can read
+test patient details [here](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ) 
+to find a patient that has been set up to page.
 
 ### Posting Documents Using DocumentReference Resource
 
-If your app uses the [DocumentReference resource](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/)
+If your app uses the [DocumentReference resource](../../dstu2/infrastructure/document-reference/)
 to post clinical notes back to the system, the following provides some
 additional parameters to follow to ensure that your document is
 displayed as intended.
@@ -69,10 +74,11 @@ displayed as intended.
     but the text within will remain.
   - Table styling is not fully supported
 
-- **Modifier Elements:** [implicitRules](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules),
-  [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource.html)
-  and [relatesTo](https://www.hl7.org/FHIR/DSTU2/domainresource.html) are
-  not supported and will be rejected if present.
+- **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
+  and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
+  are not supported and will be rejected if present. In addition, each resource 
+  will call out modifier elements that are not supportted. For example: [DocumentReference create](../../dstu2/infrastructure/document-reference/#create)
+  calls out all unsupported modifiers within the implementation notes section.
 
 - **Special Formatting:** Please do not use specialized formatting
   dependent on CSS or JavaScript. This will be stripped out of your
@@ -96,17 +102,15 @@ displayed as intended.
 
 ### Requests by Specific LOINC Codes
 
-Cerner creates concept mappings as part of our SMART on FHIR
-implementation that follow the [concept map](https://www.hl7.org/fhir/dstu2/conceptmap.html)
-specification defined by HL7. The specification maps proprietary codes
-used in client systems with standardized [LOINC codes](https://www.hl7.org/fhir/dstu2/loinc.html).
-In some cases, these mappings do not cover all the possible variances in
-the ways hospitals have implemented their EHRs. When EHRs were
+Cerner maps proprietary codes to standard terminologies as part of our
+implementation process. For example, [LOINC codes](https://www.hl7.org/fhir/dstu2/loinc.html) are
+exposed within some resources. In some cases, these mappings do not cover all the possible 
+variances in the ways hospitals have implemented their EHRs. When EHRs were
 originally implemented, it was common to use proprietary codes to
 document labs and measurements that don’t map directly to the LOINC
 codes defined by the FHIR specification.
 
-For the [Observation resource](http://fhir.cerner.com/millennium/dstu2/diagnostic/observation/),
+For the [Observation resource](../../dstu2/diagnostic/observation/),
 we have seen apps developed that use a set of LOINC codes as a filter to
 get specific results. If your app uses specific codes to query for data,
 you should determine if the request should be broader and include more
@@ -153,27 +157,25 @@ We have seen a lot of instances of developers performing post-query
 filtering rather than leveraging the
 [query parameters](https://www.hl7.org/fhir/dstu2/search.html#table)
 defined by the API.  We recommend using the available query parameters, such as
-[this example for the Patient resource](http://fhir.cerner.com/millennium/dstu2/individuals/patient/#parameters).
+[this example for the Patient resource](../../dstu2/individuals/patient/#parameters).
 Query parameters make the dataset more predictable, speed up your searches, and
 are more reliable than relying on post-query filtering.
 
 ### Review Filtering Options
 
-Using Query Parameters is what we recommend instead of post-query filtering,
-but if you are filtering, here is one consideration to be aware of. In the
-Cerner EMR, if a medication or result is documented erroneously in the
-system and then is deleted by a user, it is commonly represented in the
-system as In Error. In Error results are frequently filtered out and are
-not displayed by native Cerner apps.
+Using query parameters is recommended over post-query filtering (when possible). 
+Regardless of the method used to filter results, ensure that your application handles 
+resources that have been marked in error or invalid using the appropriate status field(s)
+for each resource.
 
 You should review your app’s status filtering logic to ensure that the
 appropriate results are displayed. For Cerner’s implementation of the
-HL7 FHIR standard (based on DSTU 2 Final (1.0.2)), it is particularly
-recommended for the [MedicationOrder](http://fhir.cerner.com/millennium/dstu2/medications/medication-order/)
-or [Observation](http://fhir.cerner.com/millennium/dstu2/diagnostic/observation/)
+HL7 FHIR<sup>®</sup> standard (based on DSTU 2 Final (1.0.2)), it is particularly
+recommended for the [MedicationOrder](../../dstu2/medications/medication-order/)
+or [Observation](../../dstu2/diagnostic/observation/)
 resources. It would be a patient safety issue if an uncharted value was
 displayed to a user. Please double-check the status codes you use from
-the FHIR [MedicationOrderStatus](http://hl7.org/fhir/DSTU2/valueset-medication-order-status.html)
+the [MedicationOrderStatus](http://hl7.org/fhir/DSTU2/valueset-medication-order-status.html)
 or [ObservationStatus](https://www.hl7.org/fhir/dstu2/valueset-observation-status.html)
 value sets.
 
@@ -181,14 +183,12 @@ Typically, for MedicationOrder, only medications in `Active`, `On-Hold`, or
 `Completed` statuses are displayed.  For Observation, only results in
 `Final` and `Amended` statuses are displayed.
 
-In our sandbox domain, Amber Read, PATIENT_ID 4614008, has some entered-
-in-error results on multiple blood pressures values, one blood pressure
-with an unknown status, and one entered-in-error CO2 and glucose value
-for you to review and test with.
+You can read about our [available sandbox test patients](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ)
+to find a patient that has some entered-in-error results to test with.
 
-The [Condition](http://fhir.cerner.com/millennium/dstu2/general-clinical/condition/),
-[MedicationStatement](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/),
-and [Observation](http://fhir.cerner.com/millennium/dstu2/diagnostic/observation/)
+The [Condition](../../dstu2/general-clinical/condition/),
+[MedicationStatement](../../dstu2/medications/medication-statement/),
+and [Observation](../../dstu2/diagnostic/observation/)
 resources do not support filtering by the encounter parameter in
 the current implantation of Ignite APIs for Millennium. If you do
 use these resources, your app may need to implement a post-filter
@@ -221,7 +221,7 @@ durations, some apps we have validated request a new token each
 time, but there is a more streamlined method available.
 
 By requesting the `online_access` scope, the system grants a
-[refresh token](http://fhir.cerner.com/authorization/#refresh_tokens)
+[refresh token](/authorization/#refresh_tokens)
 that can be used for duration of a user’s authenticated session.
 Such refresh tokens are valid until either the user explicitly logs out,
 the session is terminated by an administrator, or other risk mechanisms
@@ -317,19 +317,12 @@ removed.
 
 When you are running a SMART app in multiple open charts in PowerChart,
 there is potential that the app instance will share patient context and
-show same patient’s data on two separate charts.
+show same patient’s data on two separate charts. In order to avoid this,
+please read our [SMART topic on sessionStorage](/smart/#html5-session-storage).
  
-The application needs to avoid session bleed issue identified with fhir-
-client.js library.  Review the changes in the latest version of the
-[fhir-client.js]( https://github.com/smart-on-fhir/client-js/tree/v0.1.10)
-and pull in an additional [project released by Cerner](https://github.com/cerner/fhir-client-cerner-additions)
-to override a setting.
- 
-Open source fhir-client.js file uses HTML5 sessionStorage parameter.
-This causes an issue within the EMR when two instances of a SMART
-application are opened on two patients.  After discovering this issue,
-we worked through the open source community to contribute the change
-back to fhir-client.js.
+If your application uses the open sourcce fhir-client.js library, please
+read the [secion on minimum required version and additional code](/smart/#open-source-fhir-client-libraries)
+that must be added in order to fix a session bleed issue.
 
 *Note:* This cannot be properly tested until you are beginning
 validation and we are running your app directly in PowerChart. The
@@ -348,14 +341,20 @@ To recreate the issue:
 
 ## Security
 
+During application validation, we do a security review. We've gathered some common
+topics that are covered which should help you think through the security of your application.
+There are also examples of tools that can guide secure development of your application.
+
 ### Static Analysis
 
 An automated security analysis of the app must be completed prior to
 the security review. There are many tools available for this including
 paid and free offerings. If available, producing a report from tools
-such as HP Fortify, IBM AppScan and Veracode are preferred.
+such as [HP Fortify](http://www.ndm.net/sast/hp-fortify), [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
+and [Veracode](https://www.veracode.com/) are preferred.
 
-OpenVAS, BurpSuite, FindSecBugs and ZAP can also be used to produce a
+[OpenVAS](http://www.openvas.org/), [BurpSuite](https://portswigger.net/burp), 
+[FindSecBugs](http://find-sec-bugs.github.io/) and [ZAP](http://www.zaproxy.org/) can also be used to produce a
 report if the above analysis tools are not available to the development team.
 
 The reports should produce results that are free of critical and high
@@ -395,7 +394,7 @@ accepts connections from.
 
 The threat model must also include the following:
 
-- Authentication interactions with external sources (for example, the Cerner Oauth service)
+- Authentication interactions with external sources (for example, the Cerner OAuth service)
 - Information related to the hosting environment that the app is hosted in (for example, AWS, Azure, third-party, or a self-run data center)
 - Define the trust boundaries crossed during runtime
 
