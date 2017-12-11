@@ -25,13 +25,10 @@ identical each time and if they are retrieving the same data set.
 
 ### Implement Paging
 
-To be compatible with a wide variety of implementations and for future-proofing,
-we require that you implement a paging data retrieval scheme
-as defined by the [HL7 FHIR<sup>®</sup> specification](https://www.hl7.org/fhir/dstu2/http.html#paging).
-Your app should handle paging for all resources, even if our server
-does not support it yet. This ensures your app is compatible with more
-implementations (including future versions of our server if we add paging in the future for
-performance).
+Your app should handle [paging](https://www.hl7.org/fhir/dstu2/http.html#paging) for all resources, 
+even if our server does not support it yet. This ensures your app is compatible with more 
+implementations (including future versions of our server if we add paging to improve 
+performance of resources that do not currently page).
 
 Queries on some resources can result in large data sets. If you
 do not implement paging logic, the application can miss relevant
@@ -77,7 +74,7 @@ displayed as intended.
 - **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
   and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
   are not supported and will be rejected if present. In addition, each resource 
-  will call out modifier elements that are not supportted. For example: [DocumentReference create](../../dstu2/infrastructure/document-reference/#create)
+  will call out modifier elements that are not supported. For example: [DocumentReference create](../../dstu2/infrastructure/document-reference/#create)
   calls out all unsupported modifiers within the implementation notes section.
 
 - **Special Formatting:** Please do not use specialized formatting
