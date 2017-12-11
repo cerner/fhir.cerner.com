@@ -46,8 +46,8 @@ There are two ways we recommend that you test
 your logic once implemented.  First, you can set page size to a lower
 value using the `_count` parameter in the API calls.  Another way is to
 make calls for a patient with a lot of data in the Sandbox domain. You can read
-test patient details [here](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ) 
-to find a patient that has been set up to page.
+about our [available sandbox test patients](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ)
+to find a patient who has sufficient data for paging.
 
 ### Posting Documents Using DocumentReference Resource
 
