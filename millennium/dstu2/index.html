@@ -97,6 +97,7 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
       <li><a href="#resource-identity" id="markdown-toc-resource-identity">Resource Identity</a></li>
     </ul>
   </li>
+  <li><a href="#common-application-errors" id="markdown-toc-common-application-errors">Common Application Errors</a></li>
   <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
   <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
@@ -110,7 +111,7 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
 
 <h2 id="schema">Schema</h2>
 
-<p>All API access is over HTTPS. See <a href="#service-root-url">Service Root URL</a> for more information on URL format. 
+<p>All API access is over HTTPS. See <a href="#service-root-url">Service Root URL</a> for more information on URL format.
 All data is sent and received as JSON.</p>
 
 <pre class="terminal">
@@ -385,8 +386,8 @@ application/json
 
 <h2 id="service-root-url">Service Root URL</h2>
 
-<p>URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the 
-application is a SMART application, the <a href="http://hl7.org/fhir/dstu2/http.html#general">service root url</a> is provided at 
+<p>URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the
+application is a SMART application, the <a href="http://hl7.org/fhir/dstu2/http.html#general">service root url</a> is provided at
 launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run
  against a specific tenant. FHIR calls will be made against URLs of the following format:</p>
 
@@ -402,7 +403,7 @@ this instance is: <code>https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-
 
 <h3 id="secure-sandbox">Secure Sandbox</h3>
 
-<p>The secure sandbox instance can be used for testing an application with <a href="#authorization">authorization</a>. The service 
+<p>The secure sandbox instance can be used for testing an application with <a href="#authorization">authorization</a>. The service
 root URL for this instance is different if the patient or a patient’s proxy is logging in.</p>
 
 <p>Non-Patient: <code>https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code>
@@ -422,7 +423,7 @@ parameter:</p>
 $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&amp;status=active"
 </pre>
 
-<p>In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while <code>patient</code> and <code>status</code> 
+<p>In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while <code>patient</code> and <code>status</code>
  are passed in the query string.</p>
 
 <h3 id="resource-identity">Resource Identity</h3>
@@ -448,6 +449,10 @@ $ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.co
 
 <pre><code> https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
 </code></pre>
+
+<h2 id="common-application-errors">Common Application Errors</h2>
+
+<p>Please visit our list of <a href="../faq/common-issues">common issues</a> on our <a href="../faq">FAQ</a> page to be aware of the common issues we’ve identify when validating apps to run on our platform.</p>
 
 <h2 id="client-errors">Client Errors</h2>
 

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Common Issues</title>
+  
+  <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="faq">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">Code Portal</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+      
+    <h2>Millennium</h2>
+<ul>
+      
+      <li><a href="../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+      <li><a href="../" class="active">FAQ</a></li>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      
+<p>The topics below are the most common issues that we identify when
+validating apps to run on our platform.  We suggest you work through
+each of these before submitting an app for validation.</p>
+
+<h1 id="common-issues">Common Issues</h1>
+
+<ul id="markdown-toc">
+  <li>
+<a href="#api-usage" id="markdown-toc-api-usage">API Usage</a>    <ul>
+      <li><a href="#avoid-multiple-resource-calls" id="markdown-toc-avoid-multiple-resource-calls">Avoid Multiple Resource Calls</a></li>
+      <li><a href="#implement-paging" id="markdown-toc-implement-paging">Implement Paging</a></li>
+      <li><a href="#posting-documents-using-documentreference-resource" id="markdown-toc-posting-documents-using-documentreference-resource">Posting Documents Using DocumentReference Resource</a></li>
+      <li><a href="#requests-by-specific-loinc-codes" id="markdown-toc-requests-by-specific-loinc-codes">Requests by Specific LOINC Codes</a></li>
+      <li><a href="#leverage-query-parameters" id="markdown-toc-leverage-query-parameters">Leverage Query Parameters</a></li>
+      <li><a href="#review-filtering-options" id="markdown-toc-review-filtering-options">Review Filtering Options</a></li>
+      <li><a href="#using-appropriate-scopes-for-smart-launch" id="markdown-toc-using-appropriate-scopes-for-smart-launch">Using Appropriate Scopes for SMART Launch</a></li>
+      <li><a href="#registering-more-scopes-than-app-uses" id="markdown-toc-registering-more-scopes-than-app-uses">Registering More Scopes than App Uses</a></li>
+      <li><a href="#authorization-durations-longer-than-10-minutes" id="markdown-toc-authorization-durations-longer-than-10-minutes">Authorization Durations Longer than 10 Minutes</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#cerner-client-deployment" id="markdown-toc-cerner-client-deployment">Cerner Client Deployment</a>    <ul>
+      <li><a href="#using-video-in-your-app" id="markdown-toc-using-video-in-your-app">Using Video in Your App</a></li>
+      <li><a href="#single-patient-and-multi-patient-views" id="markdown-toc-single-patient-and-multi-patient-views">Single Patient and Multi-Patient Views</a></li>
+      <li><a href="#session-bleed-issue" id="markdown-toc-session-bleed-issue">Session Bleed Issue</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#security" id="markdown-toc-security">Security</a>    <ul>
+      <li><a href="#static-analysis" id="markdown-toc-static-analysis">Static Analysis</a></li>
+      <li><a href="#tls-configuration" id="markdown-toc-tls-configuration">TLS Configuration</a></li>
+      <li><a href="#data-flow-diagram" id="markdown-toc-data-flow-diagram">Data Flow Diagram</a></li>
+      <li><a href="#threat-model" id="markdown-toc-threat-model">Threat Model</a></li>
+      <li><a href="#third-party-tools-and-libraries" id="markdown-toc-third-party-tools-and-libraries">Third-Party Tools and Libraries</a></li>
+      <li><a href="#patching-policy" id="markdown-toc-patching-policy">Patching Policy</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="api-usage">API Usage</h2>
+
+<h3 id="avoid-multiple-resource-calls">Avoid Multiple Resource Calls</h3>
+
+<p>Ensure that your app is efficient in the way it makes API calls.
+Duplicate API calls should be removed to avoid additional performance
+load on the system and improve application load time. As part of the
+technical review process, we will review logs to see if calls are
+identical each time and if they are retrieving the same data set.</p>
+
+<h3 id="implement-paging">Implement Paging</h3>
+
+<p>Your app should handle <a href="https://www.hl7.org/fhir/dstu2/http.html#paging">paging</a> for all resources, 
+even if our server does not support it yet. This ensures your app is compatible with more 
+implementations (including future versions of our server if we add paging to improve 
+performance of resources that do not currently page).</p>
+
+<p>Queries on some resources can result in large data sets. If you
+do not implement paging logic, the application can miss relevant
+information because the system will not load more than just the initial
+page. This creates potential for the system to not account for the
+entire patient dataset.</p>
+
+<p>In addition, if your application is showing results directly to the user, it probably
+does not want to show hundreds of records at a time to a user. It’s also possible your application 
+may not have the memory available to hold all data at one time. These are 
+all factors that you should consider when determining a page size that is 
+right for your application.</p>
+
+<p>There are two ways we recommend that you test
+your logic once implemented.  First, you can set page size to a lower
+value using the <code>_count</code> parameter in the API calls.  Another way is to
+make calls for a patient with a lot of data in the Sandbox domain. You can read
+about our <a href="https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ">available sandbox test patients</a>
+to find a patient who has sufficient data for paging.</p>
+
+<h3 id="posting-documents-using-documentreference-resource">Posting Documents Using DocumentReference Resource</h3>
+
+<p>If your app uses the <a href="../../dstu2/infrastructure/document-reference/">DocumentReference resource</a>
+to post clinical notes back to the system, the following provides some
+additional parameters to follow to ensure that your document is
+displayed as intended.</p>
+
+<ul>
+  <li>
+<strong>Document Type:</strong> We accept HTML5 conventions and only XHTML
+formatted documents are supported. Our system converts them to RTF
+because that is the current requirement for posting to the Cerner EMR.
+Since documents are being converted from one format type to another,
+there is potential for loss of fidelity.
+    <ul>
+      <li>A common error we have seen is with the use of <code>&lt;br&gt;</code> tags.  In
+XHTML, they need to be self-closed as follows: <code>&lt;br /&gt;</code>. This
+greatly enhances the accuracy our internal conversion tools.</li>
+      <li>Some sanitization is run on provided XHMTL. For example: <code>Applet</code>,
+<code>iframe</code>, <code>link</code>, <code>script</code>, and <code>style</code> tags will be removed
+completely. Other tags (<code>a</code>, <code>button</code>, <code>form</code>, <code>frame</code>, <code>frameset</code>,
+<code>input</code>, <code>object</code>, <code>option</code>, <code>select</code>, <code>textarea</code>) may be removed
+but the text within will remain.</li>
+      <li>Table styling is not fully supported</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Modifier Elements:</strong> <a href="https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>,
+and <a href="https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a>
+are not supported and will be rejected if present. In addition, each resource 
+will call out modifier elements that are not supported. For example: <a href="../../dstu2/infrastructure/document-reference/#create">DocumentReference create</a>
+calls out all unsupported modifiers within the implementation notes section.</p>
+  </li>
+  <li>
+<strong>Special Formatting:</strong> Please do not use specialized formatting
+dependent on CSS or JavaScript. This will be stripped out of your
+document. It is also not recommended that you support multiple
+languages within your documents, as this has proven to be error prone
+with our current conversion tools.
+    <ul>
+      <li>If special formatting is needed, we recommend that you post your
+formatted text as image files within the HTML.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Images:</strong> If posting images within your documents or as the documents themselves, external image links will not function as intended. All images must be embedded Base64 encoded files using web-safe image formats due to file size. Examples are as follows:</p>
+
+    <p><code>
+&lt;img alt="image" src='data:image/png;base64, &lt;-ENCODED IMAGE-&gt; ' /&gt; 
+</code></p>
+  </li>
+  <li>
+<strong>Testing:</strong> There are several XHTML validators that can be used to
+test your document. We suggest using XHTML 1.0 strict as the document
+type to run your validation with. Try using:
+    <ul>
+      <li><a href="http://validator.w3.org/#validate_by_upload+with_options">validator.w3.org/#validate_by_upload+with_options</a></li>
+      <li><a href="https://html5.validator.nu/">html5.validator.nu</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="requests-by-specific-loinc-codes">Requests by Specific LOINC Codes</h3>
+
+<p>Cerner maps proprietary codes to standard terminologies as part of our
+implementation process. For example, <a href="https://www.hl7.org/fhir/dstu2/loinc.html">LOINC codes</a> are
+exposed within some resources. In some cases, these mappings do not cover all the possible 
+variances in the ways hospitals have implemented their EHRs. When EHRs were
+originally implemented, it was common to use proprietary codes to
+document labs and measurements that don’t map directly to the LOINC
+codes defined by the FHIR specification.</p>
+
+<p>For the <a href="../../dstu2/diagnostic/observation/">Observation resource</a>,
+we have seen apps developed that use a set of LOINC codes as a filter to
+get specific results. If your app uses specific codes to query for data,
+you should determine if the request should be broader and include more
+possible codes to account for different ways data might be coded or work
+with us to determine the best way to return the information you need.</p>
+
+<p>For example, lead can be performed on blood, capillary blood, or venous blood.</p>
+
+<ul>
+  <li>
+<strong>Hospital A</strong> uses a proprietary code for lead which maps to LOINC code <code>5671-3</code> - <code>(Lead [Mass/volume] in Blood)</code>
+</li>
+  <li>
+<strong>Hospital B</strong> uses a proprietary code for lead which maps to LOINC code <code>77307-71</code> - <code>(Lead [Mass/volume] in Venous blood)</code>
+</li>
+</ul>
+
+<p>If you are using a specific code to query for lead and use code
+<code>5671-3</code>, then your app would only return results when installed at
+<strong>Hospital A</strong>.  Your app would return nothing if installed at
+<strong>Hospital B</strong>. You need to ensure that all codes are accounted for in
+order for the app to work at all sites.</p>
+
+<p>Another scenario is where hospitals have different tests and codes setup
+for different methodologies. An example is when a separate test and code
+is created to document blood lead collected by venipuncture versus a
+capillary draw, which is a common collection method for children. On
+occasion, client proprietary codes may not map directly to any LOINC
+code. For special cases where we discover a proprietary code that does
+not map cleanly to any standard, we will work with you to figure out the
+best option for that mapping during deployment.</p>
+
+<p>For each of these scenarios, it is one thing to validate against our
+sandbox to adhere to the FHIR specification, but we also need to
+validate your app at each client site to ensure that there aren’t any
+hospital-specific considerations to be aware of. We will do this when we
+connect your app to a hospital domain. We will work with you to resolve
+any of these hospital-specific considerations.</p>
+
+<p>The above examples use lead, but similar considerations could exist for
+virtually any lab or measurement where concept mapping and specific
+LOINC codes are used.  If your app uses specific LOINC codes to query
+for information,
+<a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a>
+and we will help you work through any considerations that might exist.</p>
+
+<h3 id="leverage-query-parameters">Leverage Query Parameters</h3>
+
+<p>We have seen a lot of instances of developers performing post-query
+filtering rather than leveraging the
+<a href="https://www.hl7.org/fhir/dstu2/search.html#table">query parameters</a>
+defined by the API.  We recommend using the available query parameters, such as
+<a href="../../dstu2/individuals/patient/#parameters">this example for the Patient resource</a>.
+Query parameters make the dataset more predictable, speed up your searches, and
+are more reliable than relying on post-query filtering.</p>
+
+<h3 id="review-filtering-options">Review Filtering Options</h3>
+
+<p>Using query parameters is recommended over post-query filtering (when possible). 
+Regardless of the method used to filter results, ensure that your application handles 
+resources that have been marked in error or invalid using the appropriate status field(s)
+for each resource.</p>
+
+<p>You should review your app’s status filtering logic to ensure that the
+appropriate results are displayed. For Cerner’s implementation of the
+HL7 FHIR<sup>®</sup> standard (based on DSTU 2 Final (1.0.2)), it is particularly
+recommended for the <a href="../../dstu2/medications/medication-order/">MedicationOrder</a>
+or <a href="../../dstu2/diagnostic/observation/">Observation</a>
+resources. It would be a patient safety issue if an uncharted value was
+displayed to a user. Please double-check the status codes you use from
+the <a href="http://hl7.org/fhir/DSTU2/valueset-medication-order-status.html">MedicationOrderStatus</a>
+or <a href="https://www.hl7.org/fhir/dstu2/valueset-observation-status.html">ObservationStatus</a>
+value sets.</p>
+
+<p>Typically, for MedicationOrder, only medications in <code>Active</code>, <code>On-Hold</code>, or
+<code>Completed</code> statuses are displayed.  For Observation, only results in
+<code>Final</code> and <code>Amended</code> statuses are displayed.</p>
+
+<p>You can read about our <a href="https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ">available sandbox test patients</a>
+to find a patient that has some entered-in-error results to test with.</p>
+
+<p>The <a href="../../dstu2/general-clinical/condition/">Condition</a>,
+<a href="../../dstu2/medications/medication-statement/">MedicationStatement</a>,
+and <a href="../../dstu2/diagnostic/observation/">Observation</a>
+resources do not support filtering by the encounter parameter in
+the current implantation of Ignite APIs for Millennium. If you do
+use these resources, your app may need to implement a post-filter
+to display only the current encounter.</p>
+
+<h3 id="using-appropriate-scopes-for-smart-launch">Using Appropriate Scopes for SMART Launch</h3>
+
+<p><a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">SMART on FHIR defines OAuth2 access scopes</a>
+that correspond directly to FHIR resource types. We define read and write
+permissions for patient-specific and user-level access. Patient-specific scopes
+allow access to specific data about a single patient. User-level scopes
+allow access to specific data that a user can access.</p>
+
+<p>We have seen some situations where it is appropriate to use user-level
+scopes, but in most cases with a patient in context, you should be using
+patient-centric scopes.</p>
+
+<h3 id="registering-more-scopes-than-app-uses">Registering More Scopes than App Uses</h3>
+
+<p>Ensure you are only requesting scopes that are used. We will ask you
+to remove unused scopes from registration if you do not use those resources
+or actions.</p>
+
+<h3 id="authorization-durations-longer-than-10-minutes">Authorization Durations Longer than 10 Minutes</h3>
+
+<p>The default duration of access received through the authorization
+grant workflow is a single token that is valid for 570 seconds
+(~10 minutes). For apps that need access to services for longer
+durations, some apps we have validated request a new token each
+time, but there is a more streamlined method available.</p>
+
+<p>By requesting the <code>online_access</code> scope, the system grants a
+<a href="../../../authorization/#refresh_tokens">refresh token</a>
+that can be used for duration of a user’s authenticated session.
+Such refresh tokens are valid until either the user explicitly logs out,
+the session is terminated by an administrator, or other risk mechanisms
+(timeouts, etc.) require a user to be re-authenticated.</p>
+
+<h2 id="cerner-client-deployment">Cerner Client Deployment</h2>
+
+<h3 id="using-video-in-your-app">Using Video in Your App</h3>
+
+<p>Most Cerner clients deploy Cerner Millennium user apps as a Citrix XenApp<sup>®</sup>
+session connected from a shared server-based computing environment. If your
+app uses videos, we have found this can challenge the Citrix connection because
+only so much bandwidth can be assigned to each Citrix connection.</p>
+
+<p>We determined that the preferred method for your app to play video is to open
+a new window using a custom code and load the web page containing video.<br>
+This way the video opens using the hospital’s network and the Citrix
+connection is not affected.</p>
+
+<p>Also, when the app is deployed, the hospital’s IT staff need to ensure that:</p>
+
+<ul>
+  <li>The device running the video has the correct video codec installed</li>
+  <li>A proper speaker or headset is connected for sound</li>
+</ul>
+
+<p>To open a new window through content redirection, the underlying Cerner platform
+supports the following “APPLINK” routine for launching a new window through
+content redirection instead of ‘window.open’ through JavaScript.
+If content redirection is enabled and the URL is accessible by the local device,
+the video is played locally. If neither of those conditions are met, it is
+opened on the Citrix server.</p>
+
+<p>For this routine to work, the following META tag must be included in the
+HEAD of the HTML file: <code>&lt;META content='APPLINK' name='discern'&gt;</code></p>
+
+<p>The following example illustrates opening a web page through a shell execute.
+When Citrix is configured for server-to-client redirection and the link is
+clicked, your local default web browser opens and is directed to the link provided.</p>
+
+<p><code>&lt;a href='javascript:APPLINK(100," "http://www.cerner.com",""&gt;Launch "http://www.cerner.com" in local web browser&lt;/a&gt;</code></p>
+
+<h3 id="single-patient-and-multi-patient-views">Single Patient and Multi-Patient Views</h3>
+
+<p>Cerner’s EMR, PowerChart, has two main views that can be used to view
+patient information: Patient Chart view and Organizer view.  It is
+critical that you distinguish which of these views works best for the
+functionality of your app and design your app accordingly.</p>
+
+<p><em>Organizer Views</em></p>
+
+<p>The MPages worklist framework allows hospitals to use multi-patient and
+multi-item views at the organizer level of PowerChart. These views
+assist clinicians in organizing and prioritizing their work by providing
+key information about a population of patients or items and in some
+cases, allowing quick access to patients’ medical records, improving
+their efficiency and productivity.  The most common worklist layout type
+currently available is the Patient Organizer View which supports the
+display of multiple patients along with key information about the status
+and care of those patients.</p>
+
+<p><em>Patient Chart View</em></p>
+
+<p>The Patient Chart view in PowerChart displays information for a single
+patient. It is accessed by selecting a patient from one of the Organizer
+views or from Patient Search. Multiple patient charts can be open at the
+same time, and you can easily move between open charts by clicking the
+patient’s name in the Patient Context toolbar. The Patient Chart view is
+made up of two panes - the Table of Contents and the Workspace. The
+Table of Contents is displayed on the left side of the window and allows
+you to quickly navigate to any area of the patient’s chart. Clicking a
+PowerChart component in the Table of Contents, such as a SMART app,
+opens that component’s Workspace view. The Workspace view displays and
+changes based on which PowerChart component is selected from the Table
+of Contents. Each view can include multiple windows, that are accessed
+by clicking tabs or buttons in that view. If you open your SMART app
+from the Table of Contents, information for the patient is displayed in
+the Workspace view.</p>
+
+<p>If your app is best used for managing a population of patients, then it
+should be optimized to be used at the Organizer view level. If your app
+is best used in the context of a single patient, it is critical that the
+user should not be able to access Organizer level information, such as
+patient lists or other patient’s data. This could be hazardous in the
+context of the single-patient Patient Chart view because users could
+become confused as to which patient’s information they are viewing. This
+is especially critical if you are porting your app to be used within the
+SMART on FHIR framework.  We have seen a few examples where developers
+didn’t remove functionality such as patient search and we had to have
+them restart their validation process once that functionality was
+removed.</p>
+
+<h3 id="session-bleed-issue">Session Bleed Issue</h3>
+
+<p>When you are running a SMART app in multiple open charts in PowerChart,
+there is potential that the app instance will share patient context and
+show same patient’s data on two separate charts. In order to avoid this,
+please read our <a href="../../../smart/#html5-session-storage">SMART topic on sessionStorage</a>.
+ 
+If your application uses the open sourcce fhir-client.js library, please
+read the <a href="../../../smart/#open-source-fhir-client-libraries">secion on minimum required version and additional code</a>
+that must be added in order to fix a session bleed issue.</p>
+
+<p><em>Note:</em> This cannot be properly tested until you are beginning
+validation and we are running your app directly in PowerChart. The
+following recreation steps are for your information once you have access
+to PowerChart.</p>
+
+<p>To recreate the issue:</p>
+
+<ol>
+  <li>Open the chart for Patient A and launch an app.</li>
+  <li>Go back to the Patient List and open an additional chart (Patient B),
+then launch an app for that patient.</li>
+  <li>On Patient A’s chart, click As Of in the upper right corner to
+refresh the content of PowerChart. If the application displays the
+information for Patient B within the chart for Patient A, then you
+need to implement the change mentioned above.</li>
+</ol>
+
+<h2 id="security">Security</h2>
+
+<p>During application validation, we do a security review. We’ve gathered some common
+topics that are covered which should help you think through the security of your application.
+There are also examples of tools that can guide secure development of your application.</p>
+
+<h3 id="static-analysis">Static Analysis</h3>
+
+<p>An automated security analysis of the app must be completed prior to
+the security review. There are many tools available for this including
+paid and free offerings. If available, producing a report from tools
+such as <a href="http://www.ndm.net/sast/hp-fortify">HP Fortify</a>, <a href="https://www.ibm.com/security/application-security/appscan">IBM AppScan</a>
+and <a href="https://www.veracode.com/">Veracode</a> are preferred.</p>
+
+<p><a href="http://www.openvas.org/">OpenVAS</a>, <a href="https://portswigger.net/burp">BurpSuite</a>, 
+<a href="http://find-sec-bugs.github.io/">FindSecBugs</a> and <a href="http://www.zaproxy.org/">ZAP</a> can also be used to produce a
+report if the above analysis tools are not available to the development team.</p>
+
+<p>The reports should produce results that are free of critical and high
+results. In the event that medium results are found, the submitter will
+be asked for a mitigation plan and timelines to resolve the found
+vulnerabilities.</p>
+
+<h3 id="tls-configuration">TLS Configuration</h3>
+
+<p>It is required that you test your app’s SSL/TLS status against
+<a href="https://www.ssllabs.com/ssltest/">SSLLabs</a> during a security review.
+The app must at least score an A on SSLLabs to pass the security review.
+To assist in reaching this score, the items below should be taken into
+consideration:</p>
+
+<ul>
+  <li>Disable all SSL versions</li>
+  <li>Disable TLS version 1.0</li>
+  <li>Review the list of cipher suites and remove any insecure cipher suites</li>
+  <li>Ensure that the handshake simulation user agents that are relevant to the app are functional</li>
+  <li>Enable forward secrecy, if practical</li>
+  <li>Ensure that TLS_FALLBACK_SCSV is enabled</li>
+</ul>
+
+<h3 id="data-flow-diagram">Data Flow Diagram</h3>
+
+<p>Ensure that the data flow diagram displays the flow of data, including
+PHI (protected health information), during the course of normal usage.
+ The data flow diagram should also display the authentication and
+ authorization decisions that are being made.</p>
+
+<h3 id="threat-model">Threat Model</h3>
+
+<p>The threat model should make use of a tool like
+<a href="https://www.microsoft.com/en-us/download/details.aspx?id=49168">Microsoft Threat Model 2016</a>
+or similar. The threat model must show the assets that the app uses during
+runtime as well as the other apps and systems that it connects to or
+accepts connections from.</p>
+
+<p>The threat model must also include the following:</p>
+
+<ul>
+  <li>Authentication interactions with external sources (for example, the Cerner OAuth service)</li>
+  <li>Information related to the hosting environment that the app is hosted in (for example, AWS, Azure, third-party, or a self-run data center)</li>
+  <li>Define the trust boundaries crossed during runtime</li>
+</ul>
+
+<p>If using the MS Threat Model 2016 tool, the found threats must be responded to in the Analysis view.</p>
+
+<h3 id="third-party-tools-and-libraries">Third-Party Tools and Libraries</h3>
+
+<p>The use of a tool like
+<a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP’s Dependency Check</a>
+greatly reduces the exposure to malicious dependencies prior to deploying your app.
+Dependency Check is a utility that identifies project dependencies
+and checks if there are any known, publicly disclosed, vulnerabilities.</p>
+
+<p>We recommend that you use this tool to reveal any issues with the
+libraries that are used by the app and assist with the manual review
+of the list of third party libraries that are requested during
+a security review. If using Dependency Check, you should submit
+a report during security review.</p>
+
+<h3 id="patching-policy">Patching Policy</h3>
+
+<p>The patching policy must include how the app owner plans to patch
+its software in the event that a critical vulnerability is discovered.
+The patching policy must include timeframes for when a vulnerability
+will be patched (for example, within 48 hours of knowledge of
+a critical vulnerability, within seven days of a high vulnerability,
+and so on).</p>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="../#frequently-asked-questions">Developer FAQs</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href=".">Common Issues</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
