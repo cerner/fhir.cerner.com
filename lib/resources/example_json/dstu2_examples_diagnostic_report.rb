@@ -52,7 +52,11 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/5153487"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487"
+              },
+              {
+                "contentType": "application/pdf",
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487"
               }
             ]
           }
@@ -98,7 +102,11 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/4135365"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365"
+              },
+              {
+                "contentType": "application/pdf",
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365"
               }
             ]
           }
@@ -147,7 +155,11 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/3411366"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366"
+              },
+              {
+                "contentType": "application/pdf",
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366"
               }
             ]
           }

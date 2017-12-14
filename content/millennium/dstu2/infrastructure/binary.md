@@ -122,7 +122,7 @@ This resource will not accept the `application/json` mime type unless the underl
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
     GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
-
+    
 #### Response
 
 <%= headers status: 200, head:{'Content-Type': 'application/json+fhir'} %>
