@@ -135,7 +135,7 @@ For provider and patient facing apps, you can select any patient from a list of 
 
 ### PowerChart ###
 
-Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/millennium](https://code.cerner.com/millennium), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
+Once you have your app working in code Console and you are committed to taking your app to production, contact us through the application available at [https://code.cerner.com/submit](https://code.cerner.com/submit), and we can provide access to *PowerChart* to test your app. For provider facing apps, PowerChart is the environment where providers will access apps in a production environment, so it is very important to test the apps in *PowerChart*. Access to PowerChart is a benefit only offered to members of our code program.
 
 #### SSL Certificate ####
 
