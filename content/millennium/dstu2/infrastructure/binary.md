@@ -9,13 +9,13 @@ title: Binary | DSTU 2 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD) and diagnostic reports. 
+The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical notes, and diagnostic reports.
 
 It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource. 
 
-The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see [the Binary Documentation](http://hl7.org/fhir/dstu2/binary.html#rest).
+The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see [the Binary Documentation](http://hl7.org/fhir/dstu2/binary.html#rest).
 
-The following fields are returned if valued: 
+The following fields are returned if valued:
 
 * [Binary id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Content type](http://hl7.org/fhir/DSTU2/binary-definitions.html#Binary.contentType){:target="_blank"}
@@ -29,20 +29,20 @@ List an individual Binary by its id:
 
 _Implementation Notes_
 
-* This is usually linked from DiagnosticReport and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
+* This is usually linked from DocumentReference or DiagnosticReport and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
 
 ### Authorization Types
 
-Requires both the appropriate Binary.read and DiagnosticReport.read scopes to be granted to the caller.
+The necessary OAuth scopes can be determined by checking the attachment.contentType in the referring resource. For attachments with the `application/pdf` contentType, the Binary.read and DocumentReference.read scopes are required. For attachments with the `text/html` contentType, the Binary.read and DiagnosticReport.read scopes are required.
 
-<%= authorization_types(practitioner: true, system: true) %>
- 
+<%= authorization_types(practitioner: true,  patient: true, system: true) %>
+
 ### Headers
 
-The `DiagnosticReport.presentedForm.contentType` should be used to set the `Accept` header. An `Accept` header of `application/json+fhir` could be supplied instead, if the JSON Binary resource is desired insetad of the raw data.
- 
+Either `DocumentReference.content.attachment.contentType` or `DiagnosticReport.presentedForm.contentType` should be used to set the `Accept` header. An `Accept` header of `application/json+fhir` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
+
 This resource will not accept the `application/json` mime type unless the underlying binary data is json.
 
 <%= headers %>
@@ -79,7 +79,7 @@ The common [errors] may be returned.
 
 ## $autogen-ccd-if
 
-Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters: 
+Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:
 
     GET /Binary/$autogen-ccd-if?:parameters
 
@@ -135,7 +135,7 @@ This resource will not accept the `application/json` mime type unless the underl
 <%= headers head: {'Accept': 'application/xml'} %>
 
     GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
-    
+
 #### Response
 
 <%= headers status: 200, head:{'Content-Type': 'application/xml'} %>
