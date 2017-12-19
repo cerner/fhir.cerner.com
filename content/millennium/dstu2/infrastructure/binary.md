@@ -9,11 +9,13 @@ title: Binary | DSTU 2 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical notes, and diagnostic reports.
+The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, and diagnostic reports.
 
 It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource. 
 
 The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see [the Binary Documentation](http://hl7.org/fhir/dstu2/binary.html#rest).
+
+NOTE: To retrieve documents with application/pdf contentType, the client must have installed Cerner’s Clinical Reporting (XR) solution. For additional information about Cerner’s Clinical Reporting (XR) solution see [Clinical Reporting (XR) Reference Pages](https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages).
 
 The following fields are returned if valued:
 
@@ -30,6 +32,7 @@ List an individual Binary by its id:
 _Implementation Notes_
 
 * This is usually linked from DocumentReference or DiagnosticReport and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
+* Documents containing URL sections are unsupported with contentType of `application/pdf`
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
 
