@@ -50,8 +50,7 @@ Search for DocumentReferences that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Search results are currently limited to clinical documents.
-
+* Search results are currently limited to published clinical documents.
 
 ### Authorization Types
 
