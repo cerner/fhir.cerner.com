@@ -9,7 +9,7 @@ title: DocumentReference | DSTU 2 API
 
 ## Overview
 
-The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a pdf. Additionally, this resource supports writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.
+The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF. Additionally, this resource supports writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.
 
 For fields supported on write, see the [create](#create) section.
 
@@ -62,9 +62,9 @@ _Implementation Notes_
 ----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
 `patient`       | This, or `subject` | [`reference`] | The identifier of a patient to list references for. Example: `patient=12345`
 `subject`       | This, or `patient` | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316020 or subject:Patient=1316020`
-`encounter`     | No                 | [`reference`] | The encounter which belongs to the reference.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
+`encounter`     | No                 | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
 `created`       | No                 | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
-[`_count`]      | No                 | [`number`]    | The maximum number of results to return. Defaults to `10`.
+[`_count`]      | No                 | [`number`]    | The maximum number of results to return.
 
 Notes:
 
