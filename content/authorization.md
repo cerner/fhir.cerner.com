@@ -595,13 +595,14 @@ Windows Registry Editor Version 5.00
 </pre>
 
 For the above registration, the client application would be
-registered with a redirection URI of "sample.application://".
-Upon redirection to this scheme, the Windows operating system
-will invoke the registered application with the OAuth2 response
-URI passed as the first argument.  The client application may
-then parse the URI and in turn determine which open instance
-of the application (if multiples are allowed) initiated the
-request via examination of the "state" parameter.
+registered with a redirection URI whose scheme begins with
+"sample.application://".  Upon redirection to this scheme, 
+the Windows operating system will invoke the registered 
+application with the OAuth2 response URI passed as the first
+argument.  The client application may hen parse the URI and 
+in turn determine which open instance f the application 
+(if multiples are allowed) initiated the equest via 
+examination of the "state" parameter.
 
 ### Processing the Authorization Grant Response ###
 
@@ -1022,11 +1023,23 @@ preceding documentation.
 > _NOTE_:  Cerner's implementation uses strict path
   validation, which includes trailing slashes in your
   redirection URI.
+  
+- I'm having trouble registering my redirection URI,
+  what advice can you offer?
+  
+> URIs must conform with RFC 2396 and must be an
+  absolute URI, per that specification.  Most issues
+  we encounter are individuals attempting to register
+  URIs with schemes containing a net path ("//"), but
+  are missing an authority component.  For example,
+  "app://" is an invalid URI, but "app://callback" 
+  is valid.
 
 - Can I register multiple redirect URIs?
 
-> Cerner does not currently support the registration of
-  multiple redirection URIs; it is under consideration.
+> Cerner's operations team can register multiple
+  redirect URIs for your application.  Thiss function
+  is not yet exposed in our developer tooling.
 
 - My organization is a Cerner client that offers an
   application directly to patients.  Can we skip the
