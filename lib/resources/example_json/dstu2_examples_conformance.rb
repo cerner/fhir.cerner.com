@@ -7,11 +7,11 @@ module Cerner
         "status": "generated",
         "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
       },
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2017-01-23",
+      "date": "2017-02-28",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -85,12 +85,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                  "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                  "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "date",
@@ -101,6 +106,16 @@ module Cerner
                   "name": "_count",
                   "type": "number",
                   "documentation": "The maximum number of results to return in a page."
+                },
+                {
+                  "name": 'category',
+                  "type": "token",
+                  "documentation": 'Determines if searching for care plan or care team, and if a care team then which type.'
+                },
+                {
+                  "name": 'context',
+                  "type": "reference",
+                  "documentation": 'The encounter for which this care team was responsible.'
                 }
               ]
             },
@@ -108,14 +123,22 @@ module Cerner
               "type": "Condition",
               "interaction": [
                 {
+                  "code": "read"
+                },
+                {
                   "code": "search-type"
                 }
               ],
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient who has the condition. It is a required field"
+                  "documentation": "The patient who has the condition. It is a required field if _id field is not given"
                 },
                 {
                   "name": "clinicalstatus",
@@ -382,6 +405,14 @@ module Cerner
               ]
             },
             {
+              "type": "OperationDefinition",
+              "interaction": [
+                {
+                  "code": "read"
+                }
+              ]
+            },
+            {
               "type": "Patient",
               "interaction": [
                 {
@@ -444,6 +475,22 @@ module Cerner
                 }
               ]
             }
+          ],
+          "operation": [
+            {
+              "name": "autogen-ccd-if",
+              "definition": {
+                "reference": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
+                "display": "Generate Continuity of Care Document (CCD)"
+              }
+            },
+            {
+              "name": "docref",
+              "definition": {
+                "reference": "http://fhir.org/guides/argonaut/OperationDefinition/docref",
+                "display": "Argonaut Get DocumentReferences"
+              }
+            }
           ]
         }
       ]
@@ -455,11 +502,11 @@ module Cerner
         "status": "generated",
         "div": "&lt;div&gt;Generated Conformance Statement&lt;/div&gt;"
       },
-      "url": "https://fhir-ehr.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/metadata",
+      "url": "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
       "name": "Cerner Conformance Statement",
       "status": "draft",
       "publisher": "Cerner",
-      "date": "2017-01-23",
+      "date": "2017-02-28",
       "description": "Describes capabilities of this server",
       "kind": "instance",
       "fhirVersion": "1.0.2",
@@ -478,11 +525,11 @@ module Cerner
                 "extension": [
                   {
                     "url": "token",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/token"
+                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token"
                   },
                   {
                     "url": "authorize",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/d075cf8b-3261-481d-97e5-ba6c48d3b41f/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
+                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
                   }
                 ]
               }
@@ -567,12 +614,17 @@ module Cerner
                 {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "Who care plan is for. It is a required field if _id field is not given"
+                  "documentation": "Who care plan or care team is for. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
+                },
+                {
+                  "name": "subject",
+                  "type": "reference",
+                  "documentation": "Who care plan or care team is for. Must be a patient. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "_id",
                   "type": "token",
-                  "documentation": "A single or comma separated list of CarePlan ids. It is a required field if patient field is not given"
+                  "documentation": "A single or comma separated list of CarePlan ids. Either the '_id' parameter or one of the 'patient' or 'subject' parameters must be set."
                 },
                 {
                   "name": "date",
@@ -583,6 +635,16 @@ module Cerner
                   "name": "_count",
                   "type": "number",
                   "documentation": "The maximum number of results to return in a page."
+                },
+                {
+                  "name": 'category',
+                  "type": "token",
+                  "documentation": 'Determines if searching for care plan or care team, and if a care team then which type.'
+                },
+                {
+                  "name": 'context',
+                  "type": "reference",
+                  "documentation": 'The encounter for which this care team was responsible.'
                 }
               ]
             },
@@ -593,18 +655,26 @@ module Cerner
                   "code": "create"
                 },
                 {
-                  "code": "update"
+                  "code": "read"
                 },
                 {
                   "code": "search-type"
+                },
+                {
+                  "code": "update"
                 }
               ],
               "updateCreate": false,
               "searchParam": [
                 {
+                  "name": "_id",
+                  "type": "token",
+                  "documentation": "A single or comma separated list of Condition ids. It is a required field if patient field is not given"
+                },
+                {
                   "name": "patient",
                   "type": "reference",
-                  "documentation": "The patient who has the condition. It is a required field"
+                  "documentation": "The patient who has the condition. It is a required field if _id field is not given"
                 },
                 {
                   "name": "clinicalstatus",
@@ -881,6 +951,14 @@ module Cerner
               ]
             },
             {
+              "type": "OperationDefinition",
+              "interaction": [
+                {
+                  "code": "read"
+                }
+              ]
+            },
+            {
               "type": "Patient",
               "interaction": [
                 {
@@ -942,6 +1020,22 @@ module Cerner
                   "documentation": "A person identifier. It is a required field if no _id field is given"
                 }
               ]
+            }
+          ],
+          "operation": [
+            {
+              "name": "autogen-ccd-if",
+              "definition": {
+                "reference": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
+                "display": "Generate Continuity of Care Document (CCD)"
+              }
+            },
+            {
+              "name": "docref",
+              "definition": {
+                "reference": "http://fhir.org/guides/argonaut/OperationDefinition/docref",
+                "display": "Argonaut Get DocumentReferences"
+              }
             }
           ]
         }

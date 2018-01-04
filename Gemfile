@@ -4,7 +4,7 @@ ruby '2.3.1'
 
 gem 'kramdown', '~> 1.6'
 gem 'nanoc', '~> 4.0'
-gem 'yajl-ruby', '~> 1.2'
+gem 'yajl-ruby', '~> 1.3'
 
 group :development do
   gem 'adsf'

@@ -12,6 +12,52 @@ module Cerner
         "status": "generated",
         "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1947-03-16&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
       },
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1947-03-16T13:36:00.000-06:00"
+        },
+        {
+          "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
+          "valueCode": "F"
+        },
+        {
+          "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "http://hl7.org/fhir/v3/Race",
+                "code": "2054-5",
+                "display": "Black or African American",
+                "userSelected": false
+              }
+            },
+            {
+              "url": "text",
+              "valueString": "Black or African American"
+            }
+          ]
+        },
+        {
+          "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-ethnicity",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "http://hl7.org/fhir/v3/Ethnicity",
+                "code": "2135-2",
+                "display": "Hispanic or Latino",
+                "userSelected": false
+              }
+            },
+            {
+              "url": "text",
+              "valueString": "Hispanic or Latino"
+            }
+          ]
+        }
+      ],
       "identifier": [
         {
           "use": "usual",
@@ -51,10 +97,43 @@ module Cerner
       ],
       "gender": "female",
       "birthDate": "1947-03-16",
+      "communication": [
+        {
+          "language": {
+            "coding": [
+              {
+                "system": "urn:ietf:bcp:47",
+                "code": "en",
+                "display": "English",
+                "userSelected": false
+              }
+            ],
+            "text": "English"
+          },
+          "preferred": true
+        }
+      ],
       "careProvider": [
         {
           "reference": "Practitioner/1912007",
           "display": "Forrest, Fhir"
+        }
+      ]
+    }
+
+    DSTU2_COMBINED_PATIENT_ENTRY ||= {
+      "resourceType": "Patient",
+      "id": "4860007",
+      "meta": {
+        "versionId": "0"
+      },
+      "active": false,
+      "link": [
+        {
+          "other": {
+            "reference": "Patient/4342008"
+          },
+          "type": "replace"
         }
       ]
     }
@@ -67,12 +146,12 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?_id=4342009&_count=20"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009&_count=20"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/4342009",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009",
           "resource": {
             "resourceType": "Patient",
             "id": "4342009",
@@ -84,6 +163,52 @@ module Cerner
               "status": "generated",
               "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
             },
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+                "valueDateTime": "1980-08-11T12:33:00.000-05:00"
+              },
+              {
+                "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
+                "valueCode": "F"
+              },
+              {
+                "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
+                "extension": [
+                  {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                      "system": "http://hl7.org/fhir/v3/Race",
+                      "code": "2106-3",
+                      "display": "White",
+                      "userSelected": false
+                    }
+                  },
+                  {
+                    "url": "text",
+                    "valueString": "White"
+                  }
+                ]
+              },
+              {
+                "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-ethnicity",
+                "extension": [
+                  {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                      "system": "http://hl7.org/fhir/v3/Ethnicity",
+                      "code": "2186-5",
+                      "display": "Not Hispanic or Latino",
+                      "userSelected": false
+                    }
+                  },
+                  {
+                    "url": "text",
+                    "valueString": "Not Hispanic or Latino"
+                  }
+                ]
+              }
+            ],
             "identifier": [
               {
                 "use": "usual",
@@ -134,6 +259,22 @@ module Cerner
               ],
               "text": "Married"
             },
+            "communication": [
+              {
+                "language": {
+                  "coding": [
+                    {
+                      "system": "urn:ietf:bcp:47",
+                      "code": "en",
+                      "display": "English",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "English"
+                },
+                "preferred": true
+              }
+            ],
             "careProvider": [
               {
                 "reference": "Practitioner/1912007",

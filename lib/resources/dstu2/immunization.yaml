@@ -13,6 +13,7 @@ fields:
     terminology:
     - display: CVX
       system: http://hl7.org/fhir/sid/cvx
+      info_link: http://hl7.org/fhir/dstu2/cvx.html
 
 - name: site
   required: 'No'
@@ -24,6 +25,7 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
 
 - name: route
   required: 'No'
@@ -33,8 +35,12 @@ fields:
   binding:
     description: The path the administered medication takes to get into the body or into contact with the body.
     terminology:
-        - display: NCI Metathesaurus
-          system: http://ncimeta.nci.nih.gov
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+    - display: NCI Metathesaurus
+      system: http://ncimeta.nci.nih.gov
+      info_link: http://hl7.org/fhir/dstu2/ncimeta.html
 
 - name: explanation
   required: 'No'
@@ -49,8 +55,10 @@ fields:
     cardinality: 0..*
     type: CodeableConcept
     description: Why immunization did not occur.
+    note: While the FHIR Valueset currently supports SNOMED and V3, our implementation will currently only return V3 values.
     binding:
       description: The reason why a vaccine was not administered.
       terminology:
       - display: v3 Code System ActReason
         system: http://hl7.org/fhir/v3/ActReason
+        info_link: http://hl7.org/fhir/dstu2/valueset-no-immunization-reason.html

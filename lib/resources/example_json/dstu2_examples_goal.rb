@@ -2,356 +2,169 @@ module Cerner
   module Resources
 
     DSTU2_GOAL_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "5e77a562-467a-43e3-8178-d93820de6177",
-      "type": "searchset",
-      "total": 8,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal?patient=757932"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/108253193",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "108253193",
-            "meta": {
-              "versionId": "1473862244000",
-              "lastUpdated": "2016-09-14T14:10:44.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Patient Specific Goal 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-07-14&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-07-21&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-07-14",
-            "targetDate": "2016-07-21",
-            "description": "Patient Specific Goal 1",
-            "status": "cancelled",
-            "statusDate": "2016-09-14"
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/108253189",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "108253189",
-            "meta": {
-              "versionId": "1473862250000",
-              "lastUpdated": "2016-09-14T14:10:50.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Patient Specific Goal 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-07-20&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-07-22&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-07-20",
-            "targetDate": "2016-07-22",
-            "description": "Patient Specific Goal 1",
-            "status": "cancelled",
-            "statusDate": "2016-09-14"
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/115727367",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "115727367",
-            "meta": {
-              "versionId": "1478875242000",
-              "lastUpdated": "2016-11-11T14:40:42.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Patient Specific Goal 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-14&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-09-30&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-14",
-            "targetDate": "2016-09-30",
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/goal-category",
-                    "code": "behavioral",
-                    "display": "behavioral",
-                    "userSelected": false
-                  }
-                ],
-                "text": "Behavioral"
-              }
-            ],
-            "description": "Patient Specific Goal 1",
-            "status": "in-progress",
-            "statusDate": "2016-09-14",
-            "note": [
-              {
-                "authorReference": {
-                  "reference": "Practitioner/1590015",
-                  "display": "Forrest, Fhir"
+        "resourceType": "Bundle",
+        "id": "5ecc9ee8-8a52-4676-a2c6-b8698d30e284",
+        "type": "searchset",
+        "total": 3,
+        "link": [{
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925"
+        }],
+        "entry": [{
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59475953",
+            "resource": {
+                "resourceType": "Goal",
+                "id": "59475953",
+                "meta": {
+                    "versionId": "1485975664000",
+                    "lastUpdated": "2017-02-01T19:01:04.000Z"
                 },
-                "time": "2016-11-11T14:40:42.000Z",
-                "text": "This is a freetext goal."
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/118026271",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "118026271",
-            "meta": {
-              "versionId": "1474926216000",
-              "lastUpdated": "2016-09-26T21:43:36.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Test Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-19&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-19",
-            "description": "Test Goal",
-            "status": "cancelled",
-            "statusDate": "2016-09-26"
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/118026293",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "118026293",
-            "meta": {
-              "versionId": "1474926499000",
-              "lastUpdated": "2016-09-26T21:48:19.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Met Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Achieved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-20&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-20",
-            "description": "Met Goal",
-            "status": "achieved",
-            "statusDate": "2016-09-26"
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/118080571",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "118080571",
-            "meta": {
-              "versionId": "1478875353000",
-              "lastUpdated": "2016-11-11T14:42:33.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Goal with in-progress status&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-27&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-11-17&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-27",
-            "targetDate": "2016-11-17",
-            "category": [
-              {
-                "text": "Community"
-              }
-            ],
-            "description": "Goal with in-progress status",
-            "status": "in-progress",
-            "statusDate": "2016-11-11",
-            "author": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Test goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-11-09&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2016-11-30&lt;/p>&lt;/div>"
+                },
+                "subject": {
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
+                },
+                "startDate": "2016-11-09",
+                "targetDate": "2016-11-30",
+                "category": [{
+                    "text": "Community"
+                }],
+                "description": "Test goal",
+                "status": "in-progress",
+                "statusDate": "2016-11-09",
+                "note": [{
+                    "authorReference": {
+                        "reference": "Practitioner/4594024",
+                        "display": "Pomfrey, Poppy"
+                    },
+                    "time": "2017-02-01T19:01:04.000Z",
+                    "text": "Test comment for the goal \"Test goal\""
+                }]
             }
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/118098585",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "118098585",
-            "meta": {
-              "versionId": "1478875260000",
-              "lastUpdated": "2016-11-11T14:41:00.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Another Goal with in-progress status&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-28&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-28",
-            "description": "Another Goal with in-progress status",
-            "status": "in-progress",
-            "statusDate": "2016-09-28",
-            "note": [
-              {
-                "authorReference": {
-                  "reference": "Practitioner/1590015",
-                  "display": "Forrest, Fhir"
+        }, {
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535837",
+            "resource": {
+                "resourceType": "Goal",
+                "id": "59535837",
+                "meta": {
+                    "versionId": "1482335249000",
+                    "lastUpdated": "2016-12-21T15:47:29.000Z"
                 },
-                "time": "2016-11-11T14:41:00.000Z",
-                "text": "Comment on why there is no status attached to this goal - need to do something."
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/121518549",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "121518549",
-            "meta": {
-              "versionId": "1478894457000",
-              "lastUpdated": "2016-11-11T20:00:57.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-11-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-11-12&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-11-11",
-            "targetDate": "2016-11-12",
-            "description": "1",
-            "status": "in-progress",
-            "statusDate": "2016-11-11"
-          }
-        }
-      ]
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Met goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Achieved&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-12-13&lt;/p>&lt;p>&lt;b>Target Date&lt;/b>: 2016-12-23&lt;/p>&lt;/div>"
+                },
+                "subject": {
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
+                },
+                "startDate": "2016-12-13",
+                "targetDate": "2016-12-23",
+                "category": [{
+                    "text": "Community"
+                }, {
+                    "text": "Safety"
+                }],
+                "description": "Met goal",
+                "status": "achieved",
+                "statusDate": "2016-12-21"
+            }
+        }, {
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535833",
+            "resource": {
+                "resourceType": "Goal",
+                "id": "59535833",
+                "meta": {
+                    "versionId": "1485975696000",
+                    "lastUpdated": "2017-02-01T19:01:36.000Z"
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Description&lt;/b>: Test Goal without a target date&lt;/p>&lt;p>&lt;b>Author&lt;/b>: Granger, Hermione&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2016-12-21&lt;/p>&lt;/div>"
+                },
+                "subject": {
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
+                },
+                "startDate": "2016-12-21",
+                "category": [{
+                    "text": "Behavioral"
+                }],
+                "description": "Test Goal without a target date",
+                "status": "in-progress",
+                "statusDate": "2016-12-21",
+                "author": {
+                    "reference": "Patient/685925",
+                    "display": "Granger, Hermione"
+                },
+                "note": [{
+                    "authorReference": {
+                        "reference": "Practitioner/4594024",
+                        "display": "Pomfrey, Poppy"
+                    },
+                    "time": "2017-02-01T19:01:36.000Z",
+                    "text": "This is a test. I repeat, this is only a test!"
+                }]
+            }
+        }]
     }
 
     DSTU2_GOAL_BUNDLE_BY_ID ||= {
-      "resourceType": "Bundle",
-      "id": "ae6a3596-660d-4abd-8faf-d712640c4933",
-      "type": "searchset",
-      "total": 1,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal?_id=115727367"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Goal/115727367",
-          "resource": {
-            "resourceType": "Goal",
-            "id": "115727367",
-            "meta": {
-              "versionId": "1478875242000",
-              "lastUpdated": "2016-11-11T14:40:42.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Patient Specific Goal 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-14&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-09-30&lt;/p&gt;&lt;/div&gt;"
-            },
-            "subject": {
-              "reference": "Patient/757932",
-              "display": "Cerner, Sarah"
-            },
-            "startDate": "2016-09-14",
-            "targetDate": "2016-09-30",
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/goal-category",
-                    "code": "behavioral",
-                    "display": "behavioral",
-                    "userSelected": false
-                  }
-                ],
-                "text": "Behavioral"
-              }
-            ],
-            "description": "Patient Specific Goal 1",
-            "status": "in-progress",
-            "statusDate": "2016-09-14",
-            "note": [
-              {
-                "authorReference": {
-                  "reference": "Practitioner/1590015",
-                  "display": "Forrest, Fhir"
+        "resourceType": "Bundle",
+        "id": "5c7be2b1-79b7-4387-abde-df3ffc2247ba",
+        "type": "searchset",
+        "total": 1,
+        "link": [{
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849"
+        }],
+        "entry": [{
+            "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849",
+            "resource": {
+                "resourceType": "Goal",
+                "id": "59563849",
+                "meta": {
+                    "versionId": "1485363855000",
+                    "lastUpdated": "2017-01-25T17:04:15.000Z"
                 },
-                "time": "2016-11-11T14:40:42.000Z",
-                "text": "This is a freetext goal."
-              }
-            ]
-          }
-        }
-      ]
+                "text": {
+                    "status": "generated",
+                    "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A New Goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-25&lt;/p>&lt;/div>"
+                },
+                "subject": {
+                    "reference": "Patient/1045932",
+                    "display": "TEST, LISA"
+                },
+                "startDate": "2017-01-25",
+                "description": "A New Goal",
+                "status": "in-progress",
+                "statusDate": "2017-01-25"
+            }
+        }]
     }
 
     DSTU2_GOAL ||= {
-      "resourceType": "Goal",
-      "id": "115727367",
-      "meta": {
-        "versionId": "1478875242000",
-        "lastUpdated": "2016-11-11T14:40:42.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Cerner, Sarah&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Patient Specific Goal 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-09-14&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-09-30&lt;/p&gt;&lt;/div&gt;"
-      },
-      "subject": {
-        "reference": "Patient/757932",
-        "display": "Cerner, Sarah"
-      },
-      "startDate": "2016-09-14",
-      "targetDate": "2016-09-30",
-      "category": [
-        {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/goal-category",
-              "code": "behavioral",
-              "display": "behavioral",
-              "userSelected": false
-            }
-          ],
-          "text": "Behavioral"
-        }
-      ],
-      "description": "Patient Specific Goal 1",
-      "status": "in-progress",
-      "statusDate": "2016-09-14",
-      "note": [
-        {
-          "authorReference": {
-            "reference": "Practitioner/1590015",
-            "display": "Forrest, Fhir"
-          },
-          "time": "2016-11-11T14:40:42.000Z",
-          "text": "This is a freetext goal."
-        }
-      ]
+        "resourceType": "Goal",
+        "id": "59563849",
+        "meta": {
+            "versionId": "1485363855000",
+            "lastUpdated": "2017-01-25T17:04:15.000Z"
+        },
+        "text": {
+            "status": "generated",
+            "div": "&lt;div>&lt;p>&lt;b>Goal&lt;/b>&lt;/p>&lt;p>&lt;b>Subject&lt;/b>: TEST, LISA&lt;/p>&lt;p>&lt;b>Description&lt;/b>: A New Goal&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Start Date&lt;/b>: 2017-01-25&lt;/p>&lt;/div>"
+        },
+        "subject": {
+            "reference": "Patient/1045932",
+            "display": "TEST, LISA"
+        },
+        "startDate": "2017-01-25",
+        "description": "A New Goal",
+        "status": "in-progress",
+        "statusDate": "2017-01-25"
     }
   end
 end

@@ -218,6 +218,12 @@ a img {
   position: relative;
 }
 
+#header-button {
+  background: #5C9A32;
+  margin: 10px 0 0;
+  float: right;
+}
+
 #top-header {
   height: 50px;
   padding: 15px 0;
@@ -1374,7 +1380,7 @@ pre span.comment {color: #aaa;}
 }
 
 .sidebar-module .arrow-btn {
- background-image: url(/images/expand-arrows.png);
+ background-image: url(../images/expand-arrows.png);
  background-repeat: no-repeat;
  background-position: -3px -3px;
  width: 13px;

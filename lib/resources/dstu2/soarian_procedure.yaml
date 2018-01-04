@@ -1,0 +1,18 @@
+---
+name: Procedure
+field_name_base_url: http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure
+fields:
+- name: code
+  type: CodeableConcept
+  binding:
+    description: A code to identify a specific procedure. Only one terminology system will be returned, depending on configuration.
+    terminology:
+    - display: Procedure Codes (SNOMED CT)
+      system: http://snomed.info/
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+    - display: CPT
+      system: http://www.ama-assn.org/go/cpt
+      info_link: http://hl7.org/fhir/dstu2/cpt.html
+    - display: ICD-10-PCS
+      system: http://www.icd10data.com/icd10pcs
+      info_link: http://www.icd10data.com/icd10pcs

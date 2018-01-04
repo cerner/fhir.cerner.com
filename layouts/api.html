@@ -6,10 +6,20 @@
   <div class="sub-nav">
     <% case @item[:version]
     when 'dstu2' %>
-    <h2><a href="/dstu2/">DSTU 2 Final (1.0.2)</a></h2>
-    <% when 'may2015' %>
-    <h2><a href="/may2015/">DSTU 2 Ballot (0.5.0)</a></h2>
+      <% if @item[:solution] == 'millennium' %>
+      <h2>Millennium</h2>
+      <ul>
+      <% elsif @item[:solution] == 'soarian' %>
+      <h2>Soarian</h2>
+      <ul>
+      <% end %>
+      <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
     <% end %>
+      <% if @item[:solution] == 'millennium' %>
+        <li><a href="/<%= @item[:solution] %>/faq/" class="nav-faq">FAQ</a></li>
+      <% end %>
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
   </div>
 
   <div id="wrapper">
@@ -17,7 +27,7 @@
       <%= yield %>
     </div>
 
-    <%= render "/#{@item[:version].to_s }_sidebar.*" %>
+    <%= render "/#{@item[:solution].to_s}_#{@item[:version].to_s}_sidebar.*" %>
   </div><!-- #wrapper -->
 
   <%= render '/footer.*' %>

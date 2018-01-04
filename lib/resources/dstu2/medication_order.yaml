@@ -14,10 +14,13 @@ fields:
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
-    - display: ICD-9
-      system: http://hl7.org/fhir/sid/icd-9
-    - display: ICD-10
-      system: http://hl7.org/fhir/sid/icd-10
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
+    - display: ICD-9-CM
+      system: http://hl7.org/fhir/sid/icd-9-cm
+      info_link: http://hl7.org/fhir/icd.html
+    - display: ICD-10-CM
+      system: http://hl7.org/fhir/sid/icd-10-cm
+      info_link: http://hl7.org/fhir/icd.html
 
 - name: medicationCodeableConcept
   required: 'No'
@@ -30,6 +33,7 @@ fields:
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
 
 - name: dosageInstruction
   required: 'No'
@@ -65,8 +69,10 @@ fields:
         terminology:
         - display: TimingAbbreviation
           system: http://hl7.org/fhir/timing-abbreviation
+          info_link: http://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html
         - display: SNOMED CT
           system: http://snomed.info/sct
+          info_link: http://hl7.org/fhir/dstu2/snomedct.html
 
   - name: asNeeded[x]
     required: 'No'
@@ -81,6 +87,7 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
 
   - name: siteCodeableConcept
     required: 'No'
@@ -93,6 +100,7 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
 
   - name: route
     required: 'No'
@@ -107,3 +115,7 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/snomedct.html
+      - display: NCI Metathesaurus
+        system: http://ncimeta.nci.nih.gov
+        info_link: http://hl7.org/fhir/dstu2/ncimeta.html

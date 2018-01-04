@@ -1,0 +1,15 @@
+---
+name: DiagnosticReport
+field_name_base_url: http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport
+fields:
+- name: code
+  required: 'No'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: A code or name that describes this diagnostic report.
+  binding:
+    description: Codes that describe Diagnostic Reports.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/loinc.html

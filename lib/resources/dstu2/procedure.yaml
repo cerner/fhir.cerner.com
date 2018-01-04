@@ -9,10 +9,13 @@ fields:
     terminology:
     - display: Procedure Codes (SNOMED CT)
       system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/snomedct.html
     - display: CPT
       system: http://www.ama-assn.org/go/cpt
+      info_link: http://hl7.org/fhir/dstu2/cpt.html
     - display: ICD-10-PCS
       system: http://www.icd10data.com/icd10pcs
+      info_link: http://www.icd10data.com/icd10pcs
 
 - name: performer
   children:
@@ -20,5 +23,6 @@ fields:
     binding:
       description: A code that identifies the role of a performer of the procedure.  
       terminology:
-      - display: Procedure Performer Role Codes
-        system: http://hl7.org/fhir/ValueSet/performer-role
+      - display: Procedure Performer Role Codes (SNOMED CT)
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/dstu2/valueset-performer-role.html

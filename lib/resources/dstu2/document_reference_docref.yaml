@@ -1,0 +1,23 @@
+---
+name: DocumentReference
+field_name_base_url: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference
+fields:
+- name: type
+  binding:
+    description: Precise type of clinical document.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/loinc.html
+      values:
+      - 34133-9 - Summary of episode note
+
+- name: content
+  children:
+  - name: format
+    binding:
+      description: Document format codes.
+      terminology:
+      - display: DocumentReference Format Code Set
+        system: urn:oid:1.3.6.1.4.1.19376.1.2.3
+        info_link: http://hl7.org/fhir/dstu2/valueset-formatcodes.html

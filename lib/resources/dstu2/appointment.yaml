@@ -2,21 +2,116 @@
 name: Appointment
 field_name_base_url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment
 fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType: "Appointment"
+    }
+  note: resourceType must be Appointment
+  url: http://hl7.org/fhir/DSTU2/json.html#resources
+
 - name: type
   required: 'Yes'
   cardinality: 0..1
   type: CodeableConcept
   description: The type of appointment that is being booked.
+  action: read
   example: |
-             {"type": {
-                "coding": [
-                  {"system": "http://snomed.info/sct",
-                   "code": "394581000",
-                   "display": "Community medicine",
-                   "userSelected": false}],
-                "text": "Same Day"}
+             {
+               "type": {
+                 "coding": [
+                   {
+                     "system": "http://snomed.info/sct",
+                     "code": "394581000",
+                     "display": "Community medicine",
+                     "userSelected": false
+                   }
+                 ],
+                "text": "Same Day"
+               }
+             }
+  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type
   binding:
     description:  Additional details about where the content was created (e.g. clinical specialty).
     terminology:
     - display: Practice Setting Code Value Set
-      system: http://hl7.org/fhir/ValueSet/c80-practice-codes
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
+
+- name: slot
+  required: 'Yes'
+  cardinality: 0..1
+  type: Reference (Slot)
+  description: The availability to which the appointment is booked.
+  example: |
+    {
+      "slot": {
+        "reference": "Slot/21265426-633867-6828001-60"
+      }
+    }
+  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot
+  action: create
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+  note: When creating a new appointment, the status must be "proposed".
+  action: create
+  example: |
+      {
+        "status": "proposed"
+      }
+  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
+
+- name: participant
+  required: 'Yes'
+  cardinality: 1..*
+  type: BackboneElement
+  description: Participants involved in appointment.
+  note: When creating a new appointment, at most one participant can be populated.
+  action: create
+  example: |
+      {
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "PATIENT, TEST"
+            },
+            "status": "needs-action"
+          }
+        ]
+      }
+  children:
+
+  - name: actor
+    required: 'Yes'
+    cardinality: 0..1
+    type: Reference (Patient)
+    description: A person, location, healthcare service or device that is participating in the appointment.
+    note: When creating a new appointment, this must be a Patient participant.
+    example: |
+      {
+        "actor": {
+          "reference": "Patient/4704007",
+          "display": "PATIENT, TEST"
+        }
+      }
+
+  - name: status
+    required: 'Yes'
+    cardinality: 1..1
+    type: code
+    description: Participation status of the Patient.
+    note: When creating a new appointment, this value must be "needs-action".
+    example: |
+      {
+        "status": "needs-action"
+      }
+
