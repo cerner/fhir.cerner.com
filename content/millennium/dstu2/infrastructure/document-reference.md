@@ -60,7 +60,7 @@ _Implementation Notes_
 
  Name           | Required?          | Type          | Description
 ----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
-`patient`       | This, or `subject` | [`reference`] | The identifier of a patient to list references for. Example: `patient=12345`
+`patient`       | This, or `subject` | [`reference`] | The patient to which the document reference belongs. Example: `patient=12345`
 `subject`       | This, or `patient` | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316020 or subject:Patient=1316020`
 `encounter`     | No                 | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
 `created`       | No                 | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
@@ -68,7 +68,10 @@ _Implementation Notes_
 
 Notes:
 
-- The `created` parameter must be provided twice, once with the `ge` parameter and once with the `le` parameter.  The two provided date/times may not be equal and must form a closed range.  If one `created` parameter includes a time, both must include a time.   
+- When the `created` parameter is provided:
+  - It must be provided twice, once with the `ge` parameter and once with the `le` parameter.
+  - The two provided date/times may not be equal and must form a closed range.
+  - If one `created` parameter includes a time, both must include a time.
 
 ### Headers
 
