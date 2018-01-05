@@ -59,7 +59,7 @@ Notes:
 * If a single date parameter is used in the query, the response will include all qualifying records dated that day.
 * If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
 * If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
-* Developers are strongly encouraged to specify data ranges to prevent an inordinately large number of records from being returned.
+* Developers are strongly encouraged to specify date ranges to prevent an inordinately large number of records from being returned.
 
 ### Headers
 
