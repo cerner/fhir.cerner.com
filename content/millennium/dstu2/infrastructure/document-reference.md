@@ -9,32 +9,98 @@ title: DocumentReference | DSTU 2 API
 
 ## Overview
 
-The DocumentReference resource is used to reference a document within the health system. This resource supports reading Continuity of Care Documents (CCD), or writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.
+The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF. Additionally, this resource supports writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.
 
 For fields supported on write, see the [create](#create) section.
 
 The following fields are returned if valued for the docref operation (CCD read):
 
-* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id)
-* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject)
-* [Type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type)
-* [Index date/time (when document reference created)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed)
-* [Status (current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status)
-* [Format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format)
-* [ContentType and URL (fully qualified link to the Binary CCD)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment)
+* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
+* [Index date/time (when document reference created)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
+* [Status (current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
+* [ContentType and URL (fully qualified link to the Binary CCD)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+
+The following fields are returned if valued for clinical documents:
+
+* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
+* [Document description/title](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
+* [Authenticator/verifying provider](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
+* [Create date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created){:target="_blank"}
+* [Indexed date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
+* [Status (typically current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Document status (typically final or amended)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
+* [ContentType and URL (fully qualified link to the document](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
+
 
 ## Terminology Bindings
 
 <%= terminology_table(:document_reference, :dstu2) %>
+
+## Search
+
+Search for DocumentReferences that meet supplied query parameters:
+
+    GET /DocumentReference?:parameters
+
+_Implementation Notes_
+
+* Search results are currently limited to published clinical documents.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Parameters
+
+ Name           | Required?          | Type          | Description
+----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
+`patient`       | This, or `subject` | [`reference`] | The patient to which the document reference belongs. Example: `patient=12345`
+`subject`       | This, or `patient` | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316020 or subject:Patient=1316020`
+`encounter`     | No                 | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
+`created`       | No                 | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
+[`_count`]      | No                 | [`number`]    | The maximum number of results to return.
+
+Notes:
+
+- When the `created` parameter is provided:
+  - It must be provided twice, once with the `ge` parameter and once with the `le` parameter.
+  - The two provided date/times may not be equal and must form a closed range.
+  - If one `created` parameter includes a time, both must include a time.
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference?patient=1316024&created=ge2016-01-06&created=le2016-01-07
+
+#### Response
+
+<%= headers status: 200 %>
+
+<%= json(:dstu2_document_reference_docref_search) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Create
 
 Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.
 
     POST /DocumentReference
-    
+
 _Implementation Notes_   
-    
+
 * The modifier elements [implicitRules], [modifierExtension] and [relatesTo] are not supported and will be rejected if present.
 * Currently only XHTML formatted documents are supported. You can validate your document using any available strict XHTML 1.0 validator (eg: [w3 validator] or this [html5 validator]).
 
@@ -91,7 +157,7 @@ _Implementation Notes_
 ### Errors
 
 The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                    
+
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained modifier extensions | error     | extension
@@ -157,6 +223,8 @@ The common [errors] may be returned.
 [w3 validator]: http://validator.w3.org/#validate_by_upload+with_options
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
+[`_count`]: http://hl7.org/fhir/dstu2/search.html#count
+[`number`]: http://hl7.org/fhir/dstu2/search.html#number
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
