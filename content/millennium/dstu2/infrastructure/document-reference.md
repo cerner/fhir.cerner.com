@@ -58,16 +58,18 @@ _Implementation Notes_
 
 ### Parameters
 
- Name           | Required?          | Type          | Description
-----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
-`patient`       | This, or `subject` | [`reference`] | The patient to which the document reference belongs. Example: `patient=12345`
-`subject`       | This, or `patient` | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316020 or subject:Patient=1316020`
-`encounter`     | No                 | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
-`created`       | No                 | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
-[`_count`]      | No                 | [`number`]    | The maximum number of results to return.
+ Name           | Required?                              | Type          | Description
+----------------|----------------------------------------|---------------|-----------------------------------------------------------------------------------------------
+`_id`           | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `_id=7499283`
+`patient`       | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `patient=12345`
+`subject`       | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316020 or subject:Patient=1316020`
+`encounter`     | No                                     | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1353`
+`created`       | No                                     | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
+[`_count`]      | No                                     | [`number`]    | The maximum number of results to return.
 
 Notes:
 
+- The `_id` parameter may not be provided at the same time as the `patient`, `subject`, `encounter`, `created` or `_count` parameters.
 - When the `created` parameter is provided:
   - It must be provided twice, once with the `ge` parameter and once with the `le` parameter.
   - The two provided date/times may not be equal and must form a closed range.
@@ -164,6 +166,34 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
  422         | Body contained implicit rules      | error     | unsupported
  422         | Body contained relatesTo           | error     | unsupported
 
+## Retrieve by id
+
+List an individual DocumentReference by its id:
+
+    GET /DocumentReference/:id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/7499283
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_document_reference_docref_bundle_entry) %>
+
+### Errors
+
+The common [errors] may be returned.
 
 ## Operation: docref
 
