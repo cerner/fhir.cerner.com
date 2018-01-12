@@ -35,13 +35,17 @@ fields:
         }
       ]
     }
-  note: The type must include a loinc coding. Any LOINC representing a clinical document or note is supported and we will map the appropriate LOINCs in Production as applications get deployed to client sites.
+  note: The type must include a loinc coding.
+        <br/><br/>
+        Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
+        <br/><br/>
+        Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
   binding:
     description: Precise type of clinical document.
     terminology:
-    - display: LOINC
+    - display: LOINC Document Types
       system: http://loinc.org
-      info_link: http://hl7.org/fhir/dstu2/loinc.html
+      info_link: http://hl7.org/fhir/DSTU2/valueset-c80-doc-typecodes.html
       values:
       - 18842-5 - Discharge Summary
       - 11488-4 - Consult Note
@@ -51,7 +55,9 @@ fields:
       - 68608-9 - Summary Note
       - 34133-9 - Summary of episode Note
       - 78280-5 - Surgery Education Note
-
+      note: Please note that the following is not the complete list of terminology bindings mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. This list also does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
+            <br/><br/>
+            Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
 
 - name: author
   required: 'No'
