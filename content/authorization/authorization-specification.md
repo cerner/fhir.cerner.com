@@ -197,7 +197,7 @@ to request authorization to FHIR<sup>®</sup> resources.  A SMART
 application __SHOULD__ request scopes needed to access the resource 
 (per the [scopes](#scopes) section) for maximum interoperability.  
 The application __MAY__ choose to omit the redirect URI, as SMART 
-registration is limited to a single redirect URI for SMART applications.
+registration requires a default redirect URI.
 
 In addition, SMART applications __MUST__ send the "state" 
 parameter, as detailed in the [OAuth 2.0 Security Considerations][OAUTH-SECURITY].
@@ -734,7 +734,7 @@ credentials flow, as they are not applicable to that use case.
 #### Disambiguation of Scopes Between Competing Protocols ####
 In the event that an authorization request is used in conjunction with 
 that of a protocol that defines a competing scope, a SMART application 
-or authorization server __MAY__ append the following prefix to a scope:
+or authorization server __MAY__ prepend the following prefix to a scope:
 
 <pre class="terminal">
 http://smarthealthit.org/FHIR/scopes/
@@ -804,7 +804,7 @@ RelatedPerson, or Person resource as described by the
 
 The FHIR<sup>®</sup> resource server __MUST__ allow a user access 
 to their own user resource when receiving any access token
-that contains represents approved access to the profile scope. 
+that represents approved access to the profile scope. 
 
 <a id="discovery"></a>
 
