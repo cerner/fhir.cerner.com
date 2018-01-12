@@ -573,7 +573,7 @@ as such, developers of traditional Windows applications
 should [register a scheme][WIN-SCHEME] for their
 application.  The following is a sample registry file
 for a hypothetical scheme registration of 
-"sample.application://":
+`sample.application://`:
 
 <pre class="terminal">
 Windows Registry Editor Version 5.00
@@ -596,11 +596,11 @@ Windows Registry Editor Version 5.00
 
 For the above registration, the client application would be
 registered with a redirection URI whose scheme begins with
-"sample.application://".  Upon redirection to this scheme, 
-the Windows operating system will invoke the registered 
+`sample.application://`, for example `sample.application://callback`.  
+Upon redirection to this scheme, the Windows operating system will invoke the registered 
 application with the OAuth2 response URI passed as the first
-argument.  The client application may hen parse the URI and 
-in turn determine which open instance f the application 
+argument.  The client application may then parse the URI and 
+in turn determine which open instance of the application 
 (if multiples are allowed) initiated the equest via 
 examination of the "state" parameter.
 
@@ -1038,7 +1038,7 @@ preceding documentation.
 - Can I register multiple redirect URIs?
 
 > Cerner's operations team can register multiple
-  redirect URIs for your application.  Thiss function
+  redirect URIs for your application.  This function
   is not yet exposed in our developer tooling.
 
 - My organization is a Cerner client that offers an
