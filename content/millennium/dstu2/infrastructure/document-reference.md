@@ -51,6 +51,7 @@ Search for DocumentReferences that meet supplied query parameters:
 _Implementation Notes_
 
 * Search results are currently limited to published clinical documents.
+* Contents of the document are found by following the Attachment url. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
 
 ### Authorization Types
 
@@ -172,6 +173,10 @@ List an individual DocumentReference by its id:
 
     GET /DocumentReference/:id
 
+_Implementation Notes_
+
+* Contents of the document are found by following the Attachment url. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
@@ -259,4 +264,5 @@ The common [errors] may be returned.
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [errors]: ../../#client-errors
+[Binary resource]: ../Binary/#authorization-types
 [OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
