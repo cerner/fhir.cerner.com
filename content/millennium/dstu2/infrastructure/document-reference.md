@@ -51,7 +51,7 @@ Search for DocumentReferences that meet supplied query parameters:
 _Implementation Notes_
 
 * Search results are currently limited to published clinical documents.
-* Contents of the document are found by following the Attachment url. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
+* Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
 
 ### Authorization Types
 
@@ -70,7 +70,7 @@ _Implementation Notes_
 
 Notes:
 
-- The `_id` parameter may not be provided at the same time as the `patient`, `subject`, `encounter`, `created` or `_count` parameters.
+- The `_id` parameter may not be provided at the same time as the `patient`, `subject`, `encounter`, `created`, or `_count` parameters.
 - When the `created` parameter is provided:
   - It must be provided twice, once with the `ge` parameter and once with the `le` parameter.
   - The two provided date/times may not be equal and must form a closed range.
@@ -175,7 +175,7 @@ List an individual DocumentReference by its id:
 
 _Implementation Notes_
 
-* Contents of the document are found by following the Attachment url. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
+* Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
 
 ### Authorization Types
 
