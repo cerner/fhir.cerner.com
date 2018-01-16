@@ -273,6 +273,63 @@ module Cerner
       ]
     }
 
+    DSTU2_DOCUMENT_REFERENCE_DOCREF_BUNDLE_ENTRY ||= {
+      "resourceType": "DocumentReference",
+      "id": "7499283",
+      "meta": {
+        "versionId": "7499282",
+        "lastUpdated": "2018-01-08T14:51:05.000Z"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Depart Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Physician Emergency department Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2018-01-03T07:30:20.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+      },
+      "subject": {
+        "reference": "Patient/1316024",
+        "display": "PETERS, TIMOTHY"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "68608-9"
+          }
+        ],
+        "text": "Depart Summary"
+      },
+      "authenticator": {
+        "reference": "Practitioner/4464007",
+        "display": "Portal, Portal"
+      },
+      "created": "2018-01-03T07:30:20.000Z",
+      "indexed": "2018-01-03T07:30:20.000Z",
+      "status": "current",
+      "docStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/composition-status",
+            "code": "final",
+            "display": "Final"
+          }
+        ],
+        "text": "Auth (Verified)"
+      },
+      "description": "Physician Emergency department Note",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/pdf",
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283"
+          }
+        }
+      ],
+      "context": {
+        "encounter": {
+          "reference": "Encounter/1621910"
+        }
+      }
+    }
+
     DSTU2_DOCUMENT_REFERENCE_DOCREF_CREATE ||= {
       "resourceType": "DocumentReference",
       "subject": {
