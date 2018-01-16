@@ -58,7 +58,7 @@ Authorization is not required.
 
 ### Headers
 
-<%= headers head: {Accept: 'application/json+fhir'} %>
+<%= headers head: {'<a href="../#media-types">Accept</a>': 'application/json+fhir'} %>
 
 ### Example
 

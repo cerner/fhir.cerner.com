@@ -115,7 +115,8 @@ FHIR<sup>®</sup> conformance document.
 
 The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
-of ``./metadata`` from the FHIR<sup>®</sup> base URL.
+of ``./metadata`` from the FHIR<sup>®</sup> base URL. Examples of this call
+can be found on the Conformance documentation for [Millennium](/millennium/dstu2/conformance/) or [Soarian](/soarian/dstu2/conformance/).
 
 Within the structure of this document, three important URLs are
 advertised in an extension to ``Conformance.rest.security``, 
