@@ -79,22 +79,56 @@
 <h1 id="conformance">Conformance</h1>
 
 <ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
 <a href="#metadata" id="markdown-toc-metadata">Metadata</a>    <ul>
-      <li><a href="#response-open-endpoint" id="markdown-toc-response-open-endpoint">Response (Open Endpoint)</a></li>
-      <li><a href="#response-closed-endpoint" id="markdown-toc-response-closed-endpoint">Response (Closed Endpoint)</a></li>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#open-endpoint-example" id="markdown-toc-open-endpoint-example">Open Endpoint Example</a></li>
+      <li><a href="#closed-endpoint-example" id="markdown-toc-closed-endpoint-example">Closed Endpoint Example</a></li>
     </ul>
   </li>
 </ul>
 
+<h2 id="overview">Overview</h2>
+
+<p>The Conformance resource documents the functionality implemented from the HL7<sup>®</sup> FHIR<sup>®</sup> standard. Unlike most resources,
+this resource is found at <a href="../#service-root-url"><code>:serviceRootURL/metadata</code></a> instead of by its resource name.</p>
+
 <h2 id="metadata">Metadata</h2>
 
-<p>Get the capabilities and configurations of this implementation and deployment of the FHIR<sup>®</sup> standard:</p>
+<p>Get the capabilities and configurations of this implementation and deployment of the FHIR standard.</p>
+
+<pre><code>GET /metadata?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Authentication is not required to access the Conformance resource</li>
+  <li>No parameters other than the standard <code>_format</code> parameter are supported for reading Conformance</li>
+</ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<p>Authorization is not required</p>
+
+<div class="auth-types">
+<a href="../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../#media-types">Accept</a>: application/json+fhir</code></pre>
+
+<h3 id="open-endpoint-example">Open Endpoint Example</h3>
+
+<h4 id="request">Request</h4>
 
 <pre><code>GET /metadata
 </code></pre>
 
-<h3 id="response-open-endpoint">Response (Open Endpoint)</h3>
+<h4 id="response">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -593,7 +627,14 @@
   ]
 }</code></pre>
 
-<h3 id="response-closed-endpoint">Response (Closed Endpoint)</h3>
+<h3 id="closed-endpoint-example">Closed Endpoint Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET /metadata?_format=json
+</code></pre>
+
+<h4 id="response-1">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1143,6 +1184,7 @@
   ]
 }</code></pre>
 
+
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -1156,6 +1198,7 @@
           <li><a href="../../../authorization/">Authorization</a></li>
           <li><a href="./">Conformance Metadata</a></li>
           <li><a href="../operation-definition/">OperationDefinition</a></li>
+          <li><a href="../structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>
       <li class="js-topic">

@@ -309,7 +309,7 @@ to request authorization to FHIR<sup>®</sup> resources.  A SMART
 application <strong>SHOULD</strong> request scopes needed to access the resource 
 (per the <a href="#scopes">scopes</a> section) for maximum interoperability.<br>
 The application <strong>MAY</strong> choose to omit the redirect URI, as SMART 
-registration is limited to a single redirect URI for SMART applications.</p>
+registration requires a default redirect URI.</p>
 
 <p>In addition, SMART applications <strong>MUST</strong> send the “state” 
 parameter, as detailed in the <a href="http://tools.ietf.org/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">OAuth 2.0 Security Considerations</a>.</p>
@@ -957,7 +957,7 @@ credentials flow, as they are not applicable to that use case.</p>
 <h4 id="disambiguation-of-scopes-between-competing-protocols">Disambiguation of Scopes Between Competing Protocols</h4>
 <p>In the event that an authorization request is used in conjunction with 
 that of a protocol that defines a competing scope, a SMART application 
-or authorization server <strong>MAY</strong> append the following prefix to a scope:</p>
+or authorization server <strong>MAY</strong> prepend the following prefix to a scope:</p>
 
 <pre class="terminal">
 http://smarthealthit.org/FHIR/scopes/
@@ -1027,7 +1027,7 @@ RelatedPerson, or Person resource as described by the
 
 <p>The FHIR<sup>®</sup> resource server <strong>MUST</strong> allow a user access 
 to their own user resource when receiving any access token
-that contains represents approved access to the profile scope.</p>
+that represents approved access to the profile scope.</p>
 
 <p><a id="discovery"></a></p>
 

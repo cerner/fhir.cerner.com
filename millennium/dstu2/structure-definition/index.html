@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>OperationDefinition | DSTU 2 API</title>
+  <title>StructureDefinition | DSTU 2 API</title>
   
   <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -76,7 +76,7 @@
   <div id="wrapper">
     <div class="content">
       
-<h1 id="operationdefinition">OperationDefinition</h1>
+<h1 id="structuredefinition">StructureDefinition</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -91,52 +91,57 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The OperationDefinition resource defines an <a href="http://hl7.org/fhir/dstu2/operations.html">operation</a>. This includes the inputs, outputs, description, and other items necessary to actually execute the operation.</p>
-
-<p>This resource only exposes the custom operations our server defines. Operations that are defined as part of another implementation guide are referenced directly instead of being duplicated within this server. While the HL7 FHIR<sup>®</sup> specification also supports describing named queries with this resource, we do not currently support any custom named queries.</p>
+<p>The StructureDefinition resource describes a FHIR structure including data elements and their usage. Our current implementation uses this resource to define custom extensions.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.url" target="_blank">URL</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.name" target="_blank">Informal name</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.code" target="_blank">Formal name</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.kind" target="_blank">Kind</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.publisher" target="_blank">Name of publisher</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.date" target="_blank">Date published</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.description" target="_blank">Description</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.system" target="_blank">Whether or not the operation can be invoked without a Resource</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.type" target="_blank">Which resource types this operation can be invoked on</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.instance" target="_blank">Whether or not the operation can be invoked on a specific instance of the resource above</a></li>
-  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.parameter" target="_blank">Parameters (both in and out) and cardinality details</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.publisher" target="_blank">Publisher</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.snapshot" target="_blank">Snapshot</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.date" target="_blank">Date</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.fhirVersion" target="_blank">Fhir version</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.constrainedType" target="_blank">Constrained type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.description" target="_blank">Description</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.contextType" target="_blank">Context type</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.context" target="_blank">Context</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.url" target="_blank">URL</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.kind" target="_blank">Kind</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.differential" target="_blank">Differential</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.base" target="_blank">Base</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
 </ul>
 
-<p><em>List of OperationDefinitions</em></p>
+<p><em>List of StructureDefinitions</em></p>
 
 <ul>
   <li>
-<code>binary-autogen-ccd-if</code>: Generate Continuity of Care Document (CCD)</li>
+<a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions"><code>patient-friendly-display</code></a>: Display string suitable for patient viewing.</li>
+  <li>
+<a href="http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions"><code>scheduling-location</code></a>: Reference to the location of an appointment being scheduled.</li>
+  <li>
+<a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions"><code>medication-statement-category</code></a>: Category of an order.</li>
 </ul>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual OperationDefinition by its id:</p>
+<p>List an individual StructureDefinition by its id:</p>
 
-<pre><code>GET /OperationDefinition/:id
+<pre><code>GET /StructureDefinition/:id
 </code></pre>
 
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Authentication is not required to access the OperationDefinition resource</li>
+  <li>Authentication is not required to access the StructureDefinition resource</li>
   <li>
-    <p>This resource can be retrieved by its defining URL or from the OperationDefinition resource located at the <a href="../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
+    <p>This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the <a href="../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
 
-    <p><code>https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if</code></p>
+    <p><code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display</code></p>
 
-    <p><code>https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/OperationDefinition/binary-autogen-ccd-if</code></p>
+    <p><code>https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/StructureDefinition/patient-friendly-display</code></p>
   </li>
 </ul>
 
@@ -150,13 +155,13 @@
 
 <h3 id="headers">Headers</h3>
 
-<pre class="headers"><code><a href="../#media-types">Accept</a>: application/json+fhir</code></pre>
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir</code></pre>
 
 <h3 id="example">Example</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if
+<pre><code>GET https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -164,55 +169,160 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "OperationDefinition",
-  "id": "binary-autogen-ccd-if",
-  "url": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
-  "name": "Generate Continuity of Care Document (CCD)",
-  "status": "active",
-  "kind": "operation",
+  "resourceType": "StructureDefinition",
+  "id": "patient-friendly-display",
+  "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+  "name": "Patient-Friendly Display",
+  "status": "draft",
   "publisher": "Cerner",
-  "date": "2017-01-17",
-  "description": "Generates a copy of a patient's Continuity of Care Document (CCD) as a Binary",
-  "code": "autogen-ccd-if",
-  "system": false,
-  "type": [
-    "Binary"
+  "date": "2016-12-13",
+  "description": "An expression of the original string in terminology that patients should be able to understand",
+  "fhirVersion": "1.0.2",
+  "kind": "datatype",
+  "constrainedType": "Extension",
+  "abstract": false,
+  "contextType": "datatype",
+  "context": [
+    "string"
   ],
-  "instance": false,
-  "parameter": [
-    {
-      "name": "patient",
-      "use": "in",
-      "min": "1",
-      "max": "1",
-      "documentation": "The id of the patient that is the subject of the generated Continuity of Care Document (CCD).",
-      "type": "id"
-    },
-    {
-      "name": "start",
-      "use": "in",
-      "min": "0",
-      "max": "1",
-      "documentation": "The start of the date range for which the Continuity of Care Document (CCD) is to be generated. If no start date is provided, then the document will be generated with all records upto the end or current date",
-      "type": "date"
-    },
-    {
-      "name": "end",
-      "use": "in",
-      "min": "0",
-      "max": "1",
-      "documentation": "The end of the date range for which the Continuity of Care Document (CCD) is to be generated. If no end date is provided, then the document will be generated with records upto the current date",
-      "type": "date"
-    },
-    {
-      "name": "result",
-      "use": "out",
-      "min": "1",
-      "max": "1",
-      "documentation": "Binary for the generated Continuity of Care Document (CCD)",
-      "type": "Binary"
-    }
-  ]
+  "base": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "snapshot": {
+    "element": [
+      {
+        "path": "Extension",
+        "short": "String equivalent with patient-friendly terminology",
+        "definition": "An expression of the original string in terminology that patients should be able to understand",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "path": "Extension.id",
+        "representation": [
+          "xmlAttr"
+        ],
+        "short": "xml:id (or equivalent in JSON)",
+        "definition": "unique id for the element within a resource (for internal references).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Extension.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "id"
+          }
+        ]
+      },
+      {
+        "path": "Extension.extension",
+        "name": "extension",
+        "short": "Extension",
+        "definition": "An Extension",
+        "min": 0,
+        "max": "0",
+        "base": {
+          "path": "Extension.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "path": "Extension.url",
+        "representation": [
+          "xmlAttr"
+        ],
+        "short": "identifies the meaning of the extension",
+        "definition": "Source of the definition for the extension code - a logical name or a URL.",
+        "comments": "The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Extension.url",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display"
+      },
+      {
+        "path": "Extension.valueString",
+        "short": "Value of extension",
+        "definition": "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Extension.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "differential": {
+    "element": [
+      {
+        "path": "Extension",
+        "short": "String equivalent with patient-friendly terminology",
+        "definition": "An expression of the original string in terminology that patients should be able to understand",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ]
+      },
+      {
+        "path": "Extension.extension",
+        "name": "extension",
+        "max": "0"
+      },
+      {
+        "path": "Extension.url",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "fixedUri": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display"
+      },
+      {
+        "path": "Extension.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
 }</code></pre>
 
     </div>
@@ -227,8 +337,8 @@
         <ul class="js-guides">
           <li><a href="../../../authorization/">Authorization</a></li>
           <li><a href="../conformance/">Conformance Metadata</a></li>
-          <li><a href="./">OperationDefinition</a></li>
-          <li><a href="../structure-definition/">StructureDefinition</a></li>
+          <li><a href="../operation-definition/">OperationDefinition</a></li>
+          <li><a href="./">StructureDefinition</a></li>
         </ul>
       </li>
       <li class="js-topic">

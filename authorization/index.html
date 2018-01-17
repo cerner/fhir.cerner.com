@@ -207,7 +207,8 @@ FHIR<sup>®</sup> conformance document.</p>
 
 <p>The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
 an HTTP GET against the resource located at the relative path
-of <code>./metadata</code> from the FHIR<sup>®</sup> base URL.</p>
+of <code>./metadata</code> from the FHIR<sup>®</sup> base URL. Examples of this call
+can be found on the Conformance documentation for <a href="../millennium/dstu2/conformance/">Millennium</a> or <a href="../soarian/dstu2/conformance/">Soarian</a>.</p>
 
 <p>Within the structure of this document, three important URLs are
 advertised in an extension to <code>Conformance.rest.security</code>, 
@@ -690,7 +691,7 @@ as such, developers of traditional Windows applications
 should <a href="https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx" title="Registering an Application to a URI Scheme">register a scheme</a> for their
 application.  The following is a sample registry file
 for a hypothetical scheme registration of 
-“sample.application://”:</p>
+<code>sample.application://</code>:</p>
 
 <pre class="terminal">
 Windows Registry Editor Version 5.00
@@ -712,13 +713,14 @@ Windows Registry Editor Version 5.00
 </pre>
 
 <p>For the above registration, the client application would be
-registered with a redirection URI of “sample.application://”.
-Upon redirection to this scheme, the Windows operating system
-will invoke the registered application with the OAuth2 response
-URI passed as the first argument.  The client application may
-then parse the URI and in turn determine which open instance
-of the application (if multiples are allowed) initiated the
-request via examination of the “state” parameter.</p>
+registered with a redirection URI whose scheme begins with
+<code>sample.application://</code>, for example <code>sample.application://callback</code>.<br>
+Upon redirection to this scheme, the Windows operating system will invoke the registered 
+application with the OAuth2 response URI passed as the first
+argument.  The client application may then parse the URI and 
+in turn determine which open instance of the application 
+(if multiples are allowed) initiated the equest via 
+examination of the “state” parameter.</p>
 
 <h3 id="processing-the-authorization-grant-response">Processing the Authorization Grant Response</h3>
 
@@ -1179,12 +1181,28 @@ request?</li>
 </blockquote>
 
 <ul>
+  <li>I’m having trouble registering my redirection URI,
+what advice can you offer?</li>
+</ul>
+
+<blockquote>
+  <p>URIs must conform with RFC 2396 and must be an
+  absolute URI, per that specification.  Most issues
+  we encounter are individuals attempting to register
+  URIs with schemes containing a net path (“//”), but
+  are missing an authority component.  For example,
+  “app://” is an invalid URI, but “app://callback” 
+  is valid.</p>
+</blockquote>
+
+<ul>
   <li>Can I register multiple redirect URIs?</li>
 </ul>
 
 <blockquote>
-  <p>Cerner does not currently support the registration of
-  multiple redirection URIs; it is under consideration.</p>
+  <p>Cerner’s operations team can register multiple
+  redirect URIs for your application.  This function
+  is not yet exposed in our developer tooling.</p>
 </blockquote>
 
 <ul>

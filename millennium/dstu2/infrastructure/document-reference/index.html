@@ -100,13 +100,21 @@
     </ul>
   </li>
   <li>
-<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
-      <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
-      <li><a href="#parameters-1" id="markdown-toc-parameters-1">Parameters</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
+      <li><a href="#parameters-1" id="markdown-toc-parameters-1">Parameters</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
@@ -176,11 +184,13 @@
                   <li>
                     
 
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/loinc.html">LOINC</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-c80-doc-typecodes.html">LOINC Document Types</a><br>
                       System: http://loinc.org </p>
                     
                   </li>
                   <ul style="list-style-type: none">
+                  
+                    <li>Please note that the following is not the complete list of terminology bindings mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. This list also does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites. <br><br> Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.</li>
                   
                   
                       <li><i>Supported Values</i></li>
@@ -238,6 +248,7 @@
 
 <ul>
   <li>Search results are currently limited to published clinical documents.</li>
+  <li>Contents of the document are found by following the Attachment URL. See more information on the <a href="../Binary/#authorization-types">Binary resource</a> to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -259,26 +270,34 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>_id</code></td>
+      <td>This, or one of <code>patient</code> or <code>subject</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>_id=7499283</code>
+</td>
+    </tr>
+    <tr>
       <td><code>patient</code></td>
-      <td>This, or <code>subject</code>
+      <td>This, or one of <code>_id</code> or <code>subject</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient to which the document reference belongs. Example: <code>patient=12345</code>
+      <td>The patient to which the document reference belongs. Example: <code>patient=1316024</code>
 </td>
     </tr>
     <tr>
       <td><code>subject</code></td>
-      <td>This, or <code>patient</code>
+      <td>This, or one of <code>_id</code> or <code>patient</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: <code>subject=Patient/1316020 or subject:Patient=1316020</code>
+      <td>The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: <code>subject=Patient/1316024 or subject:Patient=1316024</code>
 </td>
     </tr>
     <tr>
       <td><code>encounter</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: <code>encounter=1353</code>
+      <td>The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: <code>encounter=1621910</code>
 </td>
     </tr>
     <tr>
@@ -300,6 +319,7 @@
 <p>Notes:</p>
 
 <ul>
+  <li>The <code>_id</code> parameter may not be provided at the same time as the <code>patient</code>, <code>subject</code>, <code>encounter</code>, <code>created</code>, or <code>_count</code> parameters.</li>
   <li>When the <code>created</code> parameter is provided:
     <ul>
       <li>It must be provided twice, once with the <code>ge</code> parameter and once with the <code>le</code> parameter.</li>
@@ -715,7 +735,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>The type must include a loinc coding. Any LOINC representing a clinical document or note is supported and we will map the appropriate LOINCs in Production as applications get deployed to client sites.</li></ul>
+        <ul style="list-style-type: none"><li>The type must include a loinc coding. <br><br> Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites. <br><br> Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1280,6 +1300,102 @@
   </tbody>
 </table>
 
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual DocumentReference by its id:</p>
+
+<pre><code>GET /DocumentReference/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Contents of the document are found by following the Attachment URL. See more information on the <a href="../Binary/#authorization-types">Binary resource</a> to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/7499283
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "DocumentReference",
+  "id": "7499283",
+  "meta": {
+    "versionId": "7499282",
+    "lastUpdated": "2018-01-08T14:51:05.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Depart Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Physician Emergency department Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2018-01-03T07:30:20.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+  },
+  "subject": {
+    "reference": "Patient/1316024",
+    "display": "PETERS, TIMOTHY"
+  },
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "68608-9"
+      }
+    ],
+    "text": "Depart Summary"
+  },
+  "authenticator": {
+    "reference": "Practitioner/4464007",
+    "display": "Portal, Portal"
+  },
+  "created": "2018-01-03T07:30:20.000Z",
+  "indexed": "2018-01-03T07:30:20.000Z",
+  "status": "current",
+  "docStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/composition-status",
+        "code": "final",
+        "display": "Final"
+      }
+    ],
+    "text": "Auth (Verified)"
+  },
+  "description": "Physician Emergency department Note",
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283"
+      }
+    }
+  ],
+  "context": {
+    "encounter": {
+      "reference": "Encounter/1621910"
+    }
+  }
+}</code></pre>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
 <h2 id="operation-docref">Operation: docref</h2>
 
 <p>Argonaut operation for querying DocumentReferences for the supplied parameters:</p>
@@ -1293,7 +1409,7 @@
   <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">DocumentReference.relatesTo</a> modifier element is not supported and will not be returned.</li>
 </ul>
 
-<h3 id="authorization-types-2">Authorization Types</h3>
+<h3 id="authorization-types-3">Authorization Types</h3>
 
 <div class="auth-types">
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -1443,19 +1559,19 @@
   <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
 </ul>
 
-<h3 id="headers-2">Headers</h3>
+<h3 id="headers-3">Headers</h3>
 
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="example-3">Example</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1511,7 +1627,7 @@
   ]
 }</code></pre>
 
-<h3 id="errors-2">Errors</h3>
+<h3 id="errors-3">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
 
@@ -1529,6 +1645,7 @@
           <li><a href="../../../../authorization/">Authorization</a></li>
           <li><a href="../../conformance/">Conformance Metadata</a></li>
           <li><a href="../../operation-definition/">OperationDefinition</a></li>
+          <li><a href="../../structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>
       <li class="js-topic">
