@@ -55,7 +55,7 @@ _Implementation Notes_
 Notes:
 
 * See details regarding special [date][date-parameter] requirements.
-* If the date parameter is null in the query, the API will return qualifying records.
+* If the date parameter is null in the query, the API will return all qualifying records.
 * If a single date parameter is used in the query, the response will include all qualifying records dated that day.
 * If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
 * If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
