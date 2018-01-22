@@ -69,7 +69,7 @@ Notes:
 
 #### Request
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/CarePlan?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
+	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/CarePlan?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
 
 #### Response
 
