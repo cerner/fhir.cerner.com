@@ -56,7 +56,7 @@ Notes:
 
 #### Request without attachment
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
+	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=A71D20AA-816C-4CA4-8526-0DB82C59149A
 
 #### Response without attachment
 
