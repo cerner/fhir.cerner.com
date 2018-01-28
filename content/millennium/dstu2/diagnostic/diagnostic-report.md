@@ -7,6 +7,27 @@ title: DiagnosticReport | DSTU 2 API
 * TOC
 {:toc}
 
+## Overview
+
+The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a 
+diagnostic service or procedure such as a Radiology or Pathology report.  
+
+This resource currently only supports Radiology reports in the presented form of either pdf or html.
+
+The following fields are returned if valued:
+
+* [Diagnostic report id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Report status](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.status){:target="_blank"}
+* [Report category](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.category){:target="_blank"}
+* [Code](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.code){:target="_blank"}
+* [Subject (patient)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.subject){:target="_blank"}
+* [Patient encounter](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.encounter){:target="_blank"}
+* [Effective date/time](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.effective_x_){:target="_blank"}
+* [Issued date/time](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.issued){:target="_blank"}
+* [Performer (practitioner)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.performer){:target="_blank"}
+* [Request (order)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.request){:target="_blank"}
+* [ContentType and URL (fully qualified link to the document](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
+
 ## Terminology Bindings
 
 <%= terminology_table(:diagnostic_report, :dstu2) %>
@@ -17,6 +38,17 @@ Search for DiagnosticReports that meet supplied query parameters:
 
     GET /DiagnosticReport?:parameters
 
+_Implementation Notes_
+
+* If a DiagnosticReport references a pdf with URL sections, it may not be returned from the Binary resource. See the
+[Binary implementation notes].
+* When requesting the presentedForm.url, the Accept header should be populated with the presentedForm.contentType. For more
+information, see the [Binary accept] documentation.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
 ### Parameters
 
   Name             | Required?       | Type          | Description
@@ -26,12 +58,31 @@ Search for DiagnosticReports that meet supplied query parameters:
  `date`            | N               | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by 'ge' or present twice and prefixed by 'ge' / 'lt'. EG: `date=ge2014-09-24T12:00:00.000Z` `&date=lt2015-10-24T12:00:00.000Z`
  [`_count`]        | N               | [`number`]    | The maximum number of results to return per page.
 
-### Response
+### Headers
+
+ <%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport?patient=1316020&_count=10
+
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_diagnostic_report_bundle) %>
+
+### Errors
+
+The common [errors] may be returned.
+
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count
 [`number`]: http://hl7.org/fhir/dstu2/search.html#number
+[errors]: ../../#client-errors
+[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[Binary accept]: ../../infrastructure/binary/#headers
+[Binary implementation notes]: ../../infrastructure/binary/#retrieve-by-id
