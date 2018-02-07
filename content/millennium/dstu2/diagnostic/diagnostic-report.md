@@ -12,7 +12,7 @@ title: DiagnosticReport | DSTU 2 API
 The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a 
 diagnostic service or procedure such as a Radiology or Pathology report.  
 
-This resource currently only supports Radiology reports in the presented form of either pdf or html.
+This resource currently only supports Radiology reports in the presented form of either PDF or HTML.
 
 The following fields are returned if valued:
 
@@ -40,7 +40,7 @@ Search for DiagnosticReports that meet supplied query parameters:
 
 _Implementation Notes_
 
-* If a DiagnosticReport references a pdf with URL sections, it may not be returned from the Binary resource. See the
+* If a DiagnosticReport references a PDF with URL sections, it may not be returned from the Binary resource. See the
 [Binary implementation notes].
 * When requesting the presentedForm.url, the Accept header should be populated with the presentedForm.contentType. For more
 information, see the [Binary accept] documentation.
