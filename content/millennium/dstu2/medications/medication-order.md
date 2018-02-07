@@ -79,16 +79,13 @@ _Implementation Notes_
  `patient`                 | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
  `status`                  | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
  `-timing-boundsPeriod`    | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
- `_lastUpdated`            | N         | [`date`]      | The date-time within which the most recent clinically relevant update was made to the medication. Must be prefixed by 'ge' or 'le'. Example: `ge2014-05-19T20:54:02.000Z`
+ `_lastUpdated`            | N         | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must be prefixed by 'ge' or 'le'. Example: `ge2014-05-19T20:54:02.000Z`
  [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
  Notes:
 
  - The `-timing-boundsPeriod` and `_lastUpdated` parameters may not be provided at the same time.
- - When the `_lastUpdated` parameter is provided:
-   - Up to two dates-times may be provided.
-   - Each date must have a time component and be prefixed by `ge` or `le`.
-   - When provided twice, the earliest date-time must have the `ge` prefix and the latest date-time must have the `le` prefix.
+ - The `_lastUpdated` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes.  When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
 
 ### Headers
 
