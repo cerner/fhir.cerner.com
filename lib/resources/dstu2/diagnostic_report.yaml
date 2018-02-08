@@ -14,7 +14,8 @@ fields:
     description: Codes for diagnostic service sections.
     terminology:
     - display: Diagnostic Service Section Codes
-      system: http://hl7.org/fhir/ValueSet/diagnostic-service-sections
+      system: http://hl7.org/fhir/v2/0074
+      info_link: http://hl7.org/fhir/dstu2/valueset-diagnostic-service-sections.html
 
 - name: code
   required: 'No'
@@ -25,4 +26,5 @@ fields:
     description: Codes that describe Diagnostic Reports.
     terminology:
     - display: LOINC Diagnostic Report Codes
-      system: http://hl7.org/fhir/ValueSet/report-codes
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/dstu2/valueset-report-codes.html
