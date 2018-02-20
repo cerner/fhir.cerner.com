@@ -153,7 +153,9 @@
 
 <p>For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The embedded browser control we use is <a href="https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx">IWebBrowser2 C++ interface</a> by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.</p>
 
-<p>Microsoft offers a free IE 10 VM and newer on various versions of Windows for application testing at <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</a>.</p>
+<p>NOTE: Applications that will embed in <em>MPages</em> Workflow or Summary must function correctly with IE10.  The <em>MPages</em> 6.x platform currently depends on other components that require IE10 to run.  This means that even though there is a newer version of IE in Citrix, <em>MPages</em> 6.x will render the application using IE10.</p>
+
+<p>Microsoft offers a free IE10 VM and newer on various versions of Windows for application testing at <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</a>.</p>
 
 <h3 id="single-sign-on-sso">Single Sign On (SSO)</h3>
 
