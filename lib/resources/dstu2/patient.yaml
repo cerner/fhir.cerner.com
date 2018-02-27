@@ -144,7 +144,7 @@ fields:
     Must have one value that is current and has a `use` of 'official', without an end date, and both a given and family name are present.
     Names must include the `use` field, and must contain either the `given` or `family` field. All names cannot contain the `text` field.
     Only one `family` name. If additional family names are required they must be provided as a single string separated by blank spaces.
-    Upto two `given` names may be provided. If additional given names are required they must be provided in the second value as a single
+    Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single
     string separated by blank spaces. Only one `prefix` and one `suffix` may be provided.
   url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.name
 
