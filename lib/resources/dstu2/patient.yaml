@@ -7,6 +7,7 @@ fields:
   cardinality: 0..*
   type: Identifier
   description: The identifier for the patient.
+  action: terminology
   children:
 
   - name: type
@@ -14,6 +15,7 @@ fields:
     cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    action: terminology
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
@@ -27,6 +29,7 @@ fields:
   cardinality: 0..*
   type: BackboneElement
   description: A contact party (e.g. guardian, partner, friend) for the patient.
+  action: terminology
   children:
 
   - name: relationship
@@ -34,8 +37,274 @@ fields:
     cardinality: 0..*
     type: CodeableConcept
     description: The nature of the relationship between the patient and the contact person.
+    action: terminology
     binding:
       description: The nature of the relationship between a patient and a contact person for that patient.
       terminology:
       - display: PatientContactRelationship
         system: http://hl7.org/fhir/patient-contact-relationship
+
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Patient"
+    }
+  note: resourceType must be Patient
+  url: http://hl7.org/fhir/DSTU2/json.html#resources
+
+- name: identifier
+  required: 'Yes'
+  cardinality: 1..*
+  type: Identifier
+  description: The identifiers for the patient.
+  action: create
+  example: |
+    {
+      "identifier": [
+        {
+          "assigner": {
+            "reference": "Organization/619848"
+          }
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "MR",
+                "system": "http://hl7.org/fhir/v2/0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "period": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2020-01-02T00:00:00-05:00"
+          }
+        }
+      ]
+    }
+  note: The first identifier must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled.
+    The subsequent identifiers must not contain the `assigner` and `use` fields, must contain the `type`, `system`, and `value` fields,
+    and must include a time component when specifying a `period`.
+  url: http://hl7.org/fhir/dstu2/datatypes.html#Identifier
+
+- name: active
+  required: 'No'
+  cardinality: 0..1
+  type: boolean
+  description: Whether this patient record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, active must be true
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.active
+
+- name: name
+  required: 'Yes'
+  cardinality: 1..*
+  type: HumanName
+  description: The names associated with the individual.
+  action: create
+  example: |
+    {
+      "name": [
+        {
+          "use": "official",
+          "family": [
+            "Wolf"
+          ],
+          "given": [
+            "Big",
+            "Bad"
+          ],
+          "period": {
+            "start": "2010-05-17T14:54:31.000Z"
+          }
+        },
+        {
+          "use": "usual",
+          "given": [
+            "Bigby"
+          ],
+          "period": {
+            "start": "2012-05-22T15:45:50.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    Must have one value that is current and has a `use` of 'official', without an end date, and both a given and family name are present.
+    Names must include the `use` field, and must contain either the `given` or `family` field. All names cannot contain the `text` field.
+    Only one `family` name. If additional family names are required they must be provided as a single string separated by blank spaces.
+    Upto two `given` names may be provided. If additional given names are required they must be provided in the second value as a single
+    string separated by blank spaces. Only one `prefix` and one `suffix` may be provided.
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.name
+
+- name: telecom
+  required: 'No'
+  cardinality: 0..*
+  type: ContactPoint
+  description: A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+  action: create
+  example: |
+    {
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8168229121",
+          "use": "home",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: All values must contain the `system`, `use`, and `value` fields.
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.telecom
+
+- name: gender
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: 'Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.'
+  action: create
+  example: |
+    {
+      "gender": "male"
+    }
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.gender
+
+- name: birthDate
+  required: 'No'
+  cardinality: 0..1
+  type: date
+  description: The date of birth for the individual.
+  action: create
+  example: |
+    {
+      "birthDate": "1990-09-15"
+    }
+  note: birthDate must not contain a time component.
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.birthDate
+
+- name: address
+  required: 'No'
+  cardinality: 0..*
+  type: Address
+  description: Addresses for the individual.
+  action: create
+  example: |
+    {
+      "address": [
+        {
+          "use": "home",
+          "line": [
+             "1212 Faircastle Drive",
+             "Apartment 406"
+          ],
+          "city": "KC",
+          "district": "Jackson",
+          "state": "KS",
+          "postalCode": "64199",
+          "country": "United States of America",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: Each address must contain the `use` field, and must not contain the `text` field.
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.address
+
+- name: maritalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The patient's most recent marital (civil) status.
+  action: create
+  example: |
+    {
+      "maritalStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v3/NullFlavor",
+            "code": "UNK",
+            "display": "Unknown"
+          }
+        ],
+        "text": "Unknown"
+      },
+    }
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.maritalStatus
+
+- name: communication
+  required: 'No'
+  cardinality: 0..1
+  type: BackboneElement
+  description: Language which may be used to communicate with the patient about his or her health.
+  action: create
+  example: |
+    {
+      "communication": [
+        {
+          "language": {
+            "coding": [
+              {
+                "system": "urn:ietf:bcp:47",
+        	      "code": "eng",
+                "display": "English"
+              }
+            ],
+            "text": "English"
+          },
+          "preferred": true
+        }
+      ]
+    }
+  note: Only one communication may be provided
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.communication
+
+- name: careProvider
+  required: 'No'
+  cardinality: 0..*
+  type: Reference
+  description: Patient's nominated care provider.
+  action: create
+  example: |
+    {
+      "careProvider": [
+        {
+          "reference": "Practitioner/4594010"
+        },
+        {
+          "reference": "Practitioner/4646007"
+        }
+      ]
+    }
+  note: careProvider must be a reference to a Practitioner
+  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider
+
+- name: Birth Sex Extension
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: The sex of the patient at birth.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
+          "valueCode": "F"
+        }
+      ],
+    }
+  url: http://argonautwiki.hl7.org/index.php?title=Draft_Birth_Sex_Extension

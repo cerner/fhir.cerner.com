@@ -16,7 +16,7 @@ The following fields are returned if valued:
    * [Patient id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
    * [Extensions including birth time, birth sex, ethnicity, and race](#extensions)
    * [Medical Record number (MRN)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
-   * [Phone (email is not supported at this time)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
+   * [Contact information (may include phone and email)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
    * [Contact person (guardian, parent or emergency)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
    * [Gender (administrative)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender){:target="_blank"}
    * [Date of Birth](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate){:target="_blank"}
@@ -44,6 +44,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * The [Patient.animal] modifier element is not supported and will not be returned.
+* Direct secure email will not be returned.
 * If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.
 
 ### Authorization Types
@@ -92,7 +93,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] may be returned. In addition, a 422 Unprocessable Entity will be returned when too many (>1000) patients qualify for the search criteria.
 
 ## Retrieve by id
 
@@ -103,6 +104,7 @@ List an individual Patient by its id:
 _Implementation Notes_
 
 * The [Patient.animal] modifier element is not supported and will not be returned.
+* Direct secure email will not be returned.
 
 ### Authorization Types
 
@@ -145,6 +147,88 @@ The ability to perform patient combine or uncombine operations is not available 
 
 The common [errors] may be returned.
 
+## Create
+
+Create an individual Patient:
+
+    POST /Patient
+
+_Implementation Notes_
+
+* The following elements are not supported and will not be used while creating the patient:
+    * [Patient.deceased]
+    * [Patient.multipleBirth]
+    * [Patient.photo]
+    * [Patient.contact]
+    * [Patient.animal]
+    * [Patient.managingOrganization]
+    * [Patient.link]
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
+
+### Body fields
+
+Notes:
+
+* Birth Sex may be recorded as an extension.
+
+<%= definition_table(:patient, :create, :dstu2) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient
+
+#### Body
+
+  <%= json(:dstu2_patient_create) %>
+
+#### Response
+
+  <%= headers status: 201 %>
+  <pre class="terminal">
+      Date → Tue, 27 Feb 2018 16:47:59 GMT
+      Cache-Control → no-cache
+      Vary → Origin,User-Agent,Accept-Encoding
+      Strict-Transport-Security → max-age=631152000
+      Server-Response-Time → 9272.410216999999
+      X-Xss-Protection → 1; mode=block
+      Pragma → no-cache
+      X-Request-Id → 78a19072002b8651623351cfedaffe70
+      Etag → W/"0"
+      X-Frame-Options → SAMEORIGIN
+      X-Runtime → 9.272318
+      X-Content-Type-Options → nosniff
+      Expires → Mon, 01 Jan 1990 00:00:00 GMT
+      Last-Modified → Tue, 27 Feb 2018 16:48:00 GMT
+      Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4842008
+      Status → 201 Created
+      Content-Length → 0
+      Content-Type → application/json
+  </pre>
+
+  The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+
+### Errors
+
+The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+
+ HTTP Status | Cause                              | Severity  | Code
+-------------|------------------------------------|-----------|---------------
+ 422         | Body contained modifier extensions | error     | extension
+ 422         | Body contained implicit rules      | error     | not-supported
+ 422         | Body contained unsupported fields  | error     |   business-rule
+
+
+
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
@@ -155,5 +239,11 @@ The common [errors] may be returned.
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
+[Patient.deceased]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.deceased_x_
+[Patient.multipleBirth]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_
+[Patient.photo]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.photo
+[Patient.contact]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.contact
 [Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
+[Patient.managingOrganization]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization
+[Patient.link]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link
 [errors]: ../../#client-errors
