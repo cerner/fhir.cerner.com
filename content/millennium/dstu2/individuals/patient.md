@@ -24,6 +24,8 @@ The following fields are returned if valued:
    * [Address](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address){:target="_blank"}
    * [Communication (preferred language)](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language){:target="_blank"}
    * [Marital status](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
+   * [Primary Care Providers](http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider){:target="_blank"}
+   * [Multiple Birth Information](http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_){:target="_blank"}
 
 ## Terminology Bindings
 
