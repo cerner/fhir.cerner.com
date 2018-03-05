@@ -192,7 +192,6 @@ fields:
     {
       "birthDate": "1990-09-15"
     }
-  note: birthDate must not contain a time component.
   url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.birthDate
 
 - name: address

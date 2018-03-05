@@ -157,7 +157,7 @@ Create an individual Patient:
 
 _Implementation Notes_
 
-* The following elements are not supported and will not be used while creating the patient:
+* The following elements are not supported and will cause an error to be returned if set:
     * [Patient.deceased]
     * [Patient.multipleBirth]
     * [Patient.photo]
@@ -249,3 +249,4 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [Patient.managingOrganization]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization
 [Patient.link]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link
 [errors]: ../../#client-errors
+[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
