@@ -174,7 +174,7 @@ _Implementation Notes_
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
 
-### Body fields
+### Body Fields
 
 Notes:
 
