@@ -100,6 +100,15 @@
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -112,7 +121,7 @@
   <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Patient id</a></li>
   <li><a href="#extensions">Extensions including birth time, birth sex, ethnicity, and race</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier" target="_blank">Medical Record number (MRN)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom" target="_blank">Phone (email is not supported at this time)</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom" target="_blank">Contact information (may include phone and email)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact" target="_blank">Contact person (guardian, parent or emergency)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender" target="_blank">Gender (administrative)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
@@ -120,6 +129,8 @@
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language" target="_blank">Communication (preferred language)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus" target="_blank">Marital status</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider" target="_blank">Primary Care Providers</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_" target="_blank">Multiple Birth Information</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -215,6 +226,18 @@
       </td>
     </tr>
     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
   </tbody>
 </table>
 
@@ -237,6 +260,7 @@
 
 <ul>
   <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> modifier element is not supported and will not be returned.</li>
+  <li>Direct secure email will not be returned.</li>
   <li>If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.</li>
 </ul>
 
@@ -521,7 +545,7 @@
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, a 422 Unprocessable Entity will be returned when too many (&gt;1000) patients qualify for the search criteria.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -534,6 +558,7 @@
 
 <ul>
   <li>The <a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a> modifier element is not supported and will not be returned.</li>
+  <li>Direct secure email will not be returned.</li>
 </ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -716,6 +741,762 @@ the entries directly by id. They will not be returned when searching with other 
 <h3 id="errors-1">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create an individual Patient:</p>
+
+<pre><code>POST /Patient
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The following elements are not supported and will cause an error to be returned if set:
+    <ul>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.deceased_x_">Patient.deceased</a></li>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_">Patient.multipleBirth</a></li>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.photo">Patient.photo</a></li>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.contact">Patient.contact</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal">Patient.animal</a></li>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization">Patient.managingOrganization</a></li>
+      <li><a href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link">Patient.link</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<p>Notes:</p>
+
+<ul>
+  <li>Birth Sex may be recorded as an extension.</li>
+</ul>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Patient"
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Patient</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-identifier">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/datatypes.html#Identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The identifiers for the patient.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+      "assigner": {
+        "reference": "Organization/619848"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "MR",
+            "system": "http://hl7.org/fhir/v2/0203"
+          }
+        ]
+      },
+      "system": "urn:oid:1.1.1.1.1.1",
+      "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+      "period": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2020-01-02T00:00:00-05:00"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The first identifier must only contain an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled. The subsequent identifiers must not contain the <code>assigner</code> and <code>use</code> fields, must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields, and must include a time component when specifying a <code>period</code>.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-active">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.active"><code>active</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#boolean"><code>boolean</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether this patient record is in active use.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "active": true
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If set, active must be true</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-name">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.name"><code>name</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#HumanName"><code>HumanName</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The names associated with the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Wolf"
+      ],
+      "given": [
+        "Big",
+        "Bad"
+      ],
+      "period": {
+        "start": "2010-05-17T14:54:31.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Bigby"
+      ],
+      "period": {
+        "start": "2012-05-22T15:45:50.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must have one value that is current and has a <code>use</code> of 'official', without an end date, and both a given and family name are present.
+Names must include the <code>use</code> field, and must contain either the <code>given</code> or <code>family</code> field. All names cannot contain the <code>text</code> field.
+Only one <code>family</code> name. If additional family names are required they must be provided as a single string separated by blank spaces.
+Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single
+string separated by blank spaces. Only one <code>prefix</code> and one <code>suffix</code> may be provided.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-telecom">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.telecom"><code>telecom</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#ContactPoint"><code>ContactPoint</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>All values must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-gender">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.gender"><code>gender</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "gender": "male"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-birthDate">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.birthDate"><code>birthDate</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#date"><code>date</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date of birth for the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "birthDate": "1990-09-15"
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-address">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.address"><code>address</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Address"><code>Address</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Addresses for the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "address": [
+    {
+      "use": "home",
+      "line": [
+         "1212 Faircastle Drive",
+         "Apartment 406"
+      ],
+      "city": "KC",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Each address must contain the <code>use</code> field, and must not contain the <code>text</code> field.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-maritalStatus">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.maritalStatus"><code>maritalStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The patient's most recent marital (civil) status.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/NullFlavor",
+        "code": "UNK",
+        "display": "Unknown"
+      }
+    ],
+    "text": "Unknown"
+  },
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-communication">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.communication"><code>communication</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Language which may be used to communicate with the patient about his or her health.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+    	      "code": "eng",
+            "display": "English"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only one communication may be provided</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-careProvider">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider"><code>careProvider</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Patient's nominated care provider.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "careProvider": [
+    {
+      "reference": "Practitioner/4594010"
+    },
+    {
+      "reference": "Practitioner/4646007"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>careProvider must be a reference to a Practitioner</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-Birth%20Sex%20Extension">
+        
+          </a><a target="_blank" href="http://argonautwiki.hl7.org/index.php?title=Draft_Birth_Sex_Extension"><code>Birth Sex Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<code>Extension</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The sex of the patient at birth.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
+      "valueCode": "F"
+    }
+  ],
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "assigner": {
+        "reference": "Organization/619848"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Wolf"
+      ],
+      "given": [
+        "Person",
+        "Name"
+      ],
+      "period": {
+        "start": "2010-05-17T14:54:31.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Bigby"
+      ],
+      "period": {
+        "start": "2012-05-22T15:45:50.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1990-09-15",
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "121212 Metcalf Drive",
+        "Apartment 403"
+      ],
+      "city": "Kansas City",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/NullFlavor",
+        "code": "UNK",
+        "display": "Unknown"
+      }
+    ],
+    "text": "Unknown"
+  },
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ],
+  "careProvider": [
+    {
+      "reference": "Practitioner/4594010"
+    },
+    {
+      "reference": "Practitioner/4646007"
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+      Date → Tue, 27 Feb 2018 16:47:59 GMT
+      Cache-Control → no-cache
+      Vary → Origin,User-Agent,Accept-Encoding
+      Strict-Transport-Security → max-age=631152000
+      Server-Response-Time → 9272.410216999999
+      X-Xss-Protection → 1; mode=block
+      Pragma → no-cache
+      X-Request-Id → 78a19072002b8651623351cfedaffe70
+      Etag → W/"0"
+      X-Frame-Options → SAMEORIGIN
+      X-Runtime → 9.272318
+      X-Content-Type-Options → nosniff
+      Expires → Mon, 01 Jan 1990 00:00:00 GMT
+      Last-Modified → Tue, 27 Feb 2018 16:48:00 GMT
+      Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4842008
+      Status → 201 Created
+      Content-Length → 0
+      Content-Type → application/json
+  </pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>not-supported</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained unsupported fields</td>
+      <td>error</td>
+      <td>business-rule</td>
+    </tr>
+  </tbody>
+</table>
 
 
     </div>
