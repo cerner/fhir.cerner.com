@@ -86,6 +86,7 @@ _Implementation Notes_
 
  - The `-timing-boundsPeriod` and `_lastUpdated` parameters may not be provided at the same time.
  - The `_lastUpdated` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes.  When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
+ - Searching with the `_lastUpdated` parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won't be caught by this query are changes that would affect the version, but not the FHIR content.
 
 ### Headers
 
