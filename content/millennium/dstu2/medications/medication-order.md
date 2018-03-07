@@ -9,7 +9,7 @@ title: MedicationOrder | DSTU 2 API
 
 ## Overview
 
-The Medication Order resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to have been taken by patient, significant other or another provider. 
+The Medication Order resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to have been taken by patient, significant other or another provider.
 
 If the Medication Order represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.
 
@@ -55,7 +55,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
 ID                              | Value\[x] Type      | Description
 --------------------------------|---------------------|----------------------------------------------------------------------------------
-`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient. 
+`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
 
 
 ## Search
@@ -63,7 +63,7 @@ ID                              | Value\[x] Type      | Description
 Search for MedicationOrders that meet supplied query parameters:
 
     GET /MedicationOrder?:parameters
-    
+
 _Implementation Notes_
 
 * MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
@@ -79,7 +79,14 @@ _Implementation Notes_
  `patient`                 | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
  `status`                  | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
  `-timing-boundsPeriod`    | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
+ `_lastUpdated`            | N         | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must be prefixed by 'ge' or 'le'. Example: `ge2014-05-19T20:54:02.000Z`
  [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
+
+ Notes:
+
+ - The `-timing-boundsPeriod` and `_lastUpdated` parameters may not be provided at the same time.
+ - The `_lastUpdated` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes.  When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
+ - Searching with the `_lastUpdated` parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won't be caught by this query are changes that would affect the version, but not the FHIR content.
 
 ### Headers
 
@@ -89,7 +96,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=4342010 
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=4342010
 
 #### Response
 
