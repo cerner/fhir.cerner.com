@@ -41,11 +41,11 @@ _Implementation Notes_
 Notes:
 
 * See details regarding special [date][date-parameter] requirements.
-* If the date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of the query as limited by the lesser of 1000 records or 30 days inclusive of the query date.
-* If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.
-* If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.
-* If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.
+* If the date parameter is null in the query, the API will return all qualifying records.
+* If a single date parameter is used in the query, the response will include all qualifying records dated that day.
+* If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
 * If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
+* Developers are strongly encouraged to specify data ranges to prevent an inordinately large number of records from being returned.
 
 ### Headers
 
@@ -55,8 +55,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Procedure?patientId=7568F2F3-FC76-4185-A540-1DB56331A387&date=%3E%3D2015-06-01T11%3A18%3A00&date=%3C2015-06-29T11%3A18%3A00
-
+    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Procedure?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
 #### Response
 
 <%= headers status: 200 %>
@@ -71,6 +70,8 @@ These additional informational messages may be returned within the [bundle exten
 ---------|-----------------------------------------------------------------------------------------------------------------------------------------------------
  papi011 | This section represents data charted for a single or set of encounter’s procedures performed. It does not represent a comprehensive procedure list.
  papi012 | No procedure information is available.
+ papi028 | Provides the date range that had start date as null.
+ papi029 | Provides the date range that was used to run the search.
 
 [bundle extension]: ../../#bundle-message-extension
 [errors section]: #errors-and-informational-messages

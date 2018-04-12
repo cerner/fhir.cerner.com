@@ -1,59 +1,18 @@
 module Cerner
   module Resources
 
-    SOARIAN_DIAGNOSTIC_REPORT_BUNDLE ||= {
+    SOARIAN_DIAGNOSTIC_REPORT_BUNDLE ||= 
+    {
     "resourceType": "Bundle",
-    "id": "a190218f-2855-45c1-9c74-a4a2a798273a",
+    "id": "b295a021-37a3-4c56-87f8-10ba2415bba8",
     "meta": {
-        "lastUpdated": "2017-02-28T11:59:39.646-05:00"
+        "lastUpdated": "2018-04-10T09:45:51.632-04:00"
     },
-    "extension": [
-        {
-            "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-            "valueExtension": {
-                "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-                "extension": [
-                    {
-                        "url": "Severity",
-                        "valueString": "info"
-                    },
-                    {
-                        "url": "Code",
-                        "valueString": "papi029"
-                    },
-                    {
-                        "url": "Message",
-                        "valueString": "Information provided is from 2015-06-01 through 2015-06-28 inclusive."
-                    }
-                ]
-            }
-        },
-        {
-            "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-            "valueExtension": {
-                "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-                "extension": [
-                    {
-                        "url": "Severity",
-                        "valueString": "info"
-                    },
-                    {
-                        "url": "Code",
-                        "valueString": "fsp001"
-                    },
-                    {
-                        "url": "Message",
-                        "valueString": "Date parameter values passed with request were: date=>=2015-06-01T11:55:00&date=&lt;2015-06-29T11:55:00"
-                    }
-                ]
-            }
-        }
-    ],
     "type": "searchset",
     "link": [
         {
             "relation": "self",
-            "url": "base-url/bf615549-44cc-4899-bfa9-2cfd86bf358c/DiagnosticReport?date=%3E%3D2015-06-01T11%3A55%3A00&date=%3C2015-06-29T11%3A55%3A00&_format=json&patientId=7568F2F3-FC76-4185-A540-1DB56331A387"
+            "url": "base-url/1671/DiagnosticReport?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
         }
     ],
     "entry": [
@@ -92,7 +51,7 @@ module Cerner
                 "resourceType": "DiagnosticReport",
                 "text": {
                     "status": "additional",
-                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Chemistry..625\">&lt;b>WBC &lt;/b>12.3 (10*3/ul)&lt;i> (N/A-500,000 (10*3/ul))&lt;/i>&lt;/span>"
+                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Chemistry..625\">&lt;b>WBC &lt;/b>12.3 10*3/ul&lt;i> (N/A-500,000 10*3/ul)&lt;/i>&lt;/span>"
                 },
                 "identifier": [
                     {
@@ -122,7 +81,7 @@ module Cerner
                 "resourceType": "DiagnosticReport",
                 "text": {
                     "status": "additional",
-                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Chemistry..626\">&lt;b>PLT &lt;/b>123 (10*3/ul)&lt;font color=\"#737373\">   (Reference Range: not available)&lt;/font>&lt;br/>&lt;/span>"
+                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Chemistry..626\">&lt;b>PLT &lt;/b>123 10*3/ul&lt;font color=\"#737373\">   (Reference Range: not available)&lt;/font>&lt;br/>&lt;/span>"
                 },
                 "identifier": [
                     {
@@ -144,6 +103,36 @@ module Cerner
                 },
                 "effectiveDateTime": "2015-06-22",
                 "issued": "2015-06-22T13:00:00",
+                "performer": {}
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "text": {
+                    "status": "additional",
+                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Diag Image Rpt..13919\">&lt;b>Chest X-Ray 2 Views &lt;/b>Lungs are not clear. Other tests are required to confirm Anemia. &lt;font color=\"#737373\">   (Reference Range: not available)&lt;/font>&lt;br/>&lt;/span>"
+                },
+                "identifier": [
+                    {
+                        "use": "official",
+                        "value": "ZCCD-Results.Diag Image Rpt..13919"
+                    }
+                ],
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "36643-5"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
+                },
+                "effectiveDateTime": "2015-06-22",
+                "issued": "2015-06-22T14:00:00",
                 "performer": {}
             }
         },
@@ -234,6 +223,66 @@ module Cerner
                 },
                 "effectiveDateTime": "2015-06-22",
                 "issued": "2015-06-22T13:00:00",
+                "performer": {}
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "text": {
+                    "status": "additional",
+                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Urinalysis.11290\">&lt;b>Color of Urine &lt;/b>Light Yellow &lt;i> (YELLOW )&lt;/i>&lt;/span>"
+                },
+                "identifier": [
+                    {
+                        "use": "official",
+                        "value": "ZCCD-Results.Urinalysis.11290"
+                    }
+                ],
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "5778-6"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
+                },
+                "effectiveDateTime": "2017-02-01",
+                "issued": "2017-02-01T13:45:00",
+                "performer": {}
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "text": {
+                    "status": "additional",
+                    "div": "&lt;span ccdRefId=\"ZCCD-Results.Urinalysis.11291\">&lt;b>Color of Urine &lt;/b>Dark Yellow &lt;i> (YELLOW )&lt;/i>&lt;/span>"
+                },
+                "identifier": [
+                    {
+                        "use": "official",
+                        "value": "ZCCD-Results.Urinalysis.11291"
+                    }
+                ],
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "5778-6"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
+                },
+                "effectiveDateTime": "2017-02-01",
+                "issued": "2017-02-01T13:30:00",
                 "performer": {}
             }
         },

@@ -49,11 +49,12 @@ _Implementation Notes_
 Notes:
 
 * See details regarding special [date](../../#special-information-regarding-date-parameters) requirements.
-* If the query date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of query as limited by the lesser of 1000 records or 30 days inclusive of the query date.
-* If a single date parameter is included, the response will include qualifying records dated that day as limited by 1000 records.
-* If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit date specified.
-* If a date range is used greater than 30 days, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit date specified and include in the informational response in the narrative extension that the date range entered is greater than 30 days and please refine your response.
-* If an invalid date range is specified in the query, the API will error.
+* If the query date parameter is null in the query, the API will return all qualifying records.
+* If a single date parameter is included, the response will include all qualifying records dated that day.
+* If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
+* If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
+* Developers are strongly encouraged to specify data ranges to prevent an inordinately large number of records from being returned.
+
 
 ### Headers
 
@@ -63,7 +64,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DiagnosticReport?patientId=1FNHDJ60-D6A1-441F-AA25-FB6FA6719CEA&date=%3E%3D2015-06-01T11%3A55%3A00&date=%3C2015-06-29T11%3A55%3A00
+    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DiagnosticReport?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
 
 #### Response
 
@@ -72,17 +73,22 @@ Notes:
 
 ### Errors and Informational messages
 
-The common [errors and informational messages](../../common-errors) can be returned.
+The common [errors and informational messages][common-errors] can be returned.
 
 These additional informational messages may be returned within the [bundle extension]:
 
  Code    | Message
 ---------|----------------------------------------------------------
  papi008 | No relevant clinical data exists.
+ papi028 | Provides the date range that had start date as null.
  papi029 | Provides the date range that was used to run the search.
+
+ 
 
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [bundle extension]: ../../#bundle-message-extension
 [errors section]: #errors-and-informational-messages
+[date-parameter]: ../../#special-information-regarding-date-parameters
+[common-errors]: ../../common-errors

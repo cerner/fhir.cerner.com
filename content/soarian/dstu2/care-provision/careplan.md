@@ -55,11 +55,11 @@ _Implementation Notes_
 Notes:
 
 * See details regarding special [date][date-parameter] requirements.
-* If the date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of the query as limited by the lesser of 1000 records or 30 days inclusive of the query date.
-* If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.
-* If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.
-* If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.
+* If the date parameter is null in the query, the API will return all qualifying records. 
+* If a single date parameter is used in the query, the response will include all qualifying records dated that day.
+* If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
 * If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
+* Developers are strongly encouraged to specify data ranges to prevent an inordinately large number of records from being returned.
 
 ### Headers
 
@@ -86,7 +86,9 @@ Code    | Message
 ---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  papi027 | No relevant clinical data exists.
  papi026 | The information provided is the latest configured data available at the time of charting and may not be reflective of the current clinical state of the care plan. It is the responsibility of the patient or patient representative to confirm care plan status with appropriate care providers.
-
+ papi028 | Provides the date range that had start date as null.
+ papi029 | Provides the date range that was used to run the search.
+ 
 [bundle extension]: ../../#bundle-message-extension
 [errors section]: #errors-and-informational-messages
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
