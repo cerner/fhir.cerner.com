@@ -1,8 +1,7 @@
 module Cerner
   module Resources
 
-    SOARIAN_CARE_PLAN_ENTRY ||= 
-   {
+    SOARIAN_CARE_PLAN_ENTRY ||= {
     "resourceType": "Bundle",
     "id": "09c9910c-2592-46f8-bf1c-bf3bbbee629a",
     "meta": {
@@ -34,7 +33,7 @@ module Cerner
     "link": [
         {
             "relation": "self",
-            "url": "base-url/1671/CarePlan?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
+            "url": "base-url/123abc/CarePlan?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
         }
     ],
     "entry": [

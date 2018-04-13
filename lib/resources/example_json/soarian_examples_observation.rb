@@ -1,8 +1,7 @@
 module Cerner
   module Resources
 
-    SOARIAN_OBSERVATION_BUNDLE ||= 
-   {
+    SOARIAN_OBSERVATION_BUNDLE ||= {
     "resourceType": "Bundle",
     "id": "9842e38b-38f4-4fd3-81aa-075d0b9ca5f1",
     "meta": {
@@ -12,7 +11,7 @@ module Cerner
     "link": [
         {
             "relation": "self",
-            "url": "base-url/1671/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
+            "url": "base-url/123abc/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
         }
     ],
     "entry": [
@@ -50,42 +49,7 @@ module Cerner
                     "system": "http://unitsofmeasure.org/"
                 }
             }
-        },
-        {
-            "resource": {
-                "resourceType": "Observation",
-                "text": {
-                    "status": "additional",
-                    "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vital_Signs.63413.35247\">&lt;li>Height : 177/ cm&lt;/li>&lt;/ul>"
-                },
-                "identifier": [
-                    {
-                        "use": "official",
-                        "value": "ZVitalSigns.Vital_Signs.63413.35247"
-                    }
-                ],
-                "status": "final",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "8302-2",
-                            "display": "Ht"
-                        }
-                    ],
-                    "text": "Ht"
-                },
-                "subject": {
-                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
-                },
-                "effectiveDateTime": "2015-06-22",
-                "valueQuantity": {
-                    "value": 177,
-                    "unit": "cm",
-                    "system": "http://unitsofmeasure.org/"
-                }
-            }
-        },
+        },        
         {
             "resource": {
                 "resourceType": "Observation",
@@ -155,147 +119,7 @@ module Cerner
                     "system": "http://unitsofmeasure.org/"
                 }
             }
-        },
-        {
-            "resource": {
-                "resourceType": "Observation",
-                "text": {
-                    "status": "additional",
-                    "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vital_Signs.63413.35252-1\">&lt;li>Systolic : 145 mmHg&lt;/li>&lt;/ul>"
-                },
-                "identifier": [
-                    {
-                        "use": "official",
-                        "value": "ZVitalSigns.Vital_Signs.63413.35252-1"
-                    }
-                ],
-                "status": "final",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "8462-4",
-                            "display": "A_SYSTOLIC"
-                        }
-                    ],
-                    "text": "A_SYSTOLIC"
-                },
-                "subject": {
-                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
-                },
-                "effectiveDateTime": "2015-06-22",
-                "valueQuantity": {
-                    "value": 145,
-                    "unit": "mm[Hg]",
-                    "system": "http://unitsofmeasure.org/"
-                }
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Observation",
-                "text": {
-                    "status": "additional",
-                    "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vital_Signs.63413.35252-2\">&lt;li>Diastolic : 88 mmHg&lt;/li>&lt;/ul>"
-                },
-                "identifier": [
-                    {
-                        "use": "official",
-                        "value": "ZVitalSigns.Vital_Signs.63413.35252-2"
-                    }
-                ],
-                "status": "final",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "8480-6",
-                            "display": "A_DIASTOLIC"
-                        }
-                    ],
-                    "text": "A_DIASTOLIC"
-                },
-                "subject": {
-                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
-                },
-                "effectiveDateTime": "2015-06-22",
-                "valueQuantity": {
-                    "value": 88,
-                    "unit": "mm[Hg]",
-                    "system": "http://unitsofmeasure.org/"
-                }
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Observation",
-                "text": {
-                    "status": "additional",
-                    "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vital_Signs.63413.35257\">&lt;li>Pulse : 80&lt;/li>&lt;/ul>"
-                },
-                "identifier": [
-                    {
-                        "use": "official",
-                        "value": "ZVitalSigns.Vital_Signs.63413.35257"
-                    }
-                ],
-                "status": "final",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "8867-4",
-                            "display": "A_Pulse"
-                        }
-                    ],
-                    "text": "A_Pulse"
-                },
-                "subject": {
-                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
-                },
-                "effectiveDateTime": "2015-06-22",
-                "valueQuantity": {
-                    "value": 80,
-                    "unit": "/min",
-                    "system": "http://unitsofmeasure.org/"
-                }
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Observation",
-                "text": {
-                    "status": "additional",
-                    "div": "&lt;ul ccdRefId=\"ZVitalSigns.Vital_Signs.63413.35258\">&lt;li>Pulse Ox (%) : 95&lt;/li>&lt;/ul>"
-                },
-                "identifier": [
-                    {
-                        "use": "official",
-                        "value": "ZVitalSigns.Vital_Signs.63413.35258"
-                    }
-                ],
-                "status": "final",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://loinc.org",
-                            "code": "2710-2",
-                            "display": "A_Pulse Ox"
-                        }
-                    ],
-                    "text": "A_Pulse Ox"
-                },
-                "subject": {
-                    "reference": "Patient/7568F2F3-FC76-4185-A540-1DB56331A387"
-                },
-                "effectiveDateTime": "2015-06-22",
-                "valueQuantity": {
-                    "value": 95,
-                    "unit": "%",
-                    "system": "http://unitsofmeasure.org/"
-                }
-            }
-        },
+        },        
         {
             "resource": {
                 "resourceType": "Observation",

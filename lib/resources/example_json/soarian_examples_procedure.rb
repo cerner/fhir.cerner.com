@@ -1,8 +1,7 @@
 module Cerner
   module Resources
 
-    SOARIAN_PROCEDURE_ENTRY ||= 
-   {
+    SOARIAN_PROCEDURE_ENTRY ||= {
     "resourceType": "Bundle",
     "id": "04849360-4587-4ba8-a804-a2c8488e5eee",
     "meta": {
@@ -34,7 +33,7 @@ module Cerner
     "link": [
         {
             "relation": "self",
-            "url": "base-url/1671/Procedure?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
+            "url": "base-url/123abc/Procedure?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
         }
     ],
     "entry": [
@@ -127,7 +126,6 @@ module Cerner
         }
     ]
 }
-
 
   end
 end
