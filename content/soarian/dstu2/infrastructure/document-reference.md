@@ -21,7 +21,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 
 ## Search
 
-	GET /DocumentReference?:parameters
+    GET /DocumentReference?:parameters
 
 _Implementation Notes_
 
@@ -34,10 +34,10 @@ _Implementation Notes_
 ### Parameters
 
  Name       | Required? | Type                                          | Description
-------------|-----------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------
+------------|-----------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------
  patientId  | Y         | [`reference`]                                 | The patient identifier provided in a pre-requisite authorization step.
  date       | N         | [`date`] as adjusted per implementation notes | Null or specific date or a date range.
- attachment | N         | URL encoded String                            | Attachment is the value that is returned in the element “content.attachment.url” as part of the response to the initial “DocumentReference” request.
+ attachment | N         | URL encoded String                            | Attachment is the value that is returned in the element "content.attachment.url" as part of the response to the initial "DocumentReference" request.
 
 Notes:
 
@@ -45,7 +45,7 @@ Notes:
 * If the date parameter is null in the query, the API will return all qualifying records.
 * If a single date parameter is used in the query, the response will include all qualifying records dated that day.
 * If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
-* If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
+* If an invalid date range is used in the query, the API will error with code [500][common-errors]. Please refer to [Special information regarding date parameters][date-parameter].
 * Developers are strongly encouraged to specify date ranges to prevent an inordinately large number of records from being returned.
 
 ### Headers
@@ -56,7 +56,7 @@ Notes:
 
 #### Request without attachment
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
+    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
 
 #### Response without attachment
 
@@ -65,7 +65,7 @@ Notes:
 
 #### Request with attachment
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?_format=json&attachment=docKey%3D101607B8CE55A4F20111E5B4F8D4AE526B7A48%26objNum%3D1%26created%3D20160301%26indexed%3D20160301&patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
+    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/DocumentReference?_format=json&attachment=docKey%3D101607B8CE55A4F20111E5B4F8D4AE526B7A48%26objNum%3D1%26created%3D20160301%26indexed%3D20160301&patientId=FCC941D7-60B9-491D-BEED-27629E47CD4E
 
 #### Response with attachment
 

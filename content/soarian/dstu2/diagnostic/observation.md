@@ -35,7 +35,7 @@ The [bundle extension] can be returned, see possible codes in the [errors sectio
 
 ## Search
 
-	GET /Observation?:parameters
+    GET /Observation?:parameters
 
 _Implementation Notes_
 
@@ -57,7 +57,7 @@ Notes:
 * If the date parameter is null in the query, the API will return all qualifying records.
 * If a single date parameter is used in the query, the response will include all qualifying records dated that day.
 * If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
-* If an invalid date range is used in the query, the API will error with code [500] [common-errors]. Please refer to [Special information regarding date parameters] [date-parameter].
+* If an invalid date range is used in the query, the API will error with code [500][common-errors]. Please refer to [Special information regarding date parameters][date-parameter].
 * Developers are strongly encouraged to specify date ranges to prevent an inordinate number of records from being returned.
 
 ### Headers
@@ -68,9 +68,9 @@ Notes:
 
 #### Request
 
-	GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
+    GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
 
-####Response
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:SOARIAN_OBSERVATION_BUNDLE) %>
