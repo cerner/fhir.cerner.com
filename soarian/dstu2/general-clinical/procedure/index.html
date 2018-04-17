@@ -178,15 +178,9 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>
-    <p>The API returns the most current procedure list.</p>
-  </li>
-  <li>
-    <p>The API returns procedures in a <code>completed</code> or <code>aborted</code> status. It will not return procedures marked as <code>entered-in-error</code>.</p>
-  </li>
-  <li>
-    <p>The Narrative includes additional information pertaining to the procedures, and should be shown to the user to ensure completeness of clinical content and context.</p>
-  </li>
+  <li>The API returns the most current procedure list.</li>
+  <li>The API returns procedures in a <code>completed</code> or <code>aborted</code> status. It will not return procedures marked as <code>entered-in-error</code>.</li>
+  <li>The Narrative includes additional information pertaining to the procedures, and should be shown to the user to ensure completeness of clinical content and context.</li>
 </ul>
 
 <h3 id="parameters">Parameters</h3>
@@ -221,11 +215,11 @@
 
 <ul>
   <li>See details regarding special <a href="../../#special-information-regarding-date-parameters">date</a> requirements.</li>
-  <li>If the date parameter is null in the query, the API will return qualifying records with dates less than or equal to the date of the query as limited by the lesser of 1000 records or 30 days inclusive of the query date.</li>
-  <li>If a single date parameter is used in the query, the response will include qualifying records dated that day as limited by 1000 records.</li>
-  <li>If a valid date range is used in the query, the API will return qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range.</li>
-  <li>If a date range greater than 30 days is used in the query, the response will include qualifying records within the dates specified as limited by the lesser of 1000 records or 30 days starting at the upper limit of the range. In this case, the informational response in the narrative extension will indicate that the date range is greater than 30 days and should be refined.</li>
+  <li>If the date parameter is null in the query, the API will return all qualifying records.</li>
+  <li>If a single date parameter is used in the query, the response will include all qualifying records dated that day.</li>
+  <li>If a valid date range is used in the query, the API will return all qualifying records within the dates specified.</li>
   <li>If an invalid date range is used in the query, the API will error with code <a href="../../common-errors">500</a>. Please refer to <a href="../../#special-information-regarding-date-parameters">Special information regarding date parameters</a>.</li>
+  <li>Developers are strongly encouraged to specify date ranges to prevent an inordinate number of records from being returned.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -237,7 +231,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Procedure?patientId=7568F2F3-FC76-4185-A540-1DB56331A387&amp;date=%3E%3D2015-06-01T11%3A18%3A00&amp;date=%3C2015-06-29T11%3A18%3A00
+<pre><code>GET https://fhir-myrecord.sandboxcerner.com/dstu2/123abc/Procedure?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -246,9 +240,9 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "d8c30ba8-9285-49b8-8994-e3738e8e2821",
+  "id": "04849360-4587-4ba8-a804-a2c8488e5eee",
   "meta": {
-    "lastUpdated": "2017-03-01T11:41:31.719-05:00"
+    "lastUpdated": "2018-04-10T09:49:00.451-04:00"
   },
   "extension": [
     {
@@ -270,53 +264,13 @@
           }
         ]
       }
-    },
-    {
-      "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-      "valueExtension": {
-        "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-        "extension": [
-          {
-            "url": "Severity",
-            "valueString": "info"
-          },
-          {
-            "url": "Code",
-            "valueString": "papi029"
-          },
-          {
-            "url": "Message",
-            "valueString": "Information provided is from 2015-06-01 through 2015-06-28 inclusive."
-          }
-        ]
-      }
-    },
-    {
-      "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-      "valueExtension": {
-        "url": "http://cerner.hs.fhir.com/StructureDefinition/bundle-result-messages",
-        "extension": [
-          {
-            "url": "Severity",
-            "valueString": "info"
-          },
-          {
-            "url": "Code",
-            "valueString": "fsp001"
-          },
-          {
-            "url": "Message",
-            "valueString": "Date parameter values passed with request were: date=&gt;=2015-06-01T11:18:00&amp;date=&lt;2015-06-29T11:18:00"
-          }
-        ]
-      }
     }
   ],
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "base-url/123abc/Procedure?date=%3E%3D2015-06-01T11%3A18%3A00&amp;date=%3C2015-06-29T11%3A18%3A00&amp;_format=json&amp;patientId=7568F2F3-FC76-4185-A540-1DB56331A387"
+      "url": "base-url/123abc/Procedure?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&amp;_format=json"
     }
   ],
   "entry": [
@@ -325,7 +279,7 @@
         "resourceType": "Procedure",
         "text": {
           "status": "additional",
-          "div": "&lt;li ccdRefId='ZCCDProcedureList.CCDProcedureList.1503'&gt;Completed Bronchoscopy, on 6/22/2015 12:00 AM&lt;/li&gt;"
+          "div": "&lt;li ccdRefId=\"ZCCDProcedureList.CCDProcedureList.1503\"&gt;Completed Bronchoscopy, on 6/22/2015 12:00 AM&lt;/li&gt;"
         },
         "identifier": [
           {
@@ -340,7 +294,7 @@
         "code": {
           "coding": [
             {
-              "system": "http://snomed.info",
+              "system": "http://snomed.info/sct",
               "code": "10847001",
               "display": "Bronchoscopy"
             }
@@ -354,7 +308,7 @@
         "resourceType": "Procedure",
         "text": {
           "status": "additional",
-          "div": "&lt;li ccdRefId='ZCCDProcedureList.CCDProcedureList.3001'&gt;Completed Chest X-Ray, PA and Lateral View, on 6/22/2015 12:00 AM&lt;/li&gt;"
+          "div": "&lt;li ccdRefId=\"ZCCDProcedureList.CCDProcedureList.3001\"&gt;Completed Chest X-Ray, PA and Lateral View, on 6/22/2015 12:00 AM&lt;/li&gt;"
         },
         "identifier": [
           {
@@ -369,7 +323,7 @@
         "code": {
           "coding": [
             {
-              "system": "http://snomed.info",
+              "system": "http://snomed.info/sct",
               "code": "168731009",
               "display": "Chest X-Ray, PA and Lateral View"
             }
@@ -383,7 +337,7 @@
         "resourceType": "Procedure",
         "text": {
           "status": "additional",
-          "div": "&lt;li ccdRefId='ZCCDProcedureList.CCDProcedureList.1505'&gt;Completed Introduction of Cardiac Pacemaker System via Vein, on 10/5/2011 12:00 AM&lt;/li&gt;"
+          "div": "&lt;li ccdRefId=\"ZCCDProcedureList.CCDProcedureList.1505\"&gt;Completed Introduction of Cardiac Pacemaker System via Vein, on 10/5/2011 12:00 AM&lt;/li&gt;"
         },
         "identifier": [
           {
@@ -398,7 +352,7 @@
         "code": {
           "coding": [
             {
-              "system": "http://snomed.info",
+              "system": "http://snomed.info/sct",
               "code": "175135009",
               "display": "Introduction of Cardiac Pacemaker System via Vein"
             }
@@ -411,6 +365,7 @@
 }</code></pre>
 
 <h3 id="errors-and-informational-messages">Errors and Informational messages</h3>
+
 <p>The common <a href="../../common-errors">errors and informational messages</a> can be returned.</p>
 
 <p>These additional informational messages may be returned within the <a href="../../#bundle-message-extension">bundle extension</a>:</p>
@@ -430,6 +385,14 @@
     <tr>
       <td>papi012</td>
       <td>No procedure information is available.</td>
+    </tr>
+    <tr>
+      <td>papi028</td>
+      <td>Provides the date range that had start date as null.</td>
+    </tr>
+    <tr>
+      <td>papi029</td>
+      <td>Provides the date range that was used to run the search.</td>
     </tr>
   </tbody>
 </table>
