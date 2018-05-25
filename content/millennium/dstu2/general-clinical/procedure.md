@@ -9,7 +9,7 @@ title: Procedure | DSTU 2 API
 
 ## Overview
 
-The Procedure resource returns current and historical procedures performed on a patient. The current implementation doesn't include surgical or radiology procedures. 
+The Procedure resource returns current and historical procedures performed on a patient. A procedure can be invasive or non-invasive treatments/procedures and observations. For example, a patient who has breast cancer could have significant & pertinent procedures that include mammograms, BRCA testing, breast examination documentation & lumpectomy. It is up to the user what procedures are clinically significant to document. Surgical and radiology procedures documented in other Cerner solutions will return if manually added by a clinician in the patient's procedure history.
 
 The following fields are returned if valued:
 
