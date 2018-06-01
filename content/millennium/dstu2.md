@@ -395,6 +395,44 @@ receive request bodies:
 
         HTTP/1.1 422 Unprocessable Entity
 
+## Handling Required Fields
+
+1. Missing fields required by the HL7 FHIR® specification or any missing status field will result in a `500 Internal Server Error` and an [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html).
+
+        {
+          "resourceType": "OperationOutcome",
+          "issue": [{
+            "severity": "fatal",
+            "code": "required",
+            "location": [
+              "/f:AllergyIntolerance/f:status"
+            ]
+          }]
+        }    
+
+2. Missing fields required by HL7 profiles such as [Argonaut](http://argonautwiki.hl7.org/index.php?title=Implementation_Guide) (DSTU 2) or [US Core](https://www.hl7.org/fhir/us/core/) (STU 3) will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
+
+        {
+          "coding": [{
+            "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "unknown"
+            }]
+          }]
+        }
+
+3. Missing [Coding](https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem) or [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#codeableconcept) fields with a required value set binding will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html), though it may return a text component.
+
+        {
+          "coding": [{
+            "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "unknown"
+            }]
+          }],
+          "text": "Auth (Verified)"
+        }
+
 ## HTTP Verbs
 
 Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.
