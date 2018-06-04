@@ -378,7 +378,7 @@ receive request bodies:
 
         Tenant not valid or accessible
 
-4. Requesting a resource which does not exist will resule in a `404 Not Found` response.
+4. Requesting a resource which does not exist will result in a `404 Not Found` response.
 
         HTTP/1.1 404 Not Found
 
