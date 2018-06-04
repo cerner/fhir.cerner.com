@@ -421,7 +421,18 @@ receive request bodies:
           }]
         }
 
-3. Missing [Coding](https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem) or [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#codeableconcept) fields with a required value set binding will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html), though it may return a text component.
+3. Patient consumers requesting a resource with a status of entered-in-error may result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
+
+        {
+          "coding": [{
+            "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "masked"
+            }]
+          }]
+        }
+
+4. Missing [Coding](https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem) or [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#codeableconcept) fields with a required value set binding will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html), though it may return a text component.
 
         {
           "coding": [{
