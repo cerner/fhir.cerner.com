@@ -13,7 +13,7 @@ The Immunization resource includes the view of current and historical administra
 
 Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
 
-An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well. 
+An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.
 
 The following fields are returned if valued:
 
@@ -74,7 +74,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -103,8 +103,9 @@ List an individual Immunization by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

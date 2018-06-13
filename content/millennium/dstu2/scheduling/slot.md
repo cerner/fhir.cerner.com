@@ -9,14 +9,14 @@ title: Slot | DSTU 2 API
 
 ## Overview
 
-The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no 
+The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no
 information about actual appointments; only availability and type.
 
-When integrating your application with a client's production environment you will work with the client to determine the 
+When integrating your application with a client's production environment you will work with the client to determine the
 Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
 to third-party applications for enabling scheduling functionality.
 
-We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
 the future.
 
 The following fields are returned if valued:
@@ -53,9 +53,9 @@ Search for Schedules that meet supplied query parameters:
 
 _Implementation Notes_
 
-- Valid ids for the `schedule.actor` and `-location` search parameters will be determined by the client and provided 
+- Valid ids for the `schedule.actor` and `-location` search parameters will be determined by the client and provided
   when integrating your application with the client's production environment. See [overview](#overview) for details.
-  
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
@@ -76,7 +76,7 @@ Notes:
 - The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
   For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
 - `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
-  For example, `slot-type=http://snomed.info/sct|394581000&-location=4048128` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=Practitioner/2578010` 
+  For example, `slot-type=http://snomed.info/sct|394581000&-location=4048128` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=Practitioner/2578010`
   are supported but `-location=4048128` and `-location=4048128&schedule.actor=Practitioner/2578010` are not.
 
 - The `start` parameter may be provided:  
@@ -104,7 +104,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -133,7 +133,7 @@ List an individual Schedule by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
@@ -144,4 +144,5 @@ The common [errors] may be returned.
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
 [Scheduling Location]: #custom-extensions

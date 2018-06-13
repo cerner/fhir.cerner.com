@@ -124,7 +124,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -153,7 +153,7 @@ List an individual CarePlan by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [CarePlan.activity]: https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity
 [CarePlan.activity.detail.status]: https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity.detail.status
@@ -170,3 +170,4 @@ The common [errors] may be returned.
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

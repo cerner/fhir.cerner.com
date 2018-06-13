@@ -9,14 +9,14 @@ title: Appointment | DSTU 2 API
 
 ## Overview
 
-The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
+The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office
 visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.
 
-When integrating your application with a client's production environment you will work with the client to determine the 
+When integrating your application with a client's production environment you will work with the client to determine the
 Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
 to third-party applications for enabling scheduling functionality.
 
-We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
 the future.
 
 The following fields are returned if valued:
@@ -98,7 +98,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -127,7 +127,7 @@ List an individual Appointment by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -199,12 +199,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-                                    
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
@@ -214,4 +209,4 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [errors]: ../../#client-errors
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
-[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[OperationOutcomes]: ../../#operation-outcomes

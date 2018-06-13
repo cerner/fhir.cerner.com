@@ -395,6 +395,24 @@ receive request bodies:
 
         HTTP/1.1 422 Unprocessable Entity
 
+## Operation Outcomes
+
+An [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html) may be returned to provide additional context to an error.  The tables below describes common OperationOutcomes and their causes.  
+
+### Retrieve/Search
+
+HTTP Status | Cause                                | Severity  | Code
+------------|--------------------------------------|-----------|---------------
+500         | Response is missing a required field | fatal     | required
+
+### Create/Update
+
+HTTP Status | Cause                                | Severity  | Code
+------------|--------------------------------------|-----------|---------------
+422         | Body contained unsupported fields    | error     | business-rule
+422         | Body contained modifier extensions   | error     | extension
+422         | Body contained implicit rules        | error     | not-supported
+
 ## Handling Required Fields
 
 1. Missing fields required by the HL7 FHIR® specification or any missing status field will result in a `500 Internal Server Error` and an [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html).

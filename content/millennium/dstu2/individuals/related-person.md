@@ -9,7 +9,7 @@ title: RelatedPerson | DSTU 2 API
 
 ## Overview
 
-The RelatedPerson resource provides information about a person who is involved in the care of a patient but has no formal responsibility. RelatedPersons typically have a personal relationship with the patient such as a spouse, relative, friend, guardian, or attorney. RelatedPersons are commonly a source of information about a patient. 
+The RelatedPerson resource provides information about a person who is involved in the care of a patient but has no formal responsibility. RelatedPersons typically have a personal relationship with the patient such as a spouse, relative, friend, guardian, or attorney. RelatedPersons are commonly a source of information about a patient.
 
 The distinction between Practitioner and RelatedPerson is a practitioner cares for multiple patients on behalf of a healthcare facility where a RelatedPerson performs care tasks for a specific patient and is not associated with any healthcare facility.
 
@@ -38,7 +38,7 @@ Search for RelatedPersons that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %> 
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -69,7 +69,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -98,8 +98,9 @@ List an individual RelatedPerson by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

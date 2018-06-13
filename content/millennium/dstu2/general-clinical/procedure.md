@@ -40,7 +40,7 @@ _Implementation Notes_
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
- 
+
 ### Parameters
 
  Name         | Required?                             | Type          | Description
@@ -73,7 +73,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -106,10 +106,11 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [Procedure.notPerformed]: http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notPerformed
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

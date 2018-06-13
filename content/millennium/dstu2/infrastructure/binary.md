@@ -78,7 +78,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## $autogen-ccd-if
 
@@ -146,10 +146,11 @@ This resource will not accept the `application/json` mime type unless the underl
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [DiagnosticReport]: ../../diagnostic/diagnostic-report
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

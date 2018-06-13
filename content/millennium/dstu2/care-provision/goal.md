@@ -46,7 +46,7 @@ Search for Goals that meet supplied query parameters:
  `patient`         | This, or one of `_id`, or `subject`.     | [`reference`] | The patient who has the goal. Example: `patient=1316024`
  `subject:Patient` | This, or one of `_id`, or `patient`.     | [`reference`] | The subject who this goal is intended for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
  `targetdate`      | N                                        | [`date`]      | A date or date range from which to find Goals. Example: `targetdate=ge2016-10-01&targetdate=le2016-12-01`
- 
+
 Notes:
 
   - The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `targetdate` parameters.
@@ -62,7 +62,7 @@ Notes:
 #### Request
 
     GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925
-    
+
 #### Response
 
 <%= headers status: 200 %>
@@ -74,7 +74,7 @@ Notes:
 #### Request
 
     GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849
-    
+
 #### Response
 
 <%= headers status: 200 %>
@@ -82,7 +82,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -111,9 +111,10 @@ List an individual Goal by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

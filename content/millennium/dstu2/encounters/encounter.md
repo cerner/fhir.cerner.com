@@ -82,7 +82,7 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -116,7 +116,7 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [contained]: http://hl7.org/fhir/DSTU2/references.html#contained
 [Encounter.hospitalization.destination]: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.destination
@@ -124,3 +124,4 @@ The common [errors] may be returned.
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

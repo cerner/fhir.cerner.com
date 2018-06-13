@@ -21,7 +21,7 @@ The following fields will be returned if valued:
 * [Issue date/time (date/time observation made available, entered, verified)](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.issued){:target="_blank"}
 * [Observation (name or text)﻿﻿](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.code){:target="_blank"}
 * [Observation value or result](http://hl7.org/fhir/observation-definitions.html#Observation.value_x_){:target="_blank"}
-* For Observations with `valueQuantity` 
+* For Observations with `valueQuantity`
   * [Quantity comparator﻿ (<, <=, >, >=)](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
   * [Quantity units﻿﻿](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Quantity.unit){:target="_blank"}
 * [Interpretation (abnormal flagging)](http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.interpretation){:target="_blank"}
@@ -93,7 +93,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
@@ -102,3 +102,4 @@ The common [errors] may be returned.
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count
 [`number`]: http://hl7.org/fhir/dstu2/search.html#number
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

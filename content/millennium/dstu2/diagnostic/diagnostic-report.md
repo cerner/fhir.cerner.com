@@ -9,7 +9,7 @@ title: DiagnosticReport | DSTU 2 API
 
 ## Overview
 
-The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a 
+The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a
 diagnostic service or procedure such as a Radiology or Pathology report.  
 
 This resource currently only supports Radiology reports in the presented form of either PDF or HTML.
@@ -75,7 +75,7 @@ information, see the [Binary accept] documentation.
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
@@ -83,6 +83,6 @@ The common [errors] may be returned.
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count
 [`number`]: http://hl7.org/fhir/dstu2/search.html#number
 [errors]: ../../#client-errors
-[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[OperationOutcomes]: ../../#operation-outcomes
 [Binary accept]: ../../infrastructure/binary/#headers
 [Binary implementation notes]: ../../infrastructure/binary/#retrieve-by-id

@@ -105,7 +105,7 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`token`]: http://hl7.org/fhir/dstu2/search.html#token
@@ -117,3 +117,4 @@ The common [errors] may be returned.
 [Patient friendly display]: #custom-extensions
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
