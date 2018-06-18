@@ -163,7 +163,7 @@ The common [errors] and [OperationOutcomes] may be returned. Additional [Operati
 
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
- 422         | Body contained relatesTo           | error     | unsupported
+ 422         | Body contained relatesTo           | error     | not-supported
 
 ## Retrieve by id
 
