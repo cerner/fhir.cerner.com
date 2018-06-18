@@ -37,7 +37,6 @@ Search for Contracts that meet supplied query parameters:
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
 
-
 ### Parameters
 
  Name                 | Required?                                                    | Type          | Description

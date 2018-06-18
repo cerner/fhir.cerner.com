@@ -219,7 +219,6 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-
 ## Update
 
 Update an existing condition.
@@ -287,7 +286,6 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
-
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token

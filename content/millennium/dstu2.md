@@ -401,64 +401,78 @@ An [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html) may 
 
 ### Retrieve/Search
 
-HTTP Status | Cause                                | Severity  | Code
-------------|--------------------------------------|-----------|---------------
-500         | Response is missing a required field | fatal     | required
+ HTTP Status | Cause                                | Severity  | Code
+-------------|--------------------------------------|-----------|---------------
+ 500         | Response is missing a required field | fatal     | required
 
 ### Create/Update
 
-HTTP Status | Cause                                | Severity  | Code
-------------|--------------------------------------|-----------|---------------
-422         | Body contained unsupported fields    | error     | business-rule
-422         | Body contained modifier extensions   | error     | extension
-422         | Body contained implicit rules        | error     | not-supported
+ HTTP Status | Cause                                | Severity  | Code
+-------------|--------------------------------------|-----------|---------------
+ 422         | Body contained unsupported fields    | error     | business-rule
+ 422         | Body contained modifier extensions   | error     | extension
+ 422         | Body contained implicit rules        | error     | not-supported
 
 ## Handling Required Fields
 
-1. Missing fields required by the HL7 FHIR® specification or any missing status field will result in a `500 Internal Server Error` and an [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html).
+1. Missing fields required by the HL7 FHIR<sup>®</sup> specification or any missing status field will result in a `500 Internal Server Error` and an [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html).
 
         {
           "resourceType": "OperationOutcome",
-          "issue": [{
-            "severity": "fatal",
-            "code": "required",
-            "location": [
-              "/f:AllergyIntolerance/f:status"
-            ]
-          }]
+          "issue": [
+            {
+              "severity": "fatal",
+              "code": "required",
+              "location": [
+                "/f:AllergyIntolerance/f:status"
+              ]
+            }
+          ]
         }    
 
 2. Missing fields required by HL7 profiles such as [Argonaut](http://argonautwiki.hl7.org/index.php?title=Implementation_Guide) (DSTU 2) or [US Core](https://www.hl7.org/fhir/us/core/) (STU 3) will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
 
         {
-          "coding": [{
-            "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-              "valueCode": "unknown"
-            }]
-          }]
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "unknown"
+                }
+              ]
+            }
+          ]
         }
 
 3. Patient consumers requesting a resource with a status of entered-in-error may result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
 
         {
-          "coding": [{
-            "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-              "valueCode": "masked"
-            }]
-          }]
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "masked"
+                }
+              ]
+            }
+          ]
         }
 
 4. Missing [Coding](https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem) or [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#codeableconcept) fields with a required value set binding will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html), though it may return a text component.
 
         {
-          "coding": [{
-            "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-              "valueCode": "unknown"
-            }]
-          }],
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "unknown"
+                }
+              ]
+            }
+          ],
           "text": "Auth (Verified)"
         }
 

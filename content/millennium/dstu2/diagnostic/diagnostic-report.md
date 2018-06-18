@@ -77,7 +77,6 @@ information, see the [Binary accept] documentation.
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count

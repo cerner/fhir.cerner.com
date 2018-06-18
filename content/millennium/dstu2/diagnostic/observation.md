@@ -95,7 +95,6 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`token`]: http://hl7.org/fhir/dstu2/search.html#token
 [`date`]: http://hl7.org/fhir/dstu2/search.html#date

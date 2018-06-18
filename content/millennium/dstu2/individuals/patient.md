@@ -223,7 +223,6 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
 [US Core Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
