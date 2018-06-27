@@ -1,5 +1,5 @@
 ---
-title: FHIR<sup>®</sup> Service Authorization Specification
+title: FHIR® Service Authorization Specification
 layout: authorization
 ---
 
