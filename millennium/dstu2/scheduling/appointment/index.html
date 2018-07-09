@@ -110,14 +110,14 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office 
+<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office
 visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.</p>
 
-<p>When integrating your application with a client’s production environment you will work with the client to determine the 
+<p>When integrating your application with a client’s production environment you will work with the client to determine the
 Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
 to third-party applications for enabling scheduling functionality.</p>
 
-<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
 the future.</p>
 
 <p>The following fields are returned if valued:</p>
@@ -637,7 +637,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -744,7 +744,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -1083,32 +1083,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h3 id="errors-2">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>HTTP Status</th>
-      <th>Cause</th>
-      <th>Severity</th>
-      <th>Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>422</td>
-      <td>Body contained modifier extensions</td>
-      <td>error</td>
-      <td>extension</td>
-    </tr>
-    <tr>
-      <td>422</td>
-      <td>Body contained implicit rules</td>
-      <td>error</td>
-      <td>unsupported</td>
-    </tr>
-  </tbody>
-</table>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

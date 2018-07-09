@@ -98,6 +98,13 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
   </li>
   <li><a href="#common-application-errors" id="markdown-toc-common-application-errors">Common Application Errors</a></li>
   <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
+  <li>
+<a href="#operation-outcomes" id="markdown-toc-operation-outcomes">Operation Outcomes</a>    <ul>
+      <li><a href="#retrievesearch" id="markdown-toc-retrievesearch">Retrieve/Search</a></li>
+      <li><a href="#createupdate" id="markdown-toc-createupdate">Create/Update</a></li>
+    </ul>
+  </li>
+  <li><a href="#handling-required-fields" id="markdown-toc-handling-required-fields">Handling Required Fields</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
   <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
   <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
@@ -483,7 +490,7 @@ response.</p>
 </code></pre>
   </li>
   <li>
-    <p>Requesting a resource which does not exist will resule in a <code>404 Not Found</code> response.</p>
+    <p>Requesting a resource which does not exist will result in a <code>404 Not Found</code> response.</p>
 
     <pre><code> HTTP/1.1 404 Not Found
 </code></pre>
@@ -505,6 +512,138 @@ response.</p>
     <p>Performing an add or update with syntactically correct JSON body which is invalid according to business rules will result in a <code>422 Unprocessable Entity</code> response.</p>
 
     <pre><code> HTTP/1.1 422 Unprocessable Entity
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="operation-outcomes">Operation Outcomes</h2>
+
+<p>An <a href="https://www.hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcome</a> may be returned to provide additional context to an error.  The tables below describes common OperationOutcomes and their causes.</p>
+
+<h3 id="retrievesearch">Retrieve/Search</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>500</td>
+      <td>Response is missing a required field</td>
+      <td>fatal</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="createupdate">Create/Update</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained unsupported fields</td>
+      <td>error</td>
+      <td>business-rule</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>not-supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="handling-required-fields">Handling Required Fields</h2>
+
+<ol>
+  <li>
+    <p>Missing fields required by the HL7 FHIR<sup>®</sup> specification or any missing status field will result in a <code>500 Internal Server Error</code> and an <a href="https://www.hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcome</a>.</p>
+
+    <pre><code> {
+   "resourceType": "OperationOutcome",
+   "issue": [
+     {
+       "severity": "fatal",
+       "code": "required",
+       "location": [
+         "/f:AllergyIntolerance/f:status"
+       ]
+     }
+   ]
+ }    
+</code></pre>
+  </li>
+  <li>
+    <p>Missing fields required by HL7 profiles such as <a href="http://argonautwiki.hl7.org/index.php?title=Implementation_Guide">Argonaut</a> (DSTU 2) or <a href="https://www.hl7.org/fhir/us/core/">US Core</a> (STU 3) will result in a <a href="http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html">DataAbsentReason</a>.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "unknown"
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>Patient consumers requesting a resource with a status of entered-in-error may result in a <a href="http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html">DataAbsentReason</a>.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "masked"
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>Missing <a href="https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem">Coding</a> or <a href="https://www.hl7.org/fhir/datatypes.html#codeableconcept">CodeableConcept</a> fields with a required value set binding will result in a <a href="http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html">DataAbsentReason</a>, though it may return a text component.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "unknown"
+         }
+       ]
+     }
+   ],
+   "text": "Auth (Verified)"
+ }
 </code></pre>
   </li>
 </ol>

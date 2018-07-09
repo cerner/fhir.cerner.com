@@ -106,14 +106,14 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no 
+<p>The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no
 information about actual appointments; only availability and type.</p>
 
-<p>When integrating your application with a client’s production environment you will work with the client to determine the 
+<p>When integrating your application with a client’s production environment you will work with the client to determine the
 Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
 to third-party applications for enabling scheduling functionality.</p>
 
-<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in 
+<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
 the future.</p>
 
 <p>The following fields are returned if valued:</p>
@@ -212,7 +212,7 @@ the future.</p>
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Valid ids for the <code>schedule.actor</code> and <code>-location</code> search parameters will be determined by the client and provided 
+  <li>Valid ids for the <code>schedule.actor</code> and <code>-location</code> search parameters will be determined by the client and provided
 when integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
 </ul>
 
@@ -289,7 +289,7 @@ when integrating your application with the client’s production environment. Se
 For example, <code>-location=633867,4048128</code> is supported but <code>-location=633867&amp;-location=4048128</code> is not.</li>
   <li>
     <p><code>slot-type</code> is a required search parameter and must be specified along with <code>schedule.actor</code> and\or <code>-location</code>
-For example, <code>slot-type=http://snomed.info/sct|394581000&amp;-location=4048128</code> and <code>slot-type=http://snomed.info/sct|394581000&amp;-location=95671&amp;schedule.actor=Practitioner/2578010</code> 
+For example, <code>slot-type=http://snomed.info/sct|394581000&amp;-location=4048128</code> and <code>slot-type=http://snomed.info/sct|394581000&amp;-location=95671&amp;schedule.actor=Practitioner/2578010</code>
 are supported but <code>-location=4048128</code> and <code>-location=4048128&amp;schedule.actor=Practitioner/2578010</code> are not.</p>
   </li>
   <li>The <code>start</code> parameter may be provided:
@@ -535,7 +535,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -605,7 +605,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

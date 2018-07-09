@@ -593,7 +593,7 @@
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -1266,7 +1266,7 @@
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned. In addition, <a href="http://hl7.org/fhir/DSTU2/operationoutcome.html">OperationOutcomes</a> may be returned in the following scenarios:</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned. Additional <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned in the following scenarios:</p>
 
 <table>
   <thead>
@@ -1280,21 +1280,9 @@
   <tbody>
     <tr>
       <td>422</td>
-      <td>Body contained modifier extensions</td>
-      <td>error</td>
-      <td>extension</td>
-    </tr>
-    <tr>
-      <td>422</td>
-      <td>Body contained implicit rules</td>
-      <td>error</td>
-      <td>unsupported</td>
-    </tr>
-    <tr>
-      <td>422</td>
       <td>Body contained relatesTo</td>
       <td>error</td>
-      <td>unsupported</td>
+      <td>not-supported</td>
     </tr>
   </tbody>
 </table>
@@ -1393,7 +1381,7 @@
 
 <h3 id="errors-2">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="operation-docref">Operation: docref</h2>
 
@@ -1628,7 +1616,7 @@
 
 <h3 id="errors-3">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> may be returned.</p>
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
