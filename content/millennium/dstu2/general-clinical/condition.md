@@ -85,7 +85,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -114,7 +114,7 @@ List an individual Condition by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -217,13 +217,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
-
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
@@ -291,13 +285,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
-
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
@@ -306,4 +294,4 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [condition-category]: http://hl7.org/fhir/condition-category
 [FHIR<sup>®</sup> Update]: http://hl7.org/fhir/DSTU2/http.html#update
 [errors]: ../../#client-errors
-[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[OperationOutcomes]: ../../#operation-outcomes

@@ -64,7 +64,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -93,7 +93,7 @@ List an individual Person by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ### Person Combines Example
 
@@ -115,7 +115,8 @@ The ability to perform person combine or uncombine operations is not available t
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

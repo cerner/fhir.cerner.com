@@ -9,7 +9,7 @@ title: Contract | DSTU 2 API
 
 ## Overview
 
-The Contract resource is currently limited to representing people who are authorized to view a patient's data. For this reason, contract type, subtype, action and reason are always set to values related to consent for EHR sharing. The subject of the contract is the patient. The actors on the contract are the related people who are authorized to view the subject patient's data. An example is a contract authorizing a mother (actor) to view her child's data (subject). 
+The Contract resource is currently limited to representing people who are authorized to view a patient's data. For this reason, contract type, subtype, action and reason are always set to values related to consent for EHR sharing. The subject of the contract is the patient. The actors on the contract are the related people who are authorized to view the subject patient's data. An example is a contract authorizing a mother (actor) to view her child's data (subject).
 
 The following fields are returned if valued:
 
@@ -36,7 +36,6 @@ Search for Contracts that meet supplied query parameters:
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
- 
 
 ### Parameters
 
@@ -49,7 +48,7 @@ Search for Contracts that meet supplied query parameters:
  `subject`            | Yes, or `_id`                                                | [`reference`] | The subject (Patient) of the Contract. Example `subject=Patient/1234` or `subject:Patient=1234`
  [`_include`]         | No                                                           | [`string`]    | Other resource entries to be returned as part of the bundle. Example `_include=Contract:actor` or `_include=Contract:patient`
 
-Notes: 
+Notes:
 
 - Either the `_id` or one of `actor`, `actor.identifier`, `patient.identifier`, or `subject` parameters must be provided.
 - The `actor`, `actor.identifier`, `patient.identifier`, or `subject` parameters may be provided exactly once and may have only a single value.
@@ -84,7 +83,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -113,10 +112,11 @@ List an individual Contract by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`_include`]: http://hl7.org/fhir/DSTU2/search.html#include
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

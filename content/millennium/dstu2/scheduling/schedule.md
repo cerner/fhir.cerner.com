@@ -9,9 +9,9 @@ title: Schedule | DSTU 2 API
 
 ## Overview
 
-The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. 
-Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the 
-references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any 
+The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment.
+Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the
+references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any
 information about actual appointments.
 
 The following fields are returned if valued:
@@ -69,7 +69,7 @@ Search for Schedules that meet supplied query parameters:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -98,7 +98,7 @@ List an individual Schedule by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
@@ -108,4 +108,5 @@ The common [errors] may be returned.
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
 [Scheduling Location]: #custom-extensions

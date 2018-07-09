@@ -9,7 +9,7 @@ title: MedicationStatement | DSTU 2 API
 
 ## Overview
 
-The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise. 
+The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise.
 <br/><br/>
 References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
 <br/><br/>
@@ -31,11 +31,11 @@ The following fields are returned if valued:
   * [Frequency](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing){:target="_blank"}
   * [Quantity](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_){:target="_blank"}
   * [Reason for use](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_){:target="_blank"}
-  * [Site](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_){:target="_blank"} 
+  * [Site](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_){:target="_blank"}
   * [Rate](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_){:target="_blank"}
   * [Order comments/special instructions](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note){:target="_blank"}
   * [Patient friendly display Extension](#extensions)
-  
+
 ### Querying for Active Medications
 
 To get all possible current medications, an application should query `MedicationStatement` with the `status` query parameter set to `active,intended`. Since `MedicationStatement` is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.
@@ -67,7 +67,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
 ID                              | Value\[x] Type      | Description
 --------------------------------|---------------------|----------------------------------------------------------------------------------
-`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient. 
+`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
 `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, etc.
 
 
@@ -121,7 +121,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -155,7 +155,7 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -228,7 +228,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
@@ -246,9 +246,9 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
                    'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the MedicationStatement resource>"'} %>
-                   
+
 ### Body fields
 
 <%= definition_table(:medication_statement, :update, :dstu2) %>
@@ -295,7 +295,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 In addition, the following error may be returned:
 
@@ -314,6 +314,7 @@ In addition, the following error may be returned:
 [MedicationStatement.status]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status
 [MedicationStatement.wasNotTaken]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
 [Patient friendly display]: #custom-extensions
 [Order category]: #custom-extensions
 [category]: http://hl7.org/fhir/stu3/valueset-medication-statement-category.html

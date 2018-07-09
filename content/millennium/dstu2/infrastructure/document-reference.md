@@ -94,7 +94,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -159,13 +159,11 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
+The common [errors] and [OperationOutcomes] may be returned. Additional [OperationOutcomes] may be returned in the following scenarios:
 
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
- 422         | Body contained relatesTo           | error     | unsupported
+ 422         | Body contained relatesTo           | error     | not-supported
 
 ## Retrieve by id
 
@@ -198,7 +196,7 @@ _Implementation Notes_
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: docref
 
@@ -249,7 +247,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
@@ -265,4 +263,4 @@ The common [errors] may be returned.
 [DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [errors]: ../../#client-errors
 [Binary resource]: ../Binary/#authorization-types
-[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[OperationOutcomes]: ../../#operation-outcomes

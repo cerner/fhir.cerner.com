@@ -95,7 +95,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned. In addition, a 422 Unprocessable Entity will be returned when too many (>1000) patients qualify for the search criteria.
+The common [errors] and [OperationOutcomes] may be returned. In addition, a `422 Unprocessable Entity` will be returned when too many (>1000) patients qualify for the search criteria.
 
 ## Retrieve by id
 
@@ -147,7 +147,7 @@ The ability to perform patient combine or uncombine operations is not available 
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -221,16 +221,7 @@ Notes:
 
 ### Errors
 
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | not-supported
- 422         | Body contained unsupported fields  | error     |   business-rule
-
-
-
+The common [errors] and [OperationOutcomes] may be returned.
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
 [US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
@@ -249,4 +240,4 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [Patient.managingOrganization]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization
 [Patient.link]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link
 [errors]: ../../#client-errors
-[OperationOutcomes]: http://hl7.org/fhir/DSTU2/operationoutcome.html
+[OperationOutcomes]: ../../#operation-outcomes

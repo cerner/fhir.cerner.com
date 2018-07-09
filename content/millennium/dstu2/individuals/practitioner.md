@@ -57,7 +57,7 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -85,7 +85,8 @@ List an individual Practitioner by its id:
 
 ### Errors
 
-The common [errors] may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

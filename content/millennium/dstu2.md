@@ -378,7 +378,7 @@ receive request bodies:
 
         Tenant not valid or accessible
 
-4. Requesting a resource which does not exist will resule in a `404 Not Found` response.
+4. Requesting a resource which does not exist will result in a `404 Not Found` response.
 
         HTTP/1.1 404 Not Found
 
@@ -394,6 +394,87 @@ receive request bodies:
 7. Performing an add or update with syntactically correct JSON body which is invalid according to business rules will result in a `422 Unprocessable Entity` response.
 
         HTTP/1.1 422 Unprocessable Entity
+
+## Operation Outcomes
+
+An [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html) may be returned to provide additional context to an error.  The tables below describes common OperationOutcomes and their causes.  
+
+### Retrieve/Search
+
+ HTTP Status | Cause                                | Severity  | Code
+-------------|--------------------------------------|-----------|---------------
+ 500         | Response is missing a required field | fatal     | required
+
+### Create/Update
+
+ HTTP Status | Cause                                | Severity  | Code
+-------------|--------------------------------------|-----------|---------------
+ 422         | Body contained unsupported fields    | error     | business-rule
+ 422         | Body contained modifier extensions   | error     | extension
+ 422         | Body contained implicit rules        | error     | not-supported
+
+## Handling Required Fields
+
+1. Missing fields required by the HL7 FHIR<sup>®</sup> specification or any missing status field will result in a `500 Internal Server Error` and an [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html).
+
+        {
+          "resourceType": "OperationOutcome",
+          "issue": [
+            {
+              "severity": "fatal",
+              "code": "required",
+              "location": [
+                "/f:AllergyIntolerance/f:status"
+              ]
+            }
+          ]
+        }    
+
+2. Missing fields required by HL7 profiles such as [Argonaut](http://argonautwiki.hl7.org/index.php?title=Implementation_Guide) (DSTU 2) or [US Core](https://www.hl7.org/fhir/us/core/) (STU 3) will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
+
+        {
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "unknown"
+                }
+              ]
+            }
+          ]
+        }
+
+3. Patient consumers requesting a resource with a status of entered-in-error may result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html).
+
+        {
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "masked"
+                }
+              ]
+            }
+          ]
+        }
+
+4. Missing [Coding](https://www.hl7.org/fhir/DSTU2/datatypes.html#codesystem) or [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#codeableconcept) fields with a required value set binding will result in a [DataAbsentReason](http://hl7.org/fhir/DSTU2/extension-data-absent-reason.html), though it may return a text component.
+
+        {
+          "coding": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "unknown"
+                }
+              ]
+            }
+          ],
+          "text": "Auth (Verified)"
+        }
 
 ## HTTP Verbs
 
