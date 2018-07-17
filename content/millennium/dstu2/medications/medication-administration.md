@@ -51,7 +51,7 @@ _Implementation Notes_
 ----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
 `_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
 `patient`       | This, or `_id`     | [`reference`] | The patient who has received the medication administration. Example: `patient=12345`
-`status`        | N                  | [`token`]     | The status of the medication administration, may be a list separated by commas.  Example: `status=active`
+`status`        | N                  | [`token`]     | The status of the medication administration, may be a list separated by commas.  Example: `status=completed`
 `practitioner`  | N                  | [`reference`] | The performing clinician, may be a list separated by commas. Example: `practitioner=12345`
 `notgiven`      | N                  | [`token`]     | Administrations that were not made. A value of 'true' will search for these, and a value of 'false' will exclude them. Example: `true`
 `effectivetime` | N                  | [`date`]      | The date/time when the administration was performed. Must use both ge and le prefixes in order to search. Example: `effectivetime=ge2010-08-18&effectivetime=le2015-07-17`
