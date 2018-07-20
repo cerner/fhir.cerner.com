@@ -1097,7 +1097,7 @@ preceding documentation.
 ## References ##
 - ["The OAuth 2.0 Authorization Framework"][OAUTH]
 - ["OAuth 2.0 Threat Model and Security Considerations"][OAUTH-THREAT]
-- ["OAuth 2.0 Mix-Up Mitigation"][OAUTH-MIXUP]
+- ["OAuth 2.0 Security Best Current Practice"][OAUTH-BCP]
 - ["OAuth 2.0 for Native Apps"][OAUTH-NATIVE]
 - ["OpenID Connect Core 1.0 incorporating errata set 1"][OPENID]
 - ["Registering an Application to a URI Scheme" (Windows API)][WIN-SCHEME]
