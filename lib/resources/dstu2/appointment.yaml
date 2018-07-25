@@ -69,6 +69,19 @@ fields:
       }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
 
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+  note: When updating an appointment, the status must be "arrived" or "cancelled".
+  action: update
+  example: |
+      {
+        "status": "arrived"
+      }
+  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
+
 - name: participant
   required: 'Yes'
   cardinality: 1..*
@@ -115,3 +128,46 @@ fields:
         "status": "needs-action"
       }
 
+- name: participant
+  required: 'Yes'
+  cardinality: 1..*
+  type: BackboneElement
+  description: Participants involved in appointment.
+  action: update
+  example: |
+      {
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "PATIENT, TEST"
+            },
+            "status": "accepted"
+          }
+        ]
+      }
+  children:
+
+  - name: actor
+    required: 'Yes'
+    cardinality: 0..1
+    type: Reference
+    description: A person, location, healthcare service or device that is participating in the appointment.
+    example: |
+      {
+        "actor": {
+          "reference": "Patient/4704007",
+          "display": "PATIENT, TEST"
+        }
+      }
+
+  - name: status
+    required: 'Yes'
+    cardinality: 1..1
+    type: code
+    description: Participation status of the actor.
+    note: When updating an appointment, this value must be "accepted".
+    example: |
+      {
+        "status": "accepted"
+      }

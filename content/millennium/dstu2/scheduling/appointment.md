@@ -197,6 +197,71 @@ _Implementation Notes_
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+## Update
+
+Update an Appointment.
+
+    PUT /Appointment/:id
+
+_Implementation Notes_
+
+* The only supported change is to update the [Appointment.status] to either `arrived` or `cancelled`.
+* `Appointment.participant` must have at least one participant.
+* `Appointment.participant.status` must be `accepted` for each participant
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
+                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'} %>
+
+### Body fields
+
+<%= definition_table(:appointment, :update, :dstu2) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1620549
+
+#### Body
+
+<%= json(:dstu2_appointment_update) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Connection → Keep-Alive
+    Content-Encoding → gzip
+    Content-Length → 20
+    Content-Type → text/html; charset=UTF-8
+    Date → Wed, 13 Jan 2016 21:50:53 GMT
+    Keep-Alive → timeout=15, max=100
+    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
+    Status → 200 OK
+    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
+    access-control-allow-origin → *
+    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+    access-control-max-age → 0
+    cache-control → no-cache
+    etag → W/"1"
+    server-response-time → 653.7616069999999
+    strict-transport-security → max-age=631152000
+    vary → Origin,User-Agent,Accept-Encoding
+    x-content-type-options → nosniff
+    x-frame-options → SAMEORIGIN
+    x-request-id → 9dba8326-899a-406f-a125-3fc3d6605dad
+    x-runtime → 0.653722
+    x-xss-protection → 1; mode=block
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -210,3 +275,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [OperationOutcomes]: ../../#operation-outcomes
+[Appointment.status]: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status

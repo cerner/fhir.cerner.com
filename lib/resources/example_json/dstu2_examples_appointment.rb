@@ -412,5 +412,26 @@ module Cerner
       "status": "proposed"
     }
 
+    DSTU2_APPOINTMENT_UPDATE ||= {
+        "resourceType": "Appointment",
+        "id": "1620549",
+        "participant": [
+            {
+            "type": [
+            {
+            "text": "Patient"
+    }
+    ],
+        "actor": {
+        "reference": "Patient/3886413",
+        "display": "STRECKER, TESTA"
+    },
+        "required": "required",
+        "status": "accepted"
+    }
+    ],
+        "status": "arrived"
+    }
+
   end
 end
