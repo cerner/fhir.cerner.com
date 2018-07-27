@@ -95,7 +95,7 @@ fields:
           {
             "actor": {
               "reference": "Patient/4704007",
-              "display": "PATIENT, TEST"
+              "display": "Smart, Barney R"
             },
             "status": "needs-action"
           }
@@ -113,7 +113,7 @@ fields:
       {
         "actor": {
           "reference": "Patient/4704007",
-          "display": "PATIENT, TEST"
+          "display": "Smart, Barney R"
         }
       }
 
@@ -140,7 +140,7 @@ fields:
           {
             "actor": {
               "reference": "Patient/4704007",
-              "display": "PATIENT, TEST"
+              "display": "Smart, Barney R"
             },
             "status": "accepted"
           }
@@ -157,7 +157,7 @@ fields:
       {
         "actor": {
           "reference": "Patient/4704007",
-          "display": "PATIENT, TEST"
+          "display": "Smart, Barney R"
         }
       }
 

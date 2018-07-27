@@ -404,7 +404,7 @@ module Cerner
         {
           "actor": {
             "reference": "Patient/4704007",
-            "display": "PATIENT, TEST"
+            "display": "Smart, Barney R"
           },
           "status": "needs-action"
         }
@@ -412,25 +412,19 @@ module Cerner
       "status": "proposed"
     }
 
-    DSTU2_APPOINTMENT_UPDATE ||= {
-        "resourceType": "Appointment",
-        "id": "1620549",
-        "participant": [
-            {
-            "type": [
-            {
-            "text": "Patient"
-    }
-    ],
-        "actor": {
-        "reference": "Patient/3886413",
-        "display": "STRECKER, TESTA"
-    },
-        "required": "required",
-        "status": "accepted"
-    }
-    ],
-        "status": "arrived"
+    DSTU2_APPOINTMENT_CREATE ||= {
+      "resourceType": "Appointment",
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
+          },
+          "required": "required",
+          "status": "accepted"
+        }
+      ],
+      "status": "arrived"
     }
 
   end
