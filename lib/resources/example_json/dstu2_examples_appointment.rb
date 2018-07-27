@@ -37,6 +37,7 @@ module Cerner
               ],
               "text": "Same Day"
             },
+            "status": "booked",
             "description": "Same Day",
             "start": "2017-10-04T08:00:00.000-05:00",
             "end": "2017-10-04T09:00:00.000-05:00",
@@ -113,6 +114,7 @@ module Cerner
               ],
               "text": "Same Day"
             },
+            "status": "booked",
             "description": "Same Day",
             "start": "2017-10-04T09:00:00.000-05:00",
             "end": "2017-10-04T10:00:00.000-05:00",
@@ -189,6 +191,7 @@ module Cerner
               ],
               "text": "Same Day"
             },
+            "status": "booked",
             "description": "Same Day",
             "start": "2017-10-04T22:54:00.000-05:00",
             "end": "2017-10-04T23:54:00.000-05:00",
@@ -265,6 +268,7 @@ module Cerner
               ],
               "text": "Same Day"
             },
+            "status": "booked",
             "description": "Same Day",
             "start": "2017-10-05T08:00:00.000-05:00",
             "end": "2017-10-05T09:00:00.000-05:00",
@@ -342,6 +346,81 @@ module Cerner
         ],
         "text": "Same Day"
       },
+      "status": "booked",
+      "description": "Same Day",
+      "start": "2017-10-04T08:00:00.000-05:00",
+      "end": "2017-10-04T09:00:00.000-05:00",
+      "minutesDuration": 60,
+      "participant": [
+        {
+          "type": [
+            {
+              "text": "Resource"
+            },
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ParticipationType",
+                  "code": "PPRF",
+                  "display": "primary performer",
+                  "userSelected": false
+                }
+              ]
+            }
+          ],
+          "actor": {
+            "reference": "Practitioner/2578010",
+            "display": "Howdeshell, Tami"
+          },
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "type": [
+            {
+              "text": "Patient"
+            }
+          ],
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
+          },
+          "required": "required",
+          "status": "accepted"
+        },
+        {
+          "actor": {
+            "reference": "Location/4048128",
+            "display": "Baseline East"
+          },
+          "required": "required",
+          "status": "accepted"
+        }
+      ]
+    }
+    DSTU2_APPOINTMENT_UPDATE ||= {
+      "resourceType": "Appointment",
+      "id": "3005756",
+      "meta": {
+        "versionId": "0",
+        "lastUpdated": "2017-10-04T13:06:34.000-05:00"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "394581000",
+            "display": "Community medicine",
+            "userSelected": false
+          }
+        ],
+        "text": "Same Day"
+      },
+      "status": "arrived",
       "description": "Same Day",
       "start": "2017-10-04T08:00:00.000-05:00",
       "end": "2017-10-04T09:00:00.000-05:00",
@@ -394,7 +473,6 @@ module Cerner
       ]
     }
 
-
     DSTU2_APPOINTMENT_CREATE ||= {
       "resourceType": "Appointment",
       "slot": {
@@ -410,21 +488,6 @@ module Cerner
         }
       ],
       "status": "proposed"
-    }
-
-    DSTU2_APPOINTMENT_UPDATE ||= {
-      "resourceType": "Appointment",
-      "participant": [
-        {
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
-          },
-          "required": "required",
-          "status": "accepted"
-        }
-      ],
-      "status": "arrived"
     }
   end
 end

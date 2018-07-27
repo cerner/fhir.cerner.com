@@ -77,9 +77,9 @@ fields:
   note: When updating an appointment, the status must be "arrived" or "cancelled".
   action: update
   example: |
-      {
-        "status": "arrived"
-      }
+    {
+      "status": "arrived"
+    }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
 
 - name: participant
@@ -135,17 +135,17 @@ fields:
   description: Participants involved in appointment.
   action: update
   example: |
-      {
-        "participant": [
-          {
-            "actor": {
-              "reference": "Patient/4704007",
-              "display": "Smart, Barney R"
-            },
-            "status": "accepted"
-          }
-        ]
-      }
+    {
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
+          },
+          "status": "accepted"
+        }
+      ]
+    }
   children:
 
   - name: actor
