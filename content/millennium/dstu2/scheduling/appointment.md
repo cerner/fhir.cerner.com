@@ -207,7 +207,8 @@ _Implementation Notes_
 
 * The only supported change is to update the [Appointment.status] to either `arrived` or `cancelled`.
 * `Appointment.participant` must have at least one participant.
-* `Appointment.participant.status` must be `accepted` for each participant
+* `Appointment.participant.status` must be `accepted` for each participant.
+* Any additional fields than the ones mentioned below will be ignored.
 
 ### Authorization Types
 

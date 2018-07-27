@@ -412,7 +412,7 @@ module Cerner
       "status": "proposed"
     }
 
-    DSTU2_APPOINTMENT_CREATE ||= {
+    DSTU2_APPOINTMENT_UPDATE ||= {
       "resourceType": "Appointment",
       "participant": [
         {
@@ -426,6 +426,5 @@ module Cerner
       ],
       "status": "arrived"
     }
-
   end
 end
