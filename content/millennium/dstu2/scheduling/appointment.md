@@ -268,6 +268,11 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+In addition, the following error may be returned:
+
+* Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
+
+
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
