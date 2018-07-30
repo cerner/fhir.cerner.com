@@ -268,10 +268,11 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-In addition, the following error may be returned:
+In addition, the following errors may be returned:
 
 * Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
-
+* Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
+* If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
