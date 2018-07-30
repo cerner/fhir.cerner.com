@@ -48,11 +48,11 @@ Technically speaking, the SMART specification requires that a FHIR server exist 
 
 ## Technical ##
 
-### Terra UI Framework ###
+### Terra UI ###
 
 Some of the things that we take into consideration when validating your SMART app are user interface (UI) and user experience (UX). They are an important part of the overall user's experience.
 
-If you are building your SMART app using [React library](https://reactjs.org/), we highly recommend that you take a look at [Terra UI framework](https://engineering.cerner.com/terra-ui/#/home/terra-ui/index) that we've created and open sourced. The UI framework follows Cerner’s Design Standard Guidelines. What this means is that your app will look and feel like a Cerner's app.
+If you are building your SMART app using the [React](https://reactjs.org/) JavaScript library, we highly recommend that you take a look at the [Terra](https://engineering.cerner.com/terra-ui/#/home/terra-ui/index) UI framework that we've created and open sourced. Terra follows Cerner's Design Standard Guidelines so your app will look and feel like a Cerner app.
 
 ### Screen Resolution ###
 
@@ -137,11 +137,11 @@ See the [Scopes and Launch Content](http://docs.smarthealthit.org/authorization/
 
 ### SMART Apps in *MPages* ###
 
-SMART apps can be embedded and launched from *MPages* Workflow or Summary. In order to securely embed a SMART app within *MPages* iframe, additionall code is needed to be included in the SMART app. Cerner takes care of creating the code that you can include in your SMART app. Head over to [cerner-smart-embeddable-lib](https://github.com/cerner/cerner-smart-embeddable-lib) on GitHub to get started!
+SMART apps can be embedded and launched from the *MPages* Workflow or Summary. In order to securely embed a SMART app within an *MPages* iframe, additional code must be included in the SMART app. Cerner provides this code for you. Head over to [cerner-smart-embeddable-lib](https://github.com/cerner/cerner-smart-embeddable-lib) on GitHub to get started!
 
-#### Cookie in iframe ####
+#### iframe Cookies ####
 
-If your SMART app uses cookie, in order for the cookie to be saved correctly while in *MPages* iframe, the [P3P](https://www.w3.org/P3P/) header or meta tag must be set.  Please see [this page](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) for more information on P3P.
+If your SMART app uses cookies, the [P3P](https://www.w3.org/P3P/) header or meta tag must be set in order for cookies to be saved correctly while running in an *MPages* iframe.  Please see [this page](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) for more information on P3P.
 
 ## Testing ##
 
