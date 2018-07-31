@@ -76,6 +76,7 @@
   </li>
   <li>
 <a href="#technical" id="markdown-toc-technical">Technical</a>    <ul>
+      <li><a href="#terra-ui" id="markdown-toc-terra-ui">Terra UI</a></li>
       <li><a href="#screen-resolution" id="markdown-toc-screen-resolution">Screen Resolution</a></li>
       <li><a href="#browser-requirement" id="markdown-toc-browser-requirement">Browser Requirement</a></li>
       <li><a href="#single-sign-on-sso" id="markdown-toc-single-sign-on-sso">Single Sign On (SSO)</a></li>
@@ -87,6 +88,7 @@
       <li><a href="#tutorial" id="markdown-toc-tutorial">Tutorial</a></li>
       <li><a href="#code-console-and-sandbox" id="markdown-toc-code-console-and-sandbox">code Console and Sandbox</a></li>
       <li><a href="#launch-context" id="markdown-toc-launch-context">Launch Context</a></li>
+      <li><a href="#smart-apps-in-mpages" id="markdown-toc-smart-apps-in-mpages">SMART Apps in <em>MPages</em></a></li>
     </ul>
   </li>
   <li>
@@ -143,6 +145,12 @@
 <p>Technically speaking, the SMART specification requires that a FHIR server exist so that a SMART app can communicate with the FHIR server when the app opens in order to determine the location of the authorization (OAuth 2) server. However, outside of this requirement, FHIR does not need to be leveraged otherwise by the SMART app.</p>
 
 <h2 id="technical">Technical</h2>
+
+<h3 id="terra-ui">Terra UI</h3>
+
+<p>Some of the things that we take into consideration when validating your SMART app are user interface (UI) and user experience (UX). They are an important part of the overall user’s experience.</p>
+
+<p>If you are building your SMART app using the <a href="https://reactjs.org/">React</a> JavaScript library, we highly recommend that you take a look at the <a href="https://engineering.cerner.com/terra-ui/#/home/terra-ui/index">Terra</a> UI framework that we’ve created and open sourced. Terra follows Cerner’s Design Standard Guidelines so your app will look and feel like a Cerner app.</p>
 
 <h3 id="screen-resolution">Screen Resolution</h3>
 
@@ -235,6 +243,15 @@
 <h3 id="launch-context">Launch Context</h3>
 
 <p>See the <a href="http://docs.smarthealthit.org/authorization/scopes-and-launch-context/">Scopes and Launch Content</a> page for more information on how you can obtain the context. Generally, your app must be able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.</p>
+
+<h3 id="smart-apps-in-mpages">SMART Apps in <em>MPages</em>
+</h3>
+
+<p>SMART apps can be embedded and launched from the <em>MPages</em> Workflow or Summary. In order to securely embed a SMART app within an <em>MPages</em> iframe, additional code must be included in the SMART app. Cerner provides this code for you. Head over to <a href="https://github.com/cerner/cerner-smart-embeddable-lib">cerner-smart-embeddable-lib</a> on GitHub to get started!</p>
+
+<h4 id="iframe-cookies">iframe Cookies</h4>
+
+<p>If your SMART app uses cookies, the <a href="https://www.w3.org/P3P/">P3P</a> header or meta tag must be set in order for cookies to be saved correctly while running in an <em>MPages</em> iframe.  Please see <a href="https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/">this page</a> for more information on P3P.</p>
 
 <h2 id="testing">Testing</h2>
 
