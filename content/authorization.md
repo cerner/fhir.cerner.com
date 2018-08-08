@@ -211,8 +211,8 @@ format:
 <pre class="terminal">
 scope-name            = resource-context "/" resource-type "." modification-rights
 resource-context      = ("user" / "patient" / "system") 
-resource-type         = (Name / "*")
-modification-rights   = ("read" / "write" / "*" ); 
+resource-type         = (Name)
+modification-rights   = ("read" / "write"); 
 </pre>
 
 Examples of scopes include:
@@ -320,8 +320,8 @@ access tokens in perpetuity on behalf of the user until:
 ##### Supported Scopes #####
 
 [Wildcard Scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/#wildcard-scopes) 
-are currently **not supported**.  An application is currently required to 
-specifically request each scope that it needs to run.
+are currently **not supported**; refer to the linked document for a more detailed discussion of the challenges they pose.  
+An application is currently required to specifically request each scope that it needs to run.
 
 Other combinations of scopes may be limited; please see the [FAQ](#faq) for
 known limitations.
