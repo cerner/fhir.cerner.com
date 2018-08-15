@@ -73,12 +73,9 @@ _Implementation Notes_
 
 Notes:   
 
+- At least one of the `slot-type`, `schedule.actor`, and `-location` parameters must be provided.
 - The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
   For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
-- `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
-  For example, `slot-type=http://snomed.info/sct|394581000&-location=4048128` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=Practitioner/2578010`
-  are supported but `-location=4048128` and `-location=4048128&schedule.actor=Practitioner/2578010` are not.
-
 - The `start` parameter may be provided:  
   - once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
