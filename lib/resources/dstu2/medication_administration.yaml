@@ -1,0 +1,35 @@
+---
+name: MedicationAdministration
+field_name_base_url: http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration
+fields:
+
+  - name: medicationCodeableConcept
+    binding:
+      description: A code that defines the type of medication.
+      terminology:
+      - display: RxNorm
+        system: http://www.nlm.nih.gov/research/umls/rxnorm
+        info_link: http://hl7.org/fhir/dstu2/rxnorm.html
+  - name: dosage
+    children:
+
+      - name: siteCodeableConcept
+        url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_
+        binding:
+          description: The anatomic site where the medication first enters the body.
+          terminology:
+          - display: SNOMED CT
+            system: http://snomed.info/sct
+            info_link: http://hl7.org/fhir/dstu2/snomedct.html
+      - name: route
+        binding:
+          description: >
+            A code specifying the route or physiological path of administration of a therapeutic agent into or onto a
+            subject.
+          terminology:
+          - display: SNOMED CT
+            system: http://snomed.info/sct
+            info_link: http://hl7.org/fhir/dstu2/snomedct.html
+          - display: NCI Metathesaurus
+            system: http://ncimeta.nci.nih.gov
+            info_link: http://hl7.org/fhir/dstu2/ncimeta.html
