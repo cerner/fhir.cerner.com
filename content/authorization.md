@@ -219,7 +219,7 @@ Examples of scopes include:
 
 - ``user/Observation.read`` (Read all values from the Observation resource
   that the user has access to.)
-- ``patient/MedicationOrder.*`` (Read or write medications for a specific patient.)
+- ``patient/MedicationOrder.read`` (Read medications for a specific patient.)
 - ``user/Appointment.write`` (Create appointments.)
 
 The "resource context" represents one of three possible choices:
