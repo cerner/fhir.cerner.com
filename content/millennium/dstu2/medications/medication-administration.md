@@ -28,6 +28,14 @@ The following fields are returned if valued:
   * [Site](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_){:target="_blank"}
   * [Rate](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_){:target="_blank"}
 
+## Terminology Bindings
+
+<%= terminology_table(:medication_administration, :dstu2) %>
+
+### Contained Medication Bindings
+
+<%= terminology_table(:medication_administration_contained_medication, :dstu2) %>
+
 ## Search
 
 Search for MedicationAdministrations that meet supplied query parameters:
