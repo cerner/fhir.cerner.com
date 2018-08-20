@@ -823,7 +823,7 @@ also allows the type level interactions of “create” and “validate”.</p>
   <li>
     <p>“*”</p>
 
-    <p>Corresponds to both read and write access, as defined above.</p>
+    <p>Corresponds to both read and write access, as defined above. This modification right is <strong>not supported</strong> in Cerner’s Ignite implementation.</p>
   </li>
 </ul>
 
@@ -853,10 +853,6 @@ also allows the type level interactions of “create” and “validate”.</p>
     <tr>
       <td>user/Appointment.write</td>
       <td>Add new appointments for the user.</td>
-    </tr>
-    <tr>
-      <td>user/Appointment.*</td>
-      <td>Manage all appointments the user has access to.</td>
     </tr>
     <tr>
       <td>system/Patient.read</td>
@@ -1212,8 +1208,8 @@ for the elements defined in this specification using the notation of
 <pre class="terminal">
 scope-name          = resource-context "/" resource-type "." modification-rights
 resource-context    = ("user" / "patient") 
-resource-type       = (Name / "*")
-modification-rights = ("read" / "write" / "*" ); 
+resource-type       = (Name)
+modification-rights = ("read" / "write");
 </pre>
 
 <p><a id="A.2"></a></p>

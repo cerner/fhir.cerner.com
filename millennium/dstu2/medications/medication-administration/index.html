@@ -80,6 +80,11 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
+<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -123,6 +128,194 @@ The following fields are returned if valued:</p>
     </ul>
   </li>
 </ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medicationCodeableConcept">MedicationAdministration.medicationCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the type of medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      System: http://www.nlm.nih.gov/research/umls/rxnorm </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_">MedicationAdministration.dosage.siteCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The anatomic site where the medication first enters the body.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.route">MedicationAdministration.dosage.route</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      System: http://snomed.info/sct </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
+                      System: http://ncimeta.nci.nih.gov </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="contained-medication-bindings">Contained Medication Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the type of medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      System: http://www.nlm.nih.gov/research/umls/rxnorm </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
