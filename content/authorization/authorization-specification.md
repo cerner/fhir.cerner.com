@@ -653,7 +653,7 @@ Three modifications rights are defined:
 	
 *   "*"
 
-    Corresponds to both read and write access, as defined above.
+    Corresponds to both read and write access, as defined above. This modification right is **not supported** in Cerner's Ignite implementation.
 
 ##### Examples #####
 The following are normative examples of the resource scopes:
@@ -664,7 +664,6 @@ patient/Observation.read     | Read all observations about the patient in contex
 patient/Observation.write    | Add new observations about, such as new blood pressure readings.
 user/Observation.read        | Read a feed of all new lab observations across a patient population.
 user/Appointment.write       | Add new appointments for the user.
-user/Appointment.*           | Manage all appointments the user has access to.
 system/Patient.read          | Read all patient records accessible to the given client using its own credentials.
 
 #### Scopes for Identity Information ####
@@ -968,8 +967,8 @@ for the elements defined in this specification using the notation of
 <pre class="terminal">
 scope-name          = resource-context "/" resource-type "." modification-rights
 resource-context    = ("user" / "patient") 
-resource-type       = (Name / "*")
-modification-rights = ("read" / "write" / "*" ); 
+resource-type       = (Name)
+modification-rights = ("read" / "write");
 </pre>
 
 <a id="A.2"></a>

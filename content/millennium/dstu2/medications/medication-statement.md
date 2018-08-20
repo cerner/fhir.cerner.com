@@ -10,9 +10,9 @@ title: MedicationStatement | DSTU 2 API
 ## Overview
 
 The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise.
-<br/><br/>
+
 References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
-<br/><br/>
+
 The following fields are returned if valued:
 
 * [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
@@ -42,8 +42,6 @@ To get all possible current medications, an application should query `Medication
 
 To get the list of current medications that would likely be shown by default to a practitioner, the `MedicationOrder` resource should be used in addition to the query above in order to ensure that `draft` orders are included. Duplicates can be removed using the `MedicationStatement.supportingInformation` reference. A duplicate is identified when `MedicationOrder.id` is equivalent to the `supportingInformation` referenced `MedicationOrder/[id]`
 
-
-
 ## Terminology Bindings
 
 <%= terminology_table(:medication_statement, :dstu2) %>
@@ -65,10 +63,10 @@ To get the list of current medications that would likely be shown by default to 
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
-ID                              | Value\[x] Type      | Description
---------------------------------|---------------------|----------------------------------------------------------------------------------
-`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
-`medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, etc.
+ ID                              | Value\[x] Type      | Description
+---------------------------------|---------------------|-------------------------------------------------------------------------------------------
+ `patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
+ `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, etc.
 
 
 ## Search
@@ -82,7 +80,6 @@ _Implementation Notes_
 * [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
 * [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
 
-
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
@@ -91,18 +88,17 @@ _Implementation Notes_
 ### Parameters
 
 
- Name           | Required?          | Type          | Description
-----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
-`_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
-`patient`       | This, or `_id`     | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
-`status`        | N                  | [`token`]     | The status of the medication statement, may be a list separated by commas.  Example: `active,completed`
-[`_count`]      | N                  | [`number`]    | The maximum number of results to return. Defaults to `50`.
+ Name            | Required?          | Type          | Description
+-----------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
+ `_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `patient`       | This, or `_id`     | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
+ `status`        | N                  | [`token`]     | The status of the medication statement, may be a list separated by commas. Example: `active,completed`
+ [`_count`]      | N                  | [`number`]    | The maximum number of results to return. Defaults to `50`.
 
 
 Notes:
 
-- Either the `_id`, or a combination of `patient`, `status`, or `_count` parameters must be provided.
-
+* Either the `_id` parameter or a combination of the `patient`, `status`, and `_count` parameters must be provided.
 
 ### Headers
 
@@ -168,6 +164,7 @@ _Implementation Notes_
 * [MedicationStatement.status] must be set to `active`.
 * [MedicationStatement.wasNotTaken] set to `true` is not supported.
 * If [MedicationStatement.medication] is a reference, it must refer to a [contained] Medication with the code field populated and cannot have any product.ingredients populated.
+* Only MedicationStatements about home medications or historical medications can be created. MedicationStatements about prescribed medications cannot be created because MedicationStatement isn't used to capture compliance information.
 
 ### Authorization Types
 
@@ -239,6 +236,7 @@ Update a MedicationStatement.
 _Implementation Notes_
 
 * The only supported change is to update the [MedicationStatement.status] to `completed`.
+* Only MedicationStatements that have no reference to a MedicationOrder can be updated. When a MedicationStatement is tied to a prescription or order, its status is updated when the order itself is completed or cancelled.
 
 ### Authorization Types
 
