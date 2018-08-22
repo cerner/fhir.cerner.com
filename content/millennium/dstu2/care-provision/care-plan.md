@@ -31,6 +31,8 @@ The following fields are returned if valued:
 
 The CareTeam resource will be available in the STU3 version to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
 
+In order for your application to request CareTeam resources on the closed endpoint, you must use an access token with a CareTeam scope for your CarePlan request. CareTeam scopes are not available for self registration in the Code Developer Portal, so closed endpoint testing for CareTeams is not immediately available. Please engage with us on our [Google group](https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/cerner-fhir-developers) if you have a need for requesting CareTeams on the closed endpoint. The requirement for providing an access token with a CareTeam scope will be relaxed in the near future.
+
 The following fields are returned if valued:
 
 * [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
