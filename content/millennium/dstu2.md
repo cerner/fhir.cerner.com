@@ -476,6 +476,19 @@ An [OperationOutcome](https://www.hl7.org/fhir/DSTU2/operationoutcome.html) may 
           "text": "Auth (Verified)"
         }
 
+## Filtered Data for Patient or Proxy Access
+
+When accessing data with a patient persona, some data may be filtered as compared to system or provider access.
+Resources with a status of “entered-in-error” will result in either some fields being filtered or returned with a
+[data absent reason](#handling-required-fields) with a valueCode of masked.  Fields that may contain
+sensitive information will be filtered such as non-instructional notes. For proxy users, regulatory laws or policies
+may restrict parental or guardian access to adolescent health records and these regulations vary from state to state.
+
+## General Security Filtering
+
+Not all data can be accessed by all applications or users. Encounter or organization security, privileges, and
+preference may filter data based on the build in the domain.
+
 ## HTTP Verbs
 
 Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.
