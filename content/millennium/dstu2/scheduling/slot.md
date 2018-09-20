@@ -65,24 +65,26 @@ _Implementation Notes_
  Name             | Required?                                        | Type          | Description
 ------------------|--------------------------------------------------|---------------|------------------------------------------------------------------------------------
 `_id`             | Yes or `slot-type`                               | [`token`]     | The logical resource id associated with the resource.
-`slot-type`       | Yes or `_id`                                     | [`token`]     | The type of appointments that can be booked into this slot. Example: `http://snomed.info/sct|394581000`
-`schedule.actor`  | Yes (or `-location`) when using `slot-type`      | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
-`-location`       | Yes (or `schedule.actor`) when using `slot-type` | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+`slot-type`       | Yes or `_id`                                     | [`token`]     | A single or comma seperated list of appointment types that can be booked into the slot. Example: `http://snomed.info/sct|394581000`
+`schedule.actor`  | No                                               | [`reference`] | The Practitioner references. Example: `Practitioner/2578010`
+`-location`       | No                                               | [`reference`] | The list of Location references. Example: `633867`
 `start`           | Yes when using `slot-type`                       | [`date`]      | The Slot date-time. Example: `2016`
 [`_count`]        | No                                               | [`number`]    | The maximum number of results to be returned per page.
 
-Notes:   
+Notes:
 
-- The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
+- The `slot-type` should be provided and may include multiple types separated by a comma
+  For example, `slot-type=http://snomed.info/sct|394581000,http://snomed.info/sct|394602003`
+- The `schedule.actor`, and `-location` parameters may be included only once.
   For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
 - `slot-type` is a required search parameter and must be specified along with `schedule.actor` and\or `-location`
   For example, `slot-type=http://snomed.info/sct|394581000&-location=4048128` and `slot-type=http://snomed.info/sct|394581000&-location=95671&schedule.actor=Practitioner/2578010`
   are supported but `-location=4048128` and `-location=4048128&schedule.actor=Practitioner/2578010` are not.
 
-- The `start` parameter may be provided:  
+- The `start` parameter may be provided:
   - once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)   
+    an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)
 
 - The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
 
