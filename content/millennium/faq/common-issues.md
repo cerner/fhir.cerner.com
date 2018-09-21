@@ -25,9 +25,9 @@ identical each time and if they are retrieving the same data set.
 
 ### Implement Paging
 
-Your app should handle [paging](https://www.hl7.org/fhir/dstu2/http.html#paging) for all resources, 
-even if our server does not support it yet. This ensures your app is compatible with more 
-implementations (including future versions of our server if we add paging to improve 
+Your app should handle [paging](https://www.hl7.org/fhir/dstu2/http.html#paging) for all resources,
+even if our server does not support it yet. This ensures your app is compatible with more
+implementations (including future versions of our server if we add paging to improve
 performance of resources that do not currently page).
 
 Queries on some resources can result in large data sets. If you
@@ -37,9 +37,9 @@ page. This creates potential for the system to not account for the
 entire patient dataset.
 
 In addition, if your application is showing results directly to the user, it probably
-does not want to show hundreds of records at a time to a user. It's also possible your application 
-may not have the memory available to hold all data at one time. These are 
-all factors that you should consider when determining a page size that is 
+does not want to show hundreds of records at a time to a user. It's also possible your application
+may not have the memory available to hold all data at one time. These are
+all factors that you should consider when determining a page size that is
 right for your application.
 
 There are two ways we recommend that you test
@@ -73,7 +73,7 @@ displayed as intended.
 
 - **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
   and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
-  are not supported and will be rejected if present. In addition, each resource 
+  are not supported and will be rejected if present. In addition, each resource
   will call out modifier elements that are not supported. For example: [DocumentReference create](../../dstu2/infrastructure/document-reference/#create)
   calls out all unsupported modifiers within the implementation notes section.
 
@@ -101,7 +101,7 @@ displayed as intended.
 
 Cerner maps proprietary codes to standard terminologies as part of our
 implementation process. For example, [LOINC codes](https://www.hl7.org/fhir/dstu2/loinc.html) are
-exposed within some resources. In some cases, these mappings do not cover all the possible 
+exposed within some resources. In some cases, these mappings do not cover all the possible
 variances in the ways hospitals have implemented their EHRs. When EHRs were
 originally implemented, it was common to use proprietary codes to
 document labs and measurements that don’t map directly to the LOINC
@@ -160,8 +160,8 @@ are more reliable than relying on post-query filtering.
 
 ### Review Filtering Options
 
-Using query parameters is recommended over post-query filtering (when possible). 
-Regardless of the method used to filter results, ensure that your application handles 
+Using query parameters is recommended over post-query filtering (when possible).
+Regardless of the method used to filter results, ensure that your application handles
 resources that have been marked in error or invalid using the appropriate status field(s)
 for each resource.
 
@@ -190,6 +190,15 @@ resources do not support filtering by the encounter parameter in
 the current implantation of Ignite APIs for Millennium. If you do
 use these resources, your app may need to implement a post-filter
 to display only the current encounter.
+
+### Why do I not see the same data for different users or applications?
+
+Data can be filtered for a variety of reasons. Resources with a status of “entered-in-error” and sensitive data are
+filtered out for patient personas. Providers, systems, and applications may have data filtered for encounter and
+organization security reasons and privilege and preference build in the domain.
+
+If your app is accessing data with a patient persona, your app should handle
+[Filtered Data](../../dstu2/#filtered-data-for-patient-or-proxy-access).
 
 ### Using Appropriate Scopes for SMART Launch
 
@@ -350,7 +359,7 @@ paid and free offerings. If available, producing a report from tools
 such as [HP Fortify](http://www.ndm.net/sast/hp-fortify), [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
 and [Veracode](https://www.veracode.com/) are preferred.
 
-[OpenVAS](http://www.openvas.org/), [BurpSuite](https://portswigger.net/burp), 
+[OpenVAS](http://www.openvas.org/), [BurpSuite](https://portswigger.net/burp),
 [FindSecBugs](http://find-sec-bugs.github.io/) and [ZAP](http://www.zaproxy.org/) can also be used to produce a
 report if the above analysis tools are not available to the development team.
 
