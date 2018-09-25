@@ -394,5 +394,95 @@ module Cerner
       }]
     }
 
+    DSTU2_MEDICATION_ORDER_ENTRY ||= {
+      "resourceType": "MedicationOrder",
+      "id": "23865893",
+      "meta": {
+        "versionId": "6",
+        "lastUpdated": "2018-06-20T19:10:33.000Z"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div>&lt;p>&lt;b>Medication Order&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: SMART, WILMA&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: amoxicillin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 250 mg, 1 caps, Oral, Once&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;/div>"
+      },
+      "dateWritten": "2018-06-19T16:48:00.000-05:00",
+      "status": "completed",
+      "dateEnded": "2018-06-19T16:48:00.000-05:00",
+      "patient": {
+        "reference": "Patient/4342008",
+        "display": "SMART, WILMA"
+      },
+      "prescriber": {
+        "reference": "Practitioner/1258014",
+        "display": "Smart, Peter"
+      },
+      "encounter": {
+        "reference": "Encounter/4275906"
+      },
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "308182",
+            "display": "Amoxicillin 250 MG Oral Capsule",
+            "userSelected": false
+          }
+        ],
+        "text": "amoxicillin"
+      },
+      "dosageInstruction": [
+        {
+          "text": "250 mg, 1 caps, Oral, Once",
+          "_text": {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                "valueString": "250 Milligram Oral once. Refills: 0."
+              }
+            ]
+          },
+          "timing": {
+            "repeat": {
+              "boundsPeriod": {
+                "start": "2018-06-19T16:48:00.000-05:00",
+                "end": "2018-06-19T16:48:00.000-05:00"
+              }
+            },
+            "code": {
+              "text": "Once"
+            }
+          },
+          "route": {
+            "coding": [
+              {
+                "system": "http://ncimeta.nci.nih.gov",
+                "code": "C38288",
+                "display": "ORAL",
+                "userSelected": false
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "26643006",
+                "display": "Oral route (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Oral"
+          },
+          "doseQuantity": {
+            "value": 250,
+            "unit": "mg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          }
+        }
+      ],
+      "dispenseRequest": {
+        "validityPeriod": {
+          "start": "2018-06-19T16:48:00.000-05:00"
+        }
+      }
+    }
+
   end
 end
