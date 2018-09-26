@@ -31,11 +31,10 @@ The following fields are returned if valued:
   * [As needed (such as PRN for pain)](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.asNeeded_x_){:target="_blank"}
   * [Route](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route){:target="_blank"}
   * [Dosage](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.dose_x_){:target="_blank"}
-* Dispensing details:  
+* Dispensing details:
   * [Validity period](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.validityPeriod){:target="_blank"}
   * [Number of refills](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.numberOfRepeatsAllowed){:target="_blank"}
   * [Amount of medication to supply/dispense](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.quantity){:target="_blank"}
-
 
 ## Terminology Bindings
 
@@ -53,9 +52,9 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
-ID                              | Value\[x] Type      | Description
---------------------------------|---------------------|----------------------------------------------------------------------------------
-`patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
+ ID                         | Value\[x] Type | Description
+----------------------------|----------------|-------------------------------------------------------------------------------------------
+ `patient-friendly-display` | [`string`]     | The display that can be used for this field when producing a view suitable for a patient.
 
 
 ## Search
@@ -66,7 +65,7 @@ Search for MedicationOrders that meet supplied query parameters:
 
 _Implementation Notes_
 
-* MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients.  Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
+* MedicationOrder may have a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.
 
 ### Authorization Types
 
@@ -74,19 +73,21 @@ _Implementation Notes_
 
 ### Parameters
 
- Name                      | Required? | Type          | Description
----------------------------|-----------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `patient`                 | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
- `status`                  | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
- `-timing-boundsPeriod`    | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
- `_lastUpdated`            | N         | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must be prefixed by 'ge' or 'le'. Example: `ge2014-05-19T20:54:02.000Z`
- [`_count`]                | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
+ Name                   | Required? | Type          | Description
+------------------------|-----------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `patient`              | Y         | [`reference`] | The identity of a patient to list orders for. Example: `12345`
+ `status`               | N         | [`token`]     | The status of the medication order, may be a list separated by commas. Example: `active,draft`
+ `-timing-boundsPeriod` | N         | [`date`]      | The date-time which should fall within the [period] the medication should be given to the patient. Must be prefixed by 'ge'. Example: `ge2014-05-19T20:54:02.000Z`
+ `_lastUpdated`         | N         | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must be prefixed by 'ge' or 'le'. Example: `ge2014-05-19T20:54:02.000Z`
+ [`_count`]             | N         | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
- Notes:
+Notes:
 
- - The `-timing-boundsPeriod` and `_lastUpdated` parameters may not be provided at the same time.
- - The `_lastUpdated` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes.  When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
- - Searching with the `_lastUpdated` parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won't be caught by this query are changes that would affect the version, but not the FHIR content.
+* The `-timing-boundsPeriod` and `_lastUpdated` parameters may not be provided at the same time.
+
+* The `_lastUpdated` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
+
+* Searching with the `_lastUpdated` parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won't be caught by this query are changes that would affect the version, but not the FHIR content.
 
 ### Headers
 
@@ -102,6 +103,35 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_order_bundle) %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual MedicationOrder by its id:
+
+    GET /MedicationOrder/:id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder/23865893
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_medication_order_entry) %>
 
 ### Errors
 
