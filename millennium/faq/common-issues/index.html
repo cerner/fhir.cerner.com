@@ -86,6 +86,7 @@ each of these before submitting an app for validation.</p>
       <li><a href="#requests-by-specific-loinc-codes" id="markdown-toc-requests-by-specific-loinc-codes">Requests by Specific LOINC Codes</a></li>
       <li><a href="#leverage-query-parameters" id="markdown-toc-leverage-query-parameters">Leverage Query Parameters</a></li>
       <li><a href="#review-filtering-options" id="markdown-toc-review-filtering-options">Review Filtering Options</a></li>
+      <li><a href="#why-do-i-not-see-the-same-data-for-different-users-or-applications" id="markdown-toc-why-do-i-not-see-the-same-data-for-different-users-or-applications">Why do I not see the same data for different users or applications?</a></li>
       <li><a href="#using-appropriate-scopes-for-smart-launch" id="markdown-toc-using-appropriate-scopes-for-smart-launch">Using Appropriate Scopes for SMART Launch</a></li>
       <li><a href="#registering-more-scopes-than-app-uses" id="markdown-toc-registering-more-scopes-than-app-uses">Registering More Scopes than App Uses</a></li>
       <li><a href="#authorization-durations-longer-than-10-minutes" id="markdown-toc-authorization-durations-longer-than-10-minutes">Authorization Durations Longer than 10 Minutes</a></li>
@@ -122,9 +123,9 @@ identical each time and if they are retrieving the same data set.</p>
 
 <h3 id="implement-paging">Implement Paging</h3>
 
-<p>Your app should handle <a href="https://www.hl7.org/fhir/dstu2/http.html#paging">paging</a> for all resources, 
-even if our server does not support it yet. This ensures your app is compatible with more 
-implementations (including future versions of our server if we add paging to improve 
+<p>Your app should handle <a href="https://www.hl7.org/fhir/dstu2/http.html#paging">paging</a> for all resources,
+even if our server does not support it yet. This ensures your app is compatible with more
+implementations (including future versions of our server if we add paging to improve
 performance of resources that do not currently page).</p>
 
 <p>Queries on some resources can result in large data sets. If you
@@ -134,9 +135,9 @@ page. This creates potential for the system to not account for the
 entire patient dataset.</p>
 
 <p>In addition, if your application is showing results directly to the user, it probably
-does not want to show hundreds of records at a time to a user. It’s also possible your application 
-may not have the memory available to hold all data at one time. These are 
-all factors that you should consider when determining a page size that is 
+does not want to show hundreds of records at a time to a user. It’s also possible your application
+may not have the memory available to hold all data at one time. These are
+all factors that you should consider when determining a page size that is
 right for your application.</p>
 
 <p>There are two ways we recommend that you test
@@ -175,7 +176,7 @@ but the text within will remain.</li>
   <li>
     <p><strong>Modifier Elements:</strong> <a href="https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>,
 and <a href="https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a>
-are not supported and will be rejected if present. In addition, each resource 
+are not supported and will be rejected if present. In addition, each resource
 will call out modifier elements that are not supported. For example: <a href="../../dstu2/infrastructure/document-reference/#create">DocumentReference create</a>
 calls out all unsupported modifiers within the implementation notes section.</p>
   </li>
@@ -212,7 +213,7 @@ type to run your validation with. Try using:
 
 <p>Cerner maps proprietary codes to standard terminologies as part of our
 implementation process. For example, <a href="https://www.hl7.org/fhir/dstu2/loinc.html">LOINC codes</a> are
-exposed within some resources. In some cases, these mappings do not cover all the possible 
+exposed within some resources. In some cases, these mappings do not cover all the possible
 variances in the ways hospitals have implemented their EHRs. When EHRs were
 originally implemented, it was common to use proprietary codes to
 document labs and measurements that don’t map directly to the LOINC
@@ -277,8 +278,8 @@ are more reliable than relying on post-query filtering.</p>
 
 <h3 id="review-filtering-options">Review Filtering Options</h3>
 
-<p>Using query parameters is recommended over post-query filtering (when possible). 
-Regardless of the method used to filter results, ensure that your application handles 
+<p>Using query parameters is recommended over post-query filtering (when possible).
+Regardless of the method used to filter results, ensure that your application handles
 resources that have been marked in error or invalid using the appropriate status field(s)
 for each resource.</p>
 
@@ -307,6 +308,15 @@ resources do not support filtering by the encounter parameter in
 the current implantation of Ignite APIs for Millennium. If you do
 use these resources, your app may need to implement a post-filter
 to display only the current encounter.</p>
+
+<h3 id="why-do-i-not-see-the-same-data-for-different-users-or-applications">Why do I not see the same data for different users or applications?</h3>
+
+<p>Data can be filtered for a variety of reasons. Resources with a status of “entered-in-error” and sensitive data are
+filtered out for patient personas. Providers, systems, and applications may have data filtered for encounter and
+organization security reasons and privilege and preference build in the domain.</p>
+
+<p>If your app is accessing data with a patient persona, your app should handle
+<a href="../../dstu2/#filtered-data-for-patient-or-proxy-access">Filtered Data</a>.</p>
 
 <h3 id="using-appropriate-scopes-for-smart-launch">Using Appropriate Scopes for SMART Launch</h3>
 
@@ -470,7 +480,7 @@ paid and free offerings. If available, producing a report from tools
 such as <a href="http://www.ndm.net/sast/hp-fortify">HP Fortify</a>, <a href="https://www.ibm.com/security/application-security/appscan">IBM AppScan</a>
 and <a href="https://www.veracode.com/">Veracode</a> are preferred.</p>
 
-<p><a href="http://www.openvas.org/">OpenVAS</a>, <a href="https://portswigger.net/burp">BurpSuite</a>, 
+<p><a href="http://www.openvas.org/">OpenVAS</a>, <a href="https://portswigger.net/burp">BurpSuite</a>,
 <a href="http://find-sec-bugs.github.io/">FindSecBugs</a> and <a href="http://www.zaproxy.org/">ZAP</a> can also be used to produce a
 report if the above analysis tools are not available to the development team.</p>
 

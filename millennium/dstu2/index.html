@@ -105,6 +105,8 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
     </ul>
   </li>
   <li><a href="#handling-required-fields" id="markdown-toc-handling-required-fields">Handling Required Fields</a></li>
+  <li><a href="#filtered-data-for-patient-or-proxy-access" id="markdown-toc-filtered-data-for-patient-or-proxy-access">Filtered Data for Patient or Proxy Access</a></li>
+  <li><a href="#general-security-filtering" id="markdown-toc-general-security-filtering">General Security Filtering</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
   <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
   <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
@@ -647,6 +649,19 @@ response.</p>
 </code></pre>
   </li>
 </ol>
+
+<h2 id="filtered-data-for-patient-or-proxy-access">Filtered Data for Patient or Proxy Access</h2>
+
+<p>When accessing data with a patient persona, some data may be filtered as compared to system or provider access.
+Resources with a status of “entered-in-error” will result in either some fields being filtered or returned with a
+<a href="#handling-required-fields">data absent reason</a> with a valueCode of masked.  Fields that may contain
+sensitive information will be filtered such as non-instructional notes. For proxy users, regulatory laws or policies
+may restrict parental or guardian access to adolescent health records and these regulations vary from state to state.</p>
+
+<h2 id="general-security-filtering">General Security Filtering</h2>
+
+<p>Not all data can be accessed by all applications or users. Encounter or organization security, privileges, and
+preference may filter data based on the build in the domain.</p>
 
 <h2 id="http-verbs">HTTP Verbs</h2>
 
