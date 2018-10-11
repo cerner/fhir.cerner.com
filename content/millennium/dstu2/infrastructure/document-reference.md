@@ -262,5 +262,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [DocumentReference.relatesTo]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [errors]: ../../#client-errors
-[Binary resource]: ../Binary/#authorization-types
+[Binary resource]: ../binary/#authorization-types
 [OperationOutcomes]: ../../#operation-outcomes
