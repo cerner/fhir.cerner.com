@@ -104,7 +104,7 @@ fields:
     {
       "status": "final"
     }
-  note: Currently support `final` and `preliminary`
+  note: Currently support `final` only
 
 - name: description
   required: 'No'
