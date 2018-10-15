@@ -327,7 +327,7 @@ show same patient’s data on two separate charts. In order to avoid this,
 please read our [SMART topic on sessionStorage](/smart/#html5-session-storage).
  
 If your application uses the open source fhir-client.js library, please
-read the [secion on minimum required version and additional code](/smart/#open-source-fhir-client-libraries)
+read the [section on minimum required version and additional code](/smart/#open-source-fhir-client-libraries)
 that must be added in order to fix a session bleed issue.
 
 *Note:* This cannot be properly tested until you are beginning
