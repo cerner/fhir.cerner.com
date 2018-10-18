@@ -33,9 +33,9 @@ The following fields are returned if valued:
 
 ## Extensions
 * [Time of day of birth]
-* [US Core Ethnicity]
-* [US Core Patient Birth Sex]
-* [US Core Race]
+* [Argonaut Ethnicity]
+* [Argonaut Patient Birth Sex]
+* [Argonaut Race]
 
 ## Search
 
@@ -224,9 +224,9 @@ Notes:
 The common [errors] and [OperationOutcomes] may be returned.
 
 [Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
-[US Core Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
-[US Core Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
-[US Core Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
+[Argonaut Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
+[Argonaut Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
+[Argonaut Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
