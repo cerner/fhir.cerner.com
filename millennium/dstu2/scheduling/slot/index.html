@@ -246,21 +246,19 @@ when integrating your application with the client’s production environment. Se
       <td>Yes or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The type of appointments that can be booked into this slot. Example: <code>http://snomed.info/sct|394581000</code>
+      <td>A single or comma separated list of appointment types that can be booked into the slot. Example: <code>http://snomed.info/sct|394581000</code>
 </td>
     </tr>
     <tr>
       <td><code>schedule.actor</code></td>
-      <td>Yes (or <code>-location</code>) when using <code>slot-type</code>
-</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>A single or comma separated list of Practitioner references. Example: <code>Practitioner/2578010</code>
 </td>
     </tr>
     <tr>
       <td><code>-location</code></td>
-      <td>Yes (or <code>schedule.actor</code>) when using <code>slot-type</code>
-</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>A single or comma separated list of Location references. Example: <code>633867</code>
 </td>
@@ -285,12 +283,16 @@ when integrating your application with the client’s production environment. Se
 <p>Notes:</p>
 
 <ul>
-  <li>The <code>slot-type</code>, <code>schedule.actor</code>, and <code>-location</code> parameters may be included only once.
-For example, <code>-location=633867,4048128</code> is supported but <code>-location=633867&amp;-location=4048128</code> is not.</li>
   <li>
-    <p><code>slot-type</code> is a required search parameter and must be specified along with <code>schedule.actor</code> and\or <code>-location</code>
-For example, <code>slot-type=http://snomed.info/sct|394581000&amp;-location=4048128</code> and <code>slot-type=http://snomed.info/sct|394581000&amp;-location=95671&amp;schedule.actor=Practitioner/2578010</code>
-are supported but <code>-location=4048128</code> and <code>-location=4048128&amp;schedule.actor=Practitioner/2578010</code> are not.</p>
+    <p>The <code>slot-type</code>, <code>schedule.actor</code>, and <code>-location</code> parameters may be included only once.
+For example, <code>-location=633867,4048128</code> is supported but <code>-location=633867&amp;-location=4048128</code> is not.</p>
+  </li>
+  <li>
+    <p><code>slot-type</code> is a required search parameter when <code>_id</code> is not provided.</p>
+  </li>
+  <li>
+    <p>When <code>slot-type</code> is provided, <code>start</code> must be provided.
+For example, <code>start=2018&amp;slot-type=http://snomed.info/sct|394581000,http://snomed.info/sct|394602003</code></p>
   </li>
   <li>The <code>start</code> parameter may be provided:
     <ul>
