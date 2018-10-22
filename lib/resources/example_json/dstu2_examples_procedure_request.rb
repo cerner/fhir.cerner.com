@@ -32,7 +32,7 @@ module Cerner
       "orderedOn": "2015-12-08T15:30:22.000-06:00",
       "orderer": {
           "reference": "Practitioner/1626008",
-          "display": "McCready, Tim"
+          "display": "McCreery, Scotty"
       }
     }
 
@@ -85,7 +85,7 @@ module Cerner
                     "orderedOn": "2015-12-08T15:30:22.000-06:00",
                     "orderer": {
                         "reference": "Practitioner/1626008",
-                        "display": "McCready, Tim"
+                        "display": "McCreery, Scotty"
                     }
                 }
             },
@@ -122,8 +122,8 @@ module Cerner
                     "asNeededBoolean": true,
                     "orderedOn": "2016-03-23T10:50:01.000-05:00",
                     "orderer": {
-                        "reference": "Practitioner/1",
-                        "display": "SYSTEM, SYSTEM"
+                        "reference": "Practitioner/4646007",
+                        "display": "Dickerson, Russell"
                     }
                 }
             },
@@ -160,8 +160,8 @@ module Cerner
                     "asNeededBoolean": true,
                     "orderedOn": "2016-03-24T12:45:03.000-05:00",
                     "orderer": {
-                        "reference": "Practitioner/1",
-                        "display": "SYSTEM, SYSTEM"
+                        "reference": "Practitioner/4646007",
+                        "display": "Dickerson, Russell"
                     }
                 }
             },
@@ -198,8 +198,8 @@ module Cerner
                     "asNeededBoolean": true,
                     "orderedOn": "2016-03-29T15:36:08.000-05:00",
                     "orderer": {
-                        "reference": "Practitioner/1",
-                        "display": "SYSTEM, SYSTEM"
+                        "reference": "Practitioner/4646007",
+                        "display": "Dickerson, Russell"
                     }
                 }
             },
@@ -236,8 +236,8 @@ module Cerner
                     "asNeededBoolean": true,
                     "orderedOn": "2016-03-30T10:38:59.000-05:00",
                     "orderer": {
-                        "reference": "Practitioner/1",
-                        "display": "SYSTEM, SYSTEM"
+                        "reference": "Practitioner/4646007",
+                        "display": "Dickerson, Russell"
                     }
                 }
             }

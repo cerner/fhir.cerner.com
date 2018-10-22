@@ -34,7 +34,7 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: The reason why the procedure is being proposed or ordered.
-  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.bodySite
+  url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.reason_x_
   binding:
     description: A code that explains the reason why a procedure is required.
     terminology:

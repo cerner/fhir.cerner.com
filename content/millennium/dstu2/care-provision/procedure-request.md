@@ -55,7 +55,7 @@ Search for ProcedureRequests that meet supplied query parameters:
 Notes:
 
   - Only one of `patient`, `subject`, and `_id` may be provided
-  - `_count` and `_lastUpdated` should not be provided with `_id`
+  - `_count` and `_lastUpdated` will not be allowed to be provided with `_id`
   - The `_lastUpdated` parameter must have a time.
   - The `_lastUpdated` parameter may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
   - Searching with the `_lastUpdated` parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won’t be caught by this query are changes that would affect the version, but not the FHIR content.
@@ -71,6 +71,7 @@ Notes:
     GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ProcedureRequest?patient=1316024
 
 #### Response
+
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_request_bundle) %>
 
