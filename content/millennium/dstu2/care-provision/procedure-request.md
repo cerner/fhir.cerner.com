@@ -40,7 +40,7 @@ Search for ProcedureRequests that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -87,7 +87,7 @@ List an individual ProcedureRequest by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -108,6 +108,7 @@ List an individual ProcedureRequest by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
