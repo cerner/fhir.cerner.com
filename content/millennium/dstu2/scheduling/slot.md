@@ -81,6 +81,10 @@ Notes:
 * When `slot-type` is provided, `start` must be provided.
   For example, `start=2018&slot-type=http://snomed.info/sct|394581000,http://snomed.info/sct|394602003`
 
+* The `slot-type` parameter may contain standard codes or proprietary codes.
+  * When using standard codes, choose codes bound to Slot.type as noted in the [Terminology Bindings](#terminology-bindings) table above.
+  * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249|4062744`
+
 * The `start` parameter may be provided:
   * Once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   * Twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
