@@ -25,7 +25,7 @@ At a high level, provider facing applications must receive the following authori
 2. Each client decides whether they want to allow a SMART app to run on a domain-by-domain basis.
 3. Each client decides which users and roles can access the SMART app.
 
-To learn more about general SMART on FHIR app authorization process, see the SMART [App Authorization Guide](http://docs.smarthealthit.org/authorization/).  For implementation information regarding Cerner's Authorization server, see the [Authorization page](http://fhir.cerner.com/authorization/) at fhir.cerner.com.
+To learn more about general SMART on FHIR app authorization process, see the SMART [App Authorization Guide](http://hl7.org/fhir/smart-app-launch/#smart-authorization-and-resource-retrieval).  For implementation information regarding Cerner's Authorization server, see the [Authorization page](http://fhir.cerner.com/authorization/) at fhir.cerner.com.
 
 ### Access Points ###
 
@@ -133,7 +133,7 @@ Cerner's implementation of SMART on FHIR ecosystem allows you to register, updat
 
 ### Launch Context ###
 
-See the [Scopes and Launch Content](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/) page for more information on how you can obtain the context. Generally, your app must be able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
+See the [Scopes and Launch Content](http://hl7.org/fhir/smart-app-launch/scopes-and-launch-context) page for more information on how you can obtain the context. Generally, your app must be able to retrieve SMART context parameters such as patient id, encounter id (if available), tenant, and a few others. You can inspect the OAuth2 access_token value that is returned to see the actual context.
 
 ### SMART Apps in *MPages* ###
 
