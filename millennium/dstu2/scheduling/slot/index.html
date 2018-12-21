@@ -294,10 +294,17 @@ For example, <code>-location=633867,4048128</code> is supported but <code>-locat
     <p>When <code>slot-type</code> is provided, <code>start</code> must be provided.
 For example, <code>start=2018&amp;slot-type=http://snomed.info/sct|394581000,http://snomed.info/sct|394602003</code></p>
   </li>
+  <li>The <code>slot-type</code> parameter may contain standard codes or proprietary codes. If multiple <code>slot-type</code> parameters are used they must be either all standard codes or all proprietary codes.
+    <ul>
+      <li>When using standard codes, choose codes bound to Slot.type as noted in the <a href="#terminology-bindings">Terminology Bindings</a> table above.</li>
+      <li>When using proprietary codes, the system should be <code>https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;</code> (where code set is a Millennium code set) and the code should be a Millennium code value. Example: <code>https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249|4062744</code>
+</li>
+    </ul>
+  </li>
   <li>The <code>start</code> parameter may be provided:
     <ul>
-      <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;start=2016</code>, <code>&amp;start=2016-07</code>, <code>&amp;start=2016-07-04</code>)</li>
-      <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define
+      <li>Once without a prefix or time component to imply a date range. (e.g. <code>&amp;start=2016</code>, <code>&amp;start=2016-07</code>, <code>&amp;start=2016-07-04</code>)</li>
+      <li>Twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define
 an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, <code>&amp;start=ge2016-07&amp;start=lt2017-07</code>)</li>
     </ul>
   </li>
@@ -320,11 +327,12 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 </code></pre>
 
 <h4 id="response">Response</h4>
+
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "e5dd4ff4-116b-4bf8-90d1-c867bb21b0fb",
+  "id": "0b37fa7f-7711-4e8c-990e-158a02fc92c4",
   "type": "searchset",
   "link": [
     {
@@ -333,28 +341,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
     },
     {
       "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=26d86acd-529c-4d12-8f6f-3a10209fcb2a&amp;-pageDirection=NEXT"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=7f264aa2-0cbe-4824-b542-33372e1434c3&amp;-pageDirection=NEXT"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-360",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121665-0",
+        "id": "21265426-4048128-3121781-360",
         "meta": {
           "versionId": "0",
           "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
             "valueReference": {
-              "reference": "Location/633867"
+              "reference": "Location/4048128"
             }
           }
         ],
@@ -363,31 +371,38 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             {
               "system": "http://snomed.info/sct",
               "code": "394581000",
-              "display": "Community medicine"
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
             }
           ],
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121665-0"
+          "reference": "Schedule/21265426-4048128-3121781-360"
         },
         "freeBusyType": "free",
-        "start": "2016-01-01T08:00:00.000-06:00",
-        "end": "2016-01-01T09:00:00.000-06:00"
+        "start": "2016-01-30T14:00:00.000-06:00",
+        "end": "2016-01-30T15:00:00.000-06:00"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-5",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-360",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121665-5",
+        "id": "21265426-633867-3121781-360",
         "meta": {
           "versionId": "0",
           "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:05:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:05:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -402,37 +417,44 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             {
               "system": "http://snomed.info/sct",
               "code": "394581000",
-              "display": "Community medicine"
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
             }
           ],
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121665-5"
+          "reference": "Schedule/21265426-633867-3121781-360"
         },
         "freeBusyType": "free",
-        "start": "2016-01-01T08:05:00.000-06:00",
-        "end": "2016-01-01T09:05:00.000-06:00"
+        "start": "2016-01-30T14:00:00.000-06:00",
+        "end": "2016-01-30T15:00:00.000-06:00"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-10",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-365",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121665-10",
+        "id": "21265426-4048128-3121781-365",
         "meta": {
           "versionId": "0",
           "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:10:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:10:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
             "valueReference": {
-              "reference": "Location/633867"
+              "reference": "Location/4048128"
             }
           }
         ],
@@ -441,31 +463,38 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             {
               "system": "http://snomed.info/sct",
               "code": "394581000",
-              "display": "Community medicine"
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
             }
           ],
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121665-10"
+          "reference": "Schedule/21265426-4048128-3121781-365"
         },
         "freeBusyType": "free",
-        "start": "2016-01-01T08:10:00.000-06:00",
-        "end": "2016-01-01T09:10:00.000-06:00"
+        "start": "2016-01-30T14:05:00.000-06:00",
+        "end": "2016-01-30T15:05:00.000-06:00"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-15",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-365",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121665-15",
+        "id": "21265426-633867-3121781-365",
         "meta": {
           "versionId": "0",
           "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:15:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:15:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -480,37 +509,44 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             {
               "system": "http://snomed.info/sct",
               "code": "394581000",
-              "display": "Community medicine"
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
             }
           ],
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121665-15"
+          "reference": "Schedule/21265426-633867-3121781-365"
         },
         "freeBusyType": "free",
-        "start": "2016-01-01T08:15:00.000-06:00",
-        "end": "2016-01-01T09:15:00.000-06:00"
+        "start": "2016-01-30T14:05:00.000-06:00",
+        "end": "2016-01-30T15:05:00.000-06:00"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-20",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-370",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121665-20",
+        "id": "21265426-4048128-3121781-370",
         "meta": {
           "versionId": "0",
           "lastUpdated": "2015-06-10T10:40:33.000-05:00"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:20:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:20:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
             "valueReference": {
-              "reference": "Location/633867"
+              "reference": "Location/4048128"
             }
           }
         ],
@@ -519,17 +555,24 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             {
               "system": "http://snomed.info/sct",
               "code": "394581000",
-              "display": "Community medicine"
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
             }
           ],
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121665-20"
+          "reference": "Schedule/21265426-4048128-3121781-370"
         },
         "freeBusyType": "free",
-        "start": "2016-01-01T08:20:00.000-06:00",
-        "end": "2016-01-01T09:20:00.000-06:00"
+        "start": "2016-01-30T14:10:00.000-06:00",
+        "end": "2016-01-30T15:10:00.000-06:00"
       }
     }
   ]
