@@ -202,7 +202,7 @@ If your app is accessing data with a patient persona, your app should handle
 
 ### Using Appropriate Scopes for SMART Launch
 
-[SMART on FHIR defines OAuth2 access scopes](http://docs.smarthealthit.org/authorization/scopes-and-launch-context/)
+[SMART on FHIR defines OAuth2 access scopes](http://hl7.org/fhir/smart-app-launch/scopes-and-launch-context)
 that correspond directly to FHIR resource types. We define read and write
 permissions for patient-specific and user-level access. Patient-specific scopes
 allow access to specific data about a single patient. User-level scopes

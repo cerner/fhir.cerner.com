@@ -150,5 +150,5 @@ endpoint URL for an individual.
 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html
 [OPENID-TokenValidation]: http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation
-[SMART]:  http://docs.smarthealthit.org/authorization/
+[SMART]:  http://hl7.org/fhir/smart-app-launch/#smart-authorization-and-resource-retrieval
 [OPENID-DISCOVERY-ProviderConfiguration]: http://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest
