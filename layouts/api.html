@@ -14,6 +14,12 @@
       <ul>
       <% end %>
       <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
+    <% when 'stu3' %>
+      <% if @item[:solution] == 'soarian-financials' %>
+      <h2>Soarian Financials</h2>
+      <ul>
+      <% end %>
+      <li><a href="/<%= @item[:solution] %>/stu3/" class="active">STU 3 Final (3.0.1)</a></li>
     <% end %>
       <% if @item[:solution] == 'millennium' %>
         <li><a href="/<%= @item[:solution] %>/faq/" class="nav-faq">FAQ</a></li>

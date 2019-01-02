@@ -3,6 +3,8 @@ module AttributesHelper
     @items.each do |item|
       if item.identifier.to_s.include? '/dstu2'
         item[:version] = 'dstu2'
+	  elsif item.identifier.to_s.include? '/stu3'
+        item[:version] = 'stu3'
       end
     end
   end
@@ -11,6 +13,8 @@ module AttributesHelper
     @items.each do |item|
       if item.identifier.to_s.start_with? '/millennium'
         item[:solution] = 'millennium'
+      elsif item.identifier.to_s.start_with? '/soarian-financials'
+        item[:solution] = 'soarian-financials'
       elsif item.identifier.to_s.start_with? '/soarian'
         item[:solution] = 'soarian'
       end

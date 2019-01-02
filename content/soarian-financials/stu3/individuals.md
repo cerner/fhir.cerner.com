@@ -1,0 +1,18 @@
+---
+title: Individuals
+layout: api
+---
+
+<h1 id="individuals">Individuals</h1>
+
+<p>Individuals resources are used to describe the people that participate in healthcare. This includes patient,
+  practitioners, and others that are related in some way to a patient. This does not include the Person resource, which is
+  used to index a real world person providing a means to identify the same person across different healthcare organizations.</p>
+
+<p>Click <a href="http://hl7.org/fhir/resourcelist.html">here</a> to see the detailed categorization and full set of
+  resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
+
+<h2 id="implemented-resources">Implemented Resources</h2>
+
+* [Patient](../individuals/patient)
+* [RelatedPerson](../individuals/related-person)
