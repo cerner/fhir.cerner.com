@@ -70,7 +70,7 @@ of message structures, a messaging protocol, and a security framework
 to allow a system that has authenticated a user to securely convey said
 identity to another service provider (relying party).  Cerner’s 
 authorization server implements support for OpenID Connect in
-conjunction with the <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR<sup>®</sup></a> profile 
+conjunction with the <a href="http://hl7.org/fhir/smart-app-launch/#smart-authorization-and-resource-retrieval">SMART on FHIR<sup>®</sup></a> profile 
 of OAuth 2.  Client applications may use this as a source of 
 “single sign-on” for users when protecting resources outside of the EMR 
 (example: user-generated data that is stored by the client application).</p>
@@ -82,7 +82,7 @@ FHIR<sup>®</sup> standard.</p>
 
 <h2 id="requesting-openid-connect">Requesting OpenID Connect</h2>
 
-<p>Per <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and <a href="http://docs.smarthealthit.org/authorization/">SMART on FHIR<sup>®</sup></a>, 
+<p>Per <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> and <a href="http://hl7.org/fhir/smart-app-launch/#smart-authorization-and-resource-retrieval">SMART on FHIR<sup>®</sup></a>, 
 a client application requests the scope of “openid” to receive an identity
 token within the access token response.</p>
 
