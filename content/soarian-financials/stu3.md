@@ -85,16 +85,14 @@ An [OperationOutcome](https://www.hl7.org/fhir/stu3/operationoutcome.html) may b
 
  HTTP Status | Cause                                | Severity  | Code
 -------------|--------------------------------------|-----------|---------------
- 500         | Response is missing a required field | fatal     | required
+ 500         | System Error                         | fatal     | required
 
 ### Create/Update
 
  HTTP Status | Cause                                | Severity  | Code
 -------------|--------------------------------------|-----------|---------------
- 422         | Body contained unsupported fields    | error     | business-rule
  422         | Body contained modifier extensions   | error     | extension
  422         | Body contained implicit rules        | error     | not-supported
-
 
 ## Handling Required Fields
 

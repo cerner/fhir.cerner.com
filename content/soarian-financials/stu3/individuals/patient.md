@@ -93,6 +93,8 @@ _Implementation Notes_
 
 ### Body Fields
 
+<%= definition_table(:soarian_financials_patient, :create, :stu3) %>
+
 #### Resource Type
 
   Should be the type of the FHIR resource. resourceType must be Patient.
