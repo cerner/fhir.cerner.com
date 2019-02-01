@@ -140,6 +140,7 @@ Notes:
 
 * `dateRecorded` is currently not honored on a create for Conditions with a category of `problem`.
 * `abatementDateTime` is not supported for Conditions with a category of `diagnosis`.
+* `encounter` is required for Conditions with a category of `diagnosis`.
 
 <%= definition_table(:condition, :create, :dstu2) %>
 
