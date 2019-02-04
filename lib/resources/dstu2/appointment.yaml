@@ -171,3 +171,15 @@ fields:
       {
         "status": "accepted"
       }
+
+- name: comment
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Additional text to aid in facilitating the appointment.
+  action: create
+  example: |
+    {
+      "comment: "Further explain MRI results"
+    }
+  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment
