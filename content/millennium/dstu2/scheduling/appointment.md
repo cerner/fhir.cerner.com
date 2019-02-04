@@ -143,6 +143,7 @@ _Implementation Notes_
 * `Appointment.participant` must have exactly one participant.
 * `Appointment.participant.status` must be set to `needs-action`.
 * `Appointment.participant.type` must not be set.
+* `Appointment.comment` must be a string.
 
 ### Authorization Types
 
