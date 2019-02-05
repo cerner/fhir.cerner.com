@@ -205,6 +205,7 @@ the future.</p>
       
       
       
+      
   </tbody>
 </table>
 
@@ -784,6 +785,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 <code>Appointment.participant.status</code> must be set to <code>needs-action</code>.</li>
   <li>
 <code>Appointment.participant.type</code> must not be set.</li>
+  <li>
+<code>Appointment.comment</code> must be a string.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1031,6 +1034,39 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>When creating a new appointment, this value must be "needs-action".</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-comment">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"><code>comment</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional text to aid in facilitating the appointment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "comment: "Further explain MRI results"
+}
+</pre></li></ul>
+      
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
