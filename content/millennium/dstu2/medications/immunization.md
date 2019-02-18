@@ -49,10 +49,11 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required? | Type          | Description
------------|-----------|---------------|-----------------------------------------------------------------------------------------------------
- `patient` | Y         | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`    | N         | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
+ Name      | Required?      | Type          | Description
+-----------|----------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`     | Y or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `patient` | Y or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
+ `date`    | N              | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
 
 Notes:
  - The `date` parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date. Examples: `date=ge2015-01-01&date=le2016-01-01`, `date=ge2015-01-01`, `date=le2016-01-01`
@@ -105,6 +106,7 @@ List an individual Immunization by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [errors]: ../../#client-errors
