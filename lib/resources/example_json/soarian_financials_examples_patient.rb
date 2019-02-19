@@ -2,235 +2,210 @@ module Cerner
   module Resources
 
     SOARIAN_FINANCIALS_STU3_PATIENT_ENTRY ||= {
-	"resourceType": "Patient",
-	"id": "104136",
-	"extension": [
-	{
-	"extension": [
-	{
-	"valueString": "6'",
-	"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Height"
-	},
-	{
-	"valueString": "234",
-	"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Weight"
-	}
-	],
-	"url": "http://cerner.hs.fhir.com/StructureDefinition/patient-userData"
-	}
-	],
-	"identifier": [
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "ZPN",
-	"display": "External Person ID"
-	}
-	],
-	"text": "External Person ID"
-	},
-	"value": "218139651",
-	"period": {
-	"start": "2018-09-27"
-	},
-	"assigner": {
-	"reference": "Organization/28",
-	"display": "EM Health System"
-	}
-	},
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "PN",
-	"display": "Person Number"
-	}
-	],
-	"text": "Person Number"
-	},
-	"value": "104136",
-	"period": {
-	"start": "2018-09-27"
-	},
-	"assigner": {
-	"reference": "Organization/900000",
-	"display": "System Id Issuer"
-	}
-	},
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "MR",
-	"display": "Medical Record Number"
-	}
-	],
-	"text": "Medical Record Number"
-	},
-	"value": "11080323",
-	"period": {
-	"start": "2018-09-27"
-	},
-	"assigner": {
-	"reference": "Organization/28",
-	"display": "EM Health System"
-	}
-	},
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "SS",
-	"display": "Social Security Number"
-	}
-	],
-	"text": "Social Security Number"
-	},
-	"value": "547487444",
-	"period": {
-	"start": "2018-12-14"
-	},
-	"assigner": {
-	"reference": "Organization/900001",
-	"display": "U. S. Government"
-	}
-	},
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "MR",
-	"display": "Medical Record Number"
-	}
-	],
-	"text": "Medical Record Number"
-	},
-	"value": "254147",
-	"period": {
-	"start": "2018-12-14"
-	},
-	"assigner": {
-	"reference": "Organization/2342",
-	"display": "Steamy Falls IP Hosp"
-	}
-	},
-	{
-	"type": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v2/0203",
-	"code": "DL",
-	"display": "Drivers License"
-	}
-	],
-	"text": "Drivers License"
-	},
-	"value": "25447457",
-	"period": {
-	"start": "2018-12-14"
-	},
-	"assigner": {
-	"reference": "Organization/118",
-	"display": "Commonwealth of PA"
-	}
-	}
-	],
-	"active": true,
-	"name": [
-	{
-	"use": "OFFICIAL",
-	"text": "James,Smith,Edward",
-	"family": "James",
-	"given": [
-	"Smith",
-	"Edward"
-	],
-	"period": {
-	"start": "2018-12-14"
-	}
-	}
-	],
-	"telecom": [
-	{
-	"extension": [
-	{
-	"valueBoolean": true,
-	"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
-	}
-	],
-	"system": "PHONE",
-	"value": "(645) 748 4747",
-	"use": "HOME"
-	},
-	{
-	"extension": [
-	{
-	"valueBoolean": false,
-	"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
-	}
-	],
-	"system": "PHONE",
-	"value": "(547) 457 4848",
-	"use": "MOBILE"
-	},
-	{
-	"system": "EMAIL",
-	"value": "james@cerner.com"
-	}
-	],
-	"gender": "MALE",
-	"birthDate": "2008-12-11",
-	"deceasedBoolean": false,
-	"address": [
-	{
-	"use": "HOME",
-	"type": "POSTAL",
-	"text": "51 Valley Stream parkway,Malvern,PA 19355",
-	"line": [
-	"51 Valley Stream parkway"
-	],
-	"city": "Malvern",
-	"district": "Chester",
-	"state": "PA",
-	"postalCode": "19355",
-	"country": "US",
-	"period": {
-	"start": "2018-12-14"
-	}
-	}
-	],
-	"maritalStatus": {
-	"coding": [
-	{
-	"system": "http://hl7.org/fhir/v3/MaritalStatus",
-	"code": "S",
-	"display": "Single"
-	}
-	],
-	"text": "Single"
-	},
-	"communication": [
-	{
-	"language": {
-	"coding": [
-	{
-	"system": "urn:ietf:bcp:47",
-	"code": "en",
-	"display": "ENGLISH"
-	}
-	],
-	"text": "ENGLISH"
-	},
-	"preferred": true
-	}
-	]
-	}
+    	"resourceType": "Patient",
+    	"id": "104136",
+    	"extension": [{
+    			"extension": [{
+    					"valueString": "6'",
+    					"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Height"
+    				}, {
+    					"valueString": "234",
+    					"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Weight"
+    				}
+    			],
+    			"url": "http://cerner.hs.fhir.com/StructureDefinition/patient-userData"
+    		}
+    	],
+    	"identifier": [{
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "ZPN",
+    						"display": "External Person ID"
+    					}
+    				],
+    				"text": "External Person ID"
+    			},
+    			"value": "218139651",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/28",
+    				"display": "EM Health System"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "PN",
+    						"display": "Person Number"
+    					}
+    				],
+    				"text": "Person Number"
+    			},
+    			"value": "104136",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/900000",
+    				"display": "System Id Issuer"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "MR",
+    						"display": "Medical Record Number"
+    					}
+    				],
+    				"text": "Medical Record Number"
+    			},
+    			"value": "11080323",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/28",
+    				"display": "EM Health System"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "SS",
+    						"display": "Social Security Number"
+    					}
+    				],
+    				"text": "Social Security Number"
+    			},
+    			"value": "547487444",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/900001",
+    				"display": "U. S. Government"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "MR",
+    						"display": "Medical Record Number"
+    					}
+    				],
+    				"text": "Medical Record Number"
+    			},
+    			"value": "254147",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/2342",
+    				"display": "Steamy Falls IP Hosp"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "DL",
+    						"display": "Drivers License"
+    					}
+    				],
+    				"text": "Drivers License"
+    			},
+    			"value": "25447457",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/118",
+    				"display": "Commonwealth of PA"
+    			}
+    		}
+    	],
+    	"active": true,
+    	"name": [{
+    			"use": "OFFICIAL",
+    			"text": "James,Smith,Edward",
+    			"family": "James",
+    			"given": [
+    				"Smith",
+    				"Edward"
+    			],
+    			"period": {
+    				"start": "2018-12-14"
+    			}
+    		}
+    	],
+    	"telecom": [{
+    			"extension": [{
+    					"valueBoolean": true,
+    					"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+    				}
+    			],
+    			"system": "PHONE",
+    			"value": "(645) 748 4747",
+    			"use": "HOME"
+    		}, {
+    			"extension": [{
+    					"valueBoolean": false,
+    					"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+    				}
+    			],
+    			"system": "PHONE",
+    			"value": "(547) 457 4848",
+    			"use": "MOBILE"
+    		}, {
+    			"system": "EMAIL",
+    			"value": "james@cerner.com"
+    		}
+    	],
+    	"gender": "MALE",
+    	"birthDate": "2008-12-11",
+    	"deceasedBoolean": false,
+    	"address": [{
+    			"use": "HOME",
+    			"type": "POSTAL",
+    			"text": "51 Valley Stream parkway,Malvern,PA 19355",
+    			"line": [
+    				"51 Valley Stream parkway"
+    			],
+    			"city": "Malvern",
+    			"district": "Chester",
+    			"state": "PA",
+    			"postalCode": "19355",
+    			"country": "US",
+    			"period": {
+    				"start": "2018-12-14"
+    			}
+    		}
+    	],
+    	"maritalStatus": {
+    		"coding": [{
+    				"system": "http://hl7.org/fhir/v3/MaritalStatus",
+    				"code": "S",
+    				"display": "Single"
+    			}
+    		],
+    		"text": "Single"
+    	},
+    	"communication": [{
+    			"language": {
+    				"coding": [{
+    						"system": "urn:ietf:bcp:47",
+    						"code": "en",
+    						"display": "ENGLISH"
+    					}
+    				],
+    				"text": "ENGLISH"
+    			},
+    			"preferred": true
+    		}
+    	]
+    }
 
     SOARIAN_FINANCIALS_STU3_PATIENT_BUNDLE ||= {
       "resourceType": "Bundle",
@@ -380,102 +355,210 @@ module Cerner
       ]
     }
 
-    SOARIAN_FINANCIALS_STU3_PATIENT_CREATE ||= {
-      "resourceType": "Patient",
-      "identifier": [
-        {
-          "assigner": {
-            "reference": "Organization/619848"
-          }
-        }
-      ],
-      "active": true,
-      "name": [
-        {
-          "use": "official",
-          "family": [
-            "Wolf"
-          ],
-          "given": [
-            "Person",
-            "Name"
-          ],
-          "period": {
-            "start": "2010-05-17T14:54:31.000Z"
-          }
-        },
-        {
-          "use": "usual",
-          "given": [
-            "Bigby"
-          ],
-          "period": {
-            "start": "2012-05-22T15:45:50.000Z"
-          }
-        }
-      ],
-      "telecom": [
-        {
-          "system": "phone",
-          "value": "8168229121",
-          "use": "home",
-          "period": {
-            "start": "2012-05-17T15:33:18.000Z"
-          }
-        }
-      ],
-      "gender": "male",
-      "birthDate": "1990-09-15",
-      "address": [
-        {
-          "use": "home",
-          "line": [
-            "121212 Metcalf Drive",
-            "Apartment 403"
-          ],
-          "city": "Kansas City",
-          "district": "Jackson",
-          "state": "KS",
-          "postalCode": "64199",
-          "country": "United States of America",
-          "period": {
-            "start": "2012-05-17T15:33:18.000Z"
-          }
-        }
-      ],
-      "maritalStatus": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/v3/NullFlavor",
-            "code": "UNK",
-            "display": "Unknown"
-          }
-        ],
-        "text": "Unknown"
-      },
-      "communication": [
-        {
-          "language": {
-            "coding": [
-              {
-                "system": "urn:ietf:bcp:47",
-            	"code": "en",
-                "display": "English"
-              }
-            ],
-            "text": "English"
-          },
-          "preferred": true
-        }
-      ],
-      "careProvider": [
-        {
-          "reference": "Practitioner/4594010"
-        },
-        {
-          "reference": "Practitioner/4646007"
-        }
-      ]
+    SOARIAN_FINANCIALS_STU3_PATIENT_UPDATE ||= {
+    	"resourceType": "Patient",
+    	"id": "104136",
+    	"extension": [{
+    			"extension": [{
+    					"valueString": "6'",
+    					"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Height"
+    				}, {
+    					"valueString": "234",
+    					"url": "http://DEV3SRF0191.dm50.dev.smed.net/sf-qa1451/soarian/StructureDefinition/patient-userData#Weight"
+    				}
+    			],
+    			"url": "http://cerner.hs.fhir.com/StructureDefinition/patient-userData"
+    		}
+    	],
+    	"identifier": [{
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "ZPN",
+    						"display": "External Person ID"
+    					}
+    				],
+    				"text": "External Person ID"
+    			},
+    			"value": "218139651",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/28",
+    				"display": "EM Health System"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "PN",
+    						"display": "Person Number"
+    					}
+    				],
+    				"text": "Person Number"
+    			},
+    			"value": "104136",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/900000",
+    				"display": "System Id Issuer"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "MR",
+    						"display": "Medical Record Number"
+    					}
+    				],
+    				"text": "Medical Record Number"
+    			},
+    			"value": "11080323",
+    			"period": {
+    				"start": "2018-09-27"
+    			},
+    			"assigner": {
+    				"reference": "Organization/28",
+    				"display": "EM Health System"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "SS",
+    						"display": "Social Security Number"
+    					}
+    				],
+    				"text": "Social Security Number"
+    			},
+    			"value": "547487444",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/900001",
+    				"display": "U. S. Government"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "MR",
+    						"display": "Medical Record Number"
+    					}
+    				],
+    				"text": "Medical Record Number"
+    			},
+    			"value": "254147",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/2342",
+    				"display": "Steamy Falls IP Hosp"
+    			}
+    		}, {
+    			"type": {
+    				"coding": [{
+    						"system": "http://hl7.org/fhir/v2/0203",
+    						"code": "DL",
+    						"display": "Drivers License"
+    					}
+    				],
+    				"text": "Drivers License"
+    			},
+    			"value": "25447457",
+    			"period": {
+    				"start": "2018-12-14"
+    			},
+    			"assigner": {
+    				"reference": "Organization/118",
+    				"display": "Commonwealth of PA"
+    			}
+    		}
+    	],
+    	"active": true,
+    	"name": [{
+    			"use": "OFFICIAL",
+    			"text": "James,Smith,Edward",
+    			"family": "James",
+    			"given": [
+    				"Smith",
+    				"Edward"
+    			],
+    			"period": {
+    				"start": "2018-12-14"
+    			}
+    		}
+    	],
+    	"telecom": [{
+    			"extension": [{
+    					"valueBoolean": true,
+    					"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+    				}
+    			],
+    			"system": "PHONE",
+    			"value": "(645) 748 4747",
+    			"use": "HOME"
+    		}, {
+    			"extension": [{
+    					"valueBoolean": false,
+    					"url": "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+    				}
+    			],
+    			"system": "PHONE",
+    			"value": "(547) 457 4848",
+    			"use": "MOBILE"
+    		}, {
+    			"system": "EMAIL",
+    			"value": "james@cerner.com"
+    		}
+    	],
+    	"gender": "MALE",
+    	"birthDate": "2008-12-11",
+    	"deceasedBoolean": false,
+    	"address": [{
+    			"use": "HOME",
+    			"type": "POSTAL",
+    			"text": "51 Valley Stream parkway,Malvern,PA 19355",
+    			"line": [
+    				"51 Valley Stream parkway"
+    			],
+    			"city": "Malvern",
+    			"district": "Chester",
+    			"state": "PA",
+    			"postalCode": "19355",
+    			"country": "US",
+    			"period": {
+    				"start": "2018-12-14"
+    			}
+    		}
+    	],
+    	"maritalStatus": {
+    		"coding": [{
+    				"system": "http://hl7.org/fhir/v3/MaritalStatus",
+    				"code": "S",
+    				"display": "Single"
+    			}
+    		],
+    		"text": "Single"
+    	},
+    	"communication": [{
+    			"language": {
+    				"coding": [{
+    						"system": "urn:ietf:bcp:47",
+    						"code": "en",
+    						"display": "ENGLISH"
+    					}
+    				],
+    				"text": "ENGLISH"
+    			},
+    			"preferred": true
+    		}
+    	]
     }
   end
 end
