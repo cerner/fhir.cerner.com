@@ -74,29 +74,45 @@ _Implementation Notes_
 
 ### Parameters
 
- Name         | Required?                              | Type          | Description
---------------|----------------------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`        | This, or one of `patient` or `subject`                                    | [`token`]     | The logical resource id associated with the resource.
- `date`       | N                                                                         | [`date`]      | Time period plan covers. Example: `date=ge2016-08` or `date=le2017-01-24T12:00:00.000Z`
- `patient`    | This, or one of `_id` or `subject`, unless category is set to `encounter` | [`reference`] | Who care plan is for. Example: `patient=1316024`
- `subject`    | This, or one of `_id` or `patient`, unless category is set to `encounter` | [`reference`] | Who care plan is for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
- [`_count`]   | N                                                                         | [`number`]    | Number of results per page.
- `category`   | This if `patient` or `subject` is set                                     | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`, `category=http://argonaut.hl7.org|careteam`, `category=http://hl7.org/fhir/care-team-category|longitudinal`, or `category=careteam`
- `context`    | This, if category is set to `encounter`                                   | [`reference`] | The encounter id of the care plan. Example: `context=1138`
+ Name         | Required? | Type          | Description
+--------------|-----------|---------------|--------------
+ `_id`        | See notes | [`token`]     | The logical resource id associated with the resource.
+ `date`       | N         | [`date`]      | Time period plan covers. Example: `date=ge2016-08` or `date=le2017-01-24T12:00:00.000Z`
+ `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=1316024`
+ `subject`    | See notes | [`reference`] | Who care plan is for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
+ [`_count`]   | N         | [`number`]    | Number of results per page.
+ `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`, `category=http://argonaut.hl7.org|careteam`, `category=http://hl7.org/fhir/care-team-category|longitudinal`, or `category=careteam`
+ `context`    | See notes | [`reference`] | The encounter id of the care plan. Example: `context=1138`
 
 
 Notes:
 
-- The `_id` parameter may not be provided at the same time as the `category`, `context`, `date`, `patient`, or `subject` parameters.
-  - When `_id` is provided, `_count` is ignored.
+- The `_id` parameter
+  - May not be provided with the `category`, `context`, `date`, `patient`, or `subject` parameters.
+  - When provided, `_count` is ignored.
 
-- The `patient` and `subject` parameters may not be provided at the same time.
+- The `date` parameter
+  - May be provided up to two times, and must use the `ge` or `le` prefixes.
+    - When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix
+  - Will be ignored if `category` is set to `encounter`.
 
-- The `date` parameter may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
+- The `patient` parameter
+  - Unless the `subject` parameter is provided, this is required when `category` is set to `careteam`, `assess-plan`, or `longitudinal`.
+  - Cannot be provided with the `subject` parameter.
 
-- The `category` parameter only supports the codes `careteam`, `assess-plan`, `longitudinal`, and `encounter`. The `careteam` and `assess-plan` codes belong to the [Argonaut system]. `longitudinal` and `encounter` are defined by the [CareTeam category system].
+- The `subject` parameter
+  - Unless the `patient` parameter is provided, this is required when `category` is set to `careteam`, `assess-plan`, or `longitudinal`.
+  - Cannot be provided with the `patient` parameter.
 
-- The `context` parameter must be set when searching by the `encounter` category. It cannot be set when searching by a category of `careteam`, `assess-plan`, or `longitudinal`.
+- The `category` parameter
+  - Must be provided when `_id` is not provided.
+  - Only supports the codes `careteam`, `assess-plan`, `longitudinal`, and `encounter`.
+    -  The `careteam` and `assess-plan` codes belong to the [Argonaut system]. `longitudinal` and `encounter` are defined by the [CareTeam category system].
+
+- The `context` parameter
+  - Must be set if the `category` parameter is set to `encounter`.
+  - Cannot be set if the `category` parameter is set to `careteam`, `assess-plan`, and `longitudinal`.
+
 ### Headers
 
  <%= headers %>
