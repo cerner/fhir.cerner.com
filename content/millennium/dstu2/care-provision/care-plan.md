@@ -93,7 +93,7 @@ Notes:
 
 - The `date` parameter
   - May be provided up to two times, and must use the `ge` or `le` prefixes.
-    - When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix
+    - When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
   - Will be ignored if `category` is set to `encounter`.
 
 - The `patient` parameter
@@ -111,7 +111,7 @@ Notes:
 
 - The `context` parameter
   - Must be set if the `category` parameter is set to `encounter`.
-  - Cannot be set if the `category` parameter is set to `careteam`, `assess-plan`, and `longitudinal`.
+  - Cannot be set if the `category` parameter is set to `careteam`, `assess-plan`, or `longitudinal`.
 
 ### Headers
 
