@@ -350,8 +350,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>_id</code></td>
+      <td>This, or <code>patient</code>
+</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
+      <td>This, or <code>_id</code>
+</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
       <td>The patient for the vaccination record. Example: <code>12345</code>
 </td>
@@ -598,7 +606,7 @@
         <ul class="js-guides">
           <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
           <li><a href="../../care-provision/goal/">Goal</a></li>
-          <li><a href="../../care-provision/procedure-request">ProcedureRequest</a></li>
+          <li><a href="../../care-provision/procedure-request/">ProcedureRequest</a></li>
         </ul>
       </li>
       <li class="js-topic">

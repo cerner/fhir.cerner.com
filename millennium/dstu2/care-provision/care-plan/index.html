@@ -258,8 +258,7 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or one of <code>patient</code> or <code>subject</code>
-</td>
+      <td>See notes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
@@ -272,16 +271,14 @@
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or one of <code>_id</code> or <code>subject</code>
-</td>
+      <td>See notes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>Who care plan is for. Example: <code>patient=1316024</code>
 </td>
     </tr>
     <tr>
       <td><code>subject</code></td>
-      <td>This, or one of <code>_id</code> or <code>patient</code>
-</td>
+      <td>See notes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>Who care plan is for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/1316024</code> or <code>subject:Patient=1316024</code>
 </td>
@@ -294,14 +291,14 @@
     </tr>
     <tr>
       <td><code>category</code></td>
-      <td>N</td>
+      <td>See notes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
       <td>The scope of care plan being searched for. Examples: <code>category=assess-plan</code>, <code>category=http://argonaut.hl7.org|careteam</code>, <code>category=http://hl7.org/fhir/care-team-category|longitudinal</code>, or <code>category=careteam</code>
 </td>
     </tr>
     <tr>
       <td><code>context</code></td>
-      <td>N</td>
+      <td>See notes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
       <td>The encounter id of the care plan. Example: <code>context=1138</code>
 </td>
@@ -312,18 +309,50 @@
 <p>Notes:</p>
 
 <ul>
-  <li>The <code>_id</code> parameter may not be provided at the same time as the <code>category</code>, <code>context</code>, <code>date</code>, <code>patient</code>, or <code>subject</code> parameters.
+  <li>The <code>_id</code> parameter
     <ul>
-      <li>When <code>_id</code> is provided, <code>_count</code> is ignored.</li>
+      <li>May not be provided with the <code>category</code>, <code>context</code>, <code>date</code>, <code>patient</code>, or <code>subject</code> parameters.</li>
+      <li>When provided, <code>_count</code> is ignored.</li>
     </ul>
   </li>
-  <li>
-    <p>The <code>patient</code> parameter is preferred when set simultaneously with <code>subject</code>.</p>
+  <li>The <code>date</code> parameter
+    <ul>
+      <li>May be provided up to two times, and must use the <code>ge</code> or <code>le</code> prefixes.
+        <ul>
+          <li>When provided twice, the lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</li>
+        </ul>
+      </li>
+      <li>Will be ignored if <code>category</code> is set to <code>encounter</code>.</li>
+    </ul>
   </li>
-  <li>
-    <p>The <code>date</code> parameter may be provided up to two times, and must use the <code>ge</code> or <code>le</code> prefixes. When provided twice, the lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</p>
+  <li>The <code>patient</code> parameter
+    <ul>
+      <li>Unless the <code>subject</code> parameter is provided, this is required when <code>category</code> is set to <code>careteam</code>, <code>assess-plan</code>, or <code>longitudinal</code>.</li>
+      <li>Cannot be provided with the <code>subject</code> parameter.</li>
+    </ul>
   </li>
-  <li>The <code>category</code> parameter only supports the codes <code>careteam</code>, <code>assess-plan</code>, <code>longitudinal</code>, and <code>encounter</code>. The <code>careteam</code> and <code>assess-plan</code> codes belong to the <a href="http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html">Argonaut system</a>. <code>longitudinal</code> and <code>encounter</code> are defined by the <a href="http://hl7.org/fhir/stu3/valueset-care-team-category.html">CareTeam category system</a>.</li>
+  <li>The <code>subject</code> parameter
+    <ul>
+      <li>Unless the <code>patient</code> parameter is provided, this is required when <code>category</code> is set to <code>careteam</code>, <code>assess-plan</code>, or <code>longitudinal</code>.</li>
+      <li>Cannot be provided with the <code>patient</code> parameter.</li>
+    </ul>
+  </li>
+  <li>The <code>category</code> parameter
+    <ul>
+      <li>Must be provided when <code>_id</code> is not provided.</li>
+      <li>Only supports the codes <code>careteam</code>, <code>assess-plan</code>, <code>longitudinal</code>, and <code>encounter</code>.
+        <ul>
+          <li>The <code>careteam</code> and <code>assess-plan</code> codes belong to the <a href="http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html">Argonaut system</a>. <code>longitudinal</code> and <code>encounter</code> are defined by the <a href="http://hl7.org/fhir/stu3/valueset-care-team-category.html">CareTeam category system</a>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>The <code>context</code> parameter
+    <ul>
+      <li>Must be set if the <code>category</code> parameter is set to <code>encounter</code>.</li>
+      <li>Cannot be set if the <code>category</code> parameter is set to <code>careteam</code>, <code>assess-plan</code>, or <code>longitudinal</code>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -706,7 +735,7 @@
         <ul class="js-guides">
           <li><a href="./">CarePlan</a></li>
           <li><a href="../goal/">Goal</a></li>
-          <li><a href="../procedure-request">ProcedureRequest</a></li>
+          <li><a href="../procedure-request/">ProcedureRequest</a></li>
         </ul>
       </li>
       <li class="js-topic">
