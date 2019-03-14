@@ -293,6 +293,12 @@ module Cerner
           {
             "system": "http://loinc.org",
             "code": "68608-9"
+          },
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "3374547",
+            "display": "Depart Summary",
+            "userSelected": true
           }
         ],
         "text": "Depart Summary"

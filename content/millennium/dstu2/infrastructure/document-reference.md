@@ -174,6 +174,7 @@ List an individual DocumentReference by its id:
 _Implementation Notes_
 
 * Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
+* When returning the type codings, if the LOINC mappings are missing, an unknown data absent reason is returned as the [Argonaut profile](http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html) has a required binding for type.
 
 ### Authorization Types
 
