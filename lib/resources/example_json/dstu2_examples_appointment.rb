@@ -33,6 +33,12 @@ module Cerner
                   "code": "394581000",
                   "display": "Community medicine",
                   "userSelected": false
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                  "code": "21265426",
+                  "display": "Same Day",
+                  "userSelected": true
                 }
               ],
               "text": "Same Day"
@@ -110,6 +116,12 @@ module Cerner
                   "code": "394581000",
                   "display": "Community medicine",
                   "userSelected": false
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                  "code": "21265426",
+                  "display": "Same Day",
+                  "userSelected": true
                 }
               ],
               "text": "Same Day"
@@ -187,6 +199,12 @@ module Cerner
                   "code": "394581000",
                   "display": "Community medicine",
                   "userSelected": false
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                  "code": "21265426",
+                  "display": "Same Day",
+                  "userSelected": true
                 }
               ],
               "text": "Same Day"
@@ -264,6 +282,12 @@ module Cerner
                   "code": "394581000",
                   "display": "Community medicine",
                   "userSelected": false
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                  "code": "21265426",
+                  "display": "Same Day",
+                  "userSelected": true
                 }
               ],
               "text": "Same Day"
@@ -342,6 +366,12 @@ module Cerner
             "code": "394581000",
             "display": "Community medicine",
             "userSelected": false
+          },
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+            "code": "21265426",
+            "display": "Same Day",
+            "userSelected": true
           }
         ],
         "text": "Same Day"
