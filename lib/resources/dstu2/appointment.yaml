@@ -44,14 +44,16 @@ fields:
 
 - name: slot
   required: 'Yes'
-  cardinality: 0..1
+  cardinality: 1..1
   type: Reference (Slot)
   description: The availability to which the appointment is booked.
   example: |
     {
-      "slot": {
-        "reference": "Slot/21265426-633867-6828001-60"
-      }
+      "slot": [
+        {
+          "reference": "Slot/21265426-633867-6828001-60"
+        }
+      ]
     }
   url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot
   action: create
