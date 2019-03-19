@@ -35,9 +35,20 @@ fields:
         }
       ]
     }
-  note: The type must include a LOINC or a proprietary coding. If multiple codings are provided they must be either all LOINC codings or all proprietary codings.
+
+              <b>(OR)</b>
+
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+          "code": "3374547"
+        }
+      ]
+    }
+  note: The type must include a LOINC or a proprietary coding. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary codes, the system should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set) and the code should be a Millennium code value. Example&#58; 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72|3374547'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set) and the code should be a Millennium code value. Example&#58; 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72'.
         <br/><br/>
         Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
         <br/><br/>
