@@ -70,6 +70,7 @@ class DefinitionTableGenerator
                 cardinality: get_value(field['cardinality']),
                 description: get_value(field['description']),
                 example: get_value(field['example']),
+                example2: get_value(field['example2']),
                 note: get_value(field['note']),
                 binding: get_value(field['binding']),
                 url: url}
