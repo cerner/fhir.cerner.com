@@ -175,6 +175,7 @@ _Implementation Notes_
 
 * Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
 * If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the [Argonaut profile's](http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html) required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
