@@ -823,6 +823,7 @@ the entries directly by id. They will not be returned when searching with other 
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>resourceType must be Patient</li></ul>
       
@@ -881,6 +882,7 @@ the entries directly by id. They will not be returned when searching with other 
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The first identifier must only contain an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled. The subsequent identifiers must not contain the <code>assigner</code> and <code>use</code> fields, must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields, and must include a time component when specifying a <code>period</code>.</li></ul>
       
@@ -915,6 +917,7 @@ the entries directly by id. They will not be returned when searching with other 
   "active": true
 }
 </pre></li></ul>
+      
       
       
         <li><i>Notes</i></li>
@@ -976,6 +979,7 @@ the entries directly by id. They will not be returned when searching with other 
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must have one value that is current and has a <code>use</code> of 'official', without an end date, and both a given and family name are present.
 Names must include the <code>use</code> field, and must contain either the <code>given</code> or <code>family</code> field. All names cannot contain the <code>text</code> field.
@@ -1026,6 +1030,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>All values must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li></ul>
       
@@ -1062,6 +1067,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 </pre></li></ul>
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1093,6 +1099,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
   "birthDate": "1990-09-15"
 }
 </pre></li></ul>
+      
       
       
       </ul>
@@ -1144,6 +1151,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Each address must contain the <code>use</code> field, and must not contain the <code>text</code> field.</li></ul>
       
@@ -1187,6 +1195,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
   },
 }
 </pre></li></ul>
+      
       
       
       </ul>
@@ -1236,6 +1245,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Only one communication may be provided</li></ul>
       
@@ -1279,6 +1289,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>careProvider must be a reference to a Practitioner</li></ul>
       
@@ -1318,6 +1329,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
   ],
 }
 </pre></li></ul>
+      
       
       
       </ul>
