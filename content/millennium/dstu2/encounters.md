@@ -1,7 +1,7 @@
 ---
-title: Encounters
+title: Encounters | DSTU 2 API
 layout: api
 ---
 
-<%= render '/encounters.*' %>
+<%= render '/encounters_dstu2.*' %>
 * [Encounter](../encounters/encounter)

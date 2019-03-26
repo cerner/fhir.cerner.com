@@ -1,5 +1,5 @@
 ---
-title: Scheduling
+title: Scheduling | DSTU 2 API
 layout: api
 ---
 

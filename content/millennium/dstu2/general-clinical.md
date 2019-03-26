@@ -1,5 +1,5 @@
 ---
-title: General Clinical
+title: General Clinical | DSTU 2 API
 layout: api
 ---
 

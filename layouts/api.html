@@ -4,18 +4,15 @@
   <%= render '/header.*' %>
 
   <div class="sub-nav">
-    <% case @item[:version]
-    when 'dstu2' %>
-      <% if @item[:solution] == 'millennium' %>
+    <% if @item[:solution] == 'millennium' %>
       <h2>Millennium</h2>
-      <ul>
-      <% elsif @item[:solution] == 'soarian' %>
+    <% elsif @item[:solution] == 'soarian' %>
       <h2>Soarian</h2>
-      <ul>
-      <% end %>
-      <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
     <% end %>
+    <ul>
+      <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
       <% if @item[:solution] == 'millennium' %>
+        <li><a href="/<%= @item[:solution] %>/r4/">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="/<%= @item[:solution] %>/faq/" class="nav-faq">FAQ</a></li>
       <% end %>
       <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>

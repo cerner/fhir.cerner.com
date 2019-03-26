@@ -3,5 +3,5 @@ title: Individuals
 layout: api
 ---
 
-<%= render '/individuals.*' %>
+<%= render '/individuals_dstu2.*' %>
 * [Patient](../individuals/patient)
