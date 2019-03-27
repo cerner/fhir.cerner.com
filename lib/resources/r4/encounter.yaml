@@ -1,0 +1,159 @@
+---
+name: Encounter
+field_name_base_url: http://hl7.org/fhir/R4/encounter-definitions.html#Encounter
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: Identifier(s) by which this encounter is known.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+        info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
+      - display: v2 Identifier Type
+        system: http://terminology.hl7.org/CodeSystem/v2-0203
+        info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
+      - display: Millennium Encounter AliasType
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/319
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-319-encounter-alias-type
+
+- name: type
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: The specific type of encounter.
+  binding:
+    description: The type of encounter.
+    terminology:
+    - display: Millennium Encounter Visit Type
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71
+      info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-71-visit-type
+
+- name: priority
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Indicates the urgency of the encounter.
+  binding:
+    description: Indicates the urgency of the encounter.
+    terminology:
+    - display: Encounter Priority
+      system: http://hl7.org/fhir/encounter-priority
+      info_link: http://hl7.org/fhir/v3/ActPriority/vs.html
+    - display: Millennium Encounter Admit Type
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/3
+      info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-3-encounter-admission-type
+
+- name: participant
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: The list of people responsible for providing the service.
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Role of participant in encounter.
+    binding:
+      description: Role of participant in encounter.
+      terminology:
+      - display: ParticipantType
+        system: http://hl7.org/fhir/participant-type
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-participant-type.html
+      - display: Millennium Encounter/Personnel Relationship
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/333
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-333-encounterpersonnel-relationship
+
+- name: hospitalization
+  required: 'No'
+  cardinality: 0..1
+  type: BackboneElement
+  description: Details about the admission to a healthcare service.
+  children:
+
+  - name: admitSource
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: From where patient was admitted.
+    binding:
+      description: From where patient was admitted.
+      terminology:
+      - display: AdmitSource
+        system: http://hl7.org/fhir/admit-source
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-admit-source.html
+      - display: Millennium Hospitalization Admission Source
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/2
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-2-admission-source
+
+  - name: dietPreference
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: Diet preferences reported by the patient.
+    binding:
+      description: Medical, cultural or ethical food preferences to help with catering requirements.
+      terminology:
+      - display: Diet
+        system: http://terminology.hl7.org/CodeSystem/diet
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-diet.html
+      - display: Millennium Patient Diet Preference
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-18-diet
+
+  - name: specialCourtesy
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The special courtesies applicable to the patient.
+    binding:
+      description: Special courtesies.
+      terminology:
+      - display: v3 Code System EncounterSpecialCourtesy
+        system: http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html
+      - display: Millennium Patient VIP Status
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/67
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-67-vip
+      - display: Millennium Patient Courtesy
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-16-courtesy
+
+  - name: specialArrangement
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The special arrangements made for the patient during the encounter.
+    binding:
+      description: Special arrangements.
+      terminology:
+      - display: SpecialArrangements
+        system: http://hl7.org/fhir/encounter-special-arrangements
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-special-arrangements.html
+
+  - name: dischargeDisposition
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Category or kind of location after discharge.
+    binding:
+      description: Discharge Disposition.
+      terminology:
+      - display: DischargeDisposition
+        system: http://hl7.org/fhir/discharge-disposition
+        info_link: http://hl7.org/fhir/R4/valueset-encounter-discharge-disposition.html
+      - display: Millennium Encounter Discharge Disposition
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/19
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-19-discharge-disposition

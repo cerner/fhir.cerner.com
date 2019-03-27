@@ -9,7 +9,41 @@ title: Encounter | R4 API
 
 ## Overview
 
-Placeholder
+The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
+
+The following fields are returned if valued:
+
+* [Encounter id](http://hl7.org/fhir/encounter-definitions.html#Encounter.id){:target="_blank"}
+* [Encounter identifier (eg: FIN)](http://hl7.org/fhir/encounter-definitions.html#Encounter.identifier){:target="_blank"}
+* [Status](http://hl7.org/fhir/encounter-definitions.html#Encounter.status){:target="_blank"}
+* [Class](http://hl7.org/fhir/encounter-definitions.html#Encounter.class){:target="_blank"}
+* [Type](http://hl7.org/fhir/encounter-definitions.html#Encounter.type){:target="_blank"}
+* [Priority](http://hl7.org/fhir/encounter-definitions.html#Encounter.priority){:target="_blank"}
+* [Subject](http://hl7.org/fhir/encounter-definitions.html#Encounter.subject){:target="_blank"}
+* Participant:
+   * [Type](http://hl7.org/fhir/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
+   * [Name](http://hl7.org/fhir/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
+* [Start/end time of the encounter](http://hl7.org/fhir/encounter-definitions.html#Encounter.period){:target="_blank"}
+* [Reason for visit](http://hl7.org/fhir/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
+* Hospitalization:
+   * [Admit source](http://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
+   * [Diet preference](http://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
+   * [Special courtesy](http://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
+   * [Special arrangement](http://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
+   * [Discharge destination](hhttp://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+   * [Discharge disposition](http://hl7.org/fhir/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
+* Location:
+   * [Name](http://hl7.org/fhir/encounter-definitions.html#Encounter.location.location){:target="_blank"}
+   * [Location status](http://hl7.org/fhir/encounter-definitions.html#Encounter.location.status){:target="_blank"}
+* [Service provider (Organization)](http://hl7.org/fhir/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
+
+## Terminology Bindings
+
+<%= terminology_table(:encounter, :r4) %>
+
+### Contained Location Bindings
+
+<%= terminology_table(:encounter_contained_location, :r4) %>
 
 ## Search
 
@@ -28,16 +62,16 @@ _Implementation Notes_
 
 ### Parameters
 
- Name       | Required?                  | Type          | Description
-------------|----------------------------|---------------|---------------------------------------------------------------------------------------------------
- `_id`      | This or patient or subject | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient`  | This or subject or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
- `subject`  | This or patient or _id     | [`reference`] | The patient present at the encounter. Example: subject=Patient/1316024 or subject:Patient=1316024
- [`_count`] | No                         | [`number`]    | The maximum number of results to return.
+ Name       | Required?                      | Type          | Description
+------------|--------------------------------|---------------|-------------------------------------------------------------------------------------------------------
+ `_id`      | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `patient`  | This or `subject` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `subject`  | This or `patient` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
+ [`_count`] | No                             | [`number`]    | The maximum number of results to return.
 
 ### Headers
 
- <%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -71,7 +105,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 

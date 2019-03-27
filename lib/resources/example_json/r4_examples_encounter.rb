@@ -98,8 +98,8 @@ module Cerner
             "start": "2016-06-22T21:06:58.000Z"
           },
           "individual": {
-            "reference": "Practitioner/1912007",
-            "display": "Song, River"
+            "reference": "Practitioner/1912333",
+            "display": "Forrest, Fhir"
           }
         },
         {
@@ -120,7 +120,7 @@ module Cerner
             "start": "2016-06-27T15:03:36.000Z"
           },
           "individual": {
-            "reference": "Practitioner/1912007",
+            "reference": "Practitioner/1818009",
             "display": "Song, River"
           }
         },
@@ -165,8 +165,8 @@ module Cerner
             "start": "2016-06-22T21:06:58.000Z"
           },
           "individual": {
-            "reference": "Practitioner/1912007",
-            "display": "Song, River"
+            "reference": "Practitioner/2101015",
+            "display": "Dolittle, Doctor"
           }
         }
       ],
@@ -298,8 +298,8 @@ module Cerner
                   "start": "2016-06-22T21:06:58.000Z"
                 },
                 "individual": {
-                  "reference": "Practitioner/1912007",
-                  "display": "Song, River"
+                  "reference": "Practitioner/1912333",
+                  "display": "Forrest, Fhir"
                 }
               },
               {
@@ -320,7 +320,7 @@ module Cerner
                   "start": "2016-06-27T15:03:36.000Z"
                 },
                 "individual": {
-                  "reference": "Practitioner/1912007",
+                  "reference": "Practitioner/1818009",
                   "display": "Song, River"
                 }
               },
@@ -365,8 +365,8 @@ module Cerner
                   "start": "2016-06-22T21:06:58.000Z"
                 },
                 "individual": {
-                  "reference": "Practitioner/1912007",
-                  "display": "Song, River"
+                  "reference": "Practitioner/2101015",
+                  "display": "Dolittle, Doctor"
                 }
               }
             ],

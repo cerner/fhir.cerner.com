@@ -24,7 +24,7 @@ module Cerner
         502 => '502 Bad Gateway'
       }
 
-      def headers(status: nil, head: {})
+      def headers(status: nil, head: {}, fhir_json: false)
         lines = []
 
         if(status)
@@ -47,7 +47,7 @@ module Cerner
         end
 
         if(lines.empty?)
-          lines = default_headers
+          lines = fhir_json ? default_headers_r4 : default_headers
         end
 
         %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
@@ -71,6 +71,13 @@ module Cerner
 
       def default_headers
         lines = ["<a href=\"../../#media-types\">Accept</a>: application/json+fhir"]
+        lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
+
+        lines
+      end
+
+      def default_headers_r4
+        lines = ["<a href=\"../../#media-types\">Accept</a>: application/fhir+json"]
         lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
 
         lines
