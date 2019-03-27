@@ -104,3 +104,263 @@ fields:
       - display: Millennium Languages
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36
         info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-36-languages
+
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Patient"
+    }
+  note: resourceType must be Patient
+  url: http://hl7.org/fhir/R4/json.html#resources
+
+- name: identifier
+  required: 'Yes'
+  cardinality: 0..*
+  type: Identifier
+  description: The identifiers for the patient.
+  action: create
+  example: |
+    {
+      "identifier": [
+        {
+          "assigner": {
+            "reference": "Organization/619848"
+          }
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "MR",
+                "system": "http://hl7.org/fhir/v2/0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "&lt;unique identifier&gt;",
+          "period": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2020-01-02T00:00:00-05:00"
+          }
+        }
+      ]
+    }
+  note: Atleast one identifier should be provided, and must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled.
+    The subsequent identifiers may be provided, but must not contain the `assigner` and `use` fields, must contain the `type`, `system`, and `value` fields,
+    and must include a time component with a timezone when specifying a `period`. A proprietary code may be provided instead of a standard code for the `type` field.
+  url: http://hl7.org/fhir/R4/datatypes.html#Identifier
+
+- name: active
+  required: 'No'
+  cardinality: 0..1
+  type: boolean
+  description: Whether this patient record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, active must be true
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.active
+
+- name: name
+  required: 'Yes'
+  cardinality: 1..*
+  type: HumanName
+  description: The names associated with the individual.
+  action: create
+  example: |
+    {
+      "name": [
+        {
+          "use": "official",
+          "family": "Wolf",
+          "given": [
+            "Big",
+            "Bad"
+          ],
+          "period": {
+            "start": "2010-05-17T14:54:31.000Z"
+          }
+        },
+        {
+          "use": "usual",
+          "given": [
+            "Bigby"
+          ],
+          "period": {
+            "start": "2012-05-22T15:45:50.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    Must have one value that is current and has a `use` of 'official', without an end date, and both a given and family name are present.
+    Names must include the `use` field, and must contain either the `given` or `family` field. All names cannot contain the `text` field.
+    Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single
+    string separated by blank spaces. Only one `prefix` and one `suffix` may be provided. When specifying a `period`, the fields must include a time component with a timezone.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
+
+- name: telecom
+  required: 'No'
+  cardinality: 0..*
+  type: ContactPoint
+  description: A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+  action: create
+  example: |
+    {
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8168229121",
+          "use": "home",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: All values must contain the `system`, `use`, and `value` fields. When specifying a `period`, the fields must include a time component with a timezone.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
+
+- name: gender
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: 'Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.'
+  action: create
+  example: |
+    {
+      "gender": "male"
+    }
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.gender
+
+- name: birthDate
+  required: 'No'
+  cardinality: 0..1
+  type: date
+  description: The date of birth for the individual.
+  action: create
+  example: |
+    {
+      "birthDate": "1990-09-15"
+    }
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate
+
+- name: address
+  required: 'No'
+  cardinality: 0..*
+  type: Address
+  description: Addresses for the individual.
+  action: create
+  example: |
+    {
+      "address": [
+        {
+          "use": "home",
+          "line": [
+             "1212 Faircastle Drive",
+             "Apartment 406"
+          ],
+          "city": "KC",
+          "district": "Jackson",
+          "state": "KS",
+          "postalCode": "64199",
+          "country": "United States of America",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: Each address must contain the `use` field, and must not contain the `text` field. When specifying a `period`, the fields must include a time component with a timezone.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.address
+
+- name: maritalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The patient's most recent marital (civil) status.
+  action: create
+  example: |
+    {
+      "maritalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+            "code": "S",
+            "display": "Never Married"
+          }
+        ],
+        "text": "Never Married"
+      }
+    }
+  note: A proprietary code may be provided instead of a standard code.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus
+
+- name: communication
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: Language which may be used to communicate with the patient about his or her health.
+  action: create
+  example: |
+    {
+      "communication": [
+        {
+          "language": {
+            "coding": [
+              {
+                "system": "urn:ietf:bcp:47",
+        	      "code": "eng",
+                "display": "English"
+              }
+            ],
+            "text": "English"
+          },
+          "preferred": true
+        }
+      ]
+    }
+  note: Only one communication may be provided. A proprietary code may be provided
+    instead of a standard code for the `language` field.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.communication
+
+- name: generalPractitioner
+  required: 'No'
+  cardinality: 0..*
+  type: Reference
+  description: Patient's nominated care provider.
+  action: create
+  example: |
+    {
+      "generalPractitioner": [
+        {
+          "reference": "Practitioner/995932"
+        }
+      ]
+    }
+  note: generalPractitioner must be an array of references to a Practitioner.
+  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
+
+- name: US Core Birth Sex Extension
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: The sex of the patient at birth.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+          "valueCode": "F"
+        }
+      ]
+    }
+  url: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html

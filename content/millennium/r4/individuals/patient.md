@@ -151,25 +151,20 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-[//]: # (Required if the resource supports create.)
+Create a new Patient.
 
-Create a new ResourceExample.
-
-    POST /ResourceExample
+    POST /Patient
 
 _Implementation Notes_
 
-* Add any create implementation notes here.
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
 
 ### Authorization Types
 
-[//]: # (Update to include correct authorization types supportted for this action.)
-
-<%= authorization_types(practitioner: false, patient: false, system: false) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Headers
-
-[//]: # (Required. Add all the required headers for the request. Below will add Auth, Accept, and Content-Type)
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
 
@@ -177,17 +172,15 @@ _Implementation Notes_
 
 Notes:
 
-  - Any special considerations for these fields
+* Birth Sex may be recorded as an extension.
 
 <%= definition_table(:patient, :create, :r4) %>
 
 ### Example
 
-[//]: # (Required section. Please populate the fields below with an example.)
-
 #### Request
 
-    POST add example request here.
+  POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient
 
 #### Body
 
@@ -195,44 +188,26 @@ Notes:
 
 <%= headers status: 201 %>
 <pre class="terminal">
-    #TODO: Replace with headers from successful create to your resource.
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Wed, 13 Jan 2016 21:45:47 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
-    Status → 201 Created
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"0"
-    location → 'url to created resource example'
-    server-response-time → 1260.984596
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 682c633c-b20f-4f6f-8fae-c58b3aeffe04
-    x-runtime → 1.260940
-    x-xss-protection → 1; mode=block
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: text/html
+    Date: Wed, 27 Mar 2019 17:23:14 GMT
+    Etag: W/"0"
+    Location: https://fhir-ehr.sandboxcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Patient/5786010
+    Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
+    Server-Response-Time: 296.405243
+    Status: 201 Created
+    Vary: Origin
+    X-Request-Id: 11111111111111111111111111111111
+    X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+
 ### Errors
 
-[//]: # (Errors is a required field. Must point to the common errors at least. Should include any OperationOutcomes or special errors. Make sure errors link is correct)
-
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
