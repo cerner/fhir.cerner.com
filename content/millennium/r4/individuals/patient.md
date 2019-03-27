@@ -319,6 +319,11 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [errors]: ../../#client-errors
+[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`string`]: https://hl7.org/fhir/R4/search.html#string
+[`_count`]: http://hl7.org/fhir/R4/search.html#count
+[`number`]: http://hl7.org/fhir/R4/search.html#number
 [OperationOutcomes]: http://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
 [US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
