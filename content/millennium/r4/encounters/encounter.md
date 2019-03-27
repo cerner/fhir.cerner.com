@@ -29,11 +29,11 @@ _Implementation Notes_
 ### Parameters
 
  Name       | Required?                  | Type          | Description
-------------|----------------------------|---------------|-------------------------------------------------------------------------------------------------------
+------------|----------------------------|---------------|---------------------------------------------------------------------------------------------------
  `_id`      | This or patient or subject | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
  `patient`  | This or subject or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
  `subject`  | This or patient or _id     | [`reference`] | The patient present at the encounter. Example: subject=Patient/1316024 or subject:Patient=1316024
- [`_count`] | No                          | [`number`]    | The maximum number of results to return.
+ [`_count`] | No                         | [`number`]    | The maximum number of results to return.
 
 ### Headers
 
