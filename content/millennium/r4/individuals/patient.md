@@ -9,38 +9,36 @@ title: Patient | R4 API
 
 ## Overview
 
-Placeholder
+The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+
+The following fields are returned if valued:
+
+* [Patient id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id ){:target="_blank"}
+* [Patient Identifier](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier){:target="_blank"}
+* [Active](https://hl7.org/fhir/R4/patient-definitions.html#Patient.active){:target="_blank"}
+* [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
+* [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
+* [Gender (administrative)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender){:target="_blank"}
+* [Extensions including birth time, birth sex, ethnicity and race](#extensions){:target=”_blank”}
+* [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
+* [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
+* [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
+* [Marital status]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
+* [Multiple Birth Information]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_){:target="_blank"}
+* [Contact person (guardian, parent or emergency)]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.contact){:target="_blank"}
+* [Communication (preferred language)]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication){:target="_blank"}
+* [Primary Care Providers]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner){:target="_blank"}
 
 ## Terminology Bindings
 
-[//]: # (Add the terminology table for the resource here. Terminology Bindings is a required field.)
-
 <%= terminology_table(:patient, :r4) %>
-
-### Contained Resource(if any, remove if not present.) Bindings
-
-<%= terminology_table(:contained_patient, :r4) %>
-
-### Contained Resource2(if any, remove if not present.) Bindings
-
-<%= terminology_table(:contained_patient2, :r4) %>
 
 ## Extensions
 
-[//]: # (Extensions is not required, but should be listed if present.)
-
-* Link relevant extensions here.
-* [Time of day of birth]
-
-### Custom Extensions
-
-[//]: # (Custom Extensions are not required, but should be listed if present, and linked from Extensions list above. Use the correct type for the Value and link)
-
-All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/R4/StructureDefinition/{id}`
-
-ID             | Value\[x] Type    | Description
----------------|-------------------|----------------------------------------------------------------------------------
-`some-id`      | [`type`]          | Describe what the extension value represents, and what fields it's used on.
+* [Patient Birth Time]
+* [US Core Race]
+* [US Core Ethnicity]
+* [US Core Birth Sex]
 
 ## Search
 
@@ -335,3 +333,7 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
 [Time of day of birth]: http://hl7.org/fhir/R4/extension-patient-birthtime.html
 [errors]: ../../#client-errors
 [OperationOutcomes]: http://hl7.org/fhir/R4/operationoutcome.html
+[Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
+[US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
+[US Core Ethnicity]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
+[US Core Birth Sex]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html

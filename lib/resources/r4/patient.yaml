@@ -1,0 +1,106 @@
+---
+name: Patient
+field_name_base_url: https://hl7.org/fhir/R4/patient-definitions.html#Patient
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: The identifier for the patient.
+  action: terminology
+  children:
+
+  - name: type
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    action: terminology
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/identifier-type
+        info_link: https://hl7.org/fhir/R4/valueset-identifier-type.html
+      - display: v2 Identifier Type
+        system: http://terminology.hl7.org/CodeSystem/v2-0203
+        info_link: https://hl7.org/fhir/R4/v2/0203/index.html
+      - display: Millennium Person Identifier (Alias) Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-4-person-identifier-alias-types
+
+- name: maritalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The patient's most recent marital (civil) status.
+  action: terminology
+  binding:
+    description: The patient's most recent marital (civil) status.
+    terminology:
+    - display: Marital Status Codes
+      system: http://hl7.org/fhir/marital-status
+      info_link: https://hl7.org/fhir/R4/valueset-marital-status.html
+    - display: v3.MaritalStatus
+      system: http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
+      info_link: https://hl7.org/fhir/R4/v3/MaritalStatus/cs.html
+    - display: v3.NullFlavor
+      system: http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+      info_link: https://hl7.org/fhir/R4/v3/NullFlavor/cs.html
+    - display: Millennium Marital Status
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/38
+      info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-38-marital-status
+
+- name: contact
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: A contact party (e.g. guardian, partner, friend) for the patient.
+  action: terminology
+  children:
+
+  - name: relationship
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The nature of the relationship between the patient and the contact person.
+    action: terminology
+    binding:
+      description: The nature of the relationship between a patient and a contact person for that patient.
+      terminology:
+      - display: PatientContactRelationship
+        system: http://hl7.org/fhir/patient-contactrelationship
+        info_link: https://hl7.org/fhir/R4/valueset-patient-contactrelationship.html
+      - display: v2.0131
+        system: http://terminology.hl7.org/CodeSystem/v2-0131
+        info_link: https://hl7.org/fhir/R4/v2/0131/index.html
+      - display: Millennium Person Relationship Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-351-person-relationship-types
+
+- name: communication
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: Language which may be used to communicate with the patient about his or her health.
+  action: terminology
+  children:
+
+  - name: language
+    required: 'No'
+    cardinality: 1..1
+    type: CodeableConcept
+    description: The language used to communicate with a patient.
+    action: terminology
+    binding:
+      description: Language which may be used to communicate with the patient about his or her health.
+      terminology:
+      - display: CommonLanguages
+        system: http://hl7.org/fhir/languages
+        info_link: https://hl7.org/fhir/R4/valueset-languages.html
+      - display: IETF Identifying Languages
+        system: urn:ietf:bcp:47
+        info_link: https://tools.ietf.org/html/bcp47
+      - display: Millennium Languages
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36
+        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-36-languages
