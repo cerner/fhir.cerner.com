@@ -55,11 +55,11 @@ Where `https://fhir-myrecord.sandboxcerner.com/dstu2/abcd1234/` is the the `:ser
 
 ### Secure Sandbox
 
-The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service root URL for the sandbox instance is:
+The secure sandbox instance can be used for testing an application with [authorization](#authorization). The [service root URL](#service-root-url) for the sandbox instance is:
 
 `https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d`
 
-Example: `https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Condition?patientId= D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27`
+Example for a resource call: `https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Condition?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27`
 
 
 ## Media Types
@@ -130,10 +130,10 @@ The pagination links are included in the Bundle when a resource returns multiple
 
 The possible `relation` values are:
 
-|Name     | Description
-|---------|----------------------------------------
-|`self`   | Shows the URL of the current page of results.
-|`next`   | Shows the URL of the immediate next page of results.
+Name                                                 | Description
+-----------------------------------------------------|-----------------------------------------------------
+`self`                                               | Shows the URL of the current page of results.
+`next`                                               | Shows the URL of the immediate next page of results.
 
 
 ## Common Errors
