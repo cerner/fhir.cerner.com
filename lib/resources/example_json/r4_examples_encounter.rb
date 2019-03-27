@@ -487,5 +487,34 @@ module Cerner
         }
       ]
     }
+
+    R4_ENCOUNTER_PATCH ||= [
+      {
+        "op": "replace",
+        "path": "/period/start",
+        "value":  "2015-09-01T00:00:00.000Z"
+      },
+      {
+        "op": "replace",
+        "path": "/period/end",
+        "value":  "2017-09-01T00:00:00.000Z"
+      },
+      {
+        "op": "replace",
+        "path": "/type",
+        "value":  [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+                "code": "O",
+                "display": "Outpatient",
+                "userSelected": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
   end
 end

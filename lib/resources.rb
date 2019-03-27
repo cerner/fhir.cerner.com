@@ -33,16 +33,16 @@ module Cerner
 
         head.each do |key, value|
           case key
-            when :pagination
-              lines << link_header(value)
-            when :Accept
-              lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
-            when :'Content-Type'
-              lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
-            when :Authorization
-              lines << "<a href=\"../../#authorization\">#{key}</a>: #{value}"
-            else
-              lines << "#{key}: #{value}"
+          when :pagination
+            lines << link_header(value)
+          when :Accept
+            lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+          when :'Content-Type'
+            lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+          when :Authorization
+            lines << "<a href=\"../../#authorization\">#{key}</a>: #{value}"
+          else
+            lines << "#{key}: #{value}"
           end
         end
 
@@ -100,14 +100,14 @@ module Cerner
 
       def get_resource(key)
         hash = case key
-          when Hash
-            h = {}
-            key.each { |k, v| h[k.to_s] = v }
-            h
-          when Array
-            key
-          else Resources.const_get(key.to_s.upcase)
-        end
+               when Hash
+                 h = {}
+                 key.each { |k, v| h[k.to_s] = v }
+                 h
+               when Array
+                 key
+               else Resources.const_get(key.to_s.upcase)
+               end
       end
 
       def authorization_types(practitioner: true, patient: false, system: false)
