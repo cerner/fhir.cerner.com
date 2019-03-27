@@ -204,92 +204,9 @@ Notes:
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
-
-## Update
-
-[//]: # (Required if the resource supports update.)
-
-Update a ResourceExample.
-
-    PUT /ResourceExample
-
-_Implementation Notes_
-
-* Add any update implementation notes here.
-
-### Authorization Types
-
-[//]: # (Update to include correct authorization types supportted for this action.)
-
-<%= authorization_types(practitioner: false, patient: false, system: false) %>
-
-### Headers
-
-[//]: # (Required. Add all the required headers for the request.)
-
-### Body fields
-
-Notes:
-
-  - Any special considerations for these fields
-
-<%= definition_table(:patient, :update, :r4) %>
-
-### Example
-
-[//]: # (Required section. Please populate the fields below with an example.)
-
-#### Request
-
-    PUT add example request here.
-
-#### Body
-
-### Response
-
-<%= headers status: 200 %>
-<pre class="terminal">
-    #TODO: Replace with headers from a successful update to a ResourceExample
-    Connection → Keep-Alive
-    Content-Encoding → gzip
-    Content-Length → 20
-    Content-Type → text/html; charset=UTF-8
-    Date → Wed, 13 Jan 2016 21:50:53 GMT
-    Keep-Alive → timeout=15, max=100
-    Last-Modified → Tue, 15 Dec 2015 19:13:20 GMT
-    Status → 200 OK
-    access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-    access-control-allow-origin → *
-    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-    access-control-max-age → 0
-    cache-control → no-cache
-    etag → W/"1"
-    server-response-time → 653.7616069999999
-    strict-transport-security → max-age=631152000
-    vary → Origin,User-Agent,Accept-Encoding
-    x-content-type-options → nosniff
-    x-frame-options → SAMEORIGIN
-    x-request-id → 9dba8326-899a-406f-a125-3fc3d6605dad
-    x-runtime → 0.653722
-    x-xss-protection → 1; mode=block
-</pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-### Errors
-
-[//]: # (Errors is a required field. Must point to the common errors at least. Should include any OperationOutcomes or special errors. Make sure errors link is correct)
-
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained modifier extensions | error     | extension
- 422         | Body contained implicit rules      | error     | unsupported
 
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
