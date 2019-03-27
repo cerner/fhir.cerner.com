@@ -42,111 +42,112 @@ The following fields are returned if valued:
 
 ## Search
 
-[//]: # (Required if the resource supports search.)
+Search for Patients that meet supplied query parameters:
 
-Search for ResourceExamples that meet supplied query parameters:
-
-    GET /ResourceExample?:parameters
+    GET /Patient?:parameters
 
 _Implementation Notes_
 
-* Add any search implementation notes here.
+* Direct secure email will not be returned.
 
 ### Authorization Types
 
-[//]: # (Update to include correct authorization types supportted for this action.)
-
-<%= authorization_types(practitioner: false, patient: false, system: false) %>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Parameters
 
-[//]: # (Required section. A table for the supported search parameters)
-
- Name         | Required?                             | Type          | Description
---------------|---------------------------------------|---------------|------------------------------------------------------------------------------------
- `param1`     | Is param1 required?                   | param1's type | The description of param1 and an example. 2 examples of params are given below.
- `subject`    | This, or `param1`                     | [`reference`] | The subject of the Resource. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
- `date`       | N                                     | [`date`]      | The date/time when the Resource was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
+ Name                 | Required?                                    | Type       | Description
+----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
+ `_id`                | This, or any other required search parameter | [`token`]  | The logical resource id associated with the resource.
+ `identifier`         | This and/or any other search param, or `_id` | [`token`]  | A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`
+ `name`               | This and/or any other search param, or `_id` | [`string`] | The start of either family or given name of the patient. Example: `John`
+ `family`             | This and/or any other search param, or `_id` | [`string`] | The start of the family name of the patient. Example: `Smith`
+ `given`              | This and/or any other search param, or `_id` | [`string`] | The start of the given name of the patient. Example: `John`
+ `birthdate`          | This and/or any other search param, or `_id` | [`date`]   | The patient's date of birth.  Example: `1990-01-01`
+ `phone`              | This and/or any other search param, or `_id` | [`token`]  | The patient's phone number. Example: `1234567891`
+ `email`              | This and/or any other search param, or `_id` | [`token`]  | The patient's email address. Example: `example@example.com`
+ `address-postalcode` | This and/or any other search param, or `_id` | [`string`] | The postal code in the address details of the patient. Example: `12345`
+ `gender`             | No                                           | [`token`]  | The gender of the patient. Example: `male`
+ [`_count`]           | No                                           | [`number`] | The maximum number of results to return. Defaults to `20`.
 
 Notes:
 
-  - Add any notes about the search parameters here. The description should be short
+* Either the `_id`, or a combination of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters must be provided.
+* The `gender` parameter may only be provided if at least one of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters is provided.
+* The `name`, `family`, and `given` parameters support the ':exact' modifier and will search for current names only.
+* The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
+* The `birthdate` parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes 'le' and 'ge'
+* The `birthdate` parameter may be provided once with the following prefixes: 'ge', 'le', 'gt', 'lt', 'eq'
 
 ### Headers
-
-[//]: # (Required. Add all the required headers for the request, if anything besides accept and auth headers)
 
  <%= headers %>
 
 ### Example
 
-[//]: # (Required section. Please populate the fields below with an example.)
-
 #### Request
 
-    GET add example request here.
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009
 
 #### Response
+
 <%= headers status: 200 %>
 <%= json(:r4_patient_bundle) %>
 
 ### Errors
 
-[//]: # (Errors is a required field. Must point to the common errors at least. Should include any OperationOutcomes or special errors. Make sure errors link is correct)
-
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained ...                 | error     | unsupported
+The common [errors] and [OperationOutcomes] may be returned. In addition, a `422 Unprocessable Entity` will be returned when too many (>1000) patients qualify for the search criteria.
 
 ## Retrieve by id
 
-[//]: # (Required if the resource supports retrieve by id.)
+List an individual Patient by its id:
 
-List an individual ResourceExample by its id:
-
-    GET /ResourceExample/:id
+    GET /Patient/:id
 
 _Implementation Notes_
 
-* Add any retrieve by id implementation notes here.
+* Direct secure email will not be returned.
 
 ### Authorization Types
 
-[//]: # (Update to include correct authorization types supportted for this action.)
-
-<%= authorization_types(practitioner: false, patient: false, system: false) %>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
-
-[//]: # (Required. Add all the required headers for the request, if anything besides accept and auth headers)
 
 <%= headers %>
 
 ### Example
 
-[//]: # (Required section. Please populate the fields below with an example.)
-
 #### Request
 
-    GET add example request here.
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_recource_example_entry) %>
+<%= json(:r4_patient_entry) %>
+
+### Patient Combines Example
+
+Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
+as a "patient combine". If necessary, this merging can later be undone by performing a "patient uncombine". When the requested patient record has been combined into another
+record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
+the entries directly by id. They will not be returned when searching with other parameters.
+
+The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4860007
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_combined_patient_entry) %>
 
 ### Errors
 
-[//]: # (Errors is a required field. Must point to the common errors at least. Should include any OperationOutcomes or special errors. Make sure errors link is correct)
-
-The common [errors] may be returned. In addition, [OperationOutcomes] may be returned in the following scenarios:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained ...                 | error     | unsupported
-
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -180,10 +181,6 @@ Notes:
 
 <%= definition_table(:patient, :create, :r4) %>
 
-#### Contained Resource(if any) Body Fields
-
-<%= definition_table(:contained_patient, :create, :r4) %>
-
 ### Example
 
 [//]: # (Required section. Please populate the fields below with an example.)
@@ -193,8 +190,6 @@ Notes:
     POST add example request here.
 
 #### Body
-
-<%= json(:r4_patient_create) %>
 
 #### Response
 
@@ -261,9 +256,6 @@ _Implementation Notes_
 
 [//]: # (Required. Add all the required headers for the request.)
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
-                   Content-Type: 'application/json+fhir', If-Match: 'W/"&lt;Current version of the MedicationStatement resource>"'} %>
-
 ### Body fields
 
 Notes:
@@ -281,8 +273,6 @@ Notes:
     PUT add example request here.
 
 #### Body
-
-<%= json(:r4_patient_update) %>
 
 ### Response
 
@@ -326,11 +316,8 @@ The common [errors] may be returned. In addition, [OperationOutcomes] may be ret
  422         | Body contained modifier extensions | error     | extension
  422         | Body contained implicit rules      | error     | unsupported
 
-[//]: # (Add your links here)
-
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[Time of day of birth]: http://hl7.org/fhir/R4/extension-patient-birthtime.html
 [errors]: ../../#client-errors
 [OperationOutcomes]: http://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
