@@ -140,11 +140,11 @@ Create an individual Encounter.
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/json+fhir'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
