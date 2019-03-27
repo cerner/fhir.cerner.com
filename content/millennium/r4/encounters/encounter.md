@@ -164,19 +164,18 @@ Create an individual Encounter.
 
 <%= headers status: 201 %>
 <pre class="terminal">
-    Cache-Control → no-cache
-    Content-Length → 0
-    Content-Type → application/json+fhir
-    Date → Wed, 27 Mar 2019 15:59:33 GMT
-    Etag → W/"0"
-    Last-Modified → Wed, 27 Mar 2019 15:59:30 GMT
-    Location → https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4595905
-    Server-Response-Time → 3890.363996
-    Status → 201 Created
-    Vary → Origin
-    X-Newrelic-App-Data → PxQGVl9WCQcBR1BaBwMHU1wCBBFORCANXhZKDVRUUUAcA1EIQz5WDAdZQg8SBkpsVQoGC1lUGAMKUllGDBIGEG8BSgdZTFEdUBdcAEUEEU5UGAdNVU0ACgBTU1sDAwBVVwYAB1RTT08BThoGD14BVwVSDAQFBwVSAQ5TQzs=
-    X-Request-Id → 1638e30e497b93ff4383b2ff0eaeea68
-    X-Runtime → 3.890282
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: application/json+fhir
+    Date: Wed, 27 Mar 2019 15:59:33 GMT
+    Etag: W/"0"
+    Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
+    Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4595905
+    Server-Response-Time: 3890.363996
+    Status: 201 Created
+    Vary: Origin
+    X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+    X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
