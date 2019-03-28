@@ -118,7 +118,7 @@ operations:
     <ul>
       <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
-      <li>When `start` or `end` is not provided its value will be unset.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
     </ul>
 - name: test-name-id
   path: /name/{index}/id
@@ -345,7 +345,7 @@ operations:
     <ul>
       <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
-      <li>When `start` or `end` is not provided its value will be unset.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
     </ul>
 - name: replace-gender
   path: /gender
@@ -566,7 +566,7 @@ operations:
     <ul>
       <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
-      <li>When `start` or `end` is not provided its value will be unset.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
     </ul>
 - name: replace-marital-status
   path: /maritalStatus
