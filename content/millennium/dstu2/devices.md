@@ -1,5 +1,5 @@
 ---
-title: Devices
+title: Devices | DSTU 2 API
 layout: api
 ---
 

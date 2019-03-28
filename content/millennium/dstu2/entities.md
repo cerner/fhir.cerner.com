@@ -1,5 +1,5 @@
 ---
-title: Entities
+title: Entities | DSTU 2 API
 layout: api
 ---
 

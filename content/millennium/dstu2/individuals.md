@@ -1,5 +1,5 @@
 ---
-title: Individuals
+title: Individuals | DSTU 2 API
 layout: api
 ---
 

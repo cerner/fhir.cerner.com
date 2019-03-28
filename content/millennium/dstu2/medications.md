@@ -1,5 +1,5 @@
 ---
-title: Medications
+title: Medications | DSTU 2 API
 layout: api
 ---
 

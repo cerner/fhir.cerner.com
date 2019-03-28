@@ -1,5 +1,5 @@
 ---
-title: Infrastructure
+title: Infrastructure | DSTU 2 API
 layout: api
 ---
 

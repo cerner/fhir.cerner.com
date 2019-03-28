@@ -1,5 +1,5 @@
 ---
-title: Diagnostic
+title: Diagnostic | DSTU 2 API
 layout: api
 ---
 

@@ -3,6 +3,8 @@ module AttributesHelper
     @items.each do |item|
       if item.identifier.to_s.include? '/dstu2'
         item[:version] = 'dstu2'
+      elsif item.identifier.to_s.include? '/r4'
+        item[:version] = 'r4'
       end
     end
   end

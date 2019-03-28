@@ -1,5 +1,5 @@
 ---
-title: Encounters | DSTU 2 API
+title: Encounters | R4 API
 layout: api
 ---
 
