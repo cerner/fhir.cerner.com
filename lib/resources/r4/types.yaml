@@ -12,6 +12,7 @@ dateTime: https://hl7.org/fhir/R4/datatypes.html#dateTime
 Duration: https://hl7.org/fhir/R4/datatypes.html#Duration
 Element: https://hl7.org/fhir/R4/element.html
 Encounter: https://hl7.org/fhir/R4/encounter.html
+Extension: https://hl7.org/fhir/R4/extensibility.html#Extension
 HumanName: https://hl7.org/fhir/R4/datatypes.html#HumanName
 id: https://hl7.org/fhir/R4/datatypes.html#id
 Identifier: https://hl7.org/fhir/R4/datatypes.html#Identifier
