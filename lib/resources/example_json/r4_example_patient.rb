@@ -29,24 +29,27 @@ module Cerner
          "status": "generated",
          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;/div&gt;"
       },
-      "extension": [{
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-        "extension": [{
-            "url": "detailed",
-            "valueCoding": {
-              "system": "urn:oid:2.16.840.1.113883.6.238",
-              "code": "2131-1",
-              "display": "Other Race",
-              "userSelected": false
-            }
-          },
+      "extension": [
           {
-            "url": "text",
-            "valueString": "White"
-          }
-        ]
-      }],
-      "identifier": [{
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+          "extension": [{
+              "url": "detailed",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2131-1",
+                "display": "Other Race",
+                "userSelected": false
+              }
+            },
+            {
+              "url": "text",
+              "valueString": "White"
+            }
+          ]
+        }
+      ],
+      "identifier": [
+        {
           "id": "CI-6810232-0",
           "use": "usual",
           "type": {
@@ -123,12 +126,14 @@ module Cerner
           "id": "CI-7476207-5",
           "use": "usual",
           "type": {
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "36322657",
-              "display": "Federated Person Principal",
-              "userSelected": true
-            }],
+            "coding": [
+                {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "36322657",
+                "display": "Federated Person Principal",
+                "userSelected": true
+              }
+            ],
             "text": "Federated Person Principal"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.6",
@@ -139,31 +144,36 @@ module Cerner
         }
       ],
       "active": true,
-      "name": [{
-        "id": "CI-4342009-0",
-        "use": "official",
-        "text": "SMART, NANCY",
-        "family": "SMART",
-        "given": [
-          "NANCY"
-        ],
-        "period": {
-          "start": "2016-06-22T20:43:05.000Z"
+      "name": [
+          {
+          "id": "CI-4342009-0",
+          "use": "official",
+          "text": "SMART, NANCY",
+          "family": "SMART",
+          "given": [
+            "NANCY"
+          ],
+          "period": {
+            "start": "2016-06-22T20:43:05.000Z"
+          }
         }
-      }],
-      "telecom": [{
-        "id": "CI-EM-2399938-0",
-        "system": "email",
-        "value": "joe.smart@hl7.com",
-        "use": "home",
-        "period": {
-          "start": "2018-09-13T16:37:32.000Z"
+      ],
+      "telecom": [
+          {
+          "id": "CI-EM-2399938-0",
+          "system": "email",
+          "value": "joe.smart@hl7.com",
+          "use": "home",
+          "period": {
+            "start": "2018-09-13T16:37:32.000Z"
+          }
         }
-      }],
+      ],
       "gender": "female",
       "birthDate": "1980-08-11",
       "maritalStatus": {
-        "coding": [{
+        "coding": [
+          {
             "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/38",
             "code": "309237",
             "display": "Married",
@@ -178,17 +188,22 @@ module Cerner
         ],
         "text": "Married"
       },
-      "contact": [{
-          "relationship": [{
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
-              "code": "36327661",
-              "display": "Authorized Representative",
-              "userSelected": true
-            }],
-            "text": "Authorized Representative"
-          }],
-          "name": {
+      "contact": [
+        {
+          "relationship": [
+              {
+              "coding": [
+                  {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
+                  "code": "36327661",
+                  "display": "Authorized Representative",
+                  "userSelected": true
+                }
+              ],
+              "text": "Authorized Representative"
+            }
+          ],
+            "name": {
             "id": "CI-4342010-0",
             "use": "official",
             "text": "SMART, JOE",
@@ -200,7 +215,8 @@ module Cerner
               "start": "2016-06-22T21:06:59.000Z"
             }
           },
-          "telecom": [{
+          "telecom": [
+            {
               "system": "phone",
               "value": "9139898765",
               "use": "home",
@@ -246,15 +262,19 @@ module Cerner
           }
         },
         {
-          "relationship": [{
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
-              "code": "36327661",
-              "display": "Authorized Representative",
-              "userSelected": true
-            }],
-            "text": "Authorized Representative"
-          }],
+          "relationship": [
+            {
+              "coding": [
+                  {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
+                  "code": "36327661",
+                  "display": "Authorized Representative",
+                  "userSelected": true
+                }
+              ],
+              "text": "Authorized Representative"
+            }
+          ],
           "name": {
             "id": "CI-4342010-0",
             "use": "official",
@@ -267,7 +287,8 @@ module Cerner
               "start": "2016-06-22T21:06:59.000Z"
             }
           },
-          "telecom": [{
+          "telecom": [
+            {
               "system": "phone",
               "value": "9139898765",
               "use": "home",
@@ -313,11 +334,13 @@ module Cerner
           }
         }
       ],
-      "generalPractitioner": [{
-        "id": "CI-6810238-1",
-        "reference": "Practitioner/1912007",
-        "display": "Smart, Joe"
-      }]
+      "generalPractitioner": [
+        {
+          "id": "CI-6810238-1",
+          "reference": "Practitioner/1912007",
+          "display": "Smart, Joe"
+        }
+      ]
     }
 
     R4_PATIENT_BUNDLE ||= {
@@ -325,10 +348,12 @@ module Cerner
       "id": "b8e08a98-849f-4544-9fa8-985aa445e31b",
       "type": "searchset",
       "total": 1,
-      "link": [{
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009"
-      }],
+      "link": [
+          {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009"
+        }
+      ],
       "entry": [
         "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009",
         "resource": R4_PATIENT_ENTRY
