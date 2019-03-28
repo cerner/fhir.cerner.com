@@ -217,7 +217,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`string`]: https://hl7.org/fhir/R4/search.html#string
 [`token`]: http://hl7.org/fhir/R4/search.html#token
-[OperationOutcomes]: http://hl7.org/fhir/R4/operationoutcome.html
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
 [US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
