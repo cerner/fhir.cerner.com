@@ -115,7 +115,7 @@ fields:
     {
       "resourceType": "Patient"
     }
-  note: resourceType must be Patient
+  note: resourceType must be Patient.
   url: http://hl7.org/fhir/R4/json.html#resources
 
 - name: identifier
@@ -154,13 +154,13 @@ fields:
     <ul>
       <li> At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
         <ul>
-          <li> Must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled. </li>
+          <li> Must contain only an `assigner` field with a reference to the Organization in which the patient is being enrolled. </li>
         </ul>
       </li>
       <li> Subsequent identifiers may be provided, but have the following constraints:
         <ul>
           <li> Must not contain the `assigner` and `use` fields. </li>
-          <li> Must contain the `type`, `system`, and `value` fields </li>
+          <li> Must contain the `type`, `system`, and `value` fields. </li>
           <li> When specifying a `period`, must include a timecomponent with a timezone. </li>
           <li> A proprietary code may be provided instead of a standard code for the `type` field. </li>
         </ul>
