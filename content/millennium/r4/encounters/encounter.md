@@ -30,7 +30,7 @@ The following fields are returned if valued:
    * [Diet preference](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
    * [Special courtesy](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
    * [Special arrangement](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
-   * [Discharge destination](hhttp://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+   * [Discharge destination](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
    * [Discharge disposition](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
 * [Location:](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location){:target="_blank"}
    * [Name](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
