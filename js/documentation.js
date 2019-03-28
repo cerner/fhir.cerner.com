@@ -1,5 +1,11 @@
 // Init sidebar
 $(function() {
+  // Set class 'active' for the appropriate subnav link
+  var pageUrl = location.href.match(/(.+\/millennium\/[^\/]+\/)/)[0]
+  $('.sub-nav li a').each(function() {
+    $(this).toggleClass('active', this.href === pageUrl);
+  });
+
   var activeItem,
       helpList = $('#js-sidebar .js-topic'),
       firstOccurance = true,
@@ -73,7 +79,6 @@ $(function() {
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
   $.each($(".js-year"), (function() { $(this).text( currentYear ) }));
-
 
   // Earth animation
   if ($('.dev-program').length) {

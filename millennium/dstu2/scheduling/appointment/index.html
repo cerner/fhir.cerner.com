@@ -60,13 +60,12 @@
 
   <div class="sub-nav">
     
-      
       <h2>Millennium</h2>
-      <ul>
-      
-      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
     
+    <ul>
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
       
+        <li><a href="../../../r4/">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
       
       <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
@@ -808,7 +807,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   <li>
 <code>Appointment.status</code> must be set to <code>proposed</code>.</li>
   <li>
-<code>Appointment.slot</code> must be a reference to the Slot in which this appointment is being booked.</li>
+<code>Appointment.slot</code> must be a list containing a single reference to the Slot in which this appointment is being booked.</li>
   <li>
 <code>Appointment.participant</code> must have exactly one participant.</li>
   <li>
@@ -890,7 +889,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
         
       </td>
       <td>Yes </td>
-      <td>0..1 </td>
+      <td>1..1 </td>
       <td>
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<code>Slot</code>) </td>
     </tr>
@@ -904,9 +903,11 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "slot": {
-    "reference": "Slot/21265426-633867-6828001-60"
-  }
+  "slot": [
+    {
+      "reference": "Slot/21265426-633867-6828001-60"
+    }
+  ]
 }
 </pre></li></ul>
       

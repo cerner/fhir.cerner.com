@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>R4</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">Code Portal</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+    
+    <ul>
+      <li><a href="../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
+      
+        <li><a href="./">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../faq/" class="nav-faq">FAQ</a></li>
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="overview">Overview</h1>
+
+<p>This describes the resources that make up Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
+please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#current-version" id="markdown-toc-current-version">Current Version</a></li>
+  <li>
+<a href="#schema" id="markdown-toc-schema">Schema</a>    <ul>
+      <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a>    <ul>
+      <li><a href="#open-sandbox" id="markdown-toc-open-sandbox">Open Sandbox</a></li>
+      <li><a href="#secure-sandbox" id="markdown-toc-secure-sandbox">Secure Sandbox</a></li>
+      <li><a href="#resource" id="markdown-toc-resource">Resource</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#resource-identity" id="markdown-toc-resource-identity">Resource Identity</a></li>
+    </ul>
+  </li>
+  <li><a href="#common-application-errors" id="markdown-toc-common-application-errors">Common Application Errors</a></li>
+  <li><a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a></li>
+  <li>
+<a href="#operation-outcomes" id="markdown-toc-operation-outcomes">Operation Outcomes</a>    <ul>
+      <li><a href="#retrievesearch" id="markdown-toc-retrievesearch">Retrieve/Search</a></li>
+      <li><a href="#createupdate" id="markdown-toc-createupdate">Create/Update</a></li>
+    </ul>
+  </li>
+  <li><a href="#handling-required-fields" id="markdown-toc-handling-required-fields">Handling Required Fields</a></li>
+  <li><a href="#filtered-data-for-patient-or-proxy-access" id="markdown-toc-filtered-data-for-patient-or-proxy-access">Filtered Data for Patient or Proxy Access</a></li>
+  <li><a href="#general-security-filtering" id="markdown-toc-general-security-filtering">General Security Filtering</a></li>
+  <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
+  <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
+  <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
+  <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
+</ul>
+
+<h2 id="current-version">Current Version</h2>
+
+<p>Cerner’s implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard. Cerner is adding support for the R4 First Normative Content (4.0.0) version of the FHIR<sup>®</sup> standard.</p>
+
+<h2 id="schema">Schema</h2>
+
+<p>All API access is over HTTPS. See <a href="#service-root-url">Service Root URL</a> for more information on URL format. All data is sent and received as JSON.</p>
+
+<pre class="terminal">
+$ curl -i -H "Accept: application/fhir+json" https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 200 OK
+Date: Tue, 26 Mar 2019 15:50:49 GMT
+Cache-Control: no-cache
+Vary: Origin
+Server-Response-Time: 216.449165
+X-Request-Id: ecd13b72-4fde-11e9-8674-8b0a57a130fd
+X-Runtime: 0.216357
+Status: 200 OK
+Content-Type: application/json+fhir
+
+{
+  "resourceType": "CapabilityStatement",
+  "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+  "name": "CernerCapabilityStatement",
+  "title": "Cerner Capability Statement",
+  "status": "active",
+  "publisher": "Cerner",
+  "date": "2019-03-25",
+  "description": "Cerner implementation of FHIR on top of Millennium",
+  "kind": "instance",
+  "implementation": {
+    "description": "Cerner implementation of FHIR on top of Millennium",
+    "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+  },
+  "fhirVersion": "4.0.0",
+  "format": [
+    "json"
+  ],
+  "patchFormat": [
+    "application/json-patch+json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "Cerner implementation of FHIR on top of Millennium",
+      "security": {
+        "cors": true
+      },
+      "resource": [
+        {
+          "type": "CapabilityStatement",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "Encounter",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Resource-id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Encounter ids. It is a required field if the patient or subject fields are not given."
+            },
+            {
+              "name": "_count",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Resource-count",
+              "type": "number",
+              "documentation": "The maximum number of results to return. Not honored when '_id' is set."
+            },
+            {
+              "name": "patient",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/clinical-patient",
+              "type": "reference",
+              "documentation": "The patient present at the encounter. It is a required field if the _id or subject fields are not given."
+            },
+            {
+              "name": "subject",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Encounter-subject",
+              "type": "reference",
+              "documentation": "The patient present at the encounter. It is a required field if the _id or patient fields are not given."
+            }
+          ]
+        },
+        {
+          "type": "OperationDefinition",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        },
+        {
+          "type": "Patient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "_id",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Resource-id",
+              "type": "token",
+              "documentation": "A single or comma separated list of Patient ids. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "identifier",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Patient-identifier",
+              "type": "token",
+              "documentation": "A patient identifier. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "name",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Patient-name",
+              "type": "string",
+              "documentation": "The beginning of any name of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "given",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-given",
+              "type": "string",
+              "documentation": "The beginning of the given name of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "family",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-family",
+              "type": "string",
+              "documentation": "The beginning of the family name of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "address-postalcode",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-address-postalcode",
+              "type": "string",
+              "documentation": "The postal code of the address of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "birthdate",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-birthdate",
+              "type": "date",
+              "documentation": "The date of birth of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "phone",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-phone",
+              "type": "token",
+              "documentation": "The value of the phone number of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "email",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-email",
+              "type": "token",
+              "documentation": "The value of the email address of the patient. Either the '_id' parameter, or a combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' parameters must be provided."
+            },
+            {
+              "name": "gender",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/individual-gender",
+              "type": "token",
+              "documentation": "The administrative gender of the patient. Gender may only be provided if another parameter other than '_id' is provided"
+            },
+            {
+              "name": "_count",
+              "definition": "http://hl7.org/fhir/R4/SearchParameter/Resource-count",
+              "type": "number",
+              "documentation": "The maximum number of results to return. Not honoured when '_id' or 'identifier' are set."
+            }
+          ]
+        },
+        {
+          "type": "StructureDefinition",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</pre>
+
+<p>Blank fields are omitted.</p>
+
+<p>All timestamps are returned in <a href="http://www.hl7.org/implement/standards/fhir/r4/datatypes.html#date">FHIR<sup>®</sup> standard date/dateTime formats</a>.</p>
+
+<h3 id="media-types">Media Types</h3>
+
+<p>Cerner supports the R4 FHIR<sup>®</sup> standard defined media type for JSON content:</p>
+
+<pre><code>application/fhir+json
+</code></pre>
+
+<p>We encourage you to explicitly request this accept type via the <code>Accept</code> header.</p>
+
+<h2 id="service-root-url">Service Root URL</h2>
+
+<p>URLs for the FHIR server vary by the tenant (datasource or client) being accessed, as well as other factors. If the application is a SMART application, the <a href="http://hl7.org/fhir/r4/http.html#general">service root url</a> is provided at launch time. For standalone applications, the URL can be requested (or configured) when the application is set up to run  against a specific tenant. FHIR calls will be made against URLs of the following format:</p>
+
+<p><code>:serviceRootURL/:resource[?:parameters]</code></p>
+
+<h3 id="open-sandbox">Open Sandbox</h3>
+
+<p>The open sandbox instance allows developers to experiment with the service without requiring authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for this instance is: <code>https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code></p>
+
+<p>Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.</p>
+
+<h3 id="secure-sandbox">Secure Sandbox</h3>
+
+<p>The secure sandbox instance can be used for testing an application with <a href="#authorization">authorization</a>. The service root URL for this instance is different if the patient or a patient’s proxy is logging in.</p>
+
+<p>Non-Patient: <code>https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code>
+Patient Access: <code>https://fhir-myrecord.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]</code></p>
+
+<h3 id="resource">Resource</h3>
+
+<p><code>:resource</code> represents the FHIR<sup>®</sup> standard resource to access. Example: <a href="individuals/patient/"><code>Patient</code></a></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:</p>
+
+<pre class="terminal">
+$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&amp;status=active"
+</pre>
+
+<p>In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while <code>patient</code> and <code>status</code> are passed in the query string.</p>
+
+<h3 id="resource-identity">Resource Identity</h3>
+
+<p>Please note that no ids or identifiers in the Millennium EHR are intended to be used outside of the context of their complete URL. A complete URL is comprised of the <a href="http://hl7.org/fhir/r4/http.html#general">service root url</a>, the resource, and the parameters (if any).</p>
+
+<p>For example, one must take into account the entire url and not simply the id or resource + id:</p>
+
+<pre><code>https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/1316024
+</code></pre>
+
+<p>In another context the id “Patient/1316024” may identify another person entirely. In the following example a different resource may be returned because the context (service root url) has changed.</p>
+
+<pre><code>https://fhir-open.sandboxcerner.com/r4/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/1316024
+</code></pre>
+
+<p>Similarly when considering an identifier one must consider it only in its full context. Even though some identifiers may exist across multiple systems (ex: MRN) it is not guaranteed that they will refer to the same resource.</p>
+
+<pre><code>https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+</code></pre>
+
+<p>For example, when using the above MRN in a different system, we are not guaranteed that the same Patient resource is returned in the response bundle:</p>
+
+<pre><code>https://fhir-open.sandboxcerner.com/r4/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+</code></pre>
+
+<h2 id="common-application-errors">Common Application Errors</h2>
+
+<p>Please visit our list of <a href="../faq/common-issues">common issues</a> on our <a href="../faq">FAQ</a> page to be aware of the common issues we’ve identified when validating apps to run on our platform.</p>
+
+<h2 id="client-errors">Client Errors</h2>
+
+<p>There are seven possible types of client errors on API calls that
+receive request bodies:</p>
+
+<ol>
+  <li>
+    <p>Failing to send a required query parameter will result in a <code>400 Bad Request</code> response.</p>
+
+    <pre><code> HTTP/1.1 400 Bad Request
+
+ no supported search parameters provided
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting the secure endpoint (non-<code>open</code>) without valid credentials will result in a <code>401 Unauthorized</code>
+response.</p>
+
+    <pre><code> HTTP/1.1 401 Unauthorized
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting data from an unknown instance or an instance where the application is not authorized will result in a <code>403 Forbidden</code> response.</p>
+
+    <pre><code> HTTP/1.1 403 Forbidden
+
+ Tenant not valid or accessible
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting a resource which does not exist will result in a <code>404 Not Found</code> response.</p>
+
+    <pre><code> HTTP/1.1 404 Not Found
+</code></pre>
+  </li>
+  <li>
+    <p>Requested a media type other than JSON will result in a <code>406 Not Acceptable</code> response.</p>
+
+    <pre><code> HTTP/1.1 406 Not Acceptable
+
+ Content-Length: 0
+</code></pre>
+  </li>
+  <li>
+    <p>Performing an update with an out-of-date version id will result in a <code>409 Conflict Error</code> response.</p>
+
+    <pre><code> HTTP/1.1 409 Conflict Error
+</code></pre>
+  </li>
+  <li>
+    <p>Performing an add or update with syntactically correct JSON body which is invalid according to business rules will result in a <code>422 Unprocessable Entity</code> response.</p>
+
+    <pre><code> HTTP/1.1 422 Unprocessable Entity
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="operation-outcomes">Operation Outcomes</h2>
+
+<p>An <a href="https://www.hl7.org/fhir/r4/operationoutcome.html">OperationOutcome</a> may be returned to provide additional context to an error.  The tables below describes common OperationOutcomes and their causes.</p>
+
+<h3 id="retrievesearch">Retrieve/Search</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>500</td>
+      <td>Response is missing a required field</td>
+      <td>fatal</td>
+      <td>required</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="createupdate">Create/Update</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Body contained unsupported fields</td>
+      <td>error</td>
+      <td>business-rule</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained modifier extensions</td>
+      <td>error</td>
+      <td>extension</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Body contained implicit rules</td>
+      <td>error</td>
+      <td>not-supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="handling-required-fields">Handling Required Fields</h2>
+
+<ol>
+  <li>
+    <p>Missing fields required by the HL7 FHIR<sup>®</sup> specification or any missing status field will result in a <code>500 Internal Server Error</code> and an <a href="https://www.hl7.org/fhir/r4/operationoutcome.html">OperationOutcome</a>.</p>
+
+    <pre><code> {
+   "resourceType": "OperationOutcome",
+   "issue": [
+     {
+       "severity": "fatal",
+       "code": "required",
+       "location": [
+         "/f:AllergyIntolerance/f:status"
+       ]
+     }
+   ]
+ }    
+</code></pre>
+  </li>
+  <li>
+    <p>Missing fields required by HL7 profiles such as <a href="http://argonautwiki.hl7.org/index.php?title=Implementation_Guide">Argonaut</a> (DSTU 2) or <a href="https://www.hl7.org/fhir/us/core/">US Core</a> (STU 3) will result in a <a href="http://hl7.org/fhir/r4/extension-data-absent-reason.html">DataAbsentReason</a>.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "unknown"
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>Patient consumers requesting a resource with a status of entered-in-error may result in a <a href="http://hl7.org/fhir/r4/extension-data-absent-reason.html">DataAbsentReason</a>.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "masked"
+         }
+       ]
+     }
+   ]
+ }
+</code></pre>
+  </li>
+  <li>
+    <p>Missing <a href="https://www.hl7.org/fhir/r4/datatypes.html#codesystem">Coding</a> or <a href="https://www.hl7.org/fhir/datatypes.html#codeableconcept">CodeableConcept</a> fields with a required value set binding will result in a <a href="http://hl7.org/fhir/r4/extension-data-absent-reason.html">DataAbsentReason</a>, though it may return a text component.</p>
+
+    <pre><code> {
+   "coding": [
+     {
+       "extension": [
+         {
+           "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+           "valueCode": "unknown"
+         }
+       ]
+     }
+   ],
+   "text": "Auth (Verified)"
+ }
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="filtered-data-for-patient-or-proxy-access">Filtered Data for Patient or Proxy Access</h2>
+
+<p>When accessing data with a patient persona, some data may be filtered as compared to system or provider access. Resources with a status of “entered-in-error” will result in either some fields being filtered or returned with a <a href="#handling-required-fields">data absent reason</a> with a valueCode of masked.  Fields that may contain sensitive information will be filtered such as non-instructional notes. For proxy users, regulatory laws or policies may restrict parental or guardian access to adolescent health records and these regulations vary from state to state.</p>
+
+<h2 id="general-security-filtering">General Security Filtering</h2>
+
+<p>Not all data can be accessed by all applications or users. Encounter or organization security, privileges, and preference may filter data based on the build in the domain.</p>
+
+<h2 id="http-verbs">HTTP Verbs</h2>
+
+<p>Where possible, the FHIR<sup>®</sup> standard strives to use appropriate HTTP verbs for each action.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Verb</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>GET</code></td>
+      <td>Used for retrieving resources.</td>
+    </tr>
+    <tr>
+      <td><code>POST</code></td>
+      <td>Used for creating resources.</td>
+    </tr>
+    <tr>
+      <td><code>PUT</code></td>
+      <td>Used for updating resources.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="authorization">Authorization</h2>
+
+<p>We have an endpoint secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>. Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
+
+<p>Each resource interaction documents the type of authentication acceptable (patient, provider, and/or system). While an interaction may list system authentication, this is currently available only in sandbox for beta testing and is not available in production yet.</p>
+
+<p>Please reference the <a href="../../authorization/">authorization</a> documentation for details on how to authorize with our server.</p>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>The pagination links are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.</p>
+
+<pre><code>{
+  "resourceType": "Bundle",
+  "id": "f22ca456-19a7-45ce-8586-0079495783ef",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&amp;_count=50"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&amp;pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&amp;direction=NEXT"
+    }
+  ],
+  ...
+}  
+</code></pre>
+
+<p>The possible <code>relation</code> values are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>self</code></td>
+      <td>Shows the URL of the current page of results.</td>
+    </tr>
+    <tr>
+      <td><code>next</code></td>
+      <td>Shows the URL of the immediate next page of results.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
+
+<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. You can read the <a href="http://www.w3.org/TR/cors">CORS W3C Recommendation</a>, or <a href="http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">this intro</a> from the HTML 5 Security Guide.</p>
+
+<p>Here’s a sample request sent from the origin <code>http://example.com</code>:</p>
+
+<pre class="terminal">
+$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+Access-Control-Max-Age: 0
+Access-Control-Allow-Credentials: true
+</pre>
+
+<p>This is what a CORS preflight request looks like:</p>
+
+<pre class="terminal">
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+Access-Control-Max-Age: 0
+Access-Control-Allow-Credentials: true
+</pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../authorization/">Authorization</a></li>
+          <li><a href="capability-statement/">Capability Statement</a></li>
+          <li><a href="proprietary-codes/">Proprietary Codes</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="encounters/">Encounters</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="individuals/">Individuals</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="individuals/patient/">Patient</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
