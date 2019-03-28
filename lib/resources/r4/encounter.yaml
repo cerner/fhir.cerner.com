@@ -2,19 +2,75 @@
 name: Encounter
 field_name_base_url: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter
 fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Encounter"
+    }
+  note: resourceType must be Encounter
+  url: http://hl7.org/fhir/r4/json.html#resources
+
 - name: identifier
   required: 'No'
   cardinality: 0..*
   type: Identifier
   description: Identifier(s) by which this encounter is known.
+  example: |
+    {
+      "identifier": [
+        {
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0203",
+                "code": "FIN NBR"
+              }
+            ]
+          },
+          "system": "urn:oid:192.168.0.1",
+          "value": "2009",
+          "period": {
+            "start": "2017-01-17T20:39:40.000Z"
+          }
+        }
+      ]
+    }
   children:
 
   - name: type
-    required: 'No'
+    required: 'Yes'
     cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    example: |
+      {
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "FIN NBR"
+            }
+          ]
+        }
+      }
+    example2: |
+      {
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
+              "code": "1077"
+            }
+          ]
+        }
+      }
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
@@ -28,11 +84,83 @@ fields:
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/319
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-319-encounter-alias-type
 
-- name: type
+  - name: system
+    required: 'Yes'
+    cardinality: 0..1
+    type: uri
+    action: create
+    description: The namespace of the identifier.
+    example: |
+      {
+        "system": "urn:oid:192.168.0.1"
+      }
+
+  - name: value
+    required: 'Yes'
+    cardinality: 0..1
+    type: string
+    action: create
+    description: The unique value of the identifier
+    example: |
+      {
+        "value": "2009"
+      }
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: The status of the encounter.
+  action: create
+  example: |
+    {
+      "status": "in-progress"
+    }
+  note: Currently do not support `cancelled` or <code>entered-in-error</code>.
+
+- name: class
   required: 'No'
+  cardinality: 1..1
+  type: code
+  description: The classification of the encounter.
+  action: create
+  example: |
+    {
+      "status": "inpatient"
+    }
+  note: Direct writing of class is not supported. This field will be inferred on a write.
+
+- name: type
+  required: 'Yes'
   cardinality: 0..*
   type: CodeableConcept
   description: The specific type of encounter.
+  example: |
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+              "code": "O"
+            }
+          ]
+        }
+      ]
+    }
+  example2: |
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/71",
+              "code": "309310"
+            }
+          ]
+        }
+      ]
+    }
   binding:
     description: The type of encounter.
     terminology:
@@ -45,6 +173,32 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: Indicates the urgency of the encounter.
+  example: |
+    {
+      "priority": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+              "code": "O"
+            }
+          ]
+        }
+      ]
+    }
+  example2: |
+    {
+      "priority": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/3",
+              "code": "309203"
+            }
+          ]
+        }
+      ]
+    }
   binding:
     description: Indicates the urgency of the encounter.
     terminology:
@@ -55,18 +209,80 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/3
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-3-encounter-admission-type
 
+- name: subject
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference (Patient)
+  description: The patient present at the encounter.
+  action: create
+  example: |
+    {
+      "reference": "Patient/4342011"
+    }
+
 - name: participant
   required: 'No'
   cardinality: 0..*
   type: BackboneElement
   description: The list of people responsible for providing the service.
+  example: |
+    {
+      "participant": [
+        {
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/ParticipationType",
+                  "code": "ATND"
+                }
+              ]
+            }
+          ],
+          "period": {
+            "start": "2017-03-02T20:01:13.000Z"
+          },
+          "individual": {
+            "reference": "Practitioner/1912007"
+          }
+        }
+      ]
+    }
+
   children:
 
   - name: type
-    required: 'No'
+    required: 'Yes'
     cardinality: 0..*
     type: CodeableConcept
     description: Role of participant in encounter.
+    example: |
+      {
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v3/ParticipationType",
+                "code": "ATND"
+              }
+            ]
+          }
+        ]
+      }
+    example2: |
+      {
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
+                "code": "1126"
+              }
+            ]
+          }
+        ]
+      }
+
     binding:
       description: Role of participant in encounter.
       terminology:
@@ -77,11 +293,89 @@ fields:
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/333
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-333-encounterpersonnel-relationship
 
+  - name: period
+    required: 'No'
+    cardinality: 0..1
+    type: Period
+    action: create
+    description: The start and end times for the period the participant was involved in the encounter.
+    example: |
+      {
+        "reference": "Practitioner/1912007"
+      }
+
+  - name: individual
+    required: 'Yes'
+    cardinality: 0..1
+    type: Reference (Practitioner, RelatedPerson)
+    action: create
+    description: The personnel present at the encounter.
+    example: |
+      {
+        "period": {
+          "start": "2017-03-02T01:13:00Z"
+        }
+      }
+
+- name: period
+  require: 'No'
+  cardinality: 0..1
+  type: Period
+  description: The start and end times of the encounter.
+  action: create
+  example: |
+    {
+      "period": {
+        "start": "2017-03-02T01:13:00Z",
+        "end": "2017-03-05T00:00:00Z"
+      }
+    }
+  note: A date with time must be provided.
+
+- name: reasonCode
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: The reason that the encounter is taking place.
+  action: create
+  example: |
+    {
+      "reasonCode": [
+        {
+          "text": "Neck pain"
+        }
+      ]
+    }
+  note: Only the text field is supported for reasonCode.
+
+
 - name: hospitalization
   required: 'No'
   cardinality: 0..1
   type: BackboneElement
   description: Details about the admission to a healthcare service.
+  example: |
+    {
+      "hospitalization": {
+        "admitSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+              "code": "born"
+            }
+          ]
+        },
+        "dischargeDisposition": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+              "code": "other-hcf"
+            }
+          ]
+        }
+      }
+    }
+  note: Only the admitSource and dischargeDisposition fields are supported on write.
   children:
 
   - name: admitSource
@@ -89,6 +383,28 @@ fields:
     cardinality: 0..1
     type: CodeableConcept
     description: From where patient was admitted.
+    example: |
+      {
+        "admitSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+              "code": "born"
+            }
+          ]
+        }
+      }
+    example2: |
+      {
+        "admitSource": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/2",
+              "code": "670834"
+            }
+          ]
+        }
+      }
     binding:
       description: From where patient was admitted.
       terminology:
@@ -103,6 +419,7 @@ fields:
     required: 'No'
     cardinality: 0..*
     type: CodeableConcept
+    action: read
     description: Diet preferences reported by the patient.
     binding:
       description: Medical, cultural or ethical food preferences to help with catering requirements.
@@ -118,6 +435,7 @@ fields:
     required: 'No'
     cardinality: 0..*
     type: CodeableConcept
+    action: read
     description: The special courtesies applicable to the patient.
     binding:
       description: Special courtesies.
@@ -136,6 +454,7 @@ fields:
     required: 'No'
     cardinality: 0..*
     type: CodeableConcept
+    action: read
     description: The special arrangements made for the patient during the encounter.
     binding:
       description: Special arrangements.
@@ -149,6 +468,28 @@ fields:
     cardinality: 0..1
     type: CodeableConcept
     description: Category or kind of location after discharge.
+    example: |
+      {
+        "dischargeDisposition": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+              "code": "other-hcf"
+            }
+          ]
+        }
+      }
+    example2: |
+      {
+        "dischargeDisposition": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/19",
+              "code": "638660"
+            }
+          ]
+        }
+      }
     binding:
       description: Discharge Disposition.
       terminology:
@@ -158,3 +499,33 @@ fields:
       - display: Millennium Encounter Discharge Disposition
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/19
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-19-discharge-disposition
+
+- name: location
+  required: 'Yes'
+  cardinality: 0..*
+  type: BackboneElement
+  description: The locations where the patient has been.
+  action: create
+  example: |
+    {
+      "location": [
+        {
+          "location": {
+            "reference": "Location/35646787",
+          }
+        }
+      ]
+    }
+  note: Only providing a single location is currently supported.
+  children:
+
+  - name: location
+    required: 'Yes'
+    cardinality: 1..1
+    type: Reference (Location)
+    description: The location where the encounter takes place.
+    action: create
+    example: |
+      {
+        "reference": "Location/35646787"
+      }
