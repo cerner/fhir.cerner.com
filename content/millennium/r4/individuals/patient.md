@@ -218,6 +218,7 @@ Patch an existing Patient.
 
 _Implementation Notes_
 
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * When a path includes `{index}`, it refers to the index of the element in the list of elements. The indexes here are 0 based.
 
@@ -248,17 +249,17 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <pre class="terminal">
-    Cache-Control: no-cache
-    Content-Length: 0
-    Content-Type: application/fhir+json
-    Date: Wed, 27 Mar 2019 17:23:14 GMT
-    Etag: W/"1"
-    Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
-    Server-Response-Time: 296.405243
-    Status: 200 OK
-    Vary: Origin
-    X-Request-Id: 81c05ba01b2c19e5bf421449ff8e97eb
-    X-Runtime: 0.296306
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Wed, 27 Mar 2019 17:23:14 GMT
+Etag: W/"1"
+Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 81c05ba01b2c19e5bf421449ff8e97eb
+X-Runtime: 0.296306
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
