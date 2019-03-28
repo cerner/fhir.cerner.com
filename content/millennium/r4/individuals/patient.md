@@ -13,13 +13,13 @@ The Patient Resource provides general demographic information about a person rec
 
 The following fields are returned if valued:
 
-* [Patient id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id ){:target="_blank"}
+* [Patient id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient Identifier](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier){:target="_blank"}
 * [Active](https://hl7.org/fhir/R4/patient-definitions.html#Patient.active){:target="_blank"}
 * [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
 * [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
 * [Gender (administrative)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender){:target="_blank"}
-* [Extensions including birth time, birth sex, ethnicity and race](#extensions){:target=”_blank”}
+* [Extensions including birth time, birth sex, ethnicity and race](#extensions){:target="_blank"}
 * [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
 * [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
 * [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
@@ -76,8 +76,10 @@ Notes:
 * The `gender` parameter may only be provided if at least one of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters is provided.
 * The `name`, `family`, and `given` parameters support the ':exact' modifier and will search for current names only.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
-* The `birthdate` parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes 'le' and 'ge'
-* The `birthdate` parameter may be provided once with the following prefixes: 'ge', 'le', 'gt', 'lt', 'eq'
+* The `birthdate` parameter
+  * May be provided twice using the prefixes `le` and `ge` to indicate a date range
+  * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, `eq`
+  * Must not be provided with a time component
 
 ### Headers
 
@@ -188,18 +190,18 @@ Notes:
 
 <%= headers status: 201 %>
 <pre class="terminal">
-    Cache-Control: no-cache
-    Content-Length: 0
-    Content-Type: text/html
-    Date: Wed, 27 Mar 2019 17:23:14 GMT
-    Etag: W/"0"
-    Location: https://fhir-ehr.sandboxcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Patient/5786010
-    Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
-    Server-Response-Time: 296.405243
-    Status: 201 Created
-    Vary: Origin
-    X-Request-Id: 11111111111111111111111111111111
-    X-Runtime: 2.011826
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 27 Mar 2019 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.sandboxcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Patient/5786010
+Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -208,14 +210,13 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`date`]: http://hl7.org/fhir/R4/search.html#date
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[errors]: ../../#client-errors
-[`token`]: http://hl7.org/fhir/R4/search.html#token
-[`date`]: https://hl7.org/fhir/R4/search.html#date
-[`string`]: https://hl7.org/fhir/R4/search.html#string
 [`_count`]: http://hl7.org/fhir/R4/search.html#count
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[errors]: ../../#client-errors
 [`number`]: http://hl7.org/fhir/R4/search.html#number
+[`reference`]: http://hl7.org/fhir/R4/search.html#reference
+[`string`]: https://hl7.org/fhir/R4/search.html#string
+[`token`]: http://hl7.org/fhir/R4/search.html#token
 [OperationOutcomes]: http://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
 [US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html

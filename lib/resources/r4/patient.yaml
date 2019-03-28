@@ -150,7 +150,7 @@ fields:
         }
       ]
     }
-  note: Atleast one identifier should be provided, and must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled.
+  note: At least one identifier should be provided, and must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled.
     The subsequent identifiers may be provided, but must not contain the `assigner` and `use` fields, must contain the `type`, `system`, and `value` fields,
     and must include a time component with a timezone when specifying a `period`. A proprietary code may be provided instead of a standard code for the `type` field.
   url: http://hl7.org/fhir/R4/datatypes.html#Identifier
