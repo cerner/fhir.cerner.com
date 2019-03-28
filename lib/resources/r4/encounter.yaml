@@ -1,6 +1,6 @@
 ---
 name: Encounter
-field_name_base_url: http://hl7.org/fhir/R4/encounter-definitions.html#Encounter
+field_name_base_url: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter
 fields:
 - name: identifier
   required: 'No'
@@ -19,13 +19,13 @@ fields:
       terminology:
       - display: Identifier Type Codes
         system: http://hl7.org/fhir/identifier-type
-        info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
+        info_link: http://hl7.org/fhir/r4/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: http://terminology.hl7.org/CodeSystem/v2-0203
-        info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
+        info_link: http://hl7.org/fhir/r4/valueset-identifier-type.html
       - display: Millennium Encounter AliasType
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/319
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-319-encounter-alias-type
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-319-encounter-alias-type
 
 - name: type
   required: 'No'
@@ -37,7 +37,7 @@ fields:
     terminology:
     - display: Millennium Encounter Visit Type
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71
-      info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-71-visit-type
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-71-visit-type
 
 - name: priority
   required: 'No'
@@ -52,7 +52,7 @@ fields:
       info_link: http://hl7.org/fhir/v3/ActPriority/vs.html
     - display: Millennium Encounter Admit Type
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/3
-      info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-3-encounter-admission-type
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-3-encounter-admission-type
 
 - name: participant
   required: 'No'
@@ -71,10 +71,10 @@ fields:
       terminology:
       - display: ParticipantType
         system: http://hl7.org/fhir/participant-type
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-participant-type.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-participant-type.html
       - display: Millennium Encounter/Personnel Relationship
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/333
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-333-encounterpersonnel-relationship
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-333-encounterpersonnel-relationship
 
 - name: hospitalization
   required: 'No'
@@ -93,10 +93,10 @@ fields:
       terminology:
       - display: AdmitSource
         system: http://hl7.org/fhir/admit-source
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-admit-source.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-admit-source.html
       - display: Millennium Hospitalization Admission Source
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/2
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-2-admission-source
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-2-admission-source
 
   - name: dietPreference
     required: 'No'
@@ -108,10 +108,10 @@ fields:
       terminology:
       - display: Diet
         system: http://terminology.hl7.org/CodeSystem/diet
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-diet.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-diet.html
       - display: Millennium Patient Diet Preference
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-18-diet
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-18-diet
 
   - name: specialCourtesy
     required: 'No'
@@ -123,13 +123,13 @@ fields:
       terminology:
       - display: v3 Code System EncounterSpecialCourtesy
         system: http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-special-courtesy.html
       - display: Millennium Patient VIP Status
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/67
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-67-vip
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-67-vip
       - display: Millennium Patient Courtesy
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-16-courtesy
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-16-courtesy
 
   - name: specialArrangement
     required: 'No'
@@ -141,7 +141,7 @@ fields:
       terminology:
       - display: SpecialArrangements
         system: http://hl7.org/fhir/encounter-special-arrangements
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-special-arrangements.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-special-arrangements.html
 
   - name: dischargeDisposition
     required: 'No'
@@ -153,7 +153,7 @@ fields:
       terminology:
       - display: DischargeDisposition
         system: http://hl7.org/fhir/discharge-disposition
-        info_link: http://hl7.org/fhir/R4/valueset-encounter-discharge-disposition.html
+        info_link: http://hl7.org/fhir/r4/valueset-encounter-discharge-disposition.html
       - display: Millennium Encounter Discharge Disposition
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/19
-        info_link: https://fhir.cerner.com/millennium/R4/proprietary-codes/#code-set-19-discharge-disposition
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-19-discharge-disposition
