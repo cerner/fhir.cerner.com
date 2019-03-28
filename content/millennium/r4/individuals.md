@@ -3,5 +3,5 @@ title: Individuals | R4 API
 layout: api
 ---
 
-<%= render '/individuals_r4.*' %>
+<%= render '/individuals.*' %>
 * [Patient](../individuals/patient)

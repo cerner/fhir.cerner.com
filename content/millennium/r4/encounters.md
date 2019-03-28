@@ -3,5 +3,5 @@ title: Encounters | R4 API
 layout: api
 ---
 
-<%= render '/encounters_r4.*' %>
+<%= render '/encounters.*' %>
 * [Encounter](../encounters/encounter)
