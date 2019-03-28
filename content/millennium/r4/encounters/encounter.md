@@ -131,3 +131,55 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`_count`]: http://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+
+## Create
+
+Create an individual Encounter.
+
+    POST /Encounter
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:encounter, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter
+
+#### Body
+
+  <%= json(:r4_encounter_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/json+fhir
+Date: Wed, 27 Mar 2019 15:59:33 GMT
+Etag: W/"0"
+Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4595905
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.

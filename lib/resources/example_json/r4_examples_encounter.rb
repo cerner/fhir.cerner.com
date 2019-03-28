@@ -389,5 +389,103 @@ module Cerner
         }
       ]
     }
+
+    R4_ENCOUNTER_CREATE ||= {
+      "resourceType": "Encounter",
+      "status": "in-progress",
+      "identifier": [
+        {
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0203",
+                "code": "FIN NBR"
+              }
+            ]
+          },
+          "system": "urn:oid:192.168.0.1",
+          "value": "2000363999",
+          "period": {
+            "start": "2017-01-17T20:39:40.000Z"
+          }
+        }
+      ],
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+              "code": "O"
+            }
+          ]
+        }
+      ],
+      "priority": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+            "code": "EL"
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/4342011"
+      },
+      "reasonCode": [
+        {
+          "text": "Neck Pain"
+        }
+      ],
+      "hospitalization": {
+        "admitSource": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+              "code": "born"
+            }
+          ]
+        },
+        "dischargeDisposition": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+              "code": "other-hcf"
+            }
+          ]
+        }
+      },
+      "location": [
+        {
+          "location": {
+            "reference": "Location/35646787"
+          }
+        }
+      ],
+      "period": {
+        "start": "2017-03-02T01:13:00Z",
+  	    "end": "2017-03-05T00:00:00Z"
+      },
+      "participant": [
+        {
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/333",
+                  "code": "666813"
+                }
+              ]
+            }
+          ],
+          "period": {
+            "start": "2018-03-02T20:01:13.000Z"
+          },
+          "individual": {
+            "reference": "Practitioner/1912007"
+          }
+        }
+      ]
+    }
   end
 end
