@@ -24,8 +24,10 @@ Reference: https://hl7.org/fhir/R4/references.html
 Patient: https://hl7.org/fhir/R4/patient.html
 Practitioner: https://hl7.org/fhir/R4/practitioner.html
 Period: https://hl7.org/fhir/R4/datatypes.html#Period
+positiveInt: https://hl7.org/fhir/R4/datatypes.html#positiveInt
 RelatedPerson: https://hl7.org/fhir/R4/relatedperson.html
 Resource: https://hl7.org/fhir/R4/resource.html
 SimpleQuantity: https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity
 string: https://hl7.org/fhir/R4/datatypes.html#string
 Timing: https://hl7.org/fhir/R4/datatypes.html#Timing
+uri: https://hl7.org/fhir/R4/datatypes.html#uri

@@ -461,5 +461,89 @@ module Cerner
         }
       ]
     }
+
+    R4_PATIENT_PATCH ||= [
+      {
+        "op": "add",
+        "path": "/identifier/-",
+        "value": {
+          "type": {
+            "coding": [
+              {
+                "code": "MR",
+                "system": "http://hl7.org/fhir/v2/0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "period": {
+            "start": "2018-01-02T00:00:00-05:00",
+            "end": "2022-01-02T00:00:00-05:00"
+          }
+        }
+      },
+      {
+        "path": "/name/0/id",
+        "op": "test",
+        "value": "CI-5786010-0"
+      },
+      {
+        "path": "/name/0/given",
+        "op": "replace",
+        "value": [
+          "Harrison",
+          "James"
+        ]
+      },
+      {
+        "path": "/telecom/0/id",
+        "op": "test",
+        "value": "CI-PH-2807950-0"
+      },
+      {
+        "path": "/telecom/0",
+        "op": "remove"
+      },
+      {
+        "path": "/maritalStatus",
+        "op": "replace",
+        "value": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/communication",
+        "op": "replace",
+        "value": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+                  "code": "312729",
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      {
+        "path": "/extension",
+        "op": "replace",
+        "value": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ]
+      }
+    ]
   end
 end

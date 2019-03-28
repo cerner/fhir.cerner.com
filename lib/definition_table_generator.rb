@@ -9,6 +9,10 @@ def terminology_table(content_key, version)
   DefinitionTableGenerator.new(version, nil).terminology_table(content_key)
 end
 
+def patch_definition_table(content_key, version)
+  DefinitionTableGenerator.new(version, :patch).patch_definition_table(content_key)
+end
+
 class DefinitionTableGenerator
 
   def initialize(version, action)
@@ -24,6 +28,10 @@ class DefinitionTableGenerator
     render_table(content_key, 'terminology', 'terminology_table')
   end
 
+  def patch_definition_table(content_key)
+    render_table(content_key, 'patch_operation', 'patch_definition_table')
+  end
+
   private
 
   def render_table(content_key, table_name, erb_name, options = nil)
@@ -32,7 +40,7 @@ class DefinitionTableGenerator
     schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
     types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
 
-    fields = flatten_fields(fields: schema['fields'],
+    fields = flatten_fields(fields: @action == :patch ? schema['operations'] : schema['fields'],
                             base_url: schema['field_name_base_url'],
                             types: types)
 
@@ -74,6 +82,11 @@ class DefinitionTableGenerator
                 note: get_value(field['note']),
                 binding: get_value(field['binding']),
                 url: url}
+
+      if @action == :patch
+        values[:path] = get_value(field['path'])
+        values[:operation] = get_value(field['operation'])
+      end
 
       results << values
 

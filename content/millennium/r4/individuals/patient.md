@@ -210,13 +210,69 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Patch
+
+Patch an existing Patient.
+
+    PATCH /Patient/:id
+
+_Implementation Notes_
+
+* Only operations on the paths listed below are supported.
+* When a path includes `{index}`, it refers to the index of the element in the list of elements. The indexes here are 0 based.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Patient resource>"'} %>
+
+### Patch Operations
+
+<%= patch_definition_table(:patient_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/5786010
+
+#### Body
+
+<%= json(:r4_patient_patch) %>
+
+### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: application/fhir+json
+    Date: Wed, 27 Mar 2019 17:23:14 GMT
+    Etag: W/"1"
+    Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
+    Server-Response-Time: 296.405243
+    Status: 200 OK
+    Vary: Origin
+    X-Request-Id: 81c05ba01b2c19e5bf421449ff8e97eb
+    X-Runtime: 0.296306
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`_count`]: http://hl7.org/fhir/R4/search.html#count
 [`date`]: https://hl7.org/fhir/R4/search.html#date
-[errors]: ../../#client-errors
 [`number`]: http://hl7.org/fhir/R4/search.html#number
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`string`]: https://hl7.org/fhir/R4/search.html#string
 [`token`]: http://hl7.org/fhir/R4/search.html#token
+[errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
 [US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
