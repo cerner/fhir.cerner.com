@@ -90,6 +90,7 @@ fields:
     type: uri
     action: create
     description: The namespace of the identifier.
+    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.system
     example: |
       {
         "system": "urn:oid:192.168.0.1"
@@ -101,6 +102,7 @@ fields:
     type: string
     action: create
     description: The unique value of the identifier
+    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.value
     example: |
       {
         "value": "2009"

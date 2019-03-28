@@ -13,29 +13,29 @@ The Encounter resource provides admissions or visits during which health care se
 
 The following fields are returned if valued:
 
-* [Encounter id](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.id){:target="_blank"}
-* [Encounter identifier (eg: FIN)](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier){:target="_blank"}
-* [Status](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.status){:target="_blank"}
-* [Class](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class){:target="_blank"}
-* [Type](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.type){:target="_blank"}
-* [Priority](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority){:target="_blank"}
-* [Subject](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject){:target="_blank"}
-* [Participant:](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant){:target="_blank"}
-   * [Type](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
-   * [Name](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
-* [Start/end time of the encounter](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period){:target="_blank"}
-* [Reason for visit](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
-* [Hospitalization:](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization){:target="_blank"}
-   * [Admit source](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
-   * [Diet preference](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
-   * [Special courtesy](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
-   * [Special arrangement](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
-   * [Discharge destination](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
-   * [Discharge disposition](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
-* [Location:](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location){:target="_blank"}
-   * [Name](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
-   * [Location status](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
-* [Service provider (Organization)](http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
+* [Encounter id](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.id){:target="_blank"}
+* [Encounter identifier (eg: FIN)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier){:target="_blank"}
+* [Status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.status){:target="_blank"}
+* [Class](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class){:target="_blank"}
+* [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.type){:target="_blank"}
+* [Priority](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority){:target="_blank"}
+* [Subject](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject){:target="_blank"}
+* [Participant:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant){:target="_blank"}
+   * [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
+   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
+* [Start/end time of the encounter](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period){:target="_blank"}
+* [Reason for visit](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
+* [Hospitalization:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization){:target="_blank"}
+   * [Admit source](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
+   * [Diet preference](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
+   * [Special courtesy](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
+   * [Special arrangement](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
+   * [Discharge destination](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+   * [Discharge disposition](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
+* [Location:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location){:target="_blank"}
+   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
+   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
+* [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -122,16 +122,6 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[contained]: http://hl7.org/fhir/r4/references.html#contained
-[Encounter.hospitalization.destination]: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
-[Encounter.location.location]: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
-[`reference`]: http://hl7.org/fhir/r4/search.html#reference
-[`token`]: http://hl7.org/fhir/r4/search.html#token
-[`number`]: http://hl7.org/fhir/r4/search.html#number
-[`_count`]: http://hl7.org/fhir/r4/search.html#count
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
-
 ## Create
 
 Create an individual Encounter.
@@ -183,3 +173,72 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+Patch an existing encounter.
+
+    PATCH /Encounter/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Encounter resource>"'} %>
+
+
+
+### Patch Operations
+
+<%= patch_definition_table(:encounter_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/1621910
+
+#### Body
+
+<%= json(:r4_encounter_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+[contained]: https://hl7.org/fhir/r4/references.html#contained
+[Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
+[Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`token`]: https://hl7.org/fhir/r4/search.html#token
+[`number`]: https://hl7.org/fhir/r4/search.html#number
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

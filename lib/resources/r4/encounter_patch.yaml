@@ -1,0 +1,69 @@
+---
+name: Encounter
+field_name_base_url: http://hl7.org/fhir/R4/encounter-definitions.html#Encounter
+operations:
+  - name: replace-period-start
+    path: /period/start
+    operation: replace
+    cardinality: 0..1
+    type: dateTime
+    url: http://hl7.org/fhir/datatypes-definitions.html#Period.start
+    description: The start time of the encounter.
+    example: |
+      {
+        "op": "replace",
+        "path": "/period/start",
+        "value":  "2015-09-01T00:00:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>When no value is provided the `Encounter.period.start` will be unset.</li>
+        <li>When `Encounter.period.start` value is provided, time component should be provided.</li>
+      </ul>
+
+  - name: replace-period-end
+    path: /period/end
+    operation: replace
+    cardinality: 0..1
+    type: dateTime
+    url: http://hl7.org/fhir/datatypes-definitions.html#Period.end
+    description: The end time of the encounter.
+    example: |
+      {
+        "op": "replace",
+        "path": "/period/end",
+        "value":  "2017-09-01T00:00:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>When no value is provided the `Encounter.period.end` will be unset.</li>
+        <li>When `Encounter.period.end` value is provided, time component should be provided.</li>
+      </ul>
+
+  - name: replace-type
+    path: /type
+    operation: replace
+    cardinality: 1..*
+    type: CodeableConcept
+    url: http://hl7.org/fhir/encounter-definitions.html#Encounter.type
+    description: The specific type of encounter.
+    example: |
+      {
+        "op": "replace",
+        "path": "/type",
+        "value":  [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/71",
+                "code": "309310"
+              }
+            ]
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>`Encounter.type` value should a list.</li>
+        <li>When a list is provided, the first value would be used to patch `Encounter.type`.</li>
+      </ul>
