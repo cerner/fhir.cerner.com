@@ -1,0 +1,690 @@
+---
+name: Patient
+field_name_base_url: https://hl7.org/fhir/R4/patient-definitions.html#Patient
+operations:
+- name: add-identifier
+  path: /identifier/-
+  operation: add
+  cardinality: 1..1
+  type: Identifier
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier
+  description: Add a new identifier for the patient.
+  example: |
+    {
+      "path": "/identifier/-",
+      "op": "add",
+      "value": {
+        "type": {
+          "coding": [
+            {
+              "code": "MR",
+              "system": "http://hl7.org/fhir/v2/0203"
+            }
+          ]
+        },
+        "system": "urn:oid:1.1.1.1.1.1",
+        "value": "&lt;unique identifier&gt;",
+        "period": {
+          "start": "2016-01-02T00:00:00-05:00",
+          "end": "2020-01-02T00:00:00-05:00"
+        }
+      }
+    }
+  note: >
+    <ul>
+      <li>Must not contain the `assigner` and `use` fields.</li>
+      <li>Must contain the `type`, `system` and `value` fields, and must include a time component with a timezone when specifying a `period`.</li>
+    </ul>
+- name: test-identifier-id
+  path: /identifier/{index}/id
+  operation: test
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `Identifier.id` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+  example: |
+    {
+      "path": "/identifier/1/id",
+      "op": "test",
+      "value": "CI-9926250-1"
+    }
+- name: remove-identifier
+  path: /identifier/{index}
+  operation: remove
+  cardinality: 0
+  type: N/A
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier
+  description: Remove the identifier at the given <code>{index}</code> in the list of patient identifiers.
+  example: |
+    {
+      "path": "/identifier/1",
+      "op": "remove"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier intended to be removed.</li>
+    </ul>
+- name: replace-identifier-system
+  path: /identifier/{index}/system
+  operation: replace
+  cardinality: 1..1
+  type: uri
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system
+  description: Replace the `Identifier.system` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+  example: |
+    {
+      "path": "/identifier/1/system",
+      "op": "replace",
+      "value": "urn:oid:2.16.840.1.113883.3.13.6"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `system` is intended to be replaced.</li>
+    </ul>
+- name: replace-identifier-value
+  path: /identifier/{index}/value
+  operation: replace
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.value
+  description: Replace the `Identifier.value` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+  example: |
+    {
+      "path": "/identifier/1/value",
+      "op": "replace",
+      "value": "&lt;unique identifier&gt;"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `value` is intended to be replaced.</li>
+    </ul>
+- name: replace-identifier-period
+  path: /identifier/{index}/period
+  operation: replace
+  cardinality: 1..1
+  type: Period
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.period
+  description: Replace the `Identifier.period` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+  example: |
+    {
+      "path": "/identifier/1/period",
+      "op": "replace",
+      "value": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2022-01-02T00:00:00-05:00"
+      }
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `period` is intended to be replaced.</li>
+      <li>The `start` and `end` when provided must include a time component with a timezone.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
+    </ul>
+- name: test-name-id
+  path: /name/{index}/id
+  operation: test
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `HumanName.id` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/id",
+      "op": "test",
+      "value": "CI-5786010-0"
+    }
+  note: >
+    <ul>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+    </ul>
+- name: replace-name-family
+  path: /name/{index}/family
+  operation: replace
+  cardinality: 1..1
+  type: String
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family
+  description: Replace the `HumanName.family` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/family",
+      "op": "replace",
+      "value": "Potter"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced.</li>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+    </ul>
+- name: replace-name-given
+  path: /name/{index}/given
+  operation: replace
+  cardinality: 1..2
+  type: String
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given
+  description: Replace the `HumanName.given` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/given",
+      "op": "replace",
+      "value": [
+        "Harry",
+        "James"
+      ]
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced.</li>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+      <li>If fewer values for given are provided in the list than previously set, the additional older values will be unset.</li>
+    </ul>
+- name: replace-name-prefix
+  path: /name/{index}/prefix
+  operation: replace
+  cardinality: 0..1
+  type: String
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix
+  description: Replace the `HumanName.prefix` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/prefix",
+      "op": "replace",
+      "value": "Mr."
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced.</li>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+      <li>If no prefix value is provided the prefix on the name will be unset.</li>
+    </ul>
+- name: replace-name-suffix
+  path: /name/{index}/suffix
+  operation: replace
+  cardinality: 0..1
+  type: String
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix
+  description: Replace the `HumanName.suffix` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/suffix",
+      "op": "replace",
+      "value": "Jr."
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `suffix` is intended to be replaced.</li>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+      <li>If no suffix value is provided the suffix on the name will be unset.</li>
+    </ul>
+
+- name: replace-name-period
+  path: /name/{index}/period
+  operation: replace
+  cardinality: 1..1
+  type: Period
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.period
+  description: Replace the `HumanName.period` of the name at the given <code>{index}</code> in the list of patient names.
+  example: |
+    {
+      "path": "/name/0/period",
+      "op": "replace",
+      "value": {
+        "start": "2016-01-02T00:00:00-05:00"
+      }
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `period` is intended to be replaced.</li>
+      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+      <li>Must not contain the `end` field.</li>
+      <li>The `start` must include a time component with a timezone.</li>
+    </ul>
+- name: add-telecom
+  path: /telecom/-
+  operation: add
+  cardinality: 1..1
+  type: ContactPoint
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
+  description: Add a new contact detail for the patient.
+  example: |
+    {
+      "path": "/telecom/-",
+      "op": "add",
+      "value": {
+        "system": "phone",
+        "value": "8168229121",
+        "use": "home",
+        "period": {
+          "start": "2012-05-17T15:33:18.000Z"
+        }
+      }
+    }
+  note: >
+    <ul>
+      <li>Must contain the `system`, `use` and `value` fields, and must include a time component with a timezone when specifying a `period`.</li>
+    </ul>
+- name: test-telecom-id
+  path: /telecom/{index}/id
+  operation: test
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `ContactPoint.id` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+  example: |
+    {
+      "path": "/telecom/0/id",
+      "op": "test",
+      "value": "CI-PH-2807950-0"
+    }
+- name: remove-telecom
+  path: /telecom/{index}
+  operation: remove
+  cardinality: 0
+  type: N/A
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
+  description: Remove the telecom at the given <code>{index}</code> in the list of patient telecoms.
+  example: |
+    {
+      "path": "/telecom/1",
+      "op": "remove"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom intended to be removed.</li>
+    </ul>
+- name: replace-telecom-value
+  path: /telecom/{index}/value
+  operation: replace
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
+  description: Replace the `ContactPoint.value` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+  example: |
+    {
+      "path": "/telecom/1/value",
+      "op": "replace",
+      "value": "987-654-3210"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `value` is intended to be replaced.</li>
+    </ul>
+- name: replace-telecom-rank
+  path: /telecom/{index}/rank
+  operation: replace
+  cardinality: 1..1
+  type: positiveInt
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.rank
+  description: Replace the `ContactPoint.rank` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+  example: |
+    {
+      "path": "/telecom/1/rank",
+      "op": "replace",
+      "value": 2
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `rank` is intended to be replaced.</li>
+    </ul>
+- name: replace-telecom-period
+  path: /telecom/{index}/period
+  operation: replace
+  cardinality: 1..1
+  type: Period
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
+  description: Replace the `ContactPoint.period` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+  example: |
+    {
+      "path": "/telecom/1/period",
+      "op": "replace",
+      "value": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2022-01-02T00:00:00-05:00"
+      }
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `period` is intended to be replaced.</li>
+      <li>The `start` and `end` when provided must include a time component with a timezone.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
+    </ul>
+- name: replace-gender
+  path: /gender
+  operation: replace
+  cardinality: 1..1
+  type: code
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender
+  description: Replace the gender that the patient is considered to have for administration and record keeping purposes.
+  example: |
+    {
+      "path": "/gender",
+      "op": "replace",
+      "value": "female"
+    }
+- name: replace-birth-date
+  path: /birthDate
+  operation: replace
+  cardinality: 1..1
+  type: date
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate
+  description: Replace the date of birth for the individual.
+  example: |
+    {
+      "path": "/birthDate",
+      "op": "replace",
+      "value": "1990-09-15"
+    }
+- name: add-address
+  path: /address/-
+  operation: add
+  cardinality: 1..1
+  type: Address
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
+  description: Add a new address for the patient.
+  example: |
+    {
+      "path": "/address/-",
+      "op": "add",
+      "value": {
+        "use": "home",
+        "line": [
+          "1212 Faircastle Drive",
+          "Apartment 406"
+        ],
+        "city": "KC",
+        "district": "Jackson",
+        "state": "KS",
+        "postalCode": "64199",
+        "country": "United States of America",
+        "period": {
+          "start": "2012-05-17T15:33:18.000Z"
+        }
+      }
+    }
+  note: >
+    <ul>
+      <li>Must not contain the `text` field.</li>
+      <li>Must contain the `use` field, and must include a time component with a timezone when specifying a `period`.</li>
+    </ul>
+- name: test-address-id
+  path: /address/{index}/id
+  operation: test
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `Address.id` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/0/id",
+      "op": "test",
+      "value": "CI-2671902-0"
+    }
+- name: remove-address
+  path: /address/{index}
+  operation: remove
+  cardinality: 0
+  type: N/A
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
+  description: Remove the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1",
+      "op": "remove"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address intended to be removed.</li>
+    </ul>
+- name: replace-address-line
+  path: /address/{index}/line
+  operation: replace
+  cardinality: 0..*
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.line
+  description: Replace the `Address.line` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/line",
+      "op": "replace",
+      "value": [
+        "1212 Faircastle Drive",
+        "Apartment 410"
+      ]
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `line` is intended to be replaced.</li>
+      <li>If no line is provided, all the lines on the address will be unset.</li>
+      <li>If fewer values for line are provided in the list than previously set, the additional older values will be unset.</li>
+    </ul>
+- name: replace-address-city
+  path: /address/{index}/city
+  operation: replace
+  cardinality: 0..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.city
+  description: Replace the `Address.city` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/city",
+      "op": "replace",
+      "value": "St. Louis"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `city` is intended to be replaced.</li>
+      <li>If no city is provided, the city on the address will be unset.</li>
+    </ul>
+- name: replace-address-district
+  path: /address/{index}/district
+  operation: replace
+  cardinality: 0..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.district
+  description: Replace the `Address.district` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/district",
+      "op": "replace",
+      "value": "Johnson"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `district` is intended to be replaced.</li>
+      <li>If no district is provided, the district on the address will be unset.</li>
+    </ul>
+- name: replace-address-state
+  path: /address/{index}/state
+  operation: replace
+  cardinality: 0..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.state
+  description: Replace the `Address.state` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/state",
+      "op": "replace",
+      "value": "MO"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `state` is intended to be replaced.</li>
+      <li>If no state is provided, the state on the address will be unset.</li>
+    </ul>
+- name: replace-address-postal-code
+  path: /address/{index}/postalCode
+  operation: replace
+  cardinality: 0..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.postalCode
+  description: Replace the `Address.postalCode` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/postalCode",
+      "op": "replace",
+      "value": "66209"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `postalCode` is intended to be replaced.</li>
+      <li>If no postalCode is provided, the postalCode on the address will be unset.</li>
+    </ul>
+- name: replace-address-country
+  path: /address/{index}/country
+  operation: replace
+  cardinality: 0..1
+  type: string
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.country
+  description: Replace the `Address.country` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/country",
+      "op": "replace",
+      "value": "Canada"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `country` is intended to be replaced.</li>
+      <li>If no country is provided, the country on the address will be unset.</li>
+    </ul>
+- name: replace-address-period
+  path: /address/{index}/period
+  operation: replace
+  cardinality: 1..1
+  type: Period
+  url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.period
+  description: Replace the `Address.period` of the address at the given <code>{index}</code> in the list of patient addresses.
+  example: |
+    {
+      "path": "/address/1/period",
+      "op": "replace",
+      "value": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2022-01-02T00:00:00-05:00"
+      }
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `period` is intended to be replaced.</li>
+      <li>The `start` and `end` when provided must include a time component with a timezone.</li>
+      <li>When either `start` or `end` are not provided its value will be unset.</li>
+    </ul>
+- name: replace-marital-status
+  path: /maritalStatus
+  operation: replace
+  cardinality: 1..1
+  type: CodeableConcept
+  url: https://hl7.org/fhir/r4/patient-definitions.html#Patient.maritalStatus
+  description: Replace the patient's most recent marital (civil) status.
+  example: |
+    {
+      "path": "/maritalStatus",
+      "op": "replace",
+      "value": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+            "code": "S"
+          }
+        ]
+      }
+    }
+- name: replace-communication
+  path: /communication
+  operation: replace
+  cardinality: 1..1
+  type: BackboneElement
+  url: https://hl7.org/fhir/r4/patient-definitions.html#Patient.communication
+  description: Replace the language which may be used to communicate with the patient about his health.
+  example: |
+    {
+      "path": "/communication",
+      "op": "replace",
+      "value": [
+        {
+          "language": {
+            "coding": [
+              {
+                "system": "urn:ietf:bcp:47",
+                "code": "en",
+              }
+            ]
+          },
+          "preferred": true
+        }
+      ]
+    }
+  note: >
+    <ul>
+      <li>`Patient.communication` value should a list with only a single element.</li>
+    </ul>
+- name: add-general-practitioner
+  path: /generalPractitioner/-
+  operation: add
+  cardinality: 1..1
+  type: Reference
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
+  description: Add a new nominated care provider.
+  example: |
+    {
+      "path": "/generalPractitioner/-",
+      "op": "add",
+      "value": {
+        "reference": "Practitioner/995932"
+      }
+    }
+  note: >
+    <ul>
+      <li>Must be a reference to a `Practitioner`.</li>
+    </ul>
+- name: test-general-practitioner-id
+  path: /generalPractitioner/{index}/id
+  operation: test
+  cardinality: 1..1
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `Reference.id` of the general practitioner at the given <code>{index}</code> in the list of the patient's nominated care providers.
+  example: |
+    {
+      "path": "/generalPractitioner/1/id",
+      "op": "test",
+      "value": "CI-312732-2"
+    }
+- name: remove-general-practitioner
+  path: /generalPractitioner/{index}
+  operation: remove
+  cardinality: 0
+  type: N/A
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
+  description: Remove the general practitoner at the given <code>{index}</code> in the list of the patient's nominated care providers.
+  example: |
+    {
+      "path": "/generalPractitioner/1",
+      "op": "remove"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-general-practitioner-id">test operation</a> to be provided for the `Reference.id` of the general practitioner intended to be removed.</li>
+    </ul>
+- name: replace-extension
+  path: /extension
+  operation: replace
+  cardinality: 1..*
+  type: Extension
+  url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
+  description: Replace the value of an extension that adds additional information about the patient.
+  example: |
+    {
+      "path": "/extension",
+      "op": "replace",
+      "value": [
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+          "valueCode": "M"
+        }
+      ]
+    }
+  note: >
+    Supported extensions that can be replaced:
+    <ul>
+      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
+    </ul>

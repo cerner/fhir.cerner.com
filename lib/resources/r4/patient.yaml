@@ -162,7 +162,6 @@ fields:
           <li> Must not contain the `assigner` and `use` fields. </li>
           <li> Must contain the `type`, `system`, and `value` fields. </li>
           <li> When specifying a `period`, must include a timecomponent with a timezone. </li>
-          <li> A proprietary code may be provided instead of a standard code for the `type` field. </li>
         </ul>
       </li>
     </ul>
@@ -333,7 +332,6 @@ fields:
         "text": "Never Married"
       }
     }
-  note: A proprietary code may be provided instead of a standard code.
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus
 
 - name: communication
@@ -350,7 +348,7 @@ fields:
             "coding": [
               {
                 "system": "urn:ietf:bcp:47",
-        	      "code": "eng",
+        	    "code": "en",
                 "display": "English"
               }
             ],
@@ -360,11 +358,7 @@ fields:
         }
       ]
     }
-  note: |
-    <ul>
-      <li> Only one communication may be provided. </li>
-      <li> A proprietary code may be provided instead of a standard code for the `language` field. </li>
-    </ul>
+  note: Only one communication may be provided.
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.communication
 
 - name: generalPractitioner
