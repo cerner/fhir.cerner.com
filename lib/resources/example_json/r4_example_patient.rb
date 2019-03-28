@@ -32,7 +32,8 @@ module Cerner
       "extension": [
           {
           "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-          "extension": [{
+          "extension": [
+            {
               "url": "detailed",
               "valueCoding": {
                 "system": "urn:oid:2.16.840.1.113883.6.238",
@@ -53,12 +54,14 @@ module Cerner
           "id": "CI-6810232-0",
           "use": "usual",
           "type": {
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "10",
-              "display": "MRN",
-              "userSelected": true
-            }],
+            "coding": [
+                {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "10",
+                "display": "MRN",
+                "userSelected": true
+              }
+            ],
             "text": "MRN"
           },
           "system": "urn:oid:1.1.1.1.1.1",
@@ -71,12 +74,14 @@ module Cerner
           "id": "CI-8934209-2",
           "use": "usual",
           "type": {
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "670843",
-              "display": "Messaging",
-              "userSelected": true
-            }],
+            "coding": [
+                {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "670843",
+                "display": "Messaging",
+                "userSelected": true
+              }
+            ],
             "text": "Messaging"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.8",
@@ -89,12 +94,14 @@ module Cerner
           "id": "CI-7754298-3",
           "use": "usual",
           "type": {
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "36322657",
-              "display": "Federated Person Principal",
-              "userSelected": true
-            }],
+            "coding": [
+                {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "36322657",
+                "display": "Federated Person Principal",
+                "userSelected": true
+              }
+            ],
             "text": "Federated Person Principal"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.6",
@@ -108,12 +115,14 @@ module Cerner
           "id": "CI-7476206-4",
           "use": "usual",
           "type": {
-            "coding": [{
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "36322657",
-              "display": "Federated Person Principal",
-              "userSelected": true
-            }],
+            "coding": [
+                {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "36322657",
+                "display": "Federated Person Principal",
+                "userSelected": true
+              }
+            ],
             "text": "Federated Person Principal"
           },
           "system": "urn:oid:2.16.840.1.113883.3.13.6",
