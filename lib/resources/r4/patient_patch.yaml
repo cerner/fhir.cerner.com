@@ -51,6 +51,8 @@ operations:
 - name: remove-identifier
   path: /identifier/{index}
   operation: remove
+  cardinality: 0
+  type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier
   description: Remove the identifier at the given <code>{index}</code> in the list of patient identifiers.
   example: |
@@ -77,7 +79,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier that's `system` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `system` is intended to be replaced.</li>
     </ul>
 - name: replace-identifier-value
   path: /identifier/{index}/value
@@ -94,7 +96,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier that's `value` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `value` is intended to be replaced.</li>
     </ul>
 - name: replace-identifier-period
   path: /identifier/{index}/period
@@ -114,7 +116,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier that's `period` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
       <li>When `start` or `end` is not provided its value will be unset.</li>
     </ul>
@@ -150,7 +152,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name that's `family` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced.</li>
       <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
     </ul>
 - name: replace-name-given
@@ -171,7 +173,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name that's `given` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced.</li>
       <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
       <li>If fewer values for given are provided in the list than previously set, the additional older values will be unset.</li>
     </ul>
@@ -190,7 +192,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name that's `prefix` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced.</li>
       <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
       <li>If no prefix value is provided the prefix on the name will be unset.</li>
     </ul>
@@ -209,7 +211,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name that's `suffix` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `suffix` is intended to be replaced.</li>
       <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
       <li>If no suffix value is provided the suffix on the name will be unset.</li>
     </ul>
@@ -231,7 +233,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name that's `period` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `period` is intended to be replaced.</li>
       <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
       <li>Must not contain the `end` field.</li>
       <li>The `start` must include a time component with a timezone.</li>
@@ -276,6 +278,8 @@ operations:
 - name: remove-telecom
   path: /telecom/{index}
   operation: remove
+  cardinality: 0
+  type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
   description: Remove the telecom at the given <code>{index}</code> in the list of patient telecoms.
   example: |
@@ -302,7 +306,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom that's `value` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `value` is intended to be replaced.</li>
     </ul>
 - name: replace-telecom-rank
   path: /telecom/{index}/rank
@@ -319,7 +323,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom that's `rank` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `rank` is intended to be replaced.</li>
     </ul>
 - name: replace-telecom-period
   path: /telecom/{index}/period
@@ -339,7 +343,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom that's `period` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
       <li>When `start` or `end` is not provided its value will be unset.</li>
     </ul>
@@ -417,6 +421,8 @@ operations:
 - name: remove-address
   path: /address/{index}
   operation: remove
+  cardinality: 0
+  type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
   description: Remove the address at the given <code>{index}</code> in the list of patient addresses.
   example: |
@@ -446,7 +452,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `line` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `line` is intended to be replaced.</li>
       <li>If no line is provided, all the lines on the address will be unset.</li>
       <li>If fewer values for line are provided in the list than previously set, the additional older values will be unset.</li>
     </ul>
@@ -465,7 +471,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `city` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `city` is intended to be replaced.</li>
       <li>If no city is provided, the city on the address will be unset.</li>
     </ul>
 - name: replace-address-district
@@ -483,7 +489,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `district` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `district` is intended to be replaced.</li>
       <li>If no district is provided, the district on the address will be unset.</li>
     </ul>
 - name: replace-address-state
@@ -501,7 +507,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `state` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `state` is intended to be replaced.</li>
       <li>If no state is provided, the state on the address will be unset.</li>
     </ul>
 - name: replace-address-postal-code
@@ -519,7 +525,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `postalCode` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `postalCode` is intended to be replaced.</li>
       <li>If no postalCode is provided, the postalCode on the address will be unset.</li>
     </ul>
 - name: replace-address-country
@@ -537,7 +543,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `country` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `country` is intended to be replaced.</li>
       <li>If no country is provided, the country on the address will be unset.</li>
     </ul>
 - name: replace-address-period
@@ -558,7 +564,7 @@ operations:
     }
   note: >
     <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address that's `period` is intended to be replaced.</li>
+      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address whose `period` is intended to be replaced.</li>
       <li>The `start` and `end` when provided must include a time component with a timezone.</li>
       <li>When `start` or `end` is not provided its value will be unset.</li>
     </ul>
@@ -646,6 +652,8 @@ operations:
 - name: remove-general-practitioner
   path: /generalPractitioner/{index}
   operation: remove
+  cardinality: 0
+  type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
   description: Remove the general practitoner at the given <code>{index}</code> in the list of the patient's nominated care providers.
   example: |
