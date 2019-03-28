@@ -3,17 +3,49 @@ module Cerner
 
     R4_COMBINED_PATIENT_ENTRY ||= {
       "resourceType": "Patient",
-      "id": "4860007",
+      "id": "1011933",
       "meta": {
         "versionId": "0"
       },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;/div&gt;"
+      },
+      "identifier": [
+        {
+          "extension": [
+              {
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "unknown"
+            }
+          ]
+        }
+      ],
       "active": false,
+      "name": [
+        {
+          "extension": [
+              {
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "unknown"
+            }
+          ]
+        }
+      ],
+      "_gender": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+            "valueCode": "unknown"
+          }
+        ]
+      },
       "link": [
         {
           "other": {
-            "reference": "Patient/4342008"
+            "reference": "Patient/1011932"
           },
-          "type": "replace"
+          "type": "replaced-by"
         }
       ]
     }
@@ -30,7 +62,7 @@ module Cerner
          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;/div&gt;"
       },
       "extension": [
-          {
+        {
           "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
           "extension": [
             {
@@ -116,7 +148,7 @@ module Cerner
           "use": "usual",
           "type": {
             "coding": [
-                {
+              {
                 "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
                 "code": "36322657",
                 "display": "Federated Person Principal",
@@ -136,7 +168,7 @@ module Cerner
           "use": "usual",
           "type": {
             "coding": [
-                {
+              {
                 "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
                 "code": "36322657",
                 "display": "Federated Person Principal",
@@ -154,7 +186,7 @@ module Cerner
       ],
       "active": true,
       "name": [
-          {
+        {
           "id": "CI-4342009-0",
           "use": "official",
           "text": "SMART, NANCY",
@@ -168,7 +200,7 @@ module Cerner
         }
       ],
       "telecom": [
-          {
+        {
           "id": "CI-EM-2399938-0",
           "system": "email",
           "value": "joe.smart@hl7.com",
@@ -200,7 +232,7 @@ module Cerner
       "contact": [
         {
           "relationship": [
-              {
+            {
               "coding": [
                   {
                   "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
@@ -212,7 +244,7 @@ module Cerner
               "text": "Authorized Representative"
             }
           ],
-            "name": {
+          "name": {
             "id": "CI-4342010-0",
             "use": "official",
             "text": "SMART, JOE",
@@ -358,7 +390,7 @@ module Cerner
       "type": "searchset",
       "total": 1,
       "link": [
-          {
+        {
           "relation": "self",
           "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009"
         }
