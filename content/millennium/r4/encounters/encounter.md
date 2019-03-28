@@ -122,12 +122,12 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[contained]: http://hl7.org/fhir/R4/references.html#contained
-[Encounter.hospitalization.destination]: http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.hospitalization.destination
-[Encounter.location.location]: http://hl7.org/fhir/R4/encounter-definitions.html#Encounter.location.location
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[`token`]: http://hl7.org/fhir/R4/search.html#token
-[`number`]: http://hl7.org/fhir/R4/search.html#number
-[`_count`]: http://hl7.org/fhir/R4/search.html#count
+[contained]: http://hl7.org/fhir/r4/references.html#contained
+[Encounter.hospitalization.destination]: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
+[Encounter.location.location]: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
+[`reference`]: http://hl7.org/fhir/r4/search.html#reference
+[`token`]: http://hl7.org/fhir/r4/search.html#token
+[`number`]: http://hl7.org/fhir/r4/search.html#number
+[`_count`]: http://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
