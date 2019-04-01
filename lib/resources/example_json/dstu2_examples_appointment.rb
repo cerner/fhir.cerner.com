@@ -505,9 +505,11 @@ module Cerner
 
     DSTU2_APPOINTMENT_CREATE ||= {
       "resourceType": "Appointment",
-      "slot": {
-        "reference": "Slot/21265426-633867-6828001-60"
-      },
+      "slot": [
+        {
+          "reference": "Slot/21265426-633867-6828001-60"
+        }
+      ],
       "participant": [
         {
           "actor": {
