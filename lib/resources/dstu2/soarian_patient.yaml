@@ -14,6 +14,7 @@ fields:
     cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
