@@ -95,8 +95,8 @@ and then register that as a SMART or FHIR application in our code Console.
 Request a system account for *non-production* by following these steps:
 
 - Login to the Cerner Central System Accounts application for non-production: https://sandboxcernercentral.com/system-accounts
-  - If you are a Cerner client using [My Domain][CERNER-CENTRAL-MYDOMAIN] for Cerner Central, log into your 
-non-production Cerner Central SSO account and select "System Accounts"
+  - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that 
+  can be used instead. For example: https://yourcompanynamegoeshere.sandboxcernercentral.com/system-accounts
 - Fill out the fields as follows:
   - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
   - **Production System**: No
@@ -107,7 +107,12 @@ non-production Cerner Central SSO account and select "System Accounts"
   - **Millennium System**: No
 - Once the account is created, take the id from that account and use it in the GUID field when you register the
 application as a SMART or FHIR application in the [code Console][CERNER-CODE-CONSOLE]. Without this step, your 
-application will not be recognized as an authorized application for FHIR.
+application will not be recognized as an authorized application for FHIR. Note that requests for system accounts 
+currently undergo manual approval, and therefore it may take a few business days for the system account to be created.
+
+Remember to protect the secret received via this process. Don't post this secret or email it in insecure fashion. Don't
+include this secret or credentials requests for the authorization server in any posts requesting help. If you do 
+compromise the secret, you can rotate the credentials using the system accounts application above.
 
 ## Requesting Authorization on Behalf of a User ##
 
