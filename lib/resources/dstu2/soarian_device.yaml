@@ -9,7 +9,6 @@ fields:
   description: Identifier(s) from manufacturer, owner and others.
   children:
 
-
   - name: type
     required: 'No'
     cardinality: 0..1
