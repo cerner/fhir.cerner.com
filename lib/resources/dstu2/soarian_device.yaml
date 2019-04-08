@@ -9,13 +9,12 @@ fields:
   description: Identifier(s) from manufacturer, owner and others.
   children:
 
-  
   - name: type
     required: 'No'
     cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
-    url: http://hl7.org/fhir/DSTU2/device-definitions.html#Device.identifier
+    url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       note: Currently will return SNO code from the below system.
@@ -32,6 +31,6 @@ fields:
   binding:
     description: The type of device.
     terminology:
-      - display: FDA Product Code Classification 
+      - display: FDA Product Code Classification
         system : "urn:oid:2.16.840.1.113883.6.303"
         info_link: https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm
