@@ -72,5 +72,4 @@ fields:
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-351-person-relationship-types
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
-      info_link: http://NOT-A-REAL-LINK.com
-      
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-40-person-relationship
