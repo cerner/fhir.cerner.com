@@ -10,7 +10,7 @@ module Cerner
         },
         "text": {
             "status": "generated",
-            "div": "&lt;div>&lt;p>&lt;b>Related Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: Apr 29, 1961 12:17 P.M. CST&lt;/p>&lt;p>&lt;b>Gender&lt;/b>: male&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Peters, John&lt;/p>&lt;p>&lt;b>Relationship&lt;/b>: Family Member&lt;/p>&lt;/div>"
+            "div": "&lt;div>&lt;p>&lt;b>Related Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: Apr 29, 1961&lt;/p>&lt;p>&lt;b>Gender&lt;/b>: male&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Peters, John&lt;/p>&lt;p>&lt;b>Relationship&lt;/b>: Family Member&lt;/p>&lt;/div>"
         },
         "identifier": [
             {
@@ -110,7 +110,7 @@ module Cerner
             }
         ],
         "gender": "male",
-        "birth_date": "1961-04-29T12:17:00.000-06:00",
+        "birthDate": "1961-04-29",
         "address": [
             {
             "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
@@ -172,7 +172,7 @@ module Cerner
                 },
                 "text": {
                 "status": "generated",
-                "div": "&lt;div>&lt;p>&lt;b>Related Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: Apr 29, 1961 12:17 P.M. CST&lt;/p>&lt;p>&lt;b>Gender&lt;/b>: male&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Peters, John&lt;/p>&lt;p>&lt;b>Relationship&lt;/b>: Family Member&lt;/p>&lt;/div>"
+                "div": "&lt;div>&lt;p>&lt;b>Related Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: Apr 29, 1961&lt;/p>&lt;p>&lt;b>Gender&lt;/b>: male&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Peters, John&lt;/p>&lt;p>&lt;b>Relationship&lt;/b>: Family Member&lt;/p>&lt;/div>"
                 },
                 "identifier": [
                 {
@@ -272,7 +272,7 @@ module Cerner
                 }
                 ],
                 "gender": "male",
-                "birth_date": "1961-04-29T12:17:00.000-06:00",
+                "birthDate": "1961-04-29",
                 "address": [
                 {
                     "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
