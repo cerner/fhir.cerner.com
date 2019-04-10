@@ -124,9 +124,9 @@ ID                                | Value\[x] Type      | Description
 
 ## Pagination
 
-The pagination links are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.
+The pagination [links](#secure-sandbox) are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.
 
-<%= json(:SOARIAN_LINK_EXTENSION) %>
+<%= json(:SOARIAN_FHIR_LINK) %>
 
 The possible `relation` values are:
 

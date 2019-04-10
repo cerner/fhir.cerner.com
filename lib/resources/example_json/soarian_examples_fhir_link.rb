@@ -1,6 +1,6 @@
 module Cerner
   module Resources
-    SOARIAN_LINK_EXTENSION ||= {
+    SOARIAN_FHIR_LINK ||= {
 		"type": "searchset",
 			"link": [
 				{
