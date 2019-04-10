@@ -78,6 +78,13 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
 
+<h3>RelatedPerson</h3>
+
+The RelatedPerson Resource supports proprietary codes for:
+
+* RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
+* RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) and [Code Set 40 Person     Relationhip Types](#code-set-40-person-relationship-types)
+
 ## List of Code Sets
 
 #### Code Set 2 Admission Source
@@ -167,6 +174,18 @@ This code set may include Marital Statuses such as Divorced and Married.
       "display": "Divorced",
       "userSelected": true
     }
+
+#### Code Set 40 Person Relationship
+
+This code set is describes the Relationship of one person to another.
+     
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
+      "code": "153",
+      "display": "DAUGHTER",
+      "userSelected": true
+    }
+
 
 #### Code Set 67 VIP
 
