@@ -156,7 +156,7 @@ Create an individual Encounter.
 <pre class="terminal">
 Cache-Control: no-cache
 Content-Length: 0
-Content-Type: application/json+fhir
+Content-Type: application/fhir+json
 Date: Wed, 27 Mar 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
