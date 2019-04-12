@@ -47,6 +47,15 @@ Example CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
+## Infrastructure
+
+<!-- use html header to avoid showing up in toc -->
+<h3>DocumentReference</h3>
+
+The DocumentReference Resource supports proprietary codes for:
+
+* DocumentReference.type codes are maintained in [Code Set 72 Event Code](#code-set-72-event-code)
+
 ## Scheduling
 
 <!-- use html header to avoid showing up in toc -->
@@ -62,14 +71,6 @@ The Appointment Resource supports proprietary codes for:
 The Slot Resource supports proprietary codes for:
 
 * Slot.type codes are maintained in [Code Set 14249 Scheduling Appointment Synonyms or Types](#code-set-14249-scheduling-appointment-synonyms-or-types)
-
-## Infrastructure
-
-<h3>DocumentReference</h3>
-
-The DocumentReference Resource supports proprietary codes for:
-
-* DocumentReference.type codes are maintained in [Code Set 72](#code-set-72-event-code)
 
 ## List of Code Sets
 
@@ -88,7 +89,7 @@ documents or note types and clinical observations such as laboratory results and
 #### Code Set 14249 Scheduling Appointment Synonyms or Types
 
 This code set is highly customized by clients and may include appointment types such as
-Office Visit, New and Office, or Follow Up.
+Office Visit, Office Visit - New, or Office Visit - Follow Up.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14249,

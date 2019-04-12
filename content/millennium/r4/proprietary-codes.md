@@ -77,7 +77,7 @@ This code set is similar to the HL7 value set but may have more specific display
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/2,
-      "code": "309194"
+      "code": "309194",
       "display": "Emergency Room",
       "userSelected": true
     }
