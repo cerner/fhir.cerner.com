@@ -72,7 +72,7 @@ fields:
             Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
     - display: Millennium Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
-      info_link: https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-72-event-code
+      info_link: /millennium/dstu2/proprietary-codes/#code-set-72-event-code
 - name: author
   required: 'No'
   cardinality: 0..1
