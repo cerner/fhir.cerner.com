@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PCTAUT, OrdersPhy3&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
         {
@@ -36,10 +36,10 @@ module Cerner
       "name": [
         {
           "use": "usual",
-          "text": "PCTAUT, OrdersPhy3",
-          "family": "PCTAUT",
+          "text": "Williams, Rory",
+          "family": "Williams",
           "given": [
-            "OrdersPhy3"
+            "Rory"
           ],
           "prefix": [
             "Dr."
@@ -99,7 +99,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PCTAUT, OrdersPhy3&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
             },
             "identifier": [
               {
@@ -125,10 +125,10 @@ module Cerner
             "name": [
                 {
                 "use": "usual",
-                "text": "PCTAUT, OrdersPhy3",
-                "family": "PCTAUT",
+                "text": "Williams, Rory",
+                "family": "Williams",
                 "given": [
-                  "OrdersPhy3"
+                  "Rory"
                 ],
                 "prefix": [
                   "Dr."
