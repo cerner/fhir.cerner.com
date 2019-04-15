@@ -74,19 +74,45 @@ register applications. Obtaining a Cerner Care account is free and
 requires nothing but an email address.
 
 If registering an application that is using the public app profile and requires access only when the user is online, 
-your client application must first register using our [code console][CERNER-CODE-CONSOLE]. 
+your client application must first register using our [code Console][CERNER-CODE-CONSOLE]. 
 
 If registering a confidential client application (required for offline_access and
-access on behalf of a system), please first request an account via the **non-production** instance of 
-[Cerner Central System Account Registration][SYSTEM-ACCOUNT-REGISTRATION]. Once the request is completed, use the
-issued system account GUID when registering the application in the [code console][CERNER-CODE-CONSOLE]. Be aware that
-access on behalf of a system currently has limited availability. Check the respective FHIR<sup>®</sup> implementation
-documentation to determine availability.
+access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] 
+section. Check the respective FHIR<sup>®</sup> implementation documentation to determine availability.
 
 Once registered, the **client identifier** will be provided for use with 
 the Cerner Authorization Server. As a registered client, Cerner 
 organizations may then ask for your client application to be enabled, 
 which is necessary in order to gain access to their protected resources.
+
+### Registering a System Account ###
+
+If an application will be using the offline_access scope, or accessing data on behalf of a system, it will need to
+maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our 
+System Accounts application. In order to register one of these applications, you must first request a system account,
+and then register that as a SMART or FHIR application in our code Console.
+
+Request a system account for *non-production* by following these steps:
+
+- Login to the Cerner Central System Accounts application for non-production: https://sandboxcernercentral.com/system-accounts
+  - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that 
+  can be used instead. For example: https://yourcompanynamegoeshere.sandboxcernercentral.com/system-accounts
+- Fill out the fields as follows:
+  - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
+  - **Production System**: No
+  - **Cerner Client**: No, unless you are a Cerner Client developing their own application. If you are a client:
+    - **Client Name**: Your organization. For example: My Health System
+    - **Client Number**: Only fill out if you know this, it is not required.
+    - **Client Mnemonic**: Only fill out if you know this, it is not required.  
+  - **Millennium System**: No
+- Once the account is created, take the id from that account and use it in the GUID field when you register the
+application as a SMART or FHIR application in the [code Console][CERNER-CODE-CONSOLE]. Without this step, your 
+application will not be recognized as an authorized application for FHIR. Note that requests for system accounts 
+currently undergo manual approval, and therefore it may take a few business days for the system account to be created.
+
+Remember to protect the secret received via this process. Don't post this secret or email it in insecure fashion. Don't
+include this secret or credentials requests for the authorization server in any posts requesting help. If you do 
+compromise the secret, you can rotate the credentials using the system accounts application above.
 
 ## Requesting Authorization on Behalf of a User ##
 
@@ -813,6 +839,8 @@ only our client credentials need to be rotated to prevent
 misues of such compromised token values.  Client credentials for
 applications using Cerner's authorization server as issued 
 via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
+See the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] section
+for more information on how to register these applications.
 
 It is currently not recommended to store offline_access tokens
 in persistent storage at a user's device.  Cerner's authorization 
@@ -928,7 +956,9 @@ entity covered under a business associate agreement.
 Some FHIR<sup>®</sup> APIs support this model, allowing a 
 client application to directly authenticate for access 
 using a system account issued via 
-[Cerner Central System Account Management][SYSTEM-ACCOUNTS].
+[Cerner Central System Account Management][SYSTEM-ACCOUNTS]. 
+See the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] section
+for more information on how to register these applications.
 
 A client performs this request utilizing the "client 
 credentials" flow of OAuth2 to request an access token,
@@ -1101,8 +1131,8 @@ preceding documentation.
 - ["Registering an Application to a URI Scheme" (Windows API)][WIN-SCHEME]
 - ["HTTP Authentication: Basic and Digest Access Authentication"][RFC2617]
 - ["The OAuth 2.0 Authorization Framework: Bearer Token Usage"][RFC6750]
-- ["Requesting A System Account"][SYSTEM-ACCOUNTS]
-- ["Cerner Code Console"][CERNER-CODE-CONSOLE]
+- ["System Accounts Help"][SYSTEM-ACCOUNTS]
+- ["Cerner code Console"][CERNER-CODE-CONSOLE]
 - ["Cerner FHIR<sup>®</sup> Service Authorization Specification"][AUTHZ-SPEC]
 
 [OAUTH]: https://tools.ietf.org/html/rfc6749 "The OAuth 2.0 Authorization Framework"
@@ -1114,6 +1144,7 @@ preceding documentation.
 [RFC2617]: https://tools.ietf.org/html/rfc2617 "HTTP Authentication: Basic and Digest Access Authentication"
 [RFC6750]: https://tools.ietf.org/html/rfc6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage"
 [SYSTEM-ACCOUNTS]: https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help "Cerner System Account Management Help"
-[SYSTEM-ACCOUNT-REGISTRATION]: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account "Cerner System Account Registration"
+[SYSTEM-ACCOUNT-SECTION]: #registering-a-system-account "Registering a System Account"
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
 [AUTHZ-SPEC]: ../authorization/authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
+[CERNER-CENTRAL-MYDOMAIN]: https://wiki.cerner.com/display/CernerCentral/Accessing+Cerner+Central#AccessingCernerCentral-my_domainMyDomain "My Domain"
