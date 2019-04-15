@@ -13,13 +13,13 @@ The Practitioner Resource provides information about a person formally involved 
 
 The following fields are returned if valued:
 
-  *	[Practitioner id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-  *	[Identifiers/Aliases such as NPI and DEA](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
-  *	[Active (true/false)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active){:target="_blank"}
-  *	[Name](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.name){:target="_blank"}
-  *	[Telecom Information (secure email and phone)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
-  *	[Address](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
-  *	[Gender](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
+* [Practitioner id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Identifiers/Aliases such as NPI and DEA](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
+* [Active (true/false)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active){:target="_blank"}
+* [Name](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.name){:target="_blank"}
+* [Telecom Information (secure email and phone)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
+* [Address](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
+* [Gender](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -53,7 +53,8 @@ Search for Practitioners that meet supplied query parameters:
 
 #### Response
 
-<%= headers status: 200 %> <%= json(:r4_practitioner_bundle) %>
+<%= headers status: 200 %>
+<%= json(:r4_practitioner_bundle) %>
 
 ### Errors
 
@@ -81,7 +82,8 @@ List an individual Practitioner by its id:
 
 #### Response
 
-<%= headers status: 200 %> <%= json(:r4_practitioner_entry) %>
+<%= headers status: 200 %>
+<%= json(:r4_practitioner_entry) %>
 
 ### Errors
 
