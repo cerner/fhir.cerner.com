@@ -25,7 +25,6 @@ module Cerner
             ],
             "text": "DOCDEA"
           },
-          "system": "urn:ietf:rfc:3986",
           "value": "234234123",
           "period": {
             "start": "2013-11-08T00:00:00.000-06:00"
@@ -114,7 +113,6 @@ module Cerner
                   ],
                   "text": "DOCDEA"
                 },
-                "system": "urn:ietf:rfc:3986",
                 "value": "234234123",
                 "period": {
                   "start": "2013-11-08T00:00:00.000-06:00"
