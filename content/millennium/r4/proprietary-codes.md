@@ -77,8 +77,8 @@ This code set is similar to the HL7 value set but may have more specific display
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/2,
-      "code": "309194
-      "display": "Emergency Room ",
+      "code": "309194",
+      "display": "Emergency Room",
       "userSelected": true
     }
 
@@ -88,7 +88,7 @@ This code set is typically small and similar to the HL7 value set.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/3",
-      "code": "309203
+      "code": "309203",
       "display": "Emergency",
       "userSelected": true
     }
@@ -110,7 +110,7 @@ This code set is a one-element code set containing only Yes.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/16",
-      "code": "4334139
+      "code": "4334139",
       "display": "Yes",
       "userSelected": true
     }
@@ -121,18 +121,18 @@ This is a small code set similar to the HL7 value set.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18",
-      "code": "301226
+      "code": "301226",
       "display": "Low Sodium",
       "userSelected": true
     }
 
 #### Code Set 19 Discharge Disposition
 
-The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of required values for documenting the disposition of patients upon discharge. 
+The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of required values for documenting the disposition of patients upon discharge.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/19",
-      "code": "638672
+      "code": "638672",
       "display": "Home Care with Home Health",
       "userSelected": true
     }
@@ -150,7 +150,7 @@ This code set is customized by clients and may include Languages such as English
 
 #### Code Set 38 Marital Status
 
-This code set may include Marital Statuses such as Divorced and Married. 
+This code set may include Marital Statuses such as Divorced and Married.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/38",
@@ -165,7 +165,7 @@ This code set is a one-element code set containing only Yes.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/67",
-      "code": "4334139
+      "code": "4334139",
       "display": "Yes",
       "userSelected": true
     }
@@ -176,7 +176,7 @@ This code set is client definable for different patient types such an Outpatient
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/71",
-      "code": "309314
+      "code": "309314",
       "display": "Recurring",
       "userSelected": true
     }
@@ -187,7 +187,7 @@ This is a small code set currently only supporting FIN NBR and VISITID.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/319",
-      "code": "1077"
+      "code": "1077",
       "display": "FIN NBR",
       "userSelected": true
     }
@@ -198,14 +198,14 @@ This code set maintains the various personnel positions in the facility such as 
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/333",
-      "code": "1119
+      "code": "1119",
       "display": "Attending Physician",
       "userSelected": true
     }
 
 #### Code Set 351 Person Relationship Types
 
-This code set includes Relationship Types such as Guardian and Emergency Contact. 
+This code set includes Relationship Types such as Guardian and Emergency Contact.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/351",

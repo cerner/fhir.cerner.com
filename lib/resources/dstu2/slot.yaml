@@ -21,3 +21,6 @@ fields:
     - display: Practice Setting Code Value Set
       system: http://snomed.info/sct
       info_link: http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
+    - display: Millennium Scheduling Appointment Synonyms or Types
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
+      info_link: /millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types
