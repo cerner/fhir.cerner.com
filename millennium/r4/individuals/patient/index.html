@@ -31,7 +31,7 @@
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
       
-        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">Code Portal</a>
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
       
 
     </div>
@@ -154,7 +154,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier.type">Patient.identifier.type</a>
+          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Patient.identifier.type</a>
       
       </td>
     </tr>
@@ -593,7 +593,7 @@
 
 <h3 id="headers">Headers</h3>
 
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
 <h3 id="example">Example</h3>
@@ -983,7 +983,7 @@
 
 <h3 id="headers-1">Headers</h3>
 
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
 <h3 id="example-1">Example</h3>
@@ -1425,8 +1425,8 @@ the entries directly by id. They will not be returned when searching with other 
 <h3 id="headers-2">Headers</h3>
 
 <pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
-<a href="../../#media-types">Accept</a>: application/json+fhir
-<a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
 
 <h3 id="body-fields">Body Fields</h3>
 
@@ -2043,7 +2043,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Wed, 27 Mar 2019 17:23:14 GMT
 Etag: W/"0"
-Location: https://fhir-ehr.sandboxcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Patient/5786010
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/5786010
 Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created
@@ -3849,6 +3849,7 @@ X-Runtime: 0.296306
 </h3>
         <ul class="js-guides">
           <li><a href="./">Patient</a></li>
+          <li><a href="../practitioner/">Practitioner</a></li>
         </ul>
       </li>
     </ul>

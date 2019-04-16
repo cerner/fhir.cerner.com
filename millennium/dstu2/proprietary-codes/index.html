@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Encounters | DSTU 2 API</title>
+  <title>Proprietary Codes | DSTU2 API</title>
   
   <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -74,17 +74,120 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="encounter-workflow">Encounters</h1>
+      <h1 id="proprietary-codes">Proprietary Codes</h1>
 
-<p>The Encounters resources are used to manage the lifecycle of patient encounters within the healthcare setting.</p>
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#infrastructure" id="markdown-toc-infrastructure">Infrastructure</a></li>
+  <li><a href="#scheduling" id="markdown-toc-scheduling">Scheduling</a></li>
+  <li><a href="#list-of-code-sets" id="markdown-toc-list-of-code-sets">List of Code Sets</a></li>
+</ul>
 
-<p>Click <a href="http://hl7.org/fhir/dstu2/resourceguide.html#3.1.4.1">here</a> to see the detailed categorization and full set of resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
+<h2 id="overview">Overview</h2>
 
-<h2 id="implemented-resources">Implemented Resources</h2>
+<p>Cerner’s implementation of the HL7<sup>®</sup> DSTU2 FHIR<sup>®</sup> standard allows Millennium proprietary code values
+to be used in addition to standard value set codes on a limited basis. This allows developers to read and write data
+with clients’ proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly
+beneficial for concepts that are highly customized by clients such as appointment and document types.</p>
+
+<p>Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that
+represents a textual or character display. Code sets are consistent across all clients. But the values in a code set
+vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the EHR
+source id (or tenant) qualifier in the system URL.</p>
+
+<p>The following are true for all Millennium proprietary codes:</p>
 
 <ul>
-  <li><a href="../encounters/encounter">Encounter</a></li>
+  <li>The <code>system</code> value uses the following format: <code>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</code>
+</li>
+  <li>The <code>code</code> value is the numeric code value as a string</li>
+  <li>The <code>display</code> value is the code value display</li>
+  <li>The <code>userSelected</code> value is set to true</li>
 </ul>
+
+<p>Example CodeableConcept displaying both standard and proprietary codes:</p>
+
+<pre><code>{
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "394581000",
+        "display": "Community medicine",
+        "userSelected": false
+      },
+      {
+        "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249",
+        "code": "21265426",
+        "display": "Same Day",
+        "userSelected": true
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h2 id="infrastructure">Infrastructure</h2>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>DocumentReference</h3>
+
+<p>The DocumentReference Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>DocumentReference.type codes are maintained in <a href="#code-set-72-event-code">Code Set 72 Event Code</a>
+</li>
+</ul>
+
+<h2 id="scheduling">Scheduling</h2>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Appointment</h3>
+
+<p>The Appointment Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Appointment.type codes are maintained in <a href="#code-set-14249-scheduling-appointment-synonyms-or-types">Code Set 14249 Scheduling Appointment Synonyms or Types</a>
+</li>
+</ul>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Slot</h3>
+
+<p>The Slot Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Slot.type codes are maintained in <a href="#code-set-14249-scheduling-appointment-synonyms-or-types">Code Set 14249 Scheduling Appointment Synonyms or Types</a>
+</li>
+</ul>
+
+<h2 id="list-of-code-sets">List of Code Sets</h2>
+
+<h4 id="code-set-72-event-code">Code Set 72 Event Code</h4>
+
+<p>This code set is extremely large, very client customized, and maintains all clinical events such as various clinical
+documents or note types and clinical observations such as laboratory results and vital signs.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72,
+  "code": "2820587",
+  "display": "Discharge Note-Nursing",
+  "userSelected": true
+}
+</code></pre>
+
+<h4 id="code-set-14249-scheduling-appointment-synonyms-or-types">Code Set 14249 Scheduling Appointment Synonyms or Types</h4>
+
+<p>This code set is highly customized by clients and may include appointment types such as
+Office Visit, Office Visit - New, or Office Visit - Follow Up.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249,
+  "code": "5038369",
+  "display": "Office Visit - Return",
+  "userSelected": true
+}
+</code></pre>
 
     </div>
 
@@ -99,7 +202,7 @@
           <li><a href="../../../authorization/">Authorization</a></li>
           <li><a href="../conformance/">Conformance Metadata</a></li>
           <li><a href="../operation-definition/">OperationDefinition</a></li>
-          <li><a href="../proprietary-codes/">Proprietary Codes</a></li>
+          <li><a href="./">Proprietary Codes</a></li>
           <li><a href="../structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>
@@ -132,10 +235,10 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Encounters</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounters/">Encounters</a>
         </h3>
         <ul class="js-guides">
-          <li><a href="encounter/">Encounter</a></li>
+          <li><a href="../encounters/encounter/">Encounter</a></li>
         </ul>
       </li>
       <li class="js-topic">
