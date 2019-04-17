@@ -85,6 +85,19 @@ The RelatedPerson Resource supports proprietary codes for:
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
 * RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) 
 
+## Medications
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Immunization</h3>
+
+The Immunization Resource supports proprietary codes for:
+
+* Immunization.statusReason codes are maintained in [Code Set 30440 Expire Reasons](#code-set-30440-expire-reasons)
+* Immunization.vaccineCode codes are maintained in [Code Set 72 Clinical Event Codes](#code-set-72-clinical-event-codes)
+* Immunization.reportOrigin codes are maintained in [Code Set 30200 Result Source](#code-set-30200-result-source)
+* Immunization.site codes are maintained in [Code Set 97 Medication Administration Site](#code-set-97-medication-administration-site)
+* Immunization.route codes are maintained in [Code Set 4001 Medication Administration Route](#code-set-4001-medication-administration-route)
+
 ## Scheduling
 
 <!-- use html header to avoid showing up in toc -->
@@ -220,6 +233,28 @@ This code set is client definable for different patient types such an Outpatient
       "userSelected": true
     }
 
+#### Code Set 72 Clinical Event Codes
+
+This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/72", 
+      "code": "2799031", 
+      "display": "Lyme disease vaccine", 
+      "userSelected": true 
+    }
+
+#### Code Set 97 Medication Administration Site
+
+This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/97", 
+      "code": "603", 
+      "display": "Right arm", 
+      "userSelected": true 
+    }
+
 #### Code Set 319 Encounter Alias Type
 
 This is a small code set currently only supporting FIN NBR and VISITID.
@@ -253,6 +288,17 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "userSelected": true
     }
 
+#### Code Set 4001 Medication Administration Route
+
+This code set maintains medication administration routes such as ID or IM.
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4001", 
+      "code": "318167", 
+      "display": "IM", 
+      "userSelected": true 
+    }
+
 #### Code Set 12022 Severity
 
 This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history. 
@@ -261,7 +307,6 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022", 
       "code": "3294", 
       "display": "Moderate", 
-      "userSelected": true 
     }
 
 #### Code Set 14249 Scheduling Appointment Type Synonyms
@@ -283,5 +328,26 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14250,
       "code": "4573",
       "display": "Radiology Exam Room",
+    }
+
+####  Code Set 30200 Result Source
+      
+This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.
+
+    { 
+       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30200", 
+       "code": "679976", 
+       "display": "Mother", 
+       "userSelected": true 
+    }
+
+#### Code Set 30440 Expire Reasons
+
+This code set describes why an immunization was not administered when documented through the Health Maintenance model.
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30440", 
+      "code": "688466", 
+      "display": "Postpone due to refusal", 
       "userSelected": true
     }

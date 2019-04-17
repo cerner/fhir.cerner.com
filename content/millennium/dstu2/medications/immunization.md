@@ -56,7 +56,8 @@ Search for Immunizations that meet supplied query parameters:
  `date`    | N                  | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
 
 Notes:
- - The `date` parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date. Examples: `date=ge2015-01-01&date=le2016-01-01`, `date=ge2015-01-01`, `date=le2016-01-01`
+
+* The `date` parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date. Examples: `date=ge2015-01-01&date=le2016-01-01`, `date=ge2015-01-01`, `date=le2016-01-01`
 
 ### Headers
 
