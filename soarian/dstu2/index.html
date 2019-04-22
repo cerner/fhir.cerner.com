@@ -77,7 +77,11 @@
   <li><a href="#trusted-connection" id="markdown-toc-trusted-connection">Trusted connection</a></li>
   <li><a href="#purpose" id="markdown-toc-purpose">Purpose</a></li>
   <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
-  <li><a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a></li>
+  <li>
+<a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a>    <ul>
+      <li><a href="#secure-sandbox" id="markdown-toc-secure-sandbox">Secure Sandbox</a></li>
+    </ul>
+  </li>
   <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
   <li><a href="#special-information-regarding-date-parameters" id="markdown-toc-special-information-regarding-date-parameters">Special information regarding date parameters</a></li>
   <li>
@@ -85,6 +89,7 @@
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
+  <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
   <li><a href="#common-errors" id="markdown-toc-common-errors">Common Errors</a></li>
 </ul>
 
@@ -134,6 +139,14 @@ made against URLs of the following format:</p>
 
 <p>Where <code>https://fhir-myrecord.sandboxcerner.com/dstu2/abcd1234/</code> is the the <code>:serviceRootURL</code>, <code>Condition</code> is the 
 <code>:resource</code>, and <code>patientId=4342008</code> is the <code>:parameters</code>.</p>
+
+<h3 id="secure-sandbox">Secure Sandbox</h3>
+
+<p>The secure sandbox instance can be used for testing an application with <a href="#authorization">authorization</a>. The <a href="#service-root-url">service root URL</a> for the sandbox instance is:</p>
+
+<p><code>https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d</code></p>
+
+<p>Example for a resource call: <code>https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Condition?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27</code></p>
 
 <h2 id="media-types">Media Types</h2>
 
@@ -261,6 +274,45 @@ application/xml
     ]
   }
 }</code></pre>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>The pagination <a href="#secure-sandbox">links</a> are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.</p>
+
+<pre class="body-response"><code class="language-javascript">{
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "http://fhir-myrecord.sandboxcerner.com/dstu2/Observation?patientId=2A39DA0B-61D8-4F95-BE00-9CA30EE01819&amp;_format=json&amp;page=2"
+    },
+    {
+      "relation": "next",
+      "url": "http://fhir-myrecord.sandboxcerner.com/dstu2/Observation?patientId=2A39DA0B-61D8-4F95-BE00-9CA30EE01819&amp;_format=json&amp;page=3"
+    }
+  ]
+}</code></pre>
+
+<p>The possible <code>relation</code> values are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>self</code></td>
+      <td>Shows the URL of the current page of results.</td>
+    </tr>
+    <tr>
+      <td><code>next</code></td>
+      <td>Shows the URL of the immediate next page of results.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="common-errors">Common Errors</h2>
 
