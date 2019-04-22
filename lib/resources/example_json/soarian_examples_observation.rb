@@ -11,7 +11,11 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "base-url/123abc/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json"
+          "url": "https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json&page=2"
+        },
+        {
+          "relation": "next",
+          "url": "https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Observation?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27&_format=json&page=3"
         }
       ],
       "entry": [

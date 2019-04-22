@@ -54,6 +54,7 @@ _Implementation Notes_
 Notes:
 
 * See details regarding special [date][date-parameter] requirements.
+* See details regarding [pagination] requirements. 
 * If the date parameter is null in the query, the API will return all qualifying records.
 * If a single date parameter is used in the query, the response will include all qualifying records dated that day.
 * If a valid date range is used in the query, the API will return all qualifying records within the dates specified.
@@ -93,3 +94,4 @@ These additional informational messages may be returned within the [bundle exten
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [common-errors]: ../../common-errors
 [date-parameter]: ../../#special-information-regarding-date-parameters
+[pagination]: ../../#pagination

@@ -53,6 +53,15 @@ For example:
 Where `https://fhir-myrecord.sandboxcerner.com/dstu2/abcd1234/` is the the `:serviceRootURL`, `Condition` is the 
 `:resource`, and `patientId=4342008` is the `:parameters`.
 
+### Secure Sandbox
+
+The secure sandbox instance can be used for testing an application with [authorization](#authorization). The [service root URL](#service-root-url) for the sandbox instance is:
+
+`https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d`
+
+Example for a resource call: `https://fhir-myrecord.sandboxcerner.com/dstu2/0e885770-571b-4c0c-b30f-21df9a058d0d/Condition?patientId=D4292B7B-AEDF-4CEF-B783-BD3AA1B0DD27`
+
+
 ## Media Types
 
 Cerner supports the FHIR<sup>®</sup> standard defined media types for JSON content:
@@ -111,6 +120,20 @@ ID                                | Value\[x] Type      | Description
 ### Example
  
 <%= json(:SOARIAN_CUSTOM_EXTENSION) %>
+
+
+## Pagination
+
+The pagination [links](#secure-sandbox) are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.
+
+<%= json(:SOARIAN_FHIR_LINK) %>
+
+The possible `relation` values are:
+
+Name                                                 | Description
+-----------------------------------------------------|-----------------------------------------------------
+`self`                                               | Shows the URL of the current page of results.
+`next`                                               | Shows the URL of the immediate next page of results.
 
 
 ## Common Errors
