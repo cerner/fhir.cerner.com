@@ -45,7 +45,7 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2579999&start=2016&_count=5"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2578010&start=2016&_count=5"
         },
         {
           "relation": "next",
@@ -293,7 +293,7 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2579999&start=2016&_include=Slot%3Aschedule&_count=5"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2578010&start=2016&_include=Slot%3Aschedule&_count=5"
         },
         {
           "relation": "next",
@@ -577,7 +577,7 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2579999",
+              "reference": "Practitioner/2578010",
               "display": "Snow, Jon"
             }
           },
@@ -616,7 +616,7 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2579999",
+              "reference": "Practitioner/2578010",
               "display": "Snow, Jon"
             }
           },
@@ -655,7 +655,7 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2579999",
+              "reference": "Practitioner/2578010",
               "display": "Snow, Jon"
             }
           },
@@ -694,7 +694,7 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2579999",
+              "reference": "Practitioner/2578010",
               "display": "Snow, Jon"
             }
           },
@@ -733,7 +733,7 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2579999",
+              "reference": "Practitioner/2578010",
               "display": "Snow, Jon"
             }
           },
