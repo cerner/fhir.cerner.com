@@ -45,7 +45,7 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2578010&start=2016&_count=5"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2579999&start=2016&_count=5"
         },
         {
           "relation": "next",
@@ -293,7 +293,7 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2578010&start=2016&_include=Slot%3Aschedule&_count=5"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&schedule.actor=Practitioner%2F2579999&start=2016&_include=Slot%3Aschedule&_count=5"
         },
         {
           "relation": "next",
@@ -553,7 +553,7 @@ module Cerner
             "id": "21265426-4048128-3121781-420",
             "text": {
               "status": "extensions",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -577,8 +577,8 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Howdeshell, Tami"
+              "reference": "Practitioner/2579999",
+              "display": "Snow, Jon"
             }
           },
           "search": {
@@ -592,7 +592,7 @@ module Cerner
             "id": "21265426-633867-3121781-420",
             "text": {
               "status": "extensions",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -616,8 +616,8 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Howdeshell, Tami"
+              "reference": "Practitioner/2579999",
+              "display": "Snow, Jon"
             }
           },
           "search": {
@@ -631,7 +631,7 @@ module Cerner
             "id": "21265426-4048128-3121785-0",
             "text": {
               "status": "extensions",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -655,8 +655,8 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Howdeshell, Tami"
+              "reference": "Practitioner/2579999",
+              "display": "Snow, Jon"
             }
           },
           "search": {
@@ -670,7 +670,7 @@ module Cerner
             "id": "21265426-633867-3121785-0",
             "text": {
               "status": "extensions",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -694,8 +694,8 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Howdeshell, Tami"
+              "reference": "Practitioner/2579999",
+              "display": "Snow, Jon"
             }
           },
           "search": {
@@ -709,7 +709,7 @@ module Cerner
             "id": "21265426-4048128-3121785-5",
             "text": {
               "status": "extensions",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
             },
             "extension": [
               {
@@ -733,8 +733,8 @@ module Cerner
               }
             ],
             "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Howdeshell, Tami"
+              "reference": "Practitioner/2579999",
+              "display": "Snow, Jon"
             }
           },
           "search": {
