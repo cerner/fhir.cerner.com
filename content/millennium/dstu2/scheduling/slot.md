@@ -95,11 +95,11 @@ Notes:
 
 * The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the `_id` parameter.
 
-* The `_include` parameter may be provided once. Example: `_include=Slot:schedule`
+* The `_include` parameter may be provided once with the value `Slot:schedule`. Example: `_include=Slot:schedule`
 
 * The `_include` parameter may be provided with the `_id` parameter. Example: `_id=21265426-633867-3121665-0&_include=Slot:schedule`
 
-* Additional OAuth2 scopes are required when the `_include` parameter is provided. To include with `Slot:schedule`, the OAuth2 token must include the scope for Schedule.read.
+* When `_include` is provided in a request to the closed endpoint, the OAuth2 token must include either the `user/Schedule.read` or the `patient/Schedule.read` scope in addition to a Slot scope.
 
 ### Headers
 
