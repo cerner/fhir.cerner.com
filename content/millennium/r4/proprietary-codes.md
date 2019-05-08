@@ -213,3 +213,14 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "display": "Guardian",
       "userSelected": true
     }
+
+#### Code Set 14249 Scheduling Appointment Synonyms or Types
+
+This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14249,
+      "code": "5038369",
+      "display": "Office Visit - Return",
+      "userSelected": true
+    }
