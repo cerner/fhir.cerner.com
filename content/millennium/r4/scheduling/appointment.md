@@ -21,7 +21,11 @@ The status of arrived does not change the state of the millennium appointment bu
 
 R4 exposes a native checked-in status which allows for an appointment to transition from the booked state to the checked-in state. This is a change from the R4 value mapping.
 
-Updating an appointment to a status of cancelled or checked-in may trigger actions based on appointment type configuration. Work with the client to fully understand workflow implications for these actions.
+When updating an appointment, the resource provides the ability to change the Appointment.status in the following sequences:
+
+ - From Booked to Arrived, Checked-In, or Cancelled
+ - From Arrived to Checked-In, or Cancelled
+ - From Checked-In to Cancelled
 
 ## Patch
 
