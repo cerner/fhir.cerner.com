@@ -17,5 +17,5 @@ operations:
       }
     note: >
       <ul>
-        <li>Only "arrived", "checked-in", "cancelled" are supported</li>
+        <li>Only "arrived", "checked-in", and "cancelled" are supported</li>
       </ul>

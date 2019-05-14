@@ -47,8 +47,6 @@ _Implementation Notes_
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
                    'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'} %>
 
-
-
 ### Patch Operations
 
 <%= patch_definition_table(:appointment_patch, :r4) %>
