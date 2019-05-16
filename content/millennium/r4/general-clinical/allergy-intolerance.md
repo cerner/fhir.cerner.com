@@ -55,7 +55,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 --------------------|----------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
  `_id`              | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`          | This or `_id`                                                        | [`reference`] | Who the sensitivity is for. Example: `12345`
- `clinical-status`  | N                                                                    | [`token`]     | The clinical status of the allergy or intolerance. Example: active | inactive | resolved
+ `clinical-status`  | No                                                                   | [`token`]     | The clinical status of the allergy or intolerance. Example: active | inactive | resolved
 
 ### Headers
 
