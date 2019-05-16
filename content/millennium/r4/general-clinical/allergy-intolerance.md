@@ -22,7 +22,7 @@ Assuming a patient safety or decision support use case, a consumer should avoid 
 The following fields are returned if valued:
 
 * [Allergy id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Allergy code](http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
+* [Allergy code](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
 * [clinicalStatus](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus){:target="_blank"}
 * [verificationStatus](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus){:target="_blank"}
 * [Patient with allergy/intolerance](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
