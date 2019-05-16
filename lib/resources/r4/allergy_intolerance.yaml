@@ -27,7 +27,7 @@ fields:
     terminology:
     - display: AllergyIntolerance Verification Status Codes
       system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
-      info_link: http://hl7.org/fhir/r4/r4/valueset-allergyintolerance-verification.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html
 
 - name: type
   required: 'No'
