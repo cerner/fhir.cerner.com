@@ -7,90 +7,90 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: active | inactive | resolved
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
   binding:
     description: The clinical status of the allergy or intolerance.
     terminology:
     - display: AllergyIntolerance Clinical Status Codes
       system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
-      info_link: http://hl7.org/fhir/valueset-allergyintolerance-clinical.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html
 
 - name: verificationStatus
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: unconfirmed | confirmed | refuted | entered-in-error
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntolerance Verification Status Codes
       system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
-      info_link: http://hl7.org/fhir/valueset-allergyintolerance-verification.html
+      info_link: http://hl7.org/fhir/r4/r4/valueset-allergyintolerance-verification.html
 
 - name: type
   required: 'No'
   cardinality: 0..1
   type: code
   description: allergy | intolerance - Underlying mechanism (if known)
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.type
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.type
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceType
       system: http://hl7.org/fhir/allergy-intolerance-type
-      info_link: http://hl7.org/fhir/valueset-allergy-intolerance-type.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergy-intolerance-type.html
 
 - name: category
   required: 'No'
   cardinality: 0..*
   type: code
   description: food | medication | environment | biologic
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.category
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceCategory
       system: http://hl7.org/fhir/allergy-intolerance-category
-      info_link: http://hl7.org/fhir/valueset-allergy-intolerance-category.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergy-intolerance-category.html
 
 - name: criticality
   required: 'No'
   cardinality: 0..*
   type: code
   description: low | high | unable-to-assess
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.criticality
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceCriticality
       system: http://hl7.org/fhir/allergy-intolerance-criticality
-      info_link: http://hl7.org/fhir/valueset-allergy-intolerance-criticality.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
 
 - name: criticality
   required: 'No'
   cardinality: 0..*
   type: code
   description: low | high | unable-to-assess
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.criticality
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceCriticality
       system: http://hl7.org/fhir/allergy-intolerance-criticality
-      info_link: http://hl7.org/fhir/valueset-allergy-intolerance-criticality.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
 
 - name: code
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: Code that identifies the allergy or intolerance
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.code
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
   binding:
     description: Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).
                  This may be a code for a substance or pharmaceutical product that is considered to be responsible for
@@ -103,14 +103,14 @@ fields:
       info_link: http://hl7.org/fhir/valueset-allergyintolerance-code.html
     - display: AllergyIntolerance Substance/Product, Condition and Negation Codes
       system: http://snomed.info/sct
-      info_link: http://hl7.org/fhir/valueset-allergyintolerance-code.html
+      info_link: http://hl7.org/fhir/r4/valueset-allergyintolerance-code.html
 
 - name: reaction
   required: 'No'
   cardinality: 0..*
   type: BackboneElement
   description: Adverse Reaction Events linked to exposure to substance
-  url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.code
+  url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
   children:
 
   - name: manifestation
@@ -118,10 +118,10 @@ fields:
     cardinality: 1..*
     type: CodeableConcept
     description: Clinical symptoms/signs associated with the Event
-    url: http://hl7.org/fhir/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation
+    url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation
     binding:
       description: Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
       terminology:
       - display: SNOMED CT Clinical Findings
         system: http://snomed.info/sct
-        info_link: http://hl7.org/fhir/valueset-clinical-findings.html
+        info_link: http://hl7.org/fhir/r4/valueset-clinical-findings.html
