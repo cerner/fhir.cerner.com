@@ -340,57 +340,70 @@ module Cerner
 
     DSTU2_ALLERGY_INTOLERANCE_UPDATE ||= {
       "resourceType": "AllergyIntolerance",
-      "id": "6167733",
+      "id": "1194890",
       "meta": {
-        "versionId": "6167733",
-        "lastUpdated": "2017-02-28T21:08:25.000Z"
+        "versionId": "1197522",
+        "lastUpdated": "2015-06-11T14:43:38.000Z"
       },
       "contained": [
         {
-          "resourceType": "RelatedPerson",
-          "id": "19775887",
-          "patient": {
-            "reference": "Patient/1316020"
-          },
-          "relationship": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/v3/RoleCode",
-                "code": "ONESELF",
-                "display": "self"
+          "resourceType": "Practitioner",
+          "id": "638994",
+          "practitionerRole": [
+            {
+              "role": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/practitioner-role",
+                    "code": "doctor",
+                    "display": "Doctor"
+                  }
+                ],
+                "text": "Doctor"
               }
-            ],
-            "text": "self"
-          }
+            }
+          ]
         }
       ],
-      "onset": "2015-12-14T16:00:00.000-08:00",
-      "recordedDate": "2017-02-28T15:03:00.000-06:00",
+      "onset": "2014",
+      "recordedDate": "2015-06-11T09:43:38.000-05:00",
       "recorder": {
-        "reference": "Practitioner/1316007"
+        "reference": "Practitioner/2048007"
       },
       "patient": {
         "reference": "Patient/1316020"
       },
       "reporter": {
-        "reference": "#19775887"
+        "reference": "#638994"
       },
       "substance": {
-        "text": "calamine-diphenhydrAMINE topical"
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "256277009",
+            "display": "Grass pollen (substance)",
+            "userSelected": false
+          }
+        ],
+        "text": "Grass"
       },
       "status": "active",
       "criticality": "CRITH",
-      "type": "allergy",
-      "category": "medication",
-      "note": {
-        "text": "2017-02-28T09:03:00.000Z - Note 1"
-      },
+      "category": "food",
       "reaction": [
         {
-          "id": "6167735",
+          "id": "3363737",
           "manifestation": [
             {
-              "text": "Hives"
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "79962008",
+                  "display": "Diffuse spasm of esophagus (disorder)",
+                  "userSelected": false
+                }
+              ],
+              "text": "Barsony-Teschendorf syndrome"
             }
           ]
         }
