@@ -47,7 +47,7 @@ fields:
         }
       ]
     }
-    
+  example2: |
     Contained Practitioner
     {
       "contained": [
@@ -130,7 +130,7 @@ fields:
         "reference": "Patient/5366327"
       }
     }
-    
+  example2: |
     Reporter as a contained reference
     {
       "reporter": "#5366328"
@@ -287,7 +287,7 @@ fields:
             }
           ]
         }
-      }
+      ]
     }
   children:
 
@@ -325,9 +325,9 @@ fields:
               }
             ]
           }
-        }
+        ]
       }
-      
+    example2: |
       Manifestation with a freetext value:
       {
         "reaction": [
