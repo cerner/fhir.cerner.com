@@ -403,6 +403,46 @@ module Cerner
 
     R4_PATIENT_CREATE ||= {
       "resourceType": "Patient",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+          "valueCode": "M"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2028-9",
+                "display": "Asian"
+              }
+            },
+            {
+              "url": "detailed",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2039-6",
+                "display": "Japanese"
+              }
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2186-5",
+                "display": "Non Hispanic or Latino"
+              }
+            }
+          ]
+        }
+      ],
       "identifier": [
         {
           "assigner": {
@@ -573,6 +613,48 @@ module Cerner
           {
             "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
             "valueCode": "M"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2110-5",
+                  "display": "English"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2156-8",
+                  "display": "Costa Rican"
+                }
+              }
+            ]
           }
         ]
       }

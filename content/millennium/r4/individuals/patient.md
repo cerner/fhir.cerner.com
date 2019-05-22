@@ -174,7 +174,7 @@ _Implementation Notes_
 
 Notes:
 
-* Birth Sex may be recorded as an extension.
+* Birth Sex, Ethnicity, and Race may be recorded as extensions.
 
 <%= definition_table(:patient, :create, :r4) %>
 
@@ -185,6 +185,8 @@ Notes:
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient
 
 #### Body
+
+<%= json(:r4_patient_create) %>
 
 #### Response
 

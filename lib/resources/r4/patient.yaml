@@ -395,3 +395,59 @@ fields:
       ]
     }
   url: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html
+
+- name: US Core Ethnicity Extension
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: The ethnicity of the patient.
+  action: create
+  example: |
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Non Hispanic or Latino"
+          }
+        }
+      ]
+    }
+  url: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
+
+- name: US Core Race Extension
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: The race of the patient.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2028-9",
+                "display": "Asian"
+              }
+            },
+            {
+              "url": "detailed",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2039-6",
+                "display": "Japanese"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  url: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
