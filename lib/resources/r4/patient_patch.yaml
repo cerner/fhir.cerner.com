@@ -680,6 +680,48 @@ operations:
         {
           "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
           "valueCode": "M"
+        },
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2106-3",
+                "display": "White"
+              }
+            },
+            {
+              "url": "detailed",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2110-5",
+                "display": "English"
+              }
+            }
+          ]
+        },
+        {
+          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+          "extension": [
+            {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2135-2",
+                "display": "Hispanic or Latino"
+              }
+            },
+            {
+              "url": "detailed",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2156-8",
+                "display": "Costa Rican"
+              }
+            }
+          ]
         }
       ]
     }
@@ -687,4 +729,6 @@ operations:
     Supported extensions that can be replaced:
     <ul>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
+      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
+      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
     </ul>
