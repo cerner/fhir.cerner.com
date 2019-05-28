@@ -639,6 +639,7 @@ a img {
   margin-top: 10px;
   font-size: 14px;
   line-height: 1.5em;
+  width: 33%;
 }
 
 .highlight-module:first-child {

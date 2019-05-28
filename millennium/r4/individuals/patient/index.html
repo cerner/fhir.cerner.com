@@ -445,6 +445,8 @@
       
       
       
+      
+      
   </tbody>
 </table>
 
@@ -1433,7 +1435,7 @@ the entries directly by id. They will not be returned when searching with other 
 <p>Notes:</p>
 
 <ul>
-  <li>Birth Sex may be recorded as an extension.</li>
+  <li>Birth Sex, Ethnicity, and Race may be recorded as extensions.</li>
 </ul>
 
 <table style="white-space: normal">
@@ -2021,6 +2023,106 @@ the entries directly by id. They will not be returned when searching with other 
       </td>
     </tr>
     
+    <tr>
+      <td>
+        <a name="create-US%20Core%20Ethnicity%20Extension">
+        
+          </a><a target="_blank" href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html"><code>US Core Ethnicity Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The ethnicity of the patient.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+  "extension": [
+    {
+      "url": "ombCategory",
+      "valueCoding": {
+        "system": "urn:oid:2.16.840.1.113883.6.238",
+        "code": "2186-5",
+        "display": "Non Hispanic or Latino"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-US%20Core%20Race%20Extension">
+        
+          </a><a target="_blank" href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html"><code>US Core Race Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The race of the patient.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2039-6",
+            "display": "Japanese"
+          }
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -2032,6 +2134,139 @@ the entries directly by id. They will not be returned when searching with other 
 </code></pre>
 
 <h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "M"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2028-9",
+            "display": "Asian"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2039-6",
+            "display": "Japanese"
+          }
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Non Hispanic or Latino"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "assigner": {
+        "reference": "Organization/619848"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Wolf",
+      "given": [
+        "Person",
+        "Name"
+      ],
+      "period": {
+        "start": "2010-05-17T14:54:31.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Bigby"
+      ],
+      "period": {
+        "start": "2012-05-22T15:45:50.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1990-09-15",
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "121212 Metcalf Drive",
+        "Apartment 403"
+      ],
+      "city": "Kansas City",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "code": "UNK",
+        "display": "Unknown"
+      }
+    ],
+    "text": "Unknown"
+  },
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ],
+  "generalPractitioner": [
+    {
+      "reference": "Practitioner/995932"
+    }
+  ]
+}</code></pre>
 
 <h4 id="response-3">Response</h4>
 
@@ -3680,6 +3915,48 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
     {
       "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
       "valueCode": "M"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2110-5",
+            "display": "English"
+          }
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2135-2",
+            "display": "Hispanic or Latino"
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2156-8",
+            "display": "Costa Rican"
+          }
+        }
+      ]
     }
   ]
 }
@@ -3690,6 +3967,10 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>Supported extensions that can be replaced: <ul>
   <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a>
+</li>
+  <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a>
+</li>
+  <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a>
 </li>
 </ul>
 </li></ul>
@@ -3790,6 +4071,48 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
         "valueCode": "M"
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "ombCategory",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2106-3",
+              "display": "White"
+            }
+          },
+          {
+            "url": "detailed",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2110-5",
+              "display": "English"
+            }
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "ombCategory",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2135-2",
+              "display": "Hispanic or Latino"
+            }
+          },
+          {
+            "url": "detailed",
+            "valueCoding": {
+              "system": "urn:oid:2.16.840.1.113883.6.238",
+              "code": "2156-8",
+              "display": "Costa Rican"
+            }
+          }
+        ]
       }
     ]
   }
@@ -3858,6 +4181,14 @@ X-Runtime: 0.296306
         <ul class="js-guides">
           <li><a href="./">Patient</a></li>
           <li><a href="../practitioner/">Practitioner</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
         </ul>
       </li>
     </ul>
