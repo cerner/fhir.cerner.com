@@ -90,11 +90,6 @@ In addition, the following errors may be returned:
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
 * If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
 
-[contained]: https://hl7.org/fhir/r4/references.html#contained
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
-[`reference`]: https://hl7.org/fhir/r4/search.html#reference
-[`token`]: https://hl7.org/fhir/r4/search.html#token
-[`number`]: https://hl7.org/fhir/r4/search.html#number
-[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes

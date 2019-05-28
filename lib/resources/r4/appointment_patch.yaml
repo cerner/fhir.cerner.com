@@ -7,7 +7,7 @@ operations:
     operation: replace
     cardinality: 1..1
     type: code
-    url: http://hl7.org/fhir/r4/datatypes.html#code
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status
     description: The status of the appointment
     example: |
       {
