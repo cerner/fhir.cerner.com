@@ -1,0 +1,21 @@
+---
+name: Appointment
+field_name_base_url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment
+operations:
+  - name: replace-status
+    path: /status
+    operation: replace
+    cardinality: 1..1
+    type: code
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status
+    description: The status of the appointment
+    example: |
+      {
+        "op": "replace",
+        "path": "/status",
+        "value":  "cancelled"
+      }
+    note: >
+      <ul>
+        <li>Only "arrived", "checked-in", and "cancelled" are supported</li>
+      </ul>

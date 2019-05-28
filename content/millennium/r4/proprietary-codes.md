@@ -69,6 +69,15 @@ The Patient Resource supports proprietary codes for:
 * Patient.identifier.type codes are maintained in [Code Set 4 Person Identifier (Alias) Types](#code-set-4-person-identifier-alias-types)
 * Patient.contact.relationship codes for are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
 
+## Scheduling
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Appointment</h3>
+
+The Appointment Resource supports proprietary codes for:
+
+* Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
+
 ## List of Code Sets
 
 #### Code Set 2 Admission Source
@@ -211,5 +220,16 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/351",
       "code": "1156",
       "display": "Guardian",
+      "userSelected": true
+    }
+
+#### Code Set 14249 Scheduling Appointment Type Synonyms
+
+This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14249,
+      "code": "5038369",
+      "display": "Office Visit - Return",
       "userSelected": true
     }
