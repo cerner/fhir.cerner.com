@@ -90,6 +90,7 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-include" id="markdown-toc-example-with-include">Example with Include</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -290,6 +291,13 @@ when integrating your application with the client’s production environment. Se
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to be returned per page.</td>
     </tr>
+    <tr>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#include"><code>_include</code></a></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
+      <td>Other resource entries to be returned as part of the bundle. Example: <code>_include=Slot:schedule</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -324,7 +332,16 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
   <li>
     <p>The retrieved slots are sorted first by <code>start</code> date-time ascending (earliest first), followed by <code>slot-type</code> and <code>Scheduling Location</code> display.</p>
   </li>
-  <li>The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the <code>_id</code> parameter.</li>
+  <li>
+    <p>The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the <code>_id</code> parameter.</p>
+  </li>
+  <li>
+    <p>The <code>_include</code> parameter may be provided once with the value <code>Slot:schedule</code>. Example: <code>_include=Slot:schedule</code></p>
+  </li>
+  <li>
+    <p>The <code>_include</code> parameter may be provided with the <code>_id</code> parameter. Example: <code>_id=21265426-633867-3121665-0&amp;_include=Slot:schedule</code></p>
+  </li>
+  <li>When <code>_include</code> is provided in a request to the closed endpoint, the OAuth2 token must include either the <code>user/Schedule.read</code> or the <code>patient/Schedule.read</code> scope in addition to a Slot scope.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -591,6 +608,475 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
   ]
 }</code></pre>
 
+<h3 id="example-with-include">Example with Include</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2016&amp;slot-type=http://snomed.info/sct|394581000&amp;_count=5&amp;_include=Slot:schedule
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "b1d02f24-a47e-44db-a608-82f75fef8fec",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&amp;schedule.actor=Practitioner%2F2578010&amp;start=2016&amp;_include=Slot%3Aschedule&amp;_count=5"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_include=Slot%3Aschedule&amp;-pageContext=71f9a683-b711-41b9-9646-46f7c87dd94d&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-420",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-4048128-3121781-420",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T15:40:33.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016 10:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-4048128-3121781-420"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-30T21:00:00.000Z",
+        "end": "2016-01-30T22:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-420",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121781-420",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T15:40:33.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016 10:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121781-420"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-30T21:00:00.000Z",
+        "end": "2016-01-30T22:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121785-0",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-4048128-3121785-0",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T15:40:33.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-4048128-3121785-0"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-31T14:00:00.000Z",
+        "end": "2016-01-31T15:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121785-0",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-633867-3121785-0",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T15:40:33.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-633867-3121785-0"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-31T14:00:00.000Z",
+        "end": "2016-01-31T15:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121785-5",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "21265426-4048128-3121785-5",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2015-06-10T15:40:33.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128"
+            }
+          }
+        ],
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394581000",
+              "display": "Community medicine",
+              "userSelected": false
+            },
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+              "code": "21265426",
+              "display": "Same Day",
+              "userSelected": true
+            }
+          ],
+          "text": "Same Day"
+        },
+        "schedule": {
+          "reference": "Schedule/21265426-4048128-3121785-5"
+        },
+        "freeBusyType": "free",
+        "start": "2016-01-31T14:05:00.000Z",
+        "end": "2016-01-31T15:05:00.000Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121781-420",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-4048128-3121781-420",
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128",
+              "display": "Baseline East"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Snow, Jon"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121781-420",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-633867-3121781-420",
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867",
+              "display": "Baseline West"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Snow, Jon"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121785-0",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-4048128-3121785-0",
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128",
+              "display": "Baseline East"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Snow, Jon"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121785-0",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-633867-3121785-0",
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/633867",
+              "display": "Baseline West"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Snow, Jon"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121785-5",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "21265426-4048128-3121785-5",
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+            "valueReference": {
+              "reference": "Location/4048128",
+              "display": "Baseline East"
+            }
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394581000",
+                "display": "Community medicine"
+              }
+            ],
+            "text": "Same Day"
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/2578010",
+          "display": "Snow, Jon"
+        }
+      },
+      "search": {
+        "mode": "include"
+      }
+    }
+  ]
+}</code></pre>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -615,12 +1101,12 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
