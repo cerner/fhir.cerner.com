@@ -70,6 +70,7 @@ _Implementation Notes_
  `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `633867`
  `start`          | Yes when using `slot-type` | [`date`]      | The Slot date-time. Example: `2016`
  [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
+ [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
 
 Notes:
 
@@ -94,6 +95,12 @@ Notes:
 
 * The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the `_id` parameter.
 
+* The `_include` parameter may be provided once with the value `Slot:schedule`. Example: `_include=Slot:schedule`
+
+* The `_include` parameter may be provided with the `_id` parameter. Example: `_id=21265426-633867-3121665-0&_include=Slot:schedule`
+
+* When `_include` is provided in a request to the closed endpoint, the OAuth2 token must include either the `user/Schedule.read` or the `patient/Schedule.read` scope in addition to a Slot scope.
+
 ### Headers
 
  <%= headers %>
@@ -108,6 +115,17 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_slot_bundle) %>
+
+### Example with Include
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2016&slot-type=http://snomed.info/sct|394581000&_count=5&_include=Slot:schedule
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_slot_bundle_include_schedule) %>
 
 ### Errors
 
@@ -149,6 +167,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
+[`_include`]: http://hl7.org/fhir/DSTU2/search.html#include
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Scheduling Location]: #custom-extensions
