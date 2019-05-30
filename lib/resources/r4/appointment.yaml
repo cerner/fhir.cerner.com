@@ -1,0 +1,103 @@
+---
+name: Appointment
+field_name_base_url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Appointment"
+    }
+  note: resourceType must be Appointment
+  url: http://hl7.org/fhir/r4/json.html#resources
+
+- name: slot
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference (Slot)
+  description: The availability to which the appointment is booked.
+  action: create
+  example: |
+    {
+      "slot": [
+        {
+          "reference": "Slot/21265426-633867-6828001-60"
+        }
+      ]
+    }
+  note: At most one slot can be populated.
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: A code representing the status of the new Appointment.
+  action: create
+  example: |
+    {
+      "status": "booked"
+    }
+  note: When creating a new appointment, the status must be "booked".
+
+- name: participant
+  required: 'Yes'
+  cardinality: 1..*
+  type: BackboneElement
+  description: Participants involved in appointment.
+  note: At most one participant can be populated, and participant.type is an unsupported field.
+  action: create
+  example: |
+    {
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
+          },
+          "status": "accepted"
+        }
+      ]
+    }
+  children:
+
+  - name: actor
+    required: 'Yes'
+    cardinality: 0..1
+    type: Reference (Patient)
+    description: A person that is participating in the appointment.
+    note: The reference must be a Patient participant and display is not a required field.
+    example: |
+      {
+        "actor": {
+          "reference": "Patient/4704007",
+          "display": "Smart, Barney R"
+        }
+      }
+
+  - name: status
+    required: 'Yes'
+    cardinality: 1..1
+    type: code
+    description: Participation status of the Patient.
+    note: When creating a new appointment, this value must be "accepted".
+    example: |
+      {
+        "status": "accepted"
+      }
+
+- name: comment
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: Additional text to aid in facilitating the appointment.
+  action: create
+  example: |
+    {
+      "comment: "Further explain MRI results"
+    }
+  url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
+

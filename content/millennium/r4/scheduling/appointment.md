@@ -93,3 +93,55 @@ In addition, the following errors may be returned:
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+
+## Create
+
+Create a new Appointment.
+
+    POST /Appointment
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:appointment, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+
+#### Body
+
+  <%= json(:r4_appointment_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Thu, 30 May 2019 19:49:25 GMT
+Etag: W/"0"
+Last-Modified: Thu, 30 May 2019 19:49:23 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
