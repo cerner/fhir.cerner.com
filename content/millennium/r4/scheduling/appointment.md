@@ -86,7 +86,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 In addition, the following errors may be returned:
 
-* Updating an Appointment resource with the incorrect version to be will result in a `409 Conflict` response.
+* Updating an Appointment resource with the incorrect version will result in a `409 Conflict` response.
 * Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
 * If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
