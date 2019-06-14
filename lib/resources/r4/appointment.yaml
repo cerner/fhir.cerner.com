@@ -1,8 +1,8 @@
 ---
 name: Appointment
-field_name_base_url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment
+field_name_base_url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment
 fields:
-- name: resourceType
+  - name: resourceType
   required: 'Yes'
   cardinality: 1..1
   type: string
@@ -77,7 +77,6 @@ fields:
           "display": "Smart, Barney R"
         }
       }
-
   - name: status
     required: 'Yes'
     cardinality: 1..1
@@ -88,7 +87,6 @@ fields:
       {
         "status": "accepted"
       }
-
 - name: comment
   required: 'No'
   cardinality: 0..1
@@ -100,4 +98,41 @@ fields:
       "comment: "Further explain MRI results"
     }
   url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
-
+- name: serviceType
+  required: 'Yes'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: 	The specific service that is to be performed during this appointment.
+  action: read
+  example: |
+    {
+      "serviceType": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14249",
+              "code": "667105",
+              "display": "Surgery",
+              "userSelected": true
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "394609007",
+              "display": "Surgery-general",
+              "userSelected": false
+            }
+          ],
+          "text": "Surgery"
+        }
+      ]
+    }
+  url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType
+  binding:
+    description:  Additional details about where the content was created (e.g. clinical specialty).
+    terminology:
+    - display: Practice Setting Code Value Set
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/r4/valueset-c80-practice-codes.html
+    - display: Millennium Scheduling Appointment Synonyms or Types
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-14249-scheduling-appointment-type-synonyms
