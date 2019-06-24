@@ -47,7 +47,7 @@ _Implementation Notes_
 
 * When multiple pages of Observation results are returned for a single query:
   * All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.
-  * Results are sorted by effective date/time in descending order by page. That is, all Observations on the any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.
+  * Results are sorted by effective date/time in descending order by page. That is, all Observations on any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.
   * If the query uses the `_lastUpdated` query parameter, results are sorted by last updated date/time in descending order by page, not by effective date/time.
 
 ### Authorization Types
