@@ -259,7 +259,7 @@ fields:
             "coding": [
               {
                 "system": "urn:ietf:bcp:47",
-        	      "code": "eng",
+        	      "code": "en",
                 "display": "English"
               }
             ],
