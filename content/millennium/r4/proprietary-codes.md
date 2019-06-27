@@ -342,6 +342,50 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "display": "Radiology Exam Room",
     }
 
+#### Code Set 18736 Account Types
+
+This code set includes Account Types such as A/R and CASH.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18736,
+      "code": "18736",
+      "display": "Cash",
+      "userSelected": true
+    }
+
+#### Code Set 18934 Currency Type
+
+This code set includes currency types such as USD.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18736,
+      "code": "11074",
+      "display": "USD",
+      "userSelected": true
+    }
+
+#### Code Set 24451 Benefit Order Status
+
+This code set includes Functional Balance Account Statuses such as In Process and Ready to bill.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/24451,
+      "code": "653931",
+      "display": "In Process",
+      "userSelected": true
+    }
+
+#### Code Set 28200 PFT Bill Alias Type
+
+This code set includes bill alias types such as billalias, invalias, and stmtalias.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/28200,
+      "code": "6678349",
+      "display": "STMTALIAS",
+      "userSelected": true
+    }
+
 ####  Code Set 30200 Result Source
       
 This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.
@@ -360,6 +404,17 @@ This code set describes why an immunization was not administered when documented
     { 
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30440", 
       "code": "688466", 
-      "display": "Postpone due to refusal", 
+      "display": "Postpone due to refusal",
+      "userSelected": true
+    } 
+
+#### Code Set 4002640 Correspondence Status
+
+This code set includes Functional Statement Account Statuses such as Pending and Delivered.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4002640,
+      "code": "19177939",
+      "display": "Delivered",
       "userSelected": true
     }
