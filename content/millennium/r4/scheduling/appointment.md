@@ -78,11 +78,11 @@ _Implementation Notes_
 
 Notes:   
 
-- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
+- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination.
   For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
 
 - The `date` parameter may be provided:  
-  - once with a prefix and time component to imply a date range. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)     
+  - once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)     
   - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
 

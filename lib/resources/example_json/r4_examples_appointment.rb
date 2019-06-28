@@ -9,7 +9,7 @@ module Cerner
    },
    "text":{
       "status":"generated",
-      "div":"&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: booked&lt;/b>&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Surgery&lt;/b>&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Mar 27, 2018  9:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>End&lt;/b>: Mar 27, 2018 10:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: OR Rooms, Adams, Charlotte, KM Main OR&lt;/p>&lt;/div>"
+      "div":"&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: booked&lt;/b>&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Surgery&lt;/b>&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Mar 27, 2018  9:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>End&lt;/b>: Mar 27, 2018 10:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Patient: Adams, Charlotte, Other Resource: OR Rooms, Location: KM Main OR&lt;/p>&lt;/div>"
    },
    "status":"booked",
    "serviceType":[
