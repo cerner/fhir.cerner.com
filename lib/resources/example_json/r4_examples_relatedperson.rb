@@ -117,7 +117,7 @@ module Cerner
         ],
         "entry":[
           {
-            "fullUrl":"http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/c-633923",
+            "fullUrl":"http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/633923-633923",
             "resource":{
               "resourceType":"RelatedPerson",
               "id":"633923-633923",
