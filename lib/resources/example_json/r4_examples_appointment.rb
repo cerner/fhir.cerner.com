@@ -16,7 +16,7 @@ module Cerner
       {
          "coding":[
             {
-               "system":"https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14249",
+               "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
                "code":"667105",
                "display":"Surgery",
                "userSelected":true
@@ -47,7 +47,7 @@ module Cerner
             {
                "coding":[
                   {
-                     "system":"https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14250",
+                     "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
                      "code":"667053",
                      "display":"OR Rooms",
                      "userSelected":true
@@ -76,7 +76,7 @@ module Cerner
             {
                "coding":[
                   {
-                     "system":"https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14250",
+                     "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
                      "code":"4572",
                      "display":"Patient",
                      "userSelected":true
