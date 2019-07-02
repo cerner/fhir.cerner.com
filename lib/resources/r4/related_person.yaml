@@ -21,7 +21,7 @@ fields:
       description: The type used to determine which identifier to use for a specific purpose. 
       terminology:
       - display: IdentifierType
-        system: http://hl7.org/fhir/R4/valueset-identifier-type
+        system: http://hl7.org/fhir/valueset-identifier-type
         info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
       - display: Millennium Person Identifier (Alias) Types 
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
