@@ -259,7 +259,7 @@ fields:
             "coding": [
               {
                 "system": "urn:ietf:bcp:47",
-        	      "code": "eng",
+        	      "code": "en",
                 "display": "English"
               }
             ],
@@ -269,7 +269,9 @@ fields:
         }
       ]
     }
-  note: Only one communication may be provided
+  note: Only one communication may be provided.
+        <br/><br/>
+        All the language codes must use ISO-639-1 alpha 2 code in lower case, e.g. "en" for English.
   url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.communication
 
 - name: careProvider
