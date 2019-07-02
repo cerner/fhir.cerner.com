@@ -177,7 +177,7 @@ This code set may include Marital Statuses such as Divorced and Married.
 
 #### Code Set 40 Person Relationship
 
-This code set is describes the Relationship of one person to another.
+This code set describes the Relationship of one person to another.
      
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
