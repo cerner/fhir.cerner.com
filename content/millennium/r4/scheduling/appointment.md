@@ -254,6 +254,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`date`]: https://hl7.org/fhir/r4/search.html#date
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`number`]: https://hl7.org/fhir/r4/search.html#number
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
