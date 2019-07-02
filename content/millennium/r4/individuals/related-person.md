@@ -59,7 +59,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?patient=1860008
+    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=633923-633923
 
 #### Response
 
@@ -88,7 +88,7 @@ List an individual RelatedPerson by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/1316024-1860008
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/633923-633923
 
 #### Response
 
