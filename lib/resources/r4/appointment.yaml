@@ -139,3 +139,33 @@ fields:
     - display: Millennium Scheduling Appointment Synonyms or Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-14249-scheduling-appointment-type-synonyms
+
+- name: participant.type
+  required: 'Yes'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: 	Role of participant in the appointment.
+  action: read
+  example: |
+   {
+          "type": [
+          {
+              "coding": [
+                  {
+                      "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/14250",
+                      "code": "4573",
+                      "display": "Radiology Exam Room",
+                      "userSelected": true
+                  }
+              ],
+              "text": "Radiology Exam Room"
+          }
+      ]
+    }
+  url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type
+  binding:
+    description:  Role of participant in the appointment.
+    terminology:
+    - display: Millennium Scheduling Resource Roles
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-14250-scheduling-resource-roles
