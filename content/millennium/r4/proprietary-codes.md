@@ -69,6 +69,15 @@ The Patient Resource supports proprietary codes for:
 * Patient.identifier.type codes are maintained in [Code Set 4 Person Identifier (Alias) Types](#code-set-4-person-identifier-alias-types)
 * Patient.contact.relationship codes for are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
 
+
+<h3>RelatedPerson</h3>
+
+The RelatedPerson Resource supports proprietary codes for:
+
+* RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
+* RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) and [Code Set 40 Person Relationhip Types](#code-set-40-person-relationship)
+
+
 ## Scheduling
 
 <!-- use html header to avoid showing up in toc -->
@@ -77,13 +86,6 @@ The Patient Resource supports proprietary codes for:
 The Appointment Resource supports proprietary codes for:
 
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
-
-<h3>RelatedPerson</h3>
-
-The RelatedPerson Resource supports proprietary codes for:
-
-* RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
-* RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) and [Code Set 40 Person     Relationhip Types](#code-set-40-person-relationship)
 
 ## List of Code Sets
 

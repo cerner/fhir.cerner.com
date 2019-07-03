@@ -13,6 +13,8 @@ The RelatedPerson resource provides information about a person who is involved i
 
 The distinction between Practitioner and RelatedPerson is a practitioner cares for multiple patients on behalf of a healthcare facility where a RelatedPerson performs care tasks for a specific patient and is not associated with any healthcare facility.
 
+The following fields are returned if valued:
+
 * [RelatedPerson id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [RelatedPerson Identifier](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier){:target="_blank"}
 * [Active](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active){:target="_blank"} 
@@ -45,21 +47,21 @@ Search for RelatedPersons that meet supplied query parameters:
 --------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
  `_id`        | This or `patient` or `identifier` | [`token`]     | The logical resource id associated with the resource.
  `identifier` | This or `_id` or `patient`        | [`token`]     | A RelatedPerson identifier.
- `patient`    | This or `_id` or `identifier`     | [`reference`] | A reference to a patient related which the RelatedPerson is associated. Example: `14067892`
+ `patient`    | This or `_id` or `identifier`     | [`reference`] | A reference to a patient associated with the RelatedPerson Example: `14067892`
 
 Notes:
 
-- `identifier` value must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN`
+- `identifier` value must include both a system and a code. Example: `identifier=URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:ABZ12JDJIE3`
 
 ### Headers
 
- <%= headers %>
+<%= headers %>
 
 ### Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=633923-633923
+    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=3440007-4768010
 
 #### Response
 
@@ -88,7 +90,7 @@ List an individual RelatedPerson by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/633923-633923
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/3440007-4768010
 
 #### Response
 

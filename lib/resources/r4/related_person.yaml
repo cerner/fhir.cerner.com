@@ -38,7 +38,7 @@ fields:
   - name: use
     required: 'No'
     cardinality: 0..1
-    type: CodeablCodeeConcept
+    type: Code
     description: The use of a human name.
     action: terminology
     url: http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name.use
