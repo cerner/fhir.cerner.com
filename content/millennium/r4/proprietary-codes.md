@@ -177,9 +177,9 @@ This code set may include Marital Statuses such as Divorced and Married.
       "userSelected": true
     }
 
-#### Code Set 40 Person Relationship
+#### Code Set 40 Person Relationships
 
-This code set describes the Relationship of one person to another.
+This code set is used to describe the patient's relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.
      
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
