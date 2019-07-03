@@ -51,7 +51,7 @@ Search for RelatedPersons that meet supplied query parameters:
 
 Notes:
 
-- `identifier` value must include both a system and a code. Example: `identifier=URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:ABZ12JDJIE3`
+- `identifier` value must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F`
 
 ### Headers
 
