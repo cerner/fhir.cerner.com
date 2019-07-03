@@ -160,7 +160,7 @@ fields:
     terminology:
     - display: PatientRelationshipType
       system: http://hl7.org/fhir/relatedperson-contactrelationship
-      info_link: http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype 
+      info_link: http://hl7.org/fhir/R4/ValueSet/relatedperson-relationshiptype 
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-351-person-relationship-types
