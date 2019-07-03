@@ -770,6 +770,7 @@ module Cerner
                   "start": "2017-10-05T16:55:29.000Z"
               }
           }
+        }
       ],
       "gender": "male",
       "birthDate": "1989-02-17",
@@ -789,6 +790,7 @@ module Cerner
                   "start": "2017-10-05T17:05:17.000Z"
               }
           }
+        }
       ],
       "communication": {
           "preferred": "true",
@@ -832,4 +834,3 @@ module Cerner
       }
   end
 end
-  
