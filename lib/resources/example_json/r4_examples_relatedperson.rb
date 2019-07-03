@@ -815,19 +815,19 @@ module Cerner
   }
         
     R4_RELATEDPERSON_BUNDLE ||= {
-        "id":"e8274221-8809-4f7a-ba44-dc4ac55a5318",
-        "resourceType":"Bundle",
-        "type":"searchset",
-        "total":1,
-        "link":[
+        "id": "e8274221-8809-4f7a-ba44-dc4ac55a5318",
+        "resourceType": "Bundle",
+        "type": "searchset",
+        "total": 1,
+        "link": [
           {
-            "relation":"self",
-            "url":"https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=3440007-4768010"
+            "relation": "self",
+            "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=3440007-4768010"
           }
         ],
-        "entry":[
+        "entry": [
           {
-            "fullUrl":"https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/3440007-4768010",
+            "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/3440007-4768010",
             "resource": R4_RELATEDPERSON_ENTRY
           }
         ]
