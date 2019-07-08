@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: CROWN, TEST A&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 17, 1989&lt;/p&gt;&lt;&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Bobo, Bob&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Bobo, TEST A&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 17, 1989&lt;/p&gt;&lt;&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Bobo, Bob&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
           {
@@ -72,8 +72,8 @@ module Cerner
       },
       "name": {
           "use": "official",
-          "text": "CROWN, TEST A",
-          "family": "CROWN",
+          "text": "Bobo, TEST A",
+          "family": "Bobo",
           "given": [
               "TEST",
               "A"
