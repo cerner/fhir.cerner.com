@@ -44,7 +44,7 @@ Search for RelatedPersons that meet supplied query parameters:
 ### Parameters
 
  Name         | Required?                                         | Type          | Description
---------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
+--------------|---------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | This or `patient` or `identifier` | [`token`]     | The logical resource id associated with the resource.
  `identifier` | This or `_id` or `patient`        | [`token`]     | A RelatedPerson identifier.
  `patient`    | This or `_id` or `identifier`     | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`

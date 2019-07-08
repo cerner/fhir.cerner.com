@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
           "status": "generated",
-          "div": "<div><p><b>Related Person</b></p><p><b>Name</b>: CROWN, TEST A</p><p><b>DOB</b>: Feb 17, 1989</p><p><b>Gender</b>: male</p><p><b>Patient</b>: CROWN, ADAM</p></div>"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: CROWN, TEST A&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 17, 1989&lt;/p&gt;&lt;&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: CROWN, ADAM&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
           {
