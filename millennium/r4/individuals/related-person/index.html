@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>RelatedPerson | R4 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+    
+    <ul>
+      <li><a href="../../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
+      
+        <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="relatedperson">RelatedPerson</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The RelatedPerson resource provides information about a person who is involved in the care of a patient but has no formal responsibility. RelatedPersons typically have a personal relationship with the patient such as a spouse, relative, friend, guardian, or attorney. RelatedPersons are commonly a source of information about a patient.</p>
+
+<p>The distinction between Practitioner and RelatedPerson is a practitioner cares for multiple patients on behalf of a healthcare facility where a RelatedPerson performs care tasks for a specific patient and is not associated with any healthcare facility.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">RelatedPerson id</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier" target="_blank">RelatedPerson Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active" target="_blank">Active</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">Patient</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship" target="_blank">Relationship</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">Related person’s name</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom" target="_blank">Telecom information (may include phone and email)</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender" target="_blank">Gender (administrative)</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate" target="_blank">Date of birth</a></li>
+  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address" target="_blank">Address</a></li>
+  <li><a href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication" target="_blank">Communication (preferred language)</a></li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/relatedPerson-definitions.html#RelatedPerson.identifier">RelatedPerson.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-identifier-type.html">IdentifierType</a><br>
+                      System: http://hl7.org/fhir/valueset-identifier-type </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-4-person-identifier-alias-types">Millennium Person Identifier (Alias) Types</a><br>
+                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.communication.language">RelatedPerson.communication.language</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The language used to communicate with a related person about a patient's health.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/ValueSet/languages">CommonLanguages</a><br>
+                      System: http://hl7.org/fhir/languages </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/v2/0203/index.html">v2 Identifier Type</a><br>
+                      System: http://terminology.hl7.org/CodeSystem/v2-0203 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-36-languages">Millennium Language codes</a><br>
+                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship">RelatedPerson.relationship</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The nature of the relationship between a patient and the related person.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html">PatientRelationshipType</a><br>
+                      System: http://hl7.org/fhir/relatedperson-contactrelationship </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-351-person-relationship-types">Millennium Person Relationship Types</a><br>
+                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-40-person-relationship">Millennium Person Relationship Types</a><br>
+                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40 </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for RelatedPersons that meet supplied query parameters:</p>
+
+<pre><code>GET /RelatedPerson?:parameters
+</code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code> or <code>identifier</code>
+</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>This or <code>_id</code> or <code>patient</code>
+</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>A RelatedPerson identifier.</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This or <code>_id</code> or <code>identifier</code>
+</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to a patient associated with the RelatedPerson. Example: <code>14067892</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>When provided, the <code>identifier</code> query parameter must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F</code>
+</li>
+</ul>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=3440007-4768010
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "id": "e8274221-8809-4f7a-ba44-dc4ac55a5318",
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?_id=3440007-4768010"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/3440007-4768010",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "3440007-4768010",
+        "meta": {
+          "versionId": 30,
+          "lastUpdated": "2019-01-09T15:25:32.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Bobo, TEST A&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 17, 1989&lt;/p&gt;&lt;&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Bobo, Bob&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                  "code": "36322657",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:ABZ12JDJIE3",
+            "period": {
+              "start": "2019-01-02T05:00:00.000Z"
+            }
+          },
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                  "code": "36322657",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:0B8A0111-E8E6-4C26-A91C-5069CBC6B1CA:PRINCIPAL:AEIDKDKDDLKDSLSDK23",
+            "period": {
+              "start": "2017-09-26T05:00:00.000Z",
+              "end": "2019-01-02T05:00:00.000Z"
+            }
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/4768010",
+          "display": "Bobo, Bob"
+        },
+        "name": {
+          "use": "official",
+          "text": "Bobo, TEST A",
+          "family": "Bobo",
+          "given": [
+            "TEST",
+            "A"
+          ],
+          "period": {
+            "start": "2017-10-05T17:02:53.000Z"
+          }
+        },
+        "telecom": [
+          {
+            "system": "Phone",
+            "value": "8162013072",
+            "use": "Home",
+            "period": {
+              "start": "2017-10-05T17:05:17.000Z"
+            }
+          },
+          {
+            "system": "Email",
+            "value": "tester@email.com",
+            "use": "Home",
+            "period": {
+              "start": "2017-11-21T19:23:58.000Z"
+            }
+          },
+          {
+            "system": "Email",
+            "value": "kesfk2@mail.missouri.edu",
+            "use": "Home",
+            "period": {
+              "start": "2017-10-05T16:55:29.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1989-02-17",
+        "address": [
+          {
+            "use": "home",
+            "text": "2800 Rockcreek Pkwy\nRandolph, MO 64117\nUSA",
+            "line": [
+              "2800 Rockcreek Pkwy"
+            ],
+            "city": "Randolph",
+            "district": "Clay",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "USA",
+            "period": {
+              "start": "2017-10-05T17:05:17.000Z"
+            }
+          }
+        ],
+        "communication": {
+          "preferred": "true",
+          "language": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+                "code": "151",
+                "display": "English",
+                "userSelected": true
+              },
+              {
+                "system": "urn:ietf:bcp:47",
+                "code": "en",
+                "display": "English",
+                "userSelected": false
+              }
+            ],
+            "text": "English"
+          }
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual RelatedPerson by its id:</p>
+
+<pre><code>GET /RelatedPerson/:id
+</code></pre>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/3440007-4768010
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "3440007-4768010",
+  "meta": {
+    "versionId": 30,
+    "lastUpdated": "2019-01-09T15:25:32.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Bobo, TEST A&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 17, 1989&lt;/p&gt;&lt;&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Bobo, Bob&lt;/p&gt;&lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+            "code": "36322657",
+            "display": "Federated Person Principal",
+            "userSelected": true
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:ABZ12JDJIE3",
+      "period": {
+        "start": "2019-01-02T05:00:00.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+            "code": "36322657",
+            "display": "Federated Person Principal",
+            "userSelected": true
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:0B8A0111-E8E6-4C26-A91C-5069CBC6B1CA:PRINCIPAL:AEIDKDKDDLKDSLSDK23",
+      "period": {
+        "start": "2017-09-26T05:00:00.000Z",
+        "end": "2019-01-02T05:00:00.000Z"
+      }
+    }
+  ],
+  "active": true,
+  "patient": {
+    "reference": "Patient/4768010",
+    "display": "Bobo, Bob"
+  },
+  "name": {
+    "use": "official",
+    "text": "Bobo, TEST A",
+    "family": "Bobo",
+    "given": [
+      "TEST",
+      "A"
+    ],
+    "period": {
+      "start": "2017-10-05T17:02:53.000Z"
+    }
+  },
+  "telecom": [
+    {
+      "system": "Phone",
+      "value": "8162013072",
+      "use": "Home",
+      "period": {
+        "start": "2017-10-05T17:05:17.000Z"
+      }
+    },
+    {
+      "system": "Email",
+      "value": "tester@email.com",
+      "use": "Home",
+      "period": {
+        "start": "2017-11-21T19:23:58.000Z"
+      }
+    },
+    {
+      "system": "Email",
+      "value": "kesfk2@mail.missouri.edu",
+      "use": "Home",
+      "period": {
+        "start": "2017-10-05T16:55:29.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1989-02-17",
+  "address": [
+    {
+      "use": "home",
+      "text": "2800 Rockcreek Pkwy\nRandolph, MO 64117\nUSA",
+      "line": [
+        "2800 Rockcreek Pkwy"
+      ],
+      "city": "Randolph",
+      "district": "Clay",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "USA",
+      "period": {
+        "start": "2017-10-05T17:05:17.000Z"
+      }
+    }
+  ],
+  "communication": {
+    "preferred": "true",
+    "language": {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+          "code": "151",
+          "display": "English",
+          "userSelected": true
+        },
+        {
+          "system": "urn:ietf:bcp:47",
+          "code": "en",
+          "display": "English",
+          "userSelected": false
+        }
+      ],
+      "text": "English"
+    }
+  }
+}</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../capability-statement/">Capability Statement</a></li>
+          <li><a href="../../proprietary-codes/">Proprietary Codes</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Individuals</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../patient/">Patient</a></li>
+          <li><a href="../practitioner/">Practitioner</a></li>
+          <li><a href="./">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

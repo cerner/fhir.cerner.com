@@ -166,6 +166,17 @@
 </li>
 </ul>
 
+<h3>RelatedPerson</h3>
+
+<p>The RelatedPerson Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>RelatedPerson.communication.language codes are maintained in <a href="#code-set-36-languages">Code Set 36 Languages</a>
+</li>
+  <li>RelatedPerson.relationship codes are maintained in <a href="#code-set-40-person-relationships">Code Set 40 Person Relationship Types</a> and <a href="#code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</a>
+</li>
+</ul>
+
 <h2 id="scheduling">Scheduling</h2>
 
 <!-- use html header to avoid showing up in toc -->
@@ -272,6 +283,18 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/38",
   "code": "309236",
   "display": "Divorced",
+  "userSelected": true
+}
+</code></pre>
+
+<h4 id="code-set-40-person-relationships">Code Set 40 Person Relationships</h4>
+
+<p>This code set is used to describe the patient’s relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40",
+  "code": "153",
+  "display": "DAUGHTER",
   "userSelected": true
 }
 </code></pre>
@@ -386,6 +409,7 @@
         <ul class="js-guides">
           <li><a href="../individuals/patient/">Patient</a></li>
           <li><a href="../individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../individuals/related-person/">RelatedPerson</a></li>
         </ul>
       </li>
       <li class="js-topic">
