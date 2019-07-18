@@ -35,6 +35,7 @@ _List of StructureDefinitions_
 * [`patient-friendly-display`](http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions): Display string suitable for patient viewing.
 * [`scheduling-location`](http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions): Reference to the location of an appointment being scheduled.
 * [`medication-statement-category`](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions): Category of an order.
+* [`encounter-guarantor`](http://fhir.cerner.com/millennium/dstu2/encounters/encounter/#custom-extensions): Encounter guarantors
 
 
 ## Retrieve by id
