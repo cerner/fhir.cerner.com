@@ -81,7 +81,7 @@ module Cerner
           },
           "actor": {
             "reference": "Practitioner/1316008",
-            "display": "Houde, Darrell"
+            "display": "Doe, John"
           }
         }
       ]
@@ -104,6 +104,63 @@ module Cerner
           "resource": R4_IMMUNIZATION_ENTRY
         }
       ]
+    }
+
+    R4_IMMUNIZATION_CREATE ||= {
+      "resourceType": "Immunization",
+      "status": "completed",
+      "occurrenceDateTime": "2019-06-30T10:35:00-05:00",
+      "vaccineCode": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "2798497",
+            "display": "poliovirus vaccine, inactivated",
+            "userSelected": false
+          }
+        ],
+        "text": "poliovirus vaccine, inactivated"
+      },
+      "patient": {
+        "reference": "Patient/123820084",
+        "display": "Immun, Test1"
+      },
+      "encounter": {
+        "reference": "Encounter/36209678"
+      },
+      "reportOrigin": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30200",
+            "code": "679972",
+            "display": "Clinician",
+            "userSelected": false
+          }
+        ],
+        "text": "Clinician"
+      },
+      "site": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/97",
+            "code": "610",
+            "display": "Right Hand",
+            "userSelected": false
+          }
+        ],
+        "text": "Right Hand"
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4001",
+            "code": "318167",
+            "display": "IM",
+            "userSelected": false
+          }
+        ],
+        "text": "IM"
+      }
     }
   end
 end

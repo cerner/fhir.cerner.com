@@ -114,6 +114,58 @@ List an individual Immunization by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Create
+
+Create a new Immunization.
+
+    POST /Immunization
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true, patient: false) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:immunization, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization
+
+#### Body
+
+  <%= json(:R4_IMMUNIZATION_CREATE) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Sun, 30 Jun 2019 10:35:00 GMT
+Etag: W/"1"
+Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/147391087
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date
