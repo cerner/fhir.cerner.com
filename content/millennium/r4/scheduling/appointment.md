@@ -96,7 +96,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z&patient=4704007
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&date=lt2017-10-04T14:00:00.000Z&patient=4704007
 
 #### Response
 

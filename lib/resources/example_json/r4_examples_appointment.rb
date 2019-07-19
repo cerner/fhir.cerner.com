@@ -1,113 +1,108 @@
 module Cerner
   module Resources
     R4_APPOINTMENT_ENTRY ||= {
-   "resourceType":"Appointment",
-   "id":"20465903",
-   "meta":{
-      "versionId":"0",
-      "lastUpdated":"2018-03-02T21:51:55.000Z"
-   },
-   "text":{
-      "status":"generated",
-      "div":"&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: booked&lt;/b>&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Surgery&lt;/b>&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Mar 27, 2018  9:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>End&lt;/b>: Mar 27, 2018 10:00 A.M. CDT&lt;/b>&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Patient: Adams, Charlotte, Other Resource: OR Rooms, Location: KM Main OR&lt;/p>&lt;/div>"
-   },
-   "status":"booked",
-   "serviceType":[
-      {
-         "coding":[
-            {
-               "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-               "code":"667105",
-               "display":"Surgery",
-               "userSelected":true
-            },
-            {
-               "system":"http://snomed.info/sct",
-               "code":"394609007",
-               "display":"Surgery-general",
-               "userSelected":false
-            }
-         ],
-         "text":"Surgery"
-      }
-   ],
-   "reasonCode":[
-      {
-         "text":"Headache"
-      }
-   ],
-   "description":"Surgery",
-   "start":"2018-03-27T14:00:00.000Z",
-   "end":"2018-03-27T15:00:00.000Z",
-   "minutesDuration":60,
-   "comment":"EA-ALVA",
-   "participant":[
-      {
-         "type":[
-            {
-               "coding":[
-                  {
-                     "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                     "code":"667053",
-                     "display":"OR Rooms",
-                     "userSelected":true
-                  }
-               ],
-               "text":"OR Rooms"
-            },
-            {
-               "coding":[
-                  {
-                     "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                     "code":"PPRF",
-                     "display":"primary performer"
-                  }
-               ]
-            }
-         ],
-         "actor":{
-            "display":"OR Rooms"
-         },
-         "required":"required",
-         "status":"accepted"
+      "resourceType": "Appointment",
+      "id": "3005756",
+      "meta": {
+          "versionId": "3",
+          "lastUpdated": "2019-01-04T20:31:42.000Z"
       },
-      {
-         "type":[
-            {
-               "coding":[
-                  {
-                     "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                     "code":"4572",
-                     "display":"Patient",
-                     "userSelected":true
-                  }
-               ],
-               "text":"Patient"
-            }
-         ],
-         "actor":{
-            "reference":"Patient/1316026",
-            "display":"Adams, Charlotte"
-         },
-         "required":"required",
-         "status":"accepted"
+      "text": {
+          "status": "generated",
+          "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Howdeshell, Tami, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;/div>"
       },
-      {
-         "actor":{
-            "reference":"Location/451615309",
-            "display":"KM Main OR"
-         },
-         "required":"required",
-         "status":"accepted"
-      }
-   ],
-   "requestedPeriod":[
-      {
-         "start":"2018-03-27T14:00:00.000Z",
-         "end":"2018-03-27T15:00:00.000Z"
-      }
-   ]
-}
+      "status": "cancelled",
+      "serviceType": [
+          {
+              "coding": [
+                  {
+                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                      "code": "21265426",
+                      "display": "Same Day",
+                      "userSelected": true
+                  },
+                  {
+                      "system": "http://snomed.info/sct",
+                      "code": "408443003",
+                      "display": "General medical practice",
+                      "userSelected": false
+                  }
+              ],
+              "text": "Same Day"
+          }
+      ],
+      "description": "Same Day",
+      "start": "2017-10-04T13:00:00.000Z",
+      "end": "2017-10-04T14:00:00.000Z",
+      "minutesDuration": 60,
+      "participant": [
+          {
+              "type": [
+                  {
+                      "coding": [
+                          {
+                              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+                              "code": "4574",
+                              "display": "Resource",
+                              "userSelected": true
+                          }
+                      ],
+                      "text": "Resource"
+                  },
+                  {
+                      "coding": [
+                          {
+                              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                              "code": "PPRF",
+                              "display": "primary performer"
+                          }
+                      ]
+                  }
+              ],
+              "actor": {
+                  "reference": "Practitioner/2578010",
+                  "display": "Howdeshell, Tami"
+              },
+              "required": "required",
+              "status": "accepted"
+          },
+          {
+              "type": [
+                  {
+                      "coding": [
+                          {
+                              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+                              "code": "4572",
+                              "display": "Patient",
+                              "userSelected": true
+                          }
+                      ],
+                      "text": "Patient"
+                  }
+              ],
+              "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+              },
+              "required": "required",
+              "status": "accepted"
+          },
+          {
+              "actor": {
+                  "reference": "Location/4048128",
+                  "display": "Baseline East"
+              },
+              "required": "required",
+              "status": "accepted"
+          }
+      ],
+      "requestedPeriod": [
+          {
+              "start": "2017-10-04T13:00:00.000Z",
+              "end": "2017-10-04T14:00:00.000Z"
+          }
+      ]
+    }
 
     R4_APPOINTMENT_BUNDLE ||= {
       "resourceType": "Bundle",
@@ -116,7 +111,7 @@ module Cerner
       "link": [
         {
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2018-12-07T22%3A22%3A16.270Z&date=lt2018-12-14T22%3A22%3A16.270Z&location=4062889&location=4048128&_count=1"
+            "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&date=lt2017-10-04T14:00:00.000Z&patient=4704007"
         },
         {
             "relation": "next",
