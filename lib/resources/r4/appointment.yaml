@@ -147,19 +147,19 @@ fields:
   description: 	Role of participant in the appointment.
   action: read
   example: |
-   {
-          "type": [
-          {
-              "coding": [
-                  {
-                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                      "code": "4573",
-                      "display": "Radiology Exam Room",
-                      "userSelected": true
-                  }
-              ],
-              "text": "Radiology Exam Room"
-          }
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+              "code": "4573",
+              "display": "Radiology Exam Room",
+              "userSelected": true
+            }
+          ],
+          "text": "Radiology Exam Room"
+        }
       ]
     }
   url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type
@@ -174,7 +174,7 @@ fields:
   required: 'No'
   cardinality: 0..*
   type: CodeableConcept
-  description: 	Coded reason this appointment is scheduled.
+  description: Coded reason this appointment is scheduled.
   binding:
     description: Coded reason this appointment is scheduled.
     note: Currently not bound to any terminology.
