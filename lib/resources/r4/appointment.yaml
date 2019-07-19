@@ -169,3 +169,12 @@ fields:
     - display: Millennium Scheduling Resource Roles
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-14250-scheduling-resource-roles
+
+- name: reasonCode
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: 	Coded reason this appointment is scheduled.
+  binding:
+    description: Coded reason this appointment is scheduled.
+    note: Currently not bound to any terminology.
