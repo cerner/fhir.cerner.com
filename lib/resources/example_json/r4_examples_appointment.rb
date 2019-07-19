@@ -9,7 +9,7 @@ module Cerner
       },
       "text": {
           "status": "generated",
-          "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Howdeshell, Tami, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;/div>"
+          "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;/div>"
       },
       "status": "cancelled",
       "serviceType": [
@@ -61,7 +61,7 @@ module Cerner
               ],
               "actor": {
                   "reference": "Practitioner/2578010",
-                  "display": "Howdeshell, Tami"
+                  "display": "Jones, Clive"
               },
               "required": "required",
               "status": "accepted"
@@ -119,7 +119,7 @@ module Cerner
         }
     ],
       "entry": [
-        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903",
+        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
         "resource": R4_APPOINTMENT_ENTRY
       ]
     }
