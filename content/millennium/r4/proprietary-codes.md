@@ -85,6 +85,8 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
 
+* Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
+
 ## List of Code Sets
 
 #### Code Set 2 Admission Source
@@ -250,5 +252,16 @@ This code set is highly customized by clients and may include appointment types 
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14249,
       "code": "5038369",
       "display": "Office Visit - Return",
+      "userSelected": true
+    }
+
+#### Code Set 14250 Scheduling Resource Roles
+
+This code set is customized by clients and defines exam rooms, surgery rooms, and generic resource roles such as Anesthesiologist and Radiology Tech.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14250,
+      "code": "4573",
+      "display": "Radiology Exam Room",
       "userSelected": true
     }

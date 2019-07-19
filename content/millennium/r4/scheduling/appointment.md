@@ -27,6 +27,115 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Cancelled
 
+The following fields are returned if valued:
+
+* [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
+* [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
+* [Participant](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant){:target="_blank"}
+   * [Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
+   * [Actor](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
+   * [Required](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
+   * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
+* [Reason code](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode){:target="_blank"}
+* [Description](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.description){:target="_blank"}
+* [Start date time](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.start){:target="_blank"}
+* [End date time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
+* [Duration in minutes](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
+* [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
+* [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
+
+## Terminology Bindings
+
+<%= terminology_table(:appointment, :r4) %>
+
+## Search
+
+Search for Appointments that meet supplied query parameters:
+
+    GET /Appointment?:parameters
+
+_Implementation Notes_
+
+- Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when
+  integrating your application with the client's production environment. See [overview](#overview) for details.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Parameters
+
+ Name          | Required?                                                | Type          | Description
+---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
+`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
+`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
+`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+`status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
+
+Notes:   
+
+- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination.
+  For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
+
+- The `date` parameter may be provided:  
+  - once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)     
+  - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
+    an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
+
+- The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&date=lt2017-10-04T14:00:00.000Z&patient=4704007
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_appointment_bundle) %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual Appointment by its id:
+
+    GET /Appointment/:id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_appointment_entry) %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Patch
 
 Patch an existing Appointment.
@@ -144,5 +253,10 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 The common [errors] and [OperationOutcomes] may be returned.
 
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`date`]: https://hl7.org/fhir/r4/search.html#date
+[`token`]: https://hl7.org/fhir/r4/search.html#token
+[`number`]: https://hl7.org/fhir/r4/search.html#number
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
