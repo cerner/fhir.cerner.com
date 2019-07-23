@@ -96,8 +96,8 @@ module Cerner
             "abatementDateTime":"2017-01-01",
             "recordedDate":"2018-11-13T21:56:13.000Z",
             "recorder":{
-              "reference":"Practitioner/1900016",
-              "display":"Generated Domain User for 0"
+              "reference":"Practitioner/1912007",
+              "display":"Forrest, Fhir"
             }
           }
         }

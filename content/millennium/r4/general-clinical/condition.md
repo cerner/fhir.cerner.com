@@ -13,19 +13,19 @@ The Condition resource is used to record problems, diagnoses, or other health ma
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
-* [Clinical status](http://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus)
-* [Verification status](http://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus)
-* [Category](http://hl7.org/fhir/R4/condition-definitions.html#Condition.category)
-* [Severity](http://hl7.org/fhir/R4/condition-definitions.html#Condition.severity)
-* [Condition code](http://hl7.org/fhir/R4/condition-definitions.html#Condition.code)
-* [Patient](http://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
-* [Patient encounter when first recorded (only applies to diagnoses)](http://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
-* [Onset (dateTime)](http://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
-* [Resolved date  (only applies to problems)](http://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
-* [Date recorded](http://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
-* [Who recorded the condition](http://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
-* [Comment/Note](http://hl7.org/fhir/R4/condition-definitions.html#Condition.note)
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
+* [Clinical status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus)
+* [Verification status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus)
+* [Category](https://hl7.org/fhir/R4/condition-definitions.html#Condition.category)
+* [Severity](https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity)
+* [Condition code](https://hl7.org/fhir/R4/condition-definitions.html#Condition.code)
+* [Patient](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
+* [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
+* [Onset (dateTime)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
+* [Resolved date  (only applies to problems)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
+* [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
+* [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
+* [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note)
 
 ## Terminology Bindings
 
@@ -49,10 +49,10 @@ _Implementation Notes_
 
  Name               | Required?          | Type          | Description
 --------------------|--------------------|---------------|-----------------------------------------------------------------------
- `patient`          | This or `subject`  | [`reference`] | Who the sensitivity is for. Example: `12345`
- `subject`          | This or `patient`  | [`reference`] | Who the sensitivity is for. Example: `12345`
+ `patient`          | This or `subject`  | [`reference`] | Who the condition is for. Example: `12345`
+ `subject`          | This or `patient`  | [`reference`] | Who the condition is for. Example: `12345`
  `clinical-status`  | No                 | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`         | No                 | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`, `encounter-diagnosis`
+ `category`         | No                 | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
 
 ### Headers
 
