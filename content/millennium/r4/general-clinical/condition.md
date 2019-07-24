@@ -74,6 +74,6 @@ _Implementation Notes_
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
-[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
