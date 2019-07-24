@@ -57,6 +57,15 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
 
+## General Clinical
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Condition</h3>
+
+The Condition Resource supports proprietary codes for:
+
+* Condition.severity codes are maintained in [Code Set 12022 Severity](#code-set-12022-severity)
+
 ## Individuals
 
 <!-- use html header to avoid showing up in toc -->
@@ -242,6 +251,17 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "code": "1156",
       "display": "Guardian",
       "userSelected": true
+    }
+
+#### Code Set 12022 Severity
+
+This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history. 
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022", 
+      "code": "3294", 
+      "display": "Moderate", 
+      "userSelected": true 
     }
 
 #### Code Set 14249 Scheduling Appointment Type Synonyms
