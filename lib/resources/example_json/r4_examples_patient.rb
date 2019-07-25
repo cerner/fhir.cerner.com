@@ -529,7 +529,7 @@ module Cerner
       ],
       "generalPractitioner": [
         {
-          "reference": "Practitioner/995932"
+          "reference": "Practitioner/605926"
         }
       ]
     }
