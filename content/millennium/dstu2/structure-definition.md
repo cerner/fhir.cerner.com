@@ -30,13 +30,6 @@ The following fields are returned if valued:
 * [Base](http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.base){:target="_blank"}
 * [Name](http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.name){:target="_blank"}
 
-_List of StructureDefinitions_
-
-* [`patient-friendly-display`](http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions): Display string suitable for patient viewing.
-* [`scheduling-location`](http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions): Reference to the location of an appointment being scheduled.
-* [`medication-statement-category`](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions): Category of an order.
-
-
 ## Retrieve by id
 
 List an individual StructureDefinition by its id:
@@ -73,3 +66,12 @@ Authorization is not required.
 
 <%= headers status: 200 %>
 <%= json(:dstu2_structure_definition_bundle) %>
+
+## List of StructureDefinitions
+
+ID                                                                                                                             | Description
+-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------
+[`patient-friendly-display`](http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions)          | Display string suitable for patient viewing.  
+[`scheduling-location`](http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions)                        | Reference to the location of an appointment being scheduled.
+[`medication-statement-category`](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions) | Category of an order.
+[`encounter-guarantor`](http://fhir.cerner.com/millennium/dstu2/encounters/encounter/#custom-extensions)                       | The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.
