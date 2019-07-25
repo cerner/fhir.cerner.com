@@ -52,9 +52,11 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
- ID                         | Value\[x] Type                                                          | Description
-----------------------------|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------
- `encounter-guarantor`      | [`reference`](http://hl7.org/fhir/DSTU2/references.html) and [`period`] | The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.
+Extension                                        | Value\[x] Type                                            | Description
+-------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------------------
+Encounter Guarantor (id: `encounter-guarantor`)  | None (contains nested extensions)                         | The guarantors of the encounter.
+Encounter Guarantor Party                        | [`reference`](http://hl7.org/fhir/DSTU2/references.html)  | A reference to a Patient, Person, or Organization.
+Encounter Guarantor Period                       | [`period`]                                                | The period when this encounter guarantor is effective.
 
 ## Search
 
