@@ -38,6 +38,7 @@ The following fields are returned if valued:
 * [Argonaut Ethnicity]
 * [Argonaut Patient Birth Sex]
 * [Argonaut Race]
+* [Rendered Value]
 
 ## Search
 
@@ -228,6 +229,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Argonaut Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
 [Argonaut Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
 [Argonaut Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
+[Rendered Value]: http://hl7.org/fhir/extension-rendered-value.html
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [`string`]: http://hl7.org/fhir/DSTU2/search.html#string
