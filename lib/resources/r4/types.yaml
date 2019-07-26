@@ -20,6 +20,7 @@ instant: https://hl7.org/fhir/R4/datatypes.html#instant
 integer: https://hl7.org/fhir/R4/datatypes.html#integer
 Location: https://hl7.org/fhir/R4/location.html
 Medication: https://hl7.org/fhir/R4/medication.html
+Money: https://hl7.org/fhir/R4/datatypes.html#Money
 Reference: https://hl7.org/fhir/R4/references.html
 Patient: https://hl7.org/fhir/R4/patient.html
 Practitioner: https://hl7.org/fhir/R4/practitioner.html
@@ -31,3 +32,4 @@ SimpleQuantity: https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity
 string: https://hl7.org/fhir/R4/datatypes.html#string
 Timing: https://hl7.org/fhir/R4/datatypes.html#Timing
 uri: https://hl7.org/fhir/R4/datatypes.html#uri
+

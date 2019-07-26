@@ -1,0 +1,16 @@
+---
+name: Financial Transaction
+field_name_base_url: http://hl7.org/fhir/R4/basic.html
+fields:
+- name: financial-transaction-method
+  description: Describes the method of payment for the financial transaction.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method
+  binding:
+    description: The payment method of the transaction.
+    terminology:
+    - display: v2 Payment Method Code
+      system: https://terminology.hl7.org/CodeSystem/v2-0570
+      info_link: https://www.hl7.org/fhir/v2/0570/index.html
+    - display: Millennium payment method codes
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/20589
+      info_link: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/20589
