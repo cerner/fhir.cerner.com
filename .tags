@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AttributesHelper	lib/helpers/attributes_helper.rb	/^module AttributesHelper$/;"	m
+Cerner	lib/dstu2_resources.rb	/^module Cerner$/;"	m
+Cerner	lib/resources.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_allergy_intolerance.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_appointment.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_binary.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_care_plan.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_condition.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_conformance.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_contract.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_device.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_diagnostic_report.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_document_reference.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_encounter.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_goal.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_immunization.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_medication_administration.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_medication_order.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_medication_statement.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_observation.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_operation_definition.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_patient.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_person.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_practitioner.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_procedure.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_procedure_request.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_relatedperson.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_schedule.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_slot.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/dstu2_examples_structure_definition.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_account.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_allergy_intolerance.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_appointment.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_capabilitystatement.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_condition.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_coverage.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_device.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_encounter.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_financial_transaction.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_immunization.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_patient.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_practitioner.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/r4_examples_relatedperson.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_allergy_intolerance.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_care_plan.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_condition.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_conformance.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_custom_extension.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_device.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_diagnostic_report.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_document_reference.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_fhir_link.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_immunization.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_medication_statement.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_observation.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_patient.rb	/^module Cerner$/;"	m
+Cerner	lib/resources/example_json/soarian_examples_procedure.rb	/^module Cerner$/;"	m
+DefinitionTableGenerator	lib/definition_table_generator.rb	/^class DefinitionTableGenerator$/;"	c
+Helpers	lib/resources.rb	/^    module Helpers$/;"	m	class:Cerner.Resources
+Nanoc	lib/static.rb	/^module Nanoc::DataSources$/;"	m
+RedirectGenerator	lib/redirect_generator.rb	/^class RedirectGenerator$/;"	c
+Resources	lib/dstu2_resources.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_allergy_intolerance.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_appointment.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_binary.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_care_plan.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_condition.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_conformance.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_contract.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_device.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_diagnostic_report.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_document_reference.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_encounter.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_goal.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_immunization.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_medication_administration.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_medication_order.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_medication_statement.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_observation.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_operation_definition.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_patient.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_person.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_practitioner.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_procedure.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_procedure_request.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_relatedperson.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_schedule.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_slot.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/dstu2_examples_structure_definition.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_account.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_allergy_intolerance.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_appointment.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_capabilitystatement.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_condition.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_coverage.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_device.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_encounter.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_financial_transaction.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_immunization.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_patient.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_practitioner.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/r4_examples_relatedperson.rb	/^    module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_allergy_intolerance.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_care_plan.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_condition.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_conformance.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_custom_extension.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_device.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_diagnostic_report.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_document_reference.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_fhir_link.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_immunization.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_medication_statement.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_observation.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_patient.rb	/^  module Resources$/;"	m	class:Cerner
+Resources	lib/resources/example_json/soarian_examples_procedure.rb	/^  module Resources$/;"	m	class:Cerner
+Static	lib/static.rb	/^  class Static < Nanoc::DataSource$/;"	c	class:Nanoc
+activate_field_links	lib/definition_table_generator.rb	/^  def activate_field_links(value, types, auto_link: false)$/;"	f	class:DefinitionTableGenerator
+activate_links	lib/definition_table_generator.rb	/^  def activate_links(fields, types)$/;"	f	class:DefinitionTableGenerator
+add_button_attribute	lib/helpers/attributes_helper.rb	/^  def add_button_attribute$/;"	f	class:AttributesHelper
+add_solution_attribute	lib/helpers/attributes_helper.rb	/^  def add_solution_attribute$/;"	f	class:AttributesHelper
+add_version_attribute	lib/helpers/attributes_helper.rb	/^  def add_version_attribute$/;"	f	class:AttributesHelper
+authorization_types	lib/resources.rb	/^      def authorization_types(practitioner: true, patient: false, system: false)$/;"	f	class:Cerner.Resources
+checksum_for	lib/static.rb	/^    def checksum_for(*filenames)$/;"	f	class:Nanoc.Static
+default_headers	lib/resources.rb	/^      def default_headers$/;"	f	class:Cerner.Resources.Helpers
+default_headers_r4	lib/resources.rb	/^      def default_headers_r4$/;"	f	class:Cerner.Resources.Helpers
+definition_table	lib/definition_table_generator.rb	/^def definition_table(content_key, action, version)$/;"	f
+disclaimer	lib/resources.rb	/^      def disclaimer()$/;"	f	class:Cerner.Resources
+field_definition_table	lib/definition_table_generator.rb	/^  def field_definition_table(content_key)$/;"	f	class:DefinitionTableGenerator
+flatten_fields	lib/definition_table_generator.rb	/^  def flatten_fields(fields:, base_url:, types:, parent: nil)$/;"	f	class:DefinitionTableGenerator
+generate	lib/redirect_generator.rb	/^  def self.generate(redirects, items)$/;"	F	class:RedirectGenerator
+get_resource	lib/resources.rb	/^      def get_resource(key)$/;"	f	class:Cerner.Resources.Helpers
+get_value	lib/definition_table_generator.rb	/^  def get_value(value)$/;"	f	class:DefinitionTableGenerator
+headers	lib/resources.rb	/^      def headers(status: nil, head: {}, fhir_json: false)$/;"	f	class:Cerner.Resources.Helpers
+html	lib/resources.rb	/^      def html(key)$/;"	f	class:Cerner.Resources.Helpers
+initialize	lib/definition_table_generator.rb	/^  def initialize(version, action)$/;"	f	class:DefinitionTableGenerator
+items	lib/static.rb	/^    def items$/;"	f	class:Nanoc.Static
+json	lib/resources.rb	/^      def json(key)$/;"	f	class:Cerner.Resources.Helpers
+link_header	lib/resources.rb	/^      def link_header(rels)$/;"	f	class:Cerner.Resources.Helpers
+link_header_rel	lib/resources.rb	/^      def link_header_rel(name, url)$/;"	f	class:Cerner.Resources.Helpers
+patch_definition_table	lib/definition_table_generator.rb	/^  def patch_definition_table(content_key)$/;"	f	class:DefinitionTableGenerator
+patch_definition_table	lib/definition_table_generator.rb	/^def patch_definition_table(content_key, version)$/;"	f
+redirect	lib/redirect.rb	/^def redirect$/;"	f
+render_table	lib/definition_table_generator.rb	/^  def render_table(content_key, table_name, erb_name, options = nil)$/;"	f	class:DefinitionTableGenerator
+supported_for_action?	lib/definition_table_generator.rb	/^  def supported_for_action?(field)$/;"	f	class:DefinitionTableGenerator
+terminology_table	lib/definition_table_generator.rb	/^  def terminology_table(content_key)$/;"	f	class:DefinitionTableGenerator
+terminology_table	lib/definition_table_generator.rb	/^def terminology_table(content_key, version)$/;"	f
