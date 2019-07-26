@@ -85,6 +85,7 @@
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
+  <li><a href="#list-of-structuredefinitions" id="markdown-toc-list-of-structuredefinitions">List of StructureDefinitions</a></li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -110,17 +111,6 @@
   <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.base" target="_blank">Base</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
-</ul>
-
-<p><em>List of StructureDefinitions</em></p>
-
-<ul>
-  <li>
-<a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions"><code>patient-friendly-display</code></a>: Display string suitable for patient viewing.</li>
-  <li>
-<a href="http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions"><code>scheduling-location</code></a>: Reference to the location of an appointment being scheduled.</li>
-  <li>
-<a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions"><code>medication-statement-category</code></a>: Category of an order.</li>
 </ul>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
@@ -322,6 +312,35 @@
     ]
   }
 }</code></pre>
+
+<h2 id="list-of-structuredefinitions">List of StructureDefinitions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions"><code>patient-friendly-display</code></a></td>
+      <td>Display string suitable for patient viewing.</td>
+    </tr>
+    <tr>
+      <td><a href="http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions"><code>scheduling-location</code></a></td>
+      <td>Reference to the location of an appointment being scheduled.</td>
+    </tr>
+    <tr>
+      <td><a href="http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions"><code>medication-statement-category</code></a></td>
+      <td>Category of an order.</td>
+    </tr>
+    <tr>
+      <td><a href="http://fhir.cerner.com/millennium/dstu2/encounters/encounter/#custom-extensions"><code>encounter-guarantor</code></a></td>
+      <td>The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.</td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
 

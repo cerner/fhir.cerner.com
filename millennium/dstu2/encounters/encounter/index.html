@@ -84,6 +84,11 @@
     </ul>
   </li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -587,6 +592,43 @@
       </td>
     </tr>
     
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="../../#custom-extensions">Encounter guarantor</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Extension</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Encounter Guarantor (id: <code>encounter-guarantor</code>)</td>
+      <td>None (contains nested extensions)</td>
+      <td>The guarantors of the encounter.</td>
+    </tr>
+    <tr>
+      <td>Encounter Guarantor Party</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/references.html"><code>reference</code></a></td>
+      <td>A reference to a Patient, Person, or Organization.</td>
+    </tr>
+    <tr>
+      <td>Encounter Guarantor Period</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#period"><code>period</code></a></td>
+      <td>The period when this encounter guarantor is effective.</td>
+    </tr>
   </tbody>
 </table>
 

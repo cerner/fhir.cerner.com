@@ -79,6 +79,7 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
+  <li><a href="#general-clinical" id="markdown-toc-general-clinical">General Clinical</a></li>
   <li><a href="#individuals" id="markdown-toc-individuals">Individuals</a></li>
   <li><a href="#scheduling" id="markdown-toc-scheduling">Scheduling</a></li>
   <li><a href="#list-of-code-sets" id="markdown-toc-list-of-code-sets">List of Code Sets</a></li>
@@ -148,6 +149,18 @@
 </li>
 </ul>
 
+<h2 id="general-clinical">General Clinical</h2>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Condition</h3>
+
+<p>The Condition Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Condition.severity codes are maintained in <a href="#code-set-12022-severity">Code Set 12022 Severity</a>
+</li>
+</ul>
+
 <h2 id="individuals">Individuals</h2>
 
 <!-- use html header to avoid showing up in toc -->
@@ -185,8 +198,12 @@
 <p>The Appointment Resource supports proprietary codes for:</p>
 
 <ul>
-  <li>Appointment.serviceType codes are maintained in <a href="#code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</a>
-</li>
+  <li>
+    <p>Appointment.serviceType codes are maintained in <a href="#code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</a></p>
+  </li>
+  <li>
+    <p>Appointment.participant.type codes are maintained in <a href="#code-set-14250-scheduling-resource-roles">Code Set 14250 Scheduling Resource Roles</a></p>
+  </li>
 </ul>
 
 <h2 id="list-of-code-sets">List of Code Sets</h2>
@@ -359,6 +376,18 @@
 }
 </code></pre>
 
+<h4 id="code-set-12022-severity">Code Set 12022 Severity</h4>
+
+<p>This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022", 
+  "code": "3294", 
+  "display": "Moderate", 
+  "userSelected": true 
+}
+</code></pre>
+
 <h4 id="code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</h4>
 
 <p>This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.</p>
@@ -367,6 +396,18 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249,
   "code": "5038369",
   "display": "Office Visit - Return",
+  "userSelected": true
+}
+</code></pre>
+
+<h4 id="code-set-14250-scheduling-resource-roles">Code Set 14250 Scheduling Resource Roles</h4>
+
+<p>This code set is customized by clients and defines exam rooms, surgery rooms, and generic resource roles such as Anesthesiologist and Radiology Tech.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250,
+  "code": "4573",
+  "display": "Radiology Exam Room",
   "userSelected": true
 }
 </code></pre>
@@ -400,6 +441,7 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../general-clinical/condition/">Condition</a></li>
         </ul>
       </li>
       <li class="js-topic">
