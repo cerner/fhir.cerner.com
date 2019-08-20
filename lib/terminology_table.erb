@@ -35,9 +35,11 @@
                   <li>
                     <% #TODO: Adjust displays to be consistent once all resource differentiate system from info url %>
                     <% if terminology['info_link'] %>
-
                       <%= "<p>Details: <a target=\"_blank\" href=\"#{terminology['info_link']}\">#{terminology['display']}</a><br/>" %>
-                      <%= "System: #{terminology['system']} </p>" %>
+                      <% for value in Array(terminology['system']) %>
+                        <%= "System: #{value} <br/>" %>
+                      <% end %>
+                      </p>
                     <% elsif terminology['display'] && terminology['system'] %>
                       <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['display']}</a>" %>
                     <% elsif terminology['system'] %>
