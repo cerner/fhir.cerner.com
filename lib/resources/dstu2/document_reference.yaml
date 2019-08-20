@@ -116,7 +116,14 @@ fields:
   description: The status of underlying document
   example: |
     {
-      "status": "final"
+      "docStatus": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/composition-status",
+            "code": "final"
+          }
+        ]
+      }
     }
   note: Currently support `final` only
 
