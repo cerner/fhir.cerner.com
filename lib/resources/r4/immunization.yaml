@@ -1,0 +1,83 @@
+---
+name: Immunization
+field_name_base_url: http://hl7.org/fhir/R4/immunization-definitions.html#Immunization
+fields:
+
+- name: statusReason
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Reason the immunization was not performed.
+  binding:
+    description: Reason the immunization was not performed.
+    terminology:
+    - display: Immunization Status Reason
+      system: http://terminology.hl7.org/CodeSystem/v3-ActReason
+      info_link: http://hl7.org/fhir/r4/valueset-immunization-status-reason.html
+    - display: Millennium Expire Reasons
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-30440-expire-reasons
+
+- name: vaccineCode
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: The vaccine that was administered or was to be administered.
+  binding:
+    description: Vaccine product administered.
+    terminology:
+    - display: CVX
+      system: http://hl7.org/fhir/sid/cvx
+      info_link: http://hl7.org/fhir/r4/cvx.html
+    - display: NDC
+      system: http://hl7.org/fhir/sid/ndc
+      info_link: http://hl7.org/fhir/r4/ndc.html
+    - display: Millennium Clinical Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-72-clinical-event-codes
+    note: The CVX binding will always be returned. An NDC binding will be returned when available.
+
+- name: reportOrigin
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The source of an immunization record when not reported by the person who administered the vaccine.
+  binding:
+    description: The source of an immunization record when not reported by the person who administered the vaccine.
+    terminology:
+    - display: Immunization Report Origin
+      system: http://terminology.hl7.org/CodeSystem/immunization-origin
+      info_link: http://hl7.org/fhir/R4/codesystem-immunization-origin.html
+    - display: Millennium Source from which a Result Originated
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-30200-result-source
+
+- name: site
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The body site where the vaccine was administered.
+  binding:
+    description: The site at which the vaccine was administered.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/r4/snomedct.html
+    - display: Millennium Medication Site
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-97-medication-administration-site
+
+- name: route
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The path by which the vaccine product was taken into the body.
+  binding:
+    description: The path by which the vaccine product was taken into the body.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/r4/snomedct.html
+    - display: Millennium Route
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-4001-medication-administration-route
