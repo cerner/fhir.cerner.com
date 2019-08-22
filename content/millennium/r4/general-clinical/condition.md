@@ -73,6 +73,63 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Create
+
+Create a new Condition.
+
+    POST /Condition
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:condition, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
+
+#### Body
+
+<%= json(:r4_condition_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 Aug 2019 17:23:14 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p12793861
+Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors

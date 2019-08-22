@@ -103,5 +103,75 @@ module Cerner
         }
       ]
     }
+
+    R4_CONDITION_CREATE ||= {
+      "resourceType": "Condition",
+      "subject": {
+        "reference": "Patient/631923"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "209832007",
+            "display": "Concussion NOS (disorder)",
+            "userSelected": true
+          }
+        ],
+        "text": "Concussion with loss of consciousness"
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "problem-list-item"
+            }
+          ],
+          "text": "Problem"
+        }
+      ],
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            "code": "resolved"
+          }
+        ]
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            "code": "confirmed"
+          }
+        ]
+      },
+      "severity": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "6736007",
+            "display": "Moderate"
+          }
+        ],
+        "text": "Moderate"
+      },
+      "abatementDateTime": "2020-01-01",
+      "onsetDateTime": "2018-01-01",
+      "note": [
+        {
+          "authorString": "Freetext author",
+          "text": "Test Comment 1"
+        },
+        {
+          "authorReference": {
+            "reference": "Practitioner/4594011",
+            "display": "Leroux, Erik"
+          },
+          "text": "Test Comment 2"
+        }
+      ]
+    }
   end
 end
