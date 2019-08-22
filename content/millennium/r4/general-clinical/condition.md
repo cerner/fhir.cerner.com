@@ -90,7 +90,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
@@ -124,7 +124,7 @@ X-Request-Id: 11111111111111111111111111111111
 X-Runtime: 2.011826
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
 ### Errors
 
