@@ -7,13 +7,25 @@ fields:
   cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
-  action: create
   example: |
     {
       "resourceType": "Condition"
     }
   note: resourceType must be Condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition
+
+- name: id
+  required: 'Yes'
+  cardinality: 1..1
+  type: id
+  description: The logical id of the resource to update.
+  action: update
+  example: |
+    {
+      "id": "p123412"
+    }
+  note: The id value must match the Condition/&lt;id> value.
+  url: https://hl7.org/fhir/resource-definitions.html#Resource.id
 
 - name: clinicalStatus
   required: 'Yes'
@@ -37,6 +49,27 @@ fields:
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
   action: create
   note: A clinicalStatus must always be provided while creating a Condition.
+  example: |
+    {
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+            "code": "resolved",
+            "display": "Resolved"
+          }
+        ],
+        "text": "Resolved"
+      }
+    }
+
+- name: clinicalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The clinical status of the condition.
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
+  action: update
   example: |
     {
       "clinicalStatus": {
@@ -87,6 +120,27 @@ fields:
       }
     }
 
+- name: verificationStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The verification status to support or decline the clinical status of the condition or diagnosis.
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus
+  action: update
+  example: |
+    {
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+            "code": "confirmed",
+            "display": "Confirmed"
+          }
+        ],
+        "text": "Confirmed"
+      }
+    }
+
 - name: category
   required: 'Yes'
   cardinality: 0..*
@@ -98,19 +152,20 @@ fields:
       <li> Only a single category may be provided. </li>
       <li> Only category code <code>problem-list-item</code> is supported. </li>
     </ul>
-
   example: |
     {
-      "category": {
-        "coding": [
-          {
-            "system": "https://terminology.hl7.org/CodeSystem/condition-category",
-            "code": "problem-list-item",
-            "display": "Problem List Item"
-          }
-        ],
-        "text": "Problem List Item"
-      }
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "https://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "problem-list-item",
+              "display": "Problem List Item"
+            }
+          ],
+          "text": "Problem List Item"
+        }
+      ]
     }
   binding:
     description: A category assigned to the condition.
@@ -198,7 +253,6 @@ fields:
   cardinality: 1..1
   type: Reference
   description: Indicates the patient who the condition record is associated with.
-  action: create
   example: |
     {
       "subject": {
@@ -213,7 +267,6 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: dateTime
-  action: create
   description: Estimated or actual date or date-time the condition began, in the opinion of the clinician.
   note: |
     <ul>
@@ -230,7 +283,6 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: dateTime
-  action: create
   description: The date or estimated date that the condition resolved or went into remission.
   note: |
     <ul>
@@ -247,8 +299,8 @@ fields:
   required: 'No'
   cardinality: 0..*
   type: Annotation
-  action: create
   description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+  action: create
   example: |
     {
       "note": [
@@ -261,3 +313,25 @@ fields:
         }
       ]
     }
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.note
+
+- name: note
+  required: 'No'
+  cardinality: 0..*
+  type: Annotation
+  description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+  action: update
+  example: |
+    {
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/4594011",
+            "display": "Leroux, Erik"
+          },
+          "text": "Test Comment 2"
+        }
+      ]
+    }
+  note: note cannot be added if note already exists. An existing note field cannot be modified. 
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.note

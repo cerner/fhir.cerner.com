@@ -173,5 +173,74 @@ module Cerner
         }
       ]
     }
+
+    R4_CONDITION_UPDATE ||= {
+      "resourceType": "Condition",
+      "id": "p10070301",
+      "subject": {
+          "reference": "Patient/1316024"
+      },
+      "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "267079009",
+              "display": "Trembles (finding)",
+              "userSelected": true
+            }
+          ],
+          "text": "Trembles"
+      },
+      "category": [
+          {
+              "coding": [
+                  {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                      "code": "problem-list-item"
+                  }
+              ],
+              "text": "Problem"
+          }
+      ],
+      "clinicalStatus": {
+          "coding": [
+              {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                  "code": "resolved"
+              }
+          ]
+      },
+      "verificationStatus": {
+          "coding": [
+              {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                  "code": "differential"
+              }
+          ]
+      },
+      "severity": {
+          "coding": [
+              {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+                  "code": "3294",
+                  "display": "Moderate",
+                  "userSelected": true
+              }
+          ],
+          "text": "Moderate"
+      },
+      "abatementDateTime": "2010-11-08",
+      "onsetDateTime": "2000-03-10",
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/1912007",
+            "display": "Test, Jack" 
+          },
+          "text": "Test Comment"
+          
+        }
+      ]
+    }
   end
 end
