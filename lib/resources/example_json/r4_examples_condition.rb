@@ -174,7 +174,7 @@ module Cerner
       ]
     }
 
-    R4_CONDITION_PROBLEM_UPDATE ||= {
+    R4_CONDITION_UPDATE ||= {
       "resourceType": "Condition",
       "id": "p10070301",
       "subject": {
@@ -182,14 +182,14 @@ module Cerner
       },
       "code": {
           "coding": [
-              {
-                  "system": "http://hl7.org/fhir/sid/icd-10-cm",
-                  "code": "T86.03",
-                  "display": "Bone marrow transplant infection",
-                  "userSelected": true
-              }
+            {
+              "system": "http://snomed.info/sct",
+              "code": "267079009",
+              "display": "Trembles (finding)",
+              "userSelected": true
+            }
           ],
-          "text": "Bone marrow transplant infection"
+          "text": "Trembles"
       },
       "category": [
           {
@@ -229,8 +229,8 @@ module Cerner
           ],
           "text": "Moderate"
       },
-      "abatementDateTime": "2010-11-08T02:00:00.00+00:00",
-      "onsetDateTime": "2000-03-10T02:00:00.00+00:00",
+      "abatementDateTime": "2010-11-08",
+      "onsetDateTime": "2000-03-10",
       "note": [
         {
           "authorReference": {

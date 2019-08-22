@@ -7,20 +7,6 @@ fields:
   cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
-  action: create
-  example: |
-    {
-      "resourceType": "Condition"
-    }
-  note: resourceType must be Condition.
-  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition
-
-- name: resourceType
-  required: 'Yes'
-  cardinality: 1..1
-  type: string
-  description: The type of the FHIR resource.
-  action: update
   example: |
     {
       "resourceType": "Condition"
@@ -30,7 +16,7 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 0..1
+  cardinality: 1..1
   type: id
   description: The logical id of the resource to update.
   action: update
@@ -45,7 +31,7 @@ fields:
   required: 'Yes'
   cardinality: 0..1
   type: CodeableConcept
-  description: The clinical status of the condition.
+  description: active | recurrence | relapse | inactive | remission | resolved
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
   action: terminology
   binding:
@@ -105,18 +91,6 @@ fields:
   action: terminology
   description: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus
-  example: |
-    {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-          "code": "confirmed",
-          "display": "Confirmed",
-          "userSelected": false
-        }
-      ],
-      "text": "Confirmed"
-    }
   binding:
     description: The verification status to support or decline the clinical status of the condition or diagnosis.
     terminology:
@@ -180,18 +154,20 @@ fields:
     </ul>
 
   example: |
-    [
+    {
+      "category": [
         {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "system": "https://terminology.hl7.org/CodeSystem/condition-category",
               "code": "problem-list-item",
               "display": "Problem List Item"
             }
           ],
-        "text": "Problem List Item"
+          "text": "Problem List Item"
         }
-    ]
+      ]
+    }
   binding:
     description: A category assigned to the condition.
     terminology:
@@ -325,6 +301,7 @@ fields:
   cardinality: 0..*
   type: Annotation
   description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+  action: create
   example: |
     {
       "note": [
@@ -337,3 +314,25 @@ fields:
         }
       ]
     }
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.note
+
+- name: note
+  required: 'No'
+  cardinality: 0..*
+  type: Annotation
+  description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+  action: update
+  example: |
+    {
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/4594011",
+            "display": "Leroux, Erik"
+          },
+          "text": "Test Comment 2"
+        }
+      ]
+    }
+  note: note cannot be added if note already exists. An existing note field cannot be modified. 
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.note

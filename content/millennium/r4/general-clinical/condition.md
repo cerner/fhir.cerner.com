@@ -19,7 +19,7 @@ The following fields are returned if valued:
 * [Category](https://hl7.org/fhir/R4/condition-definitions.html#Condition.category)
 * [Severity](https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity)
 * [Condition code](https://hl7.org/fhir/R4/condition-definitions.html#Condition.code)
-* [Patient](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
+* [Subject](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
 * [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
 * [Onset (dateTime)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
 * [Resolved date  (only applies to problems)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
@@ -132,12 +132,13 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
-Update an existing condition
+Update an existing condition.
 
     PUT /Condition/:id
 
 _Implementation Notes_
 
+* Currently `problem-list-item` is supported.
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Authorization Types
@@ -150,24 +151,17 @@ _Implementation Notes_
 
 ### Body fields
 
-Notes:
-
-* `notes` cannot be added if `notes` already exists. An existing `notes` field cannot be modified.
-* `clinicalStatus` SHALL be present if `verificationStatus` is not `entered-in-error` and `category` is `problem-list-item`.
-* If condition is `abated`, then `clinicalStatus` must be either `inactive`, `resolved`, or `remission`.
-* `clinicalStatus` SHALL NOT be present if `verificationStatus` is `entered-in-error`.
-
 <%= definition_table(:condition, :update, :r4) %>
 
 ### Example
 
 #### Request
 
-    PUT /Condition/p10070301
+    PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p10070301
 
 #### Body
 
-<%= json(:r4_condition_problem_update) %>
+<%= json(:r4_condition_update) %>
 
 #### Response
 
@@ -186,7 +180,7 @@ Notes:
     X-Runtime: 0.777583
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
 
 ### Errors
 
