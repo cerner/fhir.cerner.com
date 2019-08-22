@@ -152,7 +152,6 @@ fields:
       <li> Only a single category may be provided. </li>
       <li> Only category code <code>problem-list-item</code> is supported. </li>
     </ul>
-
   example: |
     {
       "category": [
