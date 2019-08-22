@@ -173,5 +173,74 @@ module Cerner
         }
       ]
     }
+
+    R4_CONDITION_PROBLEM_UPDATE ||= {
+      "resourceType": "Condition",
+      "id": "p10070301",
+      "subject": {
+          "reference": "Patient/1316024"
+      },
+      "code": {
+          "coding": [
+              {
+                  "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                  "code": "T86.03",
+                  "display": "Bone marrow transplant infection",
+                  "userSelected": true
+              }
+          ],
+          "text": "Bone marrow transplant infection"
+      },
+      "category": [
+          {
+              "coding": [
+                  {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                      "code": "problem-list-item"
+                  }
+              ],
+              "text": "Problem"
+          }
+      ],
+      "clinicalStatus": {
+          "coding": [
+              {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                  "code": "resolved"
+              }
+          ]
+      },
+      "verificationStatus": {
+          "coding": [
+              {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                  "code": "differential"
+              }
+          ]
+      },
+      "severity": {
+          "coding": [
+              {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+                  "code": "3294",
+                  "display": "Moderate",
+                  "userSelected": true
+              }
+          ],
+          "text": "Moderate"
+      },
+      "abatementDateTime": "2010-11-08T02:00:00.00+00:00",
+      "onsetDateTime": "2000-03-10T02:00:00.00+00:00",
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/1912007",
+            "display": "Test, Jack" 
+          },
+          "text": "Test Comment"
+          
+        }
+      ]
+    }
   end
 end

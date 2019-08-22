@@ -130,7 +130,70 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Update
+
+Update an existing condition
+
+    PUT /Condition/:id
+
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the Condition resource>"'} %>
+
+### Body fields
+
+Notes:
+
+* `notes` cannot be added if `notes` already exists. An existing `notes` field cannot be modified.
+* `clinicalStatus` SHALL be present if `verificationStatus` is not `entered-in-error` and `category` is `problem-list-item`.
+* If condition is `abated`, then `clinicalStatus` must be either `inactive`, `resolved`, or `remission`.
+* `clinicalStatus` SHALL NOT be present if `verificationStatus` is `entered-in-error`.
+
+<%= definition_table(:condition, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT /Condition/p10070301
+
+#### Body
+
+<%= json(:r4_condition_problem_update) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: text/html
+    Date: Tue, 20 Aug 2019 21:17:04 GMT
+    Etag: W/"12809861"
+    Last-Modified: TTue, 20 Aug 2019 21:17:04 GMT
+    Server-Response-Time: 777.661584
+    Status: 200 OK
+    Vary: Origin
+    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+    X-Runtime: 0.777583
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
