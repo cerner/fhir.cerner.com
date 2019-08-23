@@ -88,6 +88,24 @@
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#update" id="markdown-toc-update">Update</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -103,7 +121,7 @@
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.category">Category</a></li>
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity">Severity</a></li>
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.code">Condition code</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject">Subject</a></li>
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter">Patient encounter when first recorded (only applies to diagnoses)</a></li>
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_">Onset (dateTime)</a></li>
   <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_">Resolved date  (only applies to problems)</a></li>
@@ -117,6 +135,8 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
+      
+      
       
       
     <tr>
@@ -158,6 +178,8 @@
     
       
       
+      
+      
     <tr>
       <td>
       
@@ -197,6 +219,8 @@
     
       
       
+      
+      
     <tr>
       <td>
       
@@ -211,10 +235,6 @@
             <li><i>Description</i></li>
             <ul style="list-style-type: none"><li>A category assigned to the condition.</li></ul>
           
-          
-            <li><i>Note</i></li>
-            
-            <ul style="list-style-type: none"><li style="list-style-type: none">Category code <code>problem-list-item</code> is supported for search functionality.</li></ul>
           
 
           
@@ -358,6 +378,11 @@
       </td>
     </tr>
     
+      
+      
+      
+      
+      
   </tbody>
 </table>
 
@@ -548,6 +573,1230 @@
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
 
+<h2 id="create">Create</h2>
+
+<p>Create a new Condition.</p>
+
+<pre><code>POST /Condition
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+</ul>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Condition"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Condition.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-clinicalStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus"><code>clinicalStatus</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical status of the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved",
+        "display": "Resolved"
+      }
+    ],
+    "text": "Resolved"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A clinicalStatus must always be provided while creating a Condition.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-verificationStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus"><code>verificationStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The verification status to support or decline the clinical status of the condition or diagnosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ],
+    "text": "Confirmed"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported during Condition creates.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A category assigned to the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        }
+      ],
+      "text": "Problem List Item"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a single category may be provided. </li>
+  <li> Only category code <code>problem-list-item</code> is supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-severity">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.severity"><code>severity</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A subjective assessment of the severity of the condition as evaluated by the clinician.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "255604002",
+        "display": "Mild"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+        "code": "3293",
+        "display": "Mild"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identification of the condition, problem or diagnosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "209832007",
+        "display": "Concussion NOS (disorder)",
+        "userSelected": true
+      }
+    ],
+    "text": "Concussion with loss of consciousness"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A code must be provided.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-subject">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the patient who the condition record is associated with.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/631923",
+    "display": "Nilsson, Christine"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>subject must be a reference to a Patient.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-onset_x_">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.onset_x_"><code>onset_x_</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Estimated or actual date or date-time the condition began, in the opinion of the clinician.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported.</li>
+  <li> The dateTime is converted to a GMT date. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-abatement_x_">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.abatement_x_"><code>abatement_x_</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date or estimated date that the condition resolved or went into remission.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported.</li>
+  <li> The dateTime is converted to a GMT date. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/4594011",
+        "display": "Leroux, Erik"
+      },
+      "text": "Test Comment 2"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Condition",
+  "subject": {
+    "reference": "Patient/631923"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "209832007",
+        "display": "Concussion NOS (disorder)",
+        "userSelected": true
+      }
+    ],
+    "text": "Concussion with loss of consciousness"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+        }
+      ],
+      "text": "Problem"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "6736007",
+        "display": "Moderate"
+      }
+    ],
+    "text": "Moderate"
+  },
+  "abatementDateTime": "2020-01-01",
+  "onsetDateTime": "2018-01-01",
+  "note": [
+    {
+      "authorString": "Freetext author",
+      "text": "Test Comment 1"
+    },
+    {
+      "authorReference": {
+        "reference": "Practitioner/4594011",
+        "display": "Leroux, Erik"
+      },
+      "text": "Test Comment 2"
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 Aug 2019 17:23:14 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p12793861
+Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on a subsequent update.</p>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="update">Update</h2>
+
+<p>Update an existing condition.</p>
+
+<pre><code>PUT /Condition/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Currently <code>problem-list-item</code> is supported.</li>
+  <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json
+If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
+
+<h3 id="body-fields-1">Body fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="update-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Condition"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Condition.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-id">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/resource-definitions.html#Resource.id"><code>id</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#id"><code>id</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The logical id of the resource to update.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "p123412"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The id value must match the Condition/&lt;id&gt; value.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-clinicalStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus"><code>clinicalStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical status of the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved",
+        "display": "Resolved"
+      }
+    ],
+    "text": "Resolved"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-verificationStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus"><code>verificationStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The verification status to support or decline the clinical status of the condition or diagnosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ],
+    "text": "Confirmed"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A category assigned to the condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        }
+      ],
+      "text": "Problem List Item"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a single category may be provided. </li>
+  <li> Only category code <code>problem-list-item</code> is supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-severity">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.severity"><code>severity</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A subjective assessment of the severity of the condition as evaluated by the clinician.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "255604002",
+        "display": "Mild"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "severity": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+        "code": "3293",
+        "display": "Mild"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identification of the condition, problem or diagnosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "209832007",
+        "display": "Concussion NOS (disorder)",
+        "userSelected": true
+      }
+    ],
+    "text": "Concussion with loss of consciousness"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A code must be provided.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-subject">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the patient who the condition record is associated with.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/631923",
+    "display": "Nilsson, Christine"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>subject must be a reference to a Patient.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-onset_x_">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.onset_x_"><code>onset_x_</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Estimated or actual date or date-time the condition began, in the opinion of the clinician.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported.</li>
+  <li> The dateTime is converted to a GMT date. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-abatement_x_">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.abatement_x_"><code>abatement_x_</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date or estimated date that the condition resolved or went into remission.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "abatementDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported.</li>
+  <li> The dateTime is converted to a GMT date. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/4594011",
+        "display": "Leroux, Erik"
+      },
+      "text": "Test Comment 2"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>note cannot be added if note already exists. An existing note field cannot be modified.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p10070301
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Condition",
+  "id": "p10070301",
+  "subject": {
+    "reference": "Patient/1316024"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "267079009",
+        "display": "Trembles (finding)",
+        "userSelected": true
+      }
+    ],
+    "text": "Trembles"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item"
+        }
+      ],
+      "text": "Problem"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "resolved"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "differential"
+      }
+    ]
+  },
+  "severity": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+        "code": "3294",
+        "display": "Moderate",
+        "userSelected": true
+      }
+    ],
+    "text": "Moderate"
+  },
+  "abatementDateTime": "2010-11-08",
+  "onsetDateTime": "2000-03-10",
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/1912007",
+        "display": "Test, Jack"
+      },
+      "text": "Test Comment"
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: text/html
+    Date: Tue, 20 Aug 2019 21:17:04 GMT
+    Etag: W/"12809861"
+    Last-Modified: TTue, 20 Aug 2019 21:17:04 GMT
+    Server-Response-Time: 777.661584
+    Status: 200 OK
+    Vary: Origin
+    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+    X-Runtime: 0.777583
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent update.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
 
     </div>
 
@@ -589,6 +1838,14 @@
           <li><a href="../../individuals/patient/">Patient</a></li>
           <li><a href="../../individuals/practitioner/">Practitioner</a></li>
           <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
         </ul>
       </li>
       <li class="js-topic">

@@ -91,6 +91,7 @@
 </ul>
 
 <h2 id="overview">Overview</h2>
+
 <p>The Observation resource provides measurements or simple assertions about a patient. Observations are crucial to supporting diagnoses, monitoring progress, and establishing baselines or trends. Most observations are simply a name and value or result but some observations, such as blood pressure, group other observations together logically.  Examples of common observations are: Laboratory results (blood sugar, hemoglobin), Vital signs (temperature, blood pressure), Personal characteristics (height, weight), and Social history (tobacco/alcohol use, employment status).  Pathology reports, radiology reports, and other textual reports should be represented by the DiagnosticReport resource.</p>
 
 <p>The following fields will be returned if valued:</p>
@@ -321,7 +322,17 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Currently, the <code>comments</code> field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction.</li>
+  <li>
+    <p>Currently, the <code>comments</code> field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction.</p>
+  </li>
+  <li>
+    <p>When multiple pages of Observation results are returned for a single query:</p>
+    <ul>
+      <li>All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.</li>
+      <li>Results are sorted by effective date/time in descending order by page. That is, all Observations on any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.</li>
+      <li>If the query uses the <code>_lastUpdated</code> query parameter, results are sorted by last updated date/time in descending order by page, not by effective date/time.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>

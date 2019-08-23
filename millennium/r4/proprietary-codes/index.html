@@ -81,6 +81,7 @@
   <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
   <li><a href="#general-clinical" id="markdown-toc-general-clinical">General Clinical</a></li>
   <li><a href="#individuals" id="markdown-toc-individuals">Individuals</a></li>
+  <li><a href="#medications" id="markdown-toc-medications">Medications</a></li>
   <li><a href="#scheduling" id="markdown-toc-scheduling">Scheduling</a></li>
   <li><a href="#list-of-code-sets" id="markdown-toc-list-of-code-sets">List of Code Sets</a></li>
 </ul>
@@ -187,6 +188,26 @@
   <li>RelatedPerson.communication.language codes are maintained in <a href="#code-set-36-languages">Code Set 36 Languages</a>
 </li>
   <li>RelatedPerson.relationship codes are maintained in <a href="#code-set-40-person-relationships">Code Set 40 Person Relationship Types</a> and <a href="#code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</a>
+</li>
+</ul>
+
+<h2 id="medications">Medications</h2>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Immunization</h3>
+
+<p>The Immunization Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Immunization.statusReason codes are maintained in <a href="#code-set-30440-expire-reasons">Code Set 30440 Expire Reasons</a>
+</li>
+  <li>Immunization.vaccineCode codes are maintained in <a href="#code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</a>
+</li>
+  <li>Immunization.reportOrigin codes are maintained in <a href="#code-set-30200-result-source">Code Set 30200 Result Source</a>
+</li>
+  <li>Immunization.site codes are maintained in <a href="#code-set-97-medication-administration-site">Code Set 97 Medication Administration Site</a>
+</li>
+  <li>Immunization.route codes are maintained in <a href="#code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</a>
 </li>
 </ul>
 
@@ -340,6 +361,30 @@
 }
 </code></pre>
 
+<h4 id="code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</h4>
+
+<p>This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72", 
+  "code": "2799031", 
+  "display": "Lyme disease vaccine", 
+  "userSelected": true 
+}
+</code></pre>
+
+<h4 id="code-set-97-medication-administration-site">Code Set 97 Medication Administration Site</h4>
+
+<p>This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97", 
+  "code": "603", 
+  "display": "Right arm", 
+  "userSelected": true 
+}
+</code></pre>
+
 <h4 id="code-set-319-encounter-alias-type">Code Set 319 Encounter Alias Type</h4>
 
 <p>This is a small code set currently only supporting FIN NBR and VISITID.</p>
@@ -376,6 +421,18 @@
 }
 </code></pre>
 
+<h4 id="code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</h4>
+
+<p>This code set maintains medication administration routes such as ID or IM.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001", 
+  "code": "318167", 
+  "display": "IM", 
+  "userSelected": true 
+}
+</code></pre>
+
 <h4 id="code-set-12022-severity">Code Set 12022 Severity</h4>
 
 <p>This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.</p>
@@ -384,7 +441,6 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022", 
   "code": "3294", 
   "display": "Moderate", 
-  "userSelected": true 
 }
 </code></pre>
 
@@ -408,6 +464,29 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250,
   "code": "4573",
   "display": "Radiology Exam Room",
+}
+</code></pre>
+
+<h4 id="code-set-30200-result-source">Code Set 30200 Result Source</h4>
+
+<p>This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.</p>
+
+<pre><code>{ 
+   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200", 
+   "code": "679976", 
+   "display": "Mother", 
+   "userSelected": true 
+}
+</code></pre>
+
+<h4 id="code-set-30440-expire-reasons">Code Set 30440 Expire Reasons</h4>
+
+<p>This code set describes why an immunization was not administered when documented through the Health Maintenance model.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440", 
+  "code": "688466", 
+  "display": "Postpone due to refusal", 
   "userSelected": true
 }
 </code></pre>
@@ -452,6 +531,14 @@
           <li><a href="../individuals/patient/">Patient</a></li>
           <li><a href="../individuals/practitioner/">Practitioner</a></li>
           <li><a href="../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medications/">Medications</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../medications/immunization/">Immunization</a></li>
         </ul>
       </li>
       <li class="js-topic">
