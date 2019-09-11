@@ -50,6 +50,7 @@ The Encounter Resource supports proprietary codes for:
 
 * Encounter.identifier.type codes are maintained in [Code Set 319 Encounter Alias Type](#code-set-319-encounter-alias-type)
 * Encounter.type codes are maintained in [Code Set 71 Visit Type](#code-set-71-visit-type)
+* Encounter.serviceType codes are maintained in [Code Set 34 Hospital Service](#code-set-34-hospital-service)
 * Encounter.priority codes are maintained in [Code Set 3 Encounter Admission Type](#code-set-3-encounter-admission-type)
 * Encounter.participant.type codes are maintained in [Code Set 333 Encounter/Personnel Relationship](#code-set-333-encounterpersonnel-relationship)
 * Encounter.hospitalization.admitSource codes are maintained in [Code Set 2 Admission Source](#code-set-2-admission-source)
@@ -174,6 +175,17 @@ The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of r
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/19",
       "code": "638672",
       "display": "Home Care with Home Health",
+      "userSelected": true
+    }
+
+#### Code Set 34 Hospital Service
+
+This code set maintains service types available in the facility such as Emergency Medicine, Neurology, and Pediatrics.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/34",
+      "code": "313022",
+      "display": "Pediatrics",
       "userSelected": true
     }
 

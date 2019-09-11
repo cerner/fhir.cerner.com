@@ -18,6 +18,7 @@ The following fields are returned if valued:
 * [Status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.status){:target="_blank"}
 * [Class](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.type){:target="_blank"}
+* [Service Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceType){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority){:target="_blank"}
 * [Subject](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject){:target="_blank"}
 * [Participant:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant){:target="_blank"}
