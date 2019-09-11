@@ -20,7 +20,7 @@ fields:
       note: Currently will return SNO code from the below system.
       terminology:
       - display: Identifier Type Codes
-        system: http://hl7.org/fhir/identifier-type
+        system: http://terminology.hl7.org/CodeSystem/v2-0203
         info_link: http://hl7.org/fhir/r4/valueset-identifier-type.html
 
 - name: type

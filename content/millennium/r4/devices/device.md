@@ -1,5 +1,5 @@
 ---
-title: Device | DSTU 2 API
+title: Device | R4 API
 ---
 
 # Device
@@ -101,7 +101,6 @@ List an individual Device by its id:
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
-
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
