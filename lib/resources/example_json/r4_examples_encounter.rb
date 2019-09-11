@@ -60,6 +60,12 @@ module Cerner
             "code": "313004",
             "display": "Emergency Medicine",
             "userSelected": true
+          },
+          {
+            "system": "http://snomed.info/sct",
+            "code": "773568002",
+            "display": "Emergency medicine (qualifier value)",
+            "userSelected": false
           }
         ],
         "text": "Emergency Medicine"
