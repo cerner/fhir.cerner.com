@@ -30,4 +30,4 @@ fields:
   description: The kind or type of device.
   binding:
     description: The type of device.
-    note: Currently not bound to any terminology and only 'Device.type.text' will be returned as of now.
+    note: Currently not bound to any terminology and only 'Device.type.text' will be returned.
