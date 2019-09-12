@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Class&lt;/b>: inpatient encounter&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Jun 22, 2016  9:05 P.M. UTC&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Who, Doctor&lt;/p>&lt;/div>"
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, JOE</p><p><b>Location</b>: Baseline East Medical Center, BE Hospital, BE CT</p><p><b>Type</b>: Inpatient</p><p><b>Service Type</b>: Emergency Medicine</p><p><b>Class</b>: inpatient encounter</p><p><b>Status</b>: In Progress</p><p><b>Period Start Date</b>: Apr 20, 2016  9:05 P.M. UTC</p><p><b>Reason For Visit</b>: Abdominal pain</p><p><b>Attending Physician</b>: Julius, Scott</p></div>"
       },
       "identifier": [
         {
@@ -53,6 +53,23 @@ module Cerner
           "text": "Inpatient"
         }
       ],
+      "serviceType": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/34",
+            "code": "313004",
+            "display": "Emergency Medicine",
+            "userSelected": true
+          },
+          {
+            "system": "http://snomed.info/sct",
+            "code": "773568002",
+            "display": "Emergency medicine (qualifier value)",
+            "userSelected": false
+          }
+        ],
+        "text": "Emergency Medicine"
+      },
       "subject": {
         "reference": "Patient/4342010",
         "display": "SMART, JOE"
@@ -210,7 +227,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Class&lt;/b>: inpatient encounter&lt;/p>&lt;p>&lt;b>Status&lt;/b>: In Progress&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Jun 22, 2016  9:05 P.M. UTC&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Who, Doctor&lt;/p>&lt;/div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, JOE</p><p><b>Location</b>: Baseline East Medical Center, BE Hospital, BE CT</p><p><b>Type</b>: Inpatient</p><p><b>Service Type</b>: Emergency Medicine</p><p><b>Class</b>: inpatient encounter</p><p><b>Status</b>: In Progress</p><p><b>Period Start Date</b>: Apr 20, 2016  9:05 P.M. UTC</p><p><b>Reason For Visit</b>: Abdominal pain</p><p><b>Attending Physician</b>: Julius, Scott</p></div>"
             },
             "identifier": [
               {
@@ -253,6 +270,23 @@ module Cerner
                 "text": "Inpatient"
               }
             ],
+            "serviceType": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/34",
+                  "code": "313004",
+                  "display": "Emergency Medicine",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "773568002",
+                  "display": "Emergency medicine (qualifier value)",
+                  "userSelected": false
+                }
+              ],
+              "text": "Emergency Medicine"
+            },
             "subject": {
               "reference": "Patient/4342010",
               "display": "SMART, JOE"

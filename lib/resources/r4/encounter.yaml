@@ -170,6 +170,18 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-71-visit-type
 
+- name: serviceType
+  action: read
+  binding:
+    description: Broad categorization of the service that is to be provided.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/r4/snomedct.html
+    - display: Millennium Encounter Hospital Service
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/34
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-34-hospital-service
+
 - name: priority
   required: 'No'
   cardinality: 0..1
