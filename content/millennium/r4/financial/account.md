@@ -63,8 +63,8 @@ Search for Accounts that meet supplied query parameters:
  Name         | Required?                                         | Type          | Description
 --------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
  `_id`        | This or any other required search parameter       | [`token`]     | The logical resource id associated with the resource
- `identifier` | This and type and patient, or any other search param, or _id  | [`token`]     | Aliases of the Account like Statement Number
- `type`       | This and/or any other search param, or _id        | [`token`]     | The specific type of account
+ `identifier` | no                                                | [`token`]     | Aliases of the Account like Statement Number
+ `type`       | no                                                | [`token`]     | The specific type of account
  `patient`    | This and type and patient, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
  `-guarantor` | This and type, or any other search param, or _id  | [`reference`] | The parties responsible for balancing the account
  `_count`     | no                                                | [`number`]    | Paging parameter
@@ -85,12 +85,12 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?patient=
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?account=F703726
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_account) %>
+<%= json(:r4_account_search) %>
 
 ### Errors
 
@@ -104,7 +104,7 @@ List an individual Account by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -114,12 +114,12 @@ List an individual Account by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/R4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?patient=
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F633923
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_account) %>
+<%= json(:r4_account_read) %>
 
 ### Errors
 

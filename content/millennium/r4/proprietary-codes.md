@@ -358,7 +358,7 @@ This code set includes Account Types such as A/R and CASH.
 This code set includes currency types such as USD.
 
     {
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18736,
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18934,
       "code": "11074",
       "display": "USD",
       "userSelected": true

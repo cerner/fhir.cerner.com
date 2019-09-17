@@ -3,7 +3,7 @@ name: Account
 field_name_base_url: http://hl7.org/fhir/r4/account-definitions.html#Account
 fields:
 - name: identifier
-  required: 'Yes'
+  required: 'No'
   cardinality: 0..*
   type: Identifier
   description: A business identifier of the account.
@@ -13,14 +13,14 @@ fields:
     description: A business identifier of the account.
     terminology:
     - display: PFT Bill Alias Type
-      system: https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/28200
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-28200-pft-bill-alias-type
     - display: Account Number
       system: https://fhir.cerner.com/accountnumber
       info_link: .
 
 - name: type
-  required: 'Yes'
+  required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: Categorizes the account for searching purposes.
