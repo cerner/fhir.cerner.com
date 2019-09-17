@@ -10,7 +10,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, JOE</p><p><b>Location</b>: Baseline East Medical Center, BE Hospital, BE CT</p><p><b>Type</b>: Inpatient</p><p><b>Service Type</b>: Emergency Medicine</p><p><b>Class</b>: inpatient encounter</p><p><b>Status</b>: In Progress</p><p><b>Period Start Date</b>: Apr 20, 2016  9:05 P.M. UTC</p><p><b>Reason For Visit</b>: Abdominal pain</p><p><b>Attending Physician</b>: Julius, Scott</p></div>"
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
       },
       "identifier": [
         {
@@ -227,7 +227,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, JOE</p><p><b>Location</b>: Baseline East Medical Center, BE Hospital, BE CT</p><p><b>Type</b>: Inpatient</p><p><b>Service Type</b>: Emergency Medicine</p><p><b>Class</b>: inpatient encounter</p><p><b>Status</b>: In Progress</p><p><b>Period Start Date</b>: Apr 20, 2016  9:05 P.M. UTC</p><p><b>Reason For Visit</b>: Abdominal pain</p><p><b>Attending Physician</b>: Julius, Scott</p></div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
             },
             "identifier": [
               {
