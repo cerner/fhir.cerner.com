@@ -24,7 +24,7 @@ module Cerner
             },
             "text":{
               "status":"generated",
-              "div":"&lt;div>&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>Problem&lt;/b>: Pelvic mass (disorder)&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Resolved&lt;/p>&lt;p>&lt;b>Verification Status&lt;/b>: Differential&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: Moderate&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: Jun 29, 2015&lt;/p>&lt;p>&lt;b>Resolved&lt;/b>: Jan  1, 2017&lt;/p>&lt;/div>"
+              "div":"&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>Problem&lt;/b>: Pelvic mass (disorder)&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Resolved&lt;/p>&lt;p>&lt;b>Verification Status&lt;/b>: Differential&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: Moderate&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: Jun 29, 2015&lt;/p>&lt;p>&lt;b>Resolved&lt;/b>: Jan  1, 2017&lt;/p>&lt;/div>"
             },
             "clinicalStatus":{
               "coding":[
@@ -102,6 +102,95 @@ module Cerner
           }
         }
       ]
+    }
+
+    R4_CONDITION_ENTRY ||= {
+      "fullUrl":"https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p40880687",
+      "resource":{
+        "resourceType":"Condition",
+        "id":"p40880687",
+        "meta":{
+          "versionId":"40880687",
+          "lastUpdated":"2018-11-13T21:56:14.000Z"
+        },
+        "text":{
+          "status":"generated",
+          "div":"&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>Problem&lt;/b>: Pelvic mass (disorder)&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Resolved&lt;/p>&lt;p>&lt;b>Verification Status&lt;/b>: Differential&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: Moderate&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: Jun 29, 2015&lt;/p>&lt;p>&lt;b>Resolved&lt;/b>: Jan  1, 2017&lt;/p>&lt;/div>"
+        },
+        "clinicalStatus":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code":"resolved",
+              "display":"Resolved",
+              "userSelected":false
+            }
+          ],
+          "text":"Resolved"
+        },
+        "verificationStatus":{
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code":"differential",
+              "display":"Differential",
+              "userSelected":false
+            }
+          ],
+          "text":"Differential"
+        },
+        "category":[
+          {
+            "coding":[
+              {
+                "system":"http://terminology.hl7.org/CodeSystem/condition-category",
+                "code":"problem-list-item",
+                "display":"Problem List Item"
+              }
+            ],
+            "text":"Problem List Item"
+          }
+        ],
+        "severity":{
+          "coding":[
+            {
+              "system":"https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+              "code":"3294",
+              "display":"Moderate",
+              "userSelected":true
+            },
+            {
+              "system":"http://snomed.info/sct",
+              "code":"6736007",
+              "display":"Moderate",
+              "userSelected":false
+            }
+          ],
+          "text":"Moderate"
+        },
+        "code":{
+          "coding":[
+            {
+              "system":"http://snomed.info/sct",
+              "code":"74285003",
+              "display":"Pelvic mass (disorder)",
+              "userSelected":true
+            }
+          ],
+          "text":"Pelvic mass"
+        },
+        "subject":{
+          "reference":"Patient/1316024",
+          "display":"PETERS, TIMOTHY CCCC"
+        },
+        "onsetDateTime":"2015-06-29",
+        "abatementDateTime":"2017-01-01",
+        "recordedDate":"2018-11-13T21:56:13.000Z",
+        "recorder":{
+          "reference":"Practitioner/1912007",
+          "display":"Forrest, Fhir"
+        }
+      }
     }
 
     R4_CONDITION_CREATE ||= {
@@ -235,10 +324,10 @@ module Cerner
         {
           "authorReference": {
             "reference": "Practitioner/1912007",
-            "display": "Test, Jack" 
+            "display": "Test, Jack"
           },
           "text": "Test Comment"
-          
+
         }
       ]
     }
