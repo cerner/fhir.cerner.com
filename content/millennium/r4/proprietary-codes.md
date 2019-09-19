@@ -355,7 +355,7 @@ This code set includes Account Types such as A/R and CASH.
 
 #### Code Set 18934 Currency Type
 
-This code set includes currency types such as USD.
+This code set includes the statuses of a benefit order within the billing workflow such as In Process and Ready to bill.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18934,
@@ -410,7 +410,7 @@ This code set describes why an immunization was not administered when documented
 
 #### Code Set 4002640 Correspondence Status
 
-This code set includes Functional Statement Account Statuses such as Pending and Delivered.
+This code set includes the statuses that reflect the current status of a correspondence within the statement workflow such as Pending and Delivered.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4002640,

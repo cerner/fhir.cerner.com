@@ -65,7 +65,7 @@ Search for Accounts that meet supplied query parameters:
  `_id`        | This or any other required search parameter       | [`token`]     | The logical resource id associated with the resource
  `identifier` | no                                                | [`token`]     | Aliases of the Account like Statement Number
  `type`       | no                                                | [`token`]     | The specific type of account
- `patient`    | This and type and patient, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
+ `patient`    | This and type and identifier, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
  `-guarantor` | This and type, or any other search param, or _id  | [`reference`] | The parties responsible for balancing the account
  `_count`     | no                                                | [`number`]    | Paging parameter
  
@@ -85,7 +85,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?account=F703726
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726
 
 #### Response
 
@@ -114,7 +114,7 @@ List an individual Account by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F633923
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F703726
 
 #### Response
 

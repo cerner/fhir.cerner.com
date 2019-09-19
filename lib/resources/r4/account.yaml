@@ -40,7 +40,7 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: Extension
-  description: currencies
+  description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance
   binding:
     description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
