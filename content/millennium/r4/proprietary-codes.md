@@ -366,7 +366,7 @@ This code set includes the statuses of a benefit order within the billing workfl
 
 #### Code Set 24451 Benefit Order Status
 
-This code set includes Functional Balance Account Statuses such as In Process and Ready to bill.
+This code set includes the statuses of a benefit order within the billing workflow such as In Process and Ready to bill.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/24451,
