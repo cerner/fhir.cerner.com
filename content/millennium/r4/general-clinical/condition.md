@@ -65,9 +65,9 @@ Notes:
 
 ### Example
 
-Notes:
+Note:
 
-The examples provided here are non-normative and may or may not return the same result documented here.
+The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 #### Request
 
@@ -98,9 +98,9 @@ List an individual Condition by its id:
 
 ### Example
 
-Notes:
+Note:
 
-The examples provided here are non-normative and may or may not return the same result documented here.
+The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 #### Request
 
@@ -140,9 +140,9 @@ _Implementation Notes_
 
 ### Example
 
-Notes:
+Note:
 
-The examples provided here are non-normative and may or may not return the same result documented here.
+The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 #### Request
 
@@ -201,9 +201,9 @@ _Implementation Notes_
 
 ### Example
 
-Notes:
+Note:
 
-The examples provided here are non-normative and may or may not return the same result documented here.
+The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 #### Request
 
