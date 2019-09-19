@@ -47,13 +47,13 @@ _Implementation Notes_
 
 ### Parameters
 
- Name               | Required?          | Type          | Description
---------------------|--------------------|---------------|-----------------------------------------------------------------------
-`_id`               | This or `patient` or `subject`  | [`token`] | The logical resource id associated with the resource.
- `patient`          | This or `_id` or `subject`  | [`reference`] | Who the condition is for. Example: `12345`
- `subject`          | This or `_id` or `patient`  | [`reference`] | Who the condition is for. Example: `Patient/12345`
- `clinical-status`  | No                 | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`         | No                 | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
+ Name              | Required?                      | Type          | Description
+-------------------|--------------------------------|---------------|-----------------------------------------------------------------------
+ `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
+ `patient`         | This or `_id` or `subject`     | [`reference`] | Who the condition is for. Example: `12345`
+ `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
+ `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
+ `category`        | No                             | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
 
 Notes:
 
@@ -139,6 +139,10 @@ _Implementation Notes_
 <%= definition_table(:condition, :create, :r4) %>
 
 ### Example
+
+Notes:
+
+The examples provided here are non-normative and may or may not return the same result documented here.
 
 #### Request
 
