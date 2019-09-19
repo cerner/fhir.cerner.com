@@ -33,7 +33,7 @@ The following fields are returned if valued:
 * [Subject](https://hl7.org/fhir/R4/account-definitions.html#Account.subject){:target="_blank"} 
 * [Service period](https://hl7.org/fhir/R4/account-definitions.html#Account.servicePeriod){:target="_blank"}
 * [Owner](https://hl7.org/fhir/R4/account-definitions.html#Account.owner){:target="_blank"} 
-* [Guarantor](https:// https://hl7.org/fhir/R4/account-definitions.html#Account.guarantor){:target="_blank"} 
+* [Guarantor](https://hl7.org/fhir/R4/account-definitions.html#Account.guarantor){:target="_blank"} 
 * [Part of](https://hl7.org/fhir/R4/account-definitions.html#Account.partOf){:target="_blank"}
 * [Extensions including related parts, balance, and state](#extensions){:target="_blank"}
 
