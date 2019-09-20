@@ -41,7 +41,7 @@ fields:
   cardinality: 0..1
   type: Extension
   description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance
+  url: https://fhir.cerner.com/millennium/r4/financial/account/#extensions
   binding:
     description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
     terminology:
@@ -57,7 +57,7 @@ fields:
   cardinality: 0..1
   type: Extension
   description: Status of the functional progression of the Account.
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state
+  url: https://fhir.cerner.com/millennium/r4/financial/account/#extensions
   binding:
     description: Status of the functional progression of the Account.
     terminology:

@@ -54,9 +54,9 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                         | Value\[x] Type | Description
 ----------------------------|----------------|-------------------------------------------------------------------------------------------
- `related-parts`            | [`reference`]       | Reference to other non-parent Accounts
+ `related-parts`            | [`reference`]       | A reference to other related Accounts.
  `balance`                  | [`money`]           | Represents the account balance.
- `state`                    | [`codeableConcept`] | Status of the functional progression of the Account.
+ `state`                    | [`codeableConcept`] | The status of the Account within the billing or correspondence workflow.
 
 
 ## Search
@@ -78,7 +78,7 @@ Search for Accounts that meet supplied query parameters:
  `type`       | no                                                | [`token`]     | The specific type of account
  `patient`    | This and type and identifier, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
  `-guarantor` | This and type, or any other search param, or _id  | [`reference`] | The parties responsible for balancing the account
- `_count`     | no                                                | [`number`]    | The paging parameter
+ `_count`     | no                                                | [`number`]    | The maximum number of results to return. Defaults to `10`.
  
 
 Notes:
@@ -126,7 +126,7 @@ List an individual Account by its id:
 
     GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F703726
 
-#### Response
+#### Response 
 
 <%= headers status: 200 %>
 <%= json(:r4_account_read) %>

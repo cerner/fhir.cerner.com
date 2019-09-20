@@ -355,7 +355,7 @@ This code set includes Account Types such as A/R and CASH.
 
 #### Code Set 18934 Currency Type
 
-This code set includes the statuses of a benefit order within the billing workflow such as In Process and Ready to bill.
+This code set includes currency types such as USD.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/18934,
@@ -366,7 +366,7 @@ This code set includes the statuses of a benefit order within the billing workfl
 
 #### Code Set 24451 Benefit Order Status
 
-This code set includes the statuses of a benefit order within the billing workflow such as In Process and Ready to bill.
+This code set includes the statuses within the billing workflow such as In Process and Ready to bill.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/24451,
