@@ -48,6 +48,17 @@ The following fields are returned if valued:
 * [Balance]
 * [State]
 
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                         | Value\[x] Type | Description
+----------------------------|----------------|-------------------------------------------------------------------------------------------
+ `related-parts`            | [`reference`]       | Reference to other non-parent Accounts
+ `balance`                  | [`money`]           | Represents the account balance.
+ `state`                    | [`codeableConcept`] | Status of the functional progression of the Account.
+
+
 ## Search
 
 Search for Accounts that meet supplied query parameters:
@@ -67,15 +78,14 @@ Search for Accounts that meet supplied query parameters:
  `type`       | no                                                | [`token`]     | The specific type of account
  `patient`    | This and type and identifier, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
  `-guarantor` | This and type, or any other search param, or _id  | [`reference`] | The parties responsible for balancing the account
- `_count`     | no                                                | [`number`]    | Paging parameter
+ `_count`     | no                                                | [`number`]    | The paging parameter
  
 
 Notes:
 
 * `Account-balance` is only returned on statement and guarantor-balance types
 * `Patient` is only returned on statement and financial-account types 
-* Guarantor search can only be RelatedPersons with the financial-account type
-* IDs are prefixed based upon the account type 
+* The -guarantor search parameter can only contain a reference to a RelatedPerson, accompanied with the type search parameter set to financial-account
 
 ### Headers
  
@@ -125,7 +135,13 @@ List an individual Account by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`codeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
+[`number`]: http://hl7.org/fhir/dstu2/search.html#number
+[`money`]: http://hl7.org/fhir/r4/datatypes.html#Money
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Related Parts]: #custom-extensions
+[Balance]: #custom-extensions
+[State]: #custom-extensions

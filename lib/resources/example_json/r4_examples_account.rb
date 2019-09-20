@@ -58,7 +58,7 @@ module Cerner
                     "id": "F703726",
                     "text": {
                         "status": "generated",
-                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Account</b></p><p><b>Account Type</b>: financial-account</p><p><b>Service Period Start Date</b>: Sep 27, 2013  4:12 P.M. UTC</p><p><b>Account Number</b>: 10000381</p></div>"
+                        "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: financial-account&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Sep 27, 2013  4:12 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Number&lt;/b&gt;: 10000381&lt;/p&gt;&lt;/div&gt;"
                     },
                     "identifier": [
                         {
