@@ -19,9 +19,9 @@ The Account resource acts as a central record against which charges, payments, a
 
 The account resource supports multiple account types which are defined below. 
 
-* financial-account - Top level patient account
-* guarantor-balance - Self pay balance account.
-* statement - Snapshot in time of a patient statement.
+* `financial-account` - Top level patient account
+* `guarantor-balance` - Self pay balance account.
+* `statement` - Snapshot in time of a patient statement.
 
 
 The following fields are returned if valued:
@@ -54,9 +54,9 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                         | Value\[x] Type | Description
 ----------------------------|----------------|-------------------------------------------------------------------------------------------
- `related-parts`            | [`reference`]       | A reference to other related Accounts.
- `balance`                  | [`money`]           | Represents the account balance.
- `state`                    | [`codeableConcept`] | The status of the Account within the billing or correspondence workflow.
+ `account-related-parts`    | [`reference`]       | A reference to other related Accounts.
+ `account-balance`          | [`money`]           | Represents the account balance.
+ `account-state`            | [`codeableConcept`] | The status of the Account within the billing or correspondence workflow.
 
 
 ## Search
@@ -64,6 +64,11 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 Search for Accounts that meet supplied query parameters:
 
     GET /Account?:parameters
+
+_Implementation Notes_
+
+* The Account balance extension is only returned on statement and guarantor-balance types
+* `Patient` is only returned on statement and financial-account types 
 
 ### Authorization Types
 
@@ -73,19 +78,21 @@ Search for Accounts that meet supplied query parameters:
 
  Name         | Required?                                         | Type          | Description
 --------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
- `_id`        | This or any other required search parameter       | [`token`]     | The logical resource id associated with the resource
- `identifier` | no                                                | [`token`]     | Aliases of the Account like Statement Number
- `type`       | no                                                | [`token`]     | The specific type of account
- `patient`    | This and type and identifier, or any other search param, or _id  | [`reference`] | The entity that caused the expenses
- `-guarantor` | This and type, or any other search param, or _id  | [`reference`] | The parties responsible for balancing the account
- `_count`     | no                                                | [`number`]    | The maximum number of results to return. Defaults to `10`.
+ `_id`        | See notes | [`token`]     | The logical resource id associated with the resource
+ `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number
+ `type`       | See notes | [`token`]     | The specific type of account
+ `patient`    | See notes | [`reference`] | The entity that caused the expenses
+ `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account
+ `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
  
 
 Notes:
 
-* `Account-balance` is only returned on statement and guarantor-balance types
-* `Patient` is only returned on statement and financial-account types 
-* The -guarantor search parameter can only contain a reference to a RelatedPerson, accompanied with the type search parameter set to financial-account
+* You may search via:
+    * `_id` alone
+    * `patient`, `identifier`, and `type`
+    * `-guarantor` and `type`
+* The `-guarantor` search parameter should contain a reference to a RelatedPerson when set. When `-guarantor` is set, `type` must be set to 'financial-account'.
 
 ### Headers
  
@@ -101,6 +108,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_account_search) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -130,6 +139,8 @@ List an individual Account by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_account_read) %>
+
+<%= disclaimer %>
 
 ### Errors
 

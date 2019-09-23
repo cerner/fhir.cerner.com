@@ -68,7 +68,7 @@ _Implementation Notes_
  `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
  `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
  `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
- `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The encounters referenced by the account. Example: `F703726`
+ `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account referenced by the encounter. Example: `F703726`
  [`_count`] | No                             | [`number`]    | The maximum number of results to return.
 
 ### Headers

@@ -41,18 +41,6 @@ Example CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
-## Financial
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Account</h3>
-
-The Account Resource supports proprietary codes for:
-
-* Account.type.text codes are maintained in [Code Set 18736 Account Types](#code-set-18736-account-types)
-* Account.balance.currency codes are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
-* Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
-* Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
-
 ## Encounters
 
 <!-- use html header to avoid showing up in toc -->
@@ -69,6 +57,18 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.dietPreference codes are maintained in [Code Set 18 Diet](#code-set-18-diet)
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
+
+## Financial
+
+<!-- use html header to avoid showing up in toc -->
+<h3>Account</h3>
+
+The Account Resource supports proprietary codes for:
+
+* Account.type.text codes are maintained in [Code Set 18736 Account Types](#code-set-18736-account-types)
+* Account.balance.currency codes are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
+* Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
+* Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
 
 ## General Clinical
 
