@@ -65,7 +65,7 @@ Search for Accounts that meet supplied query parameters:
 _Implementation Notes_
 
 * The Account balance extension is only returned on statement and guarantor-balance types
-* `Patient` is only returned on statement and financial-account types
+* [Account.subject] is only returned on statement and financial-account types
 
 ### Authorization Types
 
@@ -76,7 +76,7 @@ _Implementation Notes_
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource. Example: `F703726`
- `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/28200|500000078`
+ `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|500000078`
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
  `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/1316024`
  `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `589762-12154123`
@@ -124,7 +124,7 @@ List an individual Account by its id:
 ### Headers
 
 <%= headers %>
-    
+
 ### Example
 
 #### Request
@@ -152,3 +152,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Related Parts]: #custom-extensions
 [Balance]: #custom-extensions
 [State]: #custom-extensions
+[Account.subject]: http://hl7.org/fhir/R4/account-definitions.html#Account.subject
