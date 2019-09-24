@@ -17,26 +17,24 @@ The Account resource acts as a central record against which charges, payments, a
 
 ### Account Types
 
-The account resource supports multiple account types which are defined below. 
+The account resource supports multiple account types which are defined below.
 
 * `financial-account` - Top level patient account
 * `guarantor-balance` - Self pay balance account.
 * `statement` - Snapshot in time of a patient statement.
 
-
 The following fields are returned if valued:
 
-* [Account id]( https://hl7.org/fhir/r4/resource-definitions.html#Resource.id ){:target="_blank"} 
-* [Account Identifier](https://hl7.org/fhir/R4/account-definitions.html#Account.identifier){:target="_blank"} 
-* [Status](https://hl7.org/fhir/R4/account-definitions.html#Account.status){:target="_blank"} 
+* [Account id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Account Identifier](https://hl7.org/fhir/R4/account-definitions.html#Account.identifier){:target="_blank"}
+* [Status](https://hl7.org/fhir/R4/account-definitions.html#Account.status){:target="_blank"}
 * [Type](https://hl7.org/fhir/R4/account-definitions.html#Account.type){:target="_blank"}
-* [Subject](https://hl7.org/fhir/R4/account-definitions.html#Account.subject){:target="_blank"} 
+* [Subject](https://hl7.org/fhir/R4/account-definitions.html#Account.subject){:target="_blank"}
 * [Service period](https://hl7.org/fhir/R4/account-definitions.html#Account.servicePeriod){:target="_blank"}
-* [Owner](https://hl7.org/fhir/R4/account-definitions.html#Account.owner){:target="_blank"} 
-* [Guarantor](https://hl7.org/fhir/R4/account-definitions.html#Account.guarantor){:target="_blank"} 
+* [Owner](https://hl7.org/fhir/R4/account-definitions.html#Account.owner){:target="_blank"}
+* [Guarantor](https://hl7.org/fhir/R4/account-definitions.html#Account.guarantor){:target="_blank"}
 * [Part of](https://hl7.org/fhir/R4/account-definitions.html#Account.partOf){:target="_blank"}
 * [Extensions including related parts, balance, and state](#extensions){:target="_blank"}
-
 
 ## Terminology Bindings
 
@@ -52,12 +50,11 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                         | Value\[x] Type | Description
-----------------------------|----------------|-------------------------------------------------------------------------------------------
+ ID                         | Value\[x] Type      | Description
+----------------------------|---------------------|--------------------------------------------------------------------------
  `account-related-parts`    | [`reference`]       | A reference to other related Accounts.
  `account-balance`          | [`money`]           | Represents the account balance.
  `account-state`            | [`codeableConcept`] | The status of the Account within the billing or correspondence workflow.
-
 
 ## Search
 
@@ -68,7 +65,7 @@ Search for Accounts that meet supplied query parameters:
 _Implementation Notes_
 
 * The Account balance extension is only returned on statement and guarantor-balance types
-* `Patient` is only returned on statement and financial-account types 
+* `Patient` is only returned on statement and financial-account types
 
 ### Authorization Types
 
@@ -76,26 +73,25 @@ _Implementation Notes_
 
 ### Parameters
 
- Name         | Required?                                         | Type          | Description
---------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
- `_id`        | See notes | [`token`]     | The logical resource id associated with the resource
- `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number
- `type`       | See notes | [`token`]     | The specific type of account
- `patient`    | See notes | [`reference`] | The entity that caused the expenses
- `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account
+ Name         | Required? | Type          | Description
+--------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`        | See notes | [`token`]     | The logical resource id associated with the resource. Example: `F703726`
+ `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/28200|500000078`
+ `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
+ `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/1316024`
+ `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `589762-12154123`
  `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
- 
 
 Notes:
 
 * You may search via:
-    * `_id` alone
-    * `patient`, `identifier`, and `type` set to ‘statement'.
-    * `-guarantor` and `type` set to ‘financial-account’.
+  * `_id` alone
+  * `patient`, `identifier`, and `type` set to 'statement'.
+  * `-guarantor` and `type` set to 'financial-account'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
 ### Headers
- 
+
  <%= headers %>
 
 ### Example
@@ -135,7 +131,7 @@ List an individual Account by its id:
 
     GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/G2572738
 
-#### Response 
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_account_read) %>

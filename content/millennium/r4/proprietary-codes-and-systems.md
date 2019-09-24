@@ -1,5 +1,5 @@
 ---
-title: Proprietary Codes | R4 API
+title: Proprietary Codes and Systems | R4 API
 ---
 
 # Proprietary Codes and Systems
@@ -446,8 +446,7 @@ Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard al
 
 The Account Resource supports proprietary systems for:
 
-* Account.identifier.system is [Account Number](#account-number)
-
+* Account.identifier.system is [Account Number](#account-number) for financial accounts.
 
 ### List of Systems
 

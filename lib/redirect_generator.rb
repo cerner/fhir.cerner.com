@@ -10,17 +10,13 @@ class RedirectGenerator
       to_url = redirect_item[1][:url]
       deprecated = redirect_item[1][:deprecated]
 
-      redirect = {:url => to_url, :deprecated => deprecated}
+      redirect = {:url => to_url, :deprecated => deprecated} 
       
-      if from_url.include? "/r4/"
-        items.create(r4_redirect_template.result(binding),
-                    {:redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
-                    from_url)
-      else
-        items.create(dstu2_redirect_template.result(binding),
-                    {:redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
-                    from_url)
-      end
+      items.create(
+        from_url.include?('/r4/') ? r4_redirect_template.result(binding) : dstu2_redirect_template.result(binding),
+        {:redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
+        from_url
+      )
     end
   end
 end
