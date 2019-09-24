@@ -28,7 +28,7 @@ fields:
         info_link: https://hl7.org/fhir/R4/v2/0203/index.html
       - display: Millennium Person Identifier (Alias) Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-4-person-identifier-alias-types
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types
 
 - name: maritalStatus
   required: 'No'
@@ -50,7 +50,7 @@ fields:
       info_link: https://hl7.org/fhir/R4/v3/NullFlavor/cs.html
     - display: Millennium Marital Status
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/38
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-38-marital-status
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-38-marital-status
 
 - name: contact
   required: 'No'
@@ -77,7 +77,7 @@ fields:
         info_link: https://hl7.org/fhir/R4/v2/0131/index.html
       - display: Millennium Person Relationship Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-351-person-relationship-types
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
 
 - name: communication
   required: 'No'
@@ -104,7 +104,7 @@ fields:
         info_link: https://tools.ietf.org/html/bcp47
       - display: Millennium Languages
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-36-languages
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-36-languages
 
 - name: resourceType
   required: 'Yes'

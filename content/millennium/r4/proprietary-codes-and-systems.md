@@ -2,12 +2,14 @@
 title: Proprietary Codes | R4 API
 ---
 
-# Proprietary Codes
+# Proprietary Codes and Systems
 
 * TOC
 {:toc}
 
-## Overview
+## Proprietary Codes
+
+### Overview
 
 Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients' proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.
 
@@ -41,10 +43,10 @@ Example CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
-## Encounters
+### Encounters
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Encounter</h3>
+<h4>Encounter</h4>
 
 The Encounter Resource supports proprietary codes for:
 
@@ -58,10 +60,10 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
 
-## Financial
+### Financial
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Account</h3>
+<h4>Account</h4>
 
 The Account Resource supports proprietary codes for:
 
@@ -70,19 +72,19 @@ The Account Resource supports proprietary codes for:
 * Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
 * Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
 
-## General Clinical
+### General Clinical
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Condition</h3>
+<h4>Condition</h4>
 
 The Condition Resource supports proprietary codes for:
 
 * Condition.severity codes are maintained in [Code Set 12022 Severity](#code-set-12022-severity)
 
-## Individuals
+### Individuals
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Patient</h3>
+<h4>Patient</h4>
 
 The Patient Resource supports proprietary codes for:
 
@@ -91,17 +93,17 @@ The Patient Resource supports proprietary codes for:
 * Patient.identifier.type codes are maintained in [Code Set 4 Person Identifier (Alias) Types](#code-set-4-person-identifier-alias-types)
 * Patient.contact.relationship codes for are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
 
-<h3>RelatedPerson</h3>
+<h4>RelatedPerson</h4>
 
 The RelatedPerson Resource supports proprietary codes for:
 
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
 * RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) 
 
-## Medications
+### Medications
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Immunization</h3>
+<h4>Immunization</h4>
 
 The Immunization Resource supports proprietary codes for:
 
@@ -111,10 +113,10 @@ The Immunization Resource supports proprietary codes for:
 * Immunization.site codes are maintained in [Code Set 97 Medication Administration Site](#code-set-97-medication-administration-site)
 * Immunization.route codes are maintained in [Code Set 4001 Medication Administration Route](#code-set-4001-medication-administration-route)
 
-## Scheduling
+### Scheduling
 
 <!-- use html header to avoid showing up in toc -->
-<h3>Appointment</h3>
+<h4>Appointment</h4>
 
 The Appointment Resource supports proprietary codes for:
 
@@ -122,9 +124,9 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
 
-## List of Code Sets
+### List of Code Sets
 
-#### Code Set 2 Admission Source
+##### Code Set 2 Admission Source
 
 This code set is similar to the HL7 value set but may have more specific displays such as Transfer from Critical Access Hospital versus Transferred from other hospital.
 
@@ -135,7 +137,7 @@ This code set is similar to the HL7 value set but may have more specific display
       "userSelected": true
     }
 
-#### Code Set 3 Encounter Admission Type
+##### Code Set 3 Encounter Admission Type
 
 This code set is typically small and similar to the HL7 value set.
 
@@ -146,7 +148,7 @@ This code set is typically small and similar to the HL7 value set.
       "userSelected": true
     }
 
-#### Code Set 4 Person Identifier (Alias) Types
+##### Code Set 4 Person Identifier (Alias) Types
 
 This code set includes Identifier Types such as Medical Record Number and Driver's License Number.
 
@@ -157,7 +159,7 @@ This code set includes Identifier Types such as Medical Record Number and Driver
       "userSelected": true
     }
 
-#### Code Set 16 Courtesy
+##### Code Set 16 Courtesy
 
 This code set is a one-element code set containing only Yes.
 
@@ -168,7 +170,7 @@ This code set is a one-element code set containing only Yes.
       "userSelected": true
     }
 
-#### Code Set 18 Diet
+##### Code Set 18 Diet
 
 This is a small code set similar to the HL7 value set.
 
@@ -179,7 +181,7 @@ This is a small code set similar to the HL7 value set.
       "userSelected": true
     }
 
-#### Code Set 19 Discharge Disposition
+##### Code Set 19 Discharge Disposition
 
 The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of required values for documenting the disposition of patients upon discharge.
 
@@ -190,7 +192,7 @@ The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of r
       "userSelected": true
     }
 
-#### Code Set 34 Hospital Service
+##### Code Set 34 Hospital Service
 
 This code set maintains service types available in the facility such as Emergency Medicine, Neurology, and Pediatrics.
 
@@ -201,7 +203,7 @@ This code set maintains service types available in the facility such as Emergenc
       "userSelected": true
     }
 
-#### Code Set 36 Languages
+##### Code Set 36 Languages
 
 This code set is customized by clients and may include Languages such as English and Chinese.
 
@@ -212,7 +214,7 @@ This code set is customized by clients and may include Languages such as English
       "userSelected": true
     }
 
-#### Code Set 38 Marital Status
+##### Code Set 38 Marital Status
 
 This code set may include Marital Statuses such as Divorced and Married.
 
@@ -223,7 +225,7 @@ This code set may include Marital Statuses such as Divorced and Married.
       "userSelected": true
     }
 
-#### Code Set 40 Person Relationships
+##### Code Set 40 Person Relationships
 
 This code set is used to describe the patient's relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.
      
@@ -235,7 +237,7 @@ This code set is used to describe the patient's relationship to Subscriber, Guar
     }
 
 
-#### Code Set 67 VIP
+##### Code Set 67 VIP
 
 This code set is a one-element code set containing only Yes.
 
@@ -246,7 +248,7 @@ This code set is a one-element code set containing only Yes.
       "userSelected": true
     }
 
-#### Code Set 71 Visit Type
+##### Code Set 71 Visit Type
 
 This code set is client definable for different patient types such an Outpatient in a Bed versus Outpatient Clinic visit. There can be workflow and/or functional requirements for different encounter types.
 
@@ -257,7 +259,7 @@ This code set is client definable for different patient types such an Outpatient
       "userSelected": true
     }
 
-#### Code Set 72 Clinical Event Codes
+##### Code Set 72 Clinical Event Codes
 
 This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.
 
@@ -268,7 +270,7 @@ This code set is extremely large and highly customized by clients. It maintains 
       "userSelected": true 
     }
 
-#### Code Set 97 Medication Administration Site
+##### Code Set 97 Medication Administration Site
 
 This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.
 
@@ -279,7 +281,7 @@ This code set maintains medication administration sites such as left arm, right 
       "userSelected": true 
     }
 
-#### Code Set 319 Encounter Alias Type
+##### Code Set 319 Encounter Alias Type
 
 This is a small code set currently only supporting FIN NBR and VISITID.
 
@@ -290,7 +292,7 @@ This is a small code set currently only supporting FIN NBR and VISITID.
       "userSelected": true
     }
 
-#### Code Set 333 Encounter/Personnel Relationship
+##### Code Set 333 Encounter/Personnel Relationship
 
 This code set maintains the various personnel positions in the facility such as Attending Physician, ED Nurse Practitioner, and Case Manager.
 
@@ -301,7 +303,7 @@ This code set maintains the various personnel positions in the facility such as 
       "userSelected": true
     }
 
-#### Code Set 351 Person Relationship Types
+##### Code Set 351 Person Relationship Types
 
 This code set includes Relationship Types such as Guardian and Emergency Contact.
 
@@ -312,7 +314,7 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "userSelected": true
     }
 
-#### Code Set 4001 Medication Administration Route
+##### Code Set 4001 Medication Administration Route
 
 This code set maintains medication administration routes such as ID or IM.
 
@@ -323,7 +325,7 @@ This code set maintains medication administration routes such as ID or IM.
       "userSelected": true 
     }
 
-#### Code Set 12022 Severity
+##### Code Set 12022 Severity
 
 This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history. 
 
@@ -333,7 +335,7 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "display": "Moderate", 
     }
 
-#### Code Set 14249 Scheduling Appointment Type Synonyms
+##### Code Set 14249 Scheduling Appointment Type Synonyms
 
 This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.
 
@@ -344,7 +346,7 @@ This code set is highly customized by clients and may include appointment types 
       "userSelected": true
     }
 
-#### Code Set 14250 Scheduling Resource Roles
+##### Code Set 14250 Scheduling Resource Roles
 
 This code set is customized by clients and defines exam rooms, surgery rooms, and generic resource roles such as Anesthesiologist and Radiology Tech.
 
@@ -354,7 +356,7 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "display": "Radiology Exam Room",
     }
 
-#### Code Set 18736 Account Types
+##### Code Set 18736 Account Types
 
 This code set includes Account Types such as A/R and CASH.
 
@@ -365,7 +367,7 @@ This code set includes Account Types such as A/R and CASH.
       "userSelected": true
     }
 
-#### Code Set 18934 Currency Type
+##### Code Set 18934 Currency Type
 
 This code set includes currency types such as USD.
 
@@ -376,7 +378,7 @@ This code set includes currency types such as USD.
       "userSelected": true
     }
 
-#### Code Set 24451 Benefit Order Status
+##### Code Set 24451 Benefit Order Status
 
 This code set includes the statuses within the billing workflow such as In Process and Ready to bill.
 
@@ -387,7 +389,7 @@ This code set includes the statuses within the billing workflow such as In Proce
       "userSelected": true
     }
 
-#### Code Set 28200 PFT Bill Alias Type
+##### Code Set 28200 PFT Bill Alias Type
 
 This code set includes bill alias types such as billalias, invalias, and stmtalias.
 
@@ -398,7 +400,7 @@ This code set includes bill alias types such as billalias, invalias, and stmtali
       "userSelected": true
     }
 
-####  Code Set 30200 Result Source
+#####  Code Set 30200 Result Source
       
 This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.
 
@@ -409,7 +411,7 @@ This code set maintains the source of information for a result such as self, par
        "userSelected": true 
     }
 
-#### Code Set 30440 Expire Reasons
+##### Code Set 30440 Expire Reasons
 
 This code set describes why an immunization was not administered when documented through the Health Maintenance model.
 
@@ -429,4 +431,32 @@ This code set includes the statuses that reflect the current status of a corresp
       "code": "19177939",
       "display": "Delivered",
       "userSelected": true
+    }
+
+## Proprietary Systems
+
+### Overview
+
+Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary systems to be used in addition to standard systems.
+
+### Financial
+
+<!-- use html header to avoid showing up in toc -->
+<h4>Account</h4>
+
+The Account Resource supports proprietary systems for:
+
+* Account.identifier.system is [Account Number](#account-number)
+
+
+### List of Systems
+
+##### Account Number
+
+This system is the account number of a financial account.
+
+    {
+      "use": "usual",
+      "system": "https://fhir.cerner.com/accountnumber",
+      "value": "5646"
     }

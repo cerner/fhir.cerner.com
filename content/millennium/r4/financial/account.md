@@ -90,9 +90,9 @@ Notes:
 
 * You may search via:
     * `_id` alone
-    * `patient`, `identifier`, and `type`
-    * `-guarantor` and `type`
-* The `-guarantor` search parameter should contain a reference to a RelatedPerson when set. When `-guarantor` is set, `type` must be set to 'financial-account'.
+    * `patient`, `identifier`, and `type` set to ‘statement'.
+    * `-guarantor` and `type` set to ‘financial-account’.
+* The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
 ### Headers
  
@@ -133,7 +133,7 @@ List an individual Account by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F703726
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/G2572738
 
 #### Response 
 
