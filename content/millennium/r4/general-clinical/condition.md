@@ -47,12 +47,17 @@ _Implementation Notes_
 
 ### Parameters
 
- Name               | Required?          | Type          | Description
---------------------|--------------------|---------------|-----------------------------------------------------------------------
- `patient`          | This or `subject`  | [`reference`] | Who the condition is for. Example: `12345`
- `subject`          | This or `patient`  | [`reference`] | Who the condition is for. Example: `12345`
- `clinical-status`  | No                 | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`         | No                 | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
+ Name              | Required?                      | Type          | Description
+-------------------|--------------------------------|---------------|-----------------------------------------------------------------------
+ `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
+ `patient`         | This or `_id` or `subject`     | [`reference`] | Who the condition is for. Example: `12345`
+ `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
+ `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
+ `category`        | No                             | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
+
+Notes:
+
+* If `_id` is provided, no other parameters may be provided.
 
 ### Headers
 
@@ -68,6 +73,39 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_bundle) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual Condition by its id:
+
+    GET /Condition/:id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers fhir_json: true %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p40880687
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_condition_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -126,6 +164,8 @@ X-Runtime: 2.011826
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -181,6 +221,8 @@ _Implementation Notes_
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
+
+<%= disclaimer %>
 
 ### Errors
 
