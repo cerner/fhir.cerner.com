@@ -65,10 +65,6 @@ Notes:
 
 ### Example
 
-Note:
-
-The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
 #### Request
 
     GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=1316024
@@ -77,6 +73,8 @@ The examples provided here are non-normative and replaying them in the public sa
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -98,10 +96,6 @@ List an individual Condition by its id:
 
 ### Example
 
-Note:
-
-The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
 #### Request
 
     GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p40880687
@@ -110,6 +104,8 @@ The examples provided here are non-normative and replaying them in the public sa
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -140,10 +136,6 @@ _Implementation Notes_
 
 ### Example
 
-Note:
-
-The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
 #### Request
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
@@ -171,6 +163,8 @@ X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -231,6 +225,8 @@ The examples provided here are non-normative and replaying them in the public sa
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
+
+<%= disclaimer %>
 
 ### Errors
 
