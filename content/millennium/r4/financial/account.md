@@ -79,7 +79,7 @@ _Implementation Notes_
  `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|500000078`
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
  `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/1316024`
- `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `589762-12154123`
+ `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `6330015-6330017`
  `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
 
 Notes:
@@ -96,7 +96,7 @@ Notes:
 
 ### Example
 
-#### Request
+#### Request - `_id`
 
     GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726
 
@@ -104,6 +104,24 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_account_search) %>
+
+#### Request - `patient`, `identifier`, and `type`
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?identifier=https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|68002&patient=6330017&type=statement
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_account_search_statement) %>
+
+#### Request - `-guarantor` and `type`
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?-guarantor=6330015-6330015&type=financial-account
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_account_search_guarantor) %>
 
 <%= disclaimer %>
 
