@@ -195,10 +195,6 @@ _Implementation Notes_
 
 ### Example
 
-Note:
-
-The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
 #### Request
 
     PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p10070301
