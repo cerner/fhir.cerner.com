@@ -212,7 +212,7 @@ fields:
         info_link: https://hl7.org/fhir/r4/snomedct.html
       - display: Millennium Condition Severity
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-12022-severity
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-12022-severity
 
 - name: code
   required: 'Yes'

@@ -63,12 +63,13 @@ _Implementation Notes_
 
 ### Parameters
 
- Name       | Required?                      | Type          | Description
-------------|--------------------------------|---------------|-------------------------------------------------------------------------------------------------------
- `_id`      | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient`  | This or `subject` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
- `subject`  | This or `patient` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
- [`_count`] | No                             | [`number`]    | The maximum number of results to return.
+ Name       | Required?                                   | Type          | Description
+------------|---------------------------------------------|---------------|-------------------------------------------------------------------------------------------------------
+ `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
+ `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
+ [`_count`] | No                                          | [`number`]    | The maximum number of results to return.
 
 ### Headers
 
@@ -194,8 +195,6 @@ _Implementation Notes_
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
                    'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Encounter resource>"'} %>
-
-
 
 ### Patch Operations
 

@@ -16,7 +16,7 @@ fields:
       info_link: http://hl7.org/fhir/r4/valueset-immunization-status-reason.html
     - display: Millennium Expire Reasons
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-30440-expire-reasons
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-30440-expire-reasons
 
 - name: vaccineCode
   required: 'Yes'
@@ -34,7 +34,7 @@ fields:
       info_link: http://hl7.org/fhir/r4/ndc.html
     - display: Millennium Clinical Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-72-clinical-event-codes
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
     note: The CVX binding will always be returned. An NDC binding will be returned when available.
 
 - name: reportOrigin
@@ -50,7 +50,7 @@ fields:
       info_link: http://hl7.org/fhir/R4/codesystem-immunization-origin.html
     - display: Millennium Source from which a Result Originated
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-30200-result-source
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-30200-result-source
 
 - name: site
   required: 'No'
@@ -65,7 +65,7 @@ fields:
       info_link: http://hl7.org/fhir/r4/snomedct.html
     - display: Millennium Medication Site
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-97-medication-administration-site
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-97-medication-administration-site
 
 - name: route
   required: 'No'
@@ -80,4 +80,4 @@ fields:
       info_link: http://hl7.org/fhir/r4/snomedct.html
     - display: Millennium Route
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-4001-medication-administration-route
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route

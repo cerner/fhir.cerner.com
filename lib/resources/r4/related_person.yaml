@@ -25,7 +25,7 @@ fields:
         info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
       - display: Millennium Person Identifier (Alias) Types 
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-4-person-identifier-alias-types
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types
 
 - name: communication
   required: 'No'
@@ -53,7 +53,7 @@ fields:
         info_link: https://hl7.org/fhir/R4/v2/0203/index.html
       - display: Millennium Language codes 
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-36-languages
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-36-languages
       
 - name: relationship
   required: 'No'
@@ -69,7 +69,7 @@ fields:
       info_link: http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-351-person-relationship-types
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-40-person-relationship
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationship

@@ -140,7 +140,9 @@ module Cerner
 
       end
 
-
+      def disclaimer()
+        %(<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>\n)
+      end
 
     end
 

@@ -188,3 +188,5 @@ redirects:
   /may2015/patient:
     url: /millennium/dstu2/individuals/patient
     deprecated: true
+  /millennium/r4/proprietary-codes:
+    url: /millennium/r4/proprietary-codes-and-systems

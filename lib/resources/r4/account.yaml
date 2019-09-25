@@ -1,0 +1,69 @@
+---
+name: Account
+field_name_base_url: http://hl7.org/fhir/r4/account-definitions.html#Account
+fields:
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: A business identifier of the account.
+  action: terminology
+  url: https://hl7.org/fhir/R4/account-definitions.html#Account.identifier
+  binding:
+    description: A business identifier of the account.
+    terminology:
+    - display: PFT Bill Alias Type
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-28200-pft-bill-alias-type
+    - display: Account Number
+      system: https://fhir.cerner.com/accountnumber
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#account-number
+
+- name: type
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Categorizes the account for searching purposes.
+  action: terminology
+  url: https://hl7.org/fhir/R4/account-definitions.html#Account.type
+  binding:
+    description: Categorizes the account for searching purposes.
+    terminology:
+    - display: Account Types
+      system: http://terminology.hl7.org/CodeSystem/v3-ActCode
+      info_link: https://hl7.org/fhir/R4/valueset-account-type.html
+    - display: Account Types
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18736
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18736-account-types
+
+- name: extension[x].valueMoney.currency
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
+  url: https://fhir.cerner.com/millennium/r4/financial/account/#extensions
+  binding:
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
+    terminology:
+    - display: Currencies
+      system: urn:iso:std:iso:4217
+      info_link: http://hl7.org/fhir/r4/valueset-currencies.html
+    - display: Currency Type
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18934-currency-type
+
+- name: extension[x].valueCodeableConcept
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: Status of the functional progression of the Account.
+  url: https://fhir.cerner.com/millennium/r4/financial/account/#extensions
+  binding:
+    description: Status of the functional progression of the Account.
+    terminology:
+    - display: Benefit Order Status
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/24451
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-24451-benefit-order-status
+    - display: Correspondence Status
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4002640
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4002640-correspondence-status
