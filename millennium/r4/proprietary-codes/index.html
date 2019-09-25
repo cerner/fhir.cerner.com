@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Proprietary Codes | R4 API</title>
-  
+  <title>Redirecting</title>
+  <meta http-equiv="refresh" content="5;URL=/millennium/r4/proprietary-codes-and-systems">
   <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
@@ -23,15 +23,13 @@
 </head>
 
 
-<body class="r4_api">
+<body class="overview">
   <div id="header">
 
   <div id="top-header">
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
-      
-        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
       
 
     </div>
@@ -58,529 +56,36 @@
 <!-- /#header -->
 
 
-  <div class="sub-nav">
-    
-      <h2>Millennium</h2>
-    
-    <ul>
-      <li><a href="../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
-      
-        <li><a href="../">R4 First Normative Content (4.0.0)</a></li>
-        <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-      
-      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
-    </ul>
-  </div>
-
-  <div id="wrapper">
-    <div class="content">
-      <h1 id="proprietary-codes">Proprietary Codes</h1>
-
-<ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-  <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
-  <li><a href="#general-clinical" id="markdown-toc-general-clinical">General Clinical</a></li>
-  <li><a href="#individuals" id="markdown-toc-individuals">Individuals</a></li>
-  <li><a href="#medications" id="markdown-toc-medications">Medications</a></li>
-  <li><a href="#scheduling" id="markdown-toc-scheduling">Scheduling</a></li>
-  <li><a href="#list-of-code-sets" id="markdown-toc-list-of-code-sets">List of Code Sets</a></li>
-</ul>
-
-<h2 id="overview">Overview</h2>
-
-<p>Cerner’s implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients’ proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.</p>
-
-<p>Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the EHR source id (or tenant) qualifier in the system URL.</p>
-
-<p>The following are true for all Millennium proprietary codes:</p>
-
-<ul>
-  <li>The <code>system</code> value uses the following format: <code>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</code>
-</li>
-  <li>The <code>code</code> value is the numeric code value as a string</li>
-  <li>The <code>display</code> value is the code value display</li>
-  <li>The <code>userSelected</code> value is set to true</li>
-</ul>
-
-<p>Example CodeableConcept displaying both standard and proprietary codes:</p>
-
-<pre><code>{
-  "type": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "394581000",
-        "display": "Community medicine",
-        "userSelected": false
-      },
-      {
-        "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249",
-        "code": "21265426",
-        "display": "Same Day",
-        "userSelected": true
-      }
-    ]
-  }
-}
-</code></pre>
-
-<h2 id="encounters">Encounters</h2>
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Encounter</h3>
-
-<p>The Encounter Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>Encounter.identifier.type codes are maintained in <a href="#code-set-319-encounter-alias-type">Code Set 319 Encounter Alias Type</a>
-</li>
-  <li>Encounter.type codes are maintained in <a href="#code-set-71-visit-type">Code Set 71 Visit Type</a>
-</li>
-  <li>Encounter.serviceType codes are maintained in <a href="#code-set-34-hospital-service">Code Set 34 Hospital Service</a>
-</li>
-  <li>Encounter.priority codes are maintained in <a href="#code-set-3-encounter-admission-type">Code Set 3 Encounter Admission Type</a>
-</li>
-  <li>Encounter.participant.type codes are maintained in <a href="#code-set-333-encounterpersonnel-relationship">Code Set 333 Encounter/Personnel Relationship</a>
-</li>
-  <li>Encounter.hospitalization.admitSource codes are maintained in <a href="#code-set-2-admission-source">Code Set 2 Admission Source</a>
-</li>
-  <li>Encounter.hospitalization.dietPreference codes are maintained in <a href="#code-set-18-diet">Code Set 18 Diet</a>
-</li>
-  <li>Encounter.hospitalization.specialCourtesy codes are maintained in <a href="#code-set-67-vip">Code Set 67 VIP</a> and <a href="#code-set-16-courtesy">Code Set 16 Courtesy</a>
-</li>
-  <li>Encounter.hospitalization.dischargeDisposition codes are maintained in <a href="#code-set-19-discharge-disposition">Code Set 19 Discharge Disposition</a>
-</li>
-</ul>
-
-<h2 id="general-clinical">General Clinical</h2>
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Condition</h3>
-
-<p>The Condition Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>Condition.severity codes are maintained in <a href="#code-set-12022-severity">Code Set 12022 Severity</a>
-</li>
-</ul>
-
-<h2 id="individuals">Individuals</h2>
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Patient</h3>
-
-<p>The Patient Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>Patient.maritalStatus codes are maintained in <a href="#code-set-38-marital-status">Code Set 38 Marital Status</a>
-</li>
-  <li>Patient.communication.language codes are maintained in <a href="#code-set-36-languages">Code Set 36 Languages</a>
-</li>
-  <li>Patient.identifier.type codes are maintained in <a href="#code-set-4-person-identifier-alias-types">Code Set 4 Person Identifier (Alias) Types</a>
-</li>
-  <li>Patient.contact.relationship codes for are maintained in <a href="#code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</a>
-</li>
-</ul>
-
-<h3>RelatedPerson</h3>
-
-<p>The RelatedPerson Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>RelatedPerson.communication.language codes are maintained in <a href="#code-set-36-languages">Code Set 36 Languages</a>
-</li>
-  <li>RelatedPerson.relationship codes are maintained in <a href="#code-set-40-person-relationships">Code Set 40 Person Relationship Types</a> and <a href="#code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</a>
-</li>
-</ul>
-
-<h2 id="medications">Medications</h2>
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Immunization</h3>
-
-<p>The Immunization Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>Immunization.statusReason codes are maintained in <a href="#code-set-30440-expire-reasons">Code Set 30440 Expire Reasons</a>
-</li>
-  <li>Immunization.vaccineCode codes are maintained in <a href="#code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</a>
-</li>
-  <li>Immunization.reportOrigin codes are maintained in <a href="#code-set-30200-result-source">Code Set 30200 Result Source</a>
-</li>
-  <li>Immunization.site codes are maintained in <a href="#code-set-97-medication-administration-site">Code Set 97 Medication Administration Site</a>
-</li>
-  <li>Immunization.route codes are maintained in <a href="#code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</a>
-</li>
-</ul>
-
-<h2 id="scheduling">Scheduling</h2>
-
-<!-- use html header to avoid showing up in toc -->
-<h3>Appointment</h3>
-
-<p>The Appointment Resource supports proprietary codes for:</p>
-
-<ul>
-  <li>
-    <p>Appointment.serviceType codes are maintained in <a href="#code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</a></p>
-  </li>
-  <li>
-    <p>Appointment.participant.type codes are maintained in <a href="#code-set-14250-scheduling-resource-roles">Code Set 14250 Scheduling Resource Roles</a></p>
-  </li>
-</ul>
-
-<h2 id="list-of-code-sets">List of Code Sets</h2>
-
-<h4 id="code-set-2-admission-source">Code Set 2 Admission Source</h4>
-
-<p>This code set is similar to the HL7 value set but may have more specific displays such as Transfer from Critical Access Hospital versus Transferred from other hospital.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/2,
-  "code": "309194",
-  "display": "Emergency Room",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-3-encounter-admission-type">Code Set 3 Encounter Admission Type</h4>
-
-<p>This code set is typically small and similar to the HL7 value set.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/3",
-  "code": "309203",
-  "display": "Emergency",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-4-person-identifier-alias-types">Code Set 4 Person Identifier (Alias) Types</h4>
-
-<p>This code set includes Identifier Types such as Medical Record Number and Driver’s License Number.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4",
-  "code": "10",
-  "display": "MRN",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-16-courtesy">Code Set 16 Courtesy</h4>
-
-<p>This code set is a one-element code set containing only Yes.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16",
-  "code": "4334139",
-  "display": "Yes",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-18-diet">Code Set 18 Diet</h4>
-
-<p>This is a small code set similar to the HL7 value set.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18",
-  "code": "301226",
-  "display": "Low Sodium",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-19-discharge-disposition">Code Set 19 Discharge Disposition</h4>
-
-<p>The Center for Medicare and Medicaid Services (CMS) maintains a minimum set of required values for documenting the disposition of patients upon discharge.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/19",
-  "code": "638672",
-  "display": "Home Care with Home Health",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-34-hospital-service">Code Set 34 Hospital Service</h4>
-
-<p>This code set maintains service types available in the facility such as Emergency Medicine, Neurology, and Pediatrics.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/34",
-  "code": "313022",
-  "display": "Pediatrics",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-36-languages">Code Set 36 Languages</h4>
-
-<p>This code set is customized by clients and may include Languages such as English and Chinese.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36",
-  "code": "151",
-  "display": "English",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-38-marital-status">Code Set 38 Marital Status</h4>
-
-<p>This code set may include Marital Statuses such as Divorced and Married.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/38",
-  "code": "309236",
-  "display": "Divorced",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-40-person-relationships">Code Set 40 Person Relationships</h4>
-
-<p>This code set is used to describe the patient’s relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40",
-  "code": "153",
-  "display": "DAUGHTER",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-67-vip">Code Set 67 VIP</h4>
-
-<p>This code set is a one-element code set containing only Yes.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/67",
-  "code": "4334139",
-  "display": "Yes",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-71-visit-type">Code Set 71 Visit Type</h4>
-
-<p>This code set is client definable for different patient types such an Outpatient in a Bed versus Outpatient Clinic visit. There can be workflow and/or functional requirements for different encounter types.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71",
-  "code": "309314",
-  "display": "Recurring",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</h4>
-
-<p>This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.</p>
-
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72", 
-  "code": "2799031", 
-  "display": "Lyme disease vaccine", 
-  "userSelected": true 
-}
-</code></pre>
-
-<h4 id="code-set-97-medication-administration-site">Code Set 97 Medication Administration Site</h4>
-
-<p>This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.</p>
-
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97", 
-  "code": "603", 
-  "display": "Right arm", 
-  "userSelected": true 
-}
-</code></pre>
-
-<h4 id="code-set-319-encounter-alias-type">Code Set 319 Encounter Alias Type</h4>
-
-<p>This is a small code set currently only supporting FIN NBR and VISITID.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/319",
-  "code": "1077",
-  "display": "FIN NBR",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-333-encounterpersonnel-relationship">Code Set 333 Encounter/Personnel Relationship</h4>
-
-<p>This code set maintains the various personnel positions in the facility such as Attending Physician, ED Nurse Practitioner, and Case Manager.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/333",
-  "code": "1119",
-  "display": "Attending Physician",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</h4>
-
-<p>This code set includes Relationship Types such as Guardian and Emergency Contact.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351",
-  "code": "1156",
-  "display": "Guardian",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</h4>
-
-<p>This code set maintains medication administration routes such as ID or IM.</p>
-
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001", 
-  "code": "318167", 
-  "display": "IM", 
-  "userSelected": true 
-}
-</code></pre>
-
-<h4 id="code-set-12022-severity">Code Set 12022 Severity</h4>
-
-<p>This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.</p>
-
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022", 
-  "code": "3294", 
-  "display": "Moderate", 
-}
-</code></pre>
-
-<h4 id="code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</h4>
-
-<p>This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249,
-  "code": "5038369",
-  "display": "Office Visit - Return",
-  "userSelected": true
-}
-</code></pre>
-
-<h4 id="code-set-14250-scheduling-resource-roles">Code Set 14250 Scheduling Resource Roles</h4>
-
-<p>This code set is customized by clients and defines exam rooms, surgery rooms, and generic resource roles such as Anesthesiologist and Radiology Tech.</p>
-
-<pre><code>{
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250,
-  "code": "4573",
-  "display": "Radiology Exam Room",
-}
-</code></pre>
-
-<h4 id="code-set-30200-result-source">Code Set 30200 Result Source</h4>
-
-<p>This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.</p>
-
-<pre><code>{ 
-   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200", 
-   "code": "679976", 
-   "display": "Mother", 
-   "userSelected": true 
-}
-</code></pre>
-
-<h4 id="code-set-30440-expire-reasons">Code Set 30440 Expire Reasons</h4>
-
-<p>This code set describes why an immunization was not administered when documented through the Health Maintenance model.</p>
-
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440", 
-  "code": "688466", 
-  "display": "Postpone due to refusal", 
-  "userSelected": true
-}
-</code></pre>
-
-    </div>
-
-    <div id="js-sidebar" class="sidebar-shell">
-  <div class="js-toggle-list sidebar-module expandable">
-    <ul>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../../../authorization/">Authorization</a></li>
-          <li><a href="../capability-statement/">Capability Statement</a></li>
-          <li><a href="./">Proprietary Codes</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../devices/">Devices</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../devices/device/">Device</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../encounters/">Encounters</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../encounters/encounter/">Encounter</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../general-clinical/">General Clinical</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
-          <li><a href="../general-clinical/condition/">Condition</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../individuals/">Individuals</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../individuals/patient/">Patient</a></li>
-          <li><a href="../individuals/practitioner/">Practitioner</a></li>
-          <li><a href="../individuals/related-person/">RelatedPerson</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../medications/">Medications</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../medications/immunization/">Immunization</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../scheduling/">Scheduling</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../scheduling/appointment/">Appointment</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div> <!-- /sidebar-module -->
-  <div class="sidebar-module notice">
-    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
-  </div>
+  <div class="wrapper feature">
+    <h1>
+      The page you're attempting to access has been moved. You will be redirected shortly.
+    </h1>
+    <p class="intro">Please update your bookmarks to the new location:</p>
+    <a href="../proprietary-codes-and-systems">/millennium/r4/proprietary-codes-and-systems </a>
 </div>
-<!-- /sidebar-shell -->
 
-  </div>
-<!-- #wrapper -->
+
+  <div class="full-width-divider">
+  <ul class="wrapper highlights">
+    <li class="highlight-module">
+      <a href="http://www.hl7.org/implement/standards/fhir/summary.html"><span class="mega-octicon octicon-file-text"></span></a>
+      <h2><a href="http://www.hl7.org/implement/standards/fhir/summary.html">Get Started</a></h2>
+      <p>New to the FHIR<sup>®</sup> standard? Take a look at Cerner's <a href="https://engineering.cerner.com/smart-on-fhir-tutorial/">SMART<sup>®</sup> on FHIR<sup>®</sup> tutorial</a>.</p>
+      <p>Browse different <a href="http://www.hl7.org/fhir/directory.cfml">versions</a> of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. Cerner implements the <a href="http://hl7.org/fhir/DSTU2/">DSTU 2</a> and <a href="http://hl7.org/fhir/R4/">R4</a> versions of the HL7<sup>®</sup> FHIR<sup>®</sup> standard.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations"><span class="mega-octicon octicon-code"></span></a>
+      <h2><a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">Libraries</a></h2>
+      <p>Check out a number of <a href="http://fhir.cerner.com/smart/#open-source-fhir-client-libraries">open source FHIR<sup>®</sup> implementations</a>.</p>
+    </li>
+    <li class="highlight-module">
+      <a href="https://groups.google.com/d/forum/cerner-fhir-developers"><span class="mega-octicon octicon-mail-read"></span></a>
+      <h2><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></h2>
+      <p>Are you stuck? Talk to <a href="https://groups.google.com/d/forum/cerner-fhir-developers">Cerner support</a>.</p>
+    </li>
+  </ul>
+</div>
+
 
   <div id="footer">
 
