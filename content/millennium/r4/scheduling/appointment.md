@@ -69,7 +69,7 @@ _Implementation Notes_
  Name          | Required?                                                | Type          | Description
 ---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
 `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
-`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
+`date`         | See notes.                                               | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
 `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
 `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
 `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
@@ -81,10 +81,15 @@ Notes:
 - The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination.
   For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
 
-- The `date` parameter may be provided:  
-  - once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)     
-  - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
+- The `date` parameter may be provided when using `patient`, `practitioner`, and `location`.  
+  - Can be provided twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
+    an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`) 
+  - Can also be provided once with a prefix and time component.
+    - If only start date is provided, end date is set to one year after start date.
+      - e.g. `&date=ge2019-12-07T22:22:16.270Z` creates range to `2020-12-07T22:22:16.270Z`
+    - If only end date is provided, start date is set to one year before start date. 
+      - e.g. `&date=lt2019-12-07T22:22:16.270Z` creates range to `2018-12-07T22:22:16.270Z`
+  - If no `date` is provided, the date range defaults to the current time until one year in the future.
 
 - The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
