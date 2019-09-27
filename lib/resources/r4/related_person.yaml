@@ -69,6 +69,6 @@ fields:
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
-    - display: Millennium Person Relationship Types
+    - display: Millennium Person Relationship
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationship
