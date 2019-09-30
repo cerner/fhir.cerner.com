@@ -18,12 +18,12 @@ fields:
     action: terminology
     url: https://hl7.org/fhir/R4/relatedPerson-definitions.html#RelatedPerson.identifier
     binding:
-      description: The type used to determine which identifier to use for a specific purpose. 
+      description: The type used to determine which identifier to use for a specific purpose.
       terminology:
       - display: IdentifierType
-        system: http://hl7.org/fhir/valueset-identifier-type
+        system: http://terminology.hl7.org/CodeSystem/v2-0203
         info_link: http://hl7.org/fhir/R4/valueset-identifier-type.html
-      - display: Millennium Person Identifier (Alias) Types 
+      - display: Millennium Person Identifier (Alias) Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types
 
@@ -31,7 +31,7 @@ fields:
   required: 'No'
   cardinality: 0..*
   type: BackboneElement
-  description: A language which may be used to communicate with about the patient's health 
+  description: A language which may be used to communicate with about the patient's health
   action: terminology
   children:
 
@@ -43,33 +43,32 @@ fields:
     action: terminology
     url: http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.communication.language
     binding:
-      description: The language used to communicate with a related person about a patient's health. 
+      description: The language used to communicate with a related person about a patient's health.
       terminology:
       - display: CommonLanguages
-        system: http://hl7.org/fhir/languages
-        info_link: http://hl7.org/fhir/R4/ValueSet/languages
-      - display: v2 Identifier Type
-        system: http://terminology.hl7.org/CodeSystem/v2-0203
-        info_link: https://hl7.org/fhir/R4/v2/0203/index.html
-      - display: Millennium Language codes 
+        system: urn:ietf:bcp:47
+        info_link: http://hl7.org/fhir/R4/valueset-languages.html
+      - display: Millennium Language codes
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-36-languages
-      
+
 - name: relationship
   required: 'No'
   cardinality: 0..*
   type: CodeableConcept
   description: The nature of the relationship
-  url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship 
-  binding: 
-    description: The nature of the relationship between a patient and the related person. 
+  url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship
+  binding:
+    description: The nature of the relationship between a patient and the related person.
     terminology:
     - display: PatientRelationshipType
-      system: http://hl7.org/fhir/relatedperson-contactrelationship
+      system:
+        - http://terminology.hl7.org/CodeSystem/v2-0131
+        - http://terminology.hl7.org/CodeSystem/v3-RoleCode
       info_link: http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html
     - display: Millennium Person Relationship Types
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
-    - display: Millennium Person Relationship Types
+    - display: Millennium Person Relationship
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationship
