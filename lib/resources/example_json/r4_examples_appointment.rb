@@ -127,7 +127,7 @@ module Cerner
     R4_APPOINTMENT_PATCH ||= [
       {
         "op": "replace",
-        "path": "status",
+        "path": "/status",
         "value":  "cancelled"
       }
     ]
