@@ -34,8 +34,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation is for a video visit appointment</li>
-        <li>This operation must be accompanied by all other video visit patch operations</li>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
       </ul>
   - name: add-patient-vmr
     path: /contained/1/telecom/0/value
@@ -52,8 +52,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation is for a video visit appointment</li>
-        <li>This operation must be accompanied by all other video visit patch operations</li>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
       </ul>
   - name: add-period-start
     path: /contained/0/telecom/0/period/start
@@ -70,8 +70,9 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation is for a video visit appointment</li>
-        <li>This operation must be accompanied by all other video visit patch operations</li>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
       </ul>
   - name: add-period-end
     path: /contained/0/telecom/0/period/end
@@ -88,6 +89,7 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation is for a video visit appointment</li>
-        <li>This operation must be accompanied by all other video visit patch operations</li>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
       </ul>

@@ -121,7 +121,7 @@ List an individual Appointment by its id:
 
 <%= headers %>
 
-### Example - Non Video Visit
+### Example
 
 #### Request
 
@@ -157,8 +157,7 @@ _Implementation Notes_
 
 * This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
-* Video visit link patch requests will return a version code of the format "<previous_version>-1" (i.e. a preiously unpatched appointment returns "1-1")
-* For video visit url patch operation paths, `contained` index 0 will always be for the provider link and index 1 will be for patient link
+* For video visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
 
 ### Authorization Types
 
@@ -173,7 +172,7 @@ _Implementation Notes_
 
 <%= patch_definition_table(:appointment_patch, :r4) %>
 
-### Patch Status Example
+### Example
 
 #### Request
 
@@ -242,7 +241,7 @@ In addition, the following errors may be returned:
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
 * If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
 * Patching a video visit that has previously been patched for video links will result in a `409 Conflict` response.
-* Patching a video visit with a missing required patch operation will result in a `422 Unprocessable Entity` response.
+* Patching a video visit appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
 
 ## Create
 
