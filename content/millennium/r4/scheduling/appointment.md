@@ -201,7 +201,7 @@ X-Runtime: 2.260092
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-### Patch Video Visit Links Example
+### Example - Video Visit Links
 
 #### Request
 
@@ -240,7 +240,7 @@ In addition, the following errors may be returned:
 * Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
 * If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
-* Patching a video visit that has previously been patched for video links will result in a `409 Conflict` response.
+* Patching a video visit appointment that has previously been patched for video visit links will result in a `409 Conflict` response.
 * Patching a video visit appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
 
 ## Create
