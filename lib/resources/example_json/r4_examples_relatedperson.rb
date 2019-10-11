@@ -70,18 +70,20 @@ module Cerner
           "reference": "Patient/4768010",
           "display": "Bobo, Bob"
       },
-      "name": {
-          "use": "official",
-          "text": "Bobo, TEST A",
-          "family": "Bobo",
-          "given": [
-              "TEST",
-              "A"
-          ],
-          "period": {
-              "start": "2017-10-05T17:02:53.000Z"
+      "name": [
+          {
+            "use": "official",
+            "text": "Bobo, TEST A",
+            "family": "Bobo",
+            "given": [
+                "TEST",
+                "A"
+            ],
+            "period": {
+                "start": "2017-10-05T17:02:53.000Z"
+            }
           }
-      },
+      ],
       "telecom": [
           {
               "system": "Phone",
@@ -127,26 +129,28 @@ module Cerner
               }
           }
       ],
-      "communication": {
-          "preferred": "true",
-          "language": {
-              "coding": [
-                  {
-                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
-                      "code": "151",
-                      "display": "English",
-                      "userSelected": true
-                  },
-                  {
-                      "system": "urn:ietf:bcp:47",
-                      "code": "en",
-                      "display": "English",
-                      "userSelected": false
-                  }
-              ],
-              "text": "English"
+      "communication": [
+          {
+              "preferred": "true",
+              "language": {
+                  "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+                        "code": "151",
+                        "display": "English",
+                        "userSelected": true
+                    },
+                    {
+                        "system": "urn:ietf:bcp:47",
+                        "code": "en",
+                        "display": "English",
+                        "userSelected": false
+                    }
+                  ],
+                  "text": "English"
+                }
           }
-      }
+      ]
   }
         
     R4_RELATEDPERSON_BUNDLE ||= {
