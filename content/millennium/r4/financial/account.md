@@ -52,9 +52,9 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                         | Value\[x] Type      | Description
 ----------------------------|---------------------|--------------------------------------------------------------------------
- `account-related-parts`    | [`reference`]       | A reference to other related Accounts.
- `account-balance`          | [`money`]           | Represents the account balance.
- `account-state`            | [`codeableConcept`] | The status of the Account within the billing or correspondence workflow.
+ `account-related-parts`    | [`Reference`]       | A reference to other related Accounts.
+ `account-balance`          | [`Money`]           | Represents the account balance.
+ `account-state`            | [`CodeableConcept`] | The status of the Account within the billing or correspondence workflow.
 
 ## Search
 
@@ -160,10 +160,10 @@ List an individual Account by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`codeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[`number`]: http://hl7.org/fhir/dstu2/search.html#number
-[`money`]: http://hl7.org/fhir/r4/datatypes.html#Money
+[`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`Reference`]: http://hl7.org/fhir/r4/references.html#Reference
+[`number`]: http://hl7.org/fhir/r4/search.html#number
+[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
