@@ -55,8 +55,8 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 Extension                                        | Value\[x] Type                                            | Description
 -------------------------------------------------|-----------------------------------------------------------|---------------------------------------------------------------------
 Encounter Guarantor (id: `encounter-guarantor`)  | None (contains nested extensions)                         | The guarantors of the encounter.
-Encounter Guarantor Party                        | [`reference`](http://hl7.org/fhir/DSTU2/references.html)  | A reference to a Patient, Person, or Organization.
-Encounter Guarantor Period                       | [`period`]                                                | The period when this encounter guarantor is effective.
+Encounter Guarantor Party                        | [`Reference`](http://hl7.org/fhir/DSTU2/references.html)  | A reference to a Patient, Person, or Organization.
+Encounter Guarantor Period                       | [`Period`]                                                | The period when this encounter guarantor is effective.
 
 ## Search
 
@@ -136,7 +136,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [contained]: http://hl7.org/fhir/DSTU2/references.html#contained
 [Encounter.hospitalization.destination]: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.location.location
-[`period`]: http://hl7.org/fhir/DSTU2/datatypes.html#period
+[`Period`]: http://hl7.org/fhir/DSTU2/datatypes.html#period
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
