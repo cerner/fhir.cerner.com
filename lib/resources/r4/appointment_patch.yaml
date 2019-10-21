@@ -60,7 +60,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: datetime
-    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
     description: The start datetime for the video visit
     example: |
       {
@@ -79,7 +79,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: datetime
-    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
     description: The end datetime for the video visit
     example: |
       {
