@@ -10,16 +10,16 @@ layout: authorization
 
 ## Overview ##
 
-Cerner's implementation of the HL7<sup>®</sup> 
-FHIR<sup>®</sup> Standard is protected using the 
+Cerner's implementation of the HL7<sup>®</sup>
+FHIR<sup>®</sup> Standard is protected using the
 SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.
-SMART<sup>®</sup> on FHIR<sup>®</sup> defines a profile of the 
-[OAuth 2][OAUTH] framework for obtaining authorization to act on behalf 
-of users; it is highly recommended that developers review and understand 
-the OAuth 2 framework prior to implementing their authorization 
+SMART<sup>®</sup> on FHIR<sup>®</sup> defines a profile of the
+[OAuth 2][OAUTH] framework for obtaining authorization to act on behalf
+of users; it is highly recommended that developers review and understand
+the OAuth 2 framework prior to implementing their authorization
 workflow.  Cerner recommends the following IETF publications for review:
 
-- [The OAuth 2.0 Authorization Framework][OAUTH] 
+- [The OAuth 2.0 Authorization Framework][OAUTH]
 - [OAuth 2.0 Threat Model and Security Considerations][OAUTH-THREAT]
 - [OAuth 2.0 Security Best Current Practice][OAUTH-BCP]
 - [The OAuth 2.0 Authorization Framework: Bearer Token Usage][RFC6750]
@@ -28,13 +28,13 @@ workflow.  Cerner recommends the following IETF publications for review:
 
 This guide offers:
 
-- A technical overview for securely obtaining authorization on behalf of 
+- A technical overview for securely obtaining authorization on behalf of
   a user or a system, utilizing using Cerner's authorization server.
 - Guidance for providing an optimal authorization user experience
   across a broad range of platforms.
 - Guidance for ensuring broad compatiblity across a diverse range of
   deployment scenarios.
-- Answers to frequently asked questions. 
+- Answers to frequently asked questions.
 
 ### Benefits of the Authorization Model ###
 
@@ -56,7 +56,7 @@ provides a useful means in a distributed service ecosystem to enforce
 frequent validation that access has not otherwise been revoked or
 expired.
 
-A formal technical specification for authorization may be found 
+A formal technical specification for authorization may be found
 in the [Cerner FHIR<sup>®</sup> Service Authorization Specification][AUTHZ-SPEC].
 
 ### Differentiating SMART<sup>®</sup> and FHIR<sup>®</sup> ###
@@ -68,34 +68,34 @@ obtain an authorized context to access FHIR<sup>®</sup>
 resources and exchange context information with client applications.
 
 ## Registration ##
-In order for your client application to utilize any protected resources, 
-your client application must first register. A Cerner Care account is required to 
-register applications. Obtaining a Cerner Care account is free and 
+In order for your client application to utilize any protected resources,
+your client application must first register. A Cerner Care account is required to
+register applications. Obtaining a Cerner Care account is free and
 requires nothing but an email address.
 
-If registering an application that is using the public app profile and requires access only when the user is online, 
-your client application must first register using our [code Console][CERNER-CODE-CONSOLE]. 
+If registering an application that is using the public app profile and requires access only when the user is online,
+your client application must first register using our [code Console][CERNER-CODE-CONSOLE].
 
 If registering a confidential client application (required for offline_access and
-access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] 
+access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION]
 section. Check the respective FHIR<sup>®</sup> implementation documentation to determine availability.
 
-Once registered, the **client identifier** will be provided for use with 
-the Cerner Authorization Server. As a registered client, Cerner 
-organizations may then ask for your client application to be enabled, 
+Once registered, the **client identifier** will be provided for use with
+the Cerner Authorization Server. As a registered client, Cerner
+organizations may then ask for your client application to be enabled,
 which is necessary in order to gain access to their protected resources.
 
 ### Registering a System Account ###
 
 If an application will be using the offline_access scope, or accessing data on behalf of a system, it will need to
-maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our 
+maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our
 System Accounts application. In order to register one of these applications, you must first request a system account,
 and then register that as a SMART or FHIR application in our code Console.
 
 Request a system account for *non-production* by following these steps:
 
-- Login to the Cerner Central System Accounts application for non-production: https://sandboxcernercentral.com/system-accounts
-  - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that 
+- Login to the Cerner Central System Accounts application for non-production: <https://sandboxcernercentral.com/system-accounts>
+  - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that
   can be used instead. For example: https://yourcompanynamegoeshere.sandboxcernercentral.com/system-accounts
 - Fill out the fields as follows:
   - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
@@ -106,17 +106,17 @@ Request a system account for *non-production* by following these steps:
     - **Client Mnemonic**: Only fill out if you know this, it is not required.  
   - **Millennium System**: No
 - Once the account is created, take the id from that account and use it in the GUID field when you register the
-application as a SMART or FHIR application in the [code Console][CERNER-CODE-CONSOLE]. Without this step, your 
-application will not be recognized as an authorized application for FHIR. Note that requests for system accounts 
+application as a SMART or FHIR application in the [code Console][CERNER-CODE-CONSOLE]. Without this step, your
+application will not be recognized as an authorized application for FHIR. Note that requests for system accounts
 currently undergo manual approval, and therefore it may take a few business days for the system account to be created.
 
 Remember to protect the secret received via this process. Don't post this secret or email it in insecure fashion. Don't
-include this secret or credentials requests for the authorization server in any posts requesting help. If you do 
+include this secret or credentials requests for the authorization server in any posts requesting help. If you do
 compromise the secret, you can rotate the credentials using the system accounts application above.
 
 ## Requesting Authorization on Behalf of a User ##
 
-To access Cerner's FHIR<sup>®</sup> services on behalf of a user, 
+To access Cerner's FHIR<sup>®</sup> services on behalf of a user,
 your client application must make an authorization request through
 a user agent on the user's device.  This involves the following
 steps:
@@ -131,12 +131,12 @@ steps:
 - Utilizing "refresh" tokens.
 
 A formal technical specification for this process may be found
-in the 
+in the
 [Cerner FHIR<sup>®</sup> Service Authorization Specification][AUTHZ-SPEC].
 
 ### Discovering Authorization URLs ###
-Each instance of Cerner's FHIR<sup>®</sup> services advertise 
-the URL of its respective authorization server within its 
+Each instance of Cerner's FHIR<sup>®</sup> services advertise
+the URL of its respective authorization server within its
 FHIR<sup>®</sup> conformance document.
 
 The FHIR<sup>®</sup> Conformance resource can be retrieved by performing
@@ -145,8 +145,8 @@ of ``./metadata`` from the FHIR<sup>®</sup> base URL. Examples of this call
 can be found on the Conformance documentation for [Millennium](/millennium/dstu2/conformance/) or [Soarian](/soarian/dstu2/conformance/).
 
 Within the structure of this document, three important URLs are
-advertised in an extension to ``Conformance.rest.security``, 
-identified via the URL of 
+advertised in an extension to ``Conformance.rest.security``,
+identified via the URL of
 ``http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris``.
 
 The first URL is the location of the authorization endpoint,
@@ -159,7 +159,7 @@ sub-extension URL "token".
 The third URL of importance is the location of the authorization
 server's user-facing authorization management workflow entry point, which
 is further identified by the sub-extension URL "manage". This
-sub-extension is advertised from user-facing instances of Cerner's 
+sub-extension is advertised from user-facing instances of Cerner's
 FHIR<sup>®</sup> server.
 
 The following is non-normative example of a conformance document
@@ -167,7 +167,7 @@ containing this information:
 
 <pre class="terminal">
 {
-  "resourceType": "Conformance", 
+  "resourceType": "Conformance",
   "rest": [
     {
       "security": {
@@ -199,13 +199,13 @@ containing this information:
 ### Construct the Authorization Request URL ###
 
 An authorization request takes the form of an x-www-form-urlencoded
-query string, appended to the authorization endpoint's URL (as 
-discovered from the previous section.)  The base specification 
+query string, appended to the authorization endpoint's URL (as
+discovered from the previous section.)  The base specification
 for the structure of this request is defined in
 [section 4.1 "Authorization Code Grant"](https://tools.ietf.org/html/rfc6749#section-4.1)
 of RFC6749.
 
-At minimum, the following parameters are included in the authorization 
+At minimum, the following parameters are included in the authorization
 request; each are documented in the following sections:
 
 - Requested "scopes" for services to access.
@@ -220,25 +220,25 @@ request; each are documented in the following sections:
 During the authorization process, client applications should identify
 at runtime:
 
-- The specific FHIR<sup>®</sup> resources that will be needed to accomplish 
+- The specific FHIR<sup>®</sup> resources that will be needed to accomplish
   the workflow.
 - The type of access needed to the given FHIR<sup>®</sup> resource (read, write).
 - If access should be constrained to a single patient, as selected by the user.
 - The duration for which access is needed.
 
 Each of the above pieces of information are presented in the authorization
-request to the server in the form of "scopes".  Per the 
-[OAUTH specification][OAUTH], the scope of a request is "...a list of 
+request to the server in the form of "scopes".  Per the
+[OAUTH specification][OAUTH], the scope of a request is "...a list of
 space-delimited, case-sensitive strings.  The strings are defined by the
-authorization server."  With SMART<sup>®</sup> on FHIR<sup>®</sup>, access 
-to FHIR<sup>®</sup> resources is controlled by scopes with the following 
+authorization server."  With SMART<sup>®</sup> on FHIR<sup>®</sup>, access
+to FHIR<sup>®</sup> resources is controlled by scopes with the following
 format:
 
 <pre class="terminal">
 scope-name            = resource-context "/" resource-type "." modification-rights
-resource-context      = ("user" / "patient" / "system") 
+resource-context      = ("user" / "patient" / "system")
 resource-type         = (Name)
-modification-rights   = ("read" / "write"); 
+modification-rights   = ("read" / "write");
 </pre>
 
 Examples of scopes include:
@@ -255,28 +255,28 @@ The "resource context" represents one of three possible choices:
 - system:  Used in system-based authorization workflows, as described in
   ["Requesting Authorization on Behalf of a System"](#system-authorization).
 
-In certain cases, the authenticated user will be presented a choice to allow your 
+In certain cases, the authenticated user will be presented a choice to allow your
 application to utilize the requested scopes on the user's behalf.  As such,
 your application should request only the minimum scopes needed in order to
 fulfill its function.
 
-_Note_:  Many combinations of scopes are possible to be requested and approved, 
-but not all may be recognized by then given version of a FHIR<sup>®</sup> API resource being 
-used.  Please refer to the respective FHIR<sup>®</sup> API resource documentation for a full 
-list of its capabilities. 
+_Note_:  Many combinations of scopes are possible to be requested and approved,
+but not all may be recognized by then given version of a FHIR<sup>®</sup> API resource being
+used.  Please refer to the respective FHIR<sup>®</sup> API resource documentation for a full
+list of its capabilities.
 
-In addition to FHIR<sup>®</sup> resource scopes, the SMART<sup>®</sup> 
-on FHIR<sup>®</sup> authorization framework also defines these additional scopes 
+In addition to FHIR<sup>®</sup> resource scopes, the SMART<sup>®</sup>
+on FHIR<sup>®</sup> authorization framework also defines these additional scopes
 that further govern the behavior of authorization:
 
 - openid: Provides access to the "principal" of the authenticated user per the
   [OpenID Connect][OPENID] specification.
 - profile: Provides an OpenID Connect "profile" that contains the URL of the
   authenticated user's FHIR<sup>®</sup> resource.
-- online_access: Allows an application to obtain tokens via a "refresh" process 
+- online_access: Allows an application to obtain tokens via a "refresh" process
   while the authenticated user has an active session present at the device.
-- offline_access: Allows an application to continue to obtain tokens on behalf 
-  of the authenticated via a "refresh" process user until explicitly revoked by 
+- offline_access: Allows an application to continue to obtain tokens on behalf
+  of the authenticated via a "refresh" process user until explicitly revoked by
   the user, an administrator, or your application.
 
 Further information on the usage of these special scopes are further detailed
@@ -288,7 +288,7 @@ Certain classes of applications may need to identify the user for whom it
 is acting on behalf of.  Such requirements may include (but are not
 limited to) the following:
 
-- Requirements to audit or log activity using the user identifier or person's 
+- Requirements to audit or log activity using the user identifier or person's
   name.
 - Display the user's name within the application or in out-of-band (e-mail)
   communications with the user.
@@ -297,20 +297,20 @@ limited to) the following:
 - Authenticating the user in subsequent visits to provide an enriched
   experience, such as retaining user preferences, or protecting access to
   other non-EHR managed data (examples: user-created data).
-  
+
 The scope 'openid' will request that Cerner's authorization server supply
 and [OpenID Connect][OPENID] identity token as part of the authorization
 workflow.  Further details on utilizing the OpenID token can be found in
 the [OpenID Connect Guide](../authorization/openid-connect).
 
 The scope 'profile' will additionally request that the OpenID Connect
-token include the claim "profileURL", as defined by the 
-SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This 
-URL identifies the specific FHIR<sup>®</sup> resource URL of the 
-authenticated user.   This resource may be a Patient, Practitioner, or 
+token include the claim "profileURL", as defined by the
+SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This
+URL identifies the specific FHIR<sup>®</sup> resource URL of the
+authenticated user.   This resource may be a Patient, Practitioner, or
 Person resource, depending on the type of user whom is authenticated.
 
-_NOTE_:  As of this writing, Cerner's Ignite implementation does not 
+_NOTE_:  As of this writing, Cerner's Ignite implementation does not
 support authorization for retrieval of Person resources; you
 may proceed with a design that proactively attempts to retrieve the
 resource such that your app takes advantage of this capability once
@@ -321,22 +321,22 @@ made available.
 The default duration of access received through the authorization grant
 workflow is a single token that is valid for 570 seconds (~10 minutes).
 For applications that need access to services for longer durations,
-Cerner's Ignite platform supports the concept of 
+Cerner's Ignite platform supports the concept of
 ["refresh tokens"](#refresh_tokens).
 
 With 'online_access', your application can continue to obtain access
 tokens on behalf of the user until:
 
-- The user explicitly logs out using their respective session 
+- The user explicitly logs out using their respective session
   authority.
 - The user's session expires or is administratively terminated.
 - Your application's access is terminated by the given
   organization.
-  
+
 With 'offline_access', an application can continue to obtain
 access tokens in perpetuity on behalf of the user until:
 
-- The user or administrator explicitly terminates the original 
+- The user or administrator explicitly terminates the original
   authorization grant.
 - The user's access to the resource(s) from the original authorization
   grant is terminated.
@@ -354,9 +354,9 @@ known limitations.
 
 When performing an authorization grant request, it is highly recommended
 that your client application establish a transient, one-time-use "state" value
-for each individual request you send.  If your application receives an 
+for each individual request you send.  If your application receives an
 authorization response that does not include a value known to the current
-user's device, it should reject the response.  This mechanism is to protect your 
+user's device, it should reject the response.  This mechanism is to protect your
 application against "cross-site request forgery" classes of exploits.  For more
 information on these types of exploits, consult the RFC
 [OAuth 2.0 Threat Model and Security Considerations][OAUTH-THREAT].
@@ -364,13 +364,13 @@ information on these types of exploits, consult the RFC
 #### Audience ####
 
 When performing an authorization grant request, it is required your client
-application send the base URL of the FHIR<sup>®</sup> resource server for which 
-you will be sending access tokens to.  This is conveyed via an additional query 
+application send the base URL of the FHIR<sup>®</sup> resource server for which
+you will be sending access tokens to.  This is conveyed via an additional query
 parameter in the grant request named "aud".  This parameter is utilized by Cerner's
 authorization server to protect your application against a form of exploit
 where an untrusted resource server advertises a legitimate authorization
-server in its conformance document.  Without this feature, a valid, authorized 
-access token could be inadvertently be sent by your application to the untrusted 
+server in its conformance document.  Without this feature, a valid, authorized
+access token could be inadvertently be sent by your application to the untrusted
 party.
 
 Authorization grant requests that do not contain the audience parameter
@@ -385,12 +385,12 @@ where the audience is provided:
 #### Launch ####
 
 Some Cerner solutions support the "launch" feature of
-the SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This 
+the SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This
 feature provides three benefits to client applications:
 
 - Cerner solutions can provide links to client applications; when
-  invoked by the user, Cerner's solution will pass the appropriate 
-  FHIR<sup>®</sup> base URL to your application, thus avoiding the 
+  invoked by the user, Cerner's solution will pass the appropriate
+  FHIR<sup>®</sup> base URL to your application, thus avoiding the
   need to select which FHIR<sup>®</sup> endpoints to interact with.
 - Your client application can request access to the current patient
   in context.
@@ -436,9 +436,9 @@ This particular part of the process has a number of complexities; the
 recommendations offered in this section are designed to ensure:
 
 - The user is offered a single sign-on and single log-out experience.
-- Browser (history) navigation is not affected by either the 
+- Browser (history) navigation is not affected by either the
   authorization or authentication workflow.
-- The authentication and authorization workflows are not interfered 
+- The authentication and authorization workflows are not interfered
   with by the use of browser frames or web views (clickjacking
   defenses, browser plug-ins, and/or access to local storage or
   certificates used in authentication may be interered with.)  
@@ -457,25 +457,25 @@ authentication or authorization workflows are maintained
 separately from your initial tab, thus allowing the user to
 properly navigate backwards in their browser history once
 the authorization workflow has completed.  On desktop platforms
-and/or mobile platforms that offer split-screen browsing, 
+and/or mobile platforms that offer split-screen browsing,
 this methodology creates a clean delineation between your
 application's workflow and the authorization workflow.
 
 Due to the nature of built-in pop-up blocking functionality,
-it will generally be necessary for your application to trigger 
+it will generally be necessary for your application to trigger
 the opening of the window based on a user interaction (click or
 touch).  In certain specific venues, alternatives may be
 possible to avoid this requirement; further guidance is outside
 the scope of this guide.
 
-Web-based applications must not attempt to perform the 
+Web-based applications must not attempt to perform the
 authorization workflow within an iframe - doing so may have
 unexpected results caused by clickjacking protection mechanisms,
 anti-phishing protection mechanisms, browser third-party
 cookie policy, etc.
 
 When opening the additional browser window, it is recommended
-to include the location "chrome" of the browser such that 
+to include the location "chrome" of the browser such that
 TLS/EVSSL indicators are included for display to the user.
 Such visual cues are an important part of security for
 some authentication systems.
@@ -542,8 +542,8 @@ to the callback URI.
 
 ##### Other User Experience Considerations #####
 
-- By utilizing the same window name in the call to 
-  window.open(), you can avoid scenarios where a user 
+- By utilizing the same window name in the call to
+  window.open(), you can avoid scenarios where a user
   accidentally opens multiple authorization windows for
   your application simultaneously.
 - To demonstrate that your application is waiting on the
@@ -558,17 +558,17 @@ to the callback URI.
   that initiated the authorization flow, it may be prudent
   for your script served at your callback URI to check
   for a parent window, and if not present, notify the
-  user.  Including a link whose target opens in a new 
+  user.  Including a link whose target opens in a new
   window will allow the user to proceed with their
   original workflow.
-  
+
 #### Native Client Applications on Mobile Platforms ####
 
 In recent years, OS platforms have been forced to lock
 down certain behaviors within their browsers that were
 traditionally used to facilitate OAuth2-based authorization
 workflows.  Specifically, browsers now interrupt any
-attempt to direct a user to a native application due to 
+attempt to direct a user to a native application due to
 absue from advertisers of mobile apps.  As a result,
 OS platforms now offer "in-app" browsers useful for
 orchestrating authorization workflows that are free of
@@ -580,10 +580,10 @@ occurs.)
 
 For more information on best practices for OAuth2-based
 workflows for native applications, please refer to the
-IETF Best Current Practices (BCP) 
+IETF Best Current Practices (BCP)
 ["OAuth 2.0 for Native Apps"][OAUTH-NATIVE].
 
-_NOTE_: Cerner's Authorization Server does not currently 
+_NOTE_: Cerner's Authorization Server does not currently
 implement PKCE as noted in section 8.2 of the native
 applications BCP.
 
@@ -597,7 +597,7 @@ or explicit URI activation schemes for redirection URIs;
 as such, developers of traditional Windows applications
 should [register a scheme][WIN-SCHEME] for their
 application.  The following is a sample registry file
-for a hypothetical scheme registration of 
+for a hypothetical scheme registration of
 `sample.application://`:
 
 <pre class="terminal">
@@ -622,19 +622,19 @@ Windows Registry Editor Version 5.00
 For the above registration, the client application would be
 registered with a redirection URI whose scheme begins with
 `sample.application://`, for example `sample.application://callback`.  
-Upon redirection to this scheme, the Windows operating system will invoke the registered 
+Upon redirection to this scheme, the Windows operating system will invoke the registered
 application with the OAuth2 response URI passed as the first
-argument.  The client application may then parse the URI and 
-in turn determine which open instance of the application 
-(if multiples are allowed) initiated the equest via 
+argument.  The client application may then parse the URI and
+in turn determine which open instance of the application
+(if multiples are allowed) initiated the equest via
 examination of the "state" parameter.
 
 ### Processing the Authorization Grant Response ###
 
-The authorization grant response comes in the form of a 
-x-www-form-urlencoded query string, appended to your 
-redirection URI.  The base specification for the structure of 
-this response is defined in 
+The authorization grant response comes in the form of a
+x-www-form-urlencoded query string, appended to your
+redirection URI.  The base specification for the structure of
+this response is defined in
 [section 4.1 "Authorization Code Grant"](https://tools.ietf.org/html/rfc6749#section-4.1)
 of RFC6749 (the OAuth2 Framework).  The following is
 an example:
@@ -686,10 +686,10 @@ Date: Tue, 01 Nov 2016 19:20:25 GMT
 
 Three elements of the response should be evaluated:
 
-- access_token:  This is the secret content to send to a FHIR<sup>®</sup> 
+- access_token:  This is the secret content to send to a FHIR<sup>®</sup>
   service to prove authorization for acting on behalf of a user.
 - scope:  This is the space-delimited list of scopes that were
-  authorized for use.  This list may differ from the list of 
+  authorized for use.  This list may differ from the list of
   scopes included in the initial request.  In some circumstances,
   the server may redact scopes - in others, users may have the
   capacity to redact scopes.
@@ -697,12 +697,12 @@ Three elements of the response should be evaluated:
   If access is required for longer than the expiration of the
   token, consider requesting online_access or offline_access,
   as needed.
-  
+
 The following additional elements may be returned:
 
-- patient:  The FHIR<sup>®</sup> id of a Patient resource 
+- patient:  The FHIR<sup>®</sup> id of a Patient resource
   in context of the current "launch".
-- encounter:  The FHIR<sup>®</sup> id of an Encounter resource 
+- encounter:  The FHIR<sup>®</sup> id of an Encounter resource
   in context of the current "launch".
 - refresh_token:  A token that be exchanged at the token
   endpoint for new access tokens.
@@ -714,14 +714,14 @@ The following additional elements may be returned:
 Once the authorization grant response has been received, the
 separate window / user agent for the facilitating the grant
 interaction should be automatically closed, where possible
-(an example of this for web-based applications is included 
+(an example of this for web-based applications is included
 earlier in this document.)  In the event this step is either
-not successful or not possible, content is provided by the 
+not successful or not possible, content is provided by the
 authorization server to inform the user if it is safe to
 close the additional window.  The authorization server itself
 will not attempt to self-close the window, as this generally
 results in a prompt from the browser asking for permission.
-  
+
 #### Exception Handling ####
 
 Both the authorization grant response and access token response
@@ -747,9 +747,9 @@ the parameter "error_uri", which represents a URI that contains
 additional information useful for end users, client app developers,
 and support personnel, along with support contact information
 for the associated organization.  It is recommended when such
-errors occur to present a "more information" link or button to 
+errors occur to present a "more information" link or button to
 the user (hyperlinked to the value of the URI) in addition to
-other support instructions that your application displays to 
+other support instructions that your application displays to
 the user.  Furthermore, it may be prudent for your application to
 display a "retry" or "start over" mechanism such that the user
 can retry the operation once the problem has been corrected.
@@ -761,7 +761,7 @@ can retry the operation once the problem has been corrected.
 If your application is designed to interact with a user over
 periods of time longer than that of a single access token,
 it will be necessary to utilize "refresh" tokens.  A
-refresh token is an additional secret value, returned as 
+refresh token is an additional secret value, returned as
 part of the initial access token response, that can be
 used to obtain additional access tokens.  Two forms of
 access exist, each are requested as a special scope
@@ -769,15 +769,15 @@ in the authorization grant request:
 
 - online_access:  Grants a refresh token that can be used
   for duration of a user's authenticated "session".  Such
-  refresh tokens are valid until either the user explicitly logs 
+  refresh tokens are valid until either the user explicitly logs
   out, the session is terminated by an administrator, or
   other risk mechanisms (timeouts, etc.) require a user
   to be re-authenticated.
 - offline_access:  Grants a refresh token that can be
   utilized until either a user or administrator revokes it.
-  
-As access tokens are valid for periods that are less than ten 
-minutes, it is recommended to retrieve and cache new tokens 
+
+As access tokens are valid for periods that are less than ten
+minutes, it is recommended to retrieve and cache new tokens
 in advance of the previous token expiring.  Doing so
 out-of-band of a user interaction will reduce the user's
 perception of application latency.  Refresh attempts at
@@ -788,7 +788,7 @@ precipice of expiry as latency could result in token rejection.
 #### Access Token Request / Response ####
 
 The following are examples of the request/response mechanism
-defined in section 6 "Refreshing an Access Token" of the 
+defined in section 6 "Refreshing an Access Token" of the
 [OAuth2 Framework][OAUTH].
 
 Request:
@@ -837,24 +837,24 @@ that if your solution compromises a large number of
 refresh tokens that such refresh tokens need not be revoked;
 only our client credentials need to be rotated to prevent
 misues of such compromised token values.  Client credentials for
-applications using Cerner's authorization server as issued 
+applications using Cerner's authorization server as issued
 via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
 See the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] section
 for more information on how to register these applications.
 
 It is currently not recommended to store offline_access tokens
-in persistent storage at a user's device.  Cerner's authorization 
-management workflows do not currently identify individual devices, 
+in persistent storage at a user's device.  Cerner's authorization
+management workflows do not currently identify individual devices,
 or provide revocation tools that would allow a user to revoke access
 to individual devices.  If your application will allow the user
 to obtain data at their client device, you must supply your
 own mechanism for authenticating and revoking such devices to
 the user and/or administrators.
 
-Cerner's authorization server can be used as an authentication 
+Cerner's authorization server can be used as an authentication
 mechanism via the use of the "openid" scope.  In this scenario,
-an offline access refresh token could be stored in your 
-application's service tier and associated with the user's 
+an offline access refresh token could be stored in your
+application's service tier and associated with the user's
 OpenID Connect principal and issuer.  Upon subsequent
 access, the client application would invoke an authorization
 reuqest containing the "openid" scope to soley perform
@@ -869,12 +869,12 @@ their authorized representatives, nor does it support
 
 When retrieving an access token utilizing using an
 online_access refresh, the most likely cause of failures
-is that access has been revoked.  The following steps are 
+is that access has been revoked.  The following steps are
 recommended for the user experience:
 
 - Indicate that the application's access may have been
   revoked.
-- Offer a "more information" link/button, hyperlinked to 
+- Offer a "more information" link/button, hyperlinked to
   the value returned in the parameter "error_uri".
 - Offer the ability for the user to re-request
   authorization for your client application.
@@ -892,10 +892,10 @@ experience:
 - If your application was invoked via a "launch", and
   the persona being serviced is a provider, direct the
   user to launch the application again.
-- Offer the user the opportunity to "log in again" 
+- Offer the user the opportunity to "log in again"
   (initiate the authorization grant workflow again) as
   appropriate.
-- Offer a "more information" link/button, hyperlinked to 
+- Offer a "more information" link/button, hyperlinked to
   the value returned in the parameter "error_uri".
 
 ## Utilizing Authorization ##
@@ -932,7 +932,7 @@ explain any consequences of cancelling.
 
 ### Provide a Link to "Manage Authorized Applications" ###
 
-If your application is interactive and utilizes 
+If your application is interactive and utilizes
 "online_access" or "offline_access", it should present
 a link to the end user that allows the user to manage
 their current authorizations.  Generally, such links
@@ -940,7 +940,7 @@ are presented in conjunction with menu accessible from
 a status bar.
 
 For information on how to discover the management
-endpoint for a user, see 
+endpoint for a user, see
 [Discovery](authorization-specification#discovery) in the
 authorization specification.
 
@@ -953,16 +953,16 @@ do not act on behalf of end users.  Such access is
 generally utilized by a covered entity itself, or another
 entity covered under a business associate agreement.
 
-Some FHIR<sup>®</sup> APIs support this model, allowing a 
-client application to directly authenticate for access 
-using a system account issued via 
-[Cerner Central System Account Management][SYSTEM-ACCOUNTS]. 
+Some FHIR<sup>®</sup> APIs support this model, allowing a
+client application to directly authenticate for access
+using a system account issued via
+[Cerner Central System Account Management][SYSTEM-ACCOUNTS].
 See the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] section
 for more information on how to register these applications.
 
-A client performs this request utilizing the "client 
+A client performs this request utilizing the "client
 credentials" flow of OAuth2 to request an access token,
-using the [Basic authentication scheme][RFC2617] for 
+using the [Basic authentication scheme][RFC2617] for
 passing credentials.  The following is a non-normative
 example of such a request:
 
@@ -979,7 +979,7 @@ grant_type=client_credentials&scope=system%2FObservation.read
 </pre>
 
 _Note_:  This access model is only supported on resources
-where explicitly indicated in their respective 
+where explicitly indicated in their respective
 FHIR<sup>®</sup> API resource documentation.
 
 <a id="faq"></a>
@@ -993,21 +993,21 @@ preceding documentation.
 - How can I allow users to utilize devices that do
   not provide a browser (user agent) to facilitate
   the authorization workflow?
-  
+
 > Cerner currently does not have a mechanism to allow
   such devices to participate in the authorization
   ecosystem.  Cerner is tracking the progress
-  of the IETF draft RFC 
+  of the IETF draft RFC
   ["OAuth 2.0 Device Flow"](https://tools.ietf.org/html/draft-denniss-oauth-device-flow-00)
   for further evaluation of such capabilities.
 
 - How can my application revoke a refresh token on
   behalf of a user?
-  
+
 > Cerner currently does not have a mechanism that allows
   client applications to revoke refresh tokens.  Cerner is
   currently tracking the progress of the IETF Proposed
-  Standard RFC 
+  Standard RFC
   ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009)
   for further evaluation of such capabilities.
 
@@ -1022,13 +1022,13 @@ preceding documentation.
   on developments in this ecosystem.
 
 > As an alternative, you may offer the user a link to
-  "Manage Authorized Applications", which allows the user 
+  "Manage Authorized Applications", which allows the user
   to log out via their SSO system.
 
 - A browser window/tab remains after the completion of the
   authorization workflow.  How should my application handle
   this?
-  
+
 > Depending on how the browser was launched, your application
   may not have the ability to close the browser window.
   If you launched a fresh browser window directly, you may
@@ -1036,32 +1036,32 @@ preceding documentation.
   command directly to the window.
 
 - Does the Cerner authorization server offer an
-  authentication-only workflow (via OpenID Connect) for 
+  authentication-only workflow (via OpenID Connect) for
   patients  and/or their authorized representatives?
-  
+
 > Cerner currently does not offer this capability at this
   time.
 
-- Can I append additional query parameters for my 
+- Can I append additional query parameters for my
   redirection URI when I send my authorization grant
   request?
-  
+
 > Yes, Cerner's redirection URI validation allows for
   additional query parameters, per the OAuth specification.
 
 > _NOTE_:  Cerner's implementation uses strict path
   validation, which includes trailing slashes in your
   redirection URI.
-  
+
 - I'm having trouble registering my redirection URI,
   what advice can you offer?
-  
+
 > URIs must conform with RFC 2396 and must be an
   absolute URI, per that specification.  Most issues
   we encounter are individuals attempting to register
   URIs with schemes containing a net path ("//"), but
   are missing an authority component.  For example,
-  "app://" is an invalid URI, but "app://callback" 
+  "app://" is an invalid URI, but "app://callback"
   is valid.
 
 - Can I register multiple redirect URIs?
@@ -1073,36 +1073,36 @@ preceding documentation.
 - My organization is a Cerner client that offers an
   application directly to patients.  Can we skip the
   authorization interaction with users for our app?
-  
+
 > Yes, Cerner offers the ability for organizations
   providing their own app to disable the patient-mediated
   authorization workflow when used in context with their
   organization.
 
-> _NOTE_:  Cerner currently does not support 
+> _NOTE_:  Cerner currently does not support
   offline_access support for such applications.
- 
+
 - Can I require Cerner to force the use of client credentials
-  (also known as a "confidential client") when exchanging a 
+  (also known as a "confidential client") when exchanging a
   grant code for an access token?
 
 > No, Cerner currently does not have this capability.  It
   is currently under consideration.
 
-- How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup> 
-  application in another application, such as inside of a web 
-  view or iframe and still orchestrate the authorization 
+- How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
+  application in another application, such as inside of a web
+  view or iframe and still orchestrate the authorization
   workflow?
-  
+
 > A general-purpose framework for embedding SMART<sup>®</sup>
   on FHIR<sup>®</sup> applications does not currently exist.
 
 - One or more offline access tokens stored by my application
   may have been compromised.  What action should I take to
   prevent their usage?
-  
+
 > Disable or rotate your system account via Cerner Central as
-  soon as possible via 
+  soon as possible via
   [Cerner Central System Account Management][SYSTEM-ACCOUNTS].  
 
 - Is offline_access supported for healthcare providers?
@@ -1112,12 +1112,12 @@ preceding documentation.
 
 - How can I deliver my solution to users utilizing its own
   Citrix instance with XenApp?
-  
+
 > Cerner currently does not have guidance on how to deliver
   native applications running within their own dedicated
   Citrix container.  Such applications would generally
-  interact with the authorization server from a browser 
-  hosted within the application's Citrix environment, 
+  interact with the authorization server from a browser
+  hosted within the application's Citrix environment,
   unless other steps are taken to allow for interaction
   with the browser on the device where Citrix Receiver
   is run.
@@ -1138,7 +1138,7 @@ preceding documentation.
 [OAUTH]: https://tools.ietf.org/html/rfc6749 "The OAuth 2.0 Authorization Framework"
 [OAUTH-THREAT]: https://tools.ietf.org/html/rfc6819 "OAuth 2.0 Threat Model and Security Considerations"
 [OAUTH-BCP]: https://tools.ietf.org/html/draft-ietf-oauth-security-topics-06 "OAuth 2.0 Security Best Current Practice"
-[OAUTH-NATIVE]: https://tools.ietf.org/html/rfc8252 "OAuth 2.0 for Native Apps" 
+[OAUTH-NATIVE]: https://tools.ietf.org/html/rfc8252 "OAuth 2.0 for Native Apps"
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html "OpenID Connect Core 1.0 incorporating errata set 1"
 [WIN-SCHEME]: https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx "Registering an Application to a URI Scheme"
 [RFC2617]: https://tools.ietf.org/html/rfc2617 "HTTP Authentication: Basic and Digest Access Authentication"
