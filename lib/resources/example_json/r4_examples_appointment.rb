@@ -104,6 +104,172 @@ module Cerner
       ]
     }
 
+    R4_APPOINTMENT_VIDEO_VISIT_ENTRY ||= {
+      "resourceType": "Appointment",
+      "id": "3005757",
+      "meta": {
+          "versionId": "3",
+          "lastUpdated": "2019-01-04T20:31:42.000Z"
+      },
+      "text": {
+          "status": "generated",
+          "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: EVisit&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;p>&lt;b>Video Visit&lt;/b>: Yes&lt;/p>&lt;/div>"
+      },
+      "contained": [
+          {
+              "resourceType": "HealthcareService",
+              "id": "607",
+              "type": [
+                  {
+                      "text": "Patient Virtual Meeting Room"
+                  }
+              ],
+              "telecom": [
+                  {
+                      "system": "url",
+                      "value": "http://patientlink.vmr.net",
+                      "period": {
+                          "start": "2017-10-04T13:00:00.000Z",
+                          "end": "2017-10-04T14:00:00.000Z"
+                      }
+                  }
+              ]
+          },
+          {
+              "resourceType": "HealthcareService",
+              "id": "610",
+              "type": [
+                  {
+                      "text": "Provider Virtual Meeting Room"
+                  }
+              ],
+              "telecom": [
+                  {
+                      "system": "url",
+                      "value": "http://providerlink.vmr.net",
+                      "period": {
+                          "start": "2017-10-04T13:00:00.000Z",
+                          "end": "2017-10-04T14:00:00.000Z"
+                      }
+                  }
+              ]
+          }
+      ],
+      "status": "cancelled",
+      "serviceType": [
+          {
+              "coding": [
+                  {
+                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+                      "code": "21265426",
+                      "display": "Same Day",
+                      "userSelected": true
+                  },
+                  {
+                      "system": "http://snomed.info/sct",
+                      "code": "408443003",
+                      "display": "General medical practice",
+                      "userSelected": false
+                  }
+              ],
+              "text": "Same Day"
+          }
+      ],
+      "description": "Same Day",
+      "start": "2017-10-04T13:00:00.000Z",
+      "end": "2017-10-04T14:00:00.000Z",
+      "minutesDuration": 60,
+      "participant": [
+          {
+              "type": [
+                  {
+                      "coding": [
+                          {
+                              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+                              "code": "4574",
+                              "display": "Resource",
+                              "userSelected": true
+                          }
+                      ],
+                      "text": "Resource"
+                  },
+                  {
+                      "coding": [
+                          {
+                              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                              "code": "PPRF",
+                              "display": "primary performer"
+                          }
+                      ]
+                  }
+              ],
+              "actor": {
+                  "reference": "Practitioner/2578010",
+                  "display": "Jones, Clive"
+              },
+              "required": "required",
+              "status": "accepted"
+          },
+          {
+              "type": [
+                  {
+                      "coding": [
+                          {
+                              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+                              "code": "4572",
+                              "display": "Patient",
+                              "userSelected": true
+                          }
+                      ],
+                      "text": "Patient"
+                  }
+              ],
+              "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+              },
+              "required": "required",
+              "status": "accepted"
+          },
+          {
+              "actor": {
+                  "reference": "Location/4048128",
+                  "display": "Baseline East"
+              },
+              "required": "required",
+              "status": "accepted"
+          },
+          {
+              "type": [
+                  {
+                      "text": "Patient Virtual Meeting Room"
+                  }
+              ],
+              "actor": {
+                  "reference": "#607"
+              },
+              "status": "accepted"
+          },
+          {
+              "type": [
+                  {
+                      "text": "Provider Virtual Meeting Room"
+                  }
+              ],
+              "actor": {
+                  "reference": "#610"
+              },
+              "status": "accepted"
+          }
+      ],
+      "requestedPeriod": [
+          {
+              "start": "2017-10-04T13:00:00.000Z",
+              "end": "2017-10-04T14:00:00.000Z"
+          }
+      ]
+    }
+
     R4_APPOINTMENT_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "0f5531d7-01d5-40ad-a482-3d1645f68e32",
@@ -129,6 +295,29 @@ module Cerner
         "op": "replace",
         "path": "/status",
         "value":  "cancelled"
+      }
+    ]
+
+    R4_APPOINTMENT_VIDEO_VISIT_PATCH ||= [
+      {
+        "op": "add",
+        "path": "/contained/0/telecom/0/value",
+        "value": "http://providerlink.vmr.net"
+      },
+      {
+          "op": "add",
+          "path": "/contained/1/telecom/0/value",
+          "value": "http://patientlink.vmr.net"
+      },
+      {
+          "op": "add",
+          "path": "/contained/0/telecom/0/period/start",
+          "value": "2019-07-13T08:00:00.000Z"
+      },
+      {
+          "op": "add",
+          "path": "/contained/0/telecom/0/period/end",
+          "value": "2019-07-13T08:10:00.000Z"
       }
     ]
 

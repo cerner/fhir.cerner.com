@@ -5,7 +5,7 @@ operations:
   - name: replace-status
     path: /status
     operation: replace
-    cardinality: 1..1
+    cardinality: 0..1
     type: code
     url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status
     description: The status of the appointment
@@ -18,4 +18,78 @@ operations:
     note: >
       <ul>
         <li>Only "arrived", "checked-in", and "cancelled" are supported</li>
+      </ul>
+  - name: add-provider-vmr
+    path: /contained/0/telecom/0/value
+    operation: add
+    cardinality: 0..1
+    type: string
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
+    description: The provider video visit link
+    example: |
+      {
+        "op": "add",
+        "path": "/contained/0/telecom/0/value",
+        "value":  "http://providerlink.vmr.net"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+      </ul>
+  - name: add-patient-vmr
+    path: /contained/1/telecom/0/value
+    operation: add
+    cardinality: 0..1
+    type: string
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
+    description: The patient video visit link
+    example: |
+      {
+        "op": "add",
+        "path": "/contained/1/telecom/0/value",
+        "value":  "http://patientlink.vmr.net"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+      </ul>
+  - name: add-period-start
+    path: /contained/0/telecom/0/period/start
+    operation: add
+    cardinality: 0..1
+    type: datetime
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
+    description: The start datetime for the video visit
+    example: |
+      {
+        "op": "add",
+        "path": "/contained/0/telecom/0/period/start",
+        "value":  "2019-07-13T08:00:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+      </ul>
+  - name: add-period-end
+    path: /contained/0/telecom/0/period/end
+    operation: add
+    cardinality: 0..1
+    type: datetime
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
+    description: The end datetime for the video visit
+    example: |
+      {
+        "op": "add",
+        "path": "/contained/0/telecom/0/period/end",
+        "value":  "2019-07-13T08:30:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for video visit appointments</li>
+        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
       </ul>
