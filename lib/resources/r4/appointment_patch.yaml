@@ -24,7 +24,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: string
-    url: todo
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The provider video visit link
     example: |
       {
@@ -42,7 +42,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: string
-    url: todo
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The patient video visit link
     example: |
       {
@@ -60,7 +60,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: datetime
-    url: todo
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
     description: The start datetime for the video visit
     example: |
       {
@@ -79,7 +79,7 @@ operations:
     operation: add
     cardinality: 0..1
     type: datetime
-    url: todo
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
     description: The end datetime for the video visit
     example: |
       {
