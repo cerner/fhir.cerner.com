@@ -39,6 +39,22 @@ module Cerner
               ]
             },
             {
+              "type": "Coverage",
+              "interaction": [
+                {
+                  "code": "search-type"
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": "patient",
+                  "definition": "http://hl7.org/fhir/R4/SearchParameter/clinical-patient",
+                  "type": "reference",
+                  "documentation": "Retrieve coverages for a patient."
+                }
+              ]
+            },
+            {
               "type": "Encounter",
               "interaction": [
                 {

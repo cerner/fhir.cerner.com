@@ -7,6 +7,7 @@ boolean: https://hl7.org/fhir/R4/datatypes.html#boolean
 code: https://hl7.org/fhir/R4/datatypes.html#code
 CodeableConcept: https://hl7.org/fhir/R4/datatypes.html#CodeableConcept
 ContactPoint: https://hl7.org/fhir/R4/datatypes.html#ContactPoint
+Coverage: https://http://hl7.org/fhir/R4/coverage.html
 date: https://hl7.org/fhir/R4/datatypes.html#date
 dateTime: https://hl7.org/fhir/R4/datatypes.html#dateTime
 Duration: https://hl7.org/fhir/R4/datatypes.html#Duration
