@@ -5,3 +5,4 @@ layout: api
 
 <%= render '/financial.*' %>
 * [Account](../financial/account)
+* [Coverage](../financial/coverage)
