@@ -93,6 +93,7 @@
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#example---video-visit" id="markdown-toc-example---video-visit">Example - Video Visit</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
@@ -102,6 +103,7 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#example---video-visit-links" id="markdown-toc-example---video-visit-links">Example - Video Visit Links</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
@@ -197,9 +199,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
-                      System: http://snomed.info/sct </p>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -211,9 +215,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms">Millennium Scheduling Appointment Synonyms or Types</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249 </p>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -250,9 +256,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14250-scheduling-resource-roles">Millennium Scheduling Resource Roles</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250 </p>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -676,6 +684,183 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
   ]
 }</code></pre>
 
+<h3 id="example---video-visit">Example - Video Visit</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Appointment",
+  "id": "3005757",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-01-04T20:31:42.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: EVisit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Oct  4, 2017  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Oct  4, 2017  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
+  },
+  "contained": [
+    {
+      "resourceType": "HealthcareService",
+      "id": "607",
+      "type": [
+        {
+          "text": "Patient Virtual Meeting Room"
+        }
+      ],
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://patientlink.vmr.net",
+          "period": {
+            "start": "2017-10-04T13:00:00.000Z",
+            "end": "2017-10-04T14:00:00.000Z"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "HealthcareService",
+      "id": "610",
+      "type": [
+        {
+          "text": "Provider Virtual Meeting Room"
+        }
+      ],
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://providerlink.vmr.net",
+          "period": {
+            "start": "2017-10-04T13:00:00.000Z",
+            "end": "2017-10-04T14:00:00.000Z"
+          }
+        }
+      ]
+    }
+  ],
+  "status": "cancelled",
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+          "code": "21265426",
+          "display": "Same Day",
+          "userSelected": true
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "408443003",
+          "display": "General medical practice",
+          "userSelected": false
+        }
+      ],
+      "text": "Same Day"
+    }
+  ],
+  "description": "Same Day",
+  "start": "2017-10-04T13:00:00.000Z",
+  "end": "2017-10-04T14:00:00.000Z",
+  "minutesDuration": 60,
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+              "code": "4574",
+              "display": "Resource",
+              "userSelected": true
+            }
+          ],
+          "text": "Resource"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "PPRF",
+              "display": "primary performer"
+            }
+          ]
+        }
+      ],
+      "actor": {
+        "reference": "Practitioner/2578010",
+        "display": "Jones, Clive"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+              "code": "4572",
+              "display": "Patient",
+              "userSelected": true
+            }
+          ],
+          "text": "Patient"
+        }
+      ],
+      "actor": {
+        "reference": "Patient/4704007",
+        "display": "Smart, Barney R"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/4048128",
+        "display": "Baseline East"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "type": [
+        {
+          "text": "Patient Virtual Meeting Room"
+        }
+      ],
+      "actor": {
+        "reference": "#607"
+      },
+      "status": "accepted"
+    },
+    {
+      "type": [
+        {
+          "text": "Provider Virtual Meeting Room"
+        }
+      ],
+      "actor": {
+        "reference": "#610"
+      },
+      "status": "accepted"
+    }
+  ],
+  "requestedPeriod": [
+    {
+      "start": "2017-10-04T13:00:00.000Z",
+      "end": "2017-10-04T14:00:00.000Z"
+    }
+  ]
+}</code></pre>
+
 <h3 id="errors-1">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -692,6 +877,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
 <ul>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
+  <li>For video visit link patch operation paths, <code>contained</code> index 0 represents the provider link and <code>contained</code> index 1 represents the patient link.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -729,7 +915,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         
       </td>
       <td>replace</td>
-      <td>1..1</td>
+      <td>0..1</td>
       <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
     </tr>
@@ -763,12 +949,190 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="add-provider-vmr">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/0/telecom/0/value</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The provider video visit link</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/contained/0/telecom/0/value",
+  "value":  "http://providerlink.vmr.net"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for video visit appointments</li>
+  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-patient-vmr">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/1/telecom/0/value</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The patient video visit link</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/contained/1/telecom/0/value",
+  "value":  "http://patientlink.vmr.net"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for video visit appointments</li>
+  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-period-start">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start"><code>/contained/0/telecom/0/period/start</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>0..1</td>
+      <td>
+<code>datetime</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The start datetime for the video visit</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/contained/0/telecom/0/period/start",
+  "value":  "2019-07-13T08:00:00.000Z"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for video visit appointments</li>
+  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+  <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-period-end">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end"><code>/contained/0/telecom/0/period/end</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>0..1</td>
+      <td>
+<code>datetime</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The end datetime for the video visit</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/contained/0/telecom/0/period/end",
+  "value":  "2019-07-13T08:30:00.000Z"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for video visit appointments</li>
+  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+  <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
 <h3 id="example-2">Example</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
 </code></pre>
@@ -778,12 +1142,12 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <pre class="body-response"><code class="language-javascript">[
   {
     "op": "replace",
-    "path": "status",
+    "path": "/status",
     "value": "cancelled"
   }
 ]</code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -793,6 +1157,58 @@ Content-Length: 0
 Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="example---video-visit-links">Example - Video Visit Links</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "add",
+    "path": "/contained/0/telecom/0/value",
+    "value": "http://providerlink.vmr.net"
+  },
+  {
+    "op": "add",
+    "path": "/contained/1/telecom/0/value",
+    "value": "http://patientlink.vmr.net"
+  },
+  {
+    "op": "add",
+    "path": "/contained/0/telecom/0/period/start",
+    "value": "2019-07-13T08:00:00.000Z"
+  },
+  {
+    "op": "add",
+    "path": "/contained/0/telecom/0/period/end",
+    "value": "2019-07-13T08:10:00.000Z"
+  }
+]</code></pre>
+
+<h4 id="response-4">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Server-Response-Time: 2260.237021
 Status: 200 OK
@@ -814,6 +1230,8 @@ X-Runtime: 2.260092
   <li>Updating an Appointment resource without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
   <li>Updating an Appointment resource which is currently being modified will result in a <code>423 Locked</code> response.</li>
   <li>If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), <code>424 Failed Dependency</code> response will be returned.</li>
+  <li>Patching a video visit appointment that has previously been patched for video visit links will result in a <code>409 Conflict</code> response.</li>
+  <li>Patching a video visit appointment with any missing required patch operations will result in a <code>422 Unprocessable Entity</code> response.</li>
 </ul>
 
 <h2 id="create">Create</h2>
@@ -1151,12 +1569,12 @@ X-Runtime: 2.260092
 
 <h3 id="example-3">Example</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-1">Body</h4>
+<h4 id="body-2">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -1179,7 +1597,7 @@ X-Runtime: 2.260092
   }
 ]</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1242,6 +1660,9 @@ X-Runtime: 3.890282
 </h3>
         <ul class="js-guides">
           <li><a href="../../financial/account/">Account</a></li>
+        </ul>
+        <ul class="js-guides">
+          <li><a href="../../financial/coverage/">Coverage</a></li>
         </ul>
       </li>
       <li class="js-topic">

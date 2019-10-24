@@ -149,9 +149,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-identifier-type.html">IdentifierType</a><br>
-                      System: http://hl7.org/fhir/valueset-identifier-type </p>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0203 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -163,9 +165,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types">Millennium Person Identifier (Alias) Types</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4 </p>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -203,9 +207,11 @@
               
                   <li>
                     
-
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/ValueSet/languages">CommonLanguages</a><br>
-                      System: http://hl7.org/fhir/languages </p>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-languages.html">CommonLanguages</a><br>
+                      
+                        System: urn:ietf:bcp:47 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -217,23 +223,11 @@
               
                   <li>
                     
-
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/v2/0203/index.html">v2 Identifier Type</a><br>
-                      System: http://terminology.hl7.org/CodeSystem/v2-0203 </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-36-languages">Millennium Language codes</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36 </p>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -270,9 +264,13 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html">PatientRelationshipType</a><br>
-                      System: http://hl7.org/fhir/relatedperson-contactrelationship </p>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0131 <br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -284,9 +282,11 @@
               
                   <li>
                     
-
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types">Millennium Person Relationship Types</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 </p>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -298,9 +298,11 @@
               
                   <li>
                     
-
-                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationship">Millennium Person Relationship Types</a><br>
-                      System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40 </p>
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationship">Millennium Person Relationship</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -473,18 +475,20 @@
           "reference": "Patient/4768010",
           "display": "Bobo, Bob"
         },
-        "name": {
-          "use": "official",
-          "text": "Bobo, TEST A",
-          "family": "Bobo",
-          "given": [
-            "TEST",
-            "A"
-          ],
-          "period": {
-            "start": "2017-10-05T17:02:53.000Z"
+        "name": [
+          {
+            "use": "official",
+            "text": "Bobo, TEST A",
+            "family": "Bobo",
+            "given": [
+              "TEST",
+              "A"
+            ],
+            "period": {
+              "start": "2017-10-05T17:02:53.000Z"
+            }
           }
-        },
+        ],
         "telecom": [
           {
             "system": "Phone",
@@ -530,26 +534,28 @@
             }
           }
         ],
-        "communication": {
-          "preferred": "true",
-          "language": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
-                "code": "151",
-                "display": "English",
-                "userSelected": true
-              },
-              {
-                "system": "urn:ietf:bcp:47",
-                "code": "en",
-                "display": "English",
-                "userSelected": false
-              }
-            ],
-            "text": "English"
+        "communication": [
+          {
+            "preferred": "true",
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+                  "code": "151",
+                  "display": "English",
+                  "userSelected": true
+                },
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English",
+                  "userSelected": false
+                }
+              ],
+              "text": "English"
+            }
           }
-        }
+        ]
       }
     }
   ]
@@ -657,18 +663,20 @@
     "reference": "Patient/4768010",
     "display": "Bobo, Bob"
   },
-  "name": {
-    "use": "official",
-    "text": "Bobo, TEST A",
-    "family": "Bobo",
-    "given": [
-      "TEST",
-      "A"
-    ],
-    "period": {
-      "start": "2017-10-05T17:02:53.000Z"
+  "name": [
+    {
+      "use": "official",
+      "text": "Bobo, TEST A",
+      "family": "Bobo",
+      "given": [
+        "TEST",
+        "A"
+      ],
+      "period": {
+        "start": "2017-10-05T17:02:53.000Z"
+      }
     }
-  },
+  ],
   "telecom": [
     {
       "system": "Phone",
@@ -714,26 +722,28 @@
       }
     }
   ],
-  "communication": {
-    "preferred": "true",
-    "language": {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
-          "code": "151",
-          "display": "English",
-          "userSelected": true
-        },
-        {
-          "system": "urn:ietf:bcp:47",
-          "code": "en",
-          "display": "English",
-          "userSelected": false
-        }
-      ],
-      "text": "English"
+  "communication": [
+    {
+      "preferred": "true",
+      "language": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
+            "code": "151",
+            "display": "English",
+            "userSelected": true
+          },
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English",
+            "userSelected": false
+          }
+        ],
+        "text": "English"
+      }
     }
-  }
+  ]
 }</code></pre>
 
 <h3 id="errors-1">Errors</h3>
@@ -778,6 +788,9 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../../financial/account/">Account</a></li>
+        </ul>
+        <ul class="js-guides">
+          <li><a href="../../financial/coverage/">Coverage</a></li>
         </ul>
       </li>
       <li class="js-topic">
