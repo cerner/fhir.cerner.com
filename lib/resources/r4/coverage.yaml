@@ -12,7 +12,7 @@ fields:
     {
       "resourceType": "Coverage"
     }
-  note: resourceType must be Coverage
+  note: The resourceType must be Coverage.
   url: http://hl7.org/fhir/r4/json.html#resources
 
 - name: status
@@ -25,21 +25,21 @@ fields:
     {
       "status": "active"
     }
-  note: Currently only supports `active`.
+  note: Currently supports only `active`.
 
 - name: subscriber
   required: 'No'
   cardinality: 0..1
   type: Reference (Patient)
   action: create
-  description: The subscriber to the policy.
+  description: Subscriber to the policy.
   example: |
     {
       "subscriber": {
-        "reference": "Patient/1626016",
+        "reference": "Patient/1626016"
       }
     }
-  note: Currently subscriber only supports Patient reference.
+  note: Currently supports only Patient references.
 
 - name: subscriberId
   required: 'No'
@@ -98,12 +98,12 @@ fields:
   binding:
     description: Indicates the beneficiary relationship to the subscriber.
     terminology:
-      - display: Coverage Relationship
-        system: http://hl7.org/fhir/coverage-relationship
+      - display: Subscriber Relationship
+        system: http://terminology.hl7.org/CodeSystem/subscriber-relationship
         info_link: http://hl7.org/fhir/R4/valueset-subscriber-relationship.html
-      - display: Millennium Coverage Relationship
+      - display: Millennium Person Relationship
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-40-coverage-relationship
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
 
 - name: period
   required: 'No'
@@ -118,7 +118,7 @@ fields:
         "end": "2015-09-05T14:30:12.000Z"
       }
     }
-  note: A date with time must be provided.
+  note: Both period.start and period.end must contain date and time components.
 
 - name: payor
   required: 'Yes'
@@ -145,37 +145,35 @@ fields:
   example: |
     {
       "class": [
-      {
-        "type": {
-          "coding": [
-          {
-            "system": "http://hl7.org/fhir/ValueSet/coverage-class",
-            "code": "plan"
-          }
-          ],
-          "text": "plan"
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                "code": "plan"
+              }
+            ],
+            "text": "plan"
+          },
+          "value": "729825",
+          "name": "Aetna Missouri POS Open"
         },
-        "value": "729825",
-        "name": "Aetna Missouri POS Open"
-      },
-      {
-        "type": {
-          "coding": [
-          {
-            "system": "http://hl7.org/fhir/ValueSet/coverage-class",
-            "code": "group"
-          }
-          ],
-          "text": "group"
-        },
-        "value": "7298139",
-        "name": "Aetna Missouri POS Open group"
-      }
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                "code": "group"
+              }
+            ],
+            "text": "group"
+          },
+          "value": "7298139",
+          "name": "Aetna Missouri POS Open group"
+        }
       ]
     }
-  note: Must contain one element with a type `group`
   children:
-
     - name: type
       required: 'Yes'
       cardinality: 1..1
