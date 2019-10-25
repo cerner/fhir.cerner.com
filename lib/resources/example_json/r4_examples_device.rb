@@ -11,7 +11,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Unique Device Identifier (UDI)&lt;/b>: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Inactive&lt;/p>&lt;p>&lt;b>Manufacturer&lt;/b>: Smith and Nephew Wound Management D&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Apr 10, 2010  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Expiration Date&lt;/b>: Jul  7, 2020  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Total Hip Set&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MODELNBR661488&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Unique Device Identifier (UDI)&lt;/b>: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Inactive&lt;/p>&lt;p>&lt;b>Manufacturer&lt;/b>: Smith and Nephew Wound Management D&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Apr 10, 2010  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Expiration Date&lt;/b>: Jul  7, 2020  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Total Hip Set&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MODELNBR661488&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
       },
       "identifier": [
         {
@@ -83,7 +83,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Unique Device Identifier (UDI)&lt;/b>: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Inactive&lt;/p>&lt;p>&lt;b>Manufacturer&lt;/b>: Smith and Nephew Wound Management D&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Apr 10, 2010  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Expiration Date&lt;/b>: Jul  7, 2020  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Total Hip Set&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MODELNBR661488&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Unique Device Identifier (UDI)&lt;/b>: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Inactive&lt;/p>&lt;p>&lt;b>Manufacturer&lt;/b>: Smith and Nephew Wound Management D&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Apr 10, 2010  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Expiration Date&lt;/b>: Jul  7, 2020  5:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Total Hip Set&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MODELNBR661488&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
             },
             "identifier": [
               {
@@ -143,7 +143,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2001  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: 567884-IP&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: PBR668583H&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Insulin Pump&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MiniMed Paradigm&#174; 522/722&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East &lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2001  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Lot Number&lt;/b>: 567884-IP&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: PBR668583H&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Insulin Pump&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MiniMed Paradigm&#174; 522/722&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East &lt;/p>&lt;/div>"
             },
             "identifier": [
               {
@@ -194,7 +194,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2002  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1001&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Stryker MDM X3 Hip System&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MDM X3&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2002  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1001&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Stryker MDM X3 Hip System&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: MDM X3&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
             },
             "identifier": [
               {
@@ -244,7 +244,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2003  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1004&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Stryker Triathalon Total Knee&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: Triathalon&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2003  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1004&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Stryker Triathalon Total Knee&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: Triathalon&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
             },
             "identifier": [
               {
@@ -294,7 +294,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2004  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1004&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Medtronic Advisa MRI SureScan&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: A2DR01&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p></div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Device&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Manufacture Date&lt;/b>: Jan  1, 2004  6:00 A.M. UTC&lt;/p>&lt;p>&lt;b>Serial Number&lt;/b>: ser100-1004&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Medtronic Advisa MRI SureScan&lt;/p>&lt;p>&lt;b>Model Number&lt;/b>: A2DR01&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: SMART Jr, FRED RICK&lt;/p>&lt;p>&lt;b>Owner&lt;/b>: Baseline East Medical Center&lt;/p>&lt;/div>"
             },
             "identifier": [
               {

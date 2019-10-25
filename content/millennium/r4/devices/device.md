@@ -16,8 +16,8 @@ The following fields are returned if valued:
 * [Device id](https://hl7.org/fhir/r4/device-definitions.html#Device.id){:target="_blank"}
 * [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.identifier){:target="_blank"}
 * [Udi carrier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier){:target="_blank"}
-    * [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.deviceIdentifier){:target="_blank"}
-    * [CarrierHRF](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.carrierHRF){:target="_blank"}   
+  * [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.deviceIdentifier){:target="_blank"}
+  * [CarrierHRF](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.carrierHRF){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/device-definitions.html#Device.status){:target="_blank"}
 * [Distinct identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.distinctIdentifier){:target="_blank"}
 * [Manufacturer](https://hl7.org/fhir/r4/device-definitions.html#Device.manufacturer){:target="_blank"}
@@ -26,8 +26,8 @@ The following fields are returned if valued:
 * [Lot number](https://hl7.org/fhir/r4/device-definitions.html#Device.lotNumber){:target="_blank"}
 * [Serial number](https://hl7.org/fhir/r4/device-definitions.html#Device.serialNumber){:target="_blank"}
 * [Device name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName){:target="_blank"}
-    * [Name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.name){:target="_blank"}
-    * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.type){:target="_blank"}
+  * [Name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.name){:target="_blank"}
+  * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.type){:target="_blank"}
 * [Model number](https://hl7.org/fhir/r4/device-definitions.html#Device.modelNumber){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.type){:target="_blank"}
 * [Patient](https://hl7.org/fhir/r4/device-definitions.html#Device.patient){:target="_blank"}
@@ -49,11 +49,11 @@ Search for Devices that meet supplied query parameters:
 
 ### Parameters
 
- Name       | Required?          | Type          | Description
-------------|--------------------|---------------|-------------------------------------------------------------------------------------------------------
- `_id`      | This or `patient`  | [`token`]     | The logical resource id associated with the Device. Example: `2226920`
- `patient`  | This or `_id`      | [`reference`] | The patient to whom the device is affixed. Example: `12345`
- 
+ Name      | Required?         | Type          | Description
+-----------|-------------------|---------------|------------------------------------------------------------------------
+ `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `2226920`
+ `patient` | This or `_id`     | [`reference`] | The patient to whom the device is affixed. Example: `12345`
+
 ### Headers
 
 <%= headers fhir_json: true %>
@@ -63,7 +63,7 @@ Search for Devices that meet supplied query parameters:
 #### Request
 
     GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
-    
+
 #### Response
 
 <%= headers status: 200 %>
@@ -91,7 +91,7 @@ List an individual Device by its id:
 
 #### Request
 
-    GET  https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765
+    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765
 
 #### Response
 
