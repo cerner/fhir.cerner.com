@@ -56,10 +56,10 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: Extension
-  description: Status of the functional progression of the Account.
+  description: The status of the Account within a specific workflow.
   url: https://fhir.cerner.com/millennium/r4/financial/account/#extensions
   binding:
-    description: Status of the functional progression of the Account.
+    description: The status of the Account within a specific workflow.
     terminology:
     - display: Benefit Order Status
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/24451
