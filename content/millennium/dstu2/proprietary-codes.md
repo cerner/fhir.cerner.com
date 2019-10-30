@@ -26,7 +26,7 @@ The following are true for all Millennium proprietary codes:
 * The `display` value is the code value display
 * The `userSelected` value is set to true
 
-Example CodeableConcept displaying both standard and proprietary codes:
+Example read from CodeableConcept displaying both standard and proprietary codes:
 
     {
       "type": {
@@ -55,6 +55,10 @@ Example CodeableConcept displaying both standard and proprietary codes:
 The DocumentReference Resource supports proprietary codes for:
 
 * DocumentReference.type codes are maintained in [Code Set 72 Event Code](#code-set-72-event-code)
+
+_Notes:_
+
+* When adding or updating data, if both proprietary and standard codes are populated for the specific request body field, the request will fail
 
 ## Scheduling
 
