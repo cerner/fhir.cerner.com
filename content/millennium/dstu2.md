@@ -534,6 +534,24 @@ The possible `relation` values are:
  `self` | Shows the URL of the current page of results.
  `next` | Shows the URL of the immediate next page of results.
 
+
+### Concurrency
+
+Developers need to account for data concurrency within the response. The FHIR specification states:
+
+>  The results of a search operation are only guaranteed to be current at the moment the operation is executed.
+After the operation is executed, ongoing actions performed on the resources against which the search was executed will
+render the results increasingly stale. The significance of this depends on the nature of the search, and the kind of
+use that is being made of the results.
+
+> This is particularly relevant when the server is returning the results in a series of pages. It is at the discretion
+of the search engine of how to handle ongoing updates to the resources while the search is proceeding.
+
+When results are returned in a series of pages, you may see the same resource id on subsequent pages.
+Developers need to take this situation into account and filter by resource id and only return the latest version of
+that resource id. Displaying duplicate resource ids or any other manipulation may misrepresent the data thus impacting
+clinical decision support and patient safety.
+
 ## Cross Origin Resource Sharing
 
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
