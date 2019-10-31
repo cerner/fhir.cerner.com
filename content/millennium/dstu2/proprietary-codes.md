@@ -27,7 +27,7 @@ The following are true for all Millennium proprietary codes:
 * The `userSelected` value is set to true
 * On inbound requests (POST, PUT, PATCH), proprietary codes and standard codes may not be set in the same coding array. If they are, the create or update request will fail with a 422 Unprocessable Entity response.
 
-Example outbound from CodeableConcept displaying both standard and proprietary codes:
+Example outbound CodeableConcept displaying both standard and proprietary codes:
 
     {
       "type": {
