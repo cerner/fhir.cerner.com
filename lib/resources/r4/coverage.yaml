@@ -29,7 +29,7 @@ fields:
 
 - name: subscriber
   required: 'Yes'
-  cardinality: 1..1
+  cardinality: 0..1
   type: Reference (Patient)
   action: create
   description: Subscriber to the policy.
@@ -78,7 +78,7 @@ fields:
 
 - name: relationship
   required: 'Yes'
-  cardinality: 1..1
+  cardinality: 0..1
   type: CodeableConcept
   action: create
   description: Indicates the beneficiary relationship to the subscriber.
