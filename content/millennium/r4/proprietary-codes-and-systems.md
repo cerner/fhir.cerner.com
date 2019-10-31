@@ -21,9 +21,9 @@ The following are true for all Millennium proprietary codes:
 * The `code` value is the numeric code value as a string
 * The `display` value is the code value display
 * The `userSelected` value is set to true
-* When adding or updating data, if both proprietary and standard codes are populated for the specific request body field, the request will fail
+* On inbound requests (POST, PUT, PATCH), proprietary codes and standard codes may not be set in the same coding array. If they are, the create or update request will fail with a 422 Unprocessable Entity response.
 
-Example read from CodeableConcept displaying both standard and proprietary codes:
+Example outbound from CodeableConcept displaying both standard and proprietary codes:
 
     {
       "type": {
