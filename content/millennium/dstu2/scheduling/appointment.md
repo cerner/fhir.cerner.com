@@ -140,6 +140,7 @@ _Implementation Notes_
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
 * `Appointment.status` must be set to `proposed`.
 * `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
+* `Appointment.slot.reference` specifies practitioner and location data for the appointment.
 * `Appointment.participant` must have exactly one participant.
 * `Appointment.participant.status` must be set to `needs-action`.
 * `Appointment.participant.type` must not be set.

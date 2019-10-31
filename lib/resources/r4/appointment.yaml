@@ -29,7 +29,7 @@ fields:
         }
       ]
     }
-  note: At most one slot can be populated. Practitioner and location data are specified by the slot reference.
+  note: At most one slot can be populated.
 
 - name: status
   required: 'Yes'

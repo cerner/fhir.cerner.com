@@ -50,7 +50,6 @@ fields:
   cardinality: 1..1
   type: Reference (Slot)
   description: The availability to which the appointment is booked.
-  note: Practitioner and location data are specified by the slot reference.
   example: |
     {
       "slot": [
