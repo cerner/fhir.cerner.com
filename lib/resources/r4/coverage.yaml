@@ -28,7 +28,7 @@ fields:
   note: Currently supports only `active`.
 
 - name: subscriber
-  required: 'No'
+  required: 'Yes'
   cardinality: 0..1
   type: Reference (Patient)
   action: create
@@ -77,7 +77,7 @@ fields:
     }
 
 - name: relationship
-  required: 'No'
+  required: 'Yes'
   cardinality: 0..1
   type: CodeableConcept
   action: create
@@ -107,7 +107,7 @@ fields:
 
 - name: period
   required: 'No'
-  cardianlity: 0..1
+  cardinality: 0..1
   type: Period
   action: create
   description: Coverage start and end dates.
