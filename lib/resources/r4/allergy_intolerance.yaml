@@ -100,7 +100,7 @@ fields:
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
-      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
+      info_link: http://hl7.org/fhir/r4/rxnorm.html
     - display: Substance Code
       system: http://hl7.org/fhir/ValueSet/substance-code
       info_link: http://hl7.org/fhir/valueset-allergyintolerance-code.html
