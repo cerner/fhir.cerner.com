@@ -98,6 +98,9 @@ fields:
                  or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or
                  categorical negated statement (e.g., "No known allergy", "No known drug allergies").
     terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
     - display: Substance Code
       system: http://hl7.org/fhir/ValueSet/substance-code
       info_link: http://hl7.org/fhir/valueset-allergyintolerance-code.html
