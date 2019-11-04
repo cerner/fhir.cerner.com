@@ -9,23 +9,54 @@ title: FinancialTransaction | R4 API
 
 ## Overview
 
-The FinancialTransaction resource provides the ability to record and exchange financial payment and adjustment information related to patient healthcare services. 
+The FinancialTransaction resource provides the ability to record and exchange financial payment and adjustment information related to patient healthcare services.
 
 ## Terminology Bindings
 
 <%= terminology_table(:financial_transaction, :r4) %>
 
+## Extensions
+
+* [Financial Transaction Account Number]
+* [Financial Transaction Alias]
+* [Financial Transaction Allocation]
+* [Financial Transaction Amount]
+* [Financial Transaction Card Brand]
+* [Financial Transaction Date]
+* [Financial Transaction Location]
+* [Financial Transaction Method]
+* [Financial Transaction Tendered Amount]
+* [Financial Transaction Type]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                                      | Value\[x] Type      | Description
+-----------------------------------------|---------------------|--------------------------------------------------------------------------
+ `financial-transaction-account-number`  | [`string`]          | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
+ `financial-transaction-alias`           | [`string`]          | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
+ `financial-transaction-allocation`      | [`Extension`]       | Defines how the payment or adjustment is to be allocated across other resources.
+ `financial-transaction-amount`          | [`Money`]           | The total amount of the financial transaction.
+ `financial-transaction-card-brand`      | [`string`]          | Identifies the brand of credit card when credit card is used as a payment method.
+ `financial-transaction-date`            | [`date`]            | Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.
+ `financial-transaction-location`        | [`string`]          | Client configured value representing the location or workflow that the payment was received in.
+ `financial-transaction-method`          | [`string`]          | Describes the method of payment for the financial transaction.
+ `financial-transaction-tendered-amount` | [`Money`]           | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
+ `financial-transaction-type`            | [`CodeableConcept`] | The classification of the transaction.
+
 ## Create
 
-Resource for posting payment and adjustment transactions into Millennium
+Create a FinancialTransaction.
 
     POST /Basic    
- 
+
 _Implementation Notes_
 
 * Only the body fields mentioned below are supported.
-* When integrating your application with a client's production environment you will work with the client to determine the appropriate financial-transaction-alias values to send with the payment and adjustment transactions. 
- 
+* When integrating your application with a client's production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.
+* The financial-transaction-allocation.target field must reference an Encounter associated with an Account.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: false, system: true) %>
@@ -36,13 +67,13 @@ _Implementation Notes_
 
 ### Body Fields
 
-<%= definition_table(:financial_transaction_create, :create, :r4) %>
+<%= definition_table(:financial_transaction, :create, :r4) %>
 
 ### Example
 
 #### Request
 
-    POST 
+    POST
 
 #### Body
 
@@ -55,10 +86,10 @@ _Implementation Notes_
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: application/fhir+json
-Date: Wed, 27 Mar 2019 15:59:33 GMT
-Etag: W/"0"
-Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
-Location: 
+Date: Mon, 04 Nov 2019 16:23:57 GMT
+Etag: W/""
+Last-Modified: Mon, 04 Nov 2019 16:23:57 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-14266754
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
@@ -70,7 +101,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST 
+    POST
 
 #### Body
 
@@ -83,23 +114,22 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: application/fhir+json
-Date: Wed, 27 Mar 2019 15:59:33 GMT
-Etag: W/"0"
-Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
-Location: 
+Date: Mon, 04 Nov 2019 16:23:59 GMT
+Etag: W/""
+Last-Modified: Mon, 04 Nov 2019 16:23:59 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-74389581
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea69
 X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-
 #### Request
 
-    POST 
+    POST
 
 #### Body
 
@@ -112,14 +142,14 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: application/fhir+json
-Date: Wed, 27 Mar 2019 15:59:33 GMT
-Etag: W/"0"
-Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
-Location: 
+Date: Mon, 04 Nov 2019 16:23:58 GMT
+Etag: W/""
+Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-3335800133
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
 X-Runtime: 3.890282
 </pre>
 
