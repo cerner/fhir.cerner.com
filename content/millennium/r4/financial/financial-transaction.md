@@ -73,7 +73,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST
+    POST /Basic
 
 #### Body
 
@@ -161,3 +161,18 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[`CodeableConcept`]: https://www.hl7.org/fhir/datatypes.html#CodeableConcept
+[`date`]: https://www.hl7.org/fhir/datatypes.html#date
+[`Extension`]: https://www.hl7.org/fhir/extensibility.html#Extension
+[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
+[`string`]: https://www.hl7.org/fhir/datatypes.html#string
+[Financial Transaction Account Number]: #custom-extensions
+[Financial Transaction Alias]: #custom-extensions
+[Financial Transaction Allocation]: #custom-extensions
+[Financial Transaction Amount]: #custom-extensions
+[Financial Transaction Card Brand]: #custom-extensions
+[Financial Transaction Date]: #custom-extensions
+[Financial Transaction Location]: #custom-extensions
+[Financial Transaction Method]: #custom-extensions
+[Financial Transaction Tendered Amount]: #custom-extensions
+[Financial Transaction Type]: #custom-extensions
