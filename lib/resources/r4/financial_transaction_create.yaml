@@ -55,12 +55,12 @@ fields:
   example: |
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
-      "valueCode": "Adjustment"
+      "valueCode": "CodeableConcept"
     }
   note: Will only accept payment or adjustment
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type
 
-- name: financial-transaction-transaction-alias-alias
+- name: financial-transaction-alias
   required: 'Yes'
   cardinality: 1..1
   type: string
@@ -68,16 +68,11 @@ fields:
   action: create
   example: |
     {
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-transaction-alias",
-      "extension": [
-          {
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-transaction-alias-alias",
-              "valueString": "729813"
-          }
-      ]
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valurString": "3100"
     }
   note: A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. Is required to create al FinancialTransaction resource
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-transaction-alias-alias
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias
 
 - name: financial-transaction-location
   required: 'No'
