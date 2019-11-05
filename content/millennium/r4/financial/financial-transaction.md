@@ -155,6 +155,34 @@ X-Runtime: 3.890282
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+#### Request
+
+    POST
+
+#### Body
+
+  <%= json(:R4_FINANCIAL_TRANSACTION_ADJUSTMENT) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 04 Nov 2019 16:23:58 GMT
+Etag: W/""
+Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-3335800133
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
+X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.

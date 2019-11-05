@@ -11,6 +11,3 @@ fields:
     - display: v2 Payment Method Code
       system: https://terminology.hl7.org/CodeSystem/v2-0570
       info_link: https://www.hl7.org/fhir/v2/0570/index.html
-    - display: Millennium payment method codes
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/20589
-      info_link: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/20589
