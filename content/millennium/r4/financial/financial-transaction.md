@@ -176,7 +176,7 @@ Content-Type: application/fhir+json
 Date: Mon, 04 Nov 2019 16:23:58 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-3335800133
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-AL-3335800133
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
