@@ -218,7 +218,7 @@ fields:
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
       "extension": [
           {
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/target",
+              "url": "target",
               "valueReference": {
                   "reference": "Encounter/31363178"
               }
@@ -242,7 +242,8 @@ fields:
           }
       ]
     }
-  note: Only the first allocation element will be used when creating the resource for this initial release.
+
+  note: Only one allocation element will be used when creating the resource for this initial release.
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation
 
 - name: target
@@ -253,13 +254,13 @@ fields:
   action: create
   example: |
     {
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/target",
+      "url": "target",
       "valueReference": {
             "reference": "Encounter/31363178"
       		}
     }
   note: Encounter will be the only posting level target that will be supported for this initial release.
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/target
+  url: target
 
 - name: financial-transaction-amount
   required: 'Yes'
