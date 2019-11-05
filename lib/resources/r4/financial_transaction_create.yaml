@@ -10,7 +10,7 @@ fields:
   action: create
   example: |
     {
-      "resourceType":"Basic"
+      "resourceType": "Basic"
     }
   note: resourceType must be Basic
   url: http://hl7.org/fhir/r4/json.html#resources
@@ -19,8 +19,8 @@ fields:
   required: 'Yes'
   cardinality: 0..*
   type: Identifier
-  description: Identifier assigned to the resource for business purposes.
   action: create
+  description: Identifier assigned to the resource for business purposes.
   example: |
     {
       "identifier": [
@@ -69,7 +69,7 @@ fields:
   example: |
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-      "valurString": "3100"
+      "valueString": "3100"
     }
   note: A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. Is required to create al FinancialTransaction resource
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias

@@ -2,9 +2,9 @@
 name: FinancialTransaction
 field_name_base_url: http://hl7.org/fhir/R4/basic.html
 fields:
-- name: financial-transaction-method
+- name: extension(financial-transaction-method)
   description: Describes the method of payment for the financial transaction.
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method
+  url: https://fhir.cerner.com/millennium/r4/financial/financial-transaction/#custom-extensions
   binding:
     description: The payment method of the transaction.
     terminology:
@@ -12,11 +12,11 @@ fields:
       system: https://terminology.hl7.org/CodeSystem/v2-0570
       info_link: https://www.hl7.org/fhir/v2/0570/index.html
 
-- name: financial-transaction-type
+- name: extension(financial-transaction-type)
   description: A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type
+  url: https://fhir.cerner.com/millennium/r4/financial/financial-transaction/#custom-extensions
   binding:
-    description: The Category of Payment Type Codes.Whether this is a payment or adjustment.
+    description: The Category of Payment Type Codes. Whether this is a payment or adjustment.
     terminology:
     - display: Payment Type Codes
       system: http://terminology.hl7.org/CodeSystem/payment-type 

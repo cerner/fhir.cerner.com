@@ -56,6 +56,9 @@ _Implementation Notes_
 * Only the body fields mentioned below are supported.
 * When integrating your application with a client's production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.
 * The financial-transaction-allocation.target field must reference an Encounter associated with an Account.
+* Clients must use Cerner's Revenue Cycle Patient Accounting application in order to create Financial Transactions.
+* A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity within the Cerner Revenue Cycle Patient Accounting system.
+* FinancialTransaction and Basic scopes are required
 
 ### Authorization Types
 
@@ -87,7 +90,7 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: application/fhir+json
 Date: Mon, 04 Nov 2019 16:23:57 GMT
-Etag: W/""
+Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:57 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-14266754
 Server-Response-Time: 3890.363996
@@ -101,7 +104,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST
+    POST /Basic
 
 #### Body
 
@@ -129,7 +132,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST
+    POST /Basic
 
 #### Body
 
@@ -157,7 +160,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST
+    POST /Basic
 
 #### Body
 
@@ -189,11 +192,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-[`CodeableConcept`]: https://www.hl7.org/fhir/datatypes.html#CodeableConcept
-[`date`]: https://www.hl7.org/fhir/datatypes.html#date
-[`Extension`]: https://www.hl7.org/fhir/extensibility.html#Extension
+[`CodeableConcept`]: https://www.hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`date`]: https://www.hl7.org/fhir/r4/datatypes.html#date
+[`Extension`]: https://www.hl7.org/fhir/r4/extensibility.html#Extension
 [`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
-[`string`]: https://www.hl7.org/fhir/datatypes.html#string
+[`string`]: https://www.hl7.org/fhir/r4/datatypes.html#string
 [Financial Transaction Account Number]: #custom-extensions
 [Financial Transaction Alias]: #custom-extensions
 [Financial Transaction Allocation]: #custom-extensions
