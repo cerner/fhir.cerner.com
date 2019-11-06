@@ -36,7 +36,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 -----------------------------------------|---------------------|--------------------------------------------------------------------------
  `financial-transaction-account-number`  | [`string`]          | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
  `financial-transaction-alias`           | [`string`]          | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
- `financial-transaction-allocation`      | [`Extension`]       | Defines how the payment or adjustment is to be allocated across other resources.
+ `financial-transaction-allocation`      | None (contains nested extensions)      | Defines how the payment or adjustment is to be allocated across other resources.
  `financial-transaction-amount`          | [`Money`]           | The total amount of the financial transaction.
  `financial-transaction-card-brand`      | [`string`]          | Identifies the brand of credit card when credit card is used as a payment method.
  `financial-transaction-date`            | [`date`]            | Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.
