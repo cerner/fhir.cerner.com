@@ -56,7 +56,7 @@ _Implementation Notes_
 * Only the body fields mentioned below are supported.
 * When integrating your application with a client's production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.
 * Clients must use Cerner's Revenue Cycle Patient Accounting application in order to create Financial Transactions.
-* A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity within the Cerner Revenue Cycle Patient Accounting system.
+* A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.
 * FinancialTransaction and Basic scopes are required.
 
 ### Authorization Types
@@ -99,7 +99,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 X-Runtime: 3.890282
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Example - Card Payment
 
@@ -129,7 +129,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea69
 X-Runtime: 3.890282
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Example - Check Payment
 
@@ -159,7 +159,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
 X-Runtime: 3.890282
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Example - Adjustment
 
@@ -189,7 +189,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
 X-Runtime: 3.890282
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Errors
 

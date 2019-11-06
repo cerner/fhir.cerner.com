@@ -1,6 +1,6 @@
 ---
 name: Financial Transaction
-field_name_base_url: http://hl7.org/fhir/r4/Basic
+field_name_base_url: https://hl7.org/fhir/r4/Basic
 fields:
 - name: resourceType
   required: 'Yes'

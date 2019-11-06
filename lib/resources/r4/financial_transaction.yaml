@@ -1,6 +1,6 @@
 ---
 name: FinancialTransaction
-field_name_base_url: http://hl7.org/fhir/R4/basic.html
+field_name_base_url: https://hl7.org/fhir/R4/basic.html
 fields:
 - name: extension(financial-transaction-method)
   description: Describes the method of payment for the financial transaction.
