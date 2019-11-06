@@ -40,13 +40,13 @@ fields:
   description: Identifies the 'type' of resource - equivalent to the resource name for other resources.
   action: create
   example: |
-	"code": {
-		"coding": [
-			{
-				"code": "FinancialTransaction"
-			}
-		]
-	}
+    "code": {
+      "coding": [
+        {
+          "code": "FinancialTransaction"
+        }
+      ]
+    }
   note: This will always be FinancialTransaction
   url: http://hl7.org/fhir/r4/basic-definitions.html#Basic.code
 
