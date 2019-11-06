@@ -270,7 +270,7 @@ fields:
             "reference": "Encounter/31363178"
       		}
     }
-  note: Encounter will be the only posting level target that will be supported for this initial release.
+  note: The target field must reference an Encounter associated with an Account.
   url: target
 
 - name: amount
