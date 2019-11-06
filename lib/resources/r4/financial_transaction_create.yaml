@@ -178,10 +178,10 @@ fields:
           }
       }
     }
-  note: Should be greater than or equal to the value of the financial-transaction-amount. Required on payment transactions when method is Cash.
+  note: Should be greater than or equal to the value of the amount. Required on payment transactions when method is Cash.
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount
 
-- name: financial-transaction-amount
+- name: amount
   required: 'Yes'
   cardinality: 0..1
   type: Money
@@ -189,7 +189,7 @@ fields:
   action: create
   example: |
     {
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/amount",
         "valueMoney": {
             "value": "123000.00",
             "currency": {
@@ -205,7 +205,7 @@ fields:
             }
         }
     }
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/amount
 
 - name: financial-transaction-allocation
   required: 'Yes'
@@ -224,7 +224,7 @@ fields:
               }
           },
           {
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/amount",
               "valueMoney": {
                   "value": "400000.00",
                   "currency": {
@@ -262,7 +262,7 @@ fields:
   note: Encounter will be the only posting level target that will be supported for this initial release.
   url: target
 
-- name: financial-transaction-amount
+- name: amount
   required: 'Yes'
   cardinality: 1..1
   type: Money
@@ -270,7 +270,7 @@ fields:
   action: create
   example: |
     {
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/amount",
       "valueMoney": {
             "value": "400000.00",
             "currency": {
@@ -286,4 +286,4 @@ fields:
             }
         }
     }
-  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/amount
