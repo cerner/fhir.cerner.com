@@ -58,8 +58,15 @@ fields:
   action: create
   example: |
     {
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
-      "valueCode": "CodeableConcept"
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+        "valueCodeableConcept": {
+            "coding": [
+                {
+                    "code": "Payment",
+                    "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+                }
+            ]
+        }       
     }
   note: Will only accept payment or adjustment
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type
