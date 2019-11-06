@@ -164,7 +164,7 @@ fields:
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount",
       "valueMoney": {
-          "value": "123000",
+          "value": "123000.00",
           "currency": {
               "coding": [
                   {
@@ -191,7 +191,7 @@ fields:
     {
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
         "valueMoney": {
-            "value": "123000",
+            "value": "123000.00",
             "currency": {
                 "coding": [
                     {
@@ -226,7 +226,7 @@ fields:
           {
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
               "valueMoney": {
-                  "value": "400000",
+                  "value": "400000.00",
                   "currency": {
                       "coding": [
                           {
@@ -272,7 +272,7 @@ fields:
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
       "valueMoney": {
-            "value": "400000",
+            "value": "400000.00",
             "currency": {
                 "coding": [
                     {
