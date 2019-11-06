@@ -27,3 +27,18 @@ fields:
     - display: Payment Type Codes
       system: http://terminology.hl7.org/CodeSystem/payment-type 
       info_link: https://www.hl7.org/fhir/r4/valueset-payment-type.html
+
+- name: extension(financial-transaction-amount)
+  description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
+  url: https://fhir.cerner.com/millennium/r4/financial/financial-transaction/#custom-extensions
+  binding:
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)
+    terminology:
+    - display: Currencies
+      system: urn:iso:std:iso:4217
+      info_link: http://hl7.org/fhir/r4/valueset-currencies.html
+    - display: Currency Type
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18934-currency-type
+
+      
