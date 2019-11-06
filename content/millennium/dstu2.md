@@ -534,6 +534,11 @@ The possible `relation` values are:
  `self` | Shows the URL of the current page of results.
  `next` | Shows the URL of the immediate next page of results.
 
+
+### Concurrency
+
+<%= data_currency %>
+
 ## Cross Origin Resource Sharing
 
 The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
