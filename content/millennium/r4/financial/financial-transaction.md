@@ -56,7 +56,7 @@ _Implementation Notes_
 * Only the body fields mentioned below are supported.
 * When integrating your application with a client's production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.
 * Clients must use Cerner's Revenue Cycle Patient Accounting application in order to create Financial Transactions.
-* A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.
+* A financial transaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.
 * FinancialTransaction and Basic scopes are required.
 
 ### Authorization Types
