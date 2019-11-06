@@ -254,7 +254,7 @@ fields:
       ]
     }
 
-  note: Only one allocation element will be used when creating the resource for this initial release.
+  note: Only one allocation element will be used when creating the resource.
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation
 
 - name: target

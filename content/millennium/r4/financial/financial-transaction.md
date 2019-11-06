@@ -58,7 +58,7 @@ _Implementation Notes_
 * The financial-transaction-allocation.target field must reference an Encounter associated with an Account.
 * Clients must use Cerner's Revenue Cycle Patient Accounting application in order to create Financial Transactions.
 * A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity within the Cerner Revenue Cycle Patient Accounting system.
-* FinancialTransaction and Basic scopes are required
+* FinancialTransaction and Basic scopes are required.
 
 ### Authorization Types
 
