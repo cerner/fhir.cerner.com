@@ -38,7 +38,7 @@ fields:
       system: urn:iso:std:iso:4217
       info_link: https://hl7.org/fhir/r4/valueset-currencies.html
     - display: Currency Type
-      system: http://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18934-currency-type
 
       
