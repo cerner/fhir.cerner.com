@@ -5,6 +5,9 @@ fields:
 - name: extension(financial-transaction-method)
   description: Describes the method of payment for the financial transaction.
   url: https://fhir.cerner.com/millennium/r4/financial/financial-transaction/#custom-extensions
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
   binding:
     description: The payment method of the transaction.
     terminology:
@@ -15,6 +18,9 @@ fields:
 - name: extension(financial-transaction-type)
   description: A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
   url: https://fhir.cerner.com/millennium/r4/financial/financial-transaction/#custom-extensions
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
   binding:
     description: The Category of Payment Type Codes. Whether this is a payment or adjustment.
     terminology:
