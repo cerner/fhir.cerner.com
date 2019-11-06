@@ -194,7 +194,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`CodeableConcept`]: https://www.hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`date`]: https://www.hl7.org/fhir/r4/datatypes.html#date
 [`Extension`]: https://www.hl7.org/fhir/r4/extensibility.html#Extension
-[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
+[`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`string`]: https://www.hl7.org/fhir/r4/datatypes.html#string
 [Financial Transaction Account Number]: #custom-extensions
 [Financial Transaction Alias]: #custom-extensions
