@@ -1,6 +1,6 @@
 ---
 name: Financial Transaction
-field_name_base_url: https://hl7.org/fhir/r4/Basic
+field_name_base_url: http://hl7.org/fhir/r4/Basic
 fields:
 - name: resourceType
   required: 'Yes'
@@ -13,7 +13,7 @@ fields:
       "resourceType": "Basic"
     }
   note: resourceType must be Basic
-  url: https://hl7.org/fhir/r4/json.html#resources
+  url: http://hl7.org/fhir/r4/json.html#resources
 
 - name: identifier
   required: 'Yes'
@@ -31,7 +31,7 @@ fields:
       ]
     }
   note: At least one external transaction identifier must be provided.
-  url: https://hl7.org/fhir/basic-definitions.html#Basic.identifier
+  url: http://hl7.org/fhir/basic-definitions.html#Basic.identifier
 
 - name: code
   required: 'Yes'
@@ -48,7 +48,7 @@ fields:
       ]
     }
   note: This will always be FinancialTransaction
-  url: https://hl7.org/fhir/r4/basic-definitions.html#Basic.code
+  url: http://hl7.org/fhir/r4/basic-definitions.html#Basic.code
 
 - name: financial-transaction-type
   required: 'Yes'
@@ -63,7 +63,7 @@ fields:
             "coding": [
                 {
                     "code": "Payment",
-                    "system": "https://terminology.hl7.org/CodeSystem/payment-type"
+                    "system": "http://terminology.hl7.org/CodeSystem/payment-type"
                 }
             ]
         }       
@@ -113,7 +113,7 @@ fields:
               {
                   "code": "CHCK",
                     "display": "Check",
-                    "system": "https://terminology.hl7.org/CodeSystem/v2-0570",
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
                     "userSelected": true
               }
           ],

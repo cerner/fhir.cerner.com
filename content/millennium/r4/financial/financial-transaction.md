@@ -71,7 +71,7 @@ _Implementation Notes_
 
 <%= definition_table(:financial_transaction, :create, :r4) %>
 
-### Example
+### Example - Cash Payment
 
 #### Request
 
@@ -101,6 +101,8 @@ X-Runtime: 3.890282
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+### Example - Card Payment
+
 #### Request
 
     POST /Basic
@@ -129,6 +131,8 @@ X-Runtime: 3.890282
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+### Example - Check Payment
+
 #### Request
 
     POST /Basic
@@ -156,6 +160,8 @@ X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Example - Adjustment
 
 #### Request
 
