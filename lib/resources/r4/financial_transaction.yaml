@@ -12,7 +12,7 @@ fields:
     description: The payment method of the transaction.
     terminology:
     - display: v2 Payment Method Code
-      system: https://terminology.hl7.org/CodeSystem/v2-0570
+      system: http://terminology.hl7.org/CodeSystem/v2-0570
       info_link: https://www.hl7.org/fhir/v2/0570/index.html
 
 - name: extension(financial-transaction-type)
@@ -38,7 +38,7 @@ fields:
       system: urn:iso:std:iso:4217
       info_link: https://hl7.org/fhir/r4/valueset-currencies.html
     - display: Currency Type
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
+      system: http://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/18934
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18934-currency-type
 
       
