@@ -249,6 +249,17 @@ Create a new Appointment.
 
     POST /Appointment
 
+_Implementation Notes_
+
+* The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
+* `Appointment.status` must be set to `booked`.
+* `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
+  * `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
+* `Appointment.participant` must be a list containing a single participant.
+  * `Appointment.participant.type` must not be set.
+  * `Appointment.participant.actor` must be a reference to a Patient.
+  * `Appointment.participant.status` must be set to `accepted`.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, system: true) %>
@@ -302,4 +313,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/r4/search.html#number
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
+[implicitRules]: http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules
+[modifierExtension]: http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension
 [OperationOutcomes]: ../../#operation-outcomes
