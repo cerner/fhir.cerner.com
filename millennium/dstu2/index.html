@@ -108,7 +108,11 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
   <li><a href="#general-security-filtering" id="markdown-toc-general-security-filtering">General Security Filtering</a></li>
   <li><a href="#http-verbs" id="markdown-toc-http-verbs">HTTP Verbs</a></li>
   <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
-  <li><a href="#pagination" id="markdown-toc-pagination">Pagination</a></li>
+  <li>
+<a href="#pagination" id="markdown-toc-pagination">Pagination</a>    <ul>
+      <li><a href="#concurrency" id="markdown-toc-concurrency">Concurrency</a></li>
+    </ul>
+  </li>
   <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
 </ul>
 
@@ -738,6 +742,20 @@ follow these Link header values instead of constructing your own URLs.</p>
     </tr>
   </tbody>
 </table>
+
+<h3 id="concurrency">Concurrency</h3>
+
+<p>Developers need to account for data concurrency within the response. The FHIR specification states:</p>
+
+<blockquote>
+  <p>The results of a search operation are only guaranteed to be current at the moment the operation isexecuted. After the operation is executed, ongoing actions performed on the resources against which thesearch was executed will render the results increasingly stale. The significance of this depends on thenature of the search, and the kind of use that is being made of the results.</p>
+</blockquote>
+
+<blockquote>
+  <p>This is particularly relevant when the server is returning the results in a series of pages. It is at the discretion of the search engine of how to handle ongoing updates to the resources while the search is proceeding.</p>
+</blockquote>
+
+<p>When results are returned in a series of pages, you may see the same resource id on subsequent pages. Developers need to take this situation into account by filtering by resource id and only return the latest version of that resource id. Displaying duplicate resource ids or any other manipulation may misrepresent the data thus impacting clinical decision support and patient safety.</p>
 
 <h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
 

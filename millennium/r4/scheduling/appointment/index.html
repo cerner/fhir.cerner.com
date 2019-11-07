@@ -1241,6 +1241,32 @@ X-Runtime: 2.260092
 <pre><code>POST /Appointment
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The modifier elements <a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules">implicitRules</a> and <a href="http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> are not supported and will be rejected if present.</li>
+  <li>
+<code>Appointment.status</code> must be set to <code>booked</code>.</li>
+  <li>
+<code>Appointment.slot</code> must be a list containing a single reference to the Slot in which this appointment is being booked.
+    <ul>
+      <li>
+<code>Appointment.slot[0].reference</code> specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.</li>
+    </ul>
+  </li>
+  <li>
+<code>Appointment.participant</code> must be a list containing a single participant.
+    <ul>
+      <li>
+<code>Appointment.participant.type</code> must not be set.</li>
+      <li>
+<code>Appointment.participant.actor</code> must be a reference to a Patient.</li>
+      <li>
+<code>Appointment.participant.status</code> must be set to <code>accepted</code>.</li>
+    </ul>
+  </li>
+</ul>
+
 <h3 id="authorization-types-3">Authorization Types</h3>
 
 <div class="auth-types">

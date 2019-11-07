@@ -825,13 +825,21 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   <li>
 <code>Appointment.status</code> must be set to <code>proposed</code>.</li>
   <li>
-<code>Appointment.slot</code> must be a list containing a single reference to the Slot in which this appointment is being booked.</li>
+<code>Appointment.slot</code> must be a list containing a single reference to the Slot in which this appointment is being booked.
+    <ul>
+      <li>
+<code>Appointment.slot[0].reference</code> specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.</li>
+    </ul>
+  </li>
   <li>
-<code>Appointment.participant</code> must have exactly one participant.</li>
-  <li>
+<code>Appointment.participant</code> must have exactly one participant.
+    <ul>
+      <li>
 <code>Appointment.participant.status</code> must be set to <code>needs-action</code>.</li>
-  <li>
+      <li>
 <code>Appointment.participant.type</code> must not be set.</li>
+    </ul>
+  </li>
   <li>
 <code>Appointment.comment</code> must be a string.</li>
 </ul>
