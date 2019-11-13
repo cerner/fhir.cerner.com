@@ -37,22 +37,26 @@ Authorization is not required
 
 #### Request
 
-    GET /metadata
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_open_metadata) %>
 
+<%= disclaimer %>
+
 ### Closed Endpoint Example
 
 #### Request
 
-    GET /metadata?_format=json
+    GET https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata?_format=json
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_auth_metadata) %>
+
+<%= disclaimer %>
 
 [`:serviceRootURL/metadata`]: ../#service-root-url
