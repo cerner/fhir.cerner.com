@@ -69,6 +69,8 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_device_bundle) %>
 
+<%= disclaimer %>
+
 ### Example Read by Ids
 
 #### Request
@@ -79,6 +81,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_device_bundle_by_id) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -112,6 +116,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_device) %>
+
+<%= disclaimer %>
 
 ### Errors
 
