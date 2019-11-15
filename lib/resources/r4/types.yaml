@@ -32,4 +32,3 @@ SimpleQuantity: https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity
 string: https://hl7.org/fhir/R4/datatypes.html#string
 Timing: https://hl7.org/fhir/R4/datatypes.html#Timing
 uri: https://hl7.org/fhir/R4/datatypes.html#uri
-

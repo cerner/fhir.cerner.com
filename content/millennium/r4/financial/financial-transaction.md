@@ -9,7 +9,7 @@ title: FinancialTransaction | R4 API
 
 ## Overview
 
-The FinancialTransaction resource provides the ability to record and exchange financial payment and adjustment information related to patient healthcare services.
+The FinancialTransaction resource provides the ability to record and exchange financial payment and adjustment information related to patient healthcare services. This is a custom resource implemented via extensions on the Basic resource.
 
 ## Terminology Bindings
 
@@ -32,18 +32,18 @@ The FinancialTransaction resource provides the ability to record and exchange fi
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                                      | Value\[x] Type      | Description
------------------------------------------|---------------------|--------------------------------------------------------------------------
- `financial-transaction-account-number`  | [`string`]          | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
- `financial-transaction-alias`           | [`string`]          | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
- `financial-transaction-allocation`      | None (contains nested extensions)      | Defines how the payment or adjustment is to be allocated across other resources.
- `financial-transaction-amount`          | [`Money`]           | The total amount of the financial transaction.
- `financial-transaction-card-brand`      | [`string`]          | Identifies the brand of credit card when credit card is used as a payment method.
- `financial-transaction-date`            | [`date`]            | Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.
- `financial-transaction-location`        | [`string`]          | Client configured value representing the location or workflow that the payment was received in.
- `financial-transaction-method`          | [`string`]          | Describes the method of payment for the financial transaction.
- `financial-transaction-tendered-amount` | [`Money`]           | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
- `financial-transaction-type`            | [`CodeableConcept`] | The classification of the transaction.
+ ID                                      | Value\[x] Type                    | Description
+-----------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `financial-transaction-account-number`  | [`string`]                        | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
+ `financial-transaction-alias`           | [`string`]                        | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
+ `financial-transaction-allocation`      | None (contains nested extensions) | Defines how the payment or adjustment is to be allocated across other resources.
+ `financial-transaction-amount`          | [`Money`]                         | The total amount of the financial transaction.
+ `financial-transaction-card-brand`      | [`string`]                        | Identifies the brand of credit card when credit card is used as a payment method.
+ `financial-transaction-date`            | [`date`]                          | Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.
+ `financial-transaction-location`        | [`string`]                        | Client configured value representing the location or workflow that the payment was received in.
+ `financial-transaction-method`          | [`string`]                        | Describes the method of payment for the financial transaction.
+ `financial-transaction-tendered-amount` | [`Money`]                         | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
+ `financial-transaction-type`            | [`CodeableConcept`]               | The classification of the transaction.
 
 ## Create
 
@@ -55,9 +55,8 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported.
 * When integrating your application with a client's production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.
-* Clients must use Cerner's Revenue Cycle Patient Accounting application in order to create Financial Transactions.
-* A financial transaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.
-* FinancialTransaction and Basic scopes are required.
+* Cerner's Revenue Cycle Patient Accounting application must be in use at a client site in order to create meaningful FinancialTransactions. A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.
+* When creating FinancialTransactions, a Basic OAuth2 token scope is required in addition to a FinancialTransaction Oauth2 token scope.
 
 ### Authorization Types
 
@@ -65,7 +64,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token&gt;', 'Content-Type': 'application/fhir+json'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
@@ -79,7 +78,7 @@ _Implementation Notes_
 
 #### Body
 
-  <%= json(:R4_FINANCIAL_TRANSACTION_CASH) %>
+<%= json(:R4_FINANCIAL_TRANSACTION_CASH) %>
 
 #### Response
 
@@ -109,7 +108,7 @@ X-Runtime: 3.890282
 
 #### Body
 
-  <%= json(:R4_FINANCIAL_TRANSACTION_CARD) %>
+<%= json(:R4_FINANCIAL_TRANSACTION_CARD) %>
 
 #### Response
 
@@ -139,7 +138,7 @@ X-Runtime: 3.890282
 
 #### Body
 
-  <%= json(:R4_FINANCIAL_TRANSACTION_CHECK) %>
+<%= json(:R4_FINANCIAL_TRANSACTION_CHECK) %>
 
 #### Response
 
@@ -169,7 +168,7 @@ X-Runtime: 3.890282
 
 #### Body
 
-  <%= json(:R4_FINANCIAL_TRANSACTION_ADJUSTMENT) %>
+<%= json(:R4_FINANCIAL_TRANSACTION_ADJUSTMENT) %>
 
 #### Response
 

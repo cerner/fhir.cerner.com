@@ -75,7 +75,8 @@ module Cerner
           "use": "usual"
         }
       ],
-      "extension": [{
+      "extension": [
+        {
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
           "valueCodeableConcept": {
             "coding": [
@@ -109,7 +110,8 @@ module Cerner
         },
         {
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
-          "extension": [{
+          "extension": [
+            {
               "url": "target",
               "valueReference": {
                 "reference": "Encounter/31363178"
