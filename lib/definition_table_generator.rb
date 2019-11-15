@@ -40,21 +40,26 @@ class DefinitionTableGenerator
     schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
     types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
 
-    fields = flatten_fields(fields: @action == :patch ? schema['operations'] : schema['fields'],
-                            base_url: schema['field_name_base_url'],
-                            types: types)
+    fields = flatten_fields(
+      fields: @action == :patch ? schema['operations'] : schema['fields'],
+      base_url: schema['field_name_base_url'],
+      types: types,
+      erb_name: erb_name
+    )
 
     activate_links(fields, types)
 
-    data = {table_name: @table_name,
-            options: options,
-            name: schema['name'],
-            fields: fields}
+    data = {
+      table_name: @table_name,
+      options: options,
+      name: schema['name'],
+      fields: fields
+    }
 
     ERB.new(File.read("lib/#{erb_name}.erb")).result(binding)
   end
 
-  def flatten_fields(fields:, base_url:, types:, parent: nil)
+  def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil)
     results = []
 
     return results if fields.nil? || fields.empty?
@@ -64,24 +69,35 @@ class DefinitionTableGenerator
 
       next unless supported_for_action?(field)
 
-      field_name = get_value(field['name'])
-      name = parent.nil? ? field_name : "#{parent}.#{field_name}"
+      if erb_name == 'terminology_table'
+        field_name =
+          get_value(field['terminology_name']) ? get_value(field['terminology_name']) : get_value(field['name'])
+      else
+        field_name = get_value(field['name'])
+      end
+      if get_value(field['extension_child'])
+        name = field_name
+      else
+        name = parent.nil? ? field_name : "#{parent}.#{field_name}"
+      end
 
       field_type = get_value(field['type'])
 
       url = get_value(field['url'])
       url ||= "#{base_url}.#{name}" unless base_url.nil?
 
-      values = {name: name,
-                type: field_type,
-                required: get_value(field['required']),
-                cardinality: get_value(field['cardinality']),
-                description: get_value(field['description']),
-                example: get_value(field['example']),
-                example2: get_value(field['example2']),
-                note: get_value(field['note']),
-                binding: get_value(field['binding']),
-                url: url}
+      values = {
+        name: name,
+        type: field_type,
+        required: get_value(field['required']),
+        cardinality: get_value(field['cardinality']),
+        description: get_value(field['description']),
+        example: get_value(field['example']),
+        example2: get_value(field['example2']),
+        note: get_value(field['note']),
+        binding: get_value(field['binding']),
+        url: url
+      }
 
       if @action == :patch
         values[:path] = get_value(field['path'])
@@ -90,10 +106,13 @@ class DefinitionTableGenerator
 
       results << values
 
-      results << flatten_fields(fields: field['children'],
-                                base_url: base_url,
-                                types: types,
-                                parent: name) unless field['children'].nil?
+      results << flatten_fields(
+        fields: field['children'],
+        base_url: base_url,
+        types: types,
+        erb_name: erb_name,
+        parent: name
+      ) unless field['children'].nil?
     end
 
     results.flatten

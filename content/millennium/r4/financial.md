@@ -6,3 +6,4 @@ layout: api
 <%= render '/financial.*' %>
 * [Account](../financial/account)
 * [Coverage](../financial/coverage)
+* [FinancialTransaction](../financial/financial-transaction)

@@ -42,9 +42,9 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Related Parts]
-* [Balance]
-* [State]
+* [Account Related Parts]
+* [Account Balance]
+* [Account State]
 
 ### Custom Extensions
 
@@ -167,7 +167,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-[Related Parts]: #custom-extensions
-[Balance]: #custom-extensions
-[State]: #custom-extensions
+[Account Related Parts]: #custom-extensions
+[Account Balance]: #custom-extensions
+[Account State]: #custom-extensions
 [Account.subject]: http://hl7.org/fhir/R4/account-definitions.html#Account.subject

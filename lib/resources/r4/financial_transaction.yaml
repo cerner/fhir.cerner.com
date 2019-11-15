@@ -1,0 +1,301 @@
+---
+name: Basic
+field_name_base_url: https://hl7.org/fhir/r4/basic-definitions.html#Basic
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Basic"
+    }
+  note: resourceType must be Basic
+  url: https://hl7.org/fhir/r4/json.html#resources
+
+- name: identifier
+  required: 'Yes'
+  cardinality: 0..*
+  type: Identifier
+  description: Identifier assigned to the resource for business purposes.
+  action: create
+  example: |
+    {
+      "identifier": [
+        {
+          "value": "33358000",
+          "use": "usual"
+        }
+      ]
+    }
+  note: At least one external transaction identifier must be provided.
+  url: https://hl7.org/fhir/basic-definitions.html#Basic.identifier
+
+- name: code
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Identifies the 'type' of resource - equivalent to the resource name for other resources.
+  action: create
+  example: |
+    "code": {
+      "coding": [
+        {
+          "code": "FinancialTransaction"
+        }
+      ]
+    }
+  note: This will always be FinancialTransaction
+  url: https://hl7.org/fhir/r4/basic-definitions.html#Basic.code
+
+- name: FinancialTransaction Type Extension
+  terminology_name: extension[x].valueCodeableConcept
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Category of transaction, whether this is a payment or adjustment.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "payment",
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+          }
+        ]
+      }
+    }
+  note: Will only accept payment or adjustment.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
+  binding:
+    description: The Category of Payment Type Codes. Whether this is a payment or adjustment. This binding is used in <code>financial-transaction-type</code> extensions.
+    terminology:
+    - display: Payment Type Codes
+      system: http://terminology.hl7.org/CodeSystem/payment-type 
+      info_link: https://www.hl7.org/fhir/r4/valueset-payment-type.html
+
+- name: FinancialTransaction Alias Extension
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The aliases used to create the FinancialTransaction resources.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valueString": "3100"
+    }
+  note: A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. Is required to create a FinancialTransaction resource.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias?_format=json
+
+- name: FinancialTransaction Location Extension
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  description: The location where the payment was collected.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
+      "valueString": "201802160003"
+    }
+  note: These are client configured location values.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location?_format=json
+
+- name: FinancialTransaction Method Extension
+  terminology_name: extension[x].valueCodeableConcept
+  required: 'Yes'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The method of payment.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "CHCK",
+            "display": "Check",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
+            "userSelected": true
+          }
+        ],
+        "text": "Check"
+      }
+    }
+  note: Required on payment transactions. Not required otherwise. Payment methods of Cash, Credit Card, Check, Cashier’s Check and Traveler’s Check will be supported for FinancialTransaction creates.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method?_format=json
+  binding:
+    description: The payment method of the transaction. This binding is used in <code>financial-transaction-method</code> extensions.
+    terminology:
+    - display: v2 Payment Method Code
+      system: http://terminology.hl7.org/CodeSystem/v2-0570
+      info_link: https://www.hl7.org/fhir/v2/0570/index.html
+
+- name: FinancialTransaction Card Brand Extension
+  required: 'Yes'
+  cardinality: 0..1
+  type: string
+  description: The brand of credit card used for the transaction.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand",
+      "valueString": "VISA"
+    }
+  note: Required on payment transactions when method is Credit Card. Not required otherwise. Acceptable values are "VISA", "MASTER", "AMEX", "DISCOVER".
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand?_format=json
+
+- name: FinancialTransaction Account Number Extension
+  required: 'Yes'
+  cardinality: 0..1
+  type: string
+  description: The last four digits of the credit card or the check number used for the transaction.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number",
+      "valueString": "1234"
+    }
+  note: Required on payment transactions when method is Credit Card, Check, Cashier's Check, Traveler's Check and Money Order. Not required otherwise. Value must be numeric.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number?_format=json
+
+- name: FinancialTransaction Date Extension
+  required: 'Yes'
+  cardinality: 0..1
+  type: date
+  description: Expiration date if method is credit card, check date if method is check.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date",
+      "valueDate": "2020-02-01"
+    }
+  note: Required on payment transactions when method is Credit Card, Check, Cashier's Check and Traveler's Check. Not required otherwise.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date?_format=json
+
+- name: FinancialTransaction Tendered Amount Extension
+  terminology_name: extension[x].valueMoney.currency
+  required: 'Yes'
+  cardinality: 0..1
+  type: Money
+  description: Tendered amount of the cash payment.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount",
+      "valueMoney": {
+        "value": "123000.00",
+        "currency": "USD"
+      }
+    }
+  note: Required on payment transactions when method is Cash. Not required otherwise. Must be greater than or equal to the value of the amount.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
+  binding:
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>financial-transaction-tendered-amount</code> extensions.
+    terminology:
+    - display: Currencies
+      system: urn:iso:std:iso:4217
+      info_link: https://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: FinancialTransaction Amount Extension
+  terminology_name: extension[x].valueMoney.currency
+  required: 'Yes'
+  cardinality: 0..1
+  type: Money
+  description:  The total amount of the payment/adjustment resource.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "valueMoney": {
+        "value": "123000.00",
+        "currency": "USD"
+      }
+    }
+  note: Must equal the sum of all amounts in the <code>financial-transaction-allocation</code> extension.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
+  binding:
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>financial-transaction-amount</code> extensions.
+    terminology:
+    - display: Currencies
+      system: urn:iso:std:iso:4217
+      info_link: https://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: FinancialTransaction Allocation Extension
+  required: 'Yes'
+  cardinality: 1..1
+  type: Extension
+  description: How the FinancialTransaction should be applied. This extension is a nested extension.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+      "extension": [
+        {
+          "url": "target",
+          "valueReference": {
+            "reference": "Encounter/31363178"
+          }
+        },
+        {
+          "url": "amount",
+          "valueMoney": {
+            "value": "400000.00",
+            "currency": "USD"
+          }
+        }
+      ]
+    }
+  note: Only one allocation element will be used when creating the resource.
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation?_format=json
+  children:
+
+  - name: FinancialTransaction Allocation Target Extension
+    extension_child: true
+    required: 'Yes'
+    cardinality: 1..1
+    type: Extension
+    description: The specific target that the payment or adjustment should be posted to. This extension is nested under a <code>financial-transaction-allocation</code> extension.
+    note:
+      - The <code>valueReference.reference</code> must be an Encounter reference.
+      - The URL for this extension is <code>target</code>.
+    example: |
+      {
+        "url": "target",
+        "valueReference": {
+          "reference": "Encounter/31363178"
+        }
+      }
+    url: '#custom-extensions'
+
+  - name: FinancialTransaction Allocation Amount Extension
+    terminology_name: extension[x].extension[x].valueMoney.currency
+    extension_child: true
+    required: 'Yes'
+    cardinality: 0..1
+    type: Money
+    description: The total amount of the payment/adjustment resource. This extension is nested under a <code>financial-transaction-allocation</code> extension.
+    example: |
+      {
+        "url": "amount",
+        "valueMoney": {
+          "value": "123000.00",
+          "currency": "USD"
+        }
+      }
+    note:
+      - Must equal the sum of all amounts in the <code>financial-transaction-allocation</code> extension.
+      - The URL for this extension is <code>amount</code>.
+    url: '#custom-extensions'
+    binding:
+      description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>amount</code> extensions nested under <code>financial-transaction-allocation</code> extensions.
+      terminology:
+      - display: Currencies
+        system: urn:iso:std:iso:4217
+        info_link: https://hl7.org/fhir/r4/valueset-currencies.html
