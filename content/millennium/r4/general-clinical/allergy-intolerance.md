@@ -21,19 +21,21 @@ Assuming a patient safety or decision support use case, a consumer should avoid 
 
 The following fields are returned if valued:
 
-* [Allergy id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Allergy code](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
-* [clinicalStatus](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus){:target="_blank"}
-* [verificationStatus](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus){:target="_blank"}
-* [Patient with allergy/intolerance](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
-* [Date of allergy onset](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset){:target="_blank"}
-* [Date/Time recorded](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate){:target="_blank"}
-* [Who recorded](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder){:target="_blank"}
-* [Who reported](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter){:target="_blank"}
-* [Criticality/potential harm](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality){:target="_blank"}
-* [Category (medication, food, environment)](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category){:target="_blank"}
-* [Adverse reaction (clinical symptoms/manifestation)](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction){:target="_blank"}
-* [Comment](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.note){:target="_blank"}
+* [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
+* [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus){:target="_blank"}
+* [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus){:target="_blank"}
+* [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
+* [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter){:target="_blank"}
+* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset){:target="_blank"}
+* [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate){:target="_blank"}
+* [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder){:target="_blank"}
+* [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter){:target="_blank"}
+* [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality){:target="_blank"}
+* [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category){:target="_blank"}
+* [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation){:target="_blank"}
+* [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity){:target="_blank"}
+* [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.note){:target="_blank"}
 
 ## Terminology Bindings
 
