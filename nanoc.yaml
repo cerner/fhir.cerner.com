@@ -112,7 +112,7 @@ redirects:
   /dstu2/condition:
     url: /millennium/dstu2/general-clinical/condition
   /dstu2/conformance:
-    url: /millennium/dstu2/conformance
+    url: /millennium/dstu2/conformance/conformance
   /dstu2/contract:
     url: /millennium/dstu2/entities/contract
   /dstu2/device:
@@ -136,7 +136,7 @@ redirects:
   /dstu2/openid-connect:
     url: /authorization/openid-connect
   /dstu2/operation-definition:
-    url: /millennium/dstu2/operation-definition
+    url: /millennium/dstu2/conformance/operation-definition
   /dstu2/patient:
     url: /millennium/dstu2/individuals/patient
   /dstu2/person:
@@ -156,7 +156,7 @@ redirects:
     url: /authorization
     deprecated: true
   /may2015/conformance:
-    url: /millennium/dstu2/conformance
+    url: /millennium/dstu2/conformance/conformance
     deprecated: true
   /may2015/allergy-intolerance:
     url: /millennium/dstu2/general-clinical/allergy-intolerance
@@ -188,5 +188,11 @@ redirects:
   /may2015/patient:
     url: /millennium/dstu2/individuals/patient
     deprecated: true
+  /millennium/dstu2/operation-definition:
+    url: /millennium/dstu2/conformance/operation-definition
+  /millennium/dstu2/structure-definition:
+    url: /millennium/dstu2/conformance/structure-definition
+  /millennium/r4/capability-statement:
+    url: /millennium/r4/conformance/capability-statement
   /millennium/r4/proprietary-codes:
     url: /millennium/r4/proprietary-codes-and-systems

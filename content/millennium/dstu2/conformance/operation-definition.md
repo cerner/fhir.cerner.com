@@ -43,7 +43,7 @@ List an individual OperationDefinition by its id:
 _Implementation Notes_
 
 * Authentication is not required to access the OperationDefinition resource
-* This resource can be retrieved by its defining URL or from the OperationDefinition resource located at the [service root URL](../#service-root-url). For example, both of these URLs work:
+* This resource can be retrieved by its defining URL or from the OperationDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
 
     `https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if`
 
@@ -58,7 +58,7 @@ Authorization is not required.
 
 ### Headers
 
-<%= headers head: {'<a href="../#media-types">Accept</a>': 'application/json+fhir'} %>
+<%= headers head: {Accept: 'application/json+fhir'} %>
 
 ### Example
 
@@ -68,6 +68,6 @@ Authorization is not required.
     GET https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if
 
 #### Response
-    
+
 <%= headers status: 200 %>
 <%= json(:dstu2_operation_definition_bundle) %>

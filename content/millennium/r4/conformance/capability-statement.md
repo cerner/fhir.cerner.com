@@ -17,7 +17,7 @@ this resource is found at [`:serviceRootURL/metadata`] instead of by its resourc
 Get the capabilities and configurations of this implementation and deployment of the FHIR standard.
 
     GET /metadata?:parameters
-    
+
 _Implementation Notes_
 
 * Authentication is not required to access the Conformance resource
@@ -31,7 +31,7 @@ Authorization is not required.
 
 ### Headers
 
-<%= headers head: {'<a href="../#media-types">Accept</a>': 'application/fhir+json'} %>
+<%= headers head: {Accept: 'application/fhir+json'} %>
 
 ### Open Endpoint Example
 
@@ -55,4 +55,4 @@ Authorization is not required.
 <%= headers status: 200 %>
 <%= json(:r4_auth_metadata) %>
 
-[`:serviceRootURL/metadata`]: ../#service-root-url
+[`:serviceRootURL/metadata`]: ../../#service-root-url

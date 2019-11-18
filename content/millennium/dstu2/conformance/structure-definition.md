@@ -39,7 +39,7 @@ List an individual StructureDefinition by its id:
 _Implementation Notes_
 
 * Authentication is not required to access the StructureDefinition resource
-* This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the [service root URL](../#service-root-url). For example, both of these URLs work:
+* This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
 
     `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display`
 
@@ -71,9 +71,14 @@ Authorization is not required.
 
 ## List of StructureDefinitions
 
-ID                                                                                                                             | Description
--------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------
-[`patient-friendly-display`](http://fhir.cerner.com/millennium/dstu2/medications/medication-order/#custom-extensions)          | Display string suitable for patient viewing.  
-[`scheduling-location`](http://fhir.cerner.com/millennium/dstu2/scheduling/schedule/#custom-extensions)                        | Reference to the location of an appointment being scheduled.
-[`medication-statement-category`](http://fhir.cerner.com/millennium/dstu2/medications/medication-statement/#custom-extensions) | Category of an order.
-[`encounter-guarantor`](http://fhir.cerner.com/millennium/dstu2/encounters/encounter/#custom-extensions)                       | The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.
+ID                                |  Description
+----------------------------------|----------------------------------------------
+[`patient-friendly-display`]      |  Display string suitable for patient viewing.
+[`scheduling-location`]           |  Reference to the location of an appointment being scheduled.
+[`medication-statement-category`] |  Category of an order.
+[`encounter-guarantor`]           |  The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.
+
+[`patient-friendly-display`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display?_format=json
+[`scheduling-location`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location?_format=json
+[`medication-statement-category`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category?_format=json
+[`encounter-guarantor`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/encounter-guarantor?_format=json
