@@ -82,6 +82,13 @@ The Condition Resource supports proprietary codes for:
 
 * Condition.severity codes are maintained in [Code Set 12022 Severity](#code-set-12022-severity)
 
+<!-- use html header to avoid showing up in toc -->
+<h4>Procedure</h4>
+
+The Procedure Resource supports proprietary codes for:
+
+* Procedure.performer.function codes are maintained in [Code Set 388 Procedure Personnel Relation Type](#code-set-388-procedure-personnel-relation-type)
+
 ### Individuals
 
 <!-- use html header to avoid showing up in toc -->
@@ -313,6 +320,17 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
       "code": "1156",
       "display": "Guardian",
       "userSelected": true
+    }
+
+##### Code Set 388 Procedure Personnel Relation Type
+
+This code set contains the specific types of relationships you can establish between personnel and a procedure.
+
+    { 
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/388",
+      "code": "1209", 
+      "display": "Surgeon", 
+      "userSelected": true 
     }
 
 ##### Code Set 4001 Medication Administration Route

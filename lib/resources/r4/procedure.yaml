@@ -1,0 +1,38 @@
+---
+name: Procedure
+field_name_base_url: https://hl7.org/fhir/r4/condition-definitions.html#Procedure
+fields:
+- name: code
+  required: 'Yes'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: A code to identify a specific procedure.
+  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.code
+  binding:
+    description: A code to identify a specific procedure.
+    terminology:
+      - display: Procedure Codes (SNOMED CT)
+        system: https://snomed.info/sct
+        info_link: https://hl7.org/fhir/R4/valueset-procedure-code.html
+      - display: CPT
+        system: https://www.ama-assn.org/go/cpt
+        info_link: https://hl7.org/fhir/R4/cpt.html
+      - display: ICD-10-PCS
+        system: https://www.icd10data.com/icd10pcs
+        info_link: https://www.icd10data.com/icd10pcs
+
+- name: performer.function
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: A code that distinguishes the type of involvement of the performer in the procedure.
+  url: https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.function
+  binding:
+    description: A code that distinguishes the type of involvement of the performer in the procedure.
+    terminology:
+      - display: Procedure Performer Role Codes (SNOMED CT)
+        system: https://snomed.info/sct
+        info_link: https://hl7.org/fhir/R4/valueset-performer-role.html
+      - display: Procedure Personnel Relation Type
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-388-procedure-personnel-relation-type
