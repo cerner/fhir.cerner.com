@@ -135,5 +135,73 @@ module Cerner
         "resource": R4_ALLERGY_INTOLERANCE_ENTRY
       ]
     }
+
+    R4_ALLERGY_INTOLERANCE_CREATE ||= {
+      "resourceType": "AllergyIntolerance",
+      "contained":[
+        {
+          "resourceType": "PractitionerRole",
+          "id": "638995",
+          "code":[
+            {
+              "coding":[
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/practitioner-role",
+                  "code": "nurse"
+                }
+              ],
+              "text": "Nurse"
+            }
+          ]
+        }
+      ],
+      "clinicalStatus":{
+        "coding":[
+           {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+           }
+        ]
+      },
+      "verificationStatus":{
+        "coding":[
+           {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+           }
+        ]
+      },
+      "type": "allergy",
+      "category":[
+        "environment",
+        "food",
+        "medication"
+      ],
+      "criticality": "high",
+      "code":{
+        "text": "Demeclocycline - substance"
+      },
+      "patient":{
+        "reference": "Patient/1316020"
+      },
+      "encounter":{
+        "reference": "Encounter/4749909"
+      },
+      "onsetDateTime": "2019-09-11T05:00:00.000Z",
+      "asserter":{
+        "reference": "#638995"
+      },
+      "reaction":[
+        {
+          "manifestation":[
+            {
+              "system": "http://snomed.info/sct",
+                  "code": "271757001"
+            }
+          ],
+          "severity": "severe"
+        }
+      ],
+    }
   end
 end
