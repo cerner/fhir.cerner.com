@@ -102,6 +102,13 @@ module Cerner
             "id": "58297369",
             "manifestation": [
               {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "247472004",
+                    "display": "Weal (disorder)"
+                  }
+                ],
                 "text": "Blastobacter"
               }
             ],
