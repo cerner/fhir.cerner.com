@@ -13,7 +13,7 @@ fields:
     terminology:
       - display: EventStatus
         system: http://hl7.org/fhir/event-status
-        info_link: https://hl7.org/fhir/valueset-event-status.html
+        info_link: https://hl7.org/fhir/r4/valueset-event-status.html
 
 - name: code
   required: 'No'
