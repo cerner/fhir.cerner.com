@@ -122,8 +122,7 @@ fields:
     description: mild | moderate | severe (of event as a whole)
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity
     binding:
-      description: Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple
-                   different manifestations.
+      description: Clinical assessment of the severity of a reaction event as a whole.
       terminology:
       - display: AllergyIntoleranceSeverity
         system: http://hl7.org/fhir/reaction-event-severity
