@@ -1,13 +1,26 @@
 ---
 name: Procedure
-field_name_base_url: https://hl7.org/fhir/r4/condition-definitions.html#Procedure
+field_name_base_url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
 fields:
-- name: code
+- name: status
   required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: Codes identifying the lifecycle stage of an event.
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status
+  binding:
+    description: Codes identifying the lifecycle stage of an event.
+    terminology:
+      - display: EventStatus
+        system: http://hl7.org/fhir/event-status
+        info_link: https://hl7.org/fhir/valueset-event-status.html
+
+- name: code
+  required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: A code to identify a specific procedure.
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.code
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code
   binding:
     description: A code to identify a specific procedure.
     terminology:
@@ -26,7 +39,7 @@ fields:
   cardinality: 0..1
   type: CodeableConcept
   description: A code that distinguishes the type of involvement of the performer in the procedure.
-  url: https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.function
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.function
   binding:
     description: A code that distinguishes the type of involvement of the performer in the procedure.
     terminology:

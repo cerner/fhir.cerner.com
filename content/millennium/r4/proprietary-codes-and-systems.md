@@ -82,7 +82,6 @@ The Condition Resource supports proprietary codes for:
 
 * Condition.severity codes are maintained in [Code Set 12022 Severity](#code-set-12022-severity)
 
-<!-- use html header to avoid showing up in toc -->
 <h4>Procedure</h4>
 
 The Procedure Resource supports proprietary codes for:
