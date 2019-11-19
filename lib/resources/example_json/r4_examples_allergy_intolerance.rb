@@ -85,6 +85,9 @@ module Cerner
           "reference": "Patient/1420008",
           "display": "Picka, Guru 1013"
         },
+        "encounter": {
+          "reference": "Encounter/657884"
+        },
         "onsetDateTime": "1990",
         "recordedDate": "2012-07-11T03:57:32.000-05:00",
         "recorder": {
@@ -93,7 +96,18 @@ module Cerner
         },
         "asserter": {
           "reference": "#19775876"
-        }
+        },
+        "reaction": [
+          {
+            "id": "58297369",
+            "manifestation": [
+              {
+                "text": "Blastobacter"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
       }
     }
 
