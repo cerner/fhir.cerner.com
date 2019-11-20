@@ -21,21 +21,21 @@ Assuming a patient safety or decision support use case, a consumer should avoid 
 
 The following fields are returned if valued:
 
-* [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus){:target="_blank"}
-* [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus){:target="_blank"}
-* [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category){:target="_blank"}
-* [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality){:target="_blank"}
-* [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
-* [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
-* [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter){:target="_blank"}
-* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset){:target="_blank"}
-* [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate){:target="_blank"}
-* [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder){:target="_blank"}
-* [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter){:target="_blank"}
-* [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note){:target="_blank"}
-* [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation){:target="_blank"}
-* [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity){:target="_blank"}
+* [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
+* [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus)
+* [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus)
+* [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category)
+* [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality)
+* [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code)
+* [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient)
+* [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter)
+* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset)
+* [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate)
+* [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder)
+* [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter)
+* [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note)
+* [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation)
+* [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity)
 
 ## Terminology Bindings
 
@@ -61,7 +61,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Headers
 
- <%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -73,6 +73,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:r4_allergy_intolerance_bundle) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -90,7 +91,7 @@ List an individual AllergyIntolerance by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -102,6 +103,7 @@ List an individual AllergyIntolerance by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_allergy_intolerance_entry ) %>
+<%= disclaimer %>
 
 ### Errors
 
