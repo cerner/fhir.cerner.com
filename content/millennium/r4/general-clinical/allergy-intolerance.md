@@ -24,6 +24,7 @@ The following fields are returned if valued:
 * [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
 * [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus)
 * [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus)
+* [Allergy Type](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.type)
 * [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category)
 * [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality)
 * [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code)

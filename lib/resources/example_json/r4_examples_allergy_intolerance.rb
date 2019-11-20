@@ -66,6 +66,7 @@ module Cerner
           ],
           "text": "Resolved"
         },
+        "type": "allergy",
         "category": [
           "environment"
         ],
