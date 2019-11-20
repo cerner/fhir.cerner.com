@@ -195,13 +195,18 @@ module Cerner
         {
           "manifestation":[
             {
-              "system": "http://snomed.info/sct",
+              "coding":[
+                {
+                  "system": "http://snomed.info/sct",
                   "code": "271757001"
+                }
+              ],
+              "text": "Papular eruption"
             }
           ],
           "severity": "severe"
         }
-      ],
+      ]
     }
   end
 end

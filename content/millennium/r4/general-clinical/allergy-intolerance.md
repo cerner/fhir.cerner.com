@@ -117,7 +117,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create new allergies.
+Create new allergy.
 
     POST /AllergyIntolerance
 
@@ -156,7 +156,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"12793861"
-Location: https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6767735,
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6767735,
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created

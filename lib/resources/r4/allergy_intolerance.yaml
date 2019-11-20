@@ -65,7 +65,7 @@ fields:
       ]
     }
   note: >
-    These should be either `PractitionerRole` or `RelatedPerson` resources that are referenced with the [reporter] field.
+    These should be either `PractitionerRole` or `RelatedPerson` resources that are referenced with the [asserter] field.
   url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained
 
 - name: clinicalStatus
@@ -126,7 +126,8 @@ fields:
   description: The verification status to support or decline the clinical status of allergy.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
   action: create
-  note: verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported during AllergyIntolerance creates.
+  note: verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported
+        during AllergyIntolerance creates.
   example: |
     {
       "verificationStatus": {
@@ -183,7 +184,7 @@ fields:
     <ul>
       <li> Category code of <code>biologic</code> is not supported</li>
       <li> Only a single category will be written to the allergy </li>
-      <li> When multiple categories are provided, the category to be picked is based on precedence. medication > food > environment </li>
+      <li> When multiple categories are provided, the category to be picked is based on precedence. medication > food > environment. </li>
     </ul>
   example: |
     {
