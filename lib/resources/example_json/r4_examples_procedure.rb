@@ -3,7 +3,7 @@ module Cerner
 
     R4_PROCEDURE_BUNDLE ||= {
       "resourceType": "Bundle",
-      "id": "87489d3a-f3fe-4a1a-825c-98837f4fffeb",
+      "id": "a5154562-0028-4464-9b60-273f81dc71d1",
       "type": "searchset",
       "total": 2,
       "link": [
@@ -14,89 +14,17 @@ module Cerner
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/32215695",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/21637617",
           "resource": {
             "resourceType": "Procedure",
-            "id": "32215695",
+            "id": "21637617",
             "meta": {
-              "versionId":  "3",
-              "lastUpdated": "2017-03-24T09:09:17Z"
+              "versionId": "1",
+              "lastUpdated": "2013-04-20T13:18:49Z"
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: ADD (attention deficit disorder)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Timilsina, Manisha&lt;/p>&lt;/div>"
-            },
-            "status": "completed",
-            "code": {
-              "text": "ADD (attention deficit disorder)"
-            },
-            "subject": {
-              "reference": "Patient/1316024",
-              "display": "PETERS, TIMOTHY"
-            },
-            "encounter": {
-              "reference": "Encounter/3331933"
-            },
-            "_performedDateTime": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                  "valueCode": "unknown"
-                }
-              ]
-            },
-            "recorder": {
-              "reference": "Practitioner/2372008",
-              "display": "Timilsina, Manisha"
-            },
-            "note": [
-              {
-                "authorReference": {
-                  "reference": "Practitioner/3152049",
-                  "display": "V, R"
-                },
-                "time": "2017-03-24T09:09:17Z",
-                "text": "new comment frm roshi"
-              },
-              {
-                "authorReference": {
-                  "reference": "Practitioner/2372008",
-                  "display": "Timilsina, Manisha"
-                },
-                "time": "2017-03-24T09:06:22Z",
-                "text": "new comment 3"
-              },
-              {
-                "authorReference": {
-                  "reference": "Practitioner/2372008",
-                  "display": "Timilsina, Manisha"
-                },
-                "time": "2017-03-24T09:05:57Z",
-                "text": "new comment 2"
-              },
-              {
-                "authorReference": {
-                  "reference": "Practitioner/2372008",
-                  "display": "Timilsina, Manisha"
-                },
-                "time": "2017-03-24T09:04:26Z",
-                "text": "new comment 1"
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/22073557",
-          "resource": {
-            "resourceType": "Procedure",
-            "id": "22073557",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2013-02-07T22:59:00Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Feb  6, 2013&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline North&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Pujari, Veeresh&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Ginger,Roger; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
             },
             "status": "completed",
             "code": {
@@ -115,12 +43,12 @@ module Cerner
               "display": "PETERS, TIMOTHY"
             },
             "encounter": {
-              "reference": "Encounter/1587912"
+              "reference": "Encounter/1545906"
             },
-            "performedDateTime": "2013-02-06",
+            "performedDateTime": "2011-04-08",
             "recorder": {
-              "reference": "Practitioner/1826009",
-              "display": "Pujari, Veeresh"
+              "reference": "Practitioner/1696009",
+              "display": "Automation, Physician"
             },
             "performer": [
               {
@@ -136,23 +64,63 @@ module Cerner
                   "text": "Healthcare professional (occupation)"
                 },
                 "actor": {
-                  "display": "Ginger,Roger"
+                  "reference": "Practitioner/1328007",
+                  "display": "Naik, Girish"
                 }
               }
             ],
             "location": {
-              "display": "Baseline North"
+              "display": "Baseline West"
             },
             "note": [
               {
                 "authorReference": {
-                  "reference": "Practitioner/1826009",
-                  "display": "Pujari, Veeresh"
+                  "reference": "Practitioner/1696009",
+                  "display": "Automation, Physician"
                 },
-                "time": "2013-02-07T22:59:00Z",
-                "text": "Adenoidectomy testing comment."
+                "time": "2013-04-09T08:53:08Z",
+                "text": "Adenoidectomy testing comment"
               }
             ]
+          }
+        },
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/21425447",
+          "resource": {
+            "resourceType": "Procedure",
+            "id": "21425447",
+            "meta": {
+              "versionId": "1",
+              "lastUpdated": "2013-04-09T06:59:57Z"
+            },
+            "text": {
+              "status": "generated",
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Franks, Stacey&lt;/p>&lt;/div>"
+            },
+            "status": "entered-in-error",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "80146002",
+                  "display": "Appendectomy (procedure)",
+                  "userSelected": true
+                }
+              ],
+              "text": "Appendectomy"
+            },
+            "subject": {
+              "reference": "Patient/1316024",
+              "display": "PETERS, TIMOTHY"
+            },
+            "encounter": {
+              "reference": "Encounter/1309918"
+            },
+            "performedDateTime": "2012-07-30",
+            "recorder": {
+              "reference": "Practitioner/1314012",
+              "display": "Franks, Stacey"
+            }
           }
         }
       ]
@@ -160,54 +128,69 @@ module Cerner
 
     R4_PROCEDURE_ENTRY ||= {
       "resourceType": "Procedure",
-      "id": "32215695",
+      "id": "21637617",
       "meta": {
-        "versionId": "3",
-        "lastUpdated": "2017-03-24T09:09:17Z"
+        "versionId": "1",
+        "lastUpdated": "2013-04-20T13:18:49Z"
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: ADD (attention deficit disorder)&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Timilsina, Manisha&lt;/p>&lt;/div>"
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
       },
       "status": "completed",
       "code": {
-        "text": "ADD (attention deficit disorder)"
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "119954001",
+            "display": "Adenoid excision (procedure)",
+            "userSelected": true
+          }
+        ],
+        "text": "Adenoidectomy"
       },
       "subject": {
         "reference": "Patient/1316024",
         "display": "PETERS, TIMOTHY"
       },
       "encounter": {
-        "reference": "Encounter/3331933"
+        "reference": "Encounter/1545906"
       },
-      "_performedDateTime": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-            "valueCode": "unknown"
-          }
-        ]
-      },
+      "performedDateTime": "2011-04-08",
       "recorder": {
-        "reference": "Practitioner/2372008",
-        "display": "Timilsina, Manisha"
+        "reference": "Practitioner/1696009",
+        "display": "Automation, Physician"
+      },
+      "performer": [
+        {
+          "function": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "223366009",
+                "display": "Healthcare professional (occupation)",
+                "userSelected": false
+              }
+            ],
+            "text": "Healthcare professional (occupation)"
+          },
+          "actor": {
+            "reference": "Practitioner/1328007",
+            "display": "Naik, Girish"
+          }
+        }
+      ],
+      "location": {
+        "display": "Baseline West"
       },
       "note": [
         {
           "authorReference": {
-            "reference": "Practitioner/2372008",
-            "display": "Timilsina, Manisha"
+            "reference": "Practitioner/1696009",
+            "display": "Automation, Physician"
           },
-          "time": "2017-03-24T09:05:57Z",
-          "text": "new comment 2"
-        },
-        {
-          "authorReference": {
-            "reference": "Practitioner/2372008",
-            "display": "Timilsina, Manisha"
-          },
-          "time": "2017-03-24T09:04:26Z",
-          "text": "new comment 1"
+          "time": "2013-04-09T08:53:08Z",
+          "text": "Adenoidectomy testing comment"
         }
       ]
     }
