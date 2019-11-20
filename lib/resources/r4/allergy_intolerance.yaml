@@ -36,8 +36,7 @@ fields:
   description: allergy | intolerance - Underlying mechanism (if known)
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.type
   binding:
-    description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
-                 identified substance (including pharmaceutical product).
+    description: Identification of the underlying physiological mechanism for the reaction risk.
     terminology:
     - display: AllergyIntoleranceType
       system: http://hl7.org/fhir/allergy-intolerance-type
@@ -50,8 +49,7 @@ fields:
   description: food | medication | environment | biologic
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
   binding:
-    description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
-                 identified substance (including pharmaceutical product).
+    description: Category of the identified substance.
     terminology:
     - display: AllergyIntoleranceCategory
       system: http://hl7.org/fhir/allergy-intolerance-category
@@ -64,8 +62,7 @@ fields:
   description: low | high | unable-to-assess
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality
   binding:
-    description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
-                 identified substance (including pharmaceutical product).
+    description: Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
     terminology:
     - display: AllergyIntoleranceCriticality
       system: http://hl7.org/fhir/allergy-intolerance-criticality
