@@ -65,7 +65,7 @@ module Cerner
                 },
                 "actor": {
                   "reference": "Practitioner/1328007",
-                  "display": "Naik, Girish"
+                  "display": "Forrest, Smart"
                 }
               }
             ],
@@ -95,7 +95,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Franks, Stacey&lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Forrest, Fhir&lt;/p>&lt;/div>"
             },
             "status": "entered-in-error",
             "code": {
@@ -119,7 +119,7 @@ module Cerner
             "performedDateTime": "2012-07-30",
             "recorder": {
               "reference": "Practitioner/1314012",
-              "display": "Franks, Stacey"
+              "display": "Forrest, Fhir"
             }
           }
         }
@@ -176,7 +176,7 @@ module Cerner
           },
           "actor": {
             "reference": "Practitioner/1328007",
-            "display": "Naik, Girish"
+            "display": "Forrest, Smart"
           }
         }
       ],
