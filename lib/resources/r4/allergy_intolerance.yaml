@@ -12,7 +12,7 @@ fields:
     description: The clinical status of the allergy or intolerance.
     terminology:
     - display: AllergyIntolerance Clinical Status Codes
-      system: https://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html
 
 - name: verificationStatus
@@ -26,7 +26,7 @@ fields:
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntolerance Verification Status Codes
-      system: https://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html
 
 - name: type
@@ -40,7 +40,7 @@ fields:
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceType
-      system: https://hl7.org/fhir/allergy-intolerance-type
+      system: http://hl7.org/fhir/allergy-intolerance-type
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-type.html
 
 - name: category
@@ -54,7 +54,7 @@ fields:
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceCategory
-      system: https://hl7.org/fhir/allergy-intolerance-category
+      system: http://hl7.org/fhir/allergy-intolerance-category
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-category.html
 
 - name: criticality
@@ -68,7 +68,7 @@ fields:
                  identified substance (including pharmaceutical product).
     terminology:
     - display: AllergyIntoleranceCriticality
-      system: https://hl7.org/fhir/allergy-intolerance-criticality
+      system: http://hl7.org/fhir/allergy-intolerance-criticality
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
 
 - name: code
@@ -91,7 +91,7 @@ fields:
       system: http://hl7.org/fhir/ValueSet/substance-code
       info_link: http://hl7.org/fhir/valueset-allergyintolerance-code.html
     - display: SNOMED CT
-      system: https://snomed.info/sct
+      system: http://snomed.info/sct
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-code.html
 
 - name: reaction
@@ -112,7 +112,7 @@ fields:
       description: Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
       terminology:
       - display: SNOMED CT Clinical Findings
-        system: https://snomed.info/sct
+        system: http://snomed.info/sct
         info_link: https://hl7.org/fhir/r4/valueset-clinical-findings.html
 
   - name: severity
@@ -125,5 +125,5 @@ fields:
       description: Clinical assessment of the severity of a reaction event as a whole.
       terminology:
       - display: AllergyIntoleranceSeverity
-        system: https://hl7.org/fhir/reaction-event-severity
+        system: http://hl7.org/fhir/reaction-event-severity
         info_link: https://hl7.org/fhir/R4/valueset-reaction-event-severity.html
