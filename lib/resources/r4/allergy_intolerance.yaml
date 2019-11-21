@@ -32,7 +32,6 @@ fields:
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
                   "code": "PRN",
-                  "display": "parent"
                 }
               ]
             }
@@ -57,15 +56,14 @@ fields:
                   "system":"http://terminology.hl7.org/CodeSystem/practitioner-role",
                   "code":"doctor"
                 }
-              ],
-              "text":"Doctor"
+              ]
             }
           ]
         }
       ]
     }
   note: >
-    These should be either `PractitionerRole` or `RelatedPerson` resources that are referenced with the [asserter] field.
+    These should be either `PractitionerRole` or `RelatedPerson` resources that are relative references from the [asserter] field.
   url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained
 
 - name: clinicalStatus
@@ -96,11 +94,9 @@ fields:
         "coding": [
           {
             "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-            "code": "resolved",
-            "display": "Resolved"
+            "code": "resolved"
           }
-        ],
-        "text": "Resolved"
+        ]
       }
     }
 
@@ -134,11 +130,9 @@ fields:
         "coding": [
           {
             "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-            "code": "confirmed",
-            "display": "Confirmed"
+            "code": "confirmed"
           }
-        ],
-        "text": "Confirmed"
+        ]
       }
     }
 
@@ -210,7 +204,7 @@ fields:
     terminology:
     - display: AllergyIntoleranceCriticality
       system: http://hl7.org/fhir/allergy-intolerance-criticality
-      info_link: http://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
+      info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
 
 - name: code
   required: 'Yes'
@@ -256,8 +250,7 @@ fields:
   example: |
     {
       "patient": {
-        "reference": "Patient/631923",
-        "display": "Nilsson, Christine"
+        "reference": "Patient/631923"
       }
     }
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.patient

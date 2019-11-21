@@ -173,13 +173,18 @@ module Cerner
       },
       "type": "allergy",
       "category":[
-        "environment",
-        "food",
         "medication"
       ],
       "criticality": "high",
       "code":{
-        "text": "Demeclocycline - substance"
+        "coding":[
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "723",
+            "display": "Amoxicillin"
+          }
+        ],
+        "text": "amoxicillin"
       },
       "patient":{
         "reference": "Patient/1316020"

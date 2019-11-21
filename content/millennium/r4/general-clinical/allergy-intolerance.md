@@ -131,7 +131,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
@@ -155,7 +155,7 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
-Etag: W/"12793861"
+Etag: W/"6767735"
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6767735,
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Server-Response-Time: 296.405243
