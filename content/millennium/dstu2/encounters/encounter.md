@@ -95,6 +95,8 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_encounter_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -128,6 +130,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_encounter) %>
+
+<%= disclaimer %>
 
 ### Errors
 
