@@ -67,6 +67,8 @@ Authorization is not required.
 <%= headers status: 200 %>
 <%= json(:dstu2_structure_definition_bundle) %>
 
+<%= disclaimer %>
+
 ## List of StructureDefinitions
 
 ID                                                                                                                             | Description
