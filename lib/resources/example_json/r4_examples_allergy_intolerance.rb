@@ -149,8 +149,7 @@ module Cerner
                   "system": "http://terminology.hl7.org/CodeSystem/practitioner-role",
                   "code": "nurse"
                 }
-              ],
-              "text": "Nurse"
+              ]
             }
           ]
         }
@@ -180,8 +179,7 @@ module Cerner
         "coding":[
           {
             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "723",
-            "display": "Amoxicillin"
+            "code": "723"
           }
         ],
         "text": "amoxicillin"
