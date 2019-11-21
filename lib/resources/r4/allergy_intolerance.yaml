@@ -2,12 +2,77 @@
 name: AllergyIntolerance
 field_name_base_url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
 fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "AllergyIntolerance"
+    }
+  note: resourceType must be AllergyIntolerance.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
+
+- name: contained
+  required: 'No'
+  cardinality: 0..*
+  type: Resource
+  description: Contained, inline Resources.
+  example: |
+    Contained RelatedPerson
+    {
+      "contained": [
+        {
+          "resourceType":"RelatedPerson",
+          "id":"638996",
+          "relationship":[
+            {
+              "coding":[
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "PRN",
+                }
+              ]
+            }
+          ],
+          "patient":{
+            "reference":"Patient/1316020"
+          }
+        }
+      ]
+    }
+  example2: |
+    Contained PractitionerRole
+    {
+      "contained": [
+        {
+          "resourceType":"PractitionerRole",
+          "id":"638994",
+          "code":[
+            {
+              "coding":[
+                {
+                  "system":"http://terminology.hl7.org/CodeSystem/practitioner-role",
+                  "code":"doctor"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  note: >
+    These should be either `PractitionerRole` or `RelatedPerson` resources that are relative references from the [asserter] field.
+  url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained
+
 - name: clinicalStatus
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: active | inactive | resolved
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
+  action: terminology
   binding:
     description: The clinical status of the allergy or intolerance.
     terminology:
@@ -15,12 +80,33 @@ fields:
       system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html
 
+- name: clinicalStatus
+  required: 'Yes'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The clinical status of the AllergyIntolerance.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
+  action: create
+  note: A clinicalStatus must always be provided while creating an allergy.
+  example: |
+    {
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+            "code": "resolved"
+          }
+        ]
+      }
+    }
+
 - name: verificationStatus
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
   description: unconfirmed | confirmed | refuted | entered-in-error
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
+  action: terminology
   binding:
     description: Assertion about certainty associated with the propensity, or potential risk, of a reaction to the
                  identified substance (including pharmaceutical product).
@@ -29,12 +115,37 @@ fields:
       system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html
 
+- name: verificationStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The verification status to support or decline the clinical status of allergy.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
+  action: create
+  note: verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported
+        during AllergyIntolerance creates.
+  example: |
+    {
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+            "code": "confirmed"
+          }
+        ]
+      }
+    }
+
 - name: type
   required: 'No'
   cardinality: 0..1
   type: code
   description: allergy | intolerance - Underlying mechanism (if known)
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.type
+  example: |
+    {
+      "type": "allergy"
+    }
   binding:
     description: Identification of the underlying physiological mechanism for the reaction risk.
     terminology:
@@ -48,6 +159,7 @@ fields:
   type: code
   description: food | medication | environment | biologic
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
+  action: terminology
   binding:
     description: Category of the identified substance.
     terminology:
@@ -55,12 +167,38 @@ fields:
       system: http://hl7.org/fhir/allergy-intolerance-category
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-category.html
 
+- name: category
+  required: 'No'
+  cardinality: 0..*
+  type: code
+  description: Category of the identified [code].
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
+  action: create
+  note: |
+    <ul>
+      <li> Category code of <code>biologic</code> is not supported</li>
+      <li> Only a single category will be written to the allergy </li>
+      <li> When multiple categories are provided, the category to be picked is based on precedence. medication > food > environment. </li>
+    </ul>
+  example: |
+    {
+      "category":[
+        "environment",
+        "food",
+        "medication"
+      ]
+    }
+
 - name: criticality
   required: 'No'
   cardinality: 0..*
   type: code
   description: low | high | unable-to-assess
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality
+  example: |
+    {
+      "criticality": "high"
+    }
   binding:
     description: Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
     terminology:
@@ -69,11 +207,24 @@ fields:
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-criticality.html
 
 - name: code
-  required: 'No'
+  required: 'Yes'
   cardinality: 0..1
   type: CodeableConcept
   description: Code that identifies the allergy or intolerance
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
+  note: A code must always be provided while creating an allergy.
+  example: |
+    {
+      "code":{
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "9220005"
+          }
+        ],
+        "text": "Plant phenol oil"
+      }
+    }
   binding:
     description: Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).
                  This may be a code for a substance or pharmaceutical product that is considered to be responsible for
@@ -91,12 +242,87 @@ fields:
       system: http://snomed.info/sct
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-code.html
 
+- name: patient
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference
+  description: Indicates the patient Who the sensitivity is for.
+  example: |
+    {
+      "patient": {
+        "reference": "Patient/631923"
+      }
+    }
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.patient
+
+- name: encounter
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  description: Indicates the encounter when the allergy or intolerance was asserted.
+  example: |
+    {
+      "encounter": {
+        "reference":"Encounter/1693915"
+      }
+    }
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.encounter
+
+- name: onset_x_
+  required: 'No'
+  cardinality: 0..1
+  type: dateTime
+  description: Estimated or actual date or date-time the allergy began, in the opinion of the clinician.
+  note: |
+    <ul>
+      <li> Only a type of dateTime is supported.</li>
+      <li> The dateTime is converted to a GMT date. </li>
+    </ul>
+  example: |
+    {
+      "onsetDateTime": "2015-10-14T13:13:20-06:00"
+    }
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_
+
+- name: asserter
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  description: Indicates the source of information about the allergy.
+  note: Asserter must be provided and linked to the contained resource, if a contained resource is specified.
+  example: |
+    {
+      "asserter":{
+        "reference":"#638994"
+      }
+    }
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.asserter
+
 - name: reaction
   required: 'No'
   cardinality: 0..*
   type: BackboneElement
   description: Adverse Reaction Events linked to exposure to substance
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
+  example: |
+    {
+      "reaction":[
+        {
+          "manifestation":[
+            {
+              "coding":[
+                {
+                  "system":"http://snomed.info/sct",
+                  "code":"414322003"
+                }
+              ],
+              "text":"Blastobacter"
+            }
+          ],
+          "severity":"severe"
+        }
+      ]
+    }
   children:
 
   - name: manifestation
@@ -105,6 +331,23 @@ fields:
     type: CodeableConcept
     description: Clinical symptoms/signs associated with the Event
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation
+    example: |
+      {
+        {
+          "manifestation":[
+            {
+              "coding":[
+                {
+                  "system":"http://snomed.info/sct",
+                  "code":"414322003"
+                }
+              ],
+              "text":"Blastobacter"
+            }
+          ]
+        }
+      }
+    note: Only one manifestation can be provided.
     binding:
       description: Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
       terminology:
@@ -115,9 +358,14 @@ fields:
   - name: severity
     required: 'No'
     cardinality: 0..1
-    type: code
-    description: mild | moderate | severe (of event as a whole)
+    type: Code
+    description: mild | moderate | severe (of event as a whole).
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity
+    example: |
+      {
+        "severity":"severe"
+      }
+
     binding:
       description: Clinical assessment of the severity of a reaction event as a whole.
       terminology:

@@ -114,3 +114,61 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+
+## Create
+
+Create new allergy.
+
+    POST /AllergyIntolerance
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:allergy_intolerance, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance
+
+#### Body
+
+<%= json(:r4_allergy_intolerance_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 Aug 2019 17:23:14 GMT
+Etag: W/"6767735"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6767735,
+Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
