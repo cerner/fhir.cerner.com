@@ -197,6 +197,15 @@
 </li>
 </ul>
 
+<h4>Procedure</h4>
+
+<p>The Procedure Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Procedure.performer.function codes are maintained in <a href="#code-set-388-procedure-personnel-relation-type">Code Set 388 Procedure Personnel Relation Type</a>
+</li>
+</ul>
+
 <h3 id="individuals">Individuals</h3>
 
 <!-- use html header to avoid showing up in toc -->
@@ -468,6 +477,18 @@
 }
 </code></pre>
 
+<h5 id="code-set-388-procedure-personnel-relation-type">Code Set 388 Procedure Personnel Relation Type</h5>
+
+<p>This code set contains the specific types of relationships you can establish between personnel and a procedure.</p>
+
+<pre><code>{ 
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388",
+  "code": "1209", 
+  "display": "Surgeon", 
+  "userSelected": true 
+}
+</code></pre>
+
 <h5 id="code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</h5>
 
 <p>This code set maintains medication administration routes such as ID or IM.</p>
@@ -676,6 +697,7 @@
         <ul class="js-guides">
           <li><a href="../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
           <li><a href="../general-clinical/condition/">Condition</a></li>
+          <li><a href="../general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>
       <li class="js-topic">

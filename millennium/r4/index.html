@@ -336,6 +336,37 @@ Content-Type: application/json+fhir
           ]
         },
         {
+          "type": "Procedure",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              name: '_id',
+              definition: 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+              type: 'token',
+              documentation: 'A single or comma separated list of Procedure ids. It is a required field if the patient or subject fields are not given'
+            },
+            {
+              name: 'patient',
+              definition: 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
+              type: 'reference',
+              documentation: 'Search by subject - a patient. It is a required field if the _id or subject fields are not given'
+            },
+            {
+              name: 'subject',
+              definition: 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
+              type: 'reference',
+              documentation: 'Search by subject. It is a required field if the _id or patient fields are not given'
+            }
+          ]
+        },
+        {
           "type": "StructureDefinition",
           "interaction": [
             {
@@ -797,6 +828,7 @@ Access-Control-Allow-Credentials: true
         <ul class="js-guides">
           <li><a href="general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
           <li><a href="general-clinical/condition/">Condition</a></li>
+          <li><a href="general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>
       <li class="js-topic">
