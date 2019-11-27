@@ -228,5 +228,34 @@ module Cerner
          }
        ]
     }
+    R4_ORGANIZATION_CREATE ||= {
+      "resourceType": "Organization",
+      "identifier": [
+        {
+          "system": "http://hl7.org/fhir/sid/us-npi",
+          "value": "FHIR-NPI-10191",
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "NPI"
+              }
+            ]
+          }
+        }
+      ],
+      "active": true,
+      "name": "sandbox-fhir-org1",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+              "code": "govt"
+            }
+          ]
+        }
+      ]
+    }
   end
 end
