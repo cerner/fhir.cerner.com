@@ -1,0 +1,44 @@
+---
+name: Organization
+field_name_base_url: http://hl7.org/fhir/r4/organization-definitions.html#Organization
+fields:
+  - name: identifier
+    required: 'No'
+    cardinality: 0..*
+    type: Identifier
+    description: The identifier for the Organization.
+    children:
+
+      - name: type
+        required: 'No'
+        cardinality: 0..1
+        type: CodeableConcept
+        description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+        url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+        binding:
+          description: The type used to determine which identifier to use for a specific purpose.
+          terminology:
+            - display: Identifier Type Codes
+              system: http://hl7.org/fhir/identifier-type
+              info_link: http://terminology.hl7.org/CodeSystem/v2-0203.html
+            - display: v2 Identifier Type
+              system: http://terminology.hl7.org/CodeSystem/v2-0203
+              info_link: https://hl7.org/fhir/R4/v2/0203/index.html
+            - display: Millennium Organization Identifier (Alias) Types
+              system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/334
+              info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-334-organization-alias-type
+
+  - name: type
+    required: 'No'
+    cardinality: 0..*
+    type: CodeableConcept
+    description: The type for the Organization.
+    binding:
+      description: Indicates the type of Organization.
+      terminology:
+        - display: OrganizationType
+          system: http://hl7.org/fhir/ValueSet/organization-type
+          info_link: http://terminology.hl7.org/CodeSystem/organization-type.html
+        - display: Millennium Organization Identifier (Alias) Types
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/278
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-278-organization-type
