@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>OperationDefinition | DSTU 2 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="dstu2_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+    
+    <ul>
+      <li><a href="../../" class="active">DSTU 2 Final (1.0.2)</a></li>
+      
+        <li><a href="../../../r4/">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="operationdefinition">OperationDefinition</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The OperationDefinition resource defines an <a href="http://hl7.org/fhir/dstu2/operations.html">operation</a>. This includes the inputs, outputs, description, and other items necessary to actually execute the operation.</p>
+
+<p>This resource only exposes the custom operations our server defines. Operations that are defined as part of another implementation guide are referenced directly instead of being duplicated within this server. While the HL7 FHIR<sup>®</sup> specification also supports describing named queries with this resource, we do not currently support any custom named queries.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.url" target="_blank">URL</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.name" target="_blank">Informal name</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.code" target="_blank">Formal name</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.kind" target="_blank">Kind</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.publisher" target="_blank">Name of publisher</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.date" target="_blank">Date published</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.description" target="_blank">Description</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.system" target="_blank">Whether or not the operation can be invoked without a Resource</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.type" target="_blank">Which resource types this operation can be invoked on</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.instance" target="_blank">Whether or not the operation can be invoked on a specific instance of the resource above</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/operationdefinition-definitions.html#OperationDefinition.parameter" target="_blank">Parameters (both in and out) and cardinality details</a></li>
+</ul>
+
+<p><em>List of OperationDefinitions</em></p>
+
+<ul>
+  <li>
+<code>binary-autogen-ccd-if</code>: Generate Continuity of Care Document (CCD)</li>
+</ul>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual OperationDefinition by its id:</p>
+
+<pre><code>GET /OperationDefinition/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Authentication is not required to access the OperationDefinition resource</li>
+  <li>
+    <p>This resource can be retrieved by its defining URL or from the OperationDefinition resource located at the <a href="../../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
+
+    <p><code>https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if</code></p>
+
+    <p><code>https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/OperationDefinition/binary-autogen-ccd-if</code></p>
+  </li>
+</ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<p>Authorization is not required.</p>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "OperationDefinition",
+  "id": "binary-autogen-ccd-if",
+  "url": "https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if",
+  "name": "Generate Continuity of Care Document (CCD)",
+  "status": "active",
+  "kind": "operation",
+  "publisher": "Cerner",
+  "date": "2017-01-17",
+  "description": "Generates a copy of a patient's Continuity of Care Document (CCD) as a Binary",
+  "code": "autogen-ccd-if",
+  "system": false,
+  "type": [
+    "Binary"
+  ],
+  "instance": false,
+  "parameter": [
+    {
+      "name": "patient",
+      "use": "in",
+      "min": "1",
+      "max": "1",
+      "documentation": "The id of the patient that is the subject of the generated Continuity of Care Document (CCD).",
+      "type": "id"
+    },
+    {
+      "name": "start",
+      "use": "in",
+      "min": "0",
+      "max": "1",
+      "documentation": "The start of the date range for which the Continuity of Care Document (CCD) is to be generated. If no start date is provided, then the document will be generated with all records upto the end or current date",
+      "type": "date"
+    },
+    {
+      "name": "end",
+      "use": "in",
+      "min": "0",
+      "max": "1",
+      "documentation": "The end of the date range for which the Continuity of Care Document (CCD) is to be generated. If no end date is provided, then the document will be generated with records upto the current date",
+      "type": "date"
+    },
+    {
+      "name": "result",
+      "use": "out",
+      "min": "1",
+      "max": "1",
+      "documentation": "Binary for the generated Continuity of Care Document (CCD)",
+      "type": "Binary"
+    }
+  ]
+}</code></pre>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../proprietary-codes/">Proprietary Codes</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Conformance</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../conformance/">Conformance Metadata</a></li>
+          <li><a href="./">OperationDefinition</a></li>
+          <li><a href="../structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
+          <li><a href="../../care-provision/procedure-request/">ProcedureRequest</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/diagnostic-report/">DiagnosticReport</a></li>
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/contract/">Contract</a></li>
+          <li><a href="../../entities/person/">Person</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../infrastructure/">Infrastructure</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../infrastructure/binary/">Binary</a></li>
+          <li><a href="../../infrastructure/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-administration/">MedicationAdministration</a></li>
+          <li><a href="../../medications/medication-order/">MedicationOrder</a></li>
+          <li><a href="../../medications/medication-statement/">MedicationStatement</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+          <li><a href="../../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../../scheduling/slot/">Slot</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
