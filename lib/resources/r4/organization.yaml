@@ -114,7 +114,7 @@ fields:
       }
     note: |
       <ul>
-        <li> At least one name <b>must</b> be provided. </li>
+        <li> At least one name <b>must</b> be provided and should be unique. </li>
       </ul>
     url: https://hl7.org/fhir/R4/organization-definitions.html#Organization.name
 
