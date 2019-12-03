@@ -61,6 +61,16 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
 
+### Entities
+
+<!-- use html header to avoid showing up in toc -->
+<h4>Organization</h4>
+
+The Organization Resource supports proprietary codes for:
+
+* Organization.identifier.type codes are maintained in [Code Set 334 Organization Alias Type](#code-set-334-organization-alias-type)
+* Organization.type codes are maintained in [Code Set 278 Organization Type](#code-set-278-organization-type)
+
 ### Financial
 
 <!-- use html header to avoid showing up in toc -->
@@ -287,6 +297,17 @@ This code set maintains medication administration sites such as left arm, right 
       "display": "Right arm", 
       "userSelected": true 
     }
+    
+##### Code Set 278 Organization Type
+
+This code set maintains the classification of Organizations, such as GOVT or INSURANCE.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/278",
+      "code": "1077",
+      "display": "govt",
+      "userSelected": true
+    }    
 
 ##### Code Set 319 Encounter Alias Type
 
@@ -309,6 +330,17 @@ This code set maintains the various personnel positions in the facility such as 
       "display": "Attending Physician",
       "userSelected": true
     }
+    
+##### Code Set 334 Organization Alias Type
+
+This code set maintains the identifying values for an Organization, such as NPI, OID, and FederalTAXID.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/334",
+      "code": "2343451",
+      "display": "OID",
+      "userSelected": true
+    }    
 
 ##### Code Set 351 Person Relationship Types
 
