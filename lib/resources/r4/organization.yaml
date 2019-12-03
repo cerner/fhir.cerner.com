@@ -62,19 +62,19 @@ fields:
     example: |
       {
         "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "FHIR-NPI-10191",
+            "type": {
+              "coding": [
                 {
-                    "system": "http://hl7.org/fhir/sid/us-npi",
-                    "value": "FHIR-NPI-10191",
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                                "code": "NPI"
-                            }
-                        ]
-                    }
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI"
                 }
-            ]
+              ]
+            }
+          }
+        ]
       }
     note: |
       <ul>
@@ -124,15 +124,15 @@ fields:
     action: create
     example: |
       {
-       "type": [
+        "type": [
+          {
+            "coding": [
               {
-                  "coding": [
-                      {
-                          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
-                          "code": "govt"
-                      }
-                  ]
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "govt"
               }
-          ]
+            ]
+          }
+        ]
       }
     url: https://hl7.org/fhir/R4/organization-definitions.html#Organization.type
