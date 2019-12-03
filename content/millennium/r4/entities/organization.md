@@ -26,7 +26,7 @@ The following fields are returned if valued:
 
 ## Search
 
-Search for Organization that meet supplied query parameters:
+Search for Organizations that meet supplied query parameters:
 
     GET /Organization?:parameters
 
@@ -57,6 +57,8 @@ Search for Organization that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_organization_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -85,6 +87,8 @@ List an individual Organization by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_organization_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
