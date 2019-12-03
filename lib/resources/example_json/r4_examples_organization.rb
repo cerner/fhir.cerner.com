@@ -228,6 +228,7 @@ module Cerner
          }
        ]
     }
+
     R4_ORGANIZATION_CREATE ||= {
       "resourceType": "Organization",
       "identifier": [

@@ -87,7 +87,7 @@ fields:
           </ul>
         </li>
       </ul>
-    url: https://hl7.org/fhir/R4/datatypes.html#Identifier
+    url: https://hl7.org/fhir/R4/organization-definitions.html#Organization.identifier
 
   - name: active
     required: 'No'
