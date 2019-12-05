@@ -11,9 +11,9 @@ title: AllergyIntolerance | R4 API
 
 The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance or class of substance including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance such as an over-dose or drug-drug interaction or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
 
-No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies (160244002) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.  
+No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies (160244002) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.
 
-If NKA and/or NKMA exist on the patient's allergy profile and a new allergy is added, the NKA and NKMA will be canceled.  
+If NKA and/or NKMA exist on the patient's allergy profile and a new allergy is added, the NKA and NKMA will be canceled.
 
 If the consumer is sending in what is deemed to be a duplicate (codified or free text), the service will update the existing allergy or reaction rather than adding a duplicate allergy or reaction.
 
@@ -110,11 +110,6 @@ List an individual AllergyIntolerance by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`reference`]: https://hl7.org/fhir/r4/search.html#reference
-[`token`]: https://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
-
 ## Create
 
 Create new allergy.
@@ -172,3 +167,68 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+## Update
+
+Update an existing allergy.
+
+    PUT /AllergyIntolerance/:id
+
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the AllergyIntolerance resource>"'} %>
+
+### Body fields
+
+Notes:
+
+* The following fields cannot be modified: `code`, `patient`, `reaction.manifestation`, or an existing `note`.
+
+<%= definition_table(:allergy_intolerance, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6167733
+
+#### Body
+
+<%= json(:r4_allergy_intolerance_update) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: application/json
+    Date: Thu, 05 Dec 2019 17:21:08 GMT
+    Etag: W/"8167765"
+    Last-Modified: Thu, 05 Dec 2019 17:21:08 GMT
+    Server-Response-Time: 743.187771
+    Status: 200 OK
+    X-Request-Id: a53f6469ff29031e9197b40f526e9ca6
+    X-Runtime: 0.743187
+    Vary: Origin
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[errors]: ../../#client-errors
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
