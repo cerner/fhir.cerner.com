@@ -263,15 +263,7 @@ module Cerner
       },
       "note": [
         {
-          "id": "6279921",
-          "authorReference": {
-              "reference": "Practitioner/2578010",
-          },
-          "time": "2017-08-09T08:59:43Z",
-          "text": "This is an existing note with an id field and will not be updated or re-created."
-        },
-        {
-          "text": "This is a new note and would be written."
+          "text": "Updated with additional details provided by patient."
         }
       ]
     }

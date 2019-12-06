@@ -345,6 +345,7 @@ fields:
   type: Annotation
   description: Additional narrative about the allergy not captured in other fields.
   action: create
+  note: An author and text can be specified but note.time will always be defaulted.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note
   example: |
     {
@@ -364,7 +365,8 @@ fields:
   type: Annotation
   description: Additional narrative about the allergy not captured in other fields.
   note: Updates do not allow an author to be specified. One will be infered from the authorization token. If an id is not
-        provided with the note it will be assumed to be a new note.
+        provided with the note it will be assumed to be a new note and be written as such. If an id is provided then it
+        will be assumed to be an existing note and will not be updated or re-created.
   action: update
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note
   example: |
