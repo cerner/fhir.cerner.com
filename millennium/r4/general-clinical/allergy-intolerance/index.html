@@ -105,6 +105,15 @@
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#update" id="markdown-toc-update">Update</a>    <ul>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
+      <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -191,6 +200,7 @@
       
       
       
+      
     <tr>
       <td>
       
@@ -230,6 +240,7 @@
       </td>
     </tr>
     
+      
       
       
       
@@ -428,6 +439,8 @@
       </td>
     </tr>
     
+      
+      
       
       
       
@@ -1289,7 +1302,7 @@
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Indicates the patient Who the sensitivity is for.</li></ul>
+        <ul style="list-style-type: none"><li>Indicates the patient who the sensitivity is for.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -1418,6 +1431,50 @@
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Asserter must be provided and linked to the contained resource, if a contained resource is specified.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional narrative about the allergy not captured in other fields.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/2578010"
+      },
+      "text": "Allergy reported by patient."
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>An author and text can be specified but note.time will always be defaulted.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1626,6 +1683,14 @@
   "asserter": {
     "reference": "#638995"
   },
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/2578010"
+      },
+      "text": "Updated with additional details provided by patient."
+    }
+  ],
   "reaction": [
     {
       "manifestation": [
@@ -1671,6 +1736,824 @@ X-Runtime: 2.011826
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
 
+<h2 id="update">Update</h2>
+
+<p>Update an existing allergy.</p>
+
+<pre><code>PUT /AllergyIntolerance/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
+</ul>
+
+<h3 id="authorization-types-3">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json
+If-Match: W/"&lt;Current version of the AllergyIntolerance resource&gt;"</code></pre>
+
+<h3 id="body-fields-1">Body fields</h3>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The following fields cannot be modified: <code>code</code>, <code>patient</code>, <code>reaction.manifestation</code>, or an existing <code>note</code>.</li>
+</ul>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="update-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "AllergyIntolerance"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be AllergyIntolerance.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-contained">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained"><code>contained</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/resource.html"><code>Resource</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Contained, inline Resources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Contained RelatedPerson
+{
+  "contained": [
+    {
+      "resourceType":"RelatedPerson",
+      "id":"638996",
+      "relationship":[
+        {
+          "coding":[
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "PRN",
+            }
+          ]
+        }
+      ],
+      "patient":{
+        "reference":"Patient/1316020"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>Contained PractitionerRole
+{
+  "contained": [
+    {
+      "resourceType":"PractitionerRole",
+      "id":"638994",
+      "code":[
+        {
+          "coding":[
+            {
+              "system":"http://terminology.hl7.org/CodeSystem/practitioner-role",
+              "code":"doctor"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>These should be either <code>PractitionerRole</code> or <a target="_blank" href="https://hl7.org/fhir/R4/relatedperson.html"><code>RelatedPerson</code></a> resources that are relative references from the <a href="#update-asserter">asserter</a> field.
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-clinicalStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus"><code>clinicalStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The clinical status of the AllergyIntolerance.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "resolved"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-verificationStatus">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus"><code>verificationStatus</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The verification status to support or decline the clinical status of allergy.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+        "code": "confirmed"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>verificationStatus code of <code>refuted</code> is not supported during AllergyIntolerance updates.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-type">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.type"><code>type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>allergy | intolerance - Underlying mechanism (if known)</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": "allergy"
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Category of the identified <a href="#update-code">code</a>.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category":[
+    "environment",
+    "food",
+    "medication"
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Category code of <code>biologic</code> is not supported</li>
+  <li> Only a single category will be written to the allergy </li>
+  <li> When multiple categories are provided, the category to be picked is based on precedence. medication &gt; food &gt; environment. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-criticality">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality"><code>criticality</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>low | high | unable-to-assess</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "criticality": "high"
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Code that identifies the allergy or intolerance</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code":{
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "9220005"
+      }
+    ],
+    "text": "Plant phenol oil"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A code must always be provided while creating an allergy.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-patient">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the patient who the sensitivity is for.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the encounter when the allergy or intolerance was asserted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference":"Encounter/1693915"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-onset_x_">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_"><code>onset_x_</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Estimated or actual date or date-time the allergy began, in the opinion of the clinician.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetDateTime": "2015-10-14T13:13:20-06:00"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported.</li>
+  <li> The dateTime is converted to a GMT date. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-asserter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.asserter"><code>asserter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the source of information about the allergy.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "asserter":{
+    "reference":"#638994"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Asserter must be provided and linked to the contained resource, if a contained resource is specified.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional narrative about the allergy not captured in other fields.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "text": "Updated with additional details provided by patient."
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Updates do not allow an author to be specified. One will be infered from the authorization token. If an id is not provided with the note it will be assumed to be a new note and will be written as such. If an id is provided, then it will be assumed to be an existing note and will not be updated or re-created.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code"><code>reaction</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Adverse Reaction Events linked to exposure to substance</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "reaction":[
+    {
+      "manifestation":[
+        {
+          "coding":[
+            {
+              "system":"http://snomed.info/sct",
+              "code":"414322003"
+            }
+          ],
+          "text":"Blastobacter"
+        }
+      ],
+      "severity":"severe"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction.manifestation">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"><code>reaction.manifestation</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Clinical symptoms/signs associated with the Event</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  {
+    "manifestation":[
+      {
+        "coding":[
+          {
+            "system":"http://snomed.info/sct",
+            "code":"414322003"
+          }
+        ],
+        "text":"Blastobacter"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only one manifestation can be provided.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-reaction.severity">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity"><code>reaction.severity</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<code>Code</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>mild | moderate | severe (of event as a whole).</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "severity":"severe"
+}
+</pre></li></ul>
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-3">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6167733
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "AllergyIntolerance",
+  "id": "7403733",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+        "code": "unconfirmed"
+      }
+    ]
+  },
+  "category": [
+    "food"
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "91935009",
+        "display": "Allergy to peanuts (disorder)"
+      }
+    ],
+    "text": "Allergy to peanuts"
+  },
+  "patient": {
+    "reference": "Patient/4342008",
+    "display": "SMART, WILMA"
+  },
+  "recordedDate": "2019-02-08T00:00:00Z",
+  "recorder": {
+    "reference": "Practitioner/2042017",
+    "display": "Generated Domain User for 0"
+  },
+  "note": [
+    {
+      "text": "Updated with additional details provided by patient."
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: application/json
+    Date: Thu, 05 Dec 2019 17:21:08 GMT
+    Etag: W/"8167765"
+    Last-Modified: Thu, 05 Dec 2019 17:21:08 GMT
+    Server-Response-Time: 743.187771
+    Status: 200 OK
+    X-Request-Id: a53f6469ff29031e9197b40f526e9ca6
+    X-Runtime: 0.743187
+    Vary: Origin
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -1708,6 +2591,14 @@ X-Runtime: 2.011826
 </h3>
         <ul class="js-guides">
           <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/organization/">Organization</a></li>
         </ul>
       </li>
       <li class="js-topic">

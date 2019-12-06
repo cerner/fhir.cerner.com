@@ -81,6 +81,7 @@
 <a href="#proprietary-codes" id="markdown-toc-proprietary-codes">Proprietary Codes</a>    <ul>
       <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
       <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
+      <li><a href="#entities" id="markdown-toc-entities">Entities</a></li>
       <li><a href="#financial" id="markdown-toc-financial">Financial</a></li>
       <li><a href="#general-clinical" id="markdown-toc-general-clinical">General Clinical</a></li>
       <li><a href="#individuals" id="markdown-toc-individuals">Individuals</a></li>
@@ -164,6 +165,20 @@
   <li>Encounter.hospitalization.specialCourtesy codes are maintained in <a href="#code-set-67-vip">Code Set 67 VIP</a> and <a href="#code-set-16-courtesy">Code Set 16 Courtesy</a>
 </li>
   <li>Encounter.hospitalization.dischargeDisposition codes are maintained in <a href="#code-set-19-discharge-disposition">Code Set 19 Discharge Disposition</a>
+</li>
+</ul>
+
+<h3 id="entities">Entities</h3>
+
+<!-- use html header to avoid showing up in toc -->
+<h4>Organization</h4>
+
+<p>The Organization Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Organization.identifier.type codes are maintained in <a href="#code-set-334-organization-alias-type">Code Set 334 Organization Alias Type</a>
+</li>
+  <li>Organization.type codes are maintained in <a href="#code-set-278-organization-type">Code Set 278 Organization Type</a>
 </li>
 </ul>
 
@@ -441,6 +456,18 @@
 }
 </code></pre>
 
+<h5 id="code-set-278-organization-type">Code Set 278 Organization Type</h5>
+
+<p>This code set maintains the classification of Organizations, such as GOVT or INSURANCE.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/278",
+  "code": "1077",
+  "display": "govt",
+  "userSelected": true
+}    
+</code></pre>
+
 <h5 id="code-set-319-encounter-alias-type">Code Set 319 Encounter Alias Type</h5>
 
 <p>This is a small code set currently only supporting FIN NBR and VISITID.</p>
@@ -463,6 +490,18 @@
   "display": "Attending Physician",
   "userSelected": true
 }
+</code></pre>
+
+<h5 id="code-set-334-organization-alias-type">Code Set 334 Organization Alias Type</h5>
+
+<p>This code set maintains the identifying values for an Organization, such as NPI, OID, and FederalTAXID.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/334",
+  "code": "2343451",
+  "display": "OID",
+  "userSelected": true
+}    
 </code></pre>
 
 <h5 id="code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</h5>
@@ -686,6 +725,14 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../entities/">Entities</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../entities/organization/">Organization</a></li>
         </ul>
       </li>
       <li class="js-topic">
