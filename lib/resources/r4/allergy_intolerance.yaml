@@ -100,6 +100,25 @@ fields:
       }
     }
 
+- name: clinicalStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The clinical status of the AllergyIntolerance.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
+  action: update
+  example: |
+    {
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+            "code": "resolved"
+          }
+        ]
+      }
+    }
+
 - name: verificationStatus
   required: 'No'
   cardinality: 0..1
@@ -124,6 +143,26 @@ fields:
   action: create
   note: verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported
         during AllergyIntolerance creates.
+  example: |
+    {
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+            "code": "confirmed"
+          }
+        ]
+      }
+    }
+
+- name: verificationStatus
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The verification status to support or decline the clinical status of allergy.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
+  action: update
+  note: verificationStatus code of <code>refuted</code> is not supported during AllergyIntolerance updates.
   example: |
     {
       "verificationStatus": {
@@ -173,7 +212,9 @@ fields:
   type: code
   description: Category of the identified [code].
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
-  action: create
+  action:
+  - create
+  - update
   note: |
     <ul>
       <li> Category code of <code>biologic</code> is not supported</li>
@@ -246,7 +287,7 @@ fields:
   required: 'Yes'
   cardinality: 1..1
   type: Reference
-  description: Indicates the patient Who the sensitivity is for.
+  description: Indicates the patient who the sensitivity is for.
   example: |
     {
       "patient": {
@@ -297,6 +338,45 @@ fields:
       }
     }
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.asserter
+
+- name: note
+  required: 'No'
+  cardinality: 0..*
+  type: Annotation
+  description: Additional narrative about the allergy not captured in other fields.
+  action: create
+  note: An author and text can be specified but note.time will always be defaulted.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note
+  example: |
+    {
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/2578010"
+          },
+          "text": "Allergy reported by patient."
+        }
+      ]
+    }
+
+- name: note
+  required: 'No'
+  cardinality: 0..*
+  type: Annotation
+  description: Additional narrative about the allergy not captured in other fields.
+  note: Updates do not allow an author to be specified. One will be infered from the authorization token. If an id is not
+        provided with the note it will be assumed to be a new note and will be written as such. If an id is provided,
+        then it will be assumed to be an existing note and will not be updated or re-created.
+  action: update
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.note
+  example: |
+    {
+      "note": [
+        {
+          "text": "Updated with additional details provided by patient."
+        }
+      ]
+    }
 
 - name: reaction
   required: 'No'

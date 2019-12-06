@@ -194,6 +194,14 @@ module Cerner
       "asserter":{
         "reference": "#638995"
       },
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/2578010"
+          },
+          "text": "Updated with additional details provided by patient."
+        }
+      ],
       "reaction":[
         {
           "manifestation":[
@@ -208,6 +216,54 @@ module Cerner
             }
           ],
           "severity": "severe"
+        }
+      ]
+    }
+
+    R4_ALLERGY_INTOLERANCE_UPDATE ||= {
+      "resourceType": "AllergyIntolerance",
+      "id": "7403733",
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+            "code": "active"
+          }
+        ]
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+            "code": "unconfirmed"
+          }
+        ]
+      },
+      "category": [
+        "food"
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "91935009",
+            "display": "Allergy to peanuts (disorder)"
+          }
+        ],
+        "text": "Allergy to peanuts"
+      },
+      "patient": {
+        "reference": "Patient/4342008",
+        "display": "SMART, WILMA"
+      },
+      "recordedDate": "2019-02-08T00:00:00Z",
+      "recorder": {
+        "reference": "Practitioner/2042017",
+        "display": "Generated Domain User for 0"
+      },
+      "note": [
+        {
+          "text": "Updated with additional details provided by patient."
         }
       ]
     }
