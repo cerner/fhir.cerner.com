@@ -101,7 +101,7 @@ Create an individual Practitioner.
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token&gt;', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
@@ -134,8 +134,6 @@ Vary: Origin
 X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
 X-Runtime: 0.724450
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ### Errors
 

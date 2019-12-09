@@ -197,8 +197,8 @@ module Cerner
               }
             ]
           },
-          "system": "urn:oid:1.1.1.1.1.1",
-          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "system": "urn:oid:2.16.840.1.113883.4.814",
+          "value": "CW1234563",
           "period": {
             "start": "2019-12-01T00:00:00.000Z",
             "end": "2029-12-01T23:59:59.000Z"

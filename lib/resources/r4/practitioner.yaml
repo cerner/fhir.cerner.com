@@ -99,8 +99,8 @@ fields:
               }
             ]
           },
-          "system": "urn:oid:1.1.1.1.1.1",
-          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "system": "urn:oid:2.16.840.1.113883.4.814",
+          "value": "CW1234563",
           "period": {
             "start": "2019-12-01T00:00:00.000Z",
             "end": "2029-12-01T23:59:59.000Z"
@@ -115,14 +115,9 @@ fields:
           <li> Must be a unique identifier. </li>
           <li> Must not contain the `id` or `assigner` fields. </li>
           <li> If set, `use` must have a value of 'official'. </li>
-          <li> If set, `type` must meet the following conditions:
-            <ul>
-              <li> Must contain exactly one `coding` field. </li>
-              <li> Must be a valid CodeableConcept. </li>
-            </ul>
-          </li>
+          <li> If set, `type` must contain exactly one `coding` field. </li>
           <li> Must contain the `system` and `value` fields. </li>
-          <li> When specifying a `period`, must include a timecomponent with a timezone. </li>
+          <li> When specifying a `period`, must include a time component with a timezone. </li>
         </ul>
       </li>
     </ul>
