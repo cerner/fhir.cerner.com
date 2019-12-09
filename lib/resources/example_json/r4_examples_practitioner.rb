@@ -166,5 +166,46 @@ module Cerner
       ]
     }
 
+    R4_PRACTITIONER_CREATE ||= {
+      "resourceType": "Practitioner",
+      "active": true,
+      "name": [
+        {
+          "family": "Williams",
+          "given": [
+            "Rory",
+            "James"
+          ],
+          "prefix": [
+            "Dr."
+          ],
+          "suffix": [
+            "M.D."
+          ],
+          "period": {
+          	"start": "2019-12-01T00:00:00.000Z"
+          }
+        }
+      ],
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "DEA",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "period": {
+            "start": "2019-12-01T00:00:00.000Z",
+            "end": "2029-12-01T23:59:59.000Z"
+          }
+        }
+      ]
+    }
+
   end
 end

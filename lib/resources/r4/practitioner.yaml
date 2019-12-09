@@ -6,7 +6,8 @@ fields:
   required: 'No'
   cardinality: 0..*
   type: Identifier
-  description: The identifier for the practitioner.
+  description: The identifier(s) for the practitioner.
+  action: terminology
   children:
 
   - name: type
@@ -15,6 +16,7 @@ fields:
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    action: terminology
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
@@ -24,3 +26,117 @@ fields:
       - display: v2 Identifier Type
         system: http://terminology.hl7.org/CodeSystem/v2-0203
         info_link: https://hl7.org/fhir/r4/v2/0203/index.html
+
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Practitioner"
+    }
+  note: resourceType must be Practitioner.
+  url: http://hl7.org/fhir/R4/json.html#resources
+
+- name: name
+  required: 'Yes'
+  cardinality: 1..1
+  type: HumanName
+  description: The name associated with the practitioner.
+  action: create
+  example: |
+    {
+      "name": [
+        {
+          "family": "Williams",
+          "given": [
+            "Rory", "James McAfee"
+          ],
+          "prefix": [
+            "Dr."
+          ],
+          "suffix": [
+            "M.D."
+          ],
+          "period": {
+            "start": "2019-12-01T00:00:00.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+        <ul>
+          <li> Must include both `given` and `family`. </li>
+          <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+          <li> Only one `prefix` and one `suffix` may be provided. </li>
+          <li> Cannot contain the `text` field. </li>
+          <li> Must not have an `end` date on `period`. </li>
+          <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+        </ul>
+      </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.name
+
+- name: identifier
+  required: 'No'
+  cardinality: 0..*
+  type: Identifier
+  description: The identifier(s) for the practitioner.
+  action: create
+  example: |
+    {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "DEA",
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+          "period": {
+            "start": "2019-12-01T00:00:00.000Z",
+            "end": "2029-12-01T23:59:59.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> If provided, each identifier <b>must</b> meet the following conditions:
+        <ul>
+          <li> Must be a unique identifier. </li>
+          <li> Must not contain the `id` or `assigner` fields. </li>
+          <li> If set, `use` must have a value of 'official'. </li>
+          <li> If set, `type` must meet the following conditions:
+            <ul>
+              <li> Must contain exactly one `coding` field. </li>
+              <li> Must be a valid CodeableConcept. </li>
+            </ul>
+          </li>
+          <li> Must contain the `system` and `value` fields. </li>
+          <li> When specifying a `period`, must include a timecomponent with a timezone. </li>
+        </ul>
+      </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.identifier
+
+- name: active
+  required: 'No'
+  cardinality: 0..1
+  type: boolean
+  description: Whether this practitioner record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, value must be true.
+  url: http://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.active
