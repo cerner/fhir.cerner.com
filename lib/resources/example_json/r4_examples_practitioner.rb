@@ -173,8 +173,7 @@ module Cerner
         {
           "family": "Williams",
           "given": [
-            "Rory",
-            "James"
+            "Rory", "James"
           ],
           "prefix": [
             "Dr."

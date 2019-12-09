@@ -68,14 +68,14 @@ fields:
     }
   note: |
     <ul>
-      <li> Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+      <li>Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
         <ul>
-          <li> Must include both `given` and `family`. </li>
-          <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
-          <li> Only one `prefix` and one `suffix` may be provided. </li>
-          <li> Cannot contain the `text` field. </li>
-          <li> Must not have an `end` date on `period`. </li>
-          <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+          <li>Must include both `given` and `family`.</li>
+          <li>Up to two values may be present in the `given` names array. If more than two given names are required, the second value in the array accepts whitespace-delimited strings.</li>
+          <li>Only one `prefix` and one `suffix` may be provided.</li>
+          <li>Cannot contain the `text` field.</li>
+          <li>Must not have an `end` date on `period`.</li>
+          <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         </ul>
       </li>
     </ul>
@@ -110,14 +110,14 @@ fields:
     }
   note: |
     <ul>
-      <li> If provided, each identifier <b>must</b> meet the following conditions:
+      <li>If provided, each identifier <b>must</b> meet the following conditions:
         <ul>
-          <li> Must be a unique identifier. </li>
-          <li> Must not contain the `id` or `assigner` fields. </li>
-          <li> If set, `use` must have a value of 'official'. </li>
-          <li> If set, `type` must contain exactly one `coding` field. </li>
-          <li> Must contain the `system` and `value` fields. </li>
-          <li> When specifying a `period`, must include a time component with a timezone. </li>
+          <li>Must be a unique identifier.</li>
+          <li>Must not contain the `id` or `assigner` fields.</li>
+          <li>If set, `use` must have a value of 'official'.</li>
+          <li>If set, `type` must contain exactly one `coding` field.</li>
+          <li>Must contain the `system` and `value` fields.</li>
+          <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         </ul>
       </li>
     </ul>

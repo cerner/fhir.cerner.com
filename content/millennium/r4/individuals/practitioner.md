@@ -115,7 +115,7 @@ Create an individual Practitioner.
 
 #### Body
 
-  <%= json(:r4_practitioner_create) %>
+<%= json(:r4_practitioner_create) %>
 
 #### Response
 
