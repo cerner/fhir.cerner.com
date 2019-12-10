@@ -10,7 +10,7 @@ We've added attributes at the top of some md files to assign a layout. These are
 ### Versions and Solutions
 There are preprocessing rules that use folder matching to add version and solution attributes to all md files for the API. The only thing you need to do to make this work is put resource documentation in /\[solution]/\[version]/ folder path.
 
-This version and solution attributes are currently used to flex the class, links, and navigation for the API documentation.
+The version and solution attributes are currently used to flex the class, links, and navigation for the API documentation.
 
 ### Generating a field table
 
@@ -32,7 +32,7 @@ Whereas other versions of AllergyIntolerance Update can be generated (assuming a
 
     <%= definition_table(:allergy_intolerance, :update, :stu3) %>
 
-In actuality, the `version` parameter is reference a subfolder in `lib/resources` where the content files for that version are stored. Thus `definition_table(:document_reference, :create, :dstu2)` is referencing `lib/resources/dstu2/document_reference.yaml`. Adding new versions or new content files is simply a matter of creating an appropriately named folder and content file.
+In actuality, the `version` parameter references a subfolder in `lib/resources` where the content files for that version are stored. Thus `definition_table(:document_reference, :create, :dstu2)` is referencing `lib/resources/dstu2/document_reference.yaml`. Adding new versions or new content files is simply a matter of creating an appropriately named folder and content file.
 
 `definition_table` reads these fields from the resource's content yaml definition:
 - name
@@ -79,20 +79,20 @@ The `version` parameter processing is handled the same as `definition_table`.
 
 ##### Content YAML
 
-The content is defined in YAML files and most fields are optional. If they are not provided the resulting table cell will just be empty.
+The content is defined in YAML files and most fields are optional. If they are not provided, the resulting table cell will just be empty.
 
 - field_name_base_url: `definition_table` will generate nested links for each field prepended with this url
 - fields: The list of defined fields
-    - name: The name of the field. This will be generated as a link based of `field_name_base_url`
+    - name: The name of the field. This will be generated as a link based on `field_name_base_url`
     - required: Whether or not the field is required. This is not necessarily whether the field is required by the FHIR<sup>®</sup> standard, but rather whether it is required by our server implementation.
     - cardinality: The is the defined cardinality for the field
-    - type: The type of the field. If found in `lib/resources/<version>/types.yaml` this field will be linked to the specified resource.
+    - type: The type of the field. If found in `lib/resources/<version>/types.yaml`, this field will be linked to the specified resource.
     - description: The description of the field.
     - example: An example of how the field should be populated. The generated examples will be enclosed in &lt;pre&gt; tags to preserve formatting.
     - note: Additional implementation notes.
     - children: A list of nested fields. Each nested field item has the same structure as this `fields` list.
     - url: Overrides the `field_name_base_url` generated URL if defined.
-    - binding: A list terminology bindings supported for the field.
+    - binding: A list of terminology bindings supported for the field.
       - description: Describes the purpose / intent of the binding.
       - terminology: The list of terminologies supported by the field
         - display: The terminology's display value.
@@ -119,22 +119,22 @@ In addition to the fields above, each field can have an `action` field which ind
       - update
 
 Similarly field values can be flexed per action as well
- 
-    Alter the required and note values for update and create
-    - name: id
-      required:
-      - update: 'Yes'
-      - create: 'No'
-      cardinality: 0..1
-      type: id
-      description: The logical id of the resource to update.
-      example: |
-        {
-          "id": "123412"
-        }
-      note:
-      - update: The id value must match the AllergyIntolerance/&lt;id> value.
-      - create: The id field <b>must not</b> be set when performing an update operation.
+
+  <pre>Alter the required and note values for update and create
+  - name: id
+    required:
+    - update: 'Yes'
+    - create: 'No'
+    cardinality: 0..1
+    type: id
+    description: The logical id of the resource to update.
+    example: |
+      {
+        "id": "123412"
+      }
+    note:
+    - update: The id value must match the AllergyIntolerance/&lt;id&gt; value.
+    - create: The id field <b>must not</b> be set when performing an update operation.</pre>
 
 The name of the action isn't limited to create and update, but only one action can be used at a time when generating a field table.
 
@@ -154,4 +154,4 @@ The Type table cell will generate links based on URLs key-value pairs defined in
 
 The `description` and `note` fields also support linking via the use of \`\` and `[]` tags. Words enclosed in \`\` tags will be linked according to the `types.yaml` file, if possible, or just formatted as `<code>` tags if not. Words enclosed in `[]` will be assumed to be references to other fields in the same table.
 
-In generally it is best to not use \`\` tags in the `type` field, although it is possible. There can be conflicts which may result in duplicate replacements and unintended results.
+In general, it is best to not use \`\` tags in the `type` field, although it is possible. There can be conflicts which may result in duplicate replacements and unintended results.

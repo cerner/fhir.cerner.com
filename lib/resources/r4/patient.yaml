@@ -162,7 +162,7 @@ fields:
         <ul>
           <li> Must not contain the `assigner` and `use` fields. </li>
           <li> Must contain the `type`, `system`, and `value` fields. </li>
-          <li> When specifying a `period`, must include a timecomponent with a timezone. </li>
+          <li> When specifying a `period`, must include a time component with a timezone. </li>
         </ul>
       </li>
     </ul>
