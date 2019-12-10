@@ -44,7 +44,7 @@ Search for Practitioners that meet supplied query parameters:
 
  Notes:
 
-* When provided, the `identifier` query parameter must include both a system and a code. Example: `identifier=http://hl7.org/fhir/sid/us-npi|4326587548`
+* When provided, the `identifier` query parameter must include both a system and a code.
 
 ### Headers
 
