@@ -40,7 +40,7 @@ Search for Practitioners that meet supplied query parameters:
  Name        | Required?          | Type      | Description
 -------------|--------------------|-----------|-------------------------------------------------------
  `_id`       | This or identifier | [`token`] | The logical resource id associated with the resource.
- `identifier`| This or _id        | [`token`] | A practitioner identifier/alias.Example identifier=<http://hl7.org/fhir/sid/us-npi>&#124;4326587548
+ `identifier`| This or _id        | [`token`] | A practitioner identifier/alias. Example <http://hl7.org/fhir/sid/us-npi>&#124;4326587548
 
  Notes:
 
