@@ -96,6 +96,15 @@
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -119,6 +128,8 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
+      
+      
       
       
       
@@ -177,6 +188,7 @@
       </td>
     </tr>
     
+      
   </tbody>
 </table>
 
@@ -207,12 +219,27 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Yes</td>
+      <td>This or <code>identifier</code>
+</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>This or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>A practitioner identifier/alias. Example: <code>http://hl7.org/fhir/sid/us-npi|4326587548</code>
+</td>
+    </tr>
   </tbody>
 </table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>When provided, the <code>identifier</code> query parameter must include both a system and a code.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -429,6 +456,320 @@
 }</code></pre>
 
 <h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create an individual Practitioner.</p>
+
+<pre><code>POST /Practitioner
+</code></pre>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Cardinality</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Practitioner"
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Practitioner.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-name">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.name"><code>name</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>1..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#HumanName"><code>HumanName</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The name associated with the practitioner.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "name": [
+    {
+      "family": "Williams",
+      "given": [
+        "Rory", "James McAfee"
+      ],
+      "prefix": [
+        "Dr."
+      ],
+      "suffix": [
+        "M.D."
+      ],
+      "period": {
+        "start": "2019-12-01T00:00:00.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+    <ul>
+      <li>Must include both <code>given</code> and <code>family</code>.</li>
+      <li>Up to two values may be present in the <code>given</code> names array. If more than two given names are required, the second value in the array accepts whitespace-delimited strings.</li>
+      <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
+      <li>Cannot contain the <code>text</code> field.</li>
+      <li>Must not have an <code>end</code> date on <code>period</code>.</li>
+      <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+    </ul>
+  </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-identifier">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..* </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The identifier(s) for the practitioner.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "DEA",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "system": "urn:oid:2.16.840.1.113883.4.814",
+      "value": "CW1234563",
+      "period": {
+        "start": "2019-12-01T00:00:00.000Z",
+        "end": "2029-12-01T23:59:59.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>If provided, each identifier <b>must</b> meet the following conditions:
+    <ul>
+      <li>Must be a unique identifier.</li>
+      <li>Must not contain the <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#id"><code>id</code></a> or <code>assigner</code> fields.</li>
+      <li>If set, <code>use</code> must have a value of 'official'.</li>
+      <li>If set, <code>type</code> must contain exactly one <code>coding</code> field.</li>
+      <li>Must contain the <code>system</code> and <code>value</code> fields.</li>
+      <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+    </ul>
+  </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-active">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.active"><code>active</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#boolean"><code>boolean</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether this practitioner record is in active use.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "active": true
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If set, value must be true.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Practitioner",
+  "active": true,
+  "name": [
+    {
+      "family": "Williams",
+      "given": [
+        "Rory",
+        "James"
+      ],
+      "prefix": [
+        "Dr."
+      ],
+      "suffix": [
+        "M.D."
+      ],
+      "period": {
+        "start": "2019-12-01T00:00:00.000Z"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "DEA",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "system": "urn:oid:2.16.840.1.113883.4.814",
+      "value": "CW1234563",
+      "period": {
+        "start": "2019-12-01T00:00:00.000Z",
+        "end": "2029-12-01T23:59:59.000Z"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 09 Dec 2019 18:57:39 GMT
+Etag: W/"0"
+Last-Modified: Mon, 09 Dec 2019 18:57:39 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/7118008
+Server-Response-Time: 724.624
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
+X-Runtime: 0.724450
+</pre>
+
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
