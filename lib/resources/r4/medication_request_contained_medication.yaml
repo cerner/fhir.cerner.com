@@ -1,0 +1,29 @@
+---
+name: Medication
+field_name_base_url: http://hl7.org/fhir/R4/medication-definitions.html#Medication
+fields:
+- name: code
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: A code that defines the medication
+  binding:
+    description: A code that defines the medication
+    terminology:
+    - display: Request Priority
+      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+- name: form
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Describes the form of the item.
+  binding:
+    description: Describes the form of the item.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: Millennium Drug Form
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4002
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4002-form

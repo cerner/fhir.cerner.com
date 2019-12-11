@@ -115,7 +115,7 @@ The Patient Resource supports proprietary codes for:
 The RelatedPerson Resource supports proprietary codes for:
 
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
-* RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types) 
+* RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
 
 ### Medications
 
@@ -129,6 +129,24 @@ The Immunization Resource supports proprietary codes for:
 * Immunization.reportOrigin codes are maintained in [Code Set 30200 Result Source](#code-set-30200-result-source)
 * Immunization.site codes are maintained in [Code Set 97 Medication Administration Site](#code-set-97-medication-administration-site)
 * Immunization.route codes are maintained in [Code Set 4001 Medication Administration Route](#code-set-4001-medication-administration-route)
+
+<!-- use html header to avoid showing up in toc -->
+<h4>MedicationRequest</h4>
+
+The MedicationRequest Resource supports proprietary codes for:
+
+* MedicationRequest.statusReason codes are maintained in [Code Set 1309 Cancel Reasons](#code-set-1309-cancel-reasons) and [Code Set 4001970 Void Order Reasons](#code-set-4001970-void-order-reasons)
+* MedicationRequest.courseOfTherapyType codes are maintained in [Code Set 4009 Order Stop Types](#code-set-4009-order-stop-types)
+* MedicationRequest.dosageInstruction.timing.code codes are maintained in [Code Set 4003 Frequency](#code-set-4003-frequency)
+* MedicationRequest.dosageInstruction.asNeededCodeableConcept codes are maintained in [Code Set 4005 Reason for Medication](#code-set-4005-reason-for-medication)
+* MedicationRequest.dosageInstruction.site codes are maintained in [Code Set 1028 Body Site](#code-set-1028-body-site)
+* MedicationRequest.dosageInstruction.route codes are maintained in [Code Set 4001 Medication Administration Route](#code-set-4001-medication-administration-route)
+
+<h4>Medication</h4>
+
+The contained Medication Resource supports proprietary codes for:
+
+* Medication.form codes are maintained in [Code Set 4002 Form](#code-set-4002-form)
 
 ### Scheduling
 
@@ -245,7 +263,7 @@ This code set may include Marital Statuses such as Divorced and Married.
 ##### Code Set 40 Person Relationships
 
 This code set is used to describe the patient's relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.
-     
+
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
       "code": "153",
@@ -280,24 +298,24 @@ This code set is client definable for different patient types such an Outpatient
 
 This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.
 
-    { 
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/72", 
-      "code": "2799031", 
-      "display": "Lyme disease vaccine", 
-      "userSelected": true 
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/72",
+      "code": "2799031",
+      "display": "Lyme disease vaccine",
+      "userSelected": true
     }
 
 ##### Code Set 97 Medication Administration Site
 
 This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.
 
-    { 
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/97", 
-      "code": "603", 
-      "display": "Right arm", 
-      "userSelected": true 
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/97",
+      "code": "603",
+      "display": "Right arm",
+      "userSelected": true
     }
-    
+
 ##### Code Set 278 Organization Type
 
 This code set maintains the classification of Organizations, such as GOVT or INSURANCE.
@@ -330,7 +348,7 @@ This code set maintains the various personnel positions in the facility such as 
       "display": "Attending Physician",
       "userSelected": true
     }
-    
+
 ##### Code Set 334 Organization Alias Type
 
 This code set maintains the identifying values for an Organization, such as NPI, OID, and FederalTAXID.
@@ -357,32 +375,98 @@ This code set includes Relationship Types such as Guardian and Emergency Contact
 
 This code set contains the specific types of relationships you can establish between personnel and a procedure.
 
-    { 
+    {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/388",
-      "code": "1209", 
-      "display": "Surgeon", 
-      "userSelected": true 
+      "code": "1209",
+      "display": "Surgeon",
+      "userSelected": true
+    }
+
+##### Code Set 1028 Body Site
+
+This code set contains body sites such as Chest, Back or Eye.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/1028",
+      "code": "309163",
+      "display": "Chest",
+      "userSelected": true
+    }
+
+##### Code Set 1309 Cancel Reasons
+
+This code set contains the various reasons why an order was cancelled/discontinued.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/1309",
+      "code": "633908",
+      "display": "Duplicate Order",
+      "userSelected": true
     }
 
 ##### Code Set 4001 Medication Administration Route
 
 This code set maintains medication administration routes such as ID or IM.
 
-    { 
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4001", 
-      "code": "318167", 
-      "display": "IM", 
-      "userSelected": true 
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4001",
+      "code": "318167",
+      "display": "IM",
+      "userSelected": true
+    }
+
+##### Code Set 4002 Form
+
+This code set contains medication forms such as Aerosol, Gel or Tab.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4002",
+      "code": "318231",
+      "display": "Tab",
+      "userSelected": true
+    }
+
+##### Code Set 4003 Frequency
+
+This code set contains an orders frequency such as BID, Daily or q2hr.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4003",
+      "code": "696528",
+      "display": "BID",
+      "userSelected": true
+    }
+
+##### Code Set 4005 Reason for Medication
+
+This code set contains reasons a medication is needed such as Nausea, Anxiety or Pain.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4005",
+      "code": "614498",
+      "display": "pain",
+      "userSelected": true
+    }
+
+##### Code Set 4009 Order Stop Types
+
+This code set contains the stop type of an order such as Physician Stop, Hard Stop or Soft Stop.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4009",
+      "code": "2336",
+      "display": "Hard Stop",
+      "userSelected": true
     }
 
 ##### Code Set 12022 Severity
 
-This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history. 
+This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.
 
-    { 
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022", 
-      "code": "3294", 
-      "display": "Moderate", 
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022",
+      "code": "3294",
+      "display": "Moderate",
     }
 
 ##### Code Set 14249 Scheduling Appointment Type Synonyms
@@ -451,26 +535,37 @@ This code set includes bill alias types such as billalias, invalias, and stmtali
     }
 
 #####  Code Set 30200 Result Source
-      
+
 This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.
 
-    { 
-       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30200", 
-       "code": "679976", 
-       "display": "Mother", 
-       "userSelected": true 
+    {
+       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30200",
+       "code": "679976",
+       "display": "Mother",
+       "userSelected": true
     }
 
 ##### Code Set 30440 Expire Reasons
 
 This code set describes why an immunization was not administered when documented through the Health Maintenance model.
 
-    { 
-      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30440", 
-      "code": "688466", 
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30440",
+      "code": "688466",
       "display": "Postpone due to refusal",
       "userSelected": true
-    } 
+    }
+
+#### Code Set 4001970 Void Order Reasons
+
+This code set contains the various reasons why an order was voided.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4001970,
+      "code": "1840873161",
+      "display": "Ordered on wrong encounter",
+      "userSelected": true
+    }
 
 #### Code Set 4002640 Correspondence Status
 
@@ -498,6 +593,14 @@ The Account Resource supports proprietary systems for:
 
 * Account.identifier.system is [Account Number](#account-number) for financial accounts.
 
+### Medications
+
+<h4>MedicationRequest</h4>
+
+The MedicationRequest Resource supports proprietary systems for:
+
+* MedicationRequest.category is [Account Number](#account-number) for financial accounts.
+
 ### List of Systems
 
 ##### Account Number
@@ -508,4 +611,15 @@ This system is the account number of a financial account.
       "use": "usual",
       "system": "https://fhir.cerner.com/accountnumber",
       "value": "5646"
+    }
+
+##### Medication Request Category
+
+This system is the category and is only for a pharmacy charge-only order. The code system currently only
+contains the `charged-only` code. The code system may be expanded at a future date.
+
+    {
+      "system": "https://fhir.cerner.com/accountnumber",
+      "code": "charge-only",
+      "display": "Charge-Only"
     }
