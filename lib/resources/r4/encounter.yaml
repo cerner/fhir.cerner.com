@@ -169,6 +169,7 @@ fields:
     - display: Millennium Encounter Visit Type
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-71-visit-type
+    note: Encounters with meta.security 'UNCERTREL' will be returned with an external encounter type.
 
 - name: serviceType
   action: read
@@ -544,3 +545,47 @@ fields:
       {
         "reference": "Location/35646787"
       }
+
+- name: meta
+  required: 'No'
+  cardinality: 0..*
+  type: Meta
+  description: The metadata of the encounter that provides technical and workflow context to the resource.
+  action: create
+  example: |
+    {
+      "meta": [
+        {
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+              "code": "UNCERTREL"
+            }
+          ]
+        }
+      ]
+    }
+  url: http://hl7.org/fhir/resource-definitions.html#Resource.meta
+  children:
+
+    - name: security
+      required: 'No'
+      cardinality: 0..*
+      type: Coding
+      description: Security Labels applied to this resource.
+      example: |
+        {
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+              "code": "UNCERTREL"
+            }
+          ]
+        }
+      binding:
+        description: Security Labels applied to this resource.
+        terminology:
+          - display: Observation Values
+            system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
+            info_link: http://hl7.org/fhir/r4/v3/ObservationValue/cs.html
+        note: Encounters with meta.security 'UNCERTREL' will be returned with an external encounter type.
