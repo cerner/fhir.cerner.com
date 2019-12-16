@@ -9,16 +9,9 @@ title: MedicationRequest | R4 API
 
 ## Overview
 
-The MedicationRequest resource provides orders for all medications along with administration instructions for a
-patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge
-medication orders). This resource also includes a patient's historical or documented home medications reported
-by the patient, significant other or another provider.   
+The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.   
 
-If the MedicationRequest represents a prescription (something the patient takes at home),
-the start, stop, and other data may not be a representation of when the medication was taken.
-For example, the system may not know if the patient ever filled or took the prescribed medication,
-or when the prescription was filled. Documented historical/past/home medications are commonly captured
-when taking the patient’s medical history.
+If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.
 
 The following fields are returned if valued:
 
@@ -46,7 +39,7 @@ The following fields are returned if valued:
    * [Body Site](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site ){:target="_blank"}
    * [Route](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route){:target="_blank"}
    * [Dose and Rate](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate){:target="_blank"}
-[Dispensing Details](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest){:target="_blank"}
+* [Dispensing Details](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest){:target="_blank"}
     * [Validity Period](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod ){:target="_blank"}
     * [Number of Refills](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed){:target="_blank"}
     * [Dispense Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity){:target="_blank"}
@@ -77,14 +70,14 @@ Search for MedicationRequests that meet supplied query parameters:
 
  Name      | Required?          | Type          | Description
 -----------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id`     | [`reference`] | The specific patient to return MedicationRequests for. Example: `12345`
  `status`                 | N                  | [`token`]     | The status of the medication, may be a list separated by commas. Example: `active,completed`
- `-timing-boundsPeriod`   | N                  | [`token`]     | The date-time which should fall within the dosageInstruction.timing.repeat.boundsPeriod the medication should be given to the patient. Must be prefixed by ‘ge’. Example: `ge2014-05-19T20:54:02.000Z`
- `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
+ `-timing-boundsPeriod`   | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z`
+ `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
- * The `_lastUpdated` and `-timing-boundsPeriod` parameter may be provided:
+ * The `_lastUpdated` parameter may be provided:
      * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
      * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
