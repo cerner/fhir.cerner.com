@@ -1,0 +1,27 @@
+---
+name: DocumentReference
+field_name_base_url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference
+fields:
+- name: type
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Precise type of clinical document
+  binding:
+    description: Precise type of clinical document
+    terminology:
+    - display: US Core DocumentReference Type
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+
+- name: category
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: A categorization for the type of document referenced.
+  binding:
+    description: A categorization for the type of document referenced.
+    terminology:
+    - display: US Core DocumentReference Category
+      system: http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category
+      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-category
