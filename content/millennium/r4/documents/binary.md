@@ -11,9 +11,9 @@ title: Binary | R4 API
 
 The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to clinical documents and diagnostic reports.  The diagnostic reports are currently limited to Anatomic Pathology and Radiology.
 
-It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource. 
+It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource.
 
-The consumer must populate the Accept header with either application/fhir+json or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/fhir+json, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information, see [the Binary Documentation](http://hl7.org/fhir/r4/binary.html#rest).
+The consumer must populate the Accept header with either application/fhir+json or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/fhir+json, a FHIR Binary resource is returned with the raw data populated in the data. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information, see [the Binary Documentation](http://hl7.org/fhir/r4/binary.html#rest).
 
 NOTE: To retrieve documents with application/pdf contentType, the client must have installed Cerner’s Clinical Reporting (XR) solution. For additional information about Cerner’s Clinical Reporting (XR) solution see [Clinical Reporting (XR) Reference Pages](https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages).
 
@@ -21,7 +21,7 @@ The following fields are returned if valued:
 
 * [Binary id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Content type](http://hl7.org/fhir/r4/binary-definitions.html#Binary.contentType){:target="_blank"}
-* [Content](http://hl7.org/fhir/r4/binary-definitions.html#Binary.content){:target="_blank"}
+* [Content](http://hl7.org/fhir/r4/binary-definitions.html#Binary.data){:target="_blank"}
 
 ## Retrieve by id
 
@@ -40,3 +40,26 @@ _Implementation Notes_
 
   The Binary.read scope and either the DocumentReference.read or DiagnosticReport.read scopes are required.
   Practitioner | System
+
+### Headers
+
+<%= headers fhir_json: true %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-72758928
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_entry) %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+[`token`]: http://hl7.org/fhir/r4/search.html#token
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
