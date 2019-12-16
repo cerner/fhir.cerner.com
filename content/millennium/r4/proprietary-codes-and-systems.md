@@ -599,7 +599,7 @@ The Account Resource supports proprietary systems for:
 
 The MedicationRequest Resource supports proprietary systems for:
 
-* MedicationRequest.category is [Account Number](#account-number) for financial accounts.
+* MedicationRequest.category is [Medication Request Category](#medication-request-category) for medication orders.
 
 ### List of Systems
 
@@ -615,11 +615,10 @@ This system is the account number of a financial account.
 
 ##### Medication Request Category
 
-This system is the category and is only for a pharmacy charge-only order. The code system currently only
-contains the `charged-only` code. The code system may be expanded at a future date.
+This system is the category and is only for a pharmacy charge-only order. The code system currently only contains the `charge-only` code. The code system may be expanded at a future date.
 
     {
-      "system": "https://fhir.cerner.com/accountnumber",
+      "system": "https://fhir.cerner.com/medicationrequest-category",
       "code": "charge-only",
       "display": "Charge-Only"
     }

@@ -122,7 +122,7 @@ module Cerner
             "authoredOn": "2016-06-24T10:38:59.000-05:00",
             "requester": {
                 "reference": "Practitioner/1852008",
-                "display": "Hong, Jennifer"
+                "display": "Knope, Leslie"
             },
             "dosageInstruction": [
                 {
@@ -316,7 +316,7 @@ module Cerner
                   "authoredOn": "2016-06-24T10:38:59.000-05:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -423,7 +423,7 @@ module Cerner
                   "authoredOn": "2016-08-02T11:15:47.000-05:00",
                   "requester": {
                       "reference": "Practitioner/2050040",
-                      "display": "Philips, Max"
+                      "display": "Macklin, Burt"
                   },
                   "dosageInstruction": [
                       {
@@ -494,7 +494,7 @@ module Cerner
                   "authoredOn": "2016-08-02T11:16:30.000-05:00",
                   "requester": {
                       "reference": "Practitioner/2050040",
-                      "display": "Philips, Max"
+                      "display": "Macklin, Burt"
                   },
                   "dosageInstruction": [
                       {
@@ -565,7 +565,7 @@ module Cerner
                   "authoredOn": "2016-10-14T19:05:20.000-04:00",
                   "requester": {
                       "reference": "Practitioner/8540292",
-                      "display": "Joy, K"
+                      "display": "Perkins, Ann"
                   },
                   "dosageInstruction": [
                       {
@@ -636,7 +636,7 @@ module Cerner
                   "authoredOn": "2016-10-14T19:15:23.000-04:00",
                   "requester": {
                       "reference": "Practitioner/8540292",
-                      "display": "Joy, K"
+                      "display": "Perkins, Ann"
                   },
                   "dosageInstruction": [
                       {
@@ -707,7 +707,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:40:53.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1824023",
-                      "display": "Sura, Zameer"
+                      "display": "Callamezzo, Joan"
                   },
                   "dosageInstruction": [
                       {
@@ -778,7 +778,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:42:16.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1824023",
-                      "display": "Sura, Zameer"
+                      "display": "Callamezzo, Joan"
                   },
                   "dosageInstruction": [
                       {
@@ -849,7 +849,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:44:37.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1824023",
-                      "display": "Sura, Zameer"
+                      "display": "Callamezzo, Joan"
                   },
                   "dosageInstruction": [
                       {
@@ -920,7 +920,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:45:24.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -991,7 +991,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:51:17.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -1062,7 +1062,7 @@ module Cerner
                   "authoredOn": "2016-10-18T11:52:26.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -1133,7 +1133,7 @@ module Cerner
                   "authoredOn": "2016-10-18T12:30:45.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1824023",
-                      "display": "Sura, Zameer"
+                      "display": "Callamezzo, Joan"
                   },
                   "dosageInstruction": [
                       {
@@ -1204,7 +1204,7 @@ module Cerner
                   "authoredOn": "2016-10-27T19:34:12.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -1275,7 +1275,7 @@ module Cerner
                   "authoredOn": "2016-10-27T19:34:51.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1852008",
-                      "display": "Hong, Jennifer"
+                      "display": "Knope, Leslie"
                   },
                   "dosageInstruction": [
                       {
@@ -1346,7 +1346,7 @@ module Cerner
                   "authoredOn": "2016-10-27T19:37:50.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1900016",
-                      "display": "Generated Domain User for 0"
+                      "display": "Wyatt, Ben"
                   },
                   "dosageInstruction": [
                       {
@@ -1417,7 +1417,7 @@ module Cerner
                   "authoredOn": "2016-10-27T19:42:35.000-04:00",
                   "requester": {
                       "reference": "Practitioner/1900016",
-                      "display": "Generated Domain User for 0"
+                      "display": "Wyatt, Ben"
                   },
                   "dosageInstruction": [
                       {
