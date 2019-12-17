@@ -9,7 +9,7 @@ title: DocumentReference | R4 API
 
 ## Overview
 
-The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports returning a list of clinical documents, and a reference to retrieve a document as a pdf.
+The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports returning a list of clinical documents, and a reference to retrieve a document as a PDF.
 
 The following fields are returned if valued:
 
@@ -22,7 +22,11 @@ The following fields are returned if valued:
 * [Author](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
 * [Authenticator/verifying provider](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Document description/title]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
-* [Attachment ContentType, Created date/time, Title, and URL (fully qualified link to the document)](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [Document Attachment](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+    * [Attachment ContentType](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+    * [Created date/time](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
+    * [Title](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
+    * [URL (fully qualified link to the document)](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
 * [Patient encounter]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 * [Document period]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
 
@@ -44,16 +48,18 @@ Search for DocumentReferences that meet supplied query parameters:
 
  Name                     | Required?          | Type          | Description
 --------------------------|--------------------|---------------|----------------------------------------------------------------------------------------------------
- `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id`     | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
  `encounter`              | N                  | [`reference`] | The Encounter in which the document was created. May be a list separated by commas. Example: `123,456`
- `period`                 | N                  | [`date`]      | Time of service that is being documented. Must use the ge and lt prefixes. Example: `lt2017-01-5`
- `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`.
+ `period`                 | N                  | [`date`]      | Time of service that is being documented. Must use the `ge` and `lt` prefixes. Example: `lt2017-01-5`
+ `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
-- The searching with the `period` parameter:
-  - It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-  - If one `period` parameter includes a time, both must include a time.
+_Implementation Notes_
+
+* The searching with the `period` parameter:
+    * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
+    * If one `period` parameter includes a time, both must include a time.
 
 ### Headers
 

@@ -44,14 +44,14 @@ Example outbound CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
-## Documents
+### Documents
 
 <!-- use html header to avoid showing up in toc -->
 <h3>DocumentReference</h3>
 
 The DocumentReference Resource supports proprietary codes for:
 
-* DocumentReference.type codes are maintained in [Code Set 72 Event Code](#code-set-72-event-code)
+* DocumentReference.type codes are maintained in [Code Set 72 Event Codes](#code-set-72-event-code)
 
 ### Encounters
 
