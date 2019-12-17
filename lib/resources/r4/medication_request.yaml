@@ -1,0 +1,147 @@
+---
+name: MedicationRequest
+field_name_base_url: http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest
+fields:
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: The current state of the medication request.
+  binding:
+    description: The current state of the medication request.
+    terminology:
+    - display: MedicationRequest Status
+      system: http://hl7.org/fhir/CodeSystem/medicationrequest-status
+      info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status.html
+- name: statusReason
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Reason for the current status
+  binding:
+    description: Reason for the current status
+    terminology:
+    - display: MedicationRequest Status Reason Codes
+      system: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
+      info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status-reason.html
+    - display: Millennium Cancel Reasons
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1309
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1309-cancel-reasons
+    - display: Millennium Void Order Reason
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001970
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001970-void-order-reasons
+- name: category
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Type of Medication Request
+  binding:
+    description: Type of Medication Request
+    terminology:
+    - display: Medication Request Category Codes
+      system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+      info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-category.html
+    - display: Medication Usage Category Codes
+      system: http://terminology.hl7.org/CodeSystem/medication-statement-category
+      info_link: https://hl7.org/fhir/r4/valueset-medication-statement-category.html
+    - display: Cerner Medication Request Category for Pharmacy Charge-only orders
+      system: https://fhir.cerner.com/medicationrequest-category
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-category
+- name: priority
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: Medication Request Priority
+  binding:
+    description: Medication Request Priority
+    terminology:
+    - display: Request Priority
+      system: http://hl7.org/fhir/request-priority
+      info_link: https://hl7.org/fhir/r4/valueset-request-priority.html
+- name: medication[x]
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: A code that defines the medication
+  binding:
+    description: A code that defines the medication
+    terminology:
+    - display: Request Priority
+      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+- name: reasonCode
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Reason why medication is/was taken
+  binding:
+    description: Reason why medication is/was taken
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: ICD-9
+      system: http://hl7.org/fhir/sid/icd-9
+      info_link: http://hl7.org/fhir/sid/icd-9
+    - display: ICD-10
+      system: http://hl7.org/fhir/sid/icd-10
+      info_link: http://hl7.org/fhir/sid/icd-10
+- name: dosageInstruction.timing.code
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Code for a known/defined timing pattern
+  binding:
+    description: Code for a known/defined timing pattern
+    terminology:
+    - display: TimingAbbreviation
+      system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
+      info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: Millennium Frequency
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency
+- name: dosageInstruction.asNeededCodeableConcept
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+  binding:
+    description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: Millennium Reason for Medication
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4005
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication
+- name: dosageInstruction.site
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: The anatomic site where the medication first enters the body.
+  binding:
+    description: The anatomic site where the medication first enters the body.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: Millennium Bodysite
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1028
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site
+- name: dosageInstruction.route
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+  binding:
+    description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://snomed.info/sct
+    - display: Millennium Routes
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route
