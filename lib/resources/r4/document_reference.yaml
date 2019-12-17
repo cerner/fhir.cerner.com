@@ -13,6 +13,9 @@ fields:
     - display: US Core DocumentReference Type
       system: http://loinc.org
       info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+    - display: Millennium Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
 
 - name: category
   required: 'No'
