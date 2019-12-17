@@ -14,21 +14,21 @@ The DocumentReference resource is used to reference a clinical document for a pa
 The following fields are returned if valued:
 
 * [DocumentReference id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
-* [Document status](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
-* [Document type](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
-* [Document category](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.category){:target="_blank"}
-* [Subject (Patient)](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
-* [Author](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
-* [Authenticator/verifying provider](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
-* [Document description/title]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
-* [Document Attachment](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
-    * [Attachment ContentType](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
-    * [Created date/time](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
-    * [Title](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
-    * [URL (fully qualified link to the document)](http://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
-* [Patient encounter]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
-* [Document period]( http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
+* [Status]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Document status](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
+* [Document type](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
+* [Document category](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.category){:target="_blank"}
+* [Subject (Patient)](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Author](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
+* [Authenticator/verifying provider](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
+* [Document description/title]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
+* [Document Attachment](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+    * [Attachment ContentType](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+    * [Created date/time](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
+    * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
+    * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
+* [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
+* [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -109,9 +109,9 @@ List an individual DocumentReference by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`token`]: http://hl7.org/fhir/R4/search.html#token
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[`date`]: http://hl7.org/fhir/R4/search.html#date
-[`number`]: http://hl7.org/fhir/R4/search.html#number
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
