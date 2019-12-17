@@ -51,7 +51,7 @@ Example outbound CodeableConcept displaying both standard and proprietary codes:
 
 The DocumentReference Resource supports proprietary codes for:
 
-* DocumentReference.type codes are maintained in [Code Set 72 Event Codes](#code-set-72-event-code)
+* DocumentReference.type codes are maintained in [Code Set 72 Clinical Event Codes](#code-set-72-clinical-event-codes)
 
 ### Encounters
 
