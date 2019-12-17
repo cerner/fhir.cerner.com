@@ -599,7 +599,7 @@ The Account Resource supports proprietary systems for:
 
 The MedicationRequest Resource supports proprietary systems for:
 
-* MedicationRequest.category is [Medication Request Category](#medication-request-category) for medication orders.
+* MedicationRequest.category is [Medication Request Category](#medication-request-category) for medication requests.
 
 ### List of Systems
 

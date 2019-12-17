@@ -34,7 +34,7 @@ The following fields are returned if valued:
    * [Text](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.text){:target="_blank"}
    * [Additional Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction){:target="_blank"}
    * [Patient Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.patientInstruction){:target="_blank"}
-   * [Timing Schedule](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing){:target="_blank"}
+   * [Timing Schedule](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing){:target="_blank"}
    * [As Needed](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_){:target="_blank"}
    * [Body Site](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site ){:target="_blank"}
    * [Route](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route){:target="_blank"}
@@ -72,7 +72,7 @@ Search for MedicationRequests that meet supplied query parameters:
 -----------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
  `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id`     | [`reference`] | The specific patient to return MedicationRequests for. Example: `12345`
- `status`                 | N                  | [`token`]     | The status of the medication, may be a list separated by commas. Example: `active,completed`
+ `status`                 | N                  | [`token`]     | The [status] of the medication, may be a list separated by commas. Example: `active,completed`
  `-timing-boundsPeriod`   | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z`
  `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
@@ -83,7 +83,7 @@ Search for MedicationRequests that meet supplied query parameters:
 
 ### Headers
 
-<%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -133,5 +133,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [`number`]: http://hl7.org/fhir/R4/search.html#number
+[status]: https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
