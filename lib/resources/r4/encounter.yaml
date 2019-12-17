@@ -169,6 +169,9 @@ fields:
     - display: Millennium Encounter Visit Type
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/71
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-71-visit-type
+    - display: Resoure Type Codes
+      system: http://hl7.org/fhir/resource-types
+      info_link: http://hl7.org/fhir/R4/codesystem-resource-types.html
     note: Encounters with meta.security 'UNCERTREL' will be returned with an external encounter type.
 
 - name: serviceType
