@@ -11,11 +11,11 @@ title: Binary | R4 API
 
 The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to clinical documents and diagnostic reports.  The diagnostic reports are currently limited to Anatomic Pathology and Radiology.
 
-It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource.
+It is recommended to request Binary resources only after obtaining links to the resources via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow with Binary resources.
 
-The consumer must populate the Accept header with either application/fhir+json or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/fhir+json, a FHIR Binary resource is returned with the raw data populated in the data. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information, see [the Binary Documentation](http://hl7.org/fhir/r4/binary.html#rest).
+The consumer must populate the Accept header with either `application/fhir+json` or the format returned in the `attachment.contentType` of the referring resource.  If the Accept header is `application/fhir+json`, a FHIR Binary resource is returned with the raw data populated in `Binary.data`. If the Accept header is anything else, the raw data will be returned instead of a FHIR Binary resource. For more information, see the HL7<sup>®</sup> FHIR<sup>®</sup> [Binary documentation](http://hl7.org/fhir/r4/binary.html#rest).
 
-NOTE: To retrieve documents with application/pdf contentType, the client must have installed Cerner’s Clinical Reporting (XR) solution. For additional information about Cerner’s Clinical Reporting (XR) solution see [Clinical Reporting (XR) Reference Pages](https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages).
+Note: in order to retrieve documents with the `application/pdf` content type, Cerner's Clinical Reporting (XR) solution must be installed for the client site you are loading data from. For additional information about Cerner's Clinical Reporting (XR) solution see Cerner's [Clinical Reporting (XR) Reference Pages](https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages).
 
 The following fields are returned if valued:
 
@@ -38,8 +38,8 @@ _Implementation Notes_
 
 ### Authorization Types
 
-  The Binary.read scope and either the DocumentReference.read or DiagnosticReport.read scopes are required.
-  Practitioner | System
+The Binary.read scope and either the DocumentReference.read or DiagnosticReport.read scopes are required.
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Headers
 
