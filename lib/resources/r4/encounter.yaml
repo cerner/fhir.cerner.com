@@ -553,7 +553,7 @@ fields:
       }
 
 - name: meta.security
-  url: http://hl7.org/fhir/resource-definitions.html#Meta.security
+  url: https://hl7.org/fhir/r4/resource-definitions.html#Meta.security
   required: 'No'
   cardinality: 0..*
   type: Coding
