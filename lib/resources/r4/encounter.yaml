@@ -522,35 +522,18 @@ fields:
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/19
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-19-discharge-disposition
 
-- name: location
+- name: serviceProvider
   required: 'Yes'
-  cardinality: 0..*
-  type: BackboneElement
-  description: The locations where the patient has been.
+  cardinality: 0..1
+  type: Reference(Organization)
+  description: The organization (facility) responsible for this encounter.
   action: create
   example: |
     {
-      "location": [
-        {
-          "location": {
-            "reference": "Location/35646787"
-          }
-        }
-      ]
-    }
-  note: Only providing a single location is currently supported.
-  children:
-
-  - name: location
-    required: 'Yes'
-    cardinality: 1..1
-    type: Reference (Location)
-    description: The location where the encounter takes place.
-    action: create
-    example: |
-      {
-        "reference": "Location/35646787"
+      "serviceProvider": {
+        "reference": "Organization/619848"
       }
+    }
 
 - name: meta.security
   url: https://hl7.org/fhir/r4/resource-definitions.html#Meta.security
