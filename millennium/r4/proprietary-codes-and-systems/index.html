@@ -80,6 +80,7 @@
   <li>
 <a href="#proprietary-codes" id="markdown-toc-proprietary-codes">Proprietary Codes</a>    <ul>
       <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#documents" id="markdown-toc-documents">Documents</a></li>
       <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
       <li><a href="#entities" id="markdown-toc-entities">Entities</a></li>
       <li><a href="#financial" id="markdown-toc-financial">Financial</a></li>
@@ -94,6 +95,7 @@
 <a href="#proprietary-systems" id="markdown-toc-proprietary-systems">Proprietary Systems</a>    <ul>
       <li><a href="#overview-1" id="markdown-toc-overview-1">Overview</a></li>
       <li><a href="#financial-1" id="markdown-toc-financial-1">Financial</a></li>
+      <li><a href="#medications-1" id="markdown-toc-medications-1">Medications</a></li>
       <li><a href="#list-of-systems" id="markdown-toc-list-of-systems">List of Systems</a></li>
     </ul>
   </li>
@@ -139,6 +141,18 @@
   }
 }
 </code></pre>
+
+<h3 id="documents">Documents</h3>
+
+<!-- use html header to avoid showing up in toc -->
+<h3>DocumentReference</h3>
+
+<p>The DocumentReference Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>DocumentReference.type codes are maintained in <a href="#code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</a>
+</li>
+</ul>
 
 <h3 id="encounters">Encounters</h3>
 
@@ -267,6 +281,35 @@
   <li>Immunization.site codes are maintained in <a href="#code-set-97-medication-administration-site">Code Set 97 Medication Administration Site</a>
 </li>
   <li>Immunization.route codes are maintained in <a href="#code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</a>
+</li>
+</ul>
+
+<!-- use html header to avoid showing up in toc -->
+<h4>MedicationRequest</h4>
+
+<p>The MedicationRequest Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>MedicationRequest.statusReason codes are maintained in <a href="#code-set-1309-cancel-reasons">Code Set 1309 Cancel Reasons</a> and <a href="#code-set-4001970-void-order-reasons">Code Set 4001970 Void Order Reasons</a>
+</li>
+  <li>MedicationRequest.courseOfTherapyType codes are maintained in <a href="#code-set-4009-order-stop-types">Code Set 4009 Order Stop Types</a>
+</li>
+  <li>MedicationRequest.dosageInstruction.timing.code codes are maintained in <a href="#code-set-4003-frequency">Code Set 4003 Frequency</a>
+</li>
+  <li>MedicationRequest.dosageInstruction.asNeededCodeableConcept codes are maintained in <a href="#code-set-4005-reason-for-medication">Code Set 4005 Reason for Medication</a>
+</li>
+  <li>MedicationRequest.dosageInstruction.site codes are maintained in <a href="#code-set-1028-body-site">Code Set 1028 Body Site</a>
+</li>
+  <li>MedicationRequest.dosageInstruction.route codes are maintained in <a href="#code-set-4001-medication-administration-route">Code Set 4001 Medication Administration Route</a>
+</li>
+</ul>
+
+<h4>Medication</h4>
+
+<p>The contained Medication Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Medication.form codes are maintained in <a href="#code-set-4002-form">Code Set 4002 Form</a>
 </li>
 </ul>
 
@@ -436,11 +479,11 @@
 
 <p>This code set is extremely large and highly customized by clients. It maintains all the various clinical events such as vital signs, laboratory results, documents, and immunizations.</p>
 
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72", 
-  "code": "2799031", 
-  "display": "Lyme disease vaccine", 
-  "userSelected": true 
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72",
+  "code": "2799031",
+  "display": "Lyme disease vaccine",
+  "userSelected": true
 }
 </code></pre>
 
@@ -448,11 +491,11 @@
 
 <p>This code set maintains medication administration sites such as left arm, right gluteus medius, or right deltoid.</p>
 
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97", 
-  "code": "603", 
-  "display": "Right arm", 
-  "userSelected": true 
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/97",
+  "code": "603",
+  "display": "Right arm",
+  "userSelected": true
 }
 </code></pre>
 
@@ -520,11 +563,35 @@
 
 <p>This code set contains the specific types of relationships you can establish between personnel and a procedure.</p>
 
-<pre><code>{ 
+<pre><code>{
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388",
-  "code": "1209", 
-  "display": "Surgeon", 
-  "userSelected": true 
+  "code": "1209",
+  "display": "Surgeon",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-1028-body-site">Code Set 1028 Body Site</h5>
+
+<p>This code set contains body sites such as Chest, Back or Eye.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1028",
+  "code": "309163",
+  "display": "Chest",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-1309-cancel-reasons">Code Set 1309 Cancel Reasons</h5>
+
+<p>This code set contains the various reasons why an order was cancelled/discontinued.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1309",
+  "code": "633908",
+  "display": "Duplicate Order",
+  "userSelected": true
 }
 </code></pre>
 
@@ -532,11 +599,59 @@
 
 <p>This code set maintains medication administration routes such as ID or IM.</p>
 
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001", 
-  "code": "318167", 
-  "display": "IM", 
-  "userSelected": true 
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001",
+  "code": "318167",
+  "display": "IM",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-4002-form">Code Set 4002 Form</h5>
+
+<p>This code set contains medication forms such as Aerosol, Gel or Tab.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4002",
+  "code": "318231",
+  "display": "Tab",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-4003-frequency">Code Set 4003 Frequency</h5>
+
+<p>This code set contains an orders frequency such as BID, Daily or q2hr.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003",
+  "code": "696528",
+  "display": "BID",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-4005-reason-for-medication">Code Set 4005 Reason for Medication</h5>
+
+<p>This code set contains reasons a medication is needed such as Nausea, Anxiety or Pain.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4005",
+  "code": "614498",
+  "display": "pain",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-4009-order-stop-types">Code Set 4009 Order Stop Types</h5>
+
+<p>This code set contains the stop type of an order such as Physician Stop, Hard Stop or Soft Stop.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4009",
+  "code": "2336",
+  "display": "Hard Stop",
+  "userSelected": true
 }
 </code></pre>
 
@@ -544,10 +659,10 @@
 
 <p>This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.</p>
 
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022", 
-  "code": "3294", 
-  "display": "Moderate", 
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022",
+  "code": "3294",
+  "display": "Moderate",
 }
 </code></pre>
 
@@ -626,11 +741,11 @@
 
 <p>This code set maintains the source of information for a result such as self, parent, clinician, or other record and not the documenting or verifying user.</p>
 
-<pre><code>{ 
-   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200", 
-   "code": "679976", 
-   "display": "Mother", 
-   "userSelected": true 
+<pre><code>{
+   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200",
+   "code": "679976",
+   "display": "Mother",
+   "userSelected": true
 }
 </code></pre>
 
@@ -638,12 +753,24 @@
 
 <p>This code set describes why an immunization was not administered when documented through the Health Maintenance model.</p>
 
-<pre><code>{ 
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440", 
-  "code": "688466", 
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30440",
+  "code": "688466",
   "display": "Postpone due to refusal",
   "userSelected": true
-} 
+}
+</code></pre>
+
+<h4 id="code-set-4001970-void-order-reasons">Code Set 4001970 Void Order Reasons</h4>
+
+<p>This code set contains the various reasons why an order was voided.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001970,
+  "code": "1840873161",
+  "display": "Ordered on wrong encounter",
+  "userSelected": true
+}
 </code></pre>
 
 <h4 id="code-set-4002640-correspondence-status">Code Set 4002640 Correspondence Status</h4>
@@ -675,6 +802,16 @@
   <li>Account.identifier.system is <a href="#account-number">Account Number</a> for financial accounts.</li>
 </ul>
 
+<h3 id="medications-1">Medications</h3>
+
+<h4>MedicationRequest</h4>
+
+<p>The MedicationRequest Resource supports proprietary systems for:</p>
+
+<ul>
+  <li>MedicationRequest.category is <a href="#medication-request-category">Medication Request Category</a> for medication requests.</li>
+</ul>
+
 <h3 id="list-of-systems">List of Systems</h3>
 
 <h5 id="account-number">Account Number</h5>
@@ -685,6 +822,17 @@
   "use": "usual",
   "system": "https://fhir.cerner.com/accountnumber",
   "value": "5646"
+}
+</code></pre>
+
+<h5 id="medication-request-category">Medication Request Category</h5>
+
+<p>This system is the category and is only for a pharmacy charge-only order. The code system currently only contains the <code>charge-only</code> code. The code system may be expanded at a future date.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/medicationrequest-category",
+  "code": "charge-only",
+  "display": "Charge-Only"
 }
 </code></pre>
 
@@ -717,6 +865,14 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../documents/">Documents</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../documents/document-reference/">DocumentReference</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -771,6 +927,15 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../medications/immunization/">Immunization</a></li>
+          <li><a href="../medications/medication-request/">MedicationRequest</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../other/binary/">Binary</a></li>
         </ul>
       </li>
       <li class="js-topic">

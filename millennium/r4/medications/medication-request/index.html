@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>MedicationRequest | R4 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
+        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
+        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+    
+    <ul>
+      <li><a href="../../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
+      
+        <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+      
+      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+    </ul>
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="medicationrequest">MedicationRequest</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient’s historical or documented home medications reported by the patient, significant other or another provider.</p>
+
+<p>If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">MedicationRequest id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason" target="_blank">Status Reason</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent" target="_blank">Intent</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category" target="_blank">Category</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority" target="_blank">Priority</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_" target="_blank">Reported Boolean</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_" target="_blank">Medication</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.subject" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.encounter" target="_blank">Encounter</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.authoredOn" target="_blank">Authored on Date</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.requester" target="_blank">Requester</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reasonCode" target="_blank">Reason Code</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType" target="_blank">Course of Therapy Type</a></li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.note" target="_blank">Note</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction" target="_blank">Dosage Instructions</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.text" target="_blank">Text</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction" target="_blank">Additional Instructions</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.patientInstruction" target="_blank">Patient Instructions</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing" target="_blank">Timing Schedule</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_" target="_blank">As Needed</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site" target="_blank">Body Site</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route" target="_blank">Route</a></li>
+      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate" target="_blank">Dose and Rate</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest" target="_blank">Dispensing Details</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod" target="_blank">Validity Period</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed" target="_blank">Number of Refills</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity" target="_blank">Dispense Quantity</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration" target="_blank">Expected Days Supply per Dispense</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.performer" target="_blank">Intended Dispenser</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.substitution" target="_blank">Substitution</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.substitution.allowed_x_" target="_blank">Allowed Boolean</a></li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priorPrescription" target="_blank">Prior Prescription</a></li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The current state of the medication request.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-medicationrequest-status.html">MedicationRequest Status</a><br>
+                      
+                        System: http://hl7.org/fhir/CodeSystem/medicationrequest-status <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.statusReason">MedicationRequest.statusReason</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Reason for the current status</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-medicationrequest-status-reason.html">MedicationRequest Status Reason Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1309-cancel-reasons">Millennium Cancel Reasons</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1309 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001970-void-order-reasons">Millennium Void Order Reason</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001970 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Type of Medication Request</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-medicationrequest-category.html">Medication Request Category Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/medicationrequest-category <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-medication-statement-category.html">Medication Usage Category Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/medication-statement-category <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-category">Cerner Medication Request Category for Pharmacy Charge-only orders</a><br>
+                      
+                        System: https://fhir.cerner.com/medicationrequest-category <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.priority">MedicationRequest.priority</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Medication Request Priority</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-request-priority.html">Request Priority</a><br>
+                      
+                        System: http://hl7.org/fhir/request-priority <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.medication%5Bx%5D">MedicationRequest.medication[x]</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the medication</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.nlm.nih.gov/research/umls/rxnorm/index.html">Request Priority</a><br>
+                      
+                        System: https://www.nlm.nih.gov/research/umls/rxnorm <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Reason why medication is/was taken</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/sid/icd-9">ICD-9</a><br>
+                      
+                        System: http://hl7.org/fhir/sid/icd-9 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/sid/icd-10">ICD-10</a><br>
+                      
+                        System: http://hl7.org/fhir/sid/icd-10 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing.code">MedicationRequest.dosageInstruction.timing.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Code for a known/defined timing pattern</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-timing-abbreviation.html">TimingAbbreviation</a><br>
+                      
+                        System: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency">Millennium Frequency</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction.asNeededCodeableConcept">MedicationRequest.dosageInstruction.asNeededCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication">Millennium Reason for Medication</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4005 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction.site">MedicationRequest.dosageInstruction.site</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The anatomic site where the medication first enters the body.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site">Millennium Bodysite</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1028 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction.route">MedicationRequest.dosageInstruction.route</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route">Millennium Routes</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="contained-medication-bindings">Contained Medication Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medication-definitions.html#Medication.code">Medication.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that defines the medication</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.nlm.nih.gov/research/umls/rxnorm/index.html">Request Priority</a><br>
+                      
+                        System: https://www.nlm.nih.gov/research/umls/rxnorm <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/medication-definitions.html#Medication.form">Medication.form</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Describes the form of the item.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4002-form">Millennium Drug Form</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4002 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for MedicationRequests that meet supplied query parameters:</p>
+
+<pre><code>GET /MedicationRequest?:parameters
+</code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This, or <code>patient</code>
+</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This, or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>The specific patient to return MedicationRequests for. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The <a href="https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html">status</a> of the medication, may be a list separated by commas. Example: <code>active,completed</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-timing-boundsPeriod</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The date-time which should fall within the <code>dosageInstruction.timing.repeat.boundsPeriod</code> the medication should be given to the patient. Must be prefixed by <code>ge</code>. Example: <code>ge2014-05-19T20:54:02.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by <code>ge</code> or <code>le</code>. Example: <code>ge2014-05-19T20:54:02.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>_count</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to include in a page. Example: <code>50</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The <code>_lastUpdated</code> parameter may be provided:
+    <ul>
+      <li>once with a prefix <code>ge</code> or <code>le</code> representing the earliest date or latest date. (e.g. <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code>)</li>
+      <li>twice with the prefixes <code>ge</code>, <code>le</code> to indicate a specific range. (e.g. <code>date=ge2015-01-01&amp;date=le2016-01-01</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest?patient=1316020
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "b630105a-2ec0-4877-8f8c-3b26b53cacd9",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest?patient=1316024"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/56770371",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "56770371",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2016-06-27T00:12:26.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Medication Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication&lt;/b&gt;: Magic Mouthwash&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 5 mL, Oral, Daily&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;/b&gt;: Jun 24, 2016 10:38 A.M. CDT&lt;/p&gt;&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "Medication",
+            "id": "4354245",
+            "code": {
+              "text": "Magic Mouthwash"
+            },
+            "form": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4002",
+                  "code": "3874335",
+                  "display": "Susp-Oral",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "385024007",
+                  "display": "Oral suspension (product)",
+                  "userSelected": false
+                }
+              ],
+              "text": "Susp-Oral"
+            },
+            "ingredient": [
+              {
+                "itemCodeableConcept": {
+                  "text": "Magic Mouthwash"
+                },
+                "strength": {
+                  "numerator": {
+                    "value": 5.0,
+                    "unit": "mL",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mL"
+                  }
+                }
+              },
+              {
+                "itemCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code": "466588",
+                      "display": "Aluminum Hydroxide / Magnesium Hydroxide / Simethicone",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Al hydroxide/Mg hydroxide/simethicone"
+                }
+              },
+              {
+                "itemCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code": "3498",
+                      "display": "Diphenhydramine",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "diphenhydrAMINE"
+                }
+              },
+              {
+                "itemCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                      "code": "6387",
+                      "display": "Lidocaine",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "lidocaine topical"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "outpatient",
+                "display": "Outpatient",
+                "userSelected": false
+              }
+            ]
+          }
+        ],
+        "reportedBoolean": false,
+        "medicationReference": {
+          "reference": "#4354245",
+          "display": "Magic Mouthwash"
+        },
+        "subject": {
+          "reference": "Patient/1316024",
+          "display": "PETERS, TIMOTHY"
+        },
+        "encounter": {
+          "reference": "Encounter/6188499"
+        },
+        "authoredOn": "2016-06-24T10:38:59.000-05:00",
+        "requester": {
+          "reference": "Practitioner/1852008",
+          "display": "Knope, Leslie"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5 mL, Oral, Daily",
+            "patientInstruction": "5 Milliliter Oral every day. Refills: 0.",
+            "timing": {
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2016-06-24T10:39:00.000-05:00"
+                }
+              },
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4003",
+                    "code": "696530",
+                    "display": "Daily",
+                    "userSelected": true
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                    "code": "QD",
+                    "display": "QD",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Daily"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4001",
+                  "code": "318185",
+                  "display": "PO",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route (qualifier value)",
+                  "userSelected": false
+                }
+              ],
+              "text": "Oral"
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2016-06-24T10:38:59.000-05:00"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/59705223",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "59705223",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2016-08-02T16:15:48.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Medication Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication&lt;/b&gt;: Misc Prescription (Freetext Medication)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;/b&gt;: Aug  2, 2016 11:15 A.M. CDT&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community",
+                "display": "Community",
+                "userSelected": false
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+                "code": "patientspecified",
+                "display": "Patient Specified",
+                "userSelected": false
+              }
+            ]
+          }
+        ],
+        "reportedBoolean": true,
+        "medicationCodeableConcept": {
+          "text": "Misc Prescription (Freetext Medication)"
+        },
+        "subject": {
+          "reference": "Patient/1316024",
+          "display": "PETERS, TIMOTHY"
+        },
+        "encounter": {
+          "reference": "Encounter/6188499"
+        },
+        "authoredOn": "2016-08-02T11:15:47.000-05:00",
+        "requester": {
+          "reference": "Practitioner/2050040",
+          "display": "Macklin, Burt"
+        },
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2016-08-02T11:15:00.000-05:00"
+                }
+              }
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2016-08-02T11:15:47.000-05:00"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/59705233",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "59705233",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2016-08-02T16:16:30.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Medication Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication&lt;/b&gt;: Misc Prescription (Freetext Medication)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;/b&gt;: Aug  2, 2016 11:16 A.M. CDT&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "community",
+                "display": "Community",
+                "userSelected": false
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+                "code": "patientspecified",
+                "display": "Patient Specified",
+                "userSelected": false
+              }
+            ]
+          }
+        ],
+        "reportedBoolean": true,
+        "medicationCodeableConcept": {
+          "text": "Misc Prescription (Freetext Medication)"
+        },
+        "subject": {
+          "reference": "Patient/1316024",
+          "display": "PETERS, TIMOTHY"
+        },
+        "encounter": {
+          "reference": "Encounter/6188499"
+        },
+        "authoredOn": "2016-08-02T11:16:30.000-05:00",
+        "requester": {
+          "reference": "Practitioner/2050040",
+          "display": "Macklin, Burt"
+        },
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "boundsPeriod": {
+                  "start": "2016-08-02T11:16:00.000-05:00"
+                }
+              }
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2016-08-02T11:16:30.000-05:00"
+          }
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual MedicationRequest by its id:</p>
+
+<pre><code>GET /MedicationRequest/:id
+</code></pre>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/56770371
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/56770371",
+  "resource": {
+    "resourceType": "MedicationRequest",
+    "id": "56770371",
+    "meta": {
+      "versionId": "0",
+      "lastUpdated": "2016-06-27T00:12:26.000Z"
+    },
+    "text": {
+      "status": "generated",
+      "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Medication Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication&lt;/b&gt;: Magic Mouthwash&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 5 mL, Oral, Daily&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;/b&gt;: Jun 24, 2016 10:38 A.M. CDT&lt;/p&gt;&lt;/div&gt;"
+    },
+    "contained": [
+      {
+        "resourceType": "Medication",
+        "id": "4354245",
+        "code": {
+          "text": "Magic Mouthwash"
+        },
+        "form": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4002",
+              "code": "3874335",
+              "display": "Susp-Oral",
+              "userSelected": true
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385024007",
+              "display": "Oral suspension (product)",
+              "userSelected": false
+            }
+          ],
+          "text": "Susp-Oral"
+        },
+        "ingredient": [
+          {
+            "itemCodeableConcept": {
+              "text": "Magic Mouthwash"
+            },
+            "strength": {
+              "numerator": {
+                "value": 5.0,
+                "unit": "mL",
+                "system": "http://unitsofmeasure.org",
+                "code": "mL"
+              }
+            }
+          },
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "466588",
+                  "display": "Aluminum Hydroxide / Magnesium Hydroxide / Simethicone",
+                  "userSelected": false
+                }
+              ],
+              "text": "Al hydroxide/Mg hydroxide/simethicone"
+            }
+          },
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "3498",
+                  "display": "Diphenhydramine",
+                  "userSelected": false
+                }
+              ],
+              "text": "diphenhydrAMINE"
+            }
+          },
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "6387",
+                  "display": "Lidocaine",
+                  "userSelected": false
+                }
+              ],
+              "text": "lidocaine topical"
+            }
+          }
+        ]
+      }
+    ],
+    "status": "active",
+    "intent": "order",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+            "code": "outpatient",
+            "display": "Outpatient",
+            "userSelected": false
+          }
+        ]
+      }
+    ],
+    "reportedBoolean": false,
+    "medicationReference": {
+      "reference": "#4354245",
+      "display": "Magic Mouthwash"
+    },
+    "subject": {
+      "reference": "Patient/1316024",
+      "display": "PETERS, TIMOTHY"
+    },
+    "encounter": {
+      "reference": "Encounter/6188499"
+    },
+    "authoredOn": "2016-06-24T10:38:59.000-05:00",
+    "requester": {
+      "reference": "Practitioner/1852008",
+      "display": "Knope, Leslie"
+    },
+    "dosageInstruction": [
+      {
+        "text": "5 mL, Oral, Daily",
+        "patientInstruction": "5 Milliliter Oral every day. Refills: 0.",
+        "timing": {
+          "repeat": {
+            "boundsPeriod": {
+              "start": "2016-06-24T10:39:00.000-05:00"
+            }
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4003",
+                "code": "696530",
+                "display": "Daily",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                "code": "QD",
+                "display": "QD",
+                "userSelected": false
+              }
+            ],
+            "text": "Daily"
+          }
+        },
+        "route": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4001",
+              "code": "318185",
+              "display": "PO",
+              "userSelected": true
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "26643006",
+              "display": "Oral route (qualifier value)",
+              "userSelected": false
+            }
+          ],
+          "text": "Oral"
+        }
+      }
+    ],
+    "dispenseRequest": {
+      "validityPeriod": {
+        "start": "2016-06-24T10:38:59.000-05:00"
+      }
+    }
+  }
+}</code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../conformance/">Conformance</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../documents/">Documents</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../documents/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/organization/">Organization</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../financial/">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../financial/account/">Account</a></li>
+          <li><a href="../../financial/coverage/">Coverage</a></li>
+          <li><a href="../../financial/financial-transaction/">FinancialTransaction</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Medications</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../immunization/">Immunization</a></li>
+          <li><a href="./">MedicationRequest</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
