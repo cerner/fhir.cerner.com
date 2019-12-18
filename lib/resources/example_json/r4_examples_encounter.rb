@@ -489,13 +489,9 @@ module Cerner
           ]
         }
       },
-      "location": [
-        {
-          "location": {
-            "reference": "Location/35646787"
-          }
-        }
-      ],
+      "serviceProvider": {
+        "reference": "Organization/619848"
+      },
       "period": {
         "start": "2017-03-02T01:13:00Z",
   	    "end": "2017-03-05T00:00:00Z"
