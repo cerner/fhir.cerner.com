@@ -1,6 +1,6 @@
 ---
 name: Encounter
-field_name_base_url: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter
+field_name_base_url: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter
 fields:
 - name: resourceType
   required: 'Yes'
@@ -13,7 +13,7 @@ fields:
       "resourceType": "Encounter"
     }
   note: resourceType must be Encounter
-  url: http://hl7.org/fhir/r4/json.html#resources
+  url: https://hl7.org/fhir/r4/json.html#resources
 
 - name: identifier
   required: 'No'
@@ -48,7 +48,7 @@ fields:
     cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
-    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
     example: |
       {
         "type": {
@@ -90,7 +90,7 @@ fields:
     type: uri
     action: create
     description: The namespace of the identifier.
-    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.system
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.system
     example: |
       {
         "system": "urn:oid:192.168.0.1"
@@ -102,7 +102,7 @@ fields:
     type: string
     action: create
     description: The unique value of the identifier
-    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.value
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.value
     example: |
       {
         "value": "2009"
@@ -525,7 +525,7 @@ fields:
 - name: serviceProvider
   required: 'Yes'
   cardinality: 0..1
-  type: Reference(Organization)
+  type: Reference (Organization)
   description: The organization (facility) responsible for this encounter.
   action: create
   example: |
