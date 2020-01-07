@@ -34,7 +34,7 @@ The following fields are returned if valued for clinical documents:
 * [Indexed date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
 * [Status (typically current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
 * [Document status (typically final or amended)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
-* [ContentType and URL (fully qualified link to the document](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [ContentType, URL, and Title (fully qualified link to the document)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
 * [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 
 
