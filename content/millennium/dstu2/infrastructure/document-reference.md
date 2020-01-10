@@ -36,7 +36,7 @@ The following fields are returned if valued for clinical documents:
 * [Document status (typically final or amended)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
 * Contents:
   * [Attachment](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
-    * [ContentType, URL, and Title](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment)
+    * [ContentType, URL, and Title](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment){:target="_blank"}
 * [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 
 
