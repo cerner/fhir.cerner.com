@@ -27,7 +27,7 @@ The following fields are returned if valued:
 * [Performer (practitioner)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.performer){:target="_blank"}
 * [Request (order)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.request){:target="_blank"}
 * [Presented Form](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
-  * [ContentType](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+  * [Content type](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
   * [URL (fully qualified link to the document)](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.url){:target="_blank"}
   * [Title](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.title){:target="_blank"}
 
