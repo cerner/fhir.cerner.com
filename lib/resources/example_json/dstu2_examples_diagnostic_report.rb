@@ -52,11 +52,13 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487",
+                "title": "XR Wrist Complete Left"
               },
               {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487",
+                "title": "XR Wrist Complete Left"
               }
             ]
           }
@@ -102,11 +104,13 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365",
+                "title": "CT Abdomen w/ Contrast"
               },
               {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365",
+                "title": "CT Abdomen w/ Contrast"
               }
             ]
           }
@@ -155,11 +159,13 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": "text/html",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366",
+                "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
               },
               {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366",
+                "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
               }
             ]
           }

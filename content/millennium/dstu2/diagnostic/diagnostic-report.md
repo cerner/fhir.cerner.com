@@ -10,7 +10,7 @@ title: DiagnosticReport | DSTU 2 API
 ## Overview
 
 The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a
-diagnostic service or procedure such as a Radiology or Pathology report.  
+diagnostic service or procedure such as a Radiology or Pathology report.
 
 This resource currently only supports Radiology reports in the presented form of either PDF or HTML.
 
@@ -26,7 +26,10 @@ The following fields are returned if valued:
 * [Issued date/time](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.issued){:target="_blank"}
 * [Performer (practitioner)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.performer){:target="_blank"}
 * [Request (order)](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.request){:target="_blank"}
-* [ContentType and URL (fully qualified link to the document](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
+* [Presented Form](http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
+  * [Content type](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+  * [URL (fully qualified link to the document)](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.url){:target="_blank"}
+  * [Title](http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.title){:target="_blank"}
 
 ## Terminology Bindings
 
