@@ -52,7 +52,8 @@ module Cerner
             "content": [{
               "attachment": {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312",
+                "title": "Rheumatology Note"
               }
             }],
             "context": {
@@ -104,7 +105,8 @@ module Cerner
             "content": [{
               "attachment": {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307",
+                "title": "Rheumatology Note"
               }
             }],
             "context": {
@@ -156,7 +158,8 @@ module Cerner
             "content": [{
               "attachment": {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287",
+                "title": "Rheumatology Note"
               }
             }],
             "context": {
@@ -208,7 +211,8 @@ module Cerner
             "content": [{
               "attachment": {
                 "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283"
+                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283",
+                "title": "Rheumatology Note"
               }
             }],
             "context": {
@@ -325,7 +329,8 @@ module Cerner
         {
           "attachment": {
             "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283",
+            "title": "Physician Emergency department Note"
           }
         }
       ],

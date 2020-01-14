@@ -34,9 +34,12 @@ The following fields are returned if valued for clinical documents:
 * [Indexed date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
 * [Status (typically current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
 * [Document status (typically final or amended)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
-* [ContentType and URL (fully qualified link to the document](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [Content](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content){:target="_blank"}
+  * [Attachment](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+    * [Content type](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+    * [URL (fully qualified link to the document)](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url){:target="_blank"}
+    * [Title](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.title){:target="_blank"}
 * [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
-
 
 ## Terminology Bindings
 
@@ -102,7 +105,7 @@ Create new documents. Currently limited to unstructured clinical notes or docume
 
     POST /DocumentReference
 
-_Implementation Notes_   
+_Implementation Notes_
 
 * The modifier elements [implicitRules], [modifierExtension] and [relatesTo] are not supported and will be rejected if present.
 * Currently only XHTML formatted documents are supported. You can validate your document using any available strict XHTML 1.0 validator (eg: [w3 validator] or this [html5 validator]).
@@ -128,7 +131,7 @@ _Implementation Notes_
 
 #### Body
 
-<%= json(:dstu2_document_reference_docref_create) %>    
+<%= json(:dstu2_document_reference_docref_create) %>
 
 #### Response
 
@@ -226,7 +229,7 @@ _Implementation Notes_
 `start`   | N         | [`date`]      | The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
 `end`     | N         | [`date`]      | The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
 
-Notes:   
+Notes:
 
 - The `type` parameter must include both a system and a code. (e.g. `&type=http://loinc.org|34133-9`)
 - The `start` and `end` parameters must be valid [dateTime]s with a time component. They must have prefixes of `eq` or nothing.
