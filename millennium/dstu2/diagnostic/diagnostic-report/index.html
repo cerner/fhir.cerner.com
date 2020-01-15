@@ -110,7 +110,14 @@ diagnostic service or procedure such as a Radiology or Pathology report.</p>
   <li><a href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.issued" target="_blank">Issued date/time</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.performer" target="_blank">Performer (practitioner)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.request" target="_blank">Request (order)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm" target="_blank">ContentType and URL (fully qualified link to the document</a></li>
+  <li>
+<a href="http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html#DiagnosticReport.presentedForm" target="_blank">Presented Form</a>
+    <ul>
+      <li><a href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType" target="_blank">Content type</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.url" target="_blank">URL (fully qualified link to the document)</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.title" target="_blank">Title</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -334,11 +341,13 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
         "presentedForm": [
           {
             "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487",
+            "title": "XR Wrist Complete Left"
           },
           {
             "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487",
+            "title": "XR Wrist Complete Left"
           }
         ]
       }
@@ -384,11 +393,13 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
         "presentedForm": [
           {
             "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365",
+            "title": "CT Abdomen w/ Contrast"
           },
           {
             "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365",
+            "title": "CT Abdomen w/ Contrast"
           }
         ]
       }
@@ -437,11 +448,13 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
         "presentedForm": [
           {
             "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366",
+            "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
           },
           {
             "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366"
+            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366",
+            "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
           }
         ]
       }

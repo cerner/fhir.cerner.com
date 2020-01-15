@@ -1074,6 +1074,11 @@ a .mega-octicon {
   list-style-type: disc;
 }
 
+.content ul ul {
+  margin: 0.5em 1.5em;
+  list-style-type: disc;
+}
+
 .content dd ul {
   margin-top: 0;
 }

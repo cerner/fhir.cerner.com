@@ -147,7 +147,19 @@
   <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed" target="_blank">Indexed date/time</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status" target="_blank">Status (typically current)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus" target="_blank">Document status (typically final or amended)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment" target="_blank">ContentType and URL (fully qualified link to the document</a></li>
+  <li>
+<a href="https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content" target="_blank">Content</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content.attachment" target="_blank">Attachment</a>
+        <ul>
+          <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.contentType" target="_blank">Content type</a></li>
+          <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url" target="_blank">URL (fully qualified link to the document)</a></li>
+          <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.title" target="_blank">Title</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter" target="_blank">Patient encounter</a></li>
 </ul>
 
@@ -420,7 +432,8 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312"
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312",
+              "title": "Rheumatology Note"
             }
           }
         ],
@@ -478,7 +491,8 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307"
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307",
+              "title": "Rheumatology Note"
             }
           }
         ],
@@ -536,7 +550,8 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287"
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287",
+              "title": "Rheumatology Note"
             }
           }
         ],
@@ -594,7 +609,8 @@
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283"
+              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283",
+              "title": "Rheumatology Note"
             }
           }
         ],
@@ -1424,7 +1440,8 @@
     {
       "attachment": {
         "contentType": "application/pdf",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283"
+        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283",
+        "title": "Physician Emergency department Note"
       }
     }
   ],
