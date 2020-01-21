@@ -26,10 +26,25 @@ The following fields are returned if valued:
   * [Type](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.type){:target="_blank"}
   * [Value](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.value){:target="_blank"}
   * [Name](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.name){:target="_blank"}
+* [Extensions including encounter](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
 <%= terminology_table(:coverage, :r4) %>
+
+
+## Extensions
+
+* [Encounter]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                         | Value\[x] Type      | Description
+----------------------------|---------------------|----------------------------------------------------
+ `coverage-encounter`       | [`Reference`]       | A reference to an Encounter.
+
 
 ## Search
 
@@ -43,9 +58,10 @@ Search for Coverages that meet supplied query parameters:
 
 ### Parameters
 
- Name       | Required? | Type          | Description
-------------|-----------|---------------|----------------------------------------------------
- `patient`  | Yes       | [`reference`] | Retrieve coverages for a patient. Example: `12345`
+ Name        | Required?           | Type          | Description
+-------------|---------------------|---------------|----------------------------------------------------
+ `patient`   | This or `-encounter`| [`reference`] | Retrieve coverages for a patient. Example: `12345`
+ `-encounter`| This or `patient`   | [`reference`] | Retrieve coverages for a encounter. Example: `143242`
 
 ### Headers
 
@@ -56,6 +72,15 @@ Search for Coverages that meet supplied query parameters:
 #### Request
 
     GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?patient=589763
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_bundle) %>
+
+#### Request
+
+    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=<encounter_id>
 
 #### Response
 
