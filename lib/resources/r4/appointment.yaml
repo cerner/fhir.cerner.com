@@ -175,6 +175,7 @@ fields:
   cardinality: 0..*
   type: CodeableConcept
   description: Coded reason this appointment is scheduled.
+  action: terminology
   binding:
     description: Coded reason this appointment is scheduled.
     note: Currently not bound to any terminology.
