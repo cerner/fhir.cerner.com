@@ -226,5 +226,60 @@ module Cerner
         }
       ]
     }
+
+    R4_COVERAGE_ENCOUNTER_PATCH ||= [
+      {
+        "op": "replace",
+        "path": "/class/1/name",
+        "value": "name"
+      },
+      {
+        "op": "replace",
+        "path": "/class/0/value",
+        "value": "729825"
+      },
+      {
+        "op": "replace",
+        "path": "/class/1/value",
+        "value": "456"
+      },
+      {
+        "op": "replace",
+        "path": "/dependent",
+        "value": "1626016"
+      },
+      {
+        "op": "replace",
+        "path": "/period",
+        "value": {
+          "start": "2014-09-05T14:30:12.000Z",
+          "end": "2015-09-05T14:30:12.000Z"
+        }
+      },
+      {
+        "op": "replace",
+        "path": "/relationship",
+        "value": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "parent"
+            }
+          ]
+        }
+      },
+      {
+        "op": "replace",
+        "path": "/subscriberId",
+        "value": "1626016"
+      },
+      {
+        "op": "replace",
+        "path": "/subscriber",
+        "value": {
+          "reference": "Patient/1626016"
+        }
+      }
+    ]
   end
 end
