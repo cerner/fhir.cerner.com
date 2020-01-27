@@ -9,7 +9,7 @@ title: Coverage | R4 API
 
 ## Overview
 
-The Coverage resource provides high-level information about an insurance plan for a specific person or patient. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for "selfpay" where an individual takes responsibility for the cost of health care services, rather than a company or organization.
+The Coverage resource provides high-level information about an insurance plan for a specific person or patient or an encounter. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for "selfpay" where an individual takes responsibility for the cost of health care services, rather than a company or organization.
 
 The following fields are returned if valued:
 
