@@ -1,13 +1,13 @@
 ---
 name: Coverage
-field_name_base_url: http://hl7.org/fhir/r4/coverage-definitions.html#Coverage
+field_name_base_url: https://hl7.org/fhir/r4/coverage-definitions.html#Coverage
 operations:
   - name: class.name
     path: /class/1/name
     operation: replace
     cardinality: 0..1
     type: string
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.class.name
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name
     description: A short description for the class.
     example: |
       {
@@ -18,15 +18,15 @@ operations:
     note: >
       <ul>
         <li>This path should be used only to replace the policy group name.</li>
-        <li>When no value is provided the `Coverage.class.name` for the group type will be unset.</li>
+        <li>When no value is provided the `name` for the `Coverage.class` element with `type` == `group` type will be unset.</li>
       </ul>
 
   - name: class.value
     path: /class/0/value
     operation: replace
-    cardinality: 1..1
+    cardinality: 0..1
     type: string
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
     description: The alphanumeric string value associated with the insurer issued label.
     example: |
       {
@@ -44,7 +44,7 @@ operations:
     operation: replace
     cardinality: 0..1
     type: string
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
     description: The alphanumeric string value associated with the insurer issued label.
     example: |
       {
@@ -55,7 +55,7 @@ operations:
     note: >
       <ul>
         <li>This path should be used only to replace the policy group number.</li>
-        <li>When no value is provided the `Coverage.class.value` for the group type will be unset.</li>
+        <li>When no value is provided the `value` for the `Coverage.class` element with `type` == `group` type will be unset.</li>
       </ul>
 
   - name: dependent
@@ -63,7 +63,7 @@ operations:
     operation: replace
     cardinality: 0..1
     type: string
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.dependent
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.dependent
     description: A unique identifier for a dependent under the coverage.
     example: |
       {
@@ -73,7 +73,7 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided the `Coverage.dependent` will be unset.</li>
+        <li>When no value is provided `Coverage.dependent` will be unset.</li>
       </ul>
 
   - name: period
@@ -81,7 +81,7 @@ operations:
     operation: replace
     cardinality: 0..1
     type: Period
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.period
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.period
     description: Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
     example: |
       {
@@ -94,9 +94,9 @@ operations:
       }
     note: >
       <ul>
-        <li>When no `start` value is provided the `Coverage.period.start` will be unset.</li>
-        <li>When no `end` value is provided the `Coverage.period.end` will be unset.</li>
-        <li>When `start` or `end` value is provided, time component should be provided.</li>
+        <li>When no `start` value is provided `Coverage.period.start` will be unset.</li>
+        <li>When no `end` value is provided `Coverage.period.end` will be unset.</li>
+        <li>When `start` or `end` values are provided, time components must be provided.</li>
       </ul>
 
   - name: relationship
@@ -104,7 +104,7 @@ operations:
     operation: replace
     cardinality: 0..1
     type: CodeableConcept
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.relationship
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.relationship
     description: The relationship of beneficiary (patient) to the subscriber.
     example: |
       {
@@ -113,7 +113,7 @@ operations:
         "value": {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "system": "https://terminology.hl7.org/CodeSystem/subscriber-relationship",
               "code": "parent"
             }
           ]
@@ -121,7 +121,7 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided the `Coverage.relationship` will be unset.</li>
+        <li>When no value is provided `Coverage.relationship` will be unset.</li>
       </ul>
 
   - name: subscriberId
@@ -129,7 +129,7 @@ operations:
     operation: replace
     cardinality: 0..1
     type: string
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId
     description: The insurer assigned ID for the Subscriber.
     example: |
       {
@@ -139,7 +139,7 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided the `Coverage.subscriberId` will be unset.</li>
+        <li>When no value is provided `Coverage.subscriberId` will be unset.</li>
       </ul>
 
   - name: subscriber
@@ -147,7 +147,7 @@ operations:
     operation: replace
     cardinality: 1..1
     type: Reference
-    url: http://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber
     description: The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
     example: |
       {

@@ -170,7 +170,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0 111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
 
 #### Body
 
