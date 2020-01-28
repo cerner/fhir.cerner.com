@@ -162,5 +162,59 @@ module Cerner
         "text": "IM"
       }
     }
+
+    R4_IMMUNIZATION_UPDATE ||= {
+      "resourceType": "Immunization",
+      "id": "M11145305",
+      "status": "completed",
+      "occurrenceDateTime": "2019-07-15T10:35:00-05:00",
+      "vaccineCode": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72",
+            "code": "3366119",
+            "display": "hepatitis A adult vaccine",
+            "userSelected": false
+          }
+        ],
+        "text": "hepatitis A adult vaccine"
+      },
+      "patient": {
+        "reference": "Patient/1316024",
+        "display": "Doe, Jane"
+      },
+      "encounter": {
+        "reference": "Encounter/4317906"
+      },
+      "reportOrigin": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30200",
+            "code": "679972",
+            "display": "Clinician",
+            "userSelected": false
+          }
+        ],
+        "text": "Clinician"
+      },
+      "performer": [
+        {
+          "function": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                "code": "AP",
+                "display": "Administering Provider"
+              }
+            ],
+            "text": "Administering Provider"
+          },
+          "actor": {
+            "reference": "Practitioner/7750958",
+            "display": "Doe, John"
+          }
+        }
+      ]
+    }
   end
 end

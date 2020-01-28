@@ -166,6 +166,58 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Update
+
+Update an Immunization.
+
+    PUT /Immunization/:id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true, patient: false) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json',
+                   'If-Match': 'W/"&lt;Current version of the Immunization resource>"'} %>
+
+### Body fields
+
+<%= definition_table(:immunization, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M11145305
+
+#### Body
+
+<%= json(:R4_IMMUNIZATION_UPDATE) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Sun, 30 Jun 2019 10:40:00 GMT
+Etag: W/"2"
+Last-Modified: Sun, 30 Jun 2019 10:40:00 GMT
+Server-Response-Time: 3890.363247
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
+X-Runtime: 3.890014
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date

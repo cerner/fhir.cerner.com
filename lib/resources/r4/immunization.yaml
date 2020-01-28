@@ -8,12 +8,26 @@ fields:
   type: string
   url: http://hl7.org/fhir/r4/json.html#resources
   description: The type of the FHIR resource.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "resourceType": "Immunization"
     }
   note: resourceType must be Immunization
+
+- name: id
+  required: 'Yes'
+  cardinality: 1..1
+  type: id
+  url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
+  description: The logical id of the resource.
+  action: update
+  example: |
+    {
+      "id": "M43434511"
+    }
 
 - name: status
   required: 'Yes'
@@ -21,7 +35,9 @@ fields:
   type: code
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.status
   description: Indicates the current status of the immunization event.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "status": "completed"
@@ -98,7 +114,9 @@ fields:
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.patient
   description: The patient who either received or did not receive the immunization.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "patient": {
@@ -113,7 +131,9 @@ fields:
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
   description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "encounter": {
@@ -127,7 +147,9 @@ fields:
   type: dateTime
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.occurrence_x_
   description: Date vaccine administered or was to be administered.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "occurrenceDateTime": "2019-07-05T10:35:00-05:00"
@@ -169,7 +191,9 @@ fields:
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.manufacturer
   description: Name of vaccine manufacturer.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "manufacturer": {
@@ -183,7 +207,9 @@ fields:
   type: string
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.lotNumber
   description: Lot number of the vaccine product.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "lotNumber": "123ab",
@@ -195,7 +221,9 @@ fields:
   type: date
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.expirationDate
   description: Date vaccine batch expires.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "expirationDate": "2019-07-30"
@@ -267,7 +295,9 @@ fields:
   type: SimpleQuantity
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.doseQuantity
   description: The quantity of vaccine product that was administered.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "doseQuantity": {
@@ -284,7 +314,9 @@ fields:
   type: BackboneElement
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer
   description: Indicates who performed the immunization event.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "performer": [
@@ -314,7 +346,9 @@ fields:
     type: CodeableConcept
     url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.function
     description: Describes the type of performance (e.g. ordering provider, administering provider, etc.).
-    action: create
+    action:
+      - create
+      - update
     example: |
       {
         "function": {
@@ -335,7 +369,9 @@ fields:
     type: Reference
     url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.actor
     description: The practitioner or organization who performed the action.
-    action: create
+    action:
+      - create
+      - update
     example: |
       {
         "actor": {
@@ -350,7 +386,9 @@ fields:
   type: Annotation
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.note
   description: Extra information about the immunization that is not conveyed by the other attributes.
-  action: create
+  action:
+    - create
+    - update
   example: |
     {
       "authorReference": {
