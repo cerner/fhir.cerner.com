@@ -2,12 +2,52 @@
 name: Immunization
 field_name_base_url: http://hl7.org/fhir/R4/immunization-definitions.html#Immunization
 fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  url: http://hl7.org/fhir/r4/json.html#resources
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Immunization"
+    }
+  note: resourceType must be Immunization
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.status
+  description: Indicates the current status of the immunization event.
+  action: create
+  example: |
+    {
+      "status": "completed"
+    }
 
 - name: statusReason
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.statusReason
   description: Reason the immunization was not performed.
+  example: |
+    {
+      "statusReason": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30440",
+            "code": "679607",
+            "display": "Patient Refuses",
+            "userSelected": true
+          }
+        ],
+        "text": "Patient Refuses"
+      }
+    }
+  note: This is generally only used for the status of "not-done".
   binding:
     description: Reason the immunization was not performed.
     terminology:
@@ -22,7 +62,22 @@ fields:
   required: 'Yes'
   cardinality: 1..1
   type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.vaccineCode
   description: The vaccine that was administered or was to be administered.
+  example: |
+    {
+      "vaccineCode": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "2797921",
+            "display": "hepatitis A-hepatitis B vaccine",
+            "userSelected": false
+          }
+        ],
+        "text": "hepatitis A-hepatitis B vaccine"
+      }
+    }
   binding:
     description: Vaccine product administered.
     terminology:
@@ -37,26 +92,135 @@ fields:
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
     note: The CVX binding will always be returned. An NDC binding will be returned when available.
 
+- name: patient
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.patient
+  description: The patient who either received or did not receive the immunization.
+  action: create
+  example: |
+    {
+      "patient": {
+        "reference": "Patient/123820084",
+        "display": "Immun, Test1"
+      }
+    }
+
+- name: encounter
+  required: 'Yes'
+  cardinality: 0..1
+  type: Reference
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
+  description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+  action: create
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/36209678"
+      }
+    }
+
+- name: occurrenceDateTime
+  required: 'Yes'
+  cardinality: 1..1
+  type: dateTime
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.occurrence_x_
+  description: Date vaccine administered or was to be administered.
+  action: create
+  example: |
+    {
+      "occurrenceDateTime": "2019-07-05T10:35:00-05:00"
+    }
+
 - name: reportOrigin
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.reportOrigin
   description: The source of an immunization record when not reported by the person who administered the vaccine.
+  example: |
+    {
+      "reportOrigin": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30200",
+            "code": "20738688",
+            "display": "Primary Care Provider",
+            "userSelected": false
+          }
+        ],
+        "text": "Primary Care Provider"
+      }
+    }
   binding:
     description: The source of an immunization record when not reported by the person who administered the vaccine.
     terminology:
     - display: Immunization Report Origin
       system: http://terminology.hl7.org/CodeSystem/immunization-origin
-      info_link: http://hl7.org/fhir/R4/codesystem-immunization-origin.html
+      info_link: http://hl7.org/fhir/R4/valueset-immunization-origin.html
     - display: Millennium Source from which a Result Originated
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/30200
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-30200-result-source
+
+- name: manufacturer
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.manufacturer
+  description: Name of vaccine manufacturer.
+  action: create
+  example: |
+    {
+      "manufacturer": {
+        "display": "Adams Laboratories"
+      }
+    }
+
+- name: lotNumber
+  required: 'No'
+  cardinality: 0..1
+  type: string
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.lotNumber
+  description: Lot number of the vaccine product.
+  action: create
+  example: |
+    {
+      "lotNumber": "123ab",
+    }
+
+- name: expirationDate
+  required: 'No'
+  cardinality: 0..1
+  type: date
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.expirationDate
+  description: Date vaccine batch expires.
+  action: create
+  example: |
+    {
+      "expirationDate": "2019-07-30"
+    }
 
 - name: site
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.site
   description: The body site where the vaccine was administered.
+  example: |
+    {
+      "site": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/97",
+            "code": "576",
+            "display": "Left Arm",
+            "userSelected": false
+          }
+        ],
+        "text": "Left Arm"
+      }
+    }
   binding:
     description: The site at which the vaccine was administered.
     terminology:
@@ -71,7 +235,22 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.route
   description: The path by which the vaccine product was taken into the body.
+  example: |
+    {
+      "route": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4001",
+            "code": "318167",
+            "display": "IM",
+            "userSelected": false
+          }
+        ],
+        "text": "IM"
+      }
+    }
   binding:
     description: The path by which the vaccine product was taken into the body.
     terminology:
@@ -81,3 +260,103 @@ fields:
     - display: Millennium Route
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route
+
+- name: doseQuantity
+  required: 'No'
+  cardinality: 0..1
+  type: SimpleQuantity
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.doseQuantity
+  description: The quantity of vaccine product that was administered.
+  action: create
+  example: |
+    {
+      "doseQuantity": {
+        "value": 1.5,
+        "unit": "mL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mL"
+      }
+    }
+
+- name: performer
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer
+  description: Indicates who performed the immunization event.
+  action: create
+  example: |
+    {
+      "performer": [
+        {
+          "function": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                "code": "AP",
+                "display": "Administering Provider"
+              }
+            ],
+            "text": "Administering Provider"
+          },
+          "actor": {
+            "reference": "Practitioner/7750958",
+            "display": "Doe, John"
+          }
+        }
+      ]
+    }
+  children:
+
+  - name: function
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.function
+    description: Describes the type of performance (e.g. ordering provider, administering provider, etc.).
+    action: create
+    example: |
+      {
+        "function": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+              "code": "OP",
+              "display": "Ordering Provider"
+            }
+          ],
+          "text": "Ordering Provider"
+        }
+      }
+
+  - name: actor
+    required: 'Yes'
+    cardinality: 1..1
+    type: Reference
+    url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.actor
+    description: The practitioner or organization who performed the action.
+    action: create
+    example: |
+      {
+        "actor": {
+          "reference": "Practitioner/7750958",
+          "display": "Doe, John"
+        }
+      }
+
+- name: note
+  required: 'No'
+  cardinality: 0..*
+  type: Annotation
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.note
+  description: Extra information about the immunization that is not conveyed by the other attributes.
+  action: create
+  example: |
+    {
+      "authorReference": {
+        "reference": "Practitioner/2028012",
+        "display": "Doe, Jane"
+      },
+      "time": "2019-06-09T14:03:26-05:00",
+      "text": "Additional details"
+    }
