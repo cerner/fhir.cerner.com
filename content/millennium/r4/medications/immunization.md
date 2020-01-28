@@ -34,8 +34,8 @@ The following fields are returned if valued:
 * [Vaccine administration route](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.route){:target="_blank"}
 * [Dosage administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
 * [Performer](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer){:target="_blank"}
-    * [Type of performer (ordering or administering)](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
-    * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
+  * [Type of performer (ordering or administering)](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
+  * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
 * [Note](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
 
 ## Terminology Bindings
@@ -63,8 +63,8 @@ Search for Immunizations that meet supplied query parameters:
 Notes:
 
 * The `date` parameter may be provided: 
-    * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-    * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+  * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
+  * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
 ### Headers
 
@@ -140,7 +140,7 @@ Create a new Immunization.
 
 #### Body
 
-  <%= json(:R4_IMMUNIZATION_CREATE) %>
+<%= json(:R4_IMMUNIZATION_CREATE) %>
 
 #### Response
 
