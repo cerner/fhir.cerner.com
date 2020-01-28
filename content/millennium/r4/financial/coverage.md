@@ -32,7 +32,6 @@ The following fields are returned if valued:
 
 <%= terminology_table(:coverage, :r4) %>
 
-
 ## Extensions
 
 * [Encounter]
@@ -41,9 +40,9 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                         | Value\[x] Type      | Description
-----------------------------|---------------------|----------------------------------------------------
- `coverage-encounter`       | [`Reference`]       | A reference to an Encounter.
+ ID                   | Value\[x] Type | Description
+----------------------|----------------|------------------------------
+ `coverage-encounter` | [`Reference`]  | A reference to an Encounter.
 
 
 ## Search
@@ -58,16 +57,16 @@ Search for Coverages that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?           | Type          | Description
--------------|---------------------|---------------|----------------------------------------------------
- `patient`   | This or `-encounter`| [`reference`] | Retrieve coverages for a patient. Example: `12345`
- `-encounter`| This or `patient`   | [`reference`] | Retrieve coverages for an encounter. Example: `143242`
+ Name         | Required?            | Type          | Description
+--------------|----------------------|---------------|--------------------------------------------------------
+ `patient`    | This or `-encounter` | [`reference`] | Retrieve coverages for a patient. Example: `12345`
+ `-encounter` | This or `patient`    | [`reference`] | Retrieve coverages for an encounter. Example: `143242`
 
 ### Headers
 
 <%= headers fhir_json: true %>
 
-### Example
+### Example - Patient-level Coverage
 
 #### Request
 
@@ -78,14 +77,16 @@ Search for Coverages that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_coverage_bundle) %>
 
+### Example - Encounter-level Coverage
+
 #### Request
 
-    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=<encounter_id>
+    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_coverage_bundle) %>
+<%= json(:r4_coverage_encounter_bundle) %>
 
 ### Errors
 
@@ -144,3 +145,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Encounter]: #custom-extensions

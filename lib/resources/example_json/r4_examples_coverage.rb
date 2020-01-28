@@ -74,6 +74,101 @@ module Cerner
       ]
     }
 
+    R4_COVERAGE_ENCOUNTER_BUNDLE = {
+      "resourceType": "Bundle",
+      "id": "8cdbd4b8-6bae-4e18-a6f6-42e1a655e5d8",
+      "type": "searchset",
+      "total": 1,
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911"
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/1175911-1760527",
+          "resource": {
+            "resourceType": "Coverage",
+            "id": "1175911-1760527",
+            "meta": {
+              "versionId": "1",
+              "lastUpdated": "2020-01-28T16:53:52.000Z"
+            },
+            "text": {
+              "status": "extensions",
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Coverage&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: active&lt;/p>&lt;p>&lt;b>Subscriber&lt;/b>: JUREVICIUS, DARSHELLE&lt;/p>&lt;p>&lt;b>Encounter&lt;/b>: 1175911&lt;/p>&lt;p>&lt;b>Beneficiary&lt;/b>: Jurevicius, BABYBOY&lt;/p>&lt;p>&lt;b>Dependent Number&lt;/b>: 1626016&lt;/p>&lt;p>&lt;b>Coverage Start Date&lt;/b>: Sep  5, 2014  2:30 P.M. UTC&lt;/p>&lt;p>&lt;b>Coverage End Date&lt;/b>: Sep  5, 2015  2:30 P.M. UTC&lt;/p>&lt;p>&lt;b>Payor&lt;/b>: Cigna&lt;/p>&lt;p>&lt;b>Class&lt;/b>: plan: Value: 729825 Name: Cigna, group: Value: 456 Name: name&lt;/p>&lt;/div>"
+            },
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+                "valueReference": {
+                  "reference": "Encounter/1175911"
+                }
+              }
+            ],
+            "status": "active",
+            "subscriber": {
+              "reference": "Patient/1122005",
+              "display": "JUREVICIUS, DARSHELLE"
+            },
+            "beneficiary": {
+              "reference": "Patient/1122006",
+              "display": "Jurevicius, BABYBOY"
+            },
+            "dependent": "1626016",
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+                  "code": "other",
+                  "display": "Other",
+                  "userSelected": false
+                }
+              ],
+              "text": "Brother"
+            },
+            "period": {
+              "start": "2014-09-05T14:30:12.000Z",
+              "end": "2015-09-05T14:30:12.000Z"
+            },
+            "payor": [
+              {
+                "reference": "Organization/643848",
+                "display": "Cigna"
+              }
+            ],
+            "class": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                      "code": "plan"
+                    }
+                  ]
+                },
+                "value": "729825",
+                "name": "Cigna"
+              },
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                      "code": "group"
+                    }
+                  ]
+                },
+                "value": "456",
+                "name": "name"
+              }
+            ]
+          }
+        }
+      ]
+    }
+
     R4_COVERAGE_CREATE ||= {
       "resourceType": "Coverage",
       "status": "active",
