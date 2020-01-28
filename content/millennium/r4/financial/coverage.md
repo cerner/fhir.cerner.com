@@ -9,7 +9,7 @@ title: Coverage | R4 API
 
 ## Overview
 
-The Coverage resource provides high-level information about an insurance plan for a specific person or patient. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for "selfpay" where an individual takes responsibility for the cost of health care services, rather than a company or organization.
+The Coverage resource provides high-level information about an insurance plan for a specific person or patient or an encounter. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for "selfpay" where an individual takes responsibility for the cost of health care services, rather than a company or organization.
 
 The following fields are returned if valued:
 
@@ -26,10 +26,24 @@ The following fields are returned if valued:
   * [Type](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.type){:target="_blank"}
   * [Value](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.value){:target="_blank"}
   * [Name](http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.name){:target="_blank"}
+* [Extensions including encounter](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
 <%= terminology_table(:coverage, :r4) %>
+
+## Extensions
+
+* [Encounter]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                   | Value\[x] Type | Description
+----------------------|----------------|------------------------------
+ `coverage-encounter` | [`Reference`]  | A reference to an Encounter.
+
 
 ## Search
 
@@ -43,15 +57,16 @@ Search for Coverages that meet supplied query parameters:
 
 ### Parameters
 
- Name       | Required? | Type          | Description
-------------|-----------|---------------|----------------------------------------------------
- `patient`  | Yes       | [`reference`] | Retrieve coverages for a patient. Example: `12345`
+ Name         | Required?            | Type          | Description
+--------------|----------------------|---------------|--------------------------------------------------------
+ `patient`    | This or `-encounter` | [`reference`] | Retrieve coverages for a patient. Example: `12345`
+ `-encounter` | This or `patient`    | [`reference`] | Retrieve coverages for an encounter. Example: `143242`
 
 ### Headers
 
 <%= headers fhir_json: true %>
 
-### Example
+### Example - Patient-level Coverage
 
 #### Request
 
@@ -61,6 +76,17 @@ Search for Coverages that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_bundle) %>
+
+### Example - Encounter-level Coverage
+
+#### Request
+
+    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_encounter_bundle) %>
 
 ### Errors
 
@@ -119,3 +145,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Encounter]: #custom-extensions
