@@ -44,16 +44,15 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 ----------------------|----------------|------------------------------
  `coverage-encounter` | [`Reference`]  | A reference to an Encounter.
 
-
 ## Search
 
-Search for Coverages that meet supplied query parameters:
+Search for Patient-level or Encounter-level Coverages that meet supplied query parameters:
 
     GET /Coverages?:parameters
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true)%>
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -77,6 +76,8 @@ Search for Coverages that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_coverage_bundle) %>
 
+<%= disclaimer %>
+
 ### Example - Encounter-level Coverage
 
 #### Request
@@ -88,13 +89,15 @@ Search for Coverages that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create a new Coverage.
+Create a new Patient-level Coverage.
 
     POST /Coverage
 
@@ -137,6 +140,68 @@ Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
 </pre>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+Patch an existing Encounter-level Coverage.
+
+    PATCH /Coverage/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+* Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Coverage resource>"'} %>
+
+### Patch Operations
+
+<%= patch_definition_table(:coverage_encounter_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+
+#### Body
+
+<%= json(:r4_coverage_encounter_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+<%= disclaimer %>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ### Errors
 
