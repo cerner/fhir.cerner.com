@@ -230,11 +230,6 @@ module Cerner
     R4_COVERAGE_ENCOUNTER_PATCH ||= [
       {
         "op": "replace",
-        "path": "/class/1/name",
-        "value": "name"
-      },
-      {
-        "op": "replace",
         "path": "/class/0/value",
         "value": "729825"
       },
@@ -242,6 +237,11 @@ module Cerner
         "op": "replace",
         "path": "/class/1/value",
         "value": "456"
+      },
+      {
+        "op": "replace",
+        "path": "/class/1/name",
+        "value": "Miscellaneous Commercial Health Plan"
       },
       {
         "op": "replace",

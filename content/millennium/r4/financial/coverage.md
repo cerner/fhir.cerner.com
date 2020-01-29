@@ -76,6 +76,8 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
 <%= headers status: 200 %>
 <%= json(:r4_coverage_bundle) %>
 
+<%= disclaimer %>
+
 ### Example - Encounter-level Coverage
 
 #### Request
@@ -86,6 +88,8 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -118,6 +122,8 @@ Create a new Patient-level Coverage.
 #### Body
 
 <%= json(:r4_coverage_create) %>
+
+<%= disclaimer %>
 
 #### Response
 
@@ -175,6 +181,8 @@ _Implementation Notes_
 #### Body
 
 <%= json(:r4_coverage_encounter_patch) %>
+
+<%= disclaimer %>
 
 #### Response
 

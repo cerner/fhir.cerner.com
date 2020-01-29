@@ -2,26 +2,7 @@
 name: Coverage
 field_name_base_url: https://hl7.org/fhir/r4/coverage-definitions.html#Coverage
 operations:
-  - name: class.name
-    path: /class/1/name
-    operation: replace
-    cardinality: 0..1
-    type: string
-    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name
-    description: A short description for the class.
-    example: |
-      {
-        "op": "replace",
-        "path": "/class/1/name",
-        "value": "name"
-      }
-    note: >
-      <ul>
-        <li>This path should be used only to replace the policy group name.</li>
-        <li>When no value is provided the `name` for the `Coverage.class` element with `type` == `group` type will be unset.</li>
-      </ul>
-
-  - name: class.value
+  - name: replace-class-0-value
     path: /class/0/value
     operation: replace
     cardinality: 0..1
@@ -36,10 +17,10 @@ operations:
       }
     note: >
       <ul>
-        <li>This path should be used only to replace the policy plan id.</li>
+        <li>The `Coverage.class` at index 0 represents the plan for the Coverage.</li>
       </ul>
 
-  - name: class.value
+  - name: replace-class-1-value
     path: /class/1/value
     operation: replace
     cardinality: 0..1
@@ -55,10 +36,30 @@ operations:
     note: >
       <ul>
         <li>This path should be used only to replace the policy group number.</li>
-        <li>When no value is provided the `value` for the `Coverage.class` element with `type` == `group` type will be unset.</li>
+        <li>The `Coverage.class` at index 1 represents the group for the Coverage.</li>
+        <li>When no value is provided for this patch operation, `Coverage.class[1].value` will be unset.</li>
       </ul>
 
-  - name: dependent
+  - name: replace-class-name
+    path: /class/1/name
+    operation: replace
+    cardinality: 0..1
+    type: string
+    url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name
+    description: A short description for the class.
+    example: |
+      {
+        "op": "replace",
+        "path": "/class/1/name",
+        "value": "name"
+      }
+    note: >
+      <ul>
+        <li>The `Coverage.class` at index 1 represents the group for the Coverage.</li>
+        <li>When no value is provided for this patch operation, `Coverage.class[1].name` will be unset.</li>
+      </ul>
+
+  - name: replace-dependent
     path: /dependent
     operation: replace
     cardinality: 0..1
@@ -73,10 +74,10 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided `Coverage.dependent` will be unset.</li>
+        <li>When no value is provided for this patch operation, `Coverage.dependent` will be unset.</li>
       </ul>
 
-  - name: period
+  - name: replace-period
     path: /period
     operation: replace
     cardinality: 0..1
@@ -94,12 +95,12 @@ operations:
       }
     note: >
       <ul>
-        <li>When no `start` value is provided `Coverage.period.start` will be unset.</li>
-        <li>When no `end` value is provided `Coverage.period.end` will be unset.</li>
+        <li>When no `start` value is provided for this patch operation, `Coverage.period.start` will be unset.</li>
+        <li>When no `end` value is provided for this patch operation, `Coverage.period.end` will be unset.</li>
         <li>When `start` or `end` values are provided, time components must be provided.</li>
       </ul>
 
-  - name: relationship
+  - name: replace-relationship
     path: /relationship
     operation: replace
     cardinality: 0..1
@@ -121,10 +122,10 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided `Coverage.relationship` will be unset.</li>
+        <li>When no value is provided for this patch operation, `Coverage.relationship` will be unset.</li>
       </ul>
 
-  - name: subscriberId
+  - name: replace-subscriberId
     path: /subscriberId
     operation: replace
     cardinality: 0..1
@@ -139,10 +140,10 @@ operations:
       }
     note: >
       <ul>
-        <li>When no value is provided `Coverage.subscriberId` will be unset.</li>
+        <li>When no value is provided for this patch operation, `Coverage.subscriberId` will be unset.</li>
       </ul>
 
-  - name: subscriber
+  - name: replace-subscriber
     path: /subscriber
     operation: replace
     cardinality: 1..1
