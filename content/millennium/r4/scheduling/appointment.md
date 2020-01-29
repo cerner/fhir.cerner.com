@@ -136,12 +136,23 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+    GET  https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_appointment_video_visit_entry) %>
+
+### Example - Appointment Request
+
+### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/1395745
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_appointment_request_entry) %>
 
 ### Errors
 
