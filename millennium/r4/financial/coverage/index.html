@@ -80,11 +80,17 @@
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example---patient-level-coverage" id="markdown-toc-example---patient-level-coverage">Example - Patient-level Coverage</a></li>
+      <li><a href="#example---encounter-level-coverage" id="markdown-toc-example---encounter-level-coverage">Example - Encounter-level Coverage</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -93,15 +99,24 @@
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Coverage resource provides high-level information about an insurance plan for a specific person or patient. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for “selfpay” where an individual takes responsibility for the cost of health care services, rather than a company or organization.</p>
+<p>The Coverage resource provides high-level information about an insurance plan for a specific person or patient or an encounter. Identifying coverage information would appear on an insurance card, and can be used to pay for health care services. The resource can also be used for “selfpay” where an individual takes responsibility for the cost of health care services, rather than a company or organization.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -123,6 +138,7 @@
       <li><a href="http://hl7.org/fhir/R4/coverage-definitions.html#Coverage.class.name" target="_blank">Name</a></li>
     </ul>
   </li>
+  <li><a href="#extensions" target="_blank">Extensions including encounter</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -202,9 +218,36 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Encounter</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>coverage-encounter</code></td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>Reference</code></a></td>
+      <td>A reference to an Encounter.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
-<p>Search for Coverages that meet supplied query parameters:</p>
+<p>Search for Patient-level or Encounter-level Coverages that meet supplied query parameters:</p>
 
 <pre><code>GET /Coverages?:parameters
 </code></pre>
@@ -229,9 +272,18 @@
   <tbody>
     <tr>
       <td><code>patient</code></td>
-      <td>Yes</td>
+      <td>This or <code>-encounter</code>
+</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
       <td>Retrieve coverages for a patient. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-encounter</code></td>
+      <td>This or <code>patient</code>
+</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>Retrieve coverages for an encounter. Example: <code>143242</code>
 </td>
     </tr>
   </tbody>
@@ -242,7 +294,7 @@
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="example---patient-level-coverage">Example - Patient-level Coverage</h3>
 
 <h4 id="request">Request</h4>
 
@@ -326,13 +378,123 @@
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---encounter-level-coverage">Example - Encounter-level Coverage</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "8cdbd4b8-6bae-4e18-a6f6-42e1a655e5d8",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/1175911-1760527",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "1175911-1760527",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-01-28T16:53:52.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber&lt;/b&gt;: JUREVICIUS, DARSHELLE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 1175911&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: Jurevicius, BABYBOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dependent Number&lt;/b&gt;: 1626016&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Sep  5, 2014  2:30 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage End Date&lt;/b&gt;: Sep  5, 2015  2:30 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Cigna&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: plan: Value: 729825 Name: Cigna, group: Value: 456 Name: name&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+            "valueReference": {
+              "reference": "Encounter/1175911"
+            }
+          }
+        ],
+        "status": "active",
+        "subscriber": {
+          "reference": "Patient/1122005",
+          "display": "JUREVICIUS, DARSHELLE"
+        },
+        "beneficiary": {
+          "reference": "Patient/1122006",
+          "display": "Jurevicius, BABYBOY"
+        },
+        "dependent": "1626016",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "other",
+              "display": "Other",
+              "userSelected": false
+            }
+          ],
+          "text": "Brother"
+        },
+        "period": {
+          "start": "2014-09-05T14:30:12.000Z",
+          "end": "2015-09-05T14:30:12.000Z"
+        },
+        "payor": [
+          {
+            "reference": "Organization/643848",
+            "display": "Cigna"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "729825",
+            "name": "Cigna"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "group"
+                }
+              ]
+            },
+            "value": "456",
+            "name": "name"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
-<p>Create a new Coverage.</p>
+<p>Create a new Patient-level Coverage.</p>
 
 <pre><code>POST /Coverage
 </code></pre>
@@ -888,9 +1050,9 @@
   </tbody>
 </table>
 
-<h3 id="example-1">Example</h3>
+<h3 id="example">Example</h3>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 </code></pre>
@@ -955,7 +1117,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -974,7 +1136,505 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
 </pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="patch">Patch</h2>
+
+<p>Patch an existing Encounter-level Coverage.</p>
+
+<pre><code>PATCH /Coverage/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
+  <li>Only operations on the paths listed below are supported.</li>
+  <li>Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/json-patch+json
+If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
+
+<h3 id="patch-operations">Patch Operations</h3>
+
+<table style="white-space: normal">
+  <thead>
+  <tr>
+    <th>Path</th>
+    <th>Operation</th>
+    <th>Value Cardinality</th>
+    <th>Value Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>
+        <a name="replace-class-0-value">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value"><code>/class/0/value</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The alphanumeric string value associated with the insurer issued label.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/class/0/value",
+  "value": "729825"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>The <code>Coverage.class</code> at index 0 represents the plan for the Coverage.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-class-1-value">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value"><code>/class/1/value</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The alphanumeric string value associated with the insurer issued label.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/class/1/value",
+  "value": "729825"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This path should be used only to replace the policy group number.</li>
+  <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
+  <li>When no value is provided for this patch operation, `Coverage.class<a href="#patch_operation-1">1</a>.value` will be unset.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-class-name">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name"><code>/class/1/name</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A short description for the class.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/class/1/name",
+  "value": "name"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
+  <li>When no value is provided for this patch operation, `Coverage.class<a href="#patch_operation-1">1</a>.name` will be unset.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-dependent">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.dependent"><code>/dependent</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A unique identifier for a dependent under the coverage.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/dependent",
+  "value": "9816564"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When no value is provided for this patch operation, <code>Coverage.dependent</code> will be unset.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-period">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.period"><code>/period</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/period",
+  "value": {
+    "start": "2014-09-05T14:30:12.000Z",
+    "end": "2015-09-05T14:30:12.000Z"
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When no <code>start</code> value is provided for this patch operation, <code>Coverage.period.start</code> will be unset.</li>
+  <li>When no <code>end</code> value is provided for this patch operation, <code>Coverage.period.end</code> will be unset.</li>
+  <li>When <code>start</code> or <code>end</code> values are provided, time components must be provided.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-relationship">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.relationship"><code>/relationship</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The relationship of beneficiary (patient) to the subscriber.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/relationship",
+  "value": {
+    "coding": [
+      {
+        "system": "https://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "parent"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When no value is provided for this patch operation, <code>Coverage.relationship</code> will be unset.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-subscriberId">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId"><code>/subscriberId</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>0..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The insurer assigned ID for the Subscriber.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/subscriberId",
+  "value": "4655446"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When no value is provided for this patch operation, <code>Coverage.subscriberId</code> will be unset.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-subscriber">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber"><code>/subscriber</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>1..1</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/subscriber",
+  "value": {
+    "reference": "Patient/1626016"
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>
+<code>Coverage.subscriber</code> supports only Patient references</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/class/0/value",
+    "value": "729825"
+  },
+  {
+    "op": "replace",
+    "path": "/class/1/value",
+    "value": "456"
+  },
+  {
+    "op": "replace",
+    "path": "/class/1/name",
+    "value": "Miscellaneous Commercial Health Plan"
+  },
+  {
+    "op": "replace",
+    "path": "/dependent",
+    "value": "9816564"
+  },
+  {
+    "op": "replace",
+    "path": "/period",
+    "value": {
+      "start": "2014-09-05T14:30:12.000Z",
+      "end": "2015-09-05T14:30:12.000Z"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/relationship",
+    "value": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+          "code": "parent"
+        }
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/subscriberId",
+    "value": "4655446"
+  },
+  {
+    "op": "replace",
+    "path": "/subscriber",
+    "value": {
+      "reference": "Patient/1626016"
+    }
+  }
+]</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
