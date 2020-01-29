@@ -123,8 +123,6 @@ Create a new Patient-level Coverage.
 
 <%= json(:r4_coverage_create) %>
 
-<%= disclaimer %>
-
 #### Response
 
 <%= headers status: 201 %>
@@ -142,6 +140,8 @@ Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
 </pre>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -182,8 +182,6 @@ _Implementation Notes_
 
 <%= json(:r4_coverage_encounter_patch) %>
 
-<%= disclaimer %>
-
 #### Response
 
 <%= headers status: 200 %>
@@ -200,6 +198,8 @@ Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 X-Runtime: 2.260092
 </pre>
+
+<%= disclaimer %>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
