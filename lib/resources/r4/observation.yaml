@@ -1,0 +1,104 @@
+---
+name: Observation
+field_name_base_url: http://hl7.org/fhir/observation-definitions.html#Observation
+fields:
+
+- name: category
+  required: 'No'
+  cardinality: 0..*
+  type: CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  binding:
+    description: Codes for high level observation categories.
+    terminology:
+    - display: Observation Category Codes
+      system: http://terminology.hl7.org/CodeSystem/observation-category
+      info_link: http://hl7.org/fhir/R4/valueset-observation-category.html
+
+- name: code
+  required: 'Yes'
+  cardinality: 1..1
+  type: CodeableConcept
+  description: Describes what was observed. Sometimes this is called the observation "name".
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/snomedct.html
+    - display: Millennium Clinical Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
+
+- name: dataAbsentReason
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Provides a reason why the expected value in the element Observation.value[x] is missing.
+  binding: 
+    description: Codes for reasons data is absent.
+    terminology:
+    - display: v4 data absentreason
+      system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+      info_link: http://hl7.org/fhir/R4/valueset-data-absent-reason.html
+
+- name: interpretation
+  required: 'No'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: A categorical assessment of an observation value. For example, high, low, normal.
+  binding:
+    description: Codes identifying interpretations of observations.
+    terminology:
+    - display: v3 Interpretation Codes
+      system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+      info_link: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+    - display: Interpretation Result
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-interpretation-result
+
+- name: component
+  required: 'No'
+  cardinality: 0..*
+  type: BackboneElement
+  description: >
+    Some observations have multiple component observations. These component observations are expressed as separate code 
+    value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood 
+    pressure measurement and multiple component observations for genetics observations.
+  children:
+
+  - name: code
+    required: 'Yes'
+    cardinality: 1..1
+    type: CodeableConcept
+    description: Describes what was observed. Sometimes this is called the observation "name".
+    binding:
+      description: Codes identifying names of simple observations.
+      terminology:
+      - display: LOINC
+        system: http://loinc.org
+        info_link: http://hl7.org/fhir/R4/loinc.html
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/R4/snomedct.html
+      - display: Millennium Clinical Event Code
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
+
+  - name: interpretation
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: A categorical assessment of an observation value. For example, high, low, normal.
+    binding:
+      description: Codes identifying interpretations of observations.
+      terminology:
+      - display: v3 Interpretation Codes
+        system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+        info_link: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+      - display: Interpretation Result
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-interpretation-result
