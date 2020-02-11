@@ -20,6 +20,7 @@ The following fields are returned if valued:
 * [Subject (Patient)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.subject){:target="_blank"}
 * [Encounter](http://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter){:target="_blank"}
 * [Effective date/time (collection date/time for laboratory)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
+* [Extensions](#extensions){:target="_blank"}
 * [Issued (date/time observation made available, entered, verified)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
 * [Observation value or result](http://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"}
 * For Observations with valueQuantity
@@ -34,6 +35,11 @@ The following fields are returned if valued:
 
 ## Terminology Bindings
 <%= terminology_table(:observation, :r4) %>
+
+## Extensions
+
+* valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
+  This extension is defined and referenced from a new Version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
 
 ## Search
 
@@ -97,3 +103,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: http://hl7.org/fhir/dstu2/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
+[R5 Snapshot of Observation.value]: http://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
