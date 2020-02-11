@@ -13,7 +13,6 @@ The Observation resource provides measurements or simple assertions about a pati
 The following fields are returned if valued:
 
 * [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Identifier](http://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
 * [Category (laboratory, social history)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
 * [Code (Observation name or text)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
@@ -23,13 +22,16 @@ The following fields are returned if valued:
 * [Extensions](#extensions){:target="_blank"}
 * [Issued (date/time observation made available, entered, verified)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
 * [Observation value or result](http://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"}
-* For Observations with valueQuantity
+* For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](http://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
     * [Quantity units](http://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
 * [Data absent reason](http://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation (abnormal flagging)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note (comments)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
 * [Reference range](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange){:target="_blank"}
+    * [low](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low){:target="_blank"}
+    * [high](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high){:target="_blank"}
+    * [text](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text){:target="_blank"}
 * [hasMember (for limited use cases)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
 * [Component (eg: systolic and diastolic for blood pressure)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.component){:target="_blank"}
 
@@ -47,6 +49,19 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
     GET /Observation?:parameters
 
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+_Implementation Notes_
+
+* The `comments` field may have RTF or other formatted data rather than simple text.
+
+* When multiple pages of Observation results are returned for a single query:
+  * All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.
+  * Results are sorted by effective date/time in descending order by page. That is, all Observations on any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.
+  * If the query uses the `_lastUpdated` query parameter, results are sorted by last updated date/time in descending order by page, not by effective date/time.
+
 ### Parameters
 
  Name             | Required?         | Type          | Description
@@ -57,7 +72,7 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
  `date`           | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`
  `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  `category`       | N                 | [`token`]     | The category of observations. Example: `category=laboratory`
- [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page. Defaults to `50`. Capped at `100`.
+ [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page. Defaults to `50`.
 
 
 
@@ -69,7 +84,8 @@ Notes:
 
 * The `code` parameter:
   * May be a list of comma separated values. A system must be provided for each code.
-  * Searches Observation.code and Observation.component.code.
+  * Searches only `Observation.code`. For example when fetching blood pressures the resource will be only be returned when the search is based on `85354-9(Systolic and Diastolic BP)`. Using the component codes `8480-6(Systolic BP)` or `8462-4 (Diastolic BP)` will not return the resource.
+
 
 * The `date` and `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
