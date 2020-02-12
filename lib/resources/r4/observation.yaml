@@ -1,6 +1,6 @@
 ---
 name: Observation
-field_name_base_url: http://hl7.org/fhir/observation-definitions.html#Observation
+field_name_base_url: http://hl7.org/fhir/R4/observation-definitions.html#Observation
 fields:
 
 - name: category
@@ -25,10 +25,10 @@ fields:
     terminology:
     - display: LOINC
       system: http://loinc.org
-      info_link: http://hl7.org/fhir/loinc.html
+      info_link: http://hl7.org/fhir/R4/loinc.html
     - display: SNOMED CT
       system: http://snomed.info/sct
-      info_link: http://hl7.org/fhir/snomedct.html
+      info_link: http://hl7.org/fhir/R4/snomedct.html
     - display: Millennium Clinical Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
@@ -47,7 +47,7 @@ fields:
 
 - name: interpretation
   required: 'No'
-  cardinality: 0..1
+  cardinality: 0..*
   type: CodeableConcept
   description: A categorical assessment of an observation value. For example, high, low, normal.
   binding:
