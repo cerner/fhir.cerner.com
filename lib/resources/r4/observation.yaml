@@ -90,7 +90,7 @@ fields:
 
   - name: interpretation
     required: 'No'
-    cardinality: 0..1
+    cardinality: 0..*
     type: CodeableConcept
     description: A categorical assessment of an observation value. For example, high, low, normal.
     binding:
