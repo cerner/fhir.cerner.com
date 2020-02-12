@@ -102,3 +102,15 @@ fields:
       - display: Interpretation Result
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-interpretation-result
+
+  - name: dataAbsentReason
+    required: 'No'
+    cardinality: 0..1
+    type: CodeableConcept
+    description: Provides a reason why the expected value in the element Observation.value[x] is missing.
+    binding:
+      description: Codes for reasons data is absent.
+      terminology:
+      - display: v4 data absentreason
+        system: http://terminology.hl7.org/CodeSystem/data-absent-reason
+        info_link: http://hl7.org/fhir/R4/valueset-data-absent-reason.html
