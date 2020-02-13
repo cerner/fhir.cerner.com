@@ -40,7 +40,7 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* valueAttachment: URL for this extension is defined as: `https://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
+* valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
   This extension is defined and referenced from the newer version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
 
 ## Search
