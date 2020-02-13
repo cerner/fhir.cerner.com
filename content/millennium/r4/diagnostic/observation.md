@@ -12,35 +12,35 @@ The Observation resource provides measurements or simple assertions about a pati
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status](http://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
-* [Category (laboratory, social history)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
-* [Code (Observation name or text)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
-* [Subject (Patient)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.subject){:target="_blank"}
-* [Encounter](http://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter){:target="_blank"}
-* [Effective date/time (collection date/time for laboratory)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Status](https://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
+* [Category (laboratory, social history)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
+* [Code (Observation name or text)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
+* [Subject (Patient)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject){:target="_blank"}
+* [Encounter](https://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter){:target="_blank"}
+* [Effective date/time (collection date/time for laboratory)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
 * [Extensions](#extensions){:target="_blank"}
-* [Issued (date/time observation made available, entered, verified)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
-* [Observation value or result](http://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"}
+* [Issued (date/time observation made available, entered, verified)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
+* [Observation value or result](https://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"}
 * For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](http://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
-    * [Quantity units](http://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
-* [Data absent reason](http://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
-* [Interpretation (abnormal flagging)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
-* [Note (comments)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
-* [Reference range](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange){:target="_blank"}
-    * [low](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low){:target="_blank"}
-    * [high](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high){:target="_blank"}
-    * [text](http://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text){:target="_blank"}
-* [Member Observations (for limited use cases)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
-* [Component (eg: systolic and diastolic for blood pressure)](http://hl7.org/fhir/R4/observation-definitions.html#Observation.component){:target="_blank"}
+    * [Quantity units](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
+* [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
+* [Interpretation (abnormal flagging)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
+* [Note (comments)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
+* [Reference range](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange){:target="_blank"}
+    * [low](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low){:target="_blank"}
+    * [high](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high){:target="_blank"}
+    * [text](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text){:target="_blank"}
+* [Member Observations (for limited use cases)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
+* [Component (eg: systolic and diastolic for blood pressure)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component){:target="_blank"}
 
 ## Terminology Bindings
 <%= terminology_table(:observation, :r4) %>
 
 ## Extensions
 
-* valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
+* valueAttachment: URL for this extension is defined as: `https://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
   This extension is defined and referenced from the newer version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
 
 ## Search
@@ -111,12 +111,12 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`reference`]: http://hl7.org/fhir/r4/search.html#reference
-[`token`]: http://hl7.org/fhir/r4/search.html#token
-[`date`]: http://hl7.org/fhir/r4/search.html#date
-[`_count`]: http://hl7.org/fhir/r4/search.html#count
-[`number`]: http://hl7.org/fhir/r4/search.html#number
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`token`]: https://hl7.org/fhir/r4/search.html#token
+[`date`]: https://hl7.org/fhir/r4/search.html#date
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
+[`number`]: https://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
-[R5 Snapshot of Observation.value]: http://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
+[R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
