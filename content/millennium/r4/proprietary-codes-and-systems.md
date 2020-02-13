@@ -44,6 +44,15 @@ Example outbound CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
+### Diagnostic
+
+<h3>Observation</h3>
+
+The Observation Resource supports proprietary codes for:
+
+* Observation.code and Observation.component.code codes are maintained in [Code Set 72 Clinical Event Codes](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes)
+* Observation.interpretation and Observation.component.interpretation codes are maintained in [Code Set 52 Result Interpretation](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-result-interpretation)
+
 ### Documents
 
 <!-- use html header to avoid showing up in toc -->
@@ -280,6 +289,16 @@ This code set is used to describe the patient's relationship to Subscriber, Guar
       "userSelected": true
     }
 
+##### Code Set 52 Interpretation Result
+
+This code set contains values that are used to interpret results such as Normal or High.
+    
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/52",
+      "code": "214",
+      "display": "Normal",
+      "userSelected": true
+    }
 
 ##### Code Set 67 VIP
 
