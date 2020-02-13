@@ -4,4 +4,4 @@ layout: api
 ---
 
 <%= render '/diagnostic_r4.*' %>
-* [Observation](../diagnostic/Observation)
+* [Observation](../diagnostic/observation)
