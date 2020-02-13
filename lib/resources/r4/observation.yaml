@@ -107,7 +107,7 @@ fields:
     required: 'No'
     cardinality: 0..1
     type: CodeableConcept
-    description: Provides a reason why the expected value in the element Observation.value[x] is missing.
+    description: Provides a reason why the expected value in the element Observation.component.value[x] is missing.
     binding:
       description: Codes for reasons data is absent.
       terminology:
