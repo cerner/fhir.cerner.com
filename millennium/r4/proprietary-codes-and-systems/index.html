@@ -80,6 +80,7 @@
   <li>
 <a href="#proprietary-codes" id="markdown-toc-proprietary-codes">Proprietary Codes</a>    <ul>
       <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#diagnostic" id="markdown-toc-diagnostic">Diagnostic</a></li>
       <li><a href="#documents" id="markdown-toc-documents">Documents</a></li>
       <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
       <li><a href="#entities" id="markdown-toc-entities">Entities</a></li>
@@ -141,6 +142,19 @@
   }
 }
 </code></pre>
+
+<h3 id="diagnostic">Diagnostic</h3>
+
+<h3>Observation</h3>
+
+<p>The Observation Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>Observation.code and Observation.component.code codes are maintained in <a href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes">Code Set 72 Clinical Event Codes</a>
+</li>
+  <li>Observation.interpretation and Observation.component.interpretation codes are maintained in <a href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-result-interpretation">Code Set 52 Result Interpretation</a>
+</li>
+</ul>
 
 <h3 id="documents">Documents</h3>
 
@@ -447,6 +461,18 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40",
   "code": "153",
   "display": "DAUGHTER",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-52-interpretation-result">Code Set 52 Interpretation Result</h5>
+
+<p>This code set contains values that are used to interpret results such as Normal or High.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52",
+  "code": "214",
+  "display": "Normal",
   "userSelected": true
 }
 </code></pre>
@@ -857,6 +883,14 @@
         <ul class="js-guides">
           <li><a href="../conformance/capability-statement/">Capability Statement</a></li>
           <li><a href="../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic/">Diagnostic</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../diagnostic/observation/">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">

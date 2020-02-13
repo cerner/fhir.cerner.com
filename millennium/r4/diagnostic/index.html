@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Conformance | R4 API</title>
+  <title>Diagnostic | R4 API</title>
   
   <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -74,21 +74,21 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="conformance">Conformance</h1>
+      <h1 id="diagnostic">Diagnostic</h1>
 
-<p>Resources in the Conformance category are used to represent metadata about the datatypes, resources, and API features of the FHIR specification and can be used to create derived specifications.</p>
+<p>The Diagnostic resources are concerned with the process of observing, testing, and diagnosing a patient. Note, once a
+  diagnosis is confirmed, it would be recorded in Condition so that it is part of the historical patient record.</p>
 
-<p>Click
-  
-    <a href="http://hl7.org/fhir/r4/conformance-module.html">here</a>
-  
-to see the detailed categorization and full set of resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
+<p>The Observation resource is primarily concerned with recording discrete values, answers, and results such as clinical
+  laboratory data and vital signs while the DiagnosticReport resource typically provides a textual set of information and
+  interpretation after performing a diagnostic service such as a Radiology report or Pathology report.</p>
+
+<p>Click <a href="https://hl7.org/fhir/r4/diagnostics-module.html">here</a> to see the detailed categorization and full set of
+  resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
 
 <h2 id="implemented-resources">Implemented Resources</h2>
-
 <ul>
-  <li><a href="../conformance/capability-statement">Capability Statement</a></li>
-  <li><a href="../conformance/structure-definition">Structure Definition</a></li>
+  <li><a href="../diagnostic/Observation">Observation</a></li>
 </ul>
 
     </div>
@@ -107,19 +107,19 @@ to see the detailed categorization and full set of resources that fall into this
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Conformance</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../conformance/">Conformance</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="capability-statement/">Capability Statement</a></li>
-          <li><a href="structure-definition/">StructureDefinition</a></li>
+          <li><a href="../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../conformance/structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../diagnostic/">Diagnostic</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Diagnostic</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../diagnostic/observation/">Observation</a></li>
+          <li><a href="observation/">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">
