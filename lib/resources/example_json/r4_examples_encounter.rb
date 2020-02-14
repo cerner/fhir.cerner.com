@@ -433,12 +433,13 @@ module Cerner
           "type": {
             "coding": [
               {
-                "system": "http://hl7.org/fhir/v2/0203",
-                "code": "FIN NBR"
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
+                "code": "1077",
+                "display": "FIN NBR"
               }
             ]
           },
-          "system": "urn:oid:192.168.0.1",
+          "system": "urn:oid:3.3.3.3.3.3",
           "value": "2000363999",
           "period": {
             "start": "2017-01-17T20:39:40.000Z"
