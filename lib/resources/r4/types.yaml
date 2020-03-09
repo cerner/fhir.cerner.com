@@ -9,10 +9,13 @@ CodeableConcept: https://hl7.org/fhir/R4/datatypes.html#CodeableConcept
 ContactPoint: https://hl7.org/fhir/R4/datatypes.html#ContactPoint
 date: https://hl7.org/fhir/R4/datatypes.html#date
 dateTime: https://hl7.org/fhir/R4/datatypes.html#dateTime
+decimal: https://www.hl7.org/fhir/r4/datatypes.html#decimal
+Dosage: https://www.hl7.org/fhir/r4/dosage.html
 Duration: https://hl7.org/fhir/R4/datatypes.html#Duration
 Element: https://hl7.org/fhir/R4/element.html
 Encounter: https://hl7.org/fhir/R4/encounter.html
 Extension: https://hl7.org/fhir/R4/extensibility.html#Extension
+Group: https://hl7.org/fhir/R4/group.html
 HumanName: https://hl7.org/fhir/R4/datatypes.html#HumanName
 id: https://hl7.org/fhir/R4/datatypes.html#id
 Identifier: https://hl7.org/fhir/R4/datatypes.html#Identifier
@@ -31,4 +34,5 @@ Resource: https://hl7.org/fhir/R4/resource.html
 SimpleQuantity: https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity
 string: https://hl7.org/fhir/R4/datatypes.html#string
 Timing: https://hl7.org/fhir/R4/datatypes.html#Timing
+unsignedInt: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
 uri: https://hl7.org/fhir/R4/datatypes.html#uri

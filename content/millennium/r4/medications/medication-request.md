@@ -139,6 +139,115 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Create
+
+Create an individual MedicationRequest.
+
+    POST /MedicationRequest
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:medication_request, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest
+
+#### Body
+
+<%= json(:r4_medication_request_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Wed, 27 Mar 2019 15:59:33 GMT
+Etag: W/"0"
+Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/4595905
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+Patch an existing medication request.
+
+    PATCH /MedicationRequest/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the MedicationRequest resource>"'} %>
+
+### Patch Operations
+
+<%= patch_definition_table(:medication_request_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/1621910
+
+#### Body
+
+<%= json(:r4_medication_request_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date
