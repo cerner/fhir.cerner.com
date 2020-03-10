@@ -55,7 +55,7 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
 _Implementation Notes_
 
-* The `comments` field may have RTF or other formatted data rather than simple text.
+* The `comments` field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.
 
 * When multiple pages of Observation results are returned for a single query:
   * All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.
