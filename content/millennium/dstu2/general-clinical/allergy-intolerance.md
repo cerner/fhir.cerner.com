@@ -11,9 +11,9 @@ title: AllergyIntolerance | DSTU 2 API
 
 The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance or class of substance including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance such as an over-dose or drug-drug interaction or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
 
-No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies (160244002) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.  
+No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies (160244002) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.
 
-If NKA and/or NKMA exist on the patient's allergy profile and a new allergy is added, the NKA and NKMA will be canceled.  
+If NKA and/or NKMA exist on the patient's allergy profile and a new allergy is added, the NKA and NKMA will be canceled.
 
 If the consumer is sending in what is deemed to be a duplicate (codified or free text), the service will update the existing allergy or reaction rather than adding a duplicate allergy or reaction.
 
@@ -71,6 +71,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_bundle) %>
+<%= disclaimer %>
 
 ### Search by status Example
 
@@ -82,6 +83,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_bundle_by_status) %>
+<%= disclaimer %>
 
 ### Search by id Example
 
@@ -93,6 +95,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_bundle_by_id) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -122,6 +125,7 @@ List an individual AllergyIntolerance by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_allergy_intolerance_resource ) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -180,6 +184,7 @@ Create new allergies.
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Errors
 
@@ -216,7 +221,7 @@ Notes:
 
 #### Request
 
-    PUT https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/6167733
+    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/1194890
 
 #### Body
 
@@ -246,6 +251,7 @@ Notes:
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Errors
 

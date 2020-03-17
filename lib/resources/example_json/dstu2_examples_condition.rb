@@ -81,26 +81,26 @@ module Cerner
 
     DSTU2_CONDITION_HEALTH_CONCERN_RESOURCE = {
       "resourceType": "Condition",
-      "id": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
+      "id": "b5777d90-52f0-42e8-9f68-485c4d2375a7",
       "meta": {
-        "versionId": "7965c636-f343-4e96-8904-3bc35e9fd9f9",
-        "lastUpdated": "2017-01-11T09:09:54.000Z"
+        "versionId": "b5777d90-52f0-42e8-9f68-485c4d2375a7",
+        "lastUpdated": "2019-06-10T19:26:44.000Z"
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Timmy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Decs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 2017-01-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: false&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Patient is afraid of falling                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        &lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 10, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: False&lt;/p&gt;&lt;/div&gt;"
       },
       "patient": {
-        "reference": "Patient/4342012",
-        "display": "Smart, Timmy"
+        "reference": "Patient/4478007",
+        "display": "SMART Jr, FRED RICK"
       },
       "asserter": {
-        "reference": "Practitioner/1912007",
-        "display": "Forrest, Fhir"
+        "reference": "Patient/4478007",
+        "display": "SMART Jr, FRED RICK"
       },
-      "dateRecorded": "2017-01-11",
+      "dateRecorded": "2019-06-10",
       "code": {
-        "text": "Test Health Concern"
+        "text": "Patient is afraid of falling                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        "
       },
       "category": {
         "coding": [
@@ -114,7 +114,7 @@ module Cerner
       },
       "clinicalStatus": "active",
       "verificationStatus": "confirmed",
-      "onsetDateTime": "2017-01-11",
+      "onsetDateTime": "2019-06-10",
       "abatementBoolean": false
     }
 
@@ -139,7 +139,7 @@ module Cerner
           "resource": DSTU2_CONDITION_PROBLEM_RESOURCE
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/b5777d90-52f0-42e8-9f68-485c4d2375a7",
           "resource": DSTU2_CONDITION_HEALTH_CONCERN_RESOURCE
         }
       ]
@@ -153,7 +153,7 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,7965c636-f343-4e96-8904-3bc35e9fd9f9"
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,b5777d90-52f0-42e8-9f68-485c4d2375a7"
         }
       ],
       "entry": [
@@ -166,7 +166,7 @@ module Cerner
           "resource": DSTU2_CONDITION_PROBLEM_RESOURCE
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/b5777d90-52f0-42e8-9f68-485c4d2375a7",
           "resource": DSTU2_CONDITION_HEALTH_CONCERN_RESOURCE
         }
       ]
@@ -252,10 +252,10 @@ module Cerner
 
     DSTU2_CONDITION_DIAGNOSIS_UPDATE ||= {
       "resourceType": "Condition",
-      "id": "d36474555",
+      "id": "d43534563",
       "meta": {
-        "versionId": "36474555",
-        "lastUpdated": "2017-02-28T21:30:28.000Z"
+        "versionId": "43538555",
+        "lastUpdated": "2019-11-14T17:29:32.000Z"
       },
       "patient": {
         "reference": "Patient/1316020"
@@ -264,9 +264,9 @@ module Cerner
         "reference": "Encounter/2457909"
       },
       "asserter": {
-        "reference": "Practitioner/1316007"
+        "reference": "Practitioner/1"
       },
-      "dateRecorded": "2017-02-28",
+      "dateRecorded": "2019-11-14",
       "code": {
         "text": "Freetext Diagnosis"
       },
@@ -280,8 +280,8 @@ module Cerner
       },
       "clinicalStatus": "resolved",
       "verificationStatus": "differential",
-      "onsetDateTime": "2017-02-28"
+      "onsetDateTime": "2017-02-28T00:00:00.000Z"
     }
-    
+
   end
 end
