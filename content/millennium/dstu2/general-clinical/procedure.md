@@ -70,6 +70,7 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_bundle) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -103,6 +104,7 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_entry) %>
+<%= disclaimer %>
 
 ### Errors
 

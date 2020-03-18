@@ -71,17 +71,19 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle) %>
+<%= disclaimer %>
 
 ### Example Read by Ids
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,7965c636-f343-4e96-8904-3bc35e9fd9f9
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,b5777d90-52f0-42e8-9f68-485c4d2375a7
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle_by_id) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -105,12 +107,13 @@ List an individual Condition by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/7965c636-f343-4e96-8904-3bc35e9fd9f9
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/b5777d90-52f0-42e8-9f68-485c4d2375a7
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_health_concern_resource) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -148,7 +151,7 @@ Notes:
 
 #### Request
 
-    POST /Condition
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
 
 #### Body
 
@@ -179,12 +182,13 @@ Notes:
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Create Diagnosis Example
 
 #### Request
 
-    POST /Condition
+    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
 
 #### Body
 
@@ -215,6 +219,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Errors
 
@@ -253,7 +258,7 @@ Notes:
 
 #### Request
 
-    PUT /Condition/p6809861
+    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d43534563
 
 #### Body
 
@@ -271,7 +276,7 @@ Notes:
     X-Xss-Protection → 1; mode=block
     Pragma → no-cache
     X-Request-Id → c58a2925586fa64a89568b9ceac14475
-    Etag → W/"6809873"
+    Etag → W/"43538555"
     X-Frame-Options → SAMEORIGIN
     X-Runtime → 1.227476
     X-Content-Type-Options → nosniff
@@ -283,6 +288,7 @@ Notes:
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+<%= disclaimer %>
 
 ### Errors
 
