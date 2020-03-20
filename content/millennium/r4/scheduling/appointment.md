@@ -27,6 +27,8 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Cancelled
 
+Video visit functionality is for supported vendors only, and requires additional configuration and application support.
+
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -158,6 +160,7 @@ _Implementation Notes_
 * This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * For video visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
+* Video Visit linking requires additional client configuration and application support.
 
 ### Authorization Types
 
