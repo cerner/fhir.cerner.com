@@ -66,7 +66,7 @@ fields:
   binding:
     description: A code that defines the medication
     terminology:
-    - display: Request Priority
+    - display: RxNorm
       system: https://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
 - name: reasonCode
