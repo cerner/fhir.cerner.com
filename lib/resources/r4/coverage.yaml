@@ -15,6 +15,23 @@ fields:
   note: The resourceType must be Coverage.
   url: http://hl7.org/fhir/r4/json.html#resources
 
+- name: Coverage Encounter Extension
+  required: 'No'
+  cardinality: 0..1
+  type: Extension
+  description: Reference to the Encounter associated to the encounter level Coverage.
+  note:
+    - The <code>valueReference.reference</code> must be an Encounter reference.
+    - If this extension is present an encounter level coverage will be posted.
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+      "valueReference": {
+        "reference": "Encounter/31363178"
+      }
+    }
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json
+
 - name: status
   required: 'Yes'
   cardinality: 1..1

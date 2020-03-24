@@ -119,9 +119,13 @@ Create a new Patient-level Coverage.
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-#### Body
+#### Patient-Body
 
 <%= json(:r4_coverage_create) %>
+
+#### Encounter-Body
+
+<%= json(:r4_coverage_encounter_create) %>
 
 #### Response
 
