@@ -975,7 +975,17 @@ Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 61
 Connection: close
-grant_type=client_credentials&scope=system%2FObservation.read
+grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient.read
+</pre>
+
+As an example, here is how the token may be requested via cURL:
+<pre class="terminal">
+curl -X POST 'https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token' \
+  -H 'Accept: application/json' \
+  -H "Authorization: Basic $(echo -n $SYSTEM_ACCOUNT_CLIENT_ID:$SYSTEM_ACCOUNT_CLIENT_SECRET | base64)" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'cache-control: no-cache' \
+  -d 'grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient.read'
 </pre>
 
 _Note_:  This access model is only supported on resources
