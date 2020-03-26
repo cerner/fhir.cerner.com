@@ -74,6 +74,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_immunization_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -102,6 +104,8 @@ List an individual Immunization by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_immunization_1) %>
+
+<%= disclaimer %>
 
 ### Errors
 

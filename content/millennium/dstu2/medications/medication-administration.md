@@ -86,6 +86,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -118,6 +120,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

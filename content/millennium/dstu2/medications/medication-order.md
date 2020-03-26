@@ -105,6 +105,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_order_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -133,6 +135,8 @@ List an individual MedicationOrder by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_order_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

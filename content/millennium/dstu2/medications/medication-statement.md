@@ -115,6 +115,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_statement_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -148,6 +150,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_statement_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -223,6 +227,8 @@ _Implementation Notes_
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -255,7 +261,7 @@ _Implementation Notes_
 
 #### Request
 
-    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/222
+    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/28953901
 
 #### Body
 
@@ -290,6 +296,8 @@ _Implementation Notes_
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
 
 ### Errors
 
