@@ -97,6 +97,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_patient_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned. In addition, a `422 Unprocessable Entity` will be returned when too many (>1000) patients qualify for the search criteria.
@@ -131,6 +133,8 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_patient_entry) %>
 
+<%= disclaimer %>
+
 ### Patient Combines Example
 
 Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
@@ -142,12 +146,14 @@ The ability to perform patient combine or uncombine operations is not available 
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4860007
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/1504027
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_combined_patient_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

@@ -67,6 +67,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_relatedperson_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -95,6 +97,8 @@ List an individual RelatedPerson by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_relatedperson_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
