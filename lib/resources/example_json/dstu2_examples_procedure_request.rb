@@ -3,21 +3,29 @@ module Cerner
 
     DSTU2_PROCEDURE_REQUEST_ENTRY ||= {
       "resourceType": "ProcedureRequest",
-      "id": "44869605",
+      "id": "28005933",
       "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-12-08T21:32:58.000Z"
+          "lastUpdated": "2019-09-11T17:05:46.000Z"
       },
       "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Procedure Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY GGGGGGGGGGGGGGGGG&lt;/p&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;: Adult Assessment HH&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scheduled&lt;/b&gt;: Once&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: accepted&lt;/p&gt;&lt;p&gt;&lt;b&gt;Orderer&lt;/b&gt;: McCready, Tim&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Procedure Request&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Houde, Test 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;: Ongoing Assessment Adult&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scheduled&lt;/b&gt;: TID&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Accepted&lt;/p&gt;&lt;p&gt;&lt;b&gt;Orderer&lt;/b&gt;: SYSTEM, SYSTEM&lt;/p&gt;&lt;/div&gt;"
       },
       "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY GGGGGGGGGGGGGGGGG"
+          "reference": "Patient/1316020",
+          "display": "Houde, Test 1"
       },
       "code": {
-          "text": "Adult Assessment HH"
+          "coding": [
+              {
+                "system": "http://hl7.org/fhir/v3/GTSAbbreviation",
+                "code": "TID",
+                "display": "TID",
+                "userSelected": false
+              }
+          ],
+          "text": "TID"
       },
       "scheduledTiming": {
           "code": {
@@ -25,14 +33,14 @@ module Cerner
           }
       },
       "encounter": {
-          "reference": "Encounter/1565909"
+          "reference": "Encounter/4751906"
       },
       "status": "accepted",
       "asNeededBoolean": true,
       "orderedOn": "2015-12-08T15:30:22.000-06:00",
       "orderer": {
-          "reference": "Practitioner/1626008",
-          "display": "McCreery, Scotty"
+          "reference": "Practitioner/1",
+          "display": "SYSTEM, SYSTEM"
       }
     }
 

@@ -75,6 +75,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_request_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -97,12 +99,14 @@ List an individual ProcedureRequest by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ProcedureRequest/44869605
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ProcedureRequest/28005933
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_request_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
