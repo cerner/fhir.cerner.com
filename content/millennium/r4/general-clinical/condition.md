@@ -121,6 +121,8 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
+* `abatementDateTime` is not supported for Conditions with a category of `encounter-diagnosis`.
+* `encounter` is required for Conditions with a category of `encounter-diagnosis`.
 
 ### Authorization Types
 
