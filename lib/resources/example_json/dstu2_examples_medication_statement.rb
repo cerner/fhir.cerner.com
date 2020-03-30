@@ -602,7 +602,7 @@ module Cerner
         }
       ],
       "patient": {
-        "reference":"Patient/234"
+        "reference":"Patient/1316024"
       },
       "status":"active",
       "medicationReference":{
@@ -635,7 +635,7 @@ module Cerner
 
     DSTU2_MEDICATION_STATEMENT_UPDATE ||= {
       "resourceType": "MedicationStatement",
-      "id": "222",
+      "id": "28953901",
       "contained":
       [
         {
@@ -648,12 +648,12 @@ module Cerner
       ],
       "status": "completed",
       "patient": {
-        "reference": "Patient/234"
+        "reference": "Patient/1316024"
       },
       "medicationReference": {
         "reference": "#123"
       }
     }
-        
+
   end
 end
