@@ -5,8 +5,8 @@ module Cerner
       "resourceType": "Schedule",
       "id": "21265426-633867-3121665-0",
       "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+        "status": "extensions",
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
       },
       "extension": [
         {
@@ -22,8 +22,8 @@ module Cerner
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine"
+              "code": "408443003",
+              "display": "General medical practice"
             }
           ],
           "text": "Same Day"
@@ -31,7 +31,7 @@ module Cerner
       ],
       "actor": {
         "reference": "Practitioner/2578010",
-        "display": "Song, River"
+        "display": "Howdeshell, Tami"
       }
     }
 

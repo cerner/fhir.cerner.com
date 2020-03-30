@@ -67,6 +67,8 @@ Search for Schedules that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:dstu2_schedule_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -89,12 +91,14 @@ List an individual Schedule by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/166627791-4048128-9331486-0
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121665-0
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_schedule_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
