@@ -4,7 +4,7 @@ ruby '2.6.2'
 
 gem 'kramdown', '~> 1.6'
 gem 'nanoc', '~> 4.0'
-gem 'nokogiri', '~> 1.10.4'
+gem 'nokogiri', '~> 1.10.8'
 gem 'yajl-ruby', '~> 1.3'
 
 group :development do
