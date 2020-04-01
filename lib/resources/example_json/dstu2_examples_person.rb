@@ -74,12 +74,12 @@ module Cerner
 
     DSTU2_COMBINED_PERSON_ENTRY ||= {
       "resourceType": "Person",
-      "id": "4860007",
+      "id": "4768007",
       "active": false,
       "link": [
         {
           "target": {
-            "reference": "Person/4342008"
+            "reference": "Person/3440007"
           }
         }
       ]
