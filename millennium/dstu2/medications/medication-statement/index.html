@@ -1238,6 +1238,8 @@
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -1456,6 +1458,8 @@
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
 
@@ -2293,7 +2297,7 @@
     }
   ],
   "patient": {
-    "reference": "Patient/234"
+    "reference": "Patient/1316024"
   },
   "status": "active",
   "medicationReference": {
@@ -2353,6 +2357,8 @@
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-2">Errors</h3>
 
@@ -2601,14 +2607,14 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/222
+<pre><code>PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/28953901
 </code></pre>
 
 <h4 id="body-1">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "MedicationStatement",
-  "id": "222",
+  "id": "28953901",
   "contained": [
     {
       "resourceType": "Medication",
@@ -2620,7 +2626,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
   ],
   "status": "completed",
   "patient": {
-    "reference": "Patient/234"
+    "reference": "Patient/1316024"
   },
   "medicationReference": {
     "reference": "#123"
@@ -2657,6 +2663,8 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-3">Errors</h3>
 
