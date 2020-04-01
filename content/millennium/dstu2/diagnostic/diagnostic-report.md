@@ -76,6 +76,8 @@ information, see the [Binary accept] documentation.
 <%= headers status: 200 %>
 <%= json(:dstu2_diagnostic_report_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
