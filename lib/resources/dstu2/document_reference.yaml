@@ -155,7 +155,7 @@ fields:
           {
             "attachment": {
               "contentType": "application/xhtml+xml;charset=utf-8",
-              "data": "snipped"
+              "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...&lt;snipped for brevity&gt;"
             }
           }
         ]
@@ -190,7 +190,7 @@ fields:
           "content": [
             {
               "attachment": {
-                "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...snipped"
+                "data": "PCFET0NUWVBFIGh0bWwNCiAgU1lTVEVNI...&lt;snipped for brevity&gt;"
               }
             }
           ]

@@ -92,8 +92,43 @@ Notes:
 #### Response
 
 <%= headers status: 200 %>
-
 <%= json(:dstu2_document_reference_docref_search) %>
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual DocumentReference by its id:
+
+    GET /DocumentReference/:id
+
+_Implementation Notes_
+
+* Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
+* If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the [Argonaut profile's](http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html) required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/7499283
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_document_reference_docref_bundle_entry) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -123,7 +158,6 @@ _Implementation Notes_
 <%= definition_table(:document_reference, :create, :dstu2) %>
 
 ### Example
-
 
 #### Request
 
@@ -159,6 +193,7 @@ _Implementation Notes_
    x-runtime → 5.497541
    x-xss-protection → 1; mode=block
 </pre>
+<%= disclaimer %>
 
 ### Errors
 
@@ -167,40 +202,6 @@ The common [errors] and [OperationOutcomes] may be returned. Additional [Operati
  HTTP Status | Cause                              | Severity  | Code
 -------------|------------------------------------|-----------|---------------
  422         | Body contained relatesTo           | error     | not-supported
-
-## Retrieve by id
-
-List an individual DocumentReference by its id:
-
-    GET /DocumentReference/:id
-
-_Implementation Notes_
-
-* Contents of the document are found by following the Attachment URL. See more information on the [Binary resource] to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.
-* If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the [Argonaut profile's](http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html) required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.
-
-### Authorization Types
-
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
-
-### Headers
-
-<%= headers %>
-
-### Example
-
-#### Request
-
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/7499283
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_document_reference_docref_bundle_entry) %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: docref
 
@@ -248,6 +249,7 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_bundle) %>
+<%= disclaimer %>
 
 ### Errors
 
