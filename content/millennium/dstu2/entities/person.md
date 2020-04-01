@@ -91,6 +91,8 @@ List an individual Person by its id:
 <%= headers status: 200 %>
 <%= json(:dstu2_person_entry) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -106,12 +108,14 @@ The ability to perform person combine or uncombine operations is not available t
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/4860007
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/4768007
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_combined_person_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

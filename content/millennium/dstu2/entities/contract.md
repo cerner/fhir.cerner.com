@@ -70,6 +70,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_contract_bundle) %>
 
+<%= disclaimer %>
+
 ### Example with Include
 
 #### Request
@@ -80,6 +82,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_contract_bundle_include_actor) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -109,6 +113,8 @@ List an individual Contract by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_contract_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
