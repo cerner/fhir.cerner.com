@@ -13,6 +13,7 @@ The Observation resource provides measurements or simple assertions about a pati
 The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Identifier](https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier){:target="_blank"}
 * [Status](https://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
 * [Category (laboratory, social history)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
 * [Code (Observation name or text)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
@@ -21,6 +22,7 @@ The following fields are returned if valued:
 * [Effective date/time (collection date/time for laboratory)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
 * [Extensions](#extensions){:target="_blank"}
 * [Issued (date/time observation made available, entered, verified)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
+* [Performer](http://hl7.org/fhir/R4/observation-definitions.html#Observation.performer){:target="_blank"}
 * [Observation value or result](https://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"}
 * For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}

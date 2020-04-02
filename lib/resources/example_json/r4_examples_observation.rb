@@ -419,6 +419,12 @@ module Cerner
                           "status": "generated",
                           "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories&lt;/b>: Vital Signs&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Temperature Oral&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 37 DegC&lt;/p>&lt;p>&lt;b>Interpretation&lt;/b>: Normal&lt;/p>&lt;p>&lt;b>Effective Date&lt;/b>: Sep 12, 2017  5:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Reference Range&lt;/b>: 34.00-37.40 DegC&lt;/p>&lt;/div>"
                       },
+                      "identifier": [
+                        {
+                          "system": "https://fhir.cerner.com/ceuuid",
+                          "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-17003791-2020030912450100"
+                        }
+                      ],
                       "status": "final",
                       "category": [
                           {
@@ -459,6 +465,11 @@ module Cerner
                       },
                       "effectiveDateTime": "2017-09-12T17:00:00.000Z",
                       "issued": "2017-09-12T17:00:48.000Z",
+                      "performer": [
+                        {
+                          "reference": "Practitioner/1994021"
+                        }
+                      ],
                       "valueQuantity": {
                           "value": 37,
                           "unit": "DegC",
