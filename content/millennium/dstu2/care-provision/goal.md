@@ -68,6 +68,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_goal_bundle) %>
 
+<%= disclaimer %>
+
 
 ### Example Search by Id
 
@@ -79,6 +81,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_goal_bundle_by_id) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -108,6 +112,8 @@ List an individual Goal by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_goal) %>
+
+<%= disclaimer %>
 
 ### Errors
 

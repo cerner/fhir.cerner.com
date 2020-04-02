@@ -128,6 +128,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_care_plan_bundle) %>
 
+<%= disclaimer %>
+
 ### Example retrieve care teams
 
 #### Request
@@ -138,6 +140,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_care_team_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -167,6 +171,8 @@ List an individual CarePlan by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_care_plan_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
