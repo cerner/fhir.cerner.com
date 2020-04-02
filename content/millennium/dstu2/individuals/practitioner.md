@@ -55,6 +55,8 @@ Search for Practitioners that meet supplied query parameters:
 
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -82,6 +84,8 @@ List an individual Practitioner by its id:
 #### Response
 
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

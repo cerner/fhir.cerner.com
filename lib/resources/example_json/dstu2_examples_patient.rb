@@ -123,15 +123,19 @@ module Cerner
 
     DSTU2_COMBINED_PATIENT_ENTRY ||= {
       "resourceType": "Patient",
-      "id": "4860007",
+      "id": "1504027",
       "meta": {
         "versionId": "0"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div>&lt;p>&lt;b>Patient&lt;/b>&lt;/p>&lt;p>&lt;b>Replaced By&lt;/b>: Patient/1504028&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Inactive&lt;/p>&lt;/div>"
       },
       "active": false,
       "link": [
         {
           "other": {
-            "reference": "Patient/4342008"
+            "reference": "Patient/1504028"
           },
           "type": "replace"
         }
