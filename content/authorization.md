@@ -389,6 +389,9 @@ When performaing an authorization grant request Cerner requires the application 
 provide with the redirect uri. This uri should match with the redirect uri setup during 
 the registration phase of the SMART Application. 
 
+The requirement for a redirect_uri is specified in the 
+[SMART Specification] (http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
+
 The redirect uri must be an absolute uri. For more information please consult the 
 RFC 6749 [Redirection Endpoint Ref](https://tools.ietf.org/html/rfc6749#section-3.1.2)
 
