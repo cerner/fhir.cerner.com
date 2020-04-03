@@ -212,6 +212,7 @@ request; each are documented in the following sections:
 - A "state" parameter to prevent certain classes of malicious
   attacks.
 - The target "audience" server URL.
+- The "redirect_uri" of the application.
 - (Optional) a launch code, when supporting application launches from
   external sources.
 
@@ -381,6 +382,15 @@ where the audience is provided:
 <pre class="terminal">
 &aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F
 </pre>
+
+#### Redirect URI ####
+
+When performaing an authorization grant request Cerner requires the application to 
+provide with the redirect uri. This uri should match with the redirect uri setup during 
+the registration phase of the SMART Application. 
+
+The redirect uri must be an absolute uri. For more information please consult the 
+RFC 6749 [Redirection Endpoint Ref](https://tools.ietf.org/html/rfc6749#section-3.1.2)
 
 #### Launch ####
 
