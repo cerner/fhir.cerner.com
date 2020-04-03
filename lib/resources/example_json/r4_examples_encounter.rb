@@ -427,25 +427,6 @@ module Cerner
     R4_ENCOUNTER_CREATE ||= {
       "resourceType": "Encounter",
       "status": "in-progress",
-      "identifier": [
-        {
-          "use": "usual",
-          "type": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
-                "code": "1077",
-                "display": "FIN NBR"
-              }
-            ]
-          },
-          "system": "urn:oid:3.3.3.3.3.3",
-          "value": "2000363999",
-          "period": {
-            "start": "2017-01-17T20:39:40.000Z"
-          }
-        }
-      ],
       "type": [
         {
           "coding": [
