@@ -93,6 +93,7 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_search) %>
+
 <%= disclaimer %>
 
 ### Errors
@@ -128,6 +129,7 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_bundle_entry) %>
+
 <%= disclaimer %>
 
 ### Errors
@@ -193,6 +195,7 @@ _Implementation Notes_
    x-runtime → 5.497541
    x-xss-protection → 1; mode=block
 </pre>
+
 <%= disclaimer %>
 
 ### Errors
@@ -249,6 +252,7 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_bundle) %>
+
 <%= disclaimer %>
 
 ### Errors
