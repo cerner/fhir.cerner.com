@@ -194,5 +194,60 @@ module Cerner
         }
       ]
     }
+
+    R4_PROCEDURE_CREATE ||= {
+      "resourceType": "Procedure",
+      "status": "completed",
+      "subject": {
+        "reference": "Patient/1316024",
+        "display": "Tim, Peterson"
+      },
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "119954001",
+            "display": "Adenoid excision (procedure)",
+            "userSelected": true
+          }
+        ],
+        "text": "Adenoid excision (text)"
+      },
+      "encounter": {
+        "reference": "Encounter/26070829"
+      },
+      "location": {
+        "display": "Baseline East"
+      },
+      "performedDateTime": "2019-04-05T20:21:46Z",
+      "performer": [
+        {
+          "function": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "223366009",
+                "display": "Healthcare professional (occupation)",
+                "userSelected": true
+              }
+            ],
+            "text": "Healthcare professional (occupation)"
+          },
+          "actor": {
+            "reference": "Practitioner/7603729",
+            "display": "msmautotestuser, msmautotestuser"
+          }
+        }
+      ],
+      "note": [
+        {
+          "text": "Procedure comment",
+          "time": "2019-04-05T20:21:46Z",
+          "authorReference": {
+            "reference": "Practitioner/605926"
+          }
+        }
+      ]
+    }
   end
 end
