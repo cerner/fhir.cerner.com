@@ -427,24 +427,6 @@ module Cerner
     R4_ENCOUNTER_CREATE ||= {
       "resourceType": "Encounter",
       "status": "in-progress",
-      "identifier": [
-        {
-          "use": "usual",
-          "type": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/v2/0203",
-                "code": "FIN NBR"
-              }
-            ]
-          },
-          "system": "urn:oid:192.168.0.1",
-          "value": "2000363999",
-          "period": {
-            "start": "2017-01-17T20:39:40.000Z"
-          }
-        }
-      ],
       "type": [
         {
           "coding": [
