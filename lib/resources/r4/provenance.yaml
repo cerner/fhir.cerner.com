@@ -12,7 +12,7 @@ fields:
     {
       "resourceType": "Provenance"
     }
-  note: resourceType must be Provenance.
+  note: <ul><li>resourceType must be Provenance.</li></ul>
   url: http://hl7.org/fhir/R4/json.html#resources
 
 - name: target
@@ -29,10 +29,7 @@ fields:
         }
       ]
     }
-  note: |
-    <ul>
-      <li> Only one target may be provided. </li>
-    </ul>
+  note: <ul><li> Only one target may be provided.</li></ul>
   url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
 
 - name: recorded
@@ -81,7 +78,7 @@ fields:
         }
       ]
     }
-  note: <ul><li> Only one agent may be provided. </li></ul>
+  note: <ul><li> Only one agent may be provided.</li></ul>
   url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent
   children:
 
@@ -103,7 +100,7 @@ fields:
             ]
           }
         }
-      notes: <ul><li> All `coding` must contain the `system` and `code` fields. </li></ul>
+      notes: <ul><li> All `coding` must contain the `system` and `code` fields.</li></ul>
 
     - name: role
       required: 'No'
