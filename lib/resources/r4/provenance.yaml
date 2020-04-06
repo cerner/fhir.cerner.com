@@ -112,7 +112,7 @@ fields:
     required: 'Yes'
     cardinality: 1..1
     type: code
-    description: THow the entity was used during the activity.
+    description: How the entity was used during the activity.
     action: terminology
     url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role
     binding:

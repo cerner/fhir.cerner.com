@@ -69,7 +69,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 List an individual Provenance by its id:
 
-   GET /Provenance/:id
+    GET /Provenance/:id
 
 ### Authorization Types
 
