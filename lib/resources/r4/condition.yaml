@@ -312,6 +312,7 @@ fields:
     {
       "abatementDateTime": "2015-10-14T13:13:20-06:00"
     }
+  note: <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.abatement_x_
 
 - name: note
