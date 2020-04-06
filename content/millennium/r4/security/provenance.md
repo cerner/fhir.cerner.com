@@ -124,8 +124,6 @@ Create a new Provenance.
 
 <%= json(:r4_provenance_create) %>
 
-<%= disclaimer %>
-
 #### Response
 
 <%= headers status: 201 %>
@@ -145,6 +143,8 @@ X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
 
 ### Errors
 
