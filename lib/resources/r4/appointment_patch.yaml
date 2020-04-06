@@ -16,7 +16,29 @@ operations:
       }
     note: >
       <ul>
-        <li>Only "arrived", "checked-in", and "cancelled" are supported</li>
+        <li>Only "arrived", "checked-in", "cancelled" and "booked" are supported</li>
+        <li>add-slot operation should be accompanied for patching the status to "booked"</li>
+      </ul>
+  - name: add-slot
+    path: /slot
+    operation: add
+    cardinality: 0..*
+    type: Reference (Slot)
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot
+    description: The availability to which the appointment is booked.
+    example: |
+      {
+              "op": "add",
+              "path": "/slot",
+              "value": [{
+                "reference":"Slot/1986119705-4048128-15648907-60"
+              }]
+      }
+    note: >
+      <ul>
+        <li>Only when patching the appointment to "booked" add slot is required</li>
+        <li>This patch operation must be accompanied by replace status operation with value "booked"</li>
+        <li>Only a single slot value should be provided</li>
       </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value

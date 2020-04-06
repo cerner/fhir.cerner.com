@@ -298,6 +298,21 @@ module Cerner
       }
     ]
 
+    R4_APPOINTMENT_REQUEST_PATCH ||= [
+        {
+            "op": "add",
+            "path": "/slot",
+            "value":[{
+                         "reference":"Slot/1986119705-4048128-15648907-60"
+                     }]
+        },
+        {
+            "op": "replace",
+            "path": "/status",
+            "value":  "booked"
+        }
+    ]
+
     R4_APPOINTMENT_VIDEO_VISIT_ADD_PATCH ||= [
       {
         "op": "add",
