@@ -102,6 +102,11 @@ Create a new Provenance.
 
     POST /Provenance
 
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: false, system: true) %>
