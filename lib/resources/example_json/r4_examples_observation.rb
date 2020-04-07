@@ -494,7 +494,17 @@ module Cerner
                                   "unit": "DegC",
                                   "system": "http://unitsofmeasure.org",
                                   "code": "Cel"
-                              }
+                              },
+                              "type": {
+                                "coding": [
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                                        "code": "normal",
+                                        "display": "Normal Range"
+                                    }
+                                ],
+                                "text": "Normal Range"
+                            }     
                           }
                       ]
                   }

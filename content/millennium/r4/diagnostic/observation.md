@@ -32,6 +32,7 @@ The following fields are returned if valued:
     * [low](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low){:target="_blank"}
     * [high](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high){:target="_blank"}
     * [text](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text){:target="_blank"}
+    * [type](https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type){:target="_blank"}
 * [Member Observations (for limited use cases)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
 * [Component (eg: systolic and diastolic for blood pressure)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component){:target="_blank"}
 
