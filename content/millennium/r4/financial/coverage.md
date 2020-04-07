@@ -97,7 +97,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create a new Patient-level Coverage.
+Create new Patient-level or Encounter-level Coverages.
 
     POST /Coverage
 
@@ -119,7 +119,7 @@ Create a new Patient-level Coverage.
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-#### Patient-Body
+### Example - Patient-Body
 
 <%= json(:r4_coverage_create) %>
 

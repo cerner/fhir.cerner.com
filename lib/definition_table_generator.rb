@@ -13,10 +13,6 @@ def patch_definition_table(content_key, version)
   DefinitionTableGenerator.new(version, :patch).patch_definition_table(content_key)
 end
 
-# def write_definition_table(content_key, version)
-#   DefinitionTableGenerator.new(version, :patch).patch_definition_table(content_key)
-# end
-
 class DefinitionTableGenerator
 
   def initialize(version, action)
