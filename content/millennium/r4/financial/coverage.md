@@ -113,7 +113,7 @@ Create new Patient-level or Encounter-level Coverages.
 
 <%= definition_table(:coverage, :create, :r4) %>
 
-### Example
+### Example - Patient-level Coverage
 
 #### Request
 
@@ -123,7 +123,37 @@ Create new Patient-level or Encounter-level Coverages.
 
 <%= json(:r4_coverage_create) %>
 
-#### Encounter-Body
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 22 Oct 2019 15:59:33 GMT
+Etag: W/"0$0"
+Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257
+Server-Response-Time: 3890.363996
+Status: 201 Created
+Vary: Origin
+X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
+X-Runtime: 3.890282
+</pre>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+### Example - Encounter-level Coverage
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
+
+### Example - Encounter-Body
 
 <%= json(:r4_coverage_encounter_create) %>
 
@@ -137,7 +167,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin

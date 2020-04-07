@@ -298,7 +298,7 @@ module Cerner
     }
     ],
       "subscriberId" : "1626016",
-      "dependent" : "1626016",
+      "dependent" : "7645234",
       "beneficiary" : {
       "reference" : "Patient/1626016"
     },
