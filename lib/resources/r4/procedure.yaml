@@ -2,6 +2,21 @@
 name: Procedure
 field_name_base_url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
 fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "Procedure"
+    }
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
+  note: |
+    <ul>
+      <li> resourceType must be Procedure. </li>
+    </ul>
+
 - name: status
   required: 'Yes'
   cardinality: 1..1
@@ -64,21 +79,6 @@ fields:
       <li> Must be provided. </li>
     </ul>
 
-- name: resourceType
-  required: 'Yes'
-  cardinality: 1..1
-  type: string
-  description: The type of the FHIR resource.
-  example: |
-    {
-      "resourceType": "Procedure"
-    }
-  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
-  note: |
-    <ul>
-      <li> resourceType must be Procedure. </li>
-    </ul>
-
 - name: subject
   required: 'Yes'
   cardinality: 0..1
@@ -112,24 +112,6 @@ fields:
   note: |
     <ul>
       <li> Must only include references to Encounter. </li>
-    </ul>
-
-- name: location
-  required: 'No'
-  cardinality: 0..1
-  type: Reference
-  description: The location where the procedure actually happened.
-  example: |
-    {
-      "location": {
-        "reference":"Location/1693915",
-        "display": "Baseline East"
-      }
-    }
-  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.location
-  note: |
-    <ul>
-      <li> Must only include references to Location. </li>
     </ul>
 
 - name: performed_x_
@@ -242,6 +224,24 @@ fields:
       <ul>
         <li> Must only include references to Practitioner. </li>
       </ul>
+
+- name: location
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  description: The location where the procedure actually happened.
+  example: |
+    {
+      "location": {
+        "reference":"Location/1693915",
+        "display": "Baseline East"
+      }
+    }
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.location
+  note: |
+    <ul>
+      <li> Must only include references to Location. </li>
+    </ul>
 
 - name: note
   required: 'No'
