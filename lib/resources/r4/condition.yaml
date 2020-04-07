@@ -74,6 +74,11 @@ fields:
   description: The clinical status of the condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
   action: update
+  note: |
+    <ul>
+      <li> A clinicalStatus must always be provided when updating a Condition, unless verificationStatus is <code>entered-in-error</code>. </li>
+      <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+    </ul>
   example: |
     {
       "clinicalStatus": {
@@ -285,6 +290,25 @@ fields:
     </ul>
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
   action: create
+  
+- name: encounter
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  description: Encounter during which the condition was first asserted.
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/631923"
+      }
+    }
+  note: |
+    <ul>
+      <li> encounter must be a reference to an Encounter. </li>
+      <li> encounter is required when the condition category code is <code>encounter-diagnosis</code>. </li>
+    </ul>
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
+  action: update
 
 - name: onset_x_
   required: 'No'
@@ -311,6 +335,8 @@ fields:
     <ul>
       <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
+      <li> <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
+  </li>
     </ul>
   example: |
     {
