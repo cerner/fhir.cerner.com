@@ -178,7 +178,7 @@ Update an existing condition.
 
 _Implementation Notes_
 
-* Currently `problem-list-item` and `encounter-diagnosis` are supported.
+* Currently `problem-list-item` is supported.
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Authorization Types
