@@ -39,7 +39,7 @@ Search for Conditions that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Currently `problem-list-item` is supported.
+* Currently `problem-list-item` and `encounter-diagnosis` are supported.
 
 ### Authorization Types
 
@@ -53,7 +53,7 @@ _Implementation Notes_
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the condition is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`        | No                             | [`token`]     | The category of the condition. Category problem-list-item is supported as of now. Example: `problem-list-item`
+ `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`
 
 Notes:
 

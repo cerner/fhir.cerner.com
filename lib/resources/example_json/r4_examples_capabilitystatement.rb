@@ -194,25 +194,25 @@ module Cerner
                   "name": "patient",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/clinical-patient",
                   "type": "reference",
-                  "documentation": "Who the sensitivity is for. It is a required field if the subject or _id fields are not given."
+                  "documentation": "Who has the condition. It is a required field if the subject or _id fields are not given."
                 },
                 {
                   "name": "subject",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-subject",
                   "type": "reference",
-                  "documentation": "Who has the condition?. It is a required field if the patient or _id fields are not given."
+                  "documentation": "Who has the condition. It is a required field if the patient or _id fields are not given."
                 },
                 {
                   "name": "clinical-status",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-clinical-status",
                   "type": "token",
-                  "documentation": "The clinical status of the condition"
+                  "documentation": "The clinical status of the condition."
                 },
                 {
                   "name": "category",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-category",
                   "type": "token",
-                  "documentation": "The category of the condition. Category problem-list-item is supported as of now."
+                  "documentation": "The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now."
                 }
               ]
             },
@@ -716,25 +716,25 @@ module Cerner
                   "name": "patient",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/clinical-patient",
                   "type": "reference",
-                  "documentation": "Who the sensitivity is for. It is a required field if the subject or _id fields are not given."
+                  "documentation": "Who has the condition. It is a required field if the subject or _id fields are not given."
                 },
                 {
                   "name": "subject",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-subject",
                   "type": "reference",
-                  "documentation": "Who has the condition?. It is a required field if the patient or _id fields are not given."
+                  "documentation": "Who has the condition. It is a required field if the patient or _id fields are not given."
                 },
                 {
                   "name": "clinical-status",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-clinical-status",
                   "type": "token",
-                  "documentation": "The clinical status of the condition"
+                  "documentation": "The clinical status of the condition."
                 },
                 {
                   "name": "category",
                   "definition": "http://hl7.org/fhir/R4/SearchParameter/Condition-category",
                   "type": "token",
-                  "documentation": "The category of the condition. Category problem-list-item is supported as of now."
+                  "documentation": "The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now."
                 }
               ]
             },
