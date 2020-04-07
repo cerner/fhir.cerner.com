@@ -283,73 +283,73 @@ module Cerner
     ]
 
     R4_COVERAGE_ENCOUNTER_CREATE ||= {
-      "resourceType" : "Coverage",
-      "status" : "active",
-      "subscriber" : {
-        "reference" : "Patient/1626016",
-      "display" : "WOLFE, STEPHANIE T"
-    },
-      "extension" : [
-      {
-        "url" : "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
-        "valueReference" : {
-          "reference" : "Encounter/31363178"
-      }
-    }
-    ],
-      "subscriberId" : "1626016",
-      "dependent" : "1626016",
-      "beneficiary" : {
-      "reference" : "Patient/1626016"
-    },
-      "relationship" : {
-      "coding" : [
-      {
-      "system" : "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
-      "code" : "156",
-      "display" : "child",
-      "userSelected" : true
-    }
-    ]
-    },
-      "period" : {
-      "start" : "2014-09-05T14:30:12.000Z",
-      "end" : "2015-09-05T14:30:12.000Z"
-    },
-      "payor" : [
-      {
-        "reference" : "Organization/643847",
-        "display" : "Aetna Missouri POS - Open"
-      }
-    ],
-      "class" : [
-      {
-        "type" : {
-        "coding" : [
+      "resourceType": "Coverage",
+      "status": "active",
+      "subscriber": {
+        "reference": "Patient/1626016",
+        "display": "WOLFE, STEPHANIE T"
+      },
+      "extension": [
         {
-        "system" : "http://hl7.org/fhir/ValueSet/coverage-class",
-        "code" : "plan"
-      }
-    ],
-      "text" : "plan"
-    },
-      "value" : "729825",
-      "name" : "Aetna Missouri POS Open"
-    },
-      {
-        "type" : {
-        "coding" : [
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+          "valueReference": {
+            "reference": "Encounter/31363178"
+          }
+        }
+      ],
+      "subscriberId": "1626016",
+      "dependent": "1626016",
+      "beneficiary": {
+        "reference": "Patient/1626016"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+            "code": "156",
+            "display": "child",
+            "userSelected": true
+          }
+        ]
+      },
+      "period": {
+        "start": "2014-09-05T14:30:12.000Z",
+        "end": "2015-09-05T14:30:12.000Z"
+      },
+      "payor": [
         {
-        "system" : "http://hl7.org/fhir/ValueSet/coverage-class",
-        "code" : "group"
-      }
-    ],
-      "text" : "group"
-    },
-      "value" : "8939999",
-      "name" : "Aetna Missouri POS Open group"
-    }
-    ]
+          "reference": "Organization/643847",
+          "display": "Aetna Missouri POS - Open"
+        }
+      ],
+      "class": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                "code": "plan"
+              }
+            ],
+            "text": "plan"
+          },
+          "value": "729825",
+          "name": "Aetna Missouri POS Open"
+        },
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                "code": "group"
+              }
+            ],
+            "text": "group"
+          },
+          "value": "8939999",
+          "name": "Aetna Missouri POS Open group"
+        }
+      ]
     }
 
   end
