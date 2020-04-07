@@ -4,7 +4,6 @@ field_name_base_url: https://hl7.org/fhir/r4/condition-definitions.html#Conditio
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -16,7 +15,6 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 1..1
   type: id
   description: The logical id of the resource to update.
   action: update
@@ -28,8 +26,6 @@ fields:
   url: https://hl7.org/fhir/resource-definitions.html#Resource.id
 
 - name: clinicalStatus
-  required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: active | recurrence | relapse | inactive | remission | resolved
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
@@ -43,7 +39,6 @@ fields:
 
 - name: clinicalStatus
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: The clinical status of the condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
@@ -69,7 +64,6 @@ fields:
 
 - name: clinicalStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The clinical status of the condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
@@ -94,8 +88,6 @@ fields:
     }
 
 - name: verificationStatus
-  required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   action: terminology
   description: unconfirmed | provisional | differential | confirmed | refuted | entered-in-error
@@ -109,7 +101,6 @@ fields:
 
 - name: verificationStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The verification status to support or decline the clinical status of the condition or diagnosis.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus
@@ -131,7 +122,6 @@ fields:
 
 - name: verificationStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The verification status to support or decline the clinical status of the condition or diagnosis.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.verificationStatus
@@ -152,8 +142,7 @@ fields:
 
 - name: category
   required: 'Yes'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: A category assigned to the condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.category
   note: |
@@ -185,7 +174,6 @@ fields:
 
 - name: severity
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: A subjective assessment of the severity of the condition as evaluated by the clinician.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.severity
@@ -225,7 +213,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: Identification of the condition, problem or diagnosis.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.code
@@ -259,7 +246,6 @@ fields:
 
 - name: subject
   required: 'Yes'
-  cardinality: 1..1
   type: Reference
   description: Indicates the patient who the condition record is associated with.
   example: |
@@ -290,7 +276,7 @@ fields:
     </ul>
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
   action: create
-  
+
 - name: encounter
   required: 'No'
   cardinality: 0..1
@@ -310,9 +296,8 @@ fields:
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
   action: update
 
-- name: onset_x_
+- name: onset[x]
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Estimated or actual date or date-time the condition began, in the opinion of the clinician.
   note: |
@@ -326,9 +311,8 @@ fields:
     }
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.onset_x_
 
-- name: abatement_x_
+- name: abatement[x]
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: The date or estimated date that the condition resolved or went into remission.
   note: |
@@ -346,8 +330,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
   action: create
   example: |
@@ -366,8 +349,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   description: Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
   action: update
   example: |

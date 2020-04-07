@@ -5,8 +5,7 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: A code that classifies the general type of observation being made.
   binding:
     description: Codes for high level observation categories.
@@ -17,7 +16,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Describes what was observed. Sometimes this is called the observation "name".
   binding:
@@ -35,10 +33,9 @@ fields:
 
 - name: dataAbsentReason
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Provides a reason why the expected value in the element Observation.value[x] is missing.
-  binding: 
+  binding:
     description: Codes for reasons data is absent.
     terminology:
     - display: v4 data absentreason
@@ -47,8 +44,7 @@ fields:
 
 - name: interpretation
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: A categorical assessment of an observation value. For example, high, low, normal.
   binding:
     description: Codes identifying interpretations of observations.
@@ -62,17 +58,15 @@ fields:
 
 - name: component
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: >
-    Some observations have multiple component observations. These component observations are expressed as separate code 
-    value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood 
+    Some observations have multiple component observations. These component observations are expressed as separate code
+    value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood
     pressure measurement and multiple component observations for genetics observations.
   children:
 
   - name: code
     required: 'Yes'
-    cardinality: 1..1
     type: CodeableConcept
     description: Describes what was observed. Sometimes this is called the observation "name".
     binding:
@@ -90,8 +84,7 @@ fields:
 
   - name: interpretation
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: A categorical assessment of an observation value. For example, high, low, normal.
     binding:
       description: Codes identifying interpretations of observations.
@@ -105,7 +98,6 @@ fields:
 
   - name: dataAbsentReason
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Provides a reason why the expected value in the element Observation.component.value[x] is missing.
     binding:

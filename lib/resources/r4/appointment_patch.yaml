@@ -5,7 +5,6 @@ operations:
   - name: replace-status
     path: /status
     operation: replace
-    cardinality: 0..1
     type: code
     url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status
     description: The status of the appointment
@@ -22,7 +21,6 @@ operations:
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
     operation: add
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The provider video visit link
@@ -40,7 +38,6 @@ operations:
   - name: add-patient-vmr
     path: /contained/1/telecom/0/value
     operation: add
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The patient video visit link
@@ -58,7 +55,6 @@ operations:
   - name: add-period-start
     path: /contained/0/telecom/0/period/start
     operation: add
-    cardinality: 0..1
     type: datetime
     url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
     description: The start datetime for the video visit
@@ -77,7 +73,6 @@ operations:
   - name: add-period-end
     path: /contained/0/telecom/0/period/end
     operation: add
-    cardinality: 0..1
     type: datetime
     url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
     description: The end datetime for the video visit

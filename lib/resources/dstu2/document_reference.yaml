@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/documentreference-definitions.htm
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource
   example: DocumentReference
@@ -13,7 +12,6 @@ fields:
 
 - name: subject
   required: 'Yes'
-  cardinality: 0..1
   type: Reference (Patient)
   description: Who or what is the subject of the document.
   example: |
@@ -23,7 +21,6 @@ fields:
 
 - name: type
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Kind of document.
   example: |
@@ -75,8 +72,7 @@ fields:
       info_link: /millennium/dstu2/proprietary-codes/#code-set-72-event-code
 - name: author
   required: 'No'
-  cardinality: 0..1
-  type: Reference (Practitioner)
+  type: List of Reference (Practitioner)
   description: Who and/or what authored the document
   example: |
     {
@@ -86,11 +82,14 @@ fields:
         }
       ]
     }
-  note: If author is not provided, the author will be determined based on the access token.
+  note: >
+      <ul>
+        <li>At most one practitioner can be populated.</li>
+        <li>If author is not provided, the author will be determined based on the access token.</li>
+      </ul>
 
 - name: indexed
   required: 'Yes'
-  cardinality: 1..1
   type: instant
   description: When this document reference was created
   example: |
@@ -100,7 +99,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: The status of this document reference
   example: |
@@ -111,7 +109,6 @@ fields:
 
 - name: docStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The status of underlying document
   example: |
@@ -129,7 +126,6 @@ fields:
 
 - name: description
   required: 'No'
-  cardinality: 0..1
   type: string
   description: Human-readable description (title)
   example: |
@@ -139,14 +135,12 @@ fields:
 
 - name: content
   required: 'Yes'
-  cardinality: 1..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: The referenced document
   children:
 
   - name: attachment
     required: 'Yes'
-    cardinality: 1..1
     type: Attachment
     description: An array of document contents. Must contain exactly 1 attachment.
     example: |
@@ -164,7 +158,6 @@ fields:
 
     - name: contentType
       required: 'Yes'
-      cardinality: 0..1
       type: string
       description: Mime type of the content, with charset etc.
       example: |
@@ -182,7 +175,6 @@ fields:
 
     - name: data
       required: 'Yes'
-      cardinality: 0..1
       type: string
       description: Data inline, base64 encoded XHTML.
       example: |
@@ -205,14 +197,12 @@ fields:
 
 - name: context
   required: 'Yes'
-  cardinality: 0..1
   type: BackboneElement
   description: The clinical context in which the document was prepared
   children:
 
   - name: encounter
     required: 'Yes'
-    cardinality: 0..1
     type: Reference (Encounter)
     description: Context of the document content
     example: |
@@ -226,7 +216,6 @@ fields:
 
   - name: period
     required: 'No'
-    cardinality: 0..1
     type: Period
     description: When the documented service was performed.
     example: |

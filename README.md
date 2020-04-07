@@ -17,10 +17,10 @@ The version and solution attributes are currently used to flex the class, links,
 #### Definition Tables
 Create and Update operations typically require JSON bodies which can be tedious to document manually through markdown. To simplify this process and to improve consistency we have added the `definition_table` helper to generate a table from a yaml content file.
 
-The `definition_table` helper requires 3 parameters: content, action, and version.  
-- `content` indicates which content file to load.  
-- `version` indicates the version of the content file.   
-- `action` indicates which action specific variations defined in the content file to reflect in the generated table. Typically the action will be :create or :update. The available actions are defined in the content files themselves.     
+The `definition_table` helper requires 3 parameters: content, action, and version.
+- `content` indicates which content file to load.
+- `version` indicates the version of the content file.
+- `action` indicates which action specific variations defined in the content file to reflect in the generated table. Typically the action will be :create or :update. The available actions are defined in the content files themselves.
 
 Generating a field table is done by invoking the `definition_table` method through an ERB call in whichever documentation file needs the table.
 
@@ -28,7 +28,7 @@ For example, the DSTU2 version of DocumentReference Create can be generated usin
 
     <%= definition_table(:document_reference, :create, :dstu2) %>
 
-Whereas other versions of AllergyIntolerance Update can be generated (assuming appropriate definitions are available) using 
+Whereas other versions of AllergyIntolerance Update can be generated (assuming appropriate definitions are available) using
 
     <%= definition_table(:allergy_intolerance, :update, :stu3) %>
 
@@ -40,7 +40,6 @@ In actuality, the `version` parameter references a subfolder in `lib/resources` 
 - fields
   - name
   - required
-  - cardinality
   - type
   - description
   - children
@@ -54,8 +53,8 @@ In actuality, the `version` parameter references a subfolder in `lib/resources` 
 The `terminolgy_table` helper is available to generate a terminology binding table from the same yaml content file as `definition_table`.
 
 The `terminolgy_table` helper requires 2 parameters: content and version
-- `content` indicates which content file to load.  
-- `version` indicates the version of the content file.  
+- `content` indicates which content file to load.
+- `version` indicates the version of the content file.
 
 Generating a terminology table is done by invoking the `terminology_table` method through an ERB call in whichever documentation file needs the table.
 
@@ -85,7 +84,6 @@ The content is defined in YAML files and most fields are optional. If they are n
 - fields: The list of defined fields
     - name: The name of the field. This will be generated as a link based on `field_name_base_url`
     - required: Whether or not the field is required. This is not necessarily whether the field is required by the FHIR<sup>®</sup> standard, but rather whether it is required by our server implementation.
-    - cardinality: The is the defined cardinality for the field
     - type: The type of the field. If found in `lib/resources/<version>/types.yaml`, this field will be linked to the specified resource.
     - description: The description of the field.
     - example: An example of how the field should be populated. The generated examples will be enclosed in &lt;pre&gt; tags to preserve formatting.
@@ -114,7 +112,7 @@ In addition to the fields above, each field can have an `action` field which ind
     Make the field apply to multiple actions
     - name: subject
       ...
-      action: 
+      action:
       - create
       - update
 
@@ -125,7 +123,6 @@ Similarly field values can be flexed per action as well
     required:
     - update: 'Yes'
     - create: 'No'
-    cardinality: 0..1
     type: id
     description: The logical id of the resource to update.
     example: |

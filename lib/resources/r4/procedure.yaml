@@ -4,7 +4,6 @@ field_name_base_url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedur
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -19,7 +18,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: Codes identifying the lifecycle stage of an event.
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status
@@ -43,7 +41,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: A code to identify a specific procedure.
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code
@@ -81,7 +78,6 @@ fields:
 
 - name: subject
   required: 'Yes'
-  cardinality: 0..1
   type: Reference
   description: Indicates the patient who the procedure record is associated with.
   example: |
@@ -99,7 +95,6 @@ fields:
 
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: Indicates the encounter when the procedure was performed.
   example: |
@@ -114,9 +109,8 @@ fields:
       <li> Must only include references to Encounter. </li>
     </ul>
 
-- name: performed_x_
+- name: performed[x]
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Estimated or actual date or date-time when the procedure was performed.
   example: |
@@ -132,8 +126,7 @@ fields:
 
 - name: performer
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Limited to "real" people rather than equipment.
   example: |
     {
@@ -162,7 +155,6 @@ fields:
 
   - name: function
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     action:
       - create
@@ -209,7 +201,6 @@ fields:
 
   - name: actor
     required: 'Yes'
-    cardinality: 1..1
     type: Reference
     description: The practitioner who was involved in the procedure.
     example: |
@@ -227,7 +218,6 @@ fields:
 
 - name: location
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: The location where the procedure actually happened.
   example: |
@@ -245,8 +235,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   description: Any other notes and comments about the procedure.
   example: |
     {

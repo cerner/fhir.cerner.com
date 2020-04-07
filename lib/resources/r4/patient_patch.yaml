@@ -5,7 +5,6 @@ operations:
 - name: add-identifier
   path: /identifier/-
   operation: add
-  cardinality: 1..1
   type: Identifier
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier
   description: Add a new identifier for the patient.
@@ -38,7 +37,6 @@ operations:
 - name: test-identifier-id
   path: /identifier/{index}/id
   operation: test
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
   description: Test the value of the `Identifier.id` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
@@ -51,7 +49,6 @@ operations:
 - name: remove-identifier
   path: /identifier/{index}
   operation: remove
-  cardinality: 0
   type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier
   description: Remove the identifier at the given <code>{index}</code> in the list of patient identifiers.
@@ -67,7 +64,6 @@ operations:
 - name: replace-identifier-system
   path: /identifier/{index}/system
   operation: replace
-  cardinality: 1..1
   type: uri
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system
   description: Replace the `Identifier.system` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
@@ -84,7 +80,6 @@ operations:
 - name: replace-identifier-value
   path: /identifier/{index}/value
   operation: replace
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.value
   description: Replace the `Identifier.value` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
@@ -101,7 +96,6 @@ operations:
 - name: replace-identifier-period
   path: /identifier/{index}/period
   operation: replace
-  cardinality: 1..1
   type: Period
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.period
   description: Replace the `Identifier.period` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
@@ -123,7 +117,6 @@ operations:
 - name: test-name-id
   path: /name/{index}/id
   operation: test
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
   description: Test the value of the `HumanName.id` of the name at the given <code>{index}</code> in the list of patient names.
@@ -140,7 +133,6 @@ operations:
 - name: replace-name-family
   path: /name/{index}/family
   operation: replace
-  cardinality: 1..1
   type: String
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family
   description: Replace the `HumanName.family` of the name at the given <code>{index}</code> in the list of patient names.
@@ -158,7 +150,6 @@ operations:
 - name: replace-name-given
   path: /name/{index}/given
   operation: replace
-  cardinality: 1..2
   type: String
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given
   description: Replace the `HumanName.given` of the name at the given <code>{index}</code> in the list of patient names.
@@ -180,7 +171,6 @@ operations:
 - name: replace-name-prefix
   path: /name/{index}/prefix
   operation: replace
-  cardinality: 0..1
   type: String
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix
   description: Replace the `HumanName.prefix` of the name at the given <code>{index}</code> in the list of patient names.
@@ -199,7 +189,6 @@ operations:
 - name: replace-name-suffix
   path: /name/{index}/suffix
   operation: replace
-  cardinality: 0..1
   type: String
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix
   description: Replace the `HumanName.suffix` of the name at the given <code>{index}</code> in the list of patient names.
@@ -219,7 +208,6 @@ operations:
 - name: replace-name-period
   path: /name/{index}/period
   operation: replace
-  cardinality: 1..1
   type: Period
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.period
   description: Replace the `HumanName.period` of the name at the given <code>{index}</code> in the list of patient names.
@@ -241,7 +229,6 @@ operations:
 - name: add-telecom
   path: /telecom/-
   operation: add
-  cardinality: 1..1
   type: ContactPoint
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
   description: Add a new contact detail for the patient.
@@ -265,7 +252,6 @@ operations:
 - name: test-telecom-id
   path: /telecom/{index}/id
   operation: test
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
   description: Test the value of the `ContactPoint.id` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
@@ -278,7 +264,6 @@ operations:
 - name: remove-telecom
   path: /telecom/{index}
   operation: remove
-  cardinality: 0
   type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
   description: Remove the telecom at the given <code>{index}</code> in the list of patient telecoms.
@@ -294,7 +279,6 @@ operations:
 - name: replace-telecom-value
   path: /telecom/{index}/value
   operation: replace
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
   description: Replace the `ContactPoint.value` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
@@ -311,7 +295,6 @@ operations:
 - name: replace-telecom-rank
   path: /telecom/{index}/rank
   operation: replace
-  cardinality: 1..1
   type: positiveInt
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.rank
   description: Replace the `ContactPoint.rank` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
@@ -328,7 +311,6 @@ operations:
 - name: replace-telecom-period
   path: /telecom/{index}/period
   operation: replace
-  cardinality: 1..1
   type: Period
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period
   description: Replace the `ContactPoint.period` of the telecom at the given <code>{index}</code> in the list of patient telecoms.
@@ -350,7 +332,6 @@ operations:
 - name: replace-gender
   path: /gender
   operation: replace
-  cardinality: 1..1
   type: code
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender
   description: Replace the gender that the patient is considered to have for administration and record keeping purposes.
@@ -363,7 +344,6 @@ operations:
 - name: replace-birth-date
   path: /birthDate
   operation: replace
-  cardinality: 1..1
   type: date
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate
   description: Replace the date of birth for the individual.
@@ -376,7 +356,6 @@ operations:
 - name: add-address
   path: /address/-
   operation: add
-  cardinality: 1..1
   type: Address
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
   description: Add a new address for the patient.
@@ -408,7 +387,6 @@ operations:
 - name: test-address-id
   path: /address/{index}/id
   operation: test
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
   description: Test the value of the `Address.id` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -421,7 +399,6 @@ operations:
 - name: remove-address
   path: /address/{index}
   operation: remove
-  cardinality: 0
   type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
   description: Remove the address at the given <code>{index}</code> in the list of patient addresses.
@@ -437,7 +414,6 @@ operations:
 - name: replace-address-line
   path: /address/{index}/line
   operation: replace
-  cardinality: 0..*
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.line
   description: Replace the `Address.line` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -459,7 +435,6 @@ operations:
 - name: replace-address-city
   path: /address/{index}/city
   operation: replace
-  cardinality: 0..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.city
   description: Replace the `Address.city` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -477,7 +452,6 @@ operations:
 - name: replace-address-district
   path: /address/{index}/district
   operation: replace
-  cardinality: 0..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.district
   description: Replace the `Address.district` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -495,7 +469,6 @@ operations:
 - name: replace-address-state
   path: /address/{index}/state
   operation: replace
-  cardinality: 0..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.state
   description: Replace the `Address.state` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -513,7 +486,6 @@ operations:
 - name: replace-address-postal-code
   path: /address/{index}/postalCode
   operation: replace
-  cardinality: 0..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.postalCode
   description: Replace the `Address.postalCode` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -531,7 +503,6 @@ operations:
 - name: replace-address-country
   path: /address/{index}/country
   operation: replace
-  cardinality: 0..1
   type: string
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.country
   description: Replace the `Address.country` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -549,7 +520,6 @@ operations:
 - name: replace-address-period
   path: /address/{index}/period
   operation: replace
-  cardinality: 1..1
   type: Period
   url: https://hl7.org/fhir/R4/datatypes-definitions.html#Address.period
   description: Replace the `Address.period` of the address at the given <code>{index}</code> in the list of patient addresses.
@@ -571,7 +541,6 @@ operations:
 - name: replace-marital-status
   path: /maritalStatus
   operation: replace
-  cardinality: 1..1
   type: CodeableConcept
   url: https://hl7.org/fhir/r4/patient-definitions.html#Patient.maritalStatus
   description: Replace the patient's most recent marital (civil) status.
@@ -591,7 +560,6 @@ operations:
 - name: replace-communication
   path: /communication
   operation: replace
-  cardinality: 1..1
   type: BackboneElement
   url: https://hl7.org/fhir/r4/patient-definitions.html#Patient.communication
   description: Replace the language which may be used to communicate with the patient about his health.
@@ -620,7 +588,6 @@ operations:
 - name: add-general-practitioner
   path: /generalPractitioner/-
   operation: add
-  cardinality: 1..1
   type: Reference
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
   description: Add a new nominated care provider.
@@ -639,7 +606,6 @@ operations:
 - name: test-general-practitioner-id
   path: /generalPractitioner/{index}/id
   operation: test
-  cardinality: 1..1
   type: string
   url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
   description: Test the value of the `Reference.id` of the general practitioner at the given <code>{index}</code> in the list of the patient's nominated care providers.
@@ -652,7 +618,6 @@ operations:
 - name: remove-general-practitioner
   path: /generalPractitioner/{index}
   operation: remove
-  cardinality: 0
   type: N/A
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
   description: Remove the general practitoner at the given <code>{index}</code> in the list of the patient's nominated care providers.
@@ -668,7 +633,6 @@ operations:
 - name: replace-extension
   path: /extension
   operation: replace
-  cardinality: 1..*
   type: Extension
   url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
   description: Replace the value of an extension that adds additional information about the patient.

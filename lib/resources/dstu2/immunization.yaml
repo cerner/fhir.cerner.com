@@ -5,7 +5,6 @@ fields:
 
 - name: vaccineCode
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: The vaccine that was administered or was to be administered.
   binding:
@@ -21,7 +20,6 @@ fields:
 
 - name: site
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The body site where the vaccine was administered.
   binding:
@@ -33,7 +31,6 @@ fields:
 
 - name: route
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The path by which the vaccine product is taken into the body.
   binding:
@@ -48,7 +45,6 @@ fields:
 
 - name: explanation
   required: 'No'
-  cardinality: 0..1
   type: BackboneElement
   description: Reasons why a vaccine was or was not administered.
 
@@ -56,8 +52,7 @@ fields:
 
   - name: reasonNotGiven
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Why immunization did not occur.
     note: While the FHIR Valueset currently supports SNOMED and V3, our implementation will currently only return V3 values.
     binding:

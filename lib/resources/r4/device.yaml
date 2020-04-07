@@ -4,14 +4,12 @@ field_name_base_url: https://www.hl7.org/fhir/device-definitions.html#Device
 fields:
 - name: identifier
   required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: Instance identifier
   children:
 
   - name: type
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
@@ -24,8 +22,7 @@ fields:
         info_link: http://hl7.org/fhir/r4/valueset-identifier-type.html
 
 - name: type
-  required: 'Yes'
-  cardinality: 0..1
+  required: 'No'
   type: CodeableConcept
   description: The kind or type of device.
   binding:

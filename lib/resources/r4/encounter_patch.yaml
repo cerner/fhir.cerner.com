@@ -5,7 +5,6 @@ operations:
   - name: replace-period-start
     path: /period/start
     operation: replace
-    cardinality: 0..1
     type: dateTime
     url: http://hl7.org/fhir/datatypes-definitions.html#Period.start
     description: The start time of the encounter.
@@ -24,7 +23,6 @@ operations:
   - name: replace-period-end
     path: /period/end
     operation: replace
-    cardinality: 0..1
     type: dateTime
     url: http://hl7.org/fhir/datatypes-definitions.html#Period.end
     description: The end time of the encounter.
@@ -43,8 +41,7 @@ operations:
   - name: replace-type
     path: /type
     operation: replace
-    cardinality: 1..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     url: http://hl7.org/fhir/encounter-definitions.html#Encounter.type
     description: The specific type of encounter.
     example: |
@@ -64,6 +61,6 @@ operations:
       }
     note: >
       <ul>
-        <li>`Encounter.type` value should a list.</li>
+        <li>`Encounter.type` value should be a list.</li>
         <li>When a list is provided, the first value would be used to patch `Encounter.type`.</li>
       </ul>

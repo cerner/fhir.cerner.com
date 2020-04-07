@@ -5,7 +5,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
   url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.code
@@ -18,8 +17,7 @@ fields:
 
 - name: bodySite
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).
   url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.bodySite
   binding:
@@ -31,7 +29,6 @@ fields:
 
 - name: reasonCodeableConcept
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The reason why the procedure is being proposed or ordered.
   url: http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.reason_x_
@@ -50,7 +47,6 @@ fields:
 
 - name: scheduledTiming
   required: 'No'
-  cardinality: 0..1
   type: Timing
   description: >
     The timing schedule for the proposed or ordered procedure.
@@ -59,7 +55,6 @@ fields:
 
   - name: code
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: A code for the timing pattern.
     url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
@@ -75,7 +70,6 @@ fields:
 
 - name: asNeeded[x]
   required: 'No'
-  cardinality: 0..1
   type: boolean | CodeableConcept
   description: >
     If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
