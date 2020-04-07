@@ -3,14 +3,17 @@ module Cerner
 
     DSTU2_DOCUMENT_REFERENCE_DOCREF_SEARCH ||= {
       "resourceType": "Bundle",
-      "id": "1d575f95-dfd5-47b3-a842-ddddd36daec6",
+      "id": "21392fef-2513-43de-aa6c-a51c27a26d31",
       "type": "searchset",
       "total": 4,
-      "link": [{
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference?patient=1316024&created=ge2016-01-06&created=le2016-01-07"
-      }],
-      "entry": [{
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference?patient=1316024&created=ge2016-01-06&created=le2016-01-07"
+        }
+      ],
+      "entry": [
+        {
           "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/6589312",
           "resource": {
             "resourceType": "DocumentReference",
@@ -21,17 +24,25 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-06T09:10:14.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
             },
             "subject": {
               "reference": "Patient/1316024",
               "display": "PETERS, TIMOTHY"
             },
             "type": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "34839-1"
-              }],
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34839-1"
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+                  "code": "2820583",
+                  "display": "Rheumatology Consultation",
+                  "userSelected": true
+                }
+              ],
               "text": "Rheumatology Consultation"
             },
             "authenticator": {
@@ -41,21 +52,25 @@ module Cerner
             "indexed": "2016-01-06T09:10:14.000Z",
             "status": "current",
             "docStatus": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/composition-status",
-                "code": "final",
-                "display": "Final"
-              }],
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/composition-status",
+                  "code": "final",
+                  "display": "Final"
+                }
+              ],
               "text": "Auth (Verified)"
             },
             "description": "Rheumatology Note",
-            "content": [{
-              "attachment": {
-                "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312",
-                "title": "Rheumatology Note"
+            "content": [
+              {
+                "attachment": {
+                  "contentType": "application/pdf",
+                  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312",
+                  "title": "Rheumatology Note"
+                }
               }
-            }],
+            ],
             "context": {
               "encounter": {
                 "reference": "Encounter/1309918"
@@ -74,17 +89,25 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-06T09:10:14.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
             },
             "subject": {
               "reference": "Patient/1316024",
               "display": "PETERS, TIMOTHY"
             },
             "type": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "34839-1"
-              }],
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34839-1"
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+                  "code": "2820583",
+                  "display": "Rheumatology Consultation",
+                  "userSelected": true
+                }
+              ],
               "text": "Rheumatology Consultation"
             },
             "authenticator": {
@@ -94,21 +117,25 @@ module Cerner
             "indexed": "2016-01-06T09:10:14.000Z",
             "status": "current",
             "docStatus": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/composition-status",
-                "code": "final",
-                "display": "Final"
-              }],
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/composition-status",
+                  "code": "final",
+                  "display": "Final"
+                }
+              ],
               "text": "Auth (Verified)"
             },
             "description": "Rheumatology Note",
-            "content": [{
-              "attachment": {
-                "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307",
-                "title": "Rheumatology Note"
+            "content": [
+              {
+                "attachment": {
+                  "contentType": "application/pdf",
+                  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307",
+                  "title": "Rheumatology Note"
+                }
               }
-            }],
+            ],
             "context": {
               "encounter": {
                 "reference": "Encounter/1309918"
@@ -127,17 +154,25 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-06T09:10:14.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
             },
             "subject": {
               "reference": "Patient/1316024",
               "display": "PETERS, TIMOTHY"
             },
             "type": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "34839-1"
-              }],
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34839-1"
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+                  "code": "2820583",
+                  "display": "Rheumatology Consultation",
+                  "userSelected": true
+                }
+              ],
               "text": "Rheumatology Consultation"
             },
             "authenticator": {
@@ -147,21 +182,25 @@ module Cerner
             "indexed": "2016-01-06T09:10:14.000Z",
             "status": "current",
             "docStatus": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/composition-status",
-                "code": "final",
-                "display": "Final"
-              }],
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/composition-status",
+                  "code": "final",
+                  "display": "Final"
+                }
+              ],
               "text": "Auth (Verified)"
             },
             "description": "Rheumatology Note",
-            "content": [{
-              "attachment": {
-                "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287",
-                "title": "Rheumatology Note"
+            "content": [
+              {
+                "attachment": {
+                  "contentType": "application/pdf",
+                  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287",
+                  "title": "Rheumatology Note"
+                }
               }
-            }],
+            ],
             "context": {
               "encounter": {
                 "reference": "Encounter/1309918"
@@ -180,17 +219,25 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2016-01-06T09:10:14.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
+              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
             },
             "subject": {
               "reference": "Patient/1316024",
               "display": "PETERS, TIMOTHY"
             },
             "type": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "34839-1"
-              }],
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "34839-1"
+                },
+                {
+                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+                  "code": "2820583",
+                  "display": "Rheumatology Consultation",
+                  "userSelected": true
+                }
+              ],
               "text": "Rheumatology Consultation"
             },
             "authenticator": {
@@ -200,21 +247,25 @@ module Cerner
             "indexed": "2016-01-06T09:10:14.000Z",
             "status": "current",
             "docStatus": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/composition-status",
-                "code": "final",
-                "display": "Final"
-              }],
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/composition-status",
+                  "code": "final",
+                  "display": "Final"
+                }
+              ],
               "text": "Auth (Verified)"
             },
             "description": "Rheumatology Note",
-            "content": [{
-              "attachment": {
-                "contentType": "application/pdf",
-                "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283",
-                "title": "Rheumatology Note"
+            "content": [
+              {
+                "attachment": {
+                  "contentType": "application/pdf",
+                  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283",
+                  "title": "Rheumatology Note"
+                }
               }
-            }],
+            ],
             "context": {
               "encounter": {
                 "reference": "Encounter/1309918"
@@ -227,7 +278,7 @@ module Cerner
 
     DSTU2_DOCUMENT_REFERENCE_DOCREF_BUNDLE ||= {
       "resourceType": "Bundle",
-      "id": "5d1a7f94-8ee4-45aa-bbe6-1dd087fba40c",
+      "id": "90db1def-39bd-491f-a26a-ce8049c9926a",
       "type": "searchset",
       "total": 1,
       "link": [
@@ -238,10 +289,10 @@ module Cerner
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/e6e34022-942c-42b9-a1e3-5452bb274627",
+          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/b584c2b8-4d89-4b7b-a7a3-0d2cb68b2c46",
           "resource": {
             "resourceType": "DocumentReference",
-            "id": "e6e34022-942c-42b9-a1e3-5452bb274627",
+            "id": "b584c2b8-4d89-4b7b-a7a3-0d2cb68b2c46",
             "subject": {
               "reference": "Patient/1316035"
             },
@@ -249,13 +300,12 @@ module Cerner
               "coding": [
                 {
                   "system": "http://loinc.org",
-                  "code": "34133-9",
-                  "display": "Summary of episode note"
+                  "code": "34133-9"
                 }
               ],
               "text": "Summary of episode note"
             },
-            "indexed": "2017-01-03T11:08:02-06:00",
+            "indexed": "2020-04-01T18:32:12Z",
             "status": "current",
             "content": [
               {
@@ -266,7 +316,7 @@ module Cerner
                 "format": [
                   {
                     "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-                    "code": "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
+                    "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1",
                     "display": "For documents following C-CDA constraints using a structured body."
                   }
                 ]
@@ -286,7 +336,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;DocumentReference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Depart Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Physician Emergency department Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2018-01-03T07:30:20.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Depart Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Physician Emergency department Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  3, 2018  7:30 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
       },
       "subject": {
         "reference": "Patient/1316024",
