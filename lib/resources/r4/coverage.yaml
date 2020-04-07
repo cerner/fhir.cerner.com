@@ -19,10 +19,10 @@ fields:
   required: 'No'
   cardinality: 0..1
   type: Extension
-  description: Reference to the Encounter associated to the encounter level Coverage.
+  description: Reference to the Encounter associated to the Encounter-level Coverage.
   note:
     - The <code>valueReference.reference</code> must be an Encounter reference.
-    - If this extension is present an encounter level coverage will be posted.
+    - If provided, an Encounter-level Coverage will be created.
   example: |
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
