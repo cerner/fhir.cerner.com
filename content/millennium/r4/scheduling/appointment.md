@@ -15,14 +15,13 @@ Date is required when searching by patient, practitioner, or location.
 
 When integrating your application with a client’s production environment you will work with the client to determine the Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.
 
-When updating an appointment, the resource provides the ability to change the [Appointment.status] from booked to arrived, checked-in, or cancelled.
-
 The status of arrived does not change the state of the millennium appointment but instead updates the patient tracking status to a value of Arrived.
 
 R4 exposes a native checked-in status which allows for an appointment to transition from the booked state to the checked-in state. This is a change from the DSTU2 value mapping.
 
 When updating an appointment, the resource provides the ability to change the [Appointment.status] in the following sequences:
 
+* From Proposed to Booked, or Cancelled
 * From Booked to Arrived, Checked-In, or Cancelled
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Cancelled
