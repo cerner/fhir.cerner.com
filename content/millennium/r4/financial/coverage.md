@@ -119,7 +119,7 @@ Create new Patient-level or Encounter-level Coverages.
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-### Example - Patient-Body
+### Body
 
 <%= json(:r4_coverage_create) %>
 
@@ -153,7 +153,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-### Example - Encounter-Body
+### Body
 
 <%= json(:r4_coverage_encounter_create) %>
 
@@ -165,7 +165,7 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
-Etag: W/"0$0"
+Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
 Server-Response-Time: 3890.363996
