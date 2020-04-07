@@ -407,6 +407,8 @@
       
       
       
+      
+      
   </tbody>
 </table>
 
@@ -420,7 +422,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Currently <code>problem-list-item</code> is supported.</li>
+  <li>Currently <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -475,7 +477,7 @@
       <td><code>category</code></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The category of the condition. Category problem-list-item is supported as of now. Example: <code>problem-list-item</code>
+      <td>The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now. Example: <code>problem-list-item</code>, <code>encounter-diagnosis</code>
 </td>
     </tr>
   </tbody>
@@ -850,7 +852,12 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>A clinicalStatus must always be provided while creating a Condition.</li></ul>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> A clinicalStatus must always be provided while creating a Condition. </li>
+  <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -947,7 +954,7 @@
         <ul style="list-style-type: none"><li>
 <ul>
   <li> Only a single category may be provided. </li>
-  <li> Only category code <code>problem-list-item</code> is supported. </li>
+  <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
 </ul>
 </li></ul>
       
@@ -1101,6 +1108,50 @@
     
     <tr>
       <td>
+        <a name="create-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Encounter during which the condition was first asserted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> encounter must be a reference to an Encounter. </li>
+  <li> encounter is required when the condition category code is <code>encounter-diagnosis</code>. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="create-onset_x_">
         
           </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.onset_x_"><code>onset_x_</code></a>
@@ -1131,7 +1182,7 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Only a type of dateTime is supported.</li>
+  <li> Only a type of dateTime is supported. </li>
   <li> The dateTime is converted to a GMT date. </li>
 </ul>
 </li></ul>
@@ -1172,11 +1223,7 @@
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
-<ul>
-  <li> Only a type of dateTime is supported.</li>
-  <li> The dateTime is converted to a GMT date. </li>
-</ul>
-</li></ul>
+<code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1344,7 +1391,7 @@ X-Runtime: 2.011826
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Currently <code>problem-list-item</code> is supported.</li>
+  <li>Currently <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported.</li>
   <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
 </ul>
 
@@ -1485,6 +1532,14 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> A clinicalStatus must always be provided when updating a Condition, unless verificationStatus is <code>entered-in-error</code> or <code>refuted</code>. </li>
+  <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+</ul>
+</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -1577,7 +1632,7 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
         <ul style="list-style-type: none"><li>
 <ul>
   <li> Only a single category may be provided. </li>
-  <li> Only category code <code>problem-list-item</code> is supported. </li>
+  <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
 </ul>
 </li></ul>
       
@@ -1731,6 +1786,50 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
     
     <tr>
       <td>
+        <a name="update-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Encounter during which the condition was first asserted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> encounter must be a reference to an Encounter. </li>
+  <li> encounter is only supported for Conditions with a category of <code>encounter-diagnosis</code>. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="update-onset_x_">
         
           </a><a target="_blank" href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.onset_x_"><code>onset_x_</code></a>
@@ -1761,7 +1860,7 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Only a type of dateTime is supported.</li>
+  <li> Only a type of dateTime is supported. </li>
   <li> The dateTime is converted to a GMT date. </li>
 </ul>
 </li></ul>
@@ -1802,11 +1901,7 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
-<ul>
-  <li> Only a type of dateTime is supported.</li>
-  <li> The dateTime is converted to a GMT date. </li>
-</ul>
-</li></ul>
+<code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>

@@ -357,7 +357,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2016&amp;slot-type=http://snomed.info/sct|394581000&amp;_count=5
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2019&amp;slot-type=http://snomed.info/sct|408443003&amp;_count=5
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -366,31 +366,31 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "0b37fa7f-7711-4e8c-990e-158a02fc92c4",
+  "id": "3660d82e-9d9c-4059-900f-a43ec893e02a",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&amp;schedule.actor=Practitioner%2F2578010&amp;start=2016&amp;_count=5"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C408443003&amp;schedule.actor=Practitioner%2F2578010&amp;start=2019&amp;_count=5"
     },
     {
       "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=7f264aa2-0cbe-4824-b542-33372e1434c3&amp;-pageDirection=NEXT"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=8676dea6-9944-42e8-bd79-0deaafd16d06&amp;-pageDirection=NEXT"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-360",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-0",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121781-360",
+        "id": "21265426-4048128-7759739-0",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -404,8 +404,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -418,25 +418,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121781-360"
+          "reference": "Schedule/21265426-4048128-7759739-0"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T14:00:00.000-06:00",
-        "end": "2016-01-30T15:00:00.000-06:00"
+        "start": "2019-01-01T14:00:00.000Z",
+        "end": "2019-01-01T15:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-360",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-0",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121781-360",
+        "id": "21265426-633867-7759739-0",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -450,8 +453,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -464,25 +467,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121781-360"
+          "reference": "Schedule/21265426-633867-7759739-0"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T14:00:00.000-06:00",
-        "end": "2016-01-30T15:00:00.000-06:00"
+        "start": "2019-01-01T14:00:00.000Z",
+        "end": "2019-01-01T15:00:00.000Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-365",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-5",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121781-365",
+        "id": "21265426-4048128-7759739-5",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -496,8 +502,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -510,25 +516,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121781-365"
+          "reference": "Schedule/21265426-4048128-7759739-5"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T14:05:00.000-06:00",
-        "end": "2016-01-30T15:05:00.000-06:00"
+        "start": "2019-01-01T14:05:00.000Z",
+        "end": "2019-01-01T15:05:00.000Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-365",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-5",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121781-365",
+        "id": "21265426-633867-7759739-5",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -542,8 +551,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -556,25 +565,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121781-365"
+          "reference": "Schedule/21265426-633867-7759739-5"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T14:05:00.000-06:00",
-        "end": "2016-01-30T15:05:00.000-06:00"
+        "start": "2019-01-01T14:05:00.000Z",
+        "end": "2019-01-01T15:05:00.000Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-370",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-10",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121781-370",
+        "id": "21265426-4048128-7759739-10",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T10:40:33.000-05:00"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  8:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016  9:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -588,8 +600,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -602,21 +614,26 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121781-370"
+          "reference": "Schedule/21265426-4048128-7759739-10"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T14:10:00.000-06:00",
-        "end": "2016-01-30T15:10:00.000-06:00"
+        "start": "2019-01-01T14:10:00.000Z",
+        "end": "2019-01-01T15:10:00.000Z"
+      },
+      "search": {
+        "mode": "match"
       }
     }
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="example-with-include">Example with Include</h3>
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2016&amp;slot-type=http://snomed.info/sct|394581000&amp;_count=5&amp;_include=Slot:schedule
+<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&amp;start=2019&amp;slot-type=http://snomed.info/sct|408443003&amp;_count=5&amp;_include=Slot:schedule
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -625,31 +642,31 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "b1d02f24-a47e-44db-a608-82f75fef8fec",
+  "id": "009b7705-a9e7-4504-8726-732263eaa015",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C394581000&amp;schedule.actor=Practitioner%2F2578010&amp;start=2016&amp;_include=Slot%3Aschedule&amp;_count=5"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C408443003&amp;schedule.actor=Practitioner%2F2578010&amp;start=2019&amp;_include=Slot%3Aschedule&amp;_count=5"
     },
     {
       "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_include=Slot%3Aschedule&amp;-pageContext=71f9a683-b711-41b9-9646-46f7c87dd94d&amp;-pageDirection=NEXT"
+      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_include=Slot%3Aschedule&amp;-pageContext=77c5e8be-9be4-497d-9e96-7516f237c138&amp;-pageDirection=NEXT"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121781-420",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-0",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121781-420",
+        "id": "21265426-4048128-7759739-0",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T15:40:33.000Z"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016 10:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -663,8 +680,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -677,28 +694,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121781-420"
+          "reference": "Schedule/21265426-4048128-7759739-0"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T21:00:00.000Z",
-        "end": "2016-01-30T22:00:00.000Z"
+        "start": "2019-01-01T14:00:00.000Z",
+        "end": "2019-01-01T15:00:00.000Z"
       },
       "search": {
         "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121781-420",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-0",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121781-420",
+        "id": "21265426-633867-7759739-0",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T15:40:33.000Z"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 30, 2016  9:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 30, 2016 10:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -712,8 +729,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -726,28 +743,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121781-420"
+          "reference": "Schedule/21265426-633867-7759739-0"
         },
         "freeBusyType": "free",
-        "start": "2016-01-30T21:00:00.000Z",
-        "end": "2016-01-30T22:00:00.000Z"
+        "start": "2019-01-01T14:00:00.000Z",
+        "end": "2019-01-01T15:00:00.000Z"
       },
       "search": {
         "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121785-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-5",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121785-0",
+        "id": "21265426-4048128-7759739-5",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T15:40:33.000Z"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -761,8 +778,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -775,28 +792,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121785-0"
+          "reference": "Schedule/21265426-4048128-7759739-5"
         },
         "freeBusyType": "free",
-        "start": "2016-01-31T14:00:00.000Z",
-        "end": "2016-01-31T15:00:00.000Z"
+        "start": "2019-01-01T14:05:00.000Z",
+        "end": "2019-01-01T15:05:00.000Z"
       },
       "search": {
         "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121785-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-5",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-633867-3121785-0",
+        "id": "21265426-633867-7759739-5",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T15:40:33.000Z"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -810,8 +827,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -824,28 +841,28 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-633867-3121785-0"
+          "reference": "Schedule/21265426-633867-7759739-5"
         },
         "freeBusyType": "free",
-        "start": "2016-01-31T14:00:00.000Z",
-        "end": "2016-01-31T15:00:00.000Z"
+        "start": "2019-01-01T14:05:00.000Z",
+        "end": "2019-01-01T15:05:00.000Z"
       },
       "search": {
         "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-3121785-5",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-10",
       "resource": {
         "resourceType": "Slot",
-        "id": "21265426-4048128-3121785-5",
+        "id": "21265426-4048128-7759739-10",
         "meta": {
           "versionId": "0",
-          "lastUpdated": "2015-06-10T15:40:33.000Z"
+          "lastUpdated": "2019-09-03T19:32:41.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 31, 2016  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 31, 2016  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -859,8 +876,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394581000",
-              "display": "Community medicine",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             },
             {
@@ -873,24 +890,24 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
           "text": "Same Day"
         },
         "schedule": {
-          "reference": "Schedule/21265426-4048128-3121785-5"
+          "reference": "Schedule/21265426-4048128-7759739-10"
         },
         "freeBusyType": "free",
-        "start": "2016-01-31T14:05:00.000Z",
-        "end": "2016-01-31T15:05:00.000Z"
+        "start": "2019-01-01T14:10:00.000Z",
+        "end": "2019-01-01T15:10:00.000Z"
       },
       "search": {
         "mode": "match"
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121781-420",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-0",
       "resource": {
         "resourceType": "Schedule",
-        "id": "21265426-4048128-3121781-420",
+        "id": "21265426-4048128-7759739-0",
         "text": {
           "status": "extensions",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -906,8 +923,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "394581000",
-                "display": "Community medicine"
+                "code": "408443003",
+                "display": "General medical practice"
               }
             ],
             "text": "Same Day"
@@ -915,7 +932,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
         ],
         "actor": {
           "reference": "Practitioner/2578010",
-          "display": "Snow, Jon"
+          "display": "Howdeshell, Tami"
         }
       },
       "search": {
@@ -923,13 +940,13 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121781-420",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-7759739-0",
       "resource": {
         "resourceType": "Schedule",
-        "id": "21265426-633867-3121781-420",
+        "id": "21265426-633867-7759739-0",
         "text": {
           "status": "extensions",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -945,8 +962,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "394581000",
-                "display": "Community medicine"
+                "code": "408443003",
+                "display": "General medical practice"
               }
             ],
             "text": "Same Day"
@@ -954,7 +971,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
         ],
         "actor": {
           "reference": "Practitioner/2578010",
-          "display": "Snow, Jon"
+          "display": "Howdeshell, Tami"
         }
       },
       "search": {
@@ -962,13 +979,13 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121785-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-5",
       "resource": {
         "resourceType": "Schedule",
-        "id": "21265426-4048128-3121785-0",
+        "id": "21265426-4048128-7759739-5",
         "text": {
           "status": "extensions",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -984,8 +1001,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "394581000",
-                "display": "Community medicine"
+                "code": "408443003",
+                "display": "General medical practice"
               }
             ],
             "text": "Same Day"
@@ -993,7 +1010,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
         ],
         "actor": {
           "reference": "Practitioner/2578010",
-          "display": "Snow, Jon"
+          "display": "Howdeshell, Tami"
         }
       },
       "search": {
@@ -1001,13 +1018,13 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-3121785-0",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-7759739-5",
       "resource": {
         "resourceType": "Schedule",
-        "id": "21265426-633867-3121785-0",
+        "id": "21265426-633867-7759739-5",
         "text": {
           "status": "extensions",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -1023,8 +1040,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "394581000",
-                "display": "Community medicine"
+                "code": "408443003",
+                "display": "General medical practice"
               }
             ],
             "text": "Same Day"
@@ -1032,7 +1049,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
         ],
         "actor": {
           "reference": "Practitioner/2578010",
-          "display": "Snow, Jon"
+          "display": "Howdeshell, Tami"
         }
       },
       "search": {
@@ -1040,13 +1057,13 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-3121785-5",
+      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-10",
       "resource": {
         "resourceType": "Schedule",
-        "id": "21265426-4048128-3121785-5",
+        "id": "21265426-4048128-7759739-10",
         "text": {
           "status": "extensions",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Snow, Jon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -1062,8 +1079,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "394581000",
-                "display": "Community medicine"
+                "code": "408443003",
+                "display": "General medical practice"
               }
             ],
             "text": "Same Day"
@@ -1071,7 +1088,7 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
         ],
         "actor": {
           "reference": "Practitioner/2578010",
-          "display": "Snow, Jon"
+          "display": "Howdeshell, Tami"
         }
       },
       "search": {
@@ -1080,6 +1097,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1150,6 +1169,8 @@ an upper and lower bound. (e.g. <code>&amp;start=ge2014&amp;date=lt2016</code>, 
   "start": "2016-01-01T08:00:00.000-06:00",
   "end": "2016-01-01T09:00:00.000-06:00"
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
 

@@ -99,7 +99,8 @@
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
-      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example---patient-level-coverage-1" id="markdown-toc-example---patient-level-coverage-1">Example - Patient-level Coverage</a></li>
+      <li><a href="#example---encounter-level-coverage-1" id="markdown-toc-example---encounter-level-coverage-1">Example - Encounter-level Coverage</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
@@ -108,7 +109,7 @@
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
@@ -146,6 +147,7 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
+      
       
       
       
@@ -494,7 +496,7 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create a new Patient-level Coverage.</p>
+<p>Create new Patient-level or Encounter-level Coverages.</p>
 
 <pre><code>POST /Coverage
 </code></pre>
@@ -554,6 +556,51 @@
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The resourceType must be Coverage.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-Coverage%20Encounter%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json"><code>Coverage Encounter Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>0..1 </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Reference to the Encounter associated to the Encounter-level Coverage.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+  "valueReference": {
+    "reference": "Encounter/31363178"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The <code>valueReference.reference</code> must be an Encounter reference.</li>
+  <li>If provided, an Encounter-level Coverage will be created.</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1050,7 +1097,7 @@
   </tbody>
 </table>
 
-<h3 id="example">Example</h3>
+<h3 id="example---patient-level-coverage-1">Example - Patient-level Coverage</h3>
 
 <h4 id="request-2">Request</h4>
 
@@ -1130,7 +1177,105 @@ Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257
 Server-Response-Time: 3890.363996
-Status: 201 Created
+Vary: Origin
+X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
+X-Runtime: 3.890282
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---encounter-level-coverage-1">Example - Encounter-level Coverage</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Coverage",
+  "status": "active",
+  "subscriber": {
+    "reference": "Patient/1626016",
+    "display": "WOLFE, STEPHANIE T"
+  },
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+      "valueReference": {
+        "reference": "Encounter/31363178"
+      }
+    }
+  ],
+  "subscriberId": "2461235",
+  "dependent": "74965675",
+  "beneficiary": {
+    "reference": "Patient/1626016"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+        "code": "156",
+        "display": "child",
+        "userSelected": true
+      }
+    ]
+  },
+  "period": {
+    "start": "2014-09-05T14:30:12.000Z",
+    "end": "2015-09-05T14:30:12.000Z"
+  },
+  "payor": [
+    {
+      "reference": "Organization/643847",
+      "display": "Aetna Missouri POS - Open"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+            "code": "plan"
+          }
+        ],
+        "text": "plan"
+      },
+      "value": "729825",
+      "name": "Aetna Missouri POS Open"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+            "code": "group"
+          }
+        ],
+        "text": "group"
+      },
+      "value": "8939999",
+      "name": "Aetna Missouri POS Open group"
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 22 Oct 2019 15:59:33 GMT
+Etag: W/"0"
+Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
+Server-Response-Time: 3890.363996
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
@@ -1548,14 +1693,14 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
   </tbody>
 </table>
 
-<h3 id="example-1">Example</h3>
+<h3 id="example">Example</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
 </code></pre>
 
-<h4 id="body-1">Body</h4>
+<h4 id="body-2">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -1612,7 +1757,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
   }
 ]</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1624,7 +1769,6 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 X-Runtime: 2.260092
