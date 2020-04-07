@@ -335,8 +335,7 @@ fields:
     <ul>
       <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
-      <li> <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
-  </li>
+      <li> <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>. </li>
     </ul>
   example: |
     {
