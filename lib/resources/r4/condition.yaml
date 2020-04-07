@@ -48,7 +48,11 @@ fields:
   description: The clinical status of the condition.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.clinicalStatus
   action: create
-  note: A clinicalStatus must always be provided while creating a Condition.
+  note: |
+    <ul>
+      <li> A clinicalStatus must always be provided while creating a Condition. </li>
+      <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+    </ul>
   example: |
     {
       "clinicalStatus": {
@@ -150,7 +154,7 @@ fields:
   note: |
     <ul>
       <li> Only a single category may be provided. </li>
-      <li> Only category code <code>problem-list-item</code> is supported. </li>
+      <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
     </ul>
   example: |
     {
@@ -263,6 +267,25 @@ fields:
   note: subject must be a reference to a Patient.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.subject
 
+- name: encounter
+  required: 'No'
+  cardinality: 0..1
+  type: Reference
+  description: Encounter during which the condition was first asserted.
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/631923"
+      }
+    }
+  note: |
+    <ul>
+      <li> encounter must be a reference to an Encounter. </li>
+      <li> encounter is required when the condition category code is <code>encounter-diagnosis</code>. </li>
+    </ul>
+  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
+  action: create
+
 - name: onset_x_
   required: 'No'
   cardinality: 0..1
@@ -270,7 +293,7 @@ fields:
   description: Estimated or actual date or date-time the condition began, in the opinion of the clinician.
   note: |
     <ul>
-      <li> Only a type of dateTime is supported.</li>
+      <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
     </ul>
   example: |
@@ -286,13 +309,14 @@ fields:
   description: The date or estimated date that the condition resolved or went into remission.
   note: |
     <ul>
-      <li> Only a type of dateTime is supported.</li>
+      <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
     </ul>
   example: |
     {
       "abatementDateTime": "2015-10-14T13:13:20-06:00"
     }
+  note: <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.abatement_x_
 
 - name: note
