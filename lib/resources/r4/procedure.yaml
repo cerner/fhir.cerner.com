@@ -111,7 +111,7 @@ fields:
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.encounter
   note: |
     <ul>
-      <li> encounter must be a reference to an Encounter. </li>
+      <li> Must only include references to Encounter. </li>
     </ul>
 
 - name: location
@@ -129,7 +129,7 @@ fields:
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.location
   note: |
     <ul>
-      <li> location must be a reference to a Location. </li>
+      <li> Must only include references to Location. </li>
     </ul>
 
 - name: performed_x_

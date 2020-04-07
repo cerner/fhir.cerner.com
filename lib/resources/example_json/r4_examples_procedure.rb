@@ -24,7 +24,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
             },
             "status": "completed",
             "code": {
@@ -40,7 +40,7 @@ module Cerner
             },
             "subject": {
               "reference": "Patient/1316024",
-              "display": "PETERS, TIMOTHY"
+              "display": "Larry, Bird"
             },
             "encounter": {
               "reference": "Encounter/1545906"
@@ -95,7 +95,7 @@ module Cerner
             },
             "text": {
               "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Forrest, Fhir&lt;/p>&lt;/div>"
+              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Forrest, Fhir&lt;/p>&lt;/div>"
             },
             "status": "entered-in-error",
             "code": {
@@ -111,7 +111,7 @@ module Cerner
             },
             "subject": {
               "reference": "Patient/1316024",
-              "display": "PETERS, TIMOTHY"
+              "display": "Larry, Bird"
             },
             "encounter": {
               "reference": "Encounter/1309918"
@@ -135,7 +135,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
       },
       "status": "completed",
       "code": {
@@ -151,7 +151,7 @@ module Cerner
       },
       "subject": {
         "reference": "Patient/1316024",
-        "display": "PETERS, TIMOTHY"
+        "display": "Larry, Bird"
       },
       "encounter": {
         "reference": "Encounter/1545906"
@@ -200,7 +200,7 @@ module Cerner
       "status": "completed",
       "subject": {
         "reference": "Patient/1316024",
-        "display": "PETERS, TIMOTHY"
+        "display": "Larry, Bird"
       },
       "code": {
         "coding": [
