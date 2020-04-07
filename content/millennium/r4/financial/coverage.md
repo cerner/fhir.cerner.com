@@ -119,7 +119,7 @@ Create new Patient-level or Encounter-level Coverages.
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-### Body
+#### Body
 
 <%= json(:r4_coverage_create) %>
 
@@ -135,7 +135,6 @@ Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257
 Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
@@ -143,17 +142,13 @@ X-Runtime: 3.890282
 
 <%= disclaimer %>
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ### Example - Encounter-level Coverage
 
 #### Request
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
 
-### Body
+#### Body
 
 <%= json(:r4_coverage_encounter_create) %>
 
@@ -169,7 +164,6 @@ Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
 Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 X-Runtime: 3.890282
@@ -227,7 +221,6 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 X-Runtime: 2.260092
