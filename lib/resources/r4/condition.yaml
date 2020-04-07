@@ -305,7 +305,7 @@ fields:
   note: |
     <ul>
       <li> encounter must be a reference to an Encounter. </li>
-      <li> encounter is required when the condition category code is <code>encounter-diagnosis</code>. </li>
+      <li> encounter is only supported for Conditions with a category of <code>encounter-diagnosis</code>. </li>
     </ul>
   url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
   action: update
