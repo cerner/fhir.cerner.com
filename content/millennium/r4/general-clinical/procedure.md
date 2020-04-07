@@ -145,7 +145,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Mon, 06 Apr 2020 19:00:43 GMT
 Etag: W/"1"
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/17228728
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/17228728
 Last-Modified: Mon, 06 Apr 2020 19:00:43 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created

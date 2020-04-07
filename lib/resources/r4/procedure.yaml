@@ -8,21 +8,33 @@ fields:
   type: code
   description: Codes identifying the lifecycle stage of an event.
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status
-  action: terminology
+  action:
+    - terminology
+    - create
   binding:
     description: Codes identifying the lifecycle stage of an event.
     terminology:
       - display: EventStatus
         system: http://hl7.org/fhir/event-status
         info_link: https://hl7.org/fhir/r4/valueset-event-status.html
+  example: |
+    {
+      "status": "completed"
+    }
+  note: |
+    <ul>
+      <li> Only status code `completed` is supported. </li>
+    </ul>
 
 - name: code
-  required: 'No'
+  required: 'Yes'
   cardinality: 0..1
   type: CodeableConcept
   description: A code to identify a specific procedure.
   url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code
-  action: terminology
+  action:
+    - terminology
+    - create
   binding:
     description: A code to identify a specific procedure.
     terminology:
@@ -35,23 +47,22 @@ fields:
       - display: ICD-10-PCS
         system: https://www.icd10data.com/icd10pcs
         info_link: https://www.icd10data.com/icd10pcs
-
-- name: performer.function
-  required: 'No'
-  cardinality: 0..1
-  type: CodeableConcept
-  description: A code that distinguishes the type of involvement of the performer in the procedure.
-  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.function
-  action: terminology
-  binding:
-    description: A code that distinguishes the type of involvement of the performer in the procedure.
-    terminology:
-      - display: Procedure Performer Role Codes (SNOMED CT)
-        system: https://snomed.info/sct
-        info_link: https://hl7.org/fhir/R4/valueset-performer-role.html
-      - display: Procedure Personnel Relation Type
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-388-procedure-personnel-relation-type
+  example: |
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "119954001",
+          "display": "Adenoid excision (procedure)",
+          "userSelected": true
+        }
+      ],
+      "text": "Adenoid excision (text)"
+    }
+  note: |
+    <ul>
+      <li> Must be provided. </li>
+    </ul>
 
 - name: resourceType
   required: 'Yes'
@@ -62,8 +73,11 @@ fields:
     {
       "resourceType": "Procedure"
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure
-  note: resourceType must be Procedure.
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
+  note: |
+    <ul>
+      <li> resourceType must be Procedure. </li>
+    </ul>
 
 - name: subject
   required: 'Yes'
@@ -77,40 +91,11 @@ fields:
         "display": "Nilsson, Christine"
       }
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.subject
-  note: subject must be a reference to a Patient.
-
-- name: status
-  required: 'Yes'
-  cardinality: 1..1
-  type: code
-  description: Codes identifying the lifecycle stage of an event.
-  example: |
-    {
-      "status": "completed"
-    }
-  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status
-  note: Only status code <code>completed</code> is supported.
-
-- name: code
-  required: 'Yes'
-  cardinality: 0..1
-  type: CodeableConcept
-  description: A code to identify a specific procedure.
-  example: |
-    {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "119954001",
-          "display": "Adenoid excision (procedure)",
-          "userSelected": true
-        }
-      ],
-      "text": "Adenoid excision (text)"
-    }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.code
-  note: A code must be provided.
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.subject
+  note: |
+    <ul>
+      <li> Must only include references to Patient. </li>
+    </ul>
 
 - name: encounter
   required: 'No'
@@ -123,7 +108,11 @@ fields:
         "reference":"Encounter/26070829"
       }
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.encounter
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.encounter
+  note: |
+    <ul>
+      <li> encounter must be a reference to an Encounter. </li>
+    </ul>
 
 - name: location
   required: 'No'
@@ -137,7 +126,11 @@ fields:
         "display": "Baseline East"
       }
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.location
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.location
+  note: |
+    <ul>
+      <li> location must be a reference to a Location. </li>
+    </ul>
 
 - name: performed_x_
   required: 'No'
@@ -148,10 +141,10 @@ fields:
     {
       "performedDateTime": "2015-10-14T13:13:20-06:00"
     }
-  url: http://hl7.org/fhir/procedure-definitions.html#Procedure.performed_x_
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performed_x_
   note: |
     <ul>
-      <li> Only a type of dateTime is supported.</li>
+      <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
     </ul>
 
@@ -182,14 +175,26 @@ fields:
         }
       ]
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.performer
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer
   children:
 
   - name: function
     required: 'No'
     cardinality: 0..1
     type: CodeableConcept
+    action:
+      - create
+      - terminology
     description: Distinguishes the type of involvement of the performer in the procedure.
+    binding:
+      description: A code that distinguishes the type of involvement of the performer in the procedure.
+      terminology:
+        - display: Procedure Performer Role Codes (SNOMED CT)
+          system: https://snomed.info/sct
+          info_link: https://hl7.org/fhir/R4/valueset-performer-role.html
+        - display: Procedure Personnel Relation Type
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-388-procedure-personnel-relation-type
     example: |
       {
         "function": {
@@ -218,7 +223,7 @@ fields:
           "text": "Anesthesiologist"
         }
       }
-    url: https://hl7.org/fhir/procedure-definitions.html#Procedure.performer.function
+    url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.function
 
   - name: actor
     required: 'Yes'
@@ -232,8 +237,11 @@ fields:
           "display": "Strecker, Bradley"
         }
       }
-    url: http://hl7.org/fhir/procedure-definitions.html#Procedure.performer.actor
-    note: performer.actor must be a reference to a Practitioner.
+    url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.actor
+    note: |
+      <ul>
+        <li> Must only include references to Practitioner. </li>
+      </ul>
 
 - name: note
   required: 'No'
@@ -252,4 +260,4 @@ fields:
         }
       ]
     }
-  url: https://hl7.org/fhir/procedure-definitions.html#Procedure.note
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.note

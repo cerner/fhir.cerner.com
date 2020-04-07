@@ -200,7 +200,7 @@ module Cerner
       "status": "completed",
       "subject": {
         "reference": "Patient/1316024",
-        "display": "Tim, Peterson"
+        "display": "PETERS, TIMOTHY"
       },
       "code": {
         "coding": [
