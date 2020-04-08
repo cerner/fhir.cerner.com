@@ -212,7 +212,7 @@ request; each are documented in the following sections:
 - A "state" parameter to prevent certain classes of malicious
   attacks.
 - The target "audience" server URL.
-- The "redirect_uri" of the application.
+- (Optional) a "redirect_uri" of the application.
 - (Optional) a launch code, when supporting application launches from
   external sources.
 
@@ -385,12 +385,14 @@ where the audience is provided:
 
 #### Redirect URI ####
 
-When performaing an authorization grant request Cerner requires the application to 
-provide with the redirect uri. This uri should match with the redirect uri setup during 
-the registration phase of the SMART Application. 
+When performaing an authorization grant request the application may provide a redirect uri. 
+This uri should match the redirect uri setup during the registration phase of the SMART Application.
 
-The requirement for a redirect_uri is specified in the 
-[SMART Specification] (http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
+If your application has multiple redirect uri's registered with cerner then a redirect uri is expected to be passed
+in during the authorization grant request. If no redirect uri is specified the default redirect uri 
+registered for the application will be used.
+
+Details around supplying a redirect uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
 
 The redirect uri must be an absolute uri. For more information please consult the 
 RFC 6749 [Redirection Endpoint Ref](https://tools.ietf.org/html/rfc6749#section-3.1.2)
