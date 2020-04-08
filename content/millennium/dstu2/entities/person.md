@@ -62,6 +62,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_person_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
