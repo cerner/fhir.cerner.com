@@ -109,23 +109,27 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2016&slot-type=http://snomed.info/sct|394581000&_count=5
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2019&slot-type=http://snomed.info/sct|408443003&_count=5
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_slot_bundle) %>
 
+<%= disclaimer %>
+
 ### Example with Include
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2016&slot-type=http://snomed.info/sct|394581000&_count=5&_include=Slot:schedule
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2019&slot-type=http://snomed.info/sct|408443003&_count=5&_include=Slot:schedule
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_slot_bundle_include_schedule) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -155,6 +159,8 @@ List an individual Schedule by its id:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_slot_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 

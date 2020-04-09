@@ -103,6 +103,65 @@ List an individual Procedure by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Create
+
+Create a new Procedure.
+
+    POST /Procedure
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:procedure, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure
+
+#### Body
+
+<%= json(:r4_procedure_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Mon, 06 Apr 2020 19:00:43 GMT
+Etag: W/"1"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/17228728
+Last-Modified: Mon, 06 Apr 2020 19:00:43 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 2e11665d-618d-4017-9a90-c3c1afeeac00
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors

@@ -56,12 +56,13 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259  
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
 
 #### Response
 
 <%= headers status: 200, head: {'Content-Type': 'application/json+fhir'} %>
 <%= json(:dstu2_binary_json_entry) %>
+<%= disclaimer %>
 
 ### Native Accept Example
 
@@ -69,12 +70,13 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'text/html'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259  
+    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
 
 #### Response
 
 <%= headers status: 200, head: {'Content-Type': 'text/html'} %>
 <%= html(:dstu2_binary_html) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -130,6 +132,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers status: 200, head:{'Content-Type': 'application/json+fhir'} %>
 <%= json(:dstu2_binary_ccd_json_entry) %>
+<%= disclaimer %>
 
 ### Native Accept Example
 
@@ -143,6 +146,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers status: 200, head:{'Content-Type': 'application/xml'} %>
 <%= html(:dstu2_binary_ccd_xml) %>
+<%= disclaimer %>
 
 ### Errors
 
