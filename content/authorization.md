@@ -385,17 +385,23 @@ where the audience is provided:
 
 #### Redirect URI ####
 
-When performaing an authorization grant request the application may provide a redirect uri. 
-This uri should match the redirect uri setup during the registration phase of the SMART Application.
+When performing an authorization grant request the application may provide a redirect_uri. 
+This uri should match the redirect_uri setup during the registration phase of the SMART Application.
 
-If your application has multiple redirect uri's registered with cerner then a redirect uri is expected to be passed
-in during the authorization grant request. If no redirect uri is specified the default redirect uri 
+If your application has multiple redirect_uri's registered with Cerner then a redirect_uri is expected to be passed
+in during the authorization grant request. If no redirect_uri is specified the default redirect_uri 
 registered for the application will be used.
 
-Details around supplying a redirect uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
+Details around supplying a redirect_uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
 
-The redirect uri must be an absolute uri. For more information please consult the 
-RFC 6749 [Redirection Endpoint Ref](https://tools.ietf.org/html/rfc6749#section-3.1.2)
+The redirect_uri must be an absolute uri. For more information please consult the Ref :
+RFC 6749 [Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
+
+Following is a fragment from a x-www-form-urlencoded grant request query string where the redirect_uri is provided:
+<pre class="terminal">
+&redirect_uri=https%3A%2F%2Fapp%2Fafter-auth
+</pre>
+A detailed example of an authorization grant request can be found [SMART App Launch Example](http://www.hl7.org/fhir/smart-app-launch/#for-example-2)
 
 #### Launch ####
 
