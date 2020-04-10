@@ -13,15 +13,15 @@ The Provenance resource tracks the source of external data and is used to assess
 
 The following fields are returned if valued:
 
-* [Provenance id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Target](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target){:target="_blank"}
-* [Recorded](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded){:target="_blank"}
-* [Agent type (author or transmitter)](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type){:target="_blank"}
-* [Agent role (source or informant)](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role){:target="_blank"}
-* [Agent who (Practitioner, Device, or Organization)](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who){:target="_blank"}
-* [Agent on behalf of](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
-* [Entity role](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}
-* [Entity what (Continuity of Care DocumentReference id)](http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
+* [Provenance id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Target](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target){:target="_blank"}
+* [Recorded](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded){:target="_blank"}
+* [Agent type (author or transmitter)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type){:target="_blank"}
+* [Agent role (source or informant)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role){:target="_blank"}
+* [Agent who (Practitioner, Device, or Organization)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who){:target="_blank"}
+* [Agent on behalf of](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
+* [Entity role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}
+* [Entity what (Continuity of Care DocumentReference id)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -41,8 +41,8 @@ Search for Provenances that meet supplied query parameters:
 
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
- `_id`        | This, or any other required search parameter | [`token`]     | The logical resource id associated with the resource. Example: `doc-7845`
- `target`     | This and/or any other search param, or `_id` | [`reference`] | Target Reference(s) (usually version specific). Example: `DocumentReference/66547`
+ `_id`        | This or `target` | [`token`]     | The logical resource id associated with the resource. Example: `doc-7845`
+ `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). Example: `DocumentReference/66547`
 
 ### Headers
 

@@ -1,6 +1,6 @@
 ---
 name: Provenance
-field_name_base_url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance
+field_name_base_url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance
 fields:
 - name: resourceType
   required: 'Yes'
@@ -13,7 +13,7 @@ fields:
       "resourceType": "Provenance"
     }
   note: <ul><li>resourceType must be Provenance.</li></ul>
-  url: http://hl7.org/fhir/R4/json.html#resources
+  url: https://hl7.org/fhir/R4/json.html#resources
 
 - name: target
   required: 'Yes'
@@ -30,7 +30,7 @@ fields:
       ]
     }
   note: <ul><li> Only one target may be provided.</li></ul>
-  url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
+  url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
 
 - name: recorded
   required: 'Yes'
@@ -42,7 +42,7 @@ fields:
     {
       "recorded": "2019-10-25T14:57:43Z"
     }
-  url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded
+  url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded
 
 - name: agent
   required: 'Yes'
@@ -79,7 +79,7 @@ fields:
       ]
     }
   note: <ul><li> Only one agent may be provided.</li></ul>
-  url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent
+  url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent
   children:
 
     - name: type
@@ -108,7 +108,7 @@ fields:
       type: CodeableConcept
       description: The function of the agent with respect to the activity.
       action: create
-      url: http://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role
+      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role
       example: |
         {
           "role": [
@@ -130,7 +130,7 @@ fields:
       type: Reference
       description: The individual, device or organization that participated in the event.
       action: create
-      url: http://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who
+      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who
       example: |
         {
           "who": {
@@ -155,7 +155,7 @@ fields:
         }
       ]
     }
-  url: http://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity
+  url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity
   children:
 
     - name: role
@@ -184,7 +184,7 @@ fields:
       type: Reference
       description: Identity of the Entity used.
       action: create
-      url: http://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what
+      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what
       example: |
         {
           "what": {
