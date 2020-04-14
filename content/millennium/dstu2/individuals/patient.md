@@ -228,6 +228,8 @@ Notes:
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
