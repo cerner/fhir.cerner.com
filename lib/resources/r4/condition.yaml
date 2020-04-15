@@ -260,7 +260,6 @@ fields:
 
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: Encounter during which the condition was first asserted.
   example: |
@@ -279,7 +278,6 @@ fields:
 
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: Encounter during which the condition was first asserted.
   example: |

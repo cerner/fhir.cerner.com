@@ -16,7 +16,6 @@ fields:
 
 - name: Coverage Encounter Extension
   required: 'No'
-  cardinality: 0..1
   type: Extension
   description: Reference to the Encounter associated to the Encounter-level Coverage.
   note: |
