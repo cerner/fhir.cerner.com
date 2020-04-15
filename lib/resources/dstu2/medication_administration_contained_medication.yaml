@@ -5,7 +5,6 @@ fields:
 
 - name: code
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description:  Codes that identify this medication.
   example: |

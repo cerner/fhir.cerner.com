@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/r4/coverage-definitions.html#Coverage
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   action: create
   description: The type of the FHIR resource.
@@ -17,7 +16,6 @@ fields:
 
 - name: Coverage Encounter Extension
   required: 'No'
-  cardinality: 0..1
   type: Extension
   description: Reference to the Encounter associated to the Encounter-level Coverage.
   note: |
@@ -36,7 +34,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   action: create
   description: The status of the coverage.
@@ -48,7 +45,6 @@ fields:
 
 - name: subscriber
   required: 'Yes'
-  cardinality: 0..1
   type: Reference (Patient)
   action: create
   description: Subscriber to the policy.
@@ -62,7 +58,6 @@ fields:
 
 - name: subscriberId
   required: 'No'
-  cardinality: 0..1
   type: string
   action: create
   description: ID assigned to the subscriber.
@@ -73,7 +68,6 @@ fields:
 
 - name: beneficiary
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Patient)
   action: create
   description: Plan beneficiary.
@@ -86,7 +80,6 @@ fields:
 
 - name: dependent
   required: 'No'
-  cardinality: 0..1
   type: string
   action: create
   description: Dependent number.
@@ -96,8 +89,7 @@ fields:
     }
 
 - name: relationship
-  required: 'Yes'
-  cardinality: 0..1
+  required: 'No'
   type: CodeableConcept
   action: create
   description: Indicates the beneficiary relationship to the subscriber.
@@ -126,7 +118,6 @@ fields:
 
 - name: period
   required: 'No'
-  cardinality: 0..1
   type: Period
   action: create
   description: Coverage start and end dates.
@@ -141,8 +132,7 @@ fields:
 
 - name: payor
   required: 'Yes'
-  cardinality: 1..*
-  type: Reference (Organization)
+  type: List of Reference (Organization)
   action: create
   description: Issuer of the policy.
   example: |
@@ -157,8 +147,7 @@ fields:
 
 - name: class
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   action: create
   description: Additional coverage classifications.
   example: |
@@ -195,7 +184,6 @@ fields:
   children:
     - name: type
       required: 'Yes'
-      cardinality: 1..1
       type: CodeableConcept
       action: create
       description: Type of class such as `group` or `plan`.
@@ -226,7 +214,6 @@ fields:
 
     - name: value
       required: 'Yes'
-      cardinality: 1..1
       type: string
       action: create
       description: Value associated with type.
@@ -237,7 +224,6 @@ fields:
 
     - name: name
       required: 'No'
-      cardinality: 0..1
       type: string
       action: create
       description: Human readable description of the type and value.

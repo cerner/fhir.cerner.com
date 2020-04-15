@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appo
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -16,7 +15,6 @@ fields:
 
 - name: type
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: The type of appointment that is being booked.
   action: read
@@ -47,9 +45,9 @@ fields:
 
 - name: slot
   required: 'Yes'
-  cardinality: 1..1
-  type: Reference (Slot)
+  type: List of Reference (Slot)
   description: The availability to which the appointment is booked.
+  note: At most one slot can be populated.
   example: |
     {
       "slot": [
@@ -63,7 +61,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
   note: When creating a new appointment, the status must be "proposed".
@@ -76,7 +73,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
   note: When updating an appointment, the status must be "arrived" or "cancelled".
@@ -89,8 +85,7 @@ fields:
 
 - name: participant
   required: 'Yes'
-  cardinality: 1..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Participants involved in appointment.
   note: When creating a new appointment, at most one participant can be populated.
   action: create
@@ -110,7 +105,6 @@ fields:
 
   - name: actor
     required: 'Yes'
-    cardinality: 0..1
     type: Reference (Patient)
     description: A person, location, healthcare service or device that is participating in the appointment.
     note: When creating a new appointment, this must be a Patient participant.
@@ -124,7 +118,6 @@ fields:
 
   - name: status
     required: 'Yes'
-    cardinality: 1..1
     type: code
     description: Participation status of the Patient.
     note: When creating a new appointment, this value must be "needs-action".
@@ -135,8 +128,7 @@ fields:
 
 - name: participant
   required: 'Yes'
-  cardinality: 1..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Participants involved in appointment.
   action: update
   example: |
@@ -155,7 +147,6 @@ fields:
 
   - name: actor
     required: 'Yes'
-    cardinality: 0..1
     type: Reference
     description: A person, location, healthcare service or device that is participating in the appointment.
     example: |
@@ -168,7 +159,6 @@ fields:
 
   - name: status
     required: 'Yes'
-    cardinality: 1..1
     type: code
     description: Participation status of the actor.
     note: When updating an appointment, this value must be "accepted".
@@ -179,7 +169,6 @@ fields:
 
 - name: comment
   required: 'No'
-  cardinality: 0..1
   type: string
   description: Additional text to aid in facilitating the appointment.
   action: create

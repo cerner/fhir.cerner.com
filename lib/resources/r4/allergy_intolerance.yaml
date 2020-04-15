@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -16,8 +15,7 @@ fields:
 
 - name: contained
   required: 'No'
-  cardinality: 0..*
-  type: Resource
+  type: List of Resource
   description: Contained, inline Resources.
   example: |
     Contained RelatedPerson
@@ -67,8 +65,6 @@ fields:
   url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained
 
 - name: clinicalStatus
-  required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: active | inactive | resolved
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
@@ -82,7 +78,6 @@ fields:
 
 - name: clinicalStatus
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: The clinical status of the AllergyIntolerance.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
@@ -102,7 +97,6 @@ fields:
 
 - name: clinicalStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The clinical status of the AllergyIntolerance.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
@@ -120,8 +114,6 @@ fields:
     }
 
 - name: verificationStatus
-  required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: unconfirmed | confirmed | refuted | entered-in-error
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
@@ -136,7 +128,6 @@ fields:
 
 - name: verificationStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The verification status to support or decline the clinical status of allergy.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
@@ -157,7 +148,6 @@ fields:
 
 - name: verificationStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The verification status to support or decline the clinical status of allergy.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
@@ -177,7 +167,6 @@ fields:
 
 - name: type
   required: 'No'
-  cardinality: 0..1
   type: code
   description: allergy | intolerance - Underlying mechanism (if known)
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.type
@@ -193,9 +182,7 @@ fields:
       info_link: https://hl7.org/fhir/r4/valueset-allergy-intolerance-type.html
 
 - name: category
-  required: 'No'
-  cardinality: 0..*
-  type: code
+  type: List of code
   description: food | medication | environment | biologic
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
   action: terminology
@@ -208,8 +195,7 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..*
-  type: code
+  type: List of code
   description: Category of the identified [code].
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.category
   action:
@@ -232,8 +218,7 @@ fields:
 
 - name: criticality
   required: 'No'
-  cardinality: 0..*
-  type: code
+  type: List of code
   description: low | high | unable-to-assess
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.criticality
   example: |
@@ -249,7 +234,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: Code that identifies the allergy or intolerance
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
@@ -285,7 +269,6 @@ fields:
 
 - name: patient
   required: 'Yes'
-  cardinality: 1..1
   type: Reference
   description: Indicates the patient who the sensitivity is for.
   example: |
@@ -298,7 +281,6 @@ fields:
 
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: Indicates the encounter when the allergy or intolerance was asserted.
   example: |
@@ -309,9 +291,8 @@ fields:
     }
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.encounter
 
-- name: onset_x_
+- name: onset[x]
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Estimated or actual date or date-time the allergy began, in the opinion of the clinician.
   note: |
@@ -327,7 +308,6 @@ fields:
 
 - name: asserter
   required: 'No'
-  cardinality: 0..1
   type: Reference
   description: Indicates the source of information about the allergy.
   note: Asserter must be provided and linked to the contained resource, if a contained resource is specified.
@@ -341,8 +321,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   description: Additional narrative about the allergy not captured in other fields.
   action: create
   note: An author and text can be specified but note.time will always be defaulted.
@@ -361,8 +340,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   description: Additional narrative about the allergy not captured in other fields.
   note: Updates do not allow an author to be specified. One will be infered from the authorization token. If an id is not
         provided with the note it will be assumed to be a new note and will be written as such. If an id is provided,
@@ -380,8 +358,7 @@ fields:
 
 - name: reaction
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Adverse Reaction Events linked to exposure to substance
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
   example: |
@@ -407,8 +384,7 @@ fields:
 
   - name: manifestation
     required: 'Yes'
-    cardinality: 1..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Clinical symptoms/signs associated with the Event
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation
     example: |
@@ -437,7 +413,6 @@ fields:
 
   - name: severity
     required: 'No'
-    cardinality: 0..1
     type: Code
     description: mild | moderate | severe (of event as a whole).
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity

@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/R4/medication-definitions.html#Medicati
 fields:
 - name: code
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: A code that defines the medication
   binding:
@@ -15,7 +14,6 @@ fields:
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
 - name: form
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Describes the form of the item.
   binding:

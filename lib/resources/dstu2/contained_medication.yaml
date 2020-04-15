@@ -5,7 +5,6 @@ fields:
 
 - name: code
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description:  Codes that identify this medication.
   example: |
@@ -31,14 +30,12 @@ fields:
 
 - name: product
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Information that applies only to products (not packages).
   children:
 
   - name: form
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Describes the form of the item.
     binding:

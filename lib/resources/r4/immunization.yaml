@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/R4/immunization-definitions.html#Immuni
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   url: http://hl7.org/fhir/r4/json.html#resources
   description: The type of the FHIR resource.
@@ -19,7 +18,6 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 1..1
   type: id
   url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
   description: The logical id of the resource.
@@ -31,7 +29,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.status
   description: Indicates the current status of the immunization event.
@@ -45,7 +42,6 @@ fields:
 
 - name: statusReason
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.statusReason
   description: Reason the immunization was not performed.
@@ -76,7 +72,6 @@ fields:
 
 - name: vaccineCode
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.vaccineCode
   description: The vaccine that was administered or was to be administered.
@@ -110,7 +105,6 @@ fields:
 
 - name: patient
   required: 'Yes'
-  cardinality: 1..1
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.patient
   description: The patient who either received or did not receive the immunization.
@@ -126,8 +120,7 @@ fields:
     }
 
 - name: encounter
-  required: 'Yes'
-  cardinality: 0..1
+  required: 'No'
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
   description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
@@ -143,7 +136,6 @@ fields:
 
 - name: occurrenceDateTime
   required: 'Yes'
-  cardinality: 1..1
   type: dateTime
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.occurrence_x_
   description: Date vaccine administered or was to be administered.
@@ -157,7 +149,6 @@ fields:
 
 - name: reportOrigin
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.reportOrigin
   description: The source of an immunization record when not reported by the person who administered the vaccine.
@@ -187,7 +178,6 @@ fields:
 
 - name: manufacturer
   required: 'No'
-  cardinality: 0..1
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.manufacturer
   description: Name of vaccine manufacturer.
@@ -203,7 +193,6 @@ fields:
 
 - name: lotNumber
   required: 'No'
-  cardinality: 0..1
   type: string
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.lotNumber
   description: Lot number of the vaccine product.
@@ -217,7 +206,6 @@ fields:
 
 - name: expirationDate
   required: 'No'
-  cardinality: 0..1
   type: date
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.expirationDate
   description: Date vaccine batch expires.
@@ -231,7 +219,6 @@ fields:
 
 - name: site
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.site
   description: The body site where the vaccine was administered.
@@ -261,7 +248,6 @@ fields:
 
 - name: route
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.route
   description: The path by which the vaccine product was taken into the body.
@@ -291,7 +277,6 @@ fields:
 
 - name: doseQuantity
   required: 'No'
-  cardinality: 0..1
   type: SimpleQuantity
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.doseQuantity
   description: The quantity of vaccine product that was administered.
@@ -310,8 +295,7 @@ fields:
 
 - name: performer
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer
   description: Indicates who performed the immunization event.
   action:
@@ -342,7 +326,6 @@ fields:
 
   - name: function
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.function
     description: Describes the type of performance (e.g. ordering provider, administering provider, etc.).
@@ -365,7 +348,6 @@ fields:
 
   - name: actor
     required: 'Yes'
-    cardinality: 1..1
     type: Reference
     url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.performer.actor
     description: The practitioner or organization who performed the action.
@@ -382,8 +364,7 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..*
-  type: Annotation
+  type: List of Annotation
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.note
   description: Extra information about the immunization that is not conveyed by the other attributes.
   action:

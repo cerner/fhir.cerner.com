@@ -5,7 +5,6 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: >
     A code that classifies the general type of observation being made. This is used for searching, sorting and display
@@ -19,7 +18,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Describes what was observed. Sometimes this is called the observation "name".
   binding:
@@ -34,7 +32,6 @@ fields:
 
 - name: interpretation
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: >
     The assessment made based on the result of the observation. Intended as a simple compact code often placed adjacent
@@ -49,8 +46,7 @@ fields:
 
 - name: component
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: >
     Some observations have multiple component observations. These component observations are expressed as separate code
     value pairs that share the same attributes. Examples include systolic and diastolic component observations for
@@ -59,7 +55,6 @@ fields:
 
   - name: code
     required: 'Yes'
-    cardinality: 1..1
     type: CodeableConcept
     description: Describes what was observed. Sometimes this is called the observation "code".
     binding:

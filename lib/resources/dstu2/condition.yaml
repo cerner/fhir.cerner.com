@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/condition-definitions.html#Condit
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -16,7 +15,6 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 0..1
   type: id
   description: The logical id of the resource to update.
   example: |
@@ -29,7 +27,6 @@ fields:
 
 - name: patient
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Patient)
   description: Who has the condition.
   example: |
@@ -42,7 +39,6 @@ fields:
 
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference (Encounter)
   description: Encounter during which the condition was first asserted.
   example: |
@@ -54,7 +50,6 @@ fields:
 
 - name: asserter
   required: 'No'
-  cardinality: 0..1
   type: Reference (Practitioner)
   description: Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
   note: Asserter must be a `Practitioner` reference.
@@ -68,7 +63,6 @@ fields:
 
 - name: dateRecorded
   required: 'No'
-  cardinality: 0..1
   type: date
   description: Estimated or actual date the condition/problem/diagnosis was first entered.
   example: |
@@ -79,7 +73,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Identification of the condition, problem, diagnosis or health concern.
   example: |
@@ -111,7 +104,6 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: A category assigned to the condition.
   example: |
@@ -153,7 +145,6 @@ fields:
 
 - name: clinicalStatus
   required: 'No'
-  cardinality: 0..1
   type: code
   description: The clinical status of the condition.
   example: '{"clinicalStatus": "resolved"}'
@@ -166,7 +157,6 @@ fields:
 
 - name: verificationStatus
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: The verification status of the condition.
   example: |
@@ -176,7 +166,6 @@ fields:
 
 - name: severity
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Assessment of the severity of the condition as evaluated by the clinician.
   example: |
@@ -201,7 +190,6 @@ fields:
 
 - name: onsetDateTime
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Estimated or actual date the condition began, in the opinion of the clinician.
   example: |
@@ -212,7 +200,6 @@ fields:
 
 - name: abatementBoolean
   required: 'No'
-  cardinality: 0..1
   type: boolean
   description: Indicates if the condition is resolved or has gone into remission.
   example: |
@@ -223,7 +210,6 @@ fields:
 
 - name: abatementDateTime
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Indicates the date and time the condition was resolved or has gone into remission.
   example: |
@@ -234,7 +220,6 @@ fields:
 
 - name: notes
   required: 'No'
-  cardinality: 0..1
   type: string
   description: Additional information about the Condition.
   example: |

@@ -3,16 +3,12 @@ name: Patient
 field_name_base_url: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient
 fields:
 - name: identifier
-  required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: The identifier for the patient.
   action: terminology
   children:
 
   - name: type
-    required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
@@ -26,17 +22,13 @@ fields:
         system: http://hl7.org/fhir/v2/0203
 
 - name: contact
-  required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: A contact party (e.g. guardian, partner, friend) for the patient.
   action: terminology
   children:
 
   - name: relationship
-    required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: The nature of the relationship between the patient and the contact person.
     action: terminology
     binding:
@@ -47,7 +39,6 @@ fields:
 
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   action: create
@@ -60,8 +51,7 @@ fields:
 
 - name: identifier
   required: 'Yes'
-  cardinality: 1..*
-  type: Identifier
+  type: List of Identifier
   description: The identifiers for the patient.
   action: create
   example: |
@@ -97,7 +87,6 @@ fields:
 
 - name: active
   required: 'No'
-  cardinality: 0..1
   type: boolean
   description: Whether this patient record is in active use.
   action: create
@@ -110,8 +99,7 @@ fields:
 
 - name: name
   required: 'Yes'
-  cardinality: 1..*
-  type: HumanName
+  type: List of HumanName
   description: The names associated with the individual.
   action: create
   example: |
@@ -151,8 +139,7 @@ fields:
 
 - name: telecom
   required: 'No'
-  cardinality: 0..*
-  type: ContactPoint
+  type: List of ContactPoint
   description: A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
   action: create
   example: |
@@ -173,7 +160,6 @@ fields:
 
 - name: gender
   required: 'No'
-  cardinality: 0..1
   type: code
   description: 'Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.'
   action: create
@@ -185,7 +171,6 @@ fields:
 
 - name: birthDate
   required: 'No'
-  cardinality: 0..1
   type: date
   description: The date of birth for the individual.
   action: create
@@ -197,8 +182,7 @@ fields:
 
 - name: address
   required: 'No'
-  cardinality: 0..*
-  type: Address
+  type: List of Address
   description: Addresses for the individual.
   action: create
   example: |
@@ -226,7 +210,6 @@ fields:
 
 - name: maritalStatus
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The patient's most recent marital (civil) status.
   action: create
@@ -247,7 +230,6 @@ fields:
 
 - name: communication
   required: 'No'
-  cardinality: 0..1
   type: BackboneElement
   description: Language which may be used to communicate with the patient about his or her health.
   action: create
@@ -276,8 +258,7 @@ fields:
 
 - name: careProvider
   required: 'No'
-  cardinality: 0..*
-  type: Reference
+  type: List of Reference
   description: Patient's nominated care provider.
   action: create
   example: |
@@ -296,7 +277,6 @@ fields:
 
 - name: Birth Sex Extension
   required: 'No'
-  cardinality: 0..1
   type: Extension
   description: The sex of the patient at birth.
   action: create

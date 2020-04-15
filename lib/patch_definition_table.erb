@@ -3,14 +3,13 @@
   <tr>
     <th>Path</th>
     <th>Operation</th>
-    <th>Value Cardinality</th>
     <th>Value Type</th>
   </tr>
   </thead>
   <tbody>
   <% for item in data[:fields] %>
     <tr>
-      <td>
+      <td class="body-field">
         <a name="<%= item[:name] %>">
           <% if !item[:url].nil? %>
             <a target="_blank" href="<%= item[:url]%>"><code><%= item[:path]%></code></a>
@@ -19,9 +18,8 @@
           <% end %>
         </a>
       </td>
-      <td><%= item[:operation] %></td>
-      <td><%= item[:cardinality] %></td>
-      <td><%= item[:type] %> </td>
+      <td class="body-field"><%= item[:operation] %></td>
+      <td class="body-field"><%= item[:type] %> </td>
     </tr>
     <tr>
       <td colspan="4">

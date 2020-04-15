@@ -4,14 +4,12 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/person-definitions.html#Person
 fields:
 - name: identifier
   required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: The identifier for the person.
   children:
 
   - name: type
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type

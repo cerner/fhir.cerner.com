@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/r4/practitioner-definitions.html#Practi
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   action: create
@@ -17,7 +16,6 @@ fields:
 
 - name: name
   required: 'Yes'
-  cardinality: 1..1
   type: HumanName
   description: The name associated with the practitioner.
   action: create
@@ -58,8 +56,7 @@ fields:
 
 - name: identifier
   required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: The identifier(s) for the practitioner.
   action: create
   example: |
@@ -100,8 +97,6 @@ fields:
   children:
 
   - name: type
-    required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
@@ -118,7 +113,6 @@ fields:
 
 - name: active
   required: 'No'
-  cardinality: 0..1
   type: boolean
   description: Whether this practitioner record is in active use.
   action: create

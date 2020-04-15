@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.h
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: |
@@ -16,7 +15,6 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 0..1
   type: id
   description: The logical id of the resource to update.
   example: |
@@ -28,7 +26,6 @@ fields:
 
 - name: patient
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Patient)
   description: Who is/was taking the medication.
   example: |
@@ -40,7 +37,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: >
     A code representing the patient or other source's judgment about the state of the medication used that this
@@ -51,8 +47,7 @@ fields:
     }
 
 - name: reasonForUse[x]
-  required: 'no'
-  cardinality: 0..1
+  required: 'No'
   type: CodeableConcept
   action: search
   url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_
@@ -68,7 +63,6 @@ fields:
 
 - name: effectivePeriod
   required: 'No'
-  cardinality: 0..1
   type: Period
   description: The interval of time during which it is being asserted that the patient was taking the medication.
   note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.
@@ -84,7 +78,6 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..1
   type: string
   description: Provides extra information about the medication statement that is not conveyed by the other attributes.
   example: |
@@ -95,7 +88,6 @@ fields:
 
 - name: medication[x]
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept | contained Reference (Medication)
   description: Identifies the medication being administered.
   note:
@@ -130,8 +122,7 @@ fields:
 
 - name: dosage
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: How the medication is/was used by the patient.
   note: At most one dosage can be populated.
   action: create
@@ -139,7 +130,6 @@ fields:
 
   - name: text
     required: 'No'
-    cardinality: 0..1
     type: string
     description: Free text dosage information as reported about a patient's medication use.
     example: |
@@ -149,14 +139,12 @@ fields:
 
   - name: timing
     required: 'No'
-    cardinality: 0..1
     type: Timing
     description: The timing schedule for giving the medication to the patient.
     children:
 
     - name: repeat
       required: 'No'
-      cardinality: 0..1
       type: Element
       description: A set of rules that describe when the event should occur.
       url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat
@@ -164,7 +152,6 @@ fields:
 
       - name: bounds[x]
         required: 'No'
-        cardinality: 0..1
         type: Period | Duration
         description: >
           Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
@@ -174,7 +161,8 @@ fields:
               "start": "2014-11-03T14:38:00.000-05:00"
             }
           }
-          
+
+        example2: |
           {
             "boundsQuantity": {
               "value": 10,
@@ -188,7 +176,6 @@ fields:
 
       - name: count
         required: 'No'
-        cardinality: 0..1
         type: integer
         description: A total count of the desired number of repetitions.
         example: |
@@ -199,7 +186,6 @@ fields:
 
     - name: code
       required: 'No'
-      cardinality: 0..1
       type: CodeableConcept
       description: A code for the timing pattern.
       example: |
@@ -226,7 +212,6 @@ fields:
 
   - name: asNeeded[x]
     required: 'No'
-    cardinality: 0..1
     type: boolean | CodeableConcept
     description: Whether the Medication is only taken when needed within a specific dosing schedule.
     example: |
@@ -241,7 +226,8 @@ fields:
           ]
         }
       }
-      
+
+    example2: |
       {
         "asNeededBoolean" : true
       }
@@ -256,7 +242,6 @@ fields:
 
   - name: siteCodeableConcept
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Where on the body the medication is/was administered.
     example: |
@@ -281,7 +266,6 @@ fields:
 
   - name: route
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: >
       A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
@@ -312,7 +296,6 @@ fields:
 
   - name: quantityQuantity
     required: 'No'
-    cardinality: 0..1
     type: SimpleQuantity
     description: The amount of therapeutic or other substance given at one administration event.
     example: |

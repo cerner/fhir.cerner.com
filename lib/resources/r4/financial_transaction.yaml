@@ -4,7 +4,6 @@ field_name_base_url: https://hl7.org/fhir/r4/basic-definitions.html#Basic
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   action: create
@@ -17,8 +16,7 @@ fields:
 
 - name: identifier
   required: 'Yes'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: Identifier assigned to the resource for business purposes.
   action: create
   example: |
@@ -35,7 +33,6 @@ fields:
 
 - name: code
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Identifies the 'type' of resource - equivalent to the resource name for other resources.
   action: create
@@ -53,7 +50,6 @@ fields:
 - name: FinancialTransaction Type Extension
   terminology_name: extension[x].valueCodeableConcept
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Category of transaction, whether this is a payment or adjustment.
   action: create
@@ -75,12 +71,11 @@ fields:
     description: The Category of Payment Type Codes. Whether this is a payment or adjustment. This binding is used in <code>financial-transaction-type</code> extensions.
     terminology:
     - display: Payment Type Codes
-      system: http://terminology.hl7.org/CodeSystem/payment-type 
+      system: http://terminology.hl7.org/CodeSystem/payment-type
       info_link: https://www.hl7.org/fhir/r4/valueset-payment-type.html
 
 - name: FinancialTransaction Alias Extension
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The aliases used to create the FinancialTransaction resources.
   action: create
@@ -94,7 +89,6 @@ fields:
 
 - name: FinancialTransaction Location Extension
   required: 'No'
-  cardinality: 0..1
   type: string
   description: The location where the payment was collected.
   action: create
@@ -109,7 +103,6 @@ fields:
 - name: FinancialTransaction Method Extension
   terminology_name: extension[x].valueCodeableConcept
   required: 'Yes'
-  cardinality: 0..1
   type: CodeableConcept
   description: The method of payment.
   action: create
@@ -139,7 +132,6 @@ fields:
 
 - name: FinancialTransaction Card Brand Extension
   required: 'Yes'
-  cardinality: 0..1
   type: string
   description: The brand of credit card used for the transaction.
   action: create
@@ -153,7 +145,6 @@ fields:
 
 - name: FinancialTransaction Account Number Extension
   required: 'Yes'
-  cardinality: 0..1
   type: string
   description: The last four digits of the credit card or the check number used for the transaction.
   action: create
@@ -167,7 +158,6 @@ fields:
 
 - name: FinancialTransaction Date Extension
   required: 'Yes'
-  cardinality: 0..1
   type: date
   description: Expiration date if method is credit card, check date if method is check.
   action: create
@@ -182,7 +172,6 @@ fields:
 - name: FinancialTransaction Tendered Amount Extension
   terminology_name: extension[x].valueMoney.currency
   required: 'Yes'
-  cardinality: 0..1
   type: Money
   description: Tendered amount of the cash payment.
   action: create
@@ -206,7 +195,6 @@ fields:
 - name: FinancialTransaction Amount Extension
   terminology_name: extension[x].valueMoney.currency
   required: 'Yes'
-  cardinality: 0..1
   type: Money
   description:  The total amount of the payment/adjustment resource.
   action: create
@@ -229,7 +217,6 @@ fields:
 
 - name: FinancialTransaction Allocation Extension
   required: 'Yes'
-  cardinality: 1..1
   type: Extension
   description: How the FinancialTransaction should be applied. This extension is a nested extension.
   action: create
@@ -259,7 +246,6 @@ fields:
   - name: FinancialTransaction Allocation Target Extension
     extension_child: true
     required: 'Yes'
-    cardinality: 1..1
     type: Extension
     description: The specific target that the payment or adjustment should be posted to. This extension is nested under a <code>financial-transaction-allocation</code> extension.
     note:
@@ -278,7 +264,6 @@ fields:
     terminology_name: extension[x].extension[x].valueMoney.currency
     extension_child: true
     required: 'Yes'
-    cardinality: 0..1
     type: Money
     description: The total amount of the payment/adjustment resource. This extension is nested under a <code>financial-transaction-allocation</code> extension.
     example: |

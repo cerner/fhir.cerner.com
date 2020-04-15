@@ -4,7 +4,6 @@ field_name_base_url: https://www.hl7.org/fhir/documentreference-definitions.html
 fields:
 - name: type
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Precise type of clinical document
   binding:
@@ -19,8 +18,7 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: A categorization for the type of document referenced.
   binding:
     description: A categorization for the type of document referenced.

@@ -90,7 +90,6 @@ class DefinitionTableGenerator
         name: name,
         type: field_type,
         required: get_value(field['required']),
-        cardinality: get_value(field['cardinality']),
         description: get_value(field['description']),
         example: get_value(field['example']),
         example2: get_value(field['example2']),

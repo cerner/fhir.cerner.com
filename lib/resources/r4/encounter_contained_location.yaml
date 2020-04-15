@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/R4/location-definitions.html#Location
 fields:
 - name: type
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Indicates the type of function performed at the location.
   binding:

@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/R4/appointment-definitions.html#Appoint
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   action: create
@@ -17,7 +16,6 @@ fields:
 
 - name: slot
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Slot)
   description: The availability to which the appointment is booked.
   action: create
@@ -33,7 +31,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: A code representing the status of the new Appointment.
   action: create
@@ -45,7 +42,6 @@ fields:
 
 - name: participant
   required: 'Yes'
-  cardinality: 1..1
   type: BackboneElement
   description: Participants involved in appointment.
   note: At most one participant can be populated, and participant.type is an unsupported field.
@@ -66,7 +62,6 @@ fields:
 
   - name: actor
     required: 'Yes'
-    cardinality: 1..1
     type: Reference (Patient)
     description: A person that is participating in the appointment.
     note: The reference must be a Patient participant and display is not a required field.
@@ -80,7 +75,6 @@ fields:
 
   - name: status
     required: 'Yes'
-    cardinality: 1..1
     type: code
     description: Participation status of the Patient.
     note: When creating a new appointment, this value must be `accepted`.
@@ -91,7 +85,6 @@ fields:
 
 - name: comment
   required: 'No'
-  cardinality: 0..1
   type: string
   description: Additional text to aid in facilitating the appointment.
   action: create
@@ -102,8 +95,7 @@ fields:
   url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
 
 - name: serviceType
-  required: 'Yes'
-  cardinality: 0..1
+  required: 'No'
   type: CodeableConcept
   description: 	The specific service that is to be performed during this appointment.
   action: read
@@ -142,8 +134,7 @@ fields:
 
 - name: participant.type
   required: 'Yes'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: 	Role of participant in the appointment.
   action: read
   example: |
@@ -171,9 +162,7 @@ fields:
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14250-scheduling-resource-roles
 
 - name: reasonCode
-  required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: Coded reason this appointment is scheduled.
   action: terminology
   binding:
