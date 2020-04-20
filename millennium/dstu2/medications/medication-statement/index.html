@@ -1502,23 +1502,21 @@
     <tr>
     <th>Name</th>
     <th>Required</th>
-    <th>Cardinality</th>
     <th>Type</th>
     </tr>
   </thead>
   <tbody>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-resourceType">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1546,16 +1544,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-patient">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
     </tr>
     <tr>
@@ -1582,16 +1579,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-status">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -1617,16 +1613,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-effectivePeriod">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_"><code>effectivePeriod</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
     </tr>
     <tr>
@@ -1657,16 +1652,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-note">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note"><code>note</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1691,16 +1685,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-medication%5Bx%5D">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
     </tr>
     <tr>
@@ -1742,17 +1735,16 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage"><code>dosage</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..* </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+      <td class="body-field">No </td>
+      <td class="body-field">
+<code>List</code> <code>of</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -1773,16 +1765,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.text">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.text"><code>dosage.text</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1807,16 +1798,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.timing">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing"><code>dosage.timing</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Timing"><code>Timing</code></a> </td>
     </tr>
     <tr>
@@ -1835,16 +1825,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.timing.repeat">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat"><code>dosage.timing.repeat</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/element.html"><code>Element</code></a> </td>
     </tr>
     <tr>
@@ -1863,16 +1852,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.timing.repeat.bounds%5Bx%5D">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_"><code>dosage.timing.repeat.bounds[x]</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> | <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Duration"><code>Duration</code></a> </td>
     </tr>
     <tr>
@@ -1890,8 +1878,11 @@
     "start": "2014-11-03T14:38:00.000-05:00"
   }
 }
-
-{
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
   "boundsQuantity": {
     "value": 10,
     "unit": "days",
@@ -1902,23 +1893,21 @@
 </pre></li></ul>
       
       
-      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.timing.repeat.count">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count"><code>dosage.timing.repeat.count</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#integer"><code>integer</code></a> </td>
     </tr>
     <tr>
@@ -1943,16 +1932,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.timing.code">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code"><code>dosage.timing.code</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -1986,16 +1974,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.asNeeded%5Bx%5D">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_"><code>dosage.asNeeded[x]</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#boolean"><code>boolean</code></a> | <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -2018,12 +2005,14 @@
     ]
   }
 }
-
-{
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
   "asNeededBoolean" : true
 }
 </pre></li></ul>
-      
       
       
       </ul>
@@ -2032,16 +2021,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.siteCodeableConcept">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_"><code>dosage.siteCodeableConcept</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -2075,16 +2063,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.route">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route"><code>dosage.route</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -2119,16 +2106,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-dosage.quantityQuantity">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_"><code>dosage.quantityQuantity</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#SimpleQuantity"><code>SimpleQuantity</code></a> </td>
     </tr>
     <tr>
@@ -2167,23 +2153,21 @@
     <tr>
     <th>Name</th>
     <th>Required</th>
-    <th>Cardinality</th>
     <th>Type</th>
     </tr>
   </thead>
   <tbody>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-code">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>code</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -2218,17 +2202,16 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-product">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product"><code>product</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..* </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+      <td class="body-field">No </td>
+      <td class="body-field">
+<code>List</code> <code>of</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -2246,16 +2229,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-product.form">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form"><code>product.form</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -2398,23 +2380,21 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
     <tr>
     <th>Name</th>
     <th>Required</th>
-    <th>Cardinality</th>
     <th>Type</th>
     </tr>
   </thead>
   <tbody>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="update-resourceType">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -2442,16 +2422,15 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="update-id">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"><code>id</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#id"><code>id</code></a> </td>
     </tr>
     <tr>
@@ -2476,16 +2455,15 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="update-patient">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
     </tr>
     <tr>
@@ -2512,16 +2490,15 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="update-status">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -2547,16 +2524,15 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="update-medication%5Bx%5D">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <code>contained</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/medication.html"><code>Medication</code></a>) </td>
     </tr>
     <tr>

@@ -793,23 +793,21 @@
     <tr>
     <th>Name</th>
     <th>Required</th>
-    <th>Cardinality</th>
     <th>Type</th>
     </tr>
   </thead>
   <tbody>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-resourceType">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -834,16 +832,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-subject">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject"><code>subject</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/patient.html"><code>Patient</code></a>) </td>
     </tr>
     <tr>
@@ -868,16 +865,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-type">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type"><code>type</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -921,17 +917,16 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-author">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.author"><code>author</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
+      <td class="body-field">No </td>
+      <td class="body-field">
+<code>List</code> <code>of</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -954,7 +949,12 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>If author is not provided, the author will be determined based on the access token.</li></ul>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>At most one practitioner can be populated.</li>
+  <li>If author is not provided, the author will be determined based on the access token.</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -962,16 +962,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-indexed">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed"><code>indexed</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#instant"><code>instant</code></a> </td>
     </tr>
     <tr>
@@ -996,16 +995,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-status">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status"><code>status</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -1033,16 +1031,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-docStatus">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus"><code>docStatus</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
     <tr>
@@ -1077,16 +1074,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-description">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description"><code>description</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1111,17 +1107,16 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-content">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content"><code>content</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..* </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
+<code>List</code> <code>of</code> <a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -1139,16 +1134,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-content.attachment">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment"><code>content.attachment</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>1..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Attachment"><code>Attachment</code></a> </td>
     </tr>
     <tr>
@@ -1180,16 +1174,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-content.attachment.contentType">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.contentType"><code>content.attachment.contentType</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1223,16 +1216,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-content.attachment.data">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Attachment.data"><code>content.attachment.data</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1267,16 +1259,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-context">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context"><code>context</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/backboneelement.html"><code>BackboneElement</code></a> </td>
     </tr>
     <tr>
@@ -1295,16 +1286,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-context.encounter">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter"><code>context.encounter</code></a>
         
         
       </td>
-      <td>Yes </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">Yes </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/encounter.html"><code>Encounter</code></a>) </td>
     </tr>
     <tr>
@@ -1333,16 +1323,15 @@
     </tr>
     
     <tr>
-      <td>
+      <td class="body-field">
         <a name="create-context.period">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.period"><code>context.period</code></a>
         
         
       </td>
-      <td>No </td>
-      <td>0..1 </td>
-      <td>
+      <td class="body-field">No </td>
+      <td class="body-field">
 <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes.html#Period"><code>Period</code></a> </td>
     </tr>
     <tr>
