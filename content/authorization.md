@@ -212,6 +212,7 @@ request; each are documented in the following sections:
 - A "state" parameter to prevent certain classes of malicious
   attacks.
 - The target "audience" server URL.
+- (Optional) a "redirect_uri" of the application.
 - (Optional) a launch code, when supporting application launches from
   external sources.
 
@@ -381,6 +382,26 @@ where the audience is provided:
 <pre class="terminal">
 &aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F
 </pre>
+
+#### Redirect URI ####
+
+When performing an authorization grant request the application may provide a redirect_uri. 
+This uri should match the redirect_uri setup during the registration phase of the SMART Application.
+
+If your application has multiple redirect_uri's registered with Cerner then a redirect_uri is expected to be passed
+in during the authorization grant request. If no redirect_uri is specified the default redirect_uri 
+registered for the application will be used.
+
+Details around supplying a redirect_uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
+
+The redirect_uri must be an absolute uri. For more information please consult the Ref :
+RFC 6749 [Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
+
+Following is a fragment from a x-www-form-urlencoded grant request query string where the redirect_uri is provided:
+<pre class="terminal">
+&redirect_uri=https%3A%2F%2Fapp%2Fafter-auth
+</pre>
+A detailed example of an authorization grant request can be found [SMART App Launch Example](http://www.hl7.org/fhir/smart-app-launch/#for-example-2)
 
 #### Launch ####
 
