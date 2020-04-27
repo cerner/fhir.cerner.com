@@ -5,7 +5,6 @@ fields:
 
 - name: category
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: >
     A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g.
@@ -19,7 +18,6 @@ fields:
 
 - name: code
   required: 'No'
-  cardinality: 1..1
   type: CodeableConcept
   description: A code or name that describes this diagnostic report.
   binding:

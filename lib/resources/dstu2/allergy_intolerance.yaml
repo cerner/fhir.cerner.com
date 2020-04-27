@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.ht
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   example: AllergyIntolerance
@@ -13,7 +12,6 @@ fields:
 
 - name: id
   required: 'Yes'
-  cardinality: 0..1
   type: id
   description: The logical id of the resource to update.
   example: |
@@ -26,8 +24,7 @@ fields:
 
 - name: contained
   required: 'No'
-  cardinality: 0..*
-  type: Resource
+  type: List of Resource
   description: Contained, inline Resources.
   example: |
     Contained RelatedPerson
@@ -75,7 +72,6 @@ fields:
 
 - name: onset
   required: 'No'
-  cardinality: 0..1
   type: dateTime
   description: Date(/time) when manifestations showed.
   example: |
@@ -85,7 +81,6 @@ fields:
 
 - name: recordedDate
   required: 'Yes'
-  cardinality: 0..1
   type: dateTime
   description: When the sensitivity was recorded.
   example: |
@@ -95,7 +90,6 @@ fields:
 
 - name: recorder
   required: 'No'
-  cardinality: 0..1
   type: Reference (Practitioner)
   description: Who recorded the sensitivity.
   note: Recorder must be a `Practitioner` reference.
@@ -108,7 +102,6 @@ fields:
 
 - name: patient
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Patient)
   description: Who the sensitivity is for.
   example: |
@@ -120,7 +113,6 @@ fields:
 
 - name: reporter
   required: 'Yes'
-  cardinality: 0..1
   type: Reference (Patient) | contained Reference (Practitioner | RelatedPerson)
   description: Source of the information about the allergy.
   example: |
@@ -141,7 +133,6 @@ fields:
 
 - name: substance
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: Substance, (or class) considered to be responsible for risk
   example: |
@@ -169,7 +160,6 @@ fields:
 
 - name: status
   required: 'Yes'
-  cardinality: 0..1
   type: code
   description: >
     Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified
@@ -181,7 +171,6 @@ fields:
 
 - name: criticality
   required: 'Yes'
-  cardinality: 0..1
   type: code
   description: Estimate of the potential clinical harm, or seriousness, of the reaction to the identified [substance].
   example: |
@@ -191,7 +180,6 @@ fields:
 
 - name: type
   required: 'No'
-  cardinality: 0..1
   type: code
   description: Identification of the underlying physiological mechanism for the reaction risk.
   example: |
@@ -201,7 +189,6 @@ fields:
 
 - name: category
   required: 'Yes'
-  cardinality: 0..1
   type: code
   description: Category of the identified [substance].
   example: |
@@ -211,7 +198,6 @@ fields:
 
 - name: note
   required: 'No'
-  cardinality: 0..1
   type: Annotation
   description: Additional text not captured in other fields.
   example: |
@@ -228,7 +214,6 @@ fields:
 
   - name: authorReference
     required: 'No'
-    cardinality: 0..1
     type: Reference (Practitioner)
     description: Individual responsible for the annotation.
     url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_
@@ -242,7 +227,6 @@ fields:
       }
   - name: time
     required: 'No'
-    cardinality: 0..1
     type: dateTime
     description: When the annotation was made.
     url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time
@@ -255,7 +239,6 @@ fields:
 
   - name: text
     required: 'Yes'
-    cardinality: 1..1
     type: string
     description: The text content.
     url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text
@@ -268,8 +251,7 @@ fields:
 
 - name: reaction
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: Adverse reaction events linked to exposure to [substance].
   example: |
     {
@@ -293,7 +275,6 @@ fields:
 
   - name: id
     required: 'Yes'
-    cardinality: 0..1
     type: id
     description: Logical id of the reaction event.
     example: |
@@ -305,8 +286,7 @@ fields:
 
   - name: manifestation
     required: 'Yes'
-    cardinality: 1..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Clinical symptoms/signs associated with the event.
     example: |
       Manifestation with a coding:

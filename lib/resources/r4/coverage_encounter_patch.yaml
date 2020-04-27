@@ -5,7 +5,6 @@ operations:
   - name: replace-class-0-value
     path: /class/0/value
     operation: replace
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
     description: The alphanumeric string value associated with the insurer issued label.
@@ -23,7 +22,6 @@ operations:
   - name: replace-class-1-value
     path: /class/1/value
     operation: replace
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value
     description: The alphanumeric string value associated with the insurer issued label.
@@ -43,7 +41,6 @@ operations:
   - name: replace-class-name
     path: /class/1/name
     operation: replace
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name
     description: A short description for the class.
@@ -62,7 +59,6 @@ operations:
   - name: replace-dependent
     path: /dependent
     operation: replace
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.dependent
     description: A unique identifier for a dependent under the coverage.
@@ -80,7 +76,6 @@ operations:
   - name: replace-period
     path: /period
     operation: replace
-    cardinality: 0..1
     type: Period
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.period
     description: Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
@@ -103,7 +98,6 @@ operations:
   - name: replace-relationship
     path: /relationship
     operation: replace
-    cardinality: 0..1
     type: CodeableConcept
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.relationship
     description: The relationship of beneficiary (patient) to the subscriber.
@@ -128,7 +122,6 @@ operations:
   - name: replace-subscriberId
     path: /subscriberId
     operation: replace
-    cardinality: 0..1
     type: string
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId
     description: The insurer assigned ID for the Subscriber.
@@ -146,7 +139,6 @@ operations:
   - name: replace-subscriber
     path: /subscriber
     operation: replace
-    cardinality: 1..1
     type: Reference
     url: https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber
     description: The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.

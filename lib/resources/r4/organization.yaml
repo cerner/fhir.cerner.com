@@ -3,16 +3,13 @@ name: Organization
 field_name_base_url: https://hl7.org/fhir/r4/organization-definitions.html#Organization
 fields:
   - name: identifier
-    required: 'No'
-    cardinality: 0..*
-    type: Identifier
+    type: List of Identifier
     description: Identifies this organization across multiple systems.
     action: terminology
     children:
 
       - name: type
         required: 'No'
-        cardinality: 0..1
         type: CodeableConcept
         description: A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
         url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
@@ -27,9 +24,7 @@ fields:
               info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-334-organization-alias-type
 
   - name: type
-    required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Kind of organization.
     action: terminology
     binding:
@@ -44,7 +39,6 @@ fields:
 
   - name: resourceType
     required: 'Yes'
-    cardinality: 1..1
     type: string
     description: The type of the FHIR resource.
     action: create
@@ -57,8 +51,7 @@ fields:
 
   - name: identifier
     required: 'No'
-    cardinality: 0..*
-    type: Identifier
+    type: List of Identifier
     description: The identifiers for the Organization.
     action: create
     example: |
@@ -91,7 +84,6 @@ fields:
 
   - name: active
     required: 'No'
-    cardinality: 0..1
     type: boolean
     description: Whether the organization's record is still in active use.
     action: create
@@ -104,7 +96,6 @@ fields:
 
   - name: name
     required: 'Yes'
-    cardinality: 0..1
     type: string
     description: Name used for the organization.
     action: create
@@ -120,8 +111,7 @@ fields:
 
   - name: type
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: The Organization Type.
     action: create
     example: |

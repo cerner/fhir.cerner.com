@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot
 fields:
 - name: type
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The type of appointments that can be booked into this slot.
   example: |

@@ -4,14 +4,12 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/device-definitions.html#Device
 fields:
 - name: identifier
   required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: Identifier(s) from manufacturer, owner and others.
   children:
 
   - name: type
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
@@ -25,7 +23,6 @@ fields:
 
 - name: type
   required: 'Yes'
-  cardinality: 1..1
   type: CodeableConcept
   description: The specific kind of device.
   binding:

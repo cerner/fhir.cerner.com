@@ -4,7 +4,6 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/diagnosticreport-definitions.html
 fields:
 - name: code
   required: 'No'
-  cardinality: 1..1
   type: CodeableConcept
   description: A code or name that describes this diagnostic report.
   binding:

@@ -5,7 +5,6 @@ fields:
 
 - name: reasonCodeableConcept
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: The reason or indication for writing the prescription.
   url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_
@@ -23,8 +22,7 @@ fields:
       info_link: http://hl7.org/fhir/icd.html
 
 - name: medicationCodeableConcept
-  required: 'No'
-  cardinality: 1..1
+  required: 'Yes'
   type: CodeableConcept
   description: Identifies the medication being administered.
   url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
@@ -37,14 +35,12 @@ fields:
 
 - name: dosageInstruction
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: How the medication is to be used by the patient.
   children:
 
   - name: additionalInstructions
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Supplemental instructions.
     binding:
@@ -53,14 +49,12 @@ fields:
 
   - name: timing
     required: 'No'
-    cardinality: 0..1
     type: Timing
     description: The timing schedule for giving the medication to the patient.
     children:
 
     - name: code
       required: 'No'
-      cardinality: 0..1
       type: CodeableConcept
       description: A code for the timing pattern.
       url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
@@ -76,7 +70,6 @@ fields:
 
   - name: asNeeded[x]
     required: 'No'
-    cardinality: 0..1
     type: boolean | CodeableConcept
     description: >
       Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
@@ -91,7 +84,6 @@ fields:
 
   - name: siteCodeableConcept
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The anatomic site where the medication first enters the body.
     url: http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_
@@ -104,7 +96,6 @@ fields:
 
   - name: route
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: >
       A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.

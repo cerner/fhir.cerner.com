@@ -4,14 +4,12 @@ field_name_base_url: http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encoun
 fields:
 - name: identifier
   required: 'No'
-  cardinality: 0..*
-  type: Identifier
+  type: List of Identifier
   description: Identifier(s) by which this encounter is known.
   children:
 
   - name: type
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
     url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
@@ -27,8 +25,7 @@ fields:
 
 - name: type
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: The specific type of encounter.
   binding:
     description: The type of encounter.
@@ -36,7 +33,6 @@ fields:
 
 - name: priority
   required: 'No'
-  cardinality: 0..1
   type: CodeableConcept
   description: Indicates the urgency of the encounter.
   binding:
@@ -48,15 +44,13 @@ fields:
 
 - name: participant
   required: 'No'
-  cardinality: 0..*
-  type: BackboneElement
+  type: List of BackboneElement
   description: The list of people responsible for providing the service.
   children:
 
   - name: type
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Role of participant in encounter.
     binding:
       description: Role of participant in encounter.
@@ -70,8 +64,7 @@ fields:
 
 - name: reason
   required: 'No'
-  cardinality: 0..*
-  type: CodeableConcept
+  type: List of CodeableConcept
   description: Reason the encounter takes place.
   binding:
     description: The type of encounter.
@@ -79,14 +72,12 @@ fields:
 
 - name: hospitalization
   required: 'No'
-  cardinality: 0..1
   type: BackboneElement
   description: Details about the admission to a healthcare service.
   children:
 
   - name: admitSource
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: From where patient was admitted.
     binding:
@@ -98,8 +89,7 @@ fields:
 
   - name: dietPreference
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: Diet preferences reported by the patient.
     binding:
       description: Medical, cultural or ethical food preferences to help with catering requirements.
@@ -110,8 +100,7 @@ fields:
 
   - name: specialCourtesy
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: The special courtesies applicable to the patient.
     binding:
       description: Special courtesies.
@@ -122,8 +111,7 @@ fields:
 
   - name: specialArrangement
     required: 'No'
-    cardinality: 0..*
-    type: CodeableConcept
+    type: List of CodeableConcept
     description: The special arrangements made for the patient during the encounter.
     binding:
       description: Special arrangements.
@@ -134,7 +122,6 @@ fields:
 
   - name: dischargeDisposition
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Category or kind of location after discharge.
     binding:
