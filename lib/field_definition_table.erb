@@ -9,7 +9,7 @@
   <tbody>
     <% for item in data[:fields] %>
     <tr>
-      <td class="body-field">
+      <td>
         <a name="<%= "#{data[:table_name]}-#{item[:name]}" %>">
         <% if !item[:url].nil? %>
           <a target="_blank" href="<%= item[:url]%>"><code><%= item[:name]%></code></a>
@@ -18,8 +18,8 @@
         <% end %>
         </a>
       </td>
-      <td class="body-field"><%= item[:required] %> </td>
-      <td class="body-field"><%= item[:type] %> </td>
+      <td><%= item[:required] %> </td>
+      <td><%= item[:type] %> </td>
     </tr>
     <tr>
       <td colspan="4">

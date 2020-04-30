@@ -203,10 +203,6 @@ a img {
   text-decoration: none;
 }
 
-.body-field {
-  text-align: center;
-}
-
 /*------------------------------------------------------------------------------
      Header Styles
 ------------------------------------------------------------------------------*/
@@ -1291,7 +1287,6 @@ p code {
   border: 1px solid #ddd;
   padding: 6px 13px;
   font-weight: bold;
-  text-align: center;
 }
 
 .content tbody {
