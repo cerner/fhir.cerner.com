@@ -2,386 +2,392 @@ module Cerner
   module Resources
 
     R4_COMBINED_PATIENT_ENTRY ||= {
-      "resourceType": "Patient",
-      "id": "1011933",
-      "meta": {
-        "versionId": "0"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;/div&gt;"
-      },
-      "identifier": [
-        {
-          "extension": [
-              {
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-              "valueCode": "unknown"
+        "resourceType": "Patient",
+        "id": "12742633",
+        "meta": {
+            "versionId": "0"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Patient</b></p><p><b>Status</b>: Inactive</p><p><b>Replaced By</b>: Patient/12724067</p></div>"
+        },
+        "identifier": [
+            {
+                "extension": [
+                    {
+                        "valueCode": "unknown",
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                    }
+                ]
             }
-          ]
-        }
-      ],
-      "active": false,
-      "name": [
-        {
-          "extension": [
-              {
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-              "valueCode": "unknown"
+        ],
+        "active": false,
+        "name": [
+            {
+                "extension": [
+                    {
+                        "valueCode": "unknown",
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                    }
+                ]
             }
-          ]
-        }
-      ],
-      "_gender": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-            "valueCode": "unknown"
-          }
+        ],
+        "_gender": {
+            "extension": [
+                {
+                    "valueCode": "unknown",
+                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                }
+            ]
+        },
+        "link": [
+            {
+                "other": {
+                    "reference": "Patient/12724067"
+                },
+                "type": "replaced-by"
+            }
         ]
-      },
-      "link": [
-        {
-          "other": {
-            "reference": "Patient/1011932"
-          },
-          "type": "replaced-by"
-        }
-      ]
     }
 
     R4_PATIENT_ENTRY ||= {
-      "resourceType": "Patient",
-      "id": "4342009",
-      "meta": {
-        "versionId": "43",
-        "lastUpdated": "2019-03-27T15:51:22.000Z"
-      },
-      "text": {
-         "status": "generated",
-         "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;/div&gt;"
-      },
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-          "extension": [
+        "resourceType": "Patient",
+        "id": "12724067",
+        "meta": {
+            "versionId": "10",
+            "lastUpdated": "2020-07-06T21:21:22.000Z"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Patient</b></p><p><b>Name</b>: SMART, JOE</p><p><b>Status</b>: Active</p><p><b>DOB</b>: Apr 29, 1976</p><p><b>Administrative Gender</b>: Male</p><p><b>Marital Status</b>: Married</p></div>"
+        },
+        "extension": [
             {
-              "url": "detailed",
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.6.238",
-                "code": "2131-1",
-                "display": "Other Race",
-                "userSelected": false
-              }
+                "extension": [
+                    {
+                        "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2106-3",
+                            "display": "White",
+                            "userSelected": false
+                        },
+                        "url": "ombCategory"
+                    },
+                    {
+                        "valueString": "White",
+                        "url": "text"
+                    }
+                ],
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
             },
             {
-              "url": "text",
-              "valueString": "White"
+                "extension": [
+                    {
+                        "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2186-5",
+                            "display": "Non Hispanic or Latino",
+                            "userSelected": false
+                        },
+                        "url": "ombCategory"
+                    },
+                    {
+                        "valueString": "Not Hispanic, Latino, or Spanish Origin",
+                        "url": "text"
+                    }
+                ],
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
             }
-          ]
-        }
-      ],
-      "identifier": [
-        {
-          "id": "CI-6810232-0",
-          "use": "usual",
-          "type": {
-            "coding": [
-                {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-                "code": "10",
-                "display": "MRN",
-                "userSelected": true
-              }
-            ],
-            "text": "MRN"
-          },
-          "system": "urn:oid:1.1.1.1.1.1",
-          "value": "10002701",
-          "period": {
-            "start": "2016-06-22T20:43:05.000Z"
-          }
-        },
-        {
-          "id": "CI-8934209-2",
-          "use": "usual",
-          "type": {
-            "coding": [
-                {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-                "code": "670843",
-                "display": "Messaging",
-                "userSelected": true
-              }
-            ],
-            "text": "Messaging"
-          },
-          "system": "urn:oid:2.16.840.1.113883.3.13.8",
-          "value": "B3F1E729F3804CE78EE48A077965FA15",
-          "period": {
-            "start": "2018-09-13T16:39:25.000Z"
-          }
-        },
-        {
-          "id": "CI-7754298-3",
-          "use": "usual",
-          "type": {
-            "coding": [
-                {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-                "code": "36322657",
-                "display": "Federated Person Principal",
-                "userSelected": true
-              }
-            ],
-            "text": "Federated Person Principal"
-          },
-          "system": "urn:oid:2.16.840.1.113883.3.13.6",
-          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:0B8A0111-E8E6-4C26-A91C-5069CBC6B1CA:PRINCIPAL:ABC123",
-          "period": {
-            "start": "2017-09-26T05:00:00.000Z",
-            "end": "2019-01-02T05:00:00.000Z"
-          }
-        },
-        {
-          "id": "CI-7476206-4",
-          "use": "usual",
-          "type": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-                "code": "36322657",
-                "display": "Federated Person Principal",
-                "userSelected": true
-              }
-            ],
-            "text": "Federated Person Principal"
-          },
-          "system": "urn:oid:2.16.840.1.113883.3.13.6",
-          "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:YP2QT7JS2SA",
-          "period": {
-            "start": "2016-11-01T10:00:00.000Z"
-          }
-        },
-        {
-          "id": "CI-7476207-5",
-          "use": "usual",
-          "type": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-                "code": "36322657",
-                "display": "Federated Person Principal",
-                "userSelected": true
-              }
-            ],
-            "text": "Federated Person Principal"
-          },
-          "system": "urn:oid:2.16.840.1.113883.3.13.6",
-          "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:YP2qT7jS2sa",
-          "period": {
-            "start": "2016-11-01T10:00:00.000Z"
-          }
-        }
-      ],
-      "active": true,
-      "name": [
-        {
-          "id": "CI-4342009-0",
-          "use": "official",
-          "text": "SMART, NANCY",
-          "family": "SMART",
-          "given": [
-            "NANCY"
-          ],
-          "period": {
-            "start": "2016-06-22T20:43:05.000Z"
-          }
-        }
-      ],
-      "telecom": [
-        {
-          "id": "CI-EM-2399938-0",
-          "system": "email",
-          "value": "joe.smart@hl7.com",
-          "use": "home",
-          "period": {
-            "start": "2018-09-13T16:37:32.000Z"
-          }
-        }
-      ],
-      "gender": "female",
-      "birthDate": "1980-08-11",
-      "maritalStatus": {
-        "coding": [
-          {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/38",
-            "code": "309237",
-            "display": "Married",
-            "userSelected": true
-          },
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
-            "code": "M",
-            "display": "Married",
-            "userSelected": false
-          }
         ],
-        "text": "Married"
-      },
-      "contact": [
-        {
-          "relationship": [
+        "identifier": [
             {
-              "coding": [
-                  {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
-                  "code": "36327661",
-                  "display": "Authorized Representative",
-                  "userSelected": true
+                "id": "CI-490016886-0",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "10",
+                            "display": "MRN",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical record number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "MRN"
+                },
+                "system": "urn:oid:2.16.840.1.113883.6.1000",
+                "value": "6931",
+                "period": {
+                    "start": "2019-12-26T15:14:12.000Z"
                 }
-              ],
-              "text": "Authorized Representative"
-            }
-          ],
-          "name": {
-            "id": "CI-4342010-0",
-            "use": "official",
-            "text": "SMART, JOE",
-            "family": "SMART",
-            "given": [
-              "JOE"
-            ],
-            "period": {
-              "start": "2016-06-22T21:06:59.000Z"
-            }
-          },
-          "telecom": [
-            {
-              "system": "phone",
-              "value": "9139898765",
-              "use": "home",
-              "period": {
-                "start": "2017-06-27T21:47:16.000Z"
-              }
             },
             {
-              "system": "phone",
-              "value": "9137876555",
-              "use": "mobile",
-              "period": {
-                "start": "2017-06-27T21:47:16.000Z"
-              }
+                "id": "CI-490058771-1",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "10",
+                            "display": "MRN",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical record number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "MRN"
+                },
+                "system": "urn:oid:2.16.840.1.113883.6.1000",
+                "value": "6978",
+                "period": {
+                    "end": "2020-07-06T21:21:25.000Z"
+                }
             },
             {
-              "system": "email",
-              "value": "joe.smart@hl7.com",
-              "use": "home",
-              "period": {
-                "start": "2018-09-13T16:43:28.000Z"
-              }
+                "id": "CI-490059574-3",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "670843",
+                            "display": "Messaging",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "U",
+                            "display": "Unspecified identifier",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "Messaging"
+                },
+                "_system": {
+                    "extension": [
+                        {
+                            "valueCode": "unknown",
+                            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                        }
+                    ]
+                },
+                "value": "3C36293A3B964994AD8E6C0305F3330A",
+                "period": {
+                    "start": "2020-06-30T20:08:26.000Z"
+                }
+            },
+            {
+                "id": "CI-490058805-4",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "670843",
+                            "display": "Messaging",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "U",
+                            "display": "Unspecified identifier",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "Messaging"
+                },
+                "_system": {
+                    "extension": [
+                        {
+                            "valueCode": "unknown",
+                            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                        }
+                    ]
+                },
+                "value": "43DA797A657B47548F258A9B50EB41F5",
+                "period": {
+                    "start": "2020-06-12T16:03:32.000Z"
+                }
+            },
+            {
+                "id": "CI-490059570-5",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "2553236771",
+                            "display": "Federated Person Principal",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "AN",
+                            "display": "Account number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "Federated Person Principal"
+                },
+                "system": "urn:oid:2.16.840.1.113883.3.13.6",
+                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:AN7TD9A62CV8Z53Z",
+                "period": {
+                    "start": "2020-06-30T20:08:25.000Z"
+                }
+            },
+            {
+                "id": "CI-490058801-6",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                            "code": "2553236771",
+                            "display": "Federated Person Principal",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "AN",
+                            "display": "Account number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "Federated Person Principal"
+                },
+                "system": "urn:oid:2.16.840.1.113883.3.13.6",
+                "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:KR8KC9MI9EQ8KC23",
+                "period": {
+                    "start": "2020-06-12T16:03:29.000Z"
+                }
             }
-          ],
-          "address": {
-            "text": "1234 Blvd\nOverland Park, KS 66213\nUSA",
-            "line": [
-              "1234 Blvd"
+        ],
+        "active": true,
+        "name": [
+            {
+                "id": "CI-12724067-0",
+                "use": "official",
+                "text": "SMART, JOE",
+                "family": "SMART",
+                "given": [
+                    "JOE"
+                ],
+                "period": {
+                    "start": "2019-12-26T15:14:12.000Z"
+                }
+            },
+            {
+                "id": "CI-490059796-0",
+                "use": "old",
+                "text": "SMART, STEPHEN ALLEN",
+                "family": "SMART",
+                "given": [
+                    "STEPHEN",
+                    "ALLEN"
+                ],
+                "period": {
+                    "end": "2020-07-06T21:21:26.000Z"
+                }
+            }
+        ],
+        "telecom": [
+            {
+                "id": "CI-PH-29811920-0",
+                "system": "phone",
+                "value": "8168888886",
+                "use": "home",
+                "rank": "1",
+                "period": {
+                    "start": "2019-12-26T15:14:12.000Z"
+                }
+            },
+            {
+                "id": "CI-EM-29822662-0",
+                "system": "email",
+                "value": "joesmart@yopmail.com",
+                "use": "home",
+                "rank": "1",
+                "period": {
+                    "start": "2020-03-30T19:31:11.000Z"
+                }
+            }
+        ],
+        "gender": "male",
+        "birthDate": "1976-04-29",
+        "deceasedBoolean": false,
+        "address": [
+            {
+                "id": "CI-24313553-0",
+                "use": "home",
+                "text": "12345 Main St\nKansas city, MO 64116\nUS",
+                "line": [
+                    "12345 Main St"
+                ],
+                "city": "Kansas city",
+                "district": "Jackson",
+                "state": "MO",
+                "postalCode": "64116",
+                "country": "US",
+                "period": {
+                    "start": "2019-12-26T15:13:36.000Z"
+                }
+            }
+        ],
+        "maritalStatus": {
+            "coding": [
+                {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/38",
+                    "code": "309237",
+                    "display": "Married",
+                    "userSelected": true
+                },
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                    "code": "M",
+                    "display": "Married",
+                    "userSelected": false
+                }
             ],
-            "city": "Overland Park",
-            "district": "Johnson",
-            "state": "KS",
-            "postalCode": "66213",
-            "country": "USA",
-            "period": {
-              "start": "2017-06-27T21:47:16.000Z"
-            }
-          },
-          "gender": "male",
-          "period": {
-            "start": "2017-07-07T18:28:24.000Z",
-            "end": "2017-09-20T15:18:54.000Z"
-          }
+            "text": "Married"
         },
-        {
-          "relationship": [
+        "communication": [
             {
-              "coding": [
-                  {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/351",
-                  "code": "36327661",
-                  "display": "Authorized Representative",
-                  "userSelected": true
-                }
-              ],
-              "text": "Authorized Representative"
+                "language": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                            "code": "151",
+                            "display": "English",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "urn:ietf:bcp:47",
+                            "code": "en",
+                            "display": "English",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "English"
+                },
+                "preferred": true
             }
-          ],
-          "name": {
-            "id": "CI-4342010-0",
-            "use": "official",
-            "text": "SMART, JOE",
-            "family": "SMART",
-            "given": [
-              "JOE"
-            ],
-            "period": {
-              "start": "2016-06-22T21:06:59.000Z"
-            }
-          },
-          "telecom": [
+        ],
+        "generalPractitioner": [
             {
-              "system": "phone",
-              "value": "9139898765",
-              "use": "home",
-              "period": {
-                "start": "2017-06-27T21:47:16.000Z"
-              }
-            },
-            {
-              "system": "phone",
-              "value": "9137876555",
-              "use": "mobile",
-              "period": {
-                "start": "2017-06-27T21:47:16.000Z"
-              }
-            },
-            {
-              "system": "email",
-              "value": "joe.smart@hl7.com",
-              "use": "home",
-              "period": {
-                "start": "2018-09-13T16:43:28.000Z"
-              }
+                "id": "CI-490017023-0",
+                "reference": "Practitioner/4122622",
+                "display": "Cerner Test, Physician - Hospitalist Cerner"
             }
-          ],
-          "address": {
-            "text": "1234 Blvd\nOverland Park, KS 66213\nUSA",
-            "line": [
-              "1234 Blvd"
-            ],
-            "city": "Overland Park",
-            "district": "Johnson",
-            "state": "KS",
-            "postalCode": "66213",
-            "country": "USA",
-            "period": {
-              "start": "2017-06-27T21:47:16.000Z"
-            }
-          },
-          "gender": "male",
-          "period": {
-            "start": "2017-06-09T13:46:54.000Z",
-            "end": "2017-06-20T15:28:11.000Z"
-          }
-        }
-      ],
-      "generalPractitioner": [
-        {
-          "id": "CI-6810238-1",
-          "reference": "Practitioner/1912007",
-          "display": "Smart, Joe"
-        }
-      ]
+        ]
     }
 
     R4_PATIENT_BUNDLE ||= {
@@ -392,11 +398,11 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009"
+          "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=12724067"
         }
       ],
       "entry": [
-        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009",
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724067",
         "resource": R4_PATIENT_ENTRY
       ]
     }
@@ -446,7 +452,7 @@ module Cerner
       "identifier": [
         {
           "assigner": {
-            "reference": "Organization/619848"
+            "reference": "Organization/675844"
           }
         }
       ],
@@ -529,7 +535,7 @@ module Cerner
       ],
       "generalPractitioner": [
         {
-          "reference": "Practitioner/605926"
+          "reference": "Practitioner/4122622"
         }
       ]
     }
@@ -547,7 +553,7 @@ module Cerner
               }
             ]
           },
-          "system": "urn:oid:1.1.1.1.1.1",
+          "system": "2.16.840.1.113883.6.1000",
           "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
           "period": {
             "start": "2018-01-02T00:00:00-05:00",
@@ -558,20 +564,20 @@ module Cerner
       {
         "path": "/name/0/id",
         "op": "test",
-        "value": "CI-5786010-0"
+        "value": "CI-12724067-0"
       },
       {
         "path": "/name/0/given",
         "op": "replace",
         "value": [
-          "Harrison",
-          "James"
+          "Joe",
+          "Smarty"
         ]
       },
       {
         "path": "/telecom/0/id",
         "op": "test",
-        "value": "CI-PH-2807950-0"
+        "value": "CI-PH-29811920-0"
       },
       {
         "path": "/telecom/0",
@@ -584,7 +590,7 @@ module Cerner
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
-              "code": "M"
+              "code": "D"
             }
           ]
         }
@@ -597,8 +603,8 @@ module Cerner
             "language": {
               "coding": [
                 {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/36",
-                  "code": "312729",
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                  "code": "151",
                 }
               ]
             },

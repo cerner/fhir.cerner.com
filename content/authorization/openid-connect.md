@@ -7,25 +7,25 @@ layout: authorization
 
 ## Introduction
 
-[OpenID Connect][OPENID] describes itself as "a simple identity layer 
+[OpenID Connect][OPENID] describes itself as "a simple identity layer
 on top of the OAuth 2.0 protocol".  The specification provides a set
 of message structures, a messaging protocol, and a security framework
 to allow a system that has authenticated a user to securely convey said
-identity to another service provider (relying party).  Cerner's 
+identity to another service provider (relying party).  Cerner's
 authorization server implements support for OpenID Connect in
-conjunction with the [SMART on FHIR<sup>®</sup>][SMART] profile 
-of OAuth 2.  Client applications may use this as a source of 
-"single sign-on" for users when protecting resources outside of the EMR 
+conjunction with the [SMART on FHIR<sup>®</sup>][SMART] profile
+of OAuth 2.  Client applications may use this as a source of
+"single sign-on" for users when protecting resources outside of the EMR
 (example: user-generated data that is stored by the client application).
 
-In addition to SSO, SMART on FHIR<sup>®</sup> also leverages OpenID 
-Connect to convey the location of the authenticated user's 
+In addition to SSO, SMART on FHIR<sup>®</sup> also leverages OpenID
+Connect to convey the location of the authenticated user's
 FHIR<sup>®</sup> endpoint, as described by the HL7<sup>®</sup>
 FHIR<sup>®</sup> standard.
 
 ## Requesting OpenID Connect
 
-Per [OpenID Connect][OPENID] and [SMART on FHIR<sup>®</sup>][SMART], 
+Per [OpenID Connect][OPENID] and [SMART on FHIR<sup>®</sup>][SMART],
 a client application requests the scope of "openid" to receive an identity
 token within the access token response.
 
@@ -41,9 +41,9 @@ values are of importance in identifying the user:
 
 The subject value of the identity assertion corresponds to the user
 identifier asserted by the authentication system being used, locally
-unique within context of the "issuer".  This value may be a user's 
+unique within context of the "issuer".  This value may be a user's
 username, or could be an opaque identifier (such as a UUID), depending
-on the tenant's identity strategy.  Both the 
+on the tenant's identity strategy.  Both the
 issuer and subject value combined constitute a globally-unique
 identifier for the authenticated user.
 
@@ -54,18 +54,18 @@ system.
 * A user's identifier is changed in the upstream authentication system.
 * The organization changes EHR systems.
 
-Neither OpenID Connect nor SMART on FHIR<sup>®</sup> prescribe mechanisms 
+Neither OpenID Connect nor SMART on FHIR<sup>®</sup> prescribe mechanisms
 for addressing the above scenarios.  As such, application developers should
 consider proprietary mechansims for handling such scenarios if
 critical user information is managed outside of the EHR.
 
 ## Validating OpenID Connect Identity Tokens
 
-The client application receiving the identity token must validate that 
+The client application receiving the identity token must validate that
 the audience (aud) claim matches its own client identifier, per section
 3.1.3.7 of [OpenID Connect Core][OPENID-TokenValidation].
 
-For applications interoperating only with Cerner's authorization 
+For applications interoperating only with Cerner's authorization
 server, no explicit signature validation is required when retrieving
 the access token directly from the token endpoint (as advertised via
 the FHIR<sup>®</sup> conformance document).
@@ -101,22 +101,22 @@ The claims of the identity token in the above example are as follows:
 {
   "sub": "portal",
   "aud": "94bbd90d-482a-4a10-b7df-b40edb278da2",
-  "iss": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
+  "iss": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/",
   "exp": 1481747784,
   "iat": 1481747184,
   "name": "Portal User",
-  "fhirUser": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/98765"  
+  "fhirUser": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/98765"  
 }
 </pre>
 
 In this example, the user identifier is "portal", the issuer is
-``https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/``
+``https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/``
 and the recipient client id is ``94bbd90d-482a-4a10-b7df-b40edb278da2``.
 
 The following is an example URL for the location of an OpenID Connect
 configuration document, derived from the issuer in the above id_token:
 
-``https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/.well-known/openid-configuration``
+``https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/openid-configuration``
 
 The following is example content of the configuration document:
 
@@ -127,16 +127,16 @@ The following is example content of the configuration document:
     "require_request_uri_registration": false,
     "request_uri_parameter_supported": true,
     "claims_parameter_supported": false,
-    "jwks_uri": "https://authorization.sandboxcerner.com/jwk",
+    "jwks_uri": "https://authorization.cerner.com/jwk",
     "subject_types_supported": ["public"],
     "id_token_signing_alg_values_supported": ["RS256"],
-    "issuer": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
-    "authorization_endpoint": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
-    "token_endpoint": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/"
+    "issuer": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/",
+    "authorization_endpoint": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/",
+    "token_endpoint": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/oidc/idsps/ec2458f2-1e24-41c8-b71b-0e701af7583d/"
 }
 </pre>
 
-In this example, the jwks_uri is: ``https://authorization.sandboxcerner.com/jwk``
+In this example, the jwks_uri is: ``https://authorization.cerner.com/jwk``
 
 ## Session Management
 

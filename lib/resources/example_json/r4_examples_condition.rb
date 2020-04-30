@@ -1,202 +1,179 @@
 module Cerner
   module Resources
 
+    R4_CONDITION_ENTRY ||= {
+        "resourceType": "Condition",
+        "id": "p73077203",
+        "meta": {
+            "versionId": "73080185",
+            "lastUpdated": "2020-06-11T04:05:04.000Z"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p><p><b>Clinical Status</b>: Resolved</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p><p><b>Resolved</b>: Apr  4, 2020  5:00 P.M. UTC</p></div>"
+        },
+        "clinicalStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "resolved",
+                    "display": "Resolved",
+                    "userSelected": false
+                }
+            ],
+            "text": "Resolved"
+        },
+        "verificationStatus": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed",
+                    "display": "Confirmed",
+                    "userSelected": false
+                }
+            ],
+            "text": "Confirmed"
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                        "code": "problem-list-item",
+                        "display": "Problem List Item"
+                    }
+                ],
+                "text": "Problem List Item"
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "77386006",
+                    "display": "Patient currently pregnant (finding)",
+                    "userSelected": true
+                }
+            ],
+            "text": "Pregnant"
+        },
+        "subject": {
+            "reference": "Patient/12724066",
+            "display": "SMART, NANCY"
+        },
+        "onsetDateTime": "2019-06-12",
+        "abatementDateTime": "2020-04-04T17:00:00.000Z",
+        "recordedDate": "2020-03-05T16:54:50.000Z",
+        "recorder": {
+            "reference": "Practitioner/683925",
+            "display": "Cerner Test, Women's Health - Nurse Cerner"
+        }
+    }
+
+    R4_CONDITION_PROBLEM ||= {
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p73077203",
+        "resource": R4_CONDITION_ENTRY
+    }
+
+    R4_CONDITION_DIAGNOSIS ||= {
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2572382197",
+        "resource": {
+            "resourceType": "Condition",
+            "id": "d2572382197",
+            "meta": {
+                "versionId": "2572382197",
+                "lastUpdated": "2020-06-11T04:03:21.000Z"
+            },
+            "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Diagnosis</b>: Anemia, Anemia (disorder)</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 10, 2020  5:00 P.M. UTC</p></div>"
+            },
+            "clinicalStatus": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                        "code": "active",
+                        "display": "Active"
+                    }
+                ],
+                "text": "Active"
+            },
+            "verificationStatus": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                        "code": "confirmed",
+                        "display": "Confirmed",
+                        "userSelected": false
+                    }
+                ],
+                "text": "Confirmed"
+            },
+            "category": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                            "code": "encounter-diagnosis",
+                            "display": "Encounter Diagnosis"
+                        }
+                    ],
+                    "text": "Encounter Diagnosis"
+                }
+            ],
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "271737000",
+                        "display": "Anemia (disorder)",
+                        "userSelected": true
+                    },
+                    {
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "code": "D64.9",
+                        "display": "Anemia, unspecified",
+                        "userSelected": false
+                    }
+                ],
+                "text": "Anemia"
+            },
+            "subject": {
+                "reference": "Patient/12724066",
+                "display": "SMART, NANCY"
+            },
+            "encounter": {
+                "reference": "Encounter/97953477"
+            },
+            "onsetDateTime": "2020-06-10T17:00:00.000Z",
+            "recordedDate": "2020-06-11T04:03:21.000Z",
+            "recorder": {
+                "reference": "Practitioner/4122630",
+                "display": "Cerner Test, Physician - Women's Health Cerner"
+            }
+        }
+    }
+
     R4_CONDITION_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "9a115304-90d2-47d7-98c4-026f7fe1580e",
       "type": "searchset",
-      "total": 1,
+      "total": 2,
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=1316024"
+          "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12724066"
         }
       ],
       "entry": [
-        {
-          "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p40880687",
-          "resource": {
-            "resourceType": "Condition",
-            "id": "p40880687",
-            "meta": {
-              "versionId": "40880687",
-              "lastUpdated": "2018-11-13T21:56:14.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>Problem&lt;/b>: Pelvic mass (disorder)&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Resolved&lt;/p>&lt;p>&lt;b>Verification Status&lt;/b>: Differential&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: Moderate&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: Jun 29, 2015&lt;/p>&lt;p>&lt;b>Resolved&lt;/b>: Jan  1, 2017&lt;/p>&lt;/div>"
-            },
-            "clinicalStatus": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-                  "code": "resolved",
-                  "display": "Resolved",
-                  "userSelected": false
-                }
-              ],
-              "text": "Resolved"
-            },
-            "verificationStatus": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-                  "code": "differential",
-                  "display": "Differential",
-                  "userSelected": false
-                }
-              ],
-              "text": "Differential"
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                    "code": "problem-list-item",
-                    "display": "Problem List Item"
-                  }
-                ],
-                "text": "Problem List Item"
-              }
-            ],
-            "severity": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
-                  "code": "3294",
-                  "display": "Moderate",
-                  "userSelected": true
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "6736007",
-                  "display": "Moderate",
-                  "userSelected": false
-                }
-              ],
-              "text": "Moderate"
-            },
-            "code": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "74285003",
-                  "display": "Pelvic mass (disorder)",
-                  "userSelected": true
-                }
-              ],
-              "text": "Pelvic mass"
-            },
-            "subject": {
-              "reference": "Patient/1316024",
-              "display": "PETERS, TIMOTHY CCCC"
-            },
-            "onsetDateTime": "2015-06-29",
-            "abatementDateTime": "2017-01-01",
-            "recordedDate": "2018-11-13T21:56:13.000Z",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Forrest, Fhir"
-            }
-          }
-        }
+        R4_CONDITION_PROBLEM, R4_CONDITION_DIAGNOSIS
       ]
-    }
-
-    R4_CONDITION_ENTRY ||= {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p40880687",
-      "resource": {
-        "resourceType": "Condition",
-        "id": "p40880687",
-        "meta": {
-          "versionId": "40880687",
-          "lastUpdated": "2018-11-13T21:56:14.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Condition&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: PETERS, TIMOTHY CCCC&lt;/p>&lt;p>&lt;b>Problem&lt;/b>: Pelvic mass (disorder)&lt;/p>&lt;p>&lt;b>Clinical Status&lt;/b>: Resolved&lt;/p>&lt;p>&lt;b>Verification Status&lt;/b>: Differential&lt;/p>&lt;p>&lt;b>Severity&lt;/b>: Moderate&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: Jun 29, 2015&lt;/p>&lt;p>&lt;b>Resolved&lt;/b>: Jan  1, 2017&lt;/p>&lt;/div>"
-        },
-        "clinicalStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "resolved",
-              "display": "Resolved",
-              "userSelected": false
-            }
-          ],
-          "text": "Resolved"
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "differential",
-              "display": "Differential",
-              "userSelected": false
-            }
-          ],
-          "text": "Differential"
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "problem-list-item",
-                "display": "Problem List Item"
-              }
-            ],
-            "text": "Problem List Item"
-          }
-        ],
-        "severity": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
-              "code": "3294",
-              "display": "Moderate",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "6736007",
-              "display": "Moderate",
-              "userSelected": false
-            }
-          ],
-          "text": "Moderate"
-        },
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "74285003",
-              "display": "Pelvic mass (disorder)",
-              "userSelected": true
-            }
-          ],
-          "text": "Pelvic mass"
-        },
-        "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY CCCC"
-        },
-        "onsetDateTime": "2015-06-29",
-        "abatementDateTime": "2017-01-01",
-        "recordedDate": "2018-11-13T21:56:13.000Z",
-        "recorder": {
-          "reference": "Practitioner/1912007",
-          "display": "Forrest, Fhir"
-        }
-      }
     }
 
     R4_CONDITION_CREATE ||= {
       "resourceType": "Condition",
       "subject": {
-        "reference": "Patient/631923"
+        "reference": "Patient/12724066"
       },
       "code": {
         "coding": [
@@ -255,7 +232,7 @@ module Cerner
         },
         {
           "authorReference": {
-            "reference": "Practitioner/4594011",
+            "reference": "Practitioner/683925",
             "display": "Leroux, Erik"
           },
           "text": "Test Comment 2"
@@ -265,20 +242,20 @@ module Cerner
 
     R4_CONDITION_UPDATE ||= {
       "resourceType": "Condition",
-      "id": "p10070301",
+      "id": "p73077203",
       "subject": {
-          "reference": "Patient/1316024"
+          "reference": "Patient/12724066"
       },
       "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "267079009",
-              "display": "Trembles (finding)",
-              "userSelected": true
-            }
-          ],
-          "text": "Trembles"
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "77386006",
+            "display": "Patient currently pregnant (finding)",
+            "userSelected": true
+          }
+        ],
+        "text": "Pregnant"
       },
       "category": [
           {
@@ -307,24 +284,12 @@ module Cerner
               }
           ]
       },
-      "severity": {
-          "coding": [
-              {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
-                  "code": "3294",
-                  "display": "Moderate",
-                  "userSelected": true
-              }
-          ],
-          "text": "Moderate"
-      },
-      "abatementDateTime": "2010-11-08",
-      "onsetDateTime": "2000-03-10",
+      "onsetDateTime": "2019-06-12",
+      "abatementDateTime": "2020-04-04T17:00:00.000Z",
       "note": [
         {
           "authorReference": {
-            "reference": "Practitioner/1912007",
-            "display": "Test, Jack"
+            "reference": "Practitioner/683925"
           },
           "text": "Test Comment"
         }

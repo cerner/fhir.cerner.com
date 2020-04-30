@@ -56,7 +56,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197198634
 
 #### Response
 
@@ -70,7 +70,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'text/html'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197198634
 
 #### Response
 
@@ -126,7 +126,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
-    GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
+    GET: https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1316035
 
 #### Response
 
@@ -140,7 +140,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/xml'} %>
 
-    GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
+    GET: https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1316035
 
 #### Response
 

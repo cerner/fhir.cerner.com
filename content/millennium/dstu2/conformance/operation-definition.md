@@ -9,9 +9,9 @@ title: OperationDefinition | DSTU 2 API
 
 ## Overview
 
-The OperationDefinition resource defines an [operation](http://hl7.org/fhir/dstu2/operations.html). This includes the inputs, outputs, description, and other items necessary to actually execute the operation. 
+The OperationDefinition resource defines an [operation](http://hl7.org/fhir/dstu2/operations.html). This includes the inputs, outputs, description, and other items necessary to actually execute the operation.
 
-This resource only exposes the custom operations our server defines. Operations that are defined as part of another implementation guide are referenced directly instead of being duplicated within this server. While the HL7 FHIR<sup>®</sup> specification also supports describing named queries with this resource, we do not currently support any custom named queries. 
+This resource only exposes the custom operations our server defines. Operations that are defined as part of another implementation guide are referenced directly instead of being duplicated within this server. While the HL7 FHIR<sup>®</sup> specification also supports describing named queries with this resource, we do not currently support any custom named queries.
 
 The following fields are returned if valued:
 
@@ -47,7 +47,7 @@ _Implementation Notes_
 
     `https://fhir-ehr.cerner.com/dstu2/OperationDefinition/binary-autogen-ccd-if`
 
-    `https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/OperationDefinition/binary-autogen-ccd-if`
+    `https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/OperationDefinition/binary-autogen-ccd-if`
 
 
 ### Authorization Types

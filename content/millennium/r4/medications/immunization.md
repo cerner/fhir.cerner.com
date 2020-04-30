@@ -62,7 +62,7 @@ Search for Immunizations that meet supplied query parameters:
 
 Notes:
 
-* The `date` parameter may be provided: 
+* The `date` parameter may be provided:
   * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
   * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
@@ -74,7 +74,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization?patient=1316020
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization?patient=12724066
 
 #### Response
 
@@ -103,7 +103,7 @@ List an individual Immunization by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M43434511
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
 
 #### Response
 
@@ -136,7 +136,7 @@ Create a new Immunization.
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization
 
 #### Body
 
@@ -152,7 +152,7 @@ Content-Type: application/fhir+json
 Date: Sun, 30 Jun 2019 10:35:00 GMT
 Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/147391087
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
@@ -189,7 +189,7 @@ Update an Immunization.
 
 #### Request
 
-    PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Immunization/M11145305
+    PUT https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
 
 #### Body
 

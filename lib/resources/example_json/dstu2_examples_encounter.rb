@@ -2,359 +2,250 @@ module Cerner
   module Resources
 
     DSTU2_ENCOUNTER ||= {
-      "resourceType": "Encounter",
-      "id": "4027918",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2016-06-27T15:01:18.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Discharged&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Wed Jun 22 21:05:00 2016 (UTC)&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Who, Doctor&lt;/p>&lt;/div>"
-      },
-      "identifier": [{
-        "use": "usual",
-        "type": {
-          "text": "FIN NBR"
+        "resourceType": "Encounter",
+        "id": "97953477",
+        "meta": {
+            "versionId": "2",
+            "lastUpdated": "2020-03-05T16:53:11.000Z"
         },
-        "system": "urn:oid:3.3.3.3.3.3",
-        "value": "20003412",
+        "text": {
+            "status": "generated",
+            "div": "<div><p><b>Encounter</b></p><p><b>Patient Name</b>: SMART, NANCY</p><p><b>Location</b>: Model Hospital, MX Hospital, MAT, MB01, A</p><p><b>Type</b>: Inpatient</p><p><b>Class</b>: Inpatient</p><p><b>Status</b>: in Progress</p><p><b>Period Start Date</b>: Mar  4, 2020  5:01 P.M. UTC</p><p><b>Reason For Visit</b>: Maternity</p><p><b>Attending Physician</b>: Carter, Kristin Cerner</p></div>"
+        },
+        "extension": [
+            {
+                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/encounter-guarantor",
+                "extension": [
+                    {
+                        "url": "party",
+                        "valueReference": {
+                            "reference": "Patient/12724066",
+                            "display": "SMART, NANCY"
+                        }
+                    },
+                    {
+                        "url": "period",
+                        "valuePeriod": {
+                            "start": "2020-03-04T17:19:56.000Z"
+                        }
+                    }
+                ]
+            }
+        ],
+        "identifier": [
+            {
+                "use": "usual",
+                "type": {
+                    "text": "FIN NBR"
+                },
+                "value": "16000",
+                "period": {
+                    "start": "2020-03-04T17:19:56.000Z"
+                }
+            }
+        ],
+        "status": "in-progress",
+        "class": "inpatient",
+        "type": [
+            {
+                "text": "Inpatient"
+            }
+        ],
+        "priority": {
+            "text": "Labor and Delivery"
+        },
+        "patient": {
+            "reference": "Patient/12724066",
+            "display": "SMART, NANCY"
+        },
+        "participant": [
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v3/ParticipationType",
+                                "code": "ADM",
+                                "display": "admitter",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Admitting Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-05T16:53:11.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/4122622",
+                    "display": "Cerner Test, Physician - Hospitalist Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v3/ParticipationType",
+                                "code": "ATND",
+                                "display": "attender",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Attending Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-05T16:53:11.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/11817978",
+                    "display": "Carter, Kristin Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v3/ParticipationType",
+                                "code": "ATND",
+                                "display": "attender",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Attending Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-04T17:19:56.000Z",
+                    "end": "2020-03-05T16:53:11.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/4122630",
+                    "display": "Cerner Test, Physician - Women's Health Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "text": "Other"
+                    }
+                ],
+                "period": {
+                    "start": "2020-04-21T16:19:37.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12742510",
+                    "display": "Kaehr, Andrew"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "text": "Registered Nurse"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-05T16:53:00.000Z",
+                    "end": "2020-03-06T09:01:27.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/683925",
+                    "display": "Cerner Test, Women's Health - Nurse Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v3/ParticipationType",
+                                "code": "REF",
+                                "display": "referrer",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Referring Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-04T17:19:56.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/4122630",
+                    "display": "Cerner Test, Physician - Women's Health Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "text": "Database Coordinator"
+                    }
+                ],
+                "period": {
+                    "start": "2020-03-13T16:20:00.000Z",
+                    "end": "2020-03-14T05:01:18.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12724045",
+                    "display": "Graham, Joshua"
+                }
+            }
+        ],
         "period": {
-          "start": "2016-06-22T21:06:58.000Z"
-        }
-      }],
-      "status": "finished",
-      "class": "inpatient",
-      "type": [{
-        "text": "Inpatient"
-      }],
-      "patient": {
-        "reference": "Patient/4342010",
-        "display": "Smart, Joe"
-      },
-      "participant": [{
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "ADM",
-            "display": "admitter",
-            "userSelected": false
-          }],
-          "text": "Admitting Physician"
-        }],
-        "period": {
-          "start": "2016-11-09T18:07:16.000Z"
+            "start": "2020-03-04T17:01:59.000Z"
         },
-        "individual": {
-          "reference": "Practitioner/1",
-          "display": "Who, Doctor"
-        }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "ADM",
-            "display": "admitter",
-            "userSelected": false
-          }],
-          "text": "Admitting Physician"
-        }],
-        "period": {
-          "start": "2016-11-09T15:44:00.000Z"
+        "reason": [
+            {
+                "text": "Maternity"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/admit-source",
+                        "code": "other",
+                        "display": "Other",
+                        "userSelected": false
+                    }
+                ],
+                "text": "Information Not Available"
+            }
         },
-        "individual": {
-          "reference": "Practitioner/2048007",
-          "display": "Song, River"
+        "location": [
+            {
+                "location": {
+                    "reference": "Location/31100793",
+                    "display": "Model Hospital, MX Hospital, MAT, MB01, A"
+                },
+                "status": "active"
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/675844"
         }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "ADM",
-            "display": "admitter",
-            "userSelected": false
-          }],
-          "text": "Admitting Physician"
-        }],
-        "period": {
-          "start": "2016-06-22T21:06:58.000Z"
-        },
-        "individual": {
-          "reference": "Practitioner/1912007",
-          "display": "Who, Doctor"
-        }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "ATND",
-            "display": "attender",
-            "userSelected": false
-          }],
-          "text": "Attending Physician"
-        }],
-        "period": {
-          "start": "2016-06-22T21:06:58.000Z"
-        },
-        "individual": {
-          "reference": "Practitioner/1912007",
-          "display": "Song, River"
-        }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "PPRF",
-            "display": "primary performer",
-            "userSelected": false
-          }],
-          "text": "Ordering Physician"
-        }],
-        "period": {
-          "start": "2016-06-27T15:03:36.000Z"
-        },
-        "individual": {
-          "reference": "Practitioner/1912007",
-          "display": "Song, River"
-        }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "PART",
-            "display": "Participation",
-            "userSelected": false
-          }],
-          "text": "Other"
-        }],
-        "period": {
-          "start": "2016-06-23T18:34:38.000Z",
-          "end": "2016-06-23T18:34:38.000Z"
-        },
-        "individual": {
-          "reference": "Practitioner/1590015",
-          "display": "Strange, Doctor"
-        }
-      }, {
-        "type": [{
-          "coding": [{
-            "system": "http://hl7.org/fhir/v3/ParticipationType",
-            "code": "REF",
-            "display": "referrer",
-            "userSelected": false
-          }],
-          "text": "Referring Physician"
-        }],
-        "period": {
-          "start": "2016-06-22T21:06:58.000Z"
-        },
-        "individual": {
-          "reference": "Practitioner/1912007",
-          "display": "Song, River"
-        }
-      }],
-      "period": {
-        "start": "2016-06-22T21:05:00.000Z"
-      },
-      "location": [{
-        "location": {
-          "reference": "Location/35646785",
-          "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A"
-        },
-        "status": "completed"
-      }],
-      "serviceProvider": {
-        "reference": "Organization/619848"
-      }
     }
 
     DSTU2_ENCOUNTER_BUNDLE ||= {
-      "entry": [{
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4027918",
-        "resource": {
-          "class": "inpatient",
-          "id": "4027918",
-          "identifier": [{
-            "period": {
-              "start": "2016-06-22T21:06:58.000Z"
-            },
-            "system": "urn:oid:3.3.3.3.3.3",
-            "type": {
-              "text": "FIN NBR"
-            },
-            "use": "usual",
-            "value": "20003412"
-          }],
-          "location": [{
-            "location": {
-              "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A",
-              "reference": "Location/35646785"
-            },
-            "status": "completed"
-          }],
-          "meta": {
-            "lastUpdated": "2016-06-27T15:01:18.000Z",
-            "versionId": "1"
-          },
-          "participant": [{
-              "individual": {
-                "display": "Who, Doctor",
-                "reference": "Practitioner/1"
-              },
-              "period": {
-                "start": "2016-11-09T18:07:16.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "ADM",
-                  "display": "admitter",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Admitting Physician"
-              }]
-            },
+        "resourceType": "Bundle",
+        "id": "73b0b7c8-e5e0-4e72-96f9-dcfb257fc40a",
+        "type": "searchset",
+        "total": 1,
+        "link": [
             {
-              "individual": {
-                "display": "Song, River",
-                "reference": "Practitioner/2048007"
-              },
-              "period": {
-                "start": "2016-11-09T15:44:00.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "ADM",
-                  "display": "admitter",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Admitting Physician"
-              }]
-            },
-            {
-              "individual": {
-                "display": "Strange, Doctor",
-                "reference": "Practitioner/1912007"
-              },
-              "period": {
-                "start": "2016-06-22T21:06:58.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "ADM",
-                  "display": "admitter",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Admitting Physician"
-              }]
-            },
-            {
-              "individual": {
-                "display": "Strange, Doctor",
-                "reference": "Practitioner/1912007"
-              },
-              "period": {
-                "start": "2016-06-22T21:06:58.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "ATND",
-                  "display": "attender",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Attending Physician"
-              }]
-            },
-            {
-              "individual": {
-                "display": "Strange, Doctor",
-                "reference": "Practitioner/1912007"
-              },
-              "period": {
-                "start": "2016-06-27T15:03:36.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "PPRF",
-                  "display": "primary performer",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Ordering Physician"
-              }]
-            },
-            {
-              "individual": {
-                "display": "Frankenstein, Doctor",
-                "reference": "Practitioner/1590015"
-              },
-              "period": {
-                "end": "2016-06-23T18:34:38.000Z",
-                "start": "2016-06-23T18:34:38.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "PART",
-                  "display": "Participation",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Other"
-              }]
-            },
-            {
-              "individual": {
-                "display": "Strange, Doctor",
-                "reference": "Practitioner/1912007"
-              },
-              "period": {
-                "start": "2016-06-22T21:06:58.000Z"
-              },
-              "type": [{
-                "coding": [{
-                  "code": "REF",
-                  "display": "referrer",
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "userSelected": false
-                }],
-                "text": "Referring Physician"
-              }]
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066"
             }
-          ],
-          "patient": {
-            "display": "Smart, Joe",
-            "reference": "Patient/4342010"
-          },
-          "period": {
-            "start": "2016-06-22T21:05:00.000Z"
-          },
-          "resourceType": "Encounter",
-          "serviceProvider": {
-            "reference": "Organization/619848"
-          },
-          "status": "finished",
-          "text": {
-            "div": "&lt;div>&lt;p>&lt;b>Encounter&lt;/b>&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline East Medical Center, BE Hospital, 1N, 0152, A&lt;/p>&lt;p>&lt;b>Type&lt;/b>: Inpatient&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Discharged&lt;/p>&lt;p>&lt;b>Period Start Date&lt;/b>: Wed Jun 22 21:05:00 2016 (UTC)&lt;/p>&lt;p>&lt;b>Attending Physician&lt;/b>: Strange, Doctor&lt;/p>&lt;/div>",
-            "status": "generated"
-          },
-          "type": [{
-            "text": "Inpatient"
-          }]
-        }
-      }],
-      "id": "9ae23e0d-8335-4dec-ba53-6dabe322dd43",
-      "link": [{
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?patient=4342010"
-      }],
-      "resourceType": "Bundle",
-      "total": 1,
-      "type": "searchset"
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97953477",
+                "resource": DSTU2_ENCOUNTER
+            }
+        ]
     }
-
 
   end
 end

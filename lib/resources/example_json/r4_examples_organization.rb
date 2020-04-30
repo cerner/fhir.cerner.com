@@ -1,232 +1,184 @@
 module Cerner
   module Resources
     R4_ORGANIZATION_ENTRY ||= {
-       "resourceType": "Organization",
-       "id": "2113010",
-       "meta": {
-         "versionId": "0",
-         "lastUpdated": "2019-11-27T02:18:49Z"
-       },
-       "text": {
-         "status": "generated",
-         "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: fhir-org1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;NPI&lt;/b&gt;: FHIR-NPI-1011&lt;/p&gt;&lt;/div&gt;"
-       },
-       "identifier": [
-         {
-           "use": "official",
-           "type": {
-             "coding": [
-               {
-                 "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
-                 "code": "NPI",
-                 "display": "Organization NPI",
-                 "userSelected": true
-               },
-               {
-                 "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                 "code": "NPI",
-                 "display": "National provider identifier"
-               }
-             ],
-             "text": "Organization NPI"
-           },
-           "system": "http://hl7.org/fhir/sid/us-npi",
-           "value": "FHIR-NPI-1011"
-         }
-       ],
-       "active": true,
-       "type": [
-         {
-           "coding": [
-             {
-               "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-               "code": "GOVTDEPT",
-               "display": "Government Department",
-               "userSelected": true
-             },
-             {
-               "system": "http://terminology.hl7.org/CodeSystem/organization-type",
-               "code": "govt",
-               "display": "Government"
-             }
-           ],
-           "text": "Government Department"
-         }
-       ],
-       "name": "fhir-org1",
-       "telecom": [
-         {
-           "extension": [
-             {
-               "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-               "valueCode": "unknown"
-             }
-           ]
-         }
-       ],
-       "address": [
-         {
-           "extension": [
-             {
-               "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-               "valueCode": "unknown"
-             }
-           ]
-         }
-       ]
+        "resourceType": "Organization",
+        "id": "675844",
+        "meta": {
+            "versionId": "29",
+            "lastUpdated": "2018-05-22T16:46:28Z"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: Model Hospital</p><p><b>Status</b>: Active</p><p><b>TAXID</b>: 123456785</p></div>"
+        },
+        "identifier": [
+            {
+                "use": "official",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/334",
+                            "code": "TAXID",
+                            "display": "zzTax Identifier",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "TAX",
+                            "display": "Tax ID number"
+                        }
+                    ],
+                    "text": "zzTax Identifier"
+                },
+                "system": "urn:oid:2.16.840.1.113883.4.4",
+                "value": "123456785"
+            }
+        ],
+        "active": true,
+        "type": [
+            {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                        "code": "EMPLOYER",
+                        "display": "Employer",
+                        "userSelected": true
+                    }
+                ],
+                "text": "Employer"
+            },
+            {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                        "code": "PLACEOFSVC",
+                        "display": "Place of Service",
+                        "userSelected": true
+                    },
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                        "code": "prov",
+                        "display": "Healthcare Provider"
+                    }
+                ],
+                "text": "Place of Service"
+            },
+            {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                        "code": "CLIENT",
+                        "display": "Client",
+                        "userSelected": true
+                    }
+                ],
+                "text": "Client"
+            },
+            {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                        "code": "LABORATORY",
+                        "display": "Exchange Lab",
+                        "userSelected": true
+                    }
+                ],
+                "text": "Exchange Lab"
+            },
+            {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                        "code": "FACILITY",
+                        "display": "Facility",
+                        "userSelected": true
+                    }
+                ],
+                "text": "Facility"
+            }
+        ],
+        "name": "Model Hospital",
+        "telecom": [
+            {
+                "system": "phone",
+                "value": "5555550013",
+                "use": "work"
+            }
+        ],
+        "address": [
+            {
+                "use": "work",
+                "text": "6276 Rockriver Drive\nKansas City, MO 64117\nUS",
+                "line": [
+                    "6276 Rockriver Drive"
+                ],
+                "city": "Kansas City",
+                "state": "MO",
+                "postalCode": "64117",
+                "country": "US"
+            },
+            {
+                "use": "billing",
+                "text": "6276 Rockriver Drive\nKansas City, MO 64117\nUS",
+                "line": [
+                    "6276 Rockriver Drive"
+                ],
+                "city": "Kansas City",
+                "state": "MO",
+                "postalCode": "64117",
+                "country": "US"
+            },
+            {
+                "use": "billing",
+                "text": "6276 Rockriver Drive\nKansas City, MO 64117\nUS",
+                "line": [
+                    "6276 Rockriver Drive"
+                ],
+                "city": "Kansas City",
+                "state": "MO",
+                "postalCode": "64117",
+                "country": "US"
+            },
+            {
+                "text": "6276 Rockriver Drive\nKansas City, MO 64117\nUS",
+                "line": [
+                    "6276 Rockriver Drive"
+                ],
+                "city": "Kansas City",
+                "state": "MO",
+                "postalCode": "64117",
+                "country": "US"
+            },
+            {
+                "text": "6276 Rockriver Drive\nKansas City, MO 64117\nUS",
+                "line": [
+                    "6276 Rockriver Drive"
+                ],
+                "city": "Kansas City",
+                "state": "MO",
+                "postalCode": "64117",
+                "country": "US"
+            }
+        ]
     }
 
     R4_ORGANIZATION_BUNDLE ||= {
-       "resourceType": "Bundle",
-       "id": "c95d5aee-f885-4459-8de9-22e2c851bb76",
-       "type": "searchset",
-       "total": 1,
-       "link": [
-         {
-           "relation": "self",
-           "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca//Organization?_id=1750115"
-         }
-       ],
-       "entry": [
-         {
-           "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca//Organization/1750115",
-           "resource": {
-             "resourceType": "Organization",
-             "id": "1750115",
-             "meta": {
-               "versionId": "2",
-               "lastUpdated": "2018-04-27T19:46:08Z"
-             },
-             "text": {
-               "status": "generated",
-               "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: RCA Testing Organization&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;NPI&lt;/b&gt;: 1234567893&lt;/p&gt;&lt;p&gt;&lt;b&gt;TAXID&lt;/b&gt;: 48-7283726321&lt;/p&gt;&lt;/div&gt;"
-             },
-             "identifier": [
-               {
-                 "use": "official",
-                 "type": {
-                   "coding": [
-                     {
-                       "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
-                       "code": "TAXID",
-                       "display": "Tax Identifier",
-                       "userSelected": true
-                     },
-                     {
-                       "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                       "code": "TAX",
-                       "display": "Tax ID number"
-                     }
-                   ],
-                   "text": "Tax Identifier"
-                 },
-                 "system": "urn:oid:2.16.840.1.113883.4.4",
-                 "value": "48-7283726321"
-               },
-               {
-                 "use": "official",
-                 "type": {
-                   "coding": [
-                     {
-                       "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
-                       "code": "NPI",
-                       "display": "Organization NPI",
-                       "userSelected": true
-                     },
-                     {
-                       "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                       "code": "NPI",
-                       "display": "National provider identifier"
-                     }
-                   ],
-                   "text": "Organization NPI"
-                 },
-                 "system": "http://hl7.org/fhir/sid/us-npi",
-                 "value": "1234567893"
-               }
-             ],
-             "active": true,
-             "type": [
-               {
-                 "coding": [
-                   {
-                     "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                     "code": "EMPLOYER",
-                     "display": "Employer",
-                     "userSelected": true
-                   }
-                 ],
-                 "text": "Employer"
-               },
-               {
-                 "coding": [
-                   {
-                     "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                     "code": "RCCLINIC",
-                     "display": "RCA Clinic Organizations",
-                     "userSelected": true
-                   },
-                   {
-                     "system": "http://terminology.hl7.org/CodeSystem/organization-type",
-                     "code": "prov",
-                     "display": "Healthcare Provider"
-                   }
-                 ],
-                 "text": "RCA Clinic Organizations"
-               },
-               {
-                 "coding": [
-                   {
-                     "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                     "code": "FACILITY",
-                     "display": "Facility",
-                     "userSelected": true
-                   }
-                 ],
-                 "text": "Facility"
-               },
-               {
-                 "coding": [
-                   {
-                     "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                     "code": "CLIENT",
-                     "display": "Client",
-                     "userSelected": true
-                   }
-                 ],
-                 "text": "Client"
-               }
-             ],
-             "name": "RCA Testing Organization",
-             "telecom": [
-               {
-                 "system": "phone",
-                 "value": "9138273648",
-                 "use": "work"
-               },
-               {
-                 "system": "phone",
-                 "value": "9192739427",
-                 "use": "work"
-               }
-             ],
-             "address": [
-               {
-                 "use": "work",
-                 "text": "9600 Metcalf Avenue\nOverland Park, KS 66212\nUSA",
-                 "line": [
-                   "9600 Metcalf Avenue"
-                 ],
-                 "city": "Overland Park",
-                 "district": "Johnson",
-                 "state": "KS",
-                 "postalCode": "66212",
-                 "country": "USA"
-               }
-             ]
-           }
-         }
-       ]
+        "resourceType": "Bundle",
+        "id": "572dbd7f-2505-41cd-a9ac-240db77545a1",
+        "type": "searchset",
+        "total": 1,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization?_id=675844"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/675844",
+                "resource": R4_ORGANIZATION_ENTRY
+            }
+        ]
     }
 
     R4_ORGANIZATION_CREATE ||= {

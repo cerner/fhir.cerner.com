@@ -1,568 +1,345 @@
 module Cerner
   module Resources
 
-    DSTU2_OBSERVATION_BUNDLE ||=
-      {
+    DSTU2_OBSERVATION_BUNDLE ||= {
         "resourceType": "Bundle",
-        "id": "41ac49a5-cfc1-4342-929f-2a1cad724d8a",
+        "id": "32633969-4644-4075-8403-3c2169cb3ce1",
         "type": "searchset",
-        "link": [{
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?patient=3998008&amp;_count=50"
-        }],
-        "entry": [{
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-5525867",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "93-5525867",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "229819007",
-                "display": "Tobacco use and exposure (observable entity)"
-              }, {
-                "system": "http://loinc.org",
-                "code": "72166-2",
-                "display": "Tobacco smoking status NHIS"
-              }],
-              "text": "Tobacco"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "valueCodeableConcept": {
-              "text": "Medium Risk"
-            },
-            "related": [{
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930400"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930404-0"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930404-1"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930316"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930360"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930372"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930368"
-              }
-            }, {
-              "type": "has-member",
-              "target": {
-                "reference": "Observation/5525867-q6930376"
-              }
-            }]
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930400",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930400",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "72166-2"
-              }],
-              "text": "SHX Tobacco use"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "428041000124106",
-                "display": "Occasional tobacco smoker (finding)"
-              }],
-              "text": "Current some day smoker"
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12724067&_count=50"
             }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930404-0",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930404-0",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco type"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "text": "Cigarettes"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930404-1",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930404-1",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco type"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "text": "Chewing tobacco"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930316",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930316",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco number of years"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueString": "10"
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930360",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930360",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco started at age"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueString": "22 Years"
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930372",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930372",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco readiness to change"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "373067005",
-                "display": "No (qualifier value)"
-              }],
-              "text": "No"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930368",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930368",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco previous treatment"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "260413007",
-                "display": "None (qualifier value)"
-              }],
-              "text": "None"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/5525867-q6930376",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "5525867-q6930376",
-            "meta": {
-              "versionId": "1252402",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "text": "SHX Tobacco household concerns"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "issued": "2016-01-26T21:58:41.000Z",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "373066001",
-                "display": "Yes (qualifier value)"
-              }],
-              "text": "Yes"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/93-a5525861",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "93-a5525861",
-            "meta": {
-              "versionId": "5525861",
-              "lastUpdated": "2016-01-26T21:58:41.000Z"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "social-history",
-                "display": "Social History"
-              }],
-              "text": "Social History"
-            },
-            "code": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "229819007",
-                "display": "Tobacco use and exposure (observable entity)"
-              }, {
-                "system": "http://loinc.org",
-                "code": "72166-2",
-                "display": "Tobacco smoking status NHIS"
-              }],
-              "text": "Tobacco"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "valueCodeableConcept": {
-              "text": "Medium Risk"
-            }
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/BP-5851294-5851296",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "BP-5851294-5851296",
-            "meta": {
-              "versionId": "1-5851293-1-5851295",
-              "lastUpdated": "2016-01-26T20:03:52.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: final&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Vital Signs&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Systolic Blood Pressure: Systolic Blood Pressure Diastolic Blood Pressure: Diastolic Blood Pressure&lt;/p>&lt;p>&lt;b>Result&lt;/b>: Systolic Blood Pressure: 125 mmHg Diastolic Blood Pressure: 117 mmHg&lt;/p>&lt;p>&lt;b>Risk Level&lt;/b>: &amp;gt;HHI&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2016-01-26T20:01:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Systolic Blood Pressure: Low: 80 mmHg High: 120 mmHg Diastolic Blood Pressure: Low: 70 mmHg High: 80 mmHg&lt;/p>&lt;/div>"
-            },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "vital-signs",
-                "display": "Vital Signs"
-              }],
-              "text": "Vital Signs"
-            },
-            "code": {
-              "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": "75367002",
-                "display": "Blood pressure (observable entity)"
-              }, {
-                "system": "http://loinc.org",
-                "code": "55284-4",
-                "display": "Blood pressure systolic and diastolic"
-              }],
-              "text": "Blood pressure"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "encounter": {
-              "reference": "Encounter/3651924"
-            },
-            "effectiveDateTime": "2016-01-26T20:01:00.000Z",
-            "issued": "2016-01-26T20:01:08.000Z",
-            "interpretation": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/v2/0078",
-                "code": ">",
-                "display": "Off scale high"
-              }],
-              "text": ">HHI"
-            },
-            "component": [{
-              "code": {
-                "coding": [{
-                  "system": "http://loinc.org",
-                  "code": "8480-6",
-                  "display": "INTRAVASCULAR SYSTOLIC:PRES:PT:ARTERIAL SYSTEM:QN:"
-                }, {
-                  "system": "http://loinc.org",
-                  "code": "8480-6",
-                  "display": "Systolic blood pressure"
-                }],
-                "text": "Systolic Blood Pressure"
-              },
-              "valueQuantity": {
-                "value": 125,
-                "unit": "mmHg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mm[Hg]"
-              },
-              "referenceRange": [{
-                "low": {
-                  "value": 80,
-                  "unit": "mmHg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mm[Hg]"
-                },
-                "high": {
-                  "value": 120,
-                  "unit": "mmHg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mm[Hg]"
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/93-73033575",
+                "resource": {
+                    "resourceType": "Observation",
+                    "id": "93-73033575",
+                    "meta": {
+                        "versionId": "73033575",
+                        "lastUpdated": "2019-12-26T19:25:58.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Observation</b></p><p><b>Patient</b>: 12724067</p><p><b>Date</b>: Dec 26, 2019  7:25 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Code</b>: Tobacco</p></div>"
+                    },
+                    "status": "final",
+                    "category": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/observation-category",
+                                "code": "social-history",
+                                "display": "Social History"
+                            }
+                        ],
+                        "text": "Social History"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "229819007",
+                                "display": "Tobacco use and exposure (observable entity)"
+                            },
+                            {
+                                "system": "http://loinc.org",
+                                "code": "72166-2"
+                            }
+                        ],
+                        "text": "Tobacco"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724067"
+                    },
+                    "issued": "2019-12-26T19:25:58.000Z",
+                    "dataAbsentReason": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/data-absent-reason",
+                                "code": "unknown",
+                                "display": "Unknown"
+                            }
+                        ],
+                        "text": "Unknown"
+                    },
+                    "related": [
+                        {
+                            "type": "has-member",
+                            "target": {
+                                "reference": "Observation/73033575-q4625825"
+                            }
+                        }
+                    ]
                 }
-              }]
-            }, {
-              "code": {
-                "coding": [{
-                  "system": "http://loinc.org",
-                  "code": "8462-4",
-                  "display": "INTRAVASCULAR DIASTOLIC:PRES:PT:ARTERIAL SYSTEM:QN:"
-                }, {
-                  "system": "http://loinc.org",
-                  "code": "8462-4",
-                  "display": "Diastolic blood pressure"
-                }],
-                "text": "Diastolic Blood Pressure"
-              },
-              "valueQuantity": {
-                "value": 117,
-                "unit": "mmHg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mm[Hg]"
-              },
-              "referenceRange": [{
-                "low": {
-                  "value": 70,
-                  "unit": "mmHg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mm[Hg]"
-                },
-                "high": {
-                  "value": 80,
-                  "unit": "mmHg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mm[Hg]"
+            },
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/73033575-q4625825",
+                "resource": {
+                    "resourceType": "Observation",
+                    "id": "73033575-q4625825",
+                    "meta": {
+                        "versionId": "73033575",
+                        "lastUpdated": "2019-12-26T19:25:58.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Observation</b></p><p><b>Patient</b>: 12724067</p><p><b>Date</b>: Dec 26, 2019  7:25 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Question</b>: SHX Tobacco use</p><p><b>Response</b>: Never (less than 100 in lifetime)</p></div>"
+                    },
+                    "status": "final",
+                    "category": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/observation-category",
+                                "code": "social-history",
+                                "display": "Social History"
+                            }
+                        ],
+                        "text": "Social History"
+                    },
+                    "code": {
+                        "text": "SHX Tobacco use"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724067"
+                    },
+                    "issued": "2019-12-26T19:25:58.000Z",
+                    "valueCodeableConcept": {
+                        "text": "Never (less than 100 in lifetime)"
+                    }
                 }
-              }]
-            }]
-          }
-        }, {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M5851276",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "M5851276",
-            "meta": {
-              "versionId": "1-5851275",
-              "lastUpdated": "2016-01-26T19:54:14.000Z"
             },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Auth (Verified)&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Laboratory&lt;/p>&lt;p>&lt;b>Code&lt;/b>: RBC&lt;/p>&lt;p>&lt;b>Result&lt;/b>: 5 x10(3)/mcL&lt;/p>&lt;p>&lt;b>Risk Level&lt;/b>: Normal&lt;/p>&lt;p>&lt;b>Date&lt;/b>: 2016-01-26T19:41:00.000Z&lt;/p>&lt;p>&lt;b>Risk Level Detail&lt;/b>: Low: 4 x10(3)/mcL High: 6 x10(3)/mcL&lt;/p>&lt;/div>"
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M197281704",
+                "resource": {
+                    "resourceType": "Observation",
+                    "id": "M197281704",
+                    "meta": {
+                        "versionId": "1-197281703",
+                        "lastUpdated": "2020-03-13T16:29:54.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Observation</b></p><p><b>Patient</b>: 12724067</p><p><b>Status</b>: Final</p><p><b>Category</b>: Laboratory</p><p><b>Code</b>: Estimated Creatinine Clearance</p><p><b>Result</b>: 122.60 mL/min</p><p><b>Date</b>: Mar 13, 2020  4:29 P.M. UTC</p></div>"
+                    },
+                    "status": "final",
+                    "category": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/observation-category",
+                                "code": "laboratory",
+                                "display": "Laboratory"
+                            }
+                        ],
+                        "text": "Laboratory"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://loinc.org",
+                                "code": "2164-2"
+                            }
+                        ],
+                        "text": "Estimated Creatinine Clearance"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724067"
+                    },
+                    "encounter": {
+                        "reference": "Encounter/97953480"
+                    },
+                    "effectiveDateTime": "2020-03-13T16:29:54.000Z",
+                    "issued": "2020-03-13T16:29:54.000Z",
+                    "valueQuantity": {
+                        "value": 122.60,
+                        "unit": "mL/min",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "mL/min"
+                    }
+                }
             },
-            "status": "final",
-            "category": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/observation-category",
-                "code": "laboratory",
-                "display": "Laboratory"
-              }],
-              "text": "Laboratory"
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/BP-197198008-197198010",
+                "resource": {
+                    "resourceType": "Observation",
+                    "id": "BP-197198008-197198010",
+                    "meta": {
+                        "versionId": "1-197198007-1-197198009",
+                        "lastUpdated": "2019-12-26T19:23:27.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Observation</b></p><p><b>Patient</b>: 12724067</p><p><b>Status</b>: Final</p><p><b>Category</b>: Vital Signs</p><p><b>Code</b>: Systolic Blood Pressure: Systolic Blood Pressure Diastolic Blood Pressure: Diastolic Blood Pressure</p><p><b>Result</b>: Systolic Blood Pressure: 138 mmHg Diastolic Blood Pressure: 90 mmHg</p><p><b>Risk Level</b>: Normal</p><p><b>Date</b>: Dec 26, 2019  7:23 P.M. UTC</p><p><b>Risk Level Detail</b>: Systolic Blood Pressure: 90-140 mmHg Diastolic Blood Pressure: 60-90 mmHg</p></div>"
+                    },
+                    "status": "final",
+                    "category": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/observation-category",
+                                "code": "vital-signs",
+                                "display": "Vital Signs"
+                            }
+                        ],
+                        "text": "Vital Signs"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "75367002",
+                                "display": "Blood pressure (observable entity)"
+                            },
+                            {
+                                "system": "http://loinc.org",
+                                "code": "55284-4"
+                            }
+                        ],
+                        "text": "Blood pressure"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724067"
+                    },
+                    "encounter": {
+                        "reference": "Encounter/97939521"
+                    },
+                    "effectiveDateTime": "2019-12-26T19:23:00.000Z",
+                    "issued": "2019-12-26T19:23:23.000Z",
+                    "interpretation": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/v2/0078",
+                                "code": "N",
+                                "display": "Normal"
+                            }
+                        ]
+                    },
+                    "component": [
+                        {
+                            "code": {
+                                "coding": [
+                                    {
+                                        "system": "http://loinc.org",
+                                        "code": "8480-6"
+                                    }
+                                ],
+                                "text": "Systolic Blood Pressure"
+                            },
+                            "valueQuantity": {
+                                "value": 138,
+                                "unit": "mmHg",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mm[Hg]"
+                            },
+                            "referenceRange": [
+                                {
+                                    "low": {
+                                        "value": 90,
+                                        "unit": "mmHg",
+                                        "system": "http://unitsofmeasure.org",
+                                        "code": "mm[Hg]"
+                                    },
+                                    "high": {
+                                        "value": 140,
+                                        "unit": "mmHg",
+                                        "system": "http://unitsofmeasure.org",
+                                        "code": "mm[Hg]"
+                                    },
+                                    "text": "90-140 mmHg"
+                                }
+                            ]
+                        },
+                        {
+                            "code": {
+                                "coding": [
+                                    {
+                                        "system": "http://loinc.org",
+                                        "code": "8462-4"
+                                    },
+                                    {
+                                        "system": "http://loinc.org",
+                                        "code": "8462-4"
+                                    }
+                                ],
+                                "text": "Diastolic Blood Pressure"
+                            },
+                            "valueQuantity": {
+                                "value": 90,
+                                "unit": "mmHg",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mm[Hg]"
+                            },
+                            "referenceRange": [
+                                {
+                                    "low": {
+                                        "value": 60,
+                                        "unit": "mmHg",
+                                        "system": "http://unitsofmeasure.org",
+                                        "code": "mm[Hg]"
+                                    },
+                                    "high": {
+                                        "value": 90,
+                                        "unit": "mmHg",
+                                        "system": "http://unitsofmeasure.org",
+                                        "code": "mm[Hg]"
+                                    },
+                                    "text": "60-90 mmHg"
+                                }
+                            ]
+                        }
+                    ]
+                }
             },
-            "code": {
-              "coding": [{
-                "system": "http://loinc.org",
-                "code": "789-8",
-                "display": "ERYTHROCYTES:NCNC:PT:BLD:QN:AUTOMATED COUNT"
-              }],
-              "text": "RBC"
-            },
-            "subject": {
-              "reference": "Patient/3998008"
-            },
-            "encounter": {
-              "reference": "Encounter/3651924"
-            },
-            "effectiveDateTime": "2016-01-26T19:41:00.000Z",
-            "issued": "2016-01-26T19:54:07.000Z",
-            "valueQuantity": {
-              "value": 5,
-              "unit": "x10(3)/mcL",
-              "system": "http://unitsofmeasure.org",
-              "code": "10*3/uL"
-            },
-            "interpretation": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/v2/0078",
-                "code": "N",
-                "display": "Normal"
-              }]
-            },
-            "comments": "{\\rtf1\\ansi\\ansicpg1252\\uc0\\deff0{\\fonttbl\r\n{\\f0\\fswiss\\fcharset0\\fprq2 Arial;}\r\n{\\f1\\froman\\fcharset2\\fprq2 Symbol;}}\r\n{\\colortbl;\\red0\\green0\\blue0;\\red255\\green255\\blue255;}\r\n{\\*\\generator TX_RTF32 10.1.323.501;}\r\n\\deftab1134\\pard\\plain\\f0\\fs24\\cb2\\chshdng0\\chcfpat0\\chcbpat2 This is interpretative data for RBC.  This should apply to all routed to service resources.\\par\\pard\\par }",
-            "referenceRange": [{
-              "low": {
-                "value": 4,
-                "unit": "x10(3)/mcL",
-                "system": "http://unitsofmeasure.org",
-                "code": "10*3/uL"
-              },
-              "high": {
-                "value": 6,
-                "unit": "x10(3)/mcL",
-                "system": "http://unitsofmeasure.org",
-                "code": "10*3/uL"
-              }
-            }]
-          }
-        }]
-      }
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M197198002",
+                "resource": {
+                    "resourceType": "Observation",
+                    "id": "M197198002",
+                    "meta": {
+                        "versionId": "1-197198001",
+                        "lastUpdated": "2019-12-26T19:23:12.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Observation</b></p><p><b>Patient</b>: 12724067</p><p><b>Status</b>: Final</p><p><b>Category</b>: Vital Signs</p><p><b>Code</b>: Height/Length Measured</p><p><b>Result</b>: 180 cm</p><p><b>Date</b>: Dec 26, 2019  7:21 P.M. UTC</p></div>"
+                    },
+                    "status": "final",
+                    "category": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/observation-category",
+                                "code": "vital-signs",
+                                "display": "Vital Signs"
+                            }
+                        ],
+                        "text": "Vital Signs"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://loinc.org",
+                                "code": "3137-7"
+                            }
+                        ],
+                        "text": "Height/Length Measured"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724067"
+                    },
+                    "encounter": {
+                        "reference": "Encounter/97939521"
+                    },
+                    "effectiveDateTime": "2019-12-26T19:21:00.000Z",
+                    "issued": "2019-12-26T19:22:59.000Z",
+                    "valueQuantity": {
+                        "value": 180,
+                        "unit": "cm",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "cm"
+                    }
+                }
+            }
+        ]
+    }
   end
 end

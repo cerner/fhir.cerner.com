@@ -2,762 +2,285 @@ module Cerner
   module Resources
 
     DSTU2_SLOT_ENTRY ||= {
-      "resourceType": "Slot",
-      "id": "21265426-633867-3121665-0",
-      "meta": {
-        "versionId": "0",
-        "lastUpdated": "2015-06-10T10:40:33.000-05:00"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2016-01-01T08:00:00.000-06:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2016-01-01T09:00:00.000-06:00&lt;/p&gt;&lt;/div&gt;"
-      },
-      "extension": [
-        {
-          "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-          "valueReference": {
-            "reference": "Location/633867"
-          }
-        }
-      ],
-      "type": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "394581000",
-            "display": "Community medicine"
-          }
+        "resourceType": "Slot",
+        "id": "24477854-21304876-62852027-0",
+        "meta": {
+            "versionId": "0",
+            "lastUpdated": "2018-12-03T08:10:42.000Z"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div><p><b>Slot</b></p><p><b>Type</b>: Established Patient</p><p><b>Start</b>: Jan  1, 2020  2:00 P.M. UTC</p><p><b>End</b>: Jan  1, 2020  2:15 P.M. UTC</p><p><b>ScheduleReference</b>: 24477854-21304876-62852027-0</p><p><b>Status</b>: Free</p></div>"
+        },
+        "extension": [
+            {
+                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                "valueReference": {
+                    "reference": "Location/21304876"
+                }
+            }
         ],
-        "text": "Same Day"
-      },
-      "schedule": {
-        "reference": "Schedule/21265426-633867-3121665-0"
-      },
-      "freeBusyType": "busy",
-      "start": "2016-01-01T08:00:00.000-06:00",
-      "end": "2016-01-01T09:00:00.000-06:00"
+        "type": {
+            "coding": [
+                {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                    "code": "24477854",
+                    "display": "Established Patient",
+                    "userSelected": true
+                }
+            ],
+            "text": "Established Patient"
+        },
+        "schedule": {
+            "reference": "Schedule/24477854-21304876-62852027-0"
+        },
+        "freeBusyType": "free",
+        "start": "2020-01-01T14:00:00.000Z",
+        "end": "2020-01-01T14:15:00.000Z"
     }
 
-  DSTU2_SLOT_BUNDLE ||= {
-    "resourceType": "Bundle",
-    "id": "3660d82e-9d9c-4059-900f-a43ec893e02a",
-    "type": "searchset",
-    "link": [
-      {
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C408443003&schedule.actor=Practitioner%2F2578010&start=2019&_count=5"
-      },
-      {
-        "relation": "next",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?-pageContext=8676dea6-9944-42e8-bd79-0deaafd16d06&-pageDirection=NEXT"
-      }
-    ],
-    "entry": [
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-0",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-0",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+    DSTU2_SLOT_BUNDLE ||= {
+        "resourceType": "Bundle",
+        "id": "a8e48b88-1c7f-4dc3-bb3a-fa2ebd4b5b75",
+        "type": "searchset",
+        "link": [
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-0"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:00:00.000Z",
-          "end": "2019-01-01T15:00:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-0",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-633867-7759739-0",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C24477854&schedule.actor=Practitioner%2F593923&start=2020&_count=50"
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867"
-              }
+                "relation": "next",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?-pageContext=25cc775c-1268-4953-b5a5-61fb77512b39&-pageDirection=NEXT"
             }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-633867-7759739-0"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:00:00.000Z",
-          "end": "2019-01-01T15:00:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-5",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-5",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+        ],
+        "entry": [
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-5"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:05:00.000Z",
-          "end": "2019-01-01T15:05:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-5",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-633867-7759739-5",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/24477854-21304876-62852027-0",
+                "resource": DSTU2_SLOT_ENTRY,
+                "search": {
+                    "mode": "match"
+                }
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-633867-7759739-5"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:05:00.000Z",
-          "end": "2019-01-01T15:05:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-10",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-10",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/24477854-21304876-62852027-15",
+                "resource": {
+                    "resourceType": "Slot",
+                    "id": "24477854-21304876-62852027-15",
+                    "meta": {
+                        "versionId": "0",
+                        "lastUpdated": "2018-12-03T08:10:42.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Slot</b></p><p><b>Type</b>: Established Patient</p><p><b>Start</b>: Jan  1, 2020  2:15 P.M. UTC</p><p><b>End</b>: Jan  1, 2020  2:30 P.M. UTC</p><p><b>ScheduleReference</b>: 24477854-21304876-62852027-15</p><p><b>Status</b>: Free</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                            "valueReference": {
+                                "reference": "Location/21304876"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                                "code": "24477854",
+                                "display": "Established Patient",
+                                "userSelected": true
+                            }
+                        ],
+                        "text": "Established Patient"
+                    },
+                    "schedule": {
+                        "reference": "Schedule/24477854-21304876-62852027-15"
+                    },
+                    "freeBusyType": "free",
+                    "start": "2020-01-01T14:15:00.000Z",
+                    "end": "2020-01-01T14:30:00.000Z"
+                },
+                "search": {
+                    "mode": "match"
+                }
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/24477854-21304876-62852027-30",
+                "resource": {
+                    "resourceType": "Slot",
+                    "id": "24477854-21304876-62852027-30",
+                    "meta": {
+                        "versionId": "0",
+                        "lastUpdated": "2018-12-03T08:10:42.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Slot</b></p><p><b>Type</b>: Established Patient</p><p><b>Start</b>: Jan  1, 2020  2:30 P.M. UTC</p><p><b>End</b>: Jan  1, 2020  2:45 P.M. UTC</p><p><b>ScheduleReference</b>: 24477854-21304876-62852027-30</p><p><b>Status</b>: Free</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                            "valueReference": {
+                                "reference": "Location/21304876"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                                "code": "24477854",
+                                "display": "Established Patient",
+                                "userSelected": true
+                            }
+                        ],
+                        "text": "Established Patient"
+                    },
+                    "schedule": {
+                        "reference": "Schedule/24477854-21304876-62852027-30"
+                    },
+                    "freeBusyType": "free",
+                    "start": "2020-01-01T14:30:00.000Z",
+                    "end": "2020-01-01T14:45:00.000Z"
+                },
+                "search": {
+                    "mode": "match"
+                }
             }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-10"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:10:00.000Z",
-          "end": "2019-01-01T15:10:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      }
-    ]
-  }
+        ]
+    }
 
-  DSTU2_SLOT_BUNDLE_INCLUDE_SCHEDULE ||= {
-    "resourceType": "Bundle",
-    "id": "009b7705-a9e7-4504-8726-732263eaa015",
-    "type": "searchset",
-    "link": [
-      {
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?slot-type=http%3A%2F%2Fsnomed.info%2Fsct%7C408443003&schedule.actor=Practitioner%2F2578010&start=2019&_include=Slot%3Aschedule&_count=5"
-      },
-      {
-        "relation": "next",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?_include=Slot%3Aschedule&-pageContext=77c5e8be-9be4-497d-9e96-7516f237c138&-pageDirection=NEXT"
-      }
-    ],
-    "entry": [
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-0",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-0",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+    DSTU2_SLOT_BUNDLE_INCLUDE_SCHEDULE ||= {
+        "resourceType": "Bundle",
+        "id": "e2b19242-1e3a-40e7-9d62-0ae26f9810b3",
+        "type": "searchset",
+        "link": [
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C24477854&schedule.actor=Practitioner%2F593923&start=2020&_include=Slot%3Aschedule&_count=50"
+            },
+            {
+                "relation": "next",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?_include=Slot%3Aschedule&-pageContext=b82b118b-d7e3-4a41-84d5-8d0d39faa806&-pageDirection=NEXT"
             }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-0"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:00:00.000Z",
-          "end": "2019-01-01T15:00:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-0",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-633867-7759739-0",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+        ],
+        "entry": [
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-633867-7759739-0"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:00:00.000Z",
-          "end": "2019-01-01T15:00:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-5",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-5",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
-            {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-5"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:05:00.000Z",
-          "end": "2019-01-01T15:05:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-7759739-5",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-633867-7759739-5",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-633867-7759739-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
-            {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-633867-7759739-5"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:05:00.000Z",
-          "end": "2019-01-01T15:05:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-4048128-7759739-10",
-        "resource": {
-          "resourceType": "Slot",
-          "id": "21265426-4048128-7759739-10",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2019-09-03T19:32:41.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan  1, 2019  2:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan  1, 2019  3:10 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;ScheduleReference&lt;/b&gt;: 21265426-4048128-7759739-10&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
-            {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128"
-              }
-            }
-          ],
-          "type": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              },
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              }
-            ],
-            "text": "Same Day"
-          },
-          "schedule": {
-            "reference": "Schedule/21265426-4048128-7759739-10"
-          },
-          "freeBusyType": "free",
-          "start": "2019-01-01T14:10:00.000Z",
-          "end": "2019-01-01T15:10:00.000Z"
-        },
-        "search": {
-          "mode": "match"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-0",
-        "resource": {
-          "resourceType": "Schedule",
-          "id": "21265426-4048128-7759739-0",
-          "text": {
-            "status": "extensions",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
-            {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128",
-                "display": "Baseline East"
-              }
-            }
-          ],
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "408443003",
-                  "display": "General medical practice"
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/24477854-21304876-62852027-0",
+                "resource": DSTU2_SLOT_ENTRY,
+                "search": {
+                    "mode": "match"
                 }
-              ],
-              "text": "Same Day"
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Howdeshell, Tami"
-          }
-        },
-        "search": {
-          "mode": "include"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-7759739-0",
-        "resource": {
-          "resourceType": "Schedule",
-          "id": "21265426-633867-7759739-0",
-          "text": {
-            "status": "extensions",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867",
-                "display": "Baseline West"
-              }
-            }
-          ],
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "408443003",
-                  "display": "General medical practice"
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/24477854-21304876-62852027-15",
+                "resource": {
+                    "resourceType": "Slot",
+                    "id": "24477854-21304876-62852027-15",
+                    "meta": {
+                        "versionId": "0",
+                        "lastUpdated": "2018-12-03T08:10:42.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Slot</b></p><p><b>Type</b>: Established Patient</p><p><b>Start</b>: Jan  1, 2020  2:15 P.M. UTC</p><p><b>End</b>: Jan  1, 2020  2:30 P.M. UTC</p><p><b>ScheduleReference</b>: 24477854-21304876-62852027-15</p><p><b>Status</b>: Free</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                            "valueReference": {
+                                "reference": "Location/21304876"
+                            }
+                        }
+                    ],
+                    "type": {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                                "code": "24477854",
+                                "display": "Established Patient",
+                                "userSelected": true
+                            }
+                        ],
+                        "text": "Established Patient"
+                    },
+                    "schedule": {
+                        "reference": "Schedule/24477854-21304876-62852027-15"
+                    },
+                    "freeBusyType": "free",
+                    "start": "2020-01-01T14:15:00.000Z",
+                    "end": "2020-01-01T14:30:00.000Z"
+                },
+                "search": {
+                    "mode": "match"
                 }
-              ],
-              "text": "Same Day"
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Howdeshell, Tami"
-          }
-        },
-        "search": {
-          "mode": "include"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-5",
-        "resource": {
-          "resourceType": "Schedule",
-          "id": "21265426-4048128-7759739-5",
-          "text": {
-            "status": "extensions",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128",
-                "display": "Baseline East"
-              }
-            }
-          ],
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "408443003",
-                  "display": "General medical practice"
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0",
+                "resource": {
+                    "resourceType": "Schedule",
+                    "id": "24477854-21304876-62852027-0",
+                    "text": {
+                        "status": "extensions",
+                        "div": "<div><p><b>Schedule</b></p><p><b>Type</b>: Established Patient</p><p><b>Practitioner</b>: Cerner Test, Physician - Primary Care Cerner</p><p><b>Location</b>: MX Clinic 1</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                            "valueReference": {
+                                "reference": "Location/21304876",
+                                "display": "MX Clinic 1"
+                            }
+                        }
+                    ],
+                    "type": [
+                        {
+                            "text": "Established Patient"
+                        }
+                    ],
+                    "actor": {
+                        "reference": "Practitioner/593923",
+                        "display": "Cerner Test, Physician - Primary Care Cerner"
+                    }
+                },
+                "search": {
+                    "mode": "include"
                 }
-              ],
-              "text": "Same Day"
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Howdeshell, Tami"
-          }
-        },
-        "search": {
-          "mode": "include"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-633867-7759739-5",
-        "resource": {
-          "resourceType": "Schedule",
-          "id": "21265426-633867-7759739-5",
-          "text": {
-            "status": "extensions",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
+            },
             {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/633867",
-                "display": "Baseline West"
-              }
-            }
-          ],
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "408443003",
-                  "display": "General medical practice"
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-15",
+                "resource": {
+                    "resourceType": "Schedule",
+                    "id": "24477854-21304876-62852027-15",
+                    "text": {
+                        "status": "extensions",
+                        "div": "<div><p><b>Schedule</b></p><p><b>Type</b>: Established Patient</p><p><b>Practitioner</b>: Cerner Test, Physician - Primary Care Cerner</p><p><b>Location</b>: MX Clinic 1</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
+                            "valueReference": {
+                                "reference": "Location/21304876",
+                                "display": "MX Clinic 1"
+                            }
+                        }
+                    ],
+                    "type": [
+                        {
+                            "text": "Established Patient"
+                        }
+                    ],
+                    "actor": {
+                        "reference": "Practitioner/593923",
+                        "display": "Cerner Test, Physician - Primary Care Cerner"
+                    }
+                },
+                "search": {
+                    "mode": "include"
                 }
-              ],
-              "text": "Same Day"
             }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Howdeshell, Tami"
-          }
-        },
-        "search": {
-          "mode": "include"
-        }
-      },
-      {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Schedule/21265426-4048128-7759739-10",
-        "resource": {
-          "resourceType": "Schedule",
-          "id": "21265426-4048128-7759739-10",
-          "text": {
-            "status": "extensions",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;/div&gt;"
-          },
-          "extension": [
-            {
-              "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location",
-              "valueReference": {
-                "reference": "Location/4048128",
-                "display": "Baseline East"
-              }
-            }
-          ],
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "408443003",
-                  "display": "General medical practice"
-                }
-              ],
-              "text": "Same Day"
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Howdeshell, Tami"
-          }
-        },
-        "search": {
-          "mode": "include"
-        }
-      }
-    ]
-  }
+        ]
+    }
 
   end
 end

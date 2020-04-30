@@ -1,291 +1,110 @@
 module Cerner
   module Resources
     R4_APPOINTMENT_ENTRY ||= {
-      "resourceType": "Appointment",
-      "id": "3005756",
-      "meta": {
-        "versionId": "3",
-        "lastUpdated": "2019-01-04T20:31:42.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: Same Day&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;/div>"
-      },
-      "status": "cancelled",
-      "serviceType": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-              "code": "21265426",
-              "display": "Same Day",
-              "userSelected": true
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517",
+        "resource": {
+            "resourceType": "Appointment",
+            "id": "4817517",
+            "meta": {
+                "versionId": "1",
+                "lastUpdated": "2020-07-06T18:46:08.000Z"
             },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "408443003",
-              "display": "General medical practice",
-              "userSelected": false
-            }
-          ],
-          "text": "Same Day"
-        }
-      ],
-      "description": "Same Day",
-      "start": "2017-10-04T13:00:00.000Z",
-      "end": "2017-10-04T14:00:00.000Z",
-      "minutesDuration": 60,
-      "participant": [
-        {
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                  "code": "4574",
-                  "display": "Resource",
-                  "userSelected": true
-                }
-              ],
-              "text": "Resource"
+            "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Appointment</b></p><p><b>Status</b>: booked</p><p><b>Service Type</b>: Established Patient</p><p><b>Start</b>: Jul  8, 2020  1:00 P.M. UTC</p><p><b>End</b>: Jul  8, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1</p></div>"
             },
-            {
-              "coding": [
+            "status": "booked",
+            "serviceType": [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                  "code": "PPRF",
-                  "display": "primary performer"
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                            "code": "24477854",
+                            "display": "Established Patient",
+                            "userSelected": true
+                        }
+                    ],
+                    "text": "Established Patient"
                 }
-              ]
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Jones, Clive"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "type": [
-            {
-              "coding": [
+            ],
+            "description": "Established Patient",
+            "start": "2020-07-08T13:00:00.000Z",
+            "end": "2020-07-08T13:15:00.000Z",
+            "minutesDuration": 15,
+            "participant": [
                 {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                  "code": "4572",
-                  "display": "Patient",
-                  "userSelected": true
+                    "type": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                    "code": "PPRF",
+                                    "display": "primary performer"
+                                }
+                            ]
+                        }
+                    ],
+                    "actor": {
+                        "reference": "Practitioner/593923",
+                        "display": "Cerner Test, Physician - Primary Care Cerner"
+                    },
+                    "required": "required",
+                    "status": "accepted"
+                },
+                {
+                    "type": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+                                    "code": "4572",
+                                    "display": "Patient",
+                                    "userSelected": true
+                                }
+                            ],
+                            "text": "Patient"
+                        }
+                    ],
+                    "actor": {
+                        "reference": "Patient/12724066",
+                        "display": "SMART, NANCY"
+                    },
+                    "required": "required",
+                    "status": "accepted"
+                },
+                {
+                    "actor": {
+                        "reference": "Location/21304876",
+                        "display": "MX Clinic 1"
+                    },
+                    "required": "required",
+                    "status": "accepted"
                 }
-              ],
-              "text": "Patient"
-            }
-          ],
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "actor": {
-            "reference": "Location/4048128",
-            "display": "Baseline East"
-          },
-          "required": "required",
-          "status": "accepted"
+            ],
+            "requestedPeriod": [
+                {
+                    "start": "2020-07-08T13:00:00.000Z",
+                    "end": "2020-07-08T13:15:00.000Z"
+                }
+            ]
         }
-      ],
-      "requestedPeriod": [
-        {
-          "start": "2017-10-04T13:00:00.000Z",
-          "end": "2017-10-04T14:00:00.000Z"
-        }
-      ]
     }
 
-    R4_APPOINTMENT_VIDEO_VISIT_ENTRY ||= {
-      "resourceType": "Appointment",
-      "id": "3005757",
-      "meta": {
-        "versionId": "3",
-        "lastUpdated": "2019-01-04T20:31:42.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Appointment&lt;/b>&lt;/p>&lt;p>&lt;b>Status&lt;/b>: cancelled&lt;/p>&lt;p>&lt;b>Service Type&lt;/b>: EVisit&lt;/p>&lt;p>&lt;b>Start&lt;/b>: Oct  4, 2017  1:00 P.M. UTC&lt;/p>&lt;p>&lt;b>End&lt;/b>: Oct  4, 2017  2:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Participants&lt;/b>: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p>&lt;p>&lt;b>Video Visit&lt;/b>: Yes&lt;/p>&lt;/div>"
-      },
-      "contained": [
-        {
-          "resourceType": "HealthcareService",
-          "id": "607",
-          "type": [
-            {
-              "text": "Patient Virtual Meeting Room"
-            }
-          ],
-          "telecom": [
-            {
-              "system": "url",
-              "value": "http://patientlink.vmr.net",
-              "period": {
-                "start": "2017-10-04T13:00:00.000Z",
-                "end": "2017-10-04T14:00:00.000Z"
-              }
-            }
-          ]
-        },
-        {
-          "resourceType": "HealthcareService",
-          "id": "610",
-          "type": [
-            {
-              "text": "Provider Virtual Meeting Room"
-            }
-          ],
-          "telecom": [
-            {
-              "system": "url",
-              "value": "http://providerlink.vmr.net",
-              "period": {
-                "start": "2017-10-04T13:00:00.000Z",
-                "end": "2017-10-04T14:00:00.000Z"
-              }
-            }
-          ]
-        }
-      ],
-      "status": "cancelled",
-      "serviceType": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-              "code": "21265426",
-              "display": "Same Day",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "408443003",
-              "display": "General medical practice",
-              "userSelected": false
-            }
-          ],
-          "text": "Same Day"
-        }
-      ],
-      "description": "Same Day",
-      "start": "2017-10-04T13:00:00.000Z",
-      "end": "2017-10-04T14:00:00.000Z",
-      "minutesDuration": 60,
-      "participant": [
-        {
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                  "code": "4574",
-                  "display": "Resource",
-                  "userSelected": true
-                }
-              ],
-              "text": "Resource"
-            },
-            {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                  "code": "PPRF",
-                  "display": "primary performer"
-                }
-              ]
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Jones, Clive"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                  "code": "4572",
-                  "display": "Patient",
-                  "userSelected": true
-                }
-              ],
-              "text": "Patient"
-            }
-          ],
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "actor": {
-            "reference": "Location/4048128",
-            "display": "Baseline East"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "type": [
-            {
-              "text": "Patient Virtual Meeting Room"
-            }
-          ],
-          "actor": {
-            "reference": "#607"
-          },
-          "status": "accepted"
-        },
-        {
-          "type": [
-            {
-              "text": "Provider Virtual Meeting Room"
-            }
-          ],
-          "actor": {
-            "reference": "#610"
-          },
-          "status": "accepted"
-        }
-      ],
-      "requestedPeriod": [
-        {
-          "start": "2017-10-04T13:00:00.000Z",
-          "end": "2017-10-04T14:00:00.000Z"
-        }
-      ]
-    }
+    # TODO
+    R4_APPOINTMENT_VIDEO_VISIT_ENTRY ||= {}
 
     R4_APPOINTMENT_BUNDLE ||= {
       "resourceType": "Bundle",
-      "id": "0f5531d7-01d5-40ad-a482-3d1645f68e32",
+      "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
       "type": "searchset",
       "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&date=lt2017-10-04T14:00:00.000Z&patient=4704007"
-        },
-        {
-          "relation": "next",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?-pageContext=H4sIAAAAAAAAAI1SXW%2FCIBT9LzxXC%2FSDyptTH%2FZizOzDssUH1l5bEoWGollm%2FO%2BDtpuNmckSkhPOvRzOPXBBomm0VPYIym5BmKJeGGnBSIH4BTWigq38AsRJgD6gkmopLOTy6BhEMckmhE4IyUnKMXZrijF%2BQwECVf7VGOeUcrdIOqWsazzoQlip1UKX0CL%2BHuOUZtksiHGcEZrtAmfBSufteenLfm%2F0WZZgfomjm0Cqalvoxl9WW9vwMKwPbKpNFe5racKXOByNia7BeOpeiMWMsSQJemQBSzC5oednM5akA2aejzq%2BQ99Hhj0hAyY9RoNONNSjgadOJ3H%2BFXzap0fR9olFo8R8%2B3zsHvEfzy4bOEt9au%2FqE3Irrf77MgaskArK%2BX1Su5vYxn2PpTRQ%2BCd0cuvVa%2B6O1qLdjDoQ34tDCx2%2Fdu57zpoTXL8Bnx1Hw38CAAA%3D&-pageDirection=NEXT"
-        }
+          {
+              "relation": "self",
+              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?date=ge2020-01-01T22%3A22%3A16.270Z&patient=12724066"
+          }
       ],
       "entry": [
-        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517",
         "resource": R4_APPOINTMENT_ENTRY
       ]
     }
@@ -304,7 +123,7 @@ module Cerner
         "path": "/slot",
         "value": [
           {
-            "reference":"Slot/1986119705-4048128-15648907-60"
+            "reference":"Slot/24477854-21304876-62852027-0"
            }
          ]
       },
@@ -321,7 +140,7 @@ module Cerner
         "path": "/slot",
         "value": [
           {
-            "reference":"Slot/1986119705-4048128-15648907-60"
+            "reference":"Slot/24477854-21304876-62852027-0"
           }
         ]
       },
@@ -392,14 +211,13 @@ module Cerner
       "status": "booked",
       "slot": [
         {
-          "reference": "Slot/21265426-633867-6828001-60"
+          "reference": "Slot/24477854-21304876-62852027-0"
         }
       ],
       "participant": [
         {
           "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
+            "reference": "Patient/12724066"
           },
           "status": "accepted"
         }
@@ -433,15 +251,14 @@ module Cerner
       "participant": [
         {
           "actor": {
-            "reference": "Patient/773933",
-            "display": "TAYLOR, MARCUS CERNER"
+            "reference": "Patient/12724066"
           },
           "status": "needs-action"
         },
         {
           "actor": {
-            "reference": "Location/4062906",
-            "display": "Operation Room"
+            "reference": "Location/21304876",
+            "display": "MX Clinic 1"
           },
           "status": "needs-action"
         }

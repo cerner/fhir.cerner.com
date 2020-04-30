@@ -1,6 +1,6 @@
 module Cerner
     module Resources
-  
+        # TODO: All; Missing mappings
         R4_OBSERVATION_BUNDLE ||=
         {
           "resourceType": "Bundle",
@@ -9,12 +9,12 @@ module Cerner
           "link": [
               {
                   "relation": "self",
-                  "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?patient=3998008&_count=50"
+                  "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=3998008&_count=50"
               }
           ],
           "entry": [
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-93-5525867",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-93-5525867",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-93-5525867",
@@ -89,7 +89,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930400",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930400",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930400",
@@ -140,7 +140,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930404",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930404",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930404",
@@ -200,7 +200,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930316",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930316",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930316",
@@ -236,7 +236,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930360",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930360",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930360",
@@ -272,7 +272,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930372",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930372",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930372",
@@ -317,7 +317,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930368",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930368",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930368",
@@ -362,7 +362,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/SH-5525867-q6930376",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930376",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "SH-5525867-q6930376",
@@ -407,7 +407,7 @@ module Cerner
                   }
               },
               {
-                  "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M-7167327",
+                  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327",
                   "resource": {
                       "resourceType": "Observation",
                       "id": "M-7167327",
@@ -446,7 +446,7 @@ module Cerner
                       "code": {
                           "coding": [
                               {
-                                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+                                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
                                   "code": "703558",
                                   "display": "Temperature Oral",
                                   "userSelected": true
@@ -500,7 +500,7 @@ module Cerner
                           {
                               "coding": [
                                   {
-                                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/52",
+                                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52",
                                       "code": "214",
                                       "userSelected": true
                                   },
@@ -535,7 +535,7 @@ module Cerner
                                     }
                                 ],
                                 "text": "Normal Range"
-                            }     
+                            }
                           }
                       ]
                   }
@@ -544,4 +544,3 @@ module Cerner
       }
     end
   end
-  

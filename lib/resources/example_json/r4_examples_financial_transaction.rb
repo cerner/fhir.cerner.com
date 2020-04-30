@@ -1,6 +1,7 @@
 module Cerner
   module Resources
 
+    # TODO: ALL
     R4_FINANCIAL_TRANSACTION_ADJUSTMENT ||= {
       "resourceType": "Basic",
       "code": {

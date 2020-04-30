@@ -1,6 +1,7 @@
 module Cerner
   module Resources
 
+    # TODO: Replace all
     R4_COVERAGE_BUNDLE ||= {
       "resourceType": "Bundle",
       "id": "d6343987-1e8f-486c-8f0f-dad4ac73510f",
@@ -9,12 +10,12 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?patient=589763"
+          "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=589763"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257",
+          "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257",
           "resource": {
             "resourceType": "Coverage",
             "id": "589763-11500257-11500257",
@@ -82,12 +83,12 @@ module Cerner
       "link": [
         {
           "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911"
+          "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=1175911"
         }
       ],
       "entry": [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/1175911-1760527",
+          "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/1175911-1760527",
           "resource": {
             "resourceType": "Coverage",
             "id": "1175911-1760527",

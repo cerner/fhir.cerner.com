@@ -3,7 +3,7 @@ module Cerner
 
     R4_OPEN_METADATA ||= {
       "resourceType": "CapabilityStatement",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata",
       "name": "CernerCapabilityStatement",
       "title": "Cerner Capability Statement",
       "status": "active",
@@ -13,7 +13,7 @@ module Cerner
       "kind": "instance",
       "implementation": {
         "description": "Cerner implementation of FHIR on top of Millennium",
-        "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+        "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d"
       },
       "fhirVersion": "4.0.0",
       "format": [
@@ -477,7 +477,7 @@ module Cerner
 
     R4_AUTH_METADATA ||= {
       "resourceType": "CapabilityStatement",
-      "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+      "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata",
       "name": "CernerCapabilityStatement",
       "title": "Cerner Capability Statement",
       "status": "active",
@@ -487,7 +487,7 @@ module Cerner
       "kind": "instance",
       "implementation": {
         "description": "Cerner implementation of FHIR on top of Millennium",
-        "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+        "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d"
       },
       "fhirVersion": "4.0.0",
       "format": [
@@ -508,11 +508,11 @@ module Cerner
                 "extension": [
                   {
                     "url": "token",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token"
+                    "valueUri": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token"
                   },
                   {
                     "url": "authorize",
-                    "valueUri": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
+                    "valueUri": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/provider/authorize"
                   }
                 ]
               }

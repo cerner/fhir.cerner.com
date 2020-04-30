@@ -2,469 +2,993 @@ module Cerner
   module Resources
 
     R4_ENCOUNTER ||= {
-      "resourceType": "Encounter",
-      "id": "4027918",
-      "meta": {
-        "versionId": "2",
-        "lastUpdated": "2018-05-17T20:51:38.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
-      },
-      "extension": [
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization",
-          "valueReference": {
-            "reference": "Organization/675844"
-          }
+        "resourceType": "Encounter",
+        "id": "97939518",
+        "meta": {
+            "versionId": "0",
+            "lastUpdated": "2020-01-07T06:00:00.000Z"
         },
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
-          "valueMoney": {
-            "value": 60.0,
-            "currency": "SEK"
-          }
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Hospital, MX Hospital, NU05, 102, A</p><p><b>Type</b>: Inpatient</p><p><b>Service Type</b>: Medicine-General</p><p><b>Class</b>: inpatient encounter</p><p><b>Status</b>: Finished</p><p><b>Period Start Date</b>: Dec 26, 2019  3:38 P.M. UTC</p><p><b>Period End Date</b>: Jan  7, 2020  6:00 A.M. UTC</p><p><b>Reason For Visit</b>: Illness</p><p><b>Attending Physician</b>: Cerner Test, Physician - Hospitalist Cerner</p></div>"
         },
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4003489",
-                "code": "40016413",
-                "display": "1st Attempt - Left Message",
-                "userSelected": true
-              }
-            ],
-            "text": "1st Attempt - Left Message"
-          }
-        },
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4660008",
-                "code": "70189603",
-                "display": "Under 21 Years of Age",
-                "userSelected": true
-              }
-            ],
-            "text": "Under 21 Years of Age"
-          }
-        }
-      ],
-      "identifier": [
-        {
-          "use": "usual",
-          "type": {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
-                "code": "1077",
-                "display": "FIN NBR",
-                "userSelected": true
-              }
-            ],
-            "text": "FIN NBR"
-          },
-          "system": "urn:oid:3.3.3.3.3.3",
-          "value": "20003412",
-          "period": {
-            "start": "2016-06-22T21:06:58.000Z"
-          }
-        }
-      ],
-      "status": "in-progress",
-      "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "IMP",
-        "display": "inpatient encounter",
-        "userSelected": false
-      },
-      "type": [
-        {
-          "coding": [
+        "extension": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/71",
-              "code": "309308",
-              "display": "Inpatient",
-              "userSelected": true
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+                "valueMoney": {
+                    "value": 0.0,
+                    "currency": "USD"
+                }
             }
-          ],
-          "text": "Inpatient"
-        }
-      ],
-      "serviceType": {
-        "coding": [
-          {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/34",
-            "code": "313004",
-            "display": "Emergency Medicine",
-            "userSelected": true
-          },
-          {
-            "system": "http://snomed.info/sct",
-            "code": "773568002",
-            "display": "Emergency medicine (qualifier value)",
-            "userSelected": false
-          }
         ],
-        "text": "Emergency Medicine"
-      },
-      "subject": {
-        "reference": "Patient/4342010",
-        "display": "SMART, JOE"
-      },
-      "participant": [
-        {
-          "type": [
+        "identifier": [
             {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "1116",
-                  "display": "Admitting Physician",
-                  "userSelected": true
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                            "code": "1077",
+                            "display": "FIN NBR",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "AN",
+                            "display": "Account number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "FIN NBR"
+                },
+                "_system": {
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                            "valueCode": "unknown"
+                        }
+                    ]
+                },
+                "value": "15951",
+                "period": {
+                    "start": "2019-12-26T15:41:55.000Z"
                 }
-              ],
-              "text": "Admitting Physician"
             }
-          ],
-          "period": {
-            "start": "2016-11-09T18:07:16.000Z"
-          },
-          "individual": {
-            "reference": "Practitioner/1",
-            "display": "Who, Doctor"
-          }
+        ],
+        "status": "finished",
+        "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter",
+            "userSelected": false
         },
-        {
-          "type": [
+        "type": [
             {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "1119",
-                  "display": "Attending Physician",
-                  "userSelected": true
-                }
-              ],
-              "text": "Attending Physician"
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71",
+                        "code": "309308",
+                        "display": "Inpatient",
+                        "userSelected": true
+                    },
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+                        "code": "I",
+                        "display": "Inpatient",
+                        "userSelected": false
+                    }
+                ],
+                "text": "Inpatient"
             }
-          ],
-          "period": {
-            "start": "2016-06-22T21:06:58.000Z"
-          },
-          "individual": {
-            "reference": "Practitioner/1912333",
-            "display": "Forrest, Fhir"
-          }
+        ],
+        "serviceType": {
+            "coding": [
+                {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/34",
+                    "code": "313012",
+                    "display": "Medicine-General",
+                    "userSelected": true
+                },
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "700232004",
+                    "display": "General medical service (qualifier value)",
+                    "userSelected": false
+                }
+            ],
+            "text": "Medicine-General"
         },
-        {
-          "type": [
-            {
-              "coding": [
+        "priority": {
+            "coding": [
                 {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "1123",
-                  "display": "Ordering Physician",
-                  "userSelected": true
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/3",
+                    "code": "670840",
+                    "display": "Elective",
+                    "userSelected": true
+                },
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+                    "code": "EL",
+                    "display": "elective",
+                    "userSelected": false
                 }
-              ],
-              "text": "Ordering Physician"
-            }
-          ],
-          "period": {
-            "start": "2016-06-27T15:03:36.000Z"
-          },
-          "individual": {
-            "reference": "Practitioner/1818009",
-            "display": "Song, River"
-          }
+            ],
+            "text": "Elective"
         },
-        {
-          "type": [
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "1124",
-                  "display": "Other",
-                  "userSelected": true
-                }
-              ],
-              "text": "Other"
-            }
-          ],
-          "period": {
-            "start": "2016-06-23T18:34:38.000Z",
-            "end": "2016-06-23T18:34:38.000Z"
-          },
-          "individual": {
-            "reference": "Practitioner/1590015",
-            "display": "Strange, Doctor"
-          }
+        "subject": {
+            "reference": "Patient/12724066",
+            "display": "SMART, NANCY"
         },
-        {
-          "type": [
+        "participant": [
             {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "1126",
-                  "display": "Referring Physician",
-                  "userSelected": true
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "1119",
+                                "display": "Attending Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "ATND",
+                                "display": "attender",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Attending Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2019-12-26T15:41:55.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/4122622",
+                    "display": "Cerner Test, Physician - Hospitalist Cerner"
                 }
-              ],
-              "text": "Referring Physician"
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "1121",
+                                "display": "Consulting Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "CON",
+                                "display": "consultant",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Consulting Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-04-30T17:47:00.000Z",
+                    "end": "2020-04-30T18:01:18.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12732065",
+                    "display": "PWDiabetesMe, Physician - Hospitalist"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "1121",
+                                "display": "Consulting Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "CON",
+                                "display": "consultant",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Consulting Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-04-24T18:27:00.000Z",
+                    "end": "2020-04-24T19:01:26.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12732065",
+                    "display": "PWDiabetesMe, Physician - Hospitalist"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "1126",
+                                "display": "Referring Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "REF",
+                                "display": "referrer",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Referring Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2019-12-26T15:41:55.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/4122622",
+                    "display": "Cerner Test, Physician - Hospitalist Cerner"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "18883355",
+                                "display": "Covering Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "PPRF",
+                                "display": "primary performer",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Covering Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2020-01-31T20:34:00.000Z",
+                    "end": "2020-01-31T21:01:21.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12732065",
+                    "display": "PWDiabetesMe, Physician - Hospitalist"
+                }
+            },
+            {
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                "code": "18883355",
+                                "display": "Covering Physician",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "PPRF",
+                                "display": "primary performer",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Covering Physician"
+                    }
+                ],
+                "period": {
+                    "start": "2019-12-26T19:05:12.000Z",
+                    "end": "2020-01-17T06:01:53.000Z"
+                },
+                "individual": {
+                    "reference": "Practitioner/12724045",
+                    "display": "Graham, Joshua"
+                }
             }
-          ],
-          "period": {
-            "start": "2016-06-22T21:06:58.000Z"
-          },
-          "individual": {
-            "reference": "Practitioner/2101015",
-            "display": "Dolittle, Doctor"
-          }
+        ],
+        "period": {
+            "start": "2019-12-26T15:38:02.000Z",
+            "end": "2020-01-07T06:00:00.000Z"
+        },
+        "reasonCode": [
+            {
+                "text": "Illness"
+            }
+        ],
+        "hospitalization": {
+            "admitSource": {
+                "coding": [
+                    {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/2",
+                        "code": "4326381",
+                        "display": "Self (Non-HC Facility Source of Origin)",
+                        "userSelected": true
+                    }
+                ],
+                "text": "Self (Non-HC Facility Source of Origin)"
+            }
+        },
+        "location": [
+            {
+                "location": {
+                    "reference": "Location/32545019",
+                    "display": "Model Hospital, MX Hospital, NU05, 102, A"
+                },
+                "status": "completed"
+            }
+        ],
+        "serviceProvider": {
+            "reference": "Organization/675844"
         }
-      ],
-      "period": {
-        "start": "2016-06-22T21:05:00.000Z"
-      },
-      "location": [
-        {
-          "location": {
-            "reference": "Location/35646785",
-            "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A"
-          },
-          "status": "active"
-        }
-      ],
-      "serviceProvider": {
-        "reference": "Organization/619848"
-      }
     }
 
     R4_ENCOUNTER_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "21945492-aaba-4ea1-b62a-04cc38d956f5",
-      "type": "searchset",
-      "total": 1,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?patient=4342010"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4027918",
-          "resource": {
-            "resourceType": "Encounter",
-            "id": "4027918",
-            "meta": {
-              "versionId": "2",
-              "lastUpdated": "2018-05-17T20:51:38.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
-            },
-            "identifier": [
-              {
-                "use": "usual",
-                "type": {
-                  "coding": [
-                    {
-                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
-                      "code": "1077",
-                      "display": "FIN NBR",
-                      "userSelected": true
-                    }
-                  ],
-                  "text": "FIN NBR"
-                },
-                "system": "urn:oid:3.3.3.3.3.3",
-                "value": "20003412",
-                "period": {
-                  "start": "2016-06-22T21:06:58.000Z"
-                }
-              }
-            ],
-            "status": "in-progress",
-            "class": {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-              "code": "IMP",
-              "display": "inpatient encounter",
-              "userSelected": false
-            },
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/71",
-                    "code": "309308",
-                    "display": "Inpatient",
-                    "userSelected": true
-                  }
-                ],
-                "text": "Inpatient"
-              }
-            ],
-            "serviceType": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/34",
-                  "code": "313004",
-                  "display": "Emergency Medicine",
-                  "userSelected": true
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "773568002",
-                  "display": "Emergency medicine (qualifier value)",
-                  "userSelected": false
-                }
-              ],
-              "text": "Emergency Medicine"
-            },
-            "subject": {
-              "reference": "Patient/4342010",
-              "display": "SMART, JOE"
-            },
-            "participant": [
-              {
-                "type": [
-                  {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                        "code": "1116",
-                        "display": "Admitting Physician",
-                        "userSelected": true
-                      }
-                    ],
-                    "text": "Admitting Physician"
-                  }
-                ],
-                "period": {
-                  "start": "2016-11-09T18:07:16.000Z"
-                },
-                "individual": {
-                  "reference": "Practitioner/1",
-                  "display": "Who, Doctor"
-                }
-              },
-              {
-                "type": [
-                  {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                        "code": "1119",
-                        "display": "Attending Physician",
-                        "userSelected": true
-                      }
-                    ],
-                    "text": "Attending Physician"
-                  }
-                ],
-                "period": {
-                  "start": "2016-06-22T21:06:58.000Z"
-                },
-                "individual": {
-                  "reference": "Practitioner/1912333",
-                  "display": "Forrest, Fhir"
-                }
-              },
-              {
-                "type": [
-                  {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                        "code": "1123",
-                        "display": "Ordering Physician",
-                        "userSelected": true
-                      }
-                    ],
-                    "text": "Ordering Physician"
-                  }
-                ],
-                "period": {
-                  "start": "2016-06-27T15:03:36.000Z"
-                },
-                "individual": {
-                  "reference": "Practitioner/1818009",
-                  "display": "Song, River"
-                }
-              },
-              {
-                "type": [
-                  {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                        "code": "1124",
-                        "display": "Other",
-                        "userSelected": true
-                      }
-                    ],
-                    "text": "Other"
-                  }
-                ],
-                "period": {
-                  "start": "2016-06-23T18:34:38.000Z",
-                  "end": "2016-06-23T18:34:38.000Z"
-                },
-                "individual": {
-                  "reference": "Practitioner/1590015",
-                  "display": "Strange, Doctor"
-                }
-              },
-              {
-                "type": [
-                  {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                        "code": "1126",
-                        "display": "Referring Physician",
-                        "userSelected": true
-                      }
-                    ],
-                    "text": "Referring Physician"
-                  }
-                ],
-                "period": {
-                  "start": "2016-06-22T21:06:58.000Z"
-                },
-                "individual": {
-                  "reference": "Practitioner/2101015",
-                  "display": "Dolittle, Doctor"
-                }
-              }
-            ],
-            "period": {
-              "start": "2016-06-22T21:05:00.000Z"
-            },
-            "location": [
-              {
-                "location": {
-                  "reference": "Location/35646785",
-                  "display": "Baseline East Medical Center, BE Hospital, 1N, 0152, A"
-                },
-                "status": "active"
-              }
-            ],
-            "serviceProvider": {
-              "reference": "Organization/619848"
+        "resourceType": "Bundle",
+        "id": "22bae7f5-5275-477a-aebf-8ba8cebbf0b8",
+        "type": "searchset",
+        "total": 2,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066"
             }
-          }
-        }
-      ]
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97939518",
+                "resource": R4_ENCOUNTER
+            },
+            {
+                "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97939539",
+                "resource": {
+                    "resourceType": "Encounter",
+                    "id": "97939539",
+                    "meta": {
+                        "versionId": "1",
+                        "lastUpdated": "2020-01-02T14:01:42.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Clinic 1, MX Clinic 1, MX Clinic 1</p><p><b>Type</b>: Outpatient</p><p><b>Service Type</b>: Cardiology</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: Finished</p><p><b>Period Start Date</b>: Dec 26, 2019  4:31 P.M. UTC</p><p><b>Period End Date</b>: Dec 27, 2019  5:59 A.M. UTC</p><p><b>Reason For Visit</b>: Illness</p><p><b>Attending Physician</b>: Cerner Test, Physician - Cardiovascular Cerner</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+                            "valueMoney": {
+                                "value": 0.0,
+                                "currency": "USD"
+                            }
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "use": "usual",
+                            "type": {
+                                "coding": [
+                                    {
+                                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                                        "code": "1077",
+                                        "display": "FIN NBR",
+                                        "userSelected": true
+                                    },
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                        "code": "AN",
+                                        "display": "Account number",
+                                        "userSelected": false
+                                    }
+                                ],
+                                "text": "FIN NBR"
+                            },
+                            "_system": {
+                                "extension": [
+                                    {
+                                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                                        "valueCode": "unknown"
+                                    }
+                                ]
+                            },
+                            "value": "15958",
+                            "period": {
+                                "start": "2019-12-26T16:33:21.000Z"
+                            }
+                        }
+                    ],
+                    "status": "finished",
+                    "class": {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+                        "code": "O",
+                        "display": "Outpatient",
+                        "userSelected": false
+                    },
+                    "type": [
+                        {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71",
+                                    "code": "309309",
+                                    "display": "Outpatient",
+                                    "userSelected": true
+                                },
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+                                    "code": "O",
+                                    "display": "Outpatient",
+                                    "userSelected": false
+                                }
+                            ],
+                            "text": "Outpatient"
+                        }
+                    ],
+                    "serviceType": {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/34",
+                                "code": "33536475",
+                                "display": "Cardiology",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "3471000175103",
+                                "display": "Cardiology service (qualifier value)",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Cardiology"
+                    },
+                    "priority": {
+                        "coding": [
+                            {
+                                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/3",
+                                "code": "670840",
+                                "display": "Elective",
+                                "userSelected": true
+                            },
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+                                "code": "EL",
+                                "display": "elective",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Elective"
+                    },
+                    "subject": {
+                        "reference": "Patient/12724066",
+                        "display": "SMART, NANCY"
+                    },
+                    "participant": [
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "1119",
+                                            "display": "Attending Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "ATND",
+                                            "display": "attender",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Attending Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2019-12-26T16:33:21.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/4122625",
+                                "display": "Cerner Test, Physician - Cardiovascular Cerner"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "1126",
+                                            "display": "Referring Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "REF",
+                                            "display": "referrer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Referring Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2019-12-26T16:33:21.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/4122625",
+                                "display": "Cerner Test, Physician - Cardiovascular Cerner"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "681274",
+                                            "display": "Database Coordinator",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PART",
+                                            "display": "Participation",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Database Coordinator"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-07-06T19:20:00.000Z",
+                                "end": "2020-07-07T08:01:33.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12724064",
+                                "display": "Spence, Open Platform IA, Stephen"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-19T19:07:55.000Z",
+                                "end": "2020-05-19T20:01:41.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-19T17:58:00.000Z",
+                                "end": "2020-05-19T18:02:00.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-18T20:35:00.000Z",
+                                "end": "2020-05-18T21:01:50.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-18T15:25:00.000Z",
+                                "end": "2020-05-18T16:01:14.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-18T14:26:00.000Z",
+                                "end": "2020-05-18T15:01:19.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-16T16:24:00.000Z",
+                                "end": "2020-05-16T17:01:05.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-16T15:47:00.000Z",
+                                "end": "2020-05-16T16:01:39.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-15T17:39:00.000Z",
+                                "end": "2020-05-15T18:01:29.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-15T14:51:00.000Z",
+                                "end": "2020-05-15T15:01:44.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-14T23:06:37.000Z",
+                                "end": "2020-05-15T00:01:56.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-14T22:53:00.000Z",
+                                "end": "2020-05-14T23:02:00.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-14T20:38:00.000Z",
+                                "end": "2020-05-14T21:01:11.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        },
+                        {
+                            "type": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                                            "code": "18883355",
+                                            "display": "Covering Physician",
+                                            "userSelected": true
+                                        },
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "PPRF",
+                                            "display": "primary performer",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Covering Physician"
+                                }
+                            ],
+                            "period": {
+                                "start": "2020-05-14T18:03:28.000Z",
+                                "end": "2020-05-14T19:01:24.000Z"
+                            },
+                            "individual": {
+                                "reference": "Practitioner/12742575",
+                                "display": "Torres, Drew"
+                            }
+                        }
+                    ],
+                    "period": {
+                        "start": "2019-12-26T16:31:51.000Z",
+                        "end": "2019-12-27T05:59:59.000Z"
+                    },
+                    "reasonCode": [
+                        {
+                            "text": "Illness"
+                        }
+                    ],
+                    "hospitalization": {
+                        "admitSource": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/2",
+                                    "code": "309200",
+                                    "display": "Information Not Available",
+                                    "userSelected": true
+                                },
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                                    "code": "other",
+                                    "display": "Other",
+                                    "userSelected": false
+                                }
+                            ],
+                            "text": "Information Not Available"
+                        },
+                        "dischargeDisposition": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/19",
+                                    "code": "638671",
+                                    "display": "Home or Self Care",
+                                    "userSelected": true
+                                },
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                                    "code": "home",
+                                    "display": "Home",
+                                    "userSelected": false
+                                }
+                            ],
+                            "text": "Home or Self Care"
+                        }
+                    },
+                    "location": [
+                        {
+                            "location": {
+                                "reference": "Location/21304876",
+                                "display": "Model Clinic 1, MX Clinic 1, MX Clinic 1"
+                            },
+                            "status": "completed"
+                        }
+                    ],
+                    "serviceProvider": {
+                        "reference": "Organization/685844"
+                    }
+                }
+            }
+        ]
     }
 
     R4_ENCOUNTER_CREATE ||= {
@@ -489,7 +1013,7 @@ module Cerner
         ]
       },
       "subject": {
-        "reference": "Patient/4342011"
+        "reference": "Patient/12724066"
       },
       "reasonCode": [
         {
@@ -515,11 +1039,11 @@ module Cerner
         }
       },
       "serviceProvider": {
-        "reference": "Organization/619848"
+        "reference": "Organization/675844"
       },
       "period": {
-        "start": "2017-03-02T01:13:00Z",
-  	    "end": "2017-03-05T00:00:00Z"
+        "start": "2020-03-02T01:13:00Z",
+  	    "end": "2020-03-05T00:00:00Z"
       },
       "participant": [
         {
@@ -527,17 +1051,17 @@ module Cerner
             {
               "coding": [
                 {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
-                  "code": "666813"
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                  "code": "1119"
                 }
               ]
             }
           ],
           "period": {
-            "start": "2018-03-02T20:01:13.000Z"
+            "start": "2020-03-02T20:01:13.000Z"
           },
           "individual": {
-            "reference": "Practitioner/1912007"
+            "reference": "Practitioner/4122622"
           }
         }
       ]

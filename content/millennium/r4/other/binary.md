@@ -52,7 +52,7 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-72758928
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
 
 #### Response
 

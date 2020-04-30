@@ -92,11 +92,11 @@ maintain a secret. Currently, our implementation provides management and rotatio
 System Accounts application. In order to register one of these applications, you must first request a system account,
 and then register that as a SMART or FHIR application in our code Console.
 
-Request a system account for *non-production* by following these steps:
+Request a system account by following these steps:
 
-- Login to the Cerner Central System Accounts application for non-production: <https://sandboxcernercentral.com/system-accounts>
+- Login to the Cerner Central System Accounts application: <https://cernercentral.com/system-accounts>
   - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that
-  can be used instead. For example: https://yourcompanynamegoeshere.sandboxcernercentral.com/system-accounts
+  can be used instead. For example: https://yourcompanynamegoeshere.cernercentral.com/system-accounts
 - Fill out the fields as follows:
   - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
   - **Production System**: No
@@ -380,16 +380,16 @@ is a fragment from a x-www-form-urlencoded grant request query string
 where the audience is provided:
 
 <pre class="terminal">
-&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F
+&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F
 </pre>
 
 #### Redirect URI ####
 
-When performing an authorization grant request the application may provide a redirect_uri. 
+When performing an authorization grant request the application may provide a redirect_uri.
 This uri should match the redirect_uri setup during the registration phase of the SMART Application.
 
 If your application has multiple redirect_uri's registered with Cerner then a redirect_uri is expected to be passed
-in during the authorization grant request. If no redirect_uri is specified the default redirect_uri 
+in during the authorization grant request. If no redirect_uri is specified the default redirect_uri
 registered for the application will be used.
 
 Details around supplying a redirect_uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
@@ -426,20 +426,20 @@ The following are hypothetical examples of authorization requests:
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       patient/Observation.read patient/MedicationHistory.read launch
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
+audience:     https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 launch:       a17aba51-1395-48d3-b3a9-73f2baf784da
 
-https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       user/Observation.read user/MedicationHistory.read
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
+audience:     https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 
-https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 ### Invoking an Appropriate User Agent ###
@@ -676,8 +676,8 @@ are example requests / responses:
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 161
@@ -750,7 +750,7 @@ can result in errors.  The following is an example error
 response from the grant workflow:
 
 <pre class="terminal">
-https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3D0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca
+https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.cerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3Dec2458f2-1e24-41c8-b71b-0e701af7583d
 </pre>
 
 The following is an example error response from an access
@@ -759,7 +759,7 @@ token request:
 <pre class="terminal">
 {
   "error": "invalid_grant",
-  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+  "error_uri": "https://authorization.cerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=ec2458f2-1e24-41c8-b71b-0e701af7583d"
 }
 </pre>
 
@@ -814,8 +814,8 @@ defined in section 6 "Refreshing an Access Token" of the
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 75
@@ -989,8 +989,8 @@ example of such a request:
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -1001,7 +1001,7 @@ grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient
 
 As an example, here is how the token may be requested via cURL:
 <pre class="terminal">
-curl -X POST 'https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token' \
+curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token' \
   -H 'Accept: application/json' \
   -H "Authorization: Basic $(echo -n $SYSTEM_ACCOUNT_CLIENT_ID:$SYSTEM_ACCOUNT_CLIENT_SECRET | base64)" \
   -H 'Content-Type: application/x-www-form-urlencoded' \

@@ -1,6 +1,8 @@
 module Cerner
   module Resources
 
+    # TODO: All need updated.
+
     R4_ACCOUNT_READ ||= {
       "resourceType": "Account",
       "id": "G2572738",
@@ -21,7 +23,7 @@ module Cerner
           "valueCodeableConcept": {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/24451",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451",
                 "code": "629234",
                 "display": "Ready to bill",
                 "userSelected": true
@@ -52,12 +54,12 @@ module Cerner
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=F703726"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F703726",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F703726",
       "resource": {
         "resourceType": "Account",
         "id": "F703726",
@@ -106,12 +108,12 @@ R4_ACCOUNT_SEARCH_STATEMENT ||= {
     "link": [
         {
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?patient=6330017&identifier=https%3A%2F%2Ffhir.cerner.com%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2FcodeSet%2F28200%7C68002&type=statement"
+            "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?patient=6330017&identifier=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F28200%7C68002&type=statement"
         }
     ],
     "entry": [
         {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/S2580833",
+            "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/S2580833",
             "resource": {
                 "resourceType": "Account",
                 "id": "S2580833",
@@ -132,7 +134,7 @@ R4_ACCOUNT_SEARCH_STATEMENT ||= {
                         "valueCodeableConcept": {
                             "coding": [
                                 {
-                                    "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4002640",
+                                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4002640",
                                     "code": "20752989",
                                     "display": "Pending",
                                     "userSelected": true
@@ -151,7 +153,7 @@ R4_ACCOUNT_SEARCH_STATEMENT ||= {
                 "identifier": [
                     {
                         "use": "usual",
-                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200",
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200",
                         "value": "68002"
                     }
                 ],
@@ -190,12 +192,12 @@ R4_ACCOUNT_SEARCH_GUARANTOR ||= {
     "link": [
         {
             "relation": "self",
-            "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?-guarantor=6330015-6330015&type=financial-account"
+            "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?-guarantor=6330015-6330015&type=financial-account"
         }
     ],
     "entry": [
         {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1127724",
+            "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1127724",
             "resource": {
                 "resourceType": "Account",
                 "id": "F1127724",
@@ -253,7 +255,7 @@ R4_ACCOUNT_SEARCH_GUARANTOR ||= {
             }
         },
         {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1131724",
+            "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1131724",
             "resource": {
                 "resourceType": "Account",
                 "id": "F1131724",
@@ -303,7 +305,7 @@ R4_ACCOUNT_SEARCH_GUARANTOR ||= {
             }
         },
         {
-            "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1131725",
+            "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1131725",
             "resource": {
                 "resourceType": "Account",
                 "id": "F1131725",

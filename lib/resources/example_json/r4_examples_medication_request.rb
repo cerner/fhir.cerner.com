@@ -1,5 +1,6 @@
 module Cerner
   module Resources
+    # TODO: ALL
     R4_MEDICATION_REQUEST ||= {
       "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/56770371",
       "resource": {

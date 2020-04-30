@@ -1,633 +1,281 @@
 module Cerner
   module Resources
 
-    DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "7aa4c6ad-fa0c-4169-83d2-49dd3a2dde28",
-      "type": "searchset",
-      "total": 4,
-      "link": [{
-        "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement?patient=4342010"
-      }],
-      "entry": [{
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/21389901",
-        "resource": {
-          "resourceType": "MedicationStatement",
-          "id": "21389901",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2016-06-27T15:00:00.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: acebutolol (Sectral)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 200 mg, 1 caps, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-          },
-          "extension": [{
-            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/medication-statement-category",
-                "code": "inpatient",
-                "display": "Inpatient"
-              }],
-              "text": "Inpatient"
-            }
-          }],
-          "patient": {
-            "reference": "Patient/4342010",
-            "display": "Smart, Joe"
-          },
-          "informationSource": {
-            "reference": "Practitioner/1912007",
-            "display": "Who, Doctor"
-          },
-          "dateAsserted": "2016-06-27T09:57:32.000-05:00",
-          "status": "active",
-          "wasNotTaken": false,
-          "effectivePeriod": {
-            "start": "2016-06-27T09:00:00.000-07:00"
-          },
-          "supportingInformation": [{
-            "reference": "MedicationOrder/21389901"
-          }],
-          "medicationCodeableConcept": {
-            "coding": [{
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "9631",
-              "display": "Sectral",
-              "userSelected": false
-            }],
-            "text": "acebutolol (Sectral)"
-          },
-          "dosage": [{
-            "text": "200 mg, 1 caps, Oral, Daily",
-            "_text": {
-              "extension": [{
-                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-                "valueString": "200 Milligram Oral every day. Refills: 0."
-              }]
-            },
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2016-06-27T09:00:00.000-07:00"
-                }
-              },
-              "code": {
-                "coding": [{
-                  "system": "http://hl7.org/fhir/timing-abbreviation",
-                  "code": "QD",
-                  "display": "QD",
-                  "userSelected": false
-                }],
-                "text": "Daily"
-              }
-            },
-            "route": {
-              "coding": [{
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38288",
-                "display": "ORAL",
-                "userSelected": false
-              }],
-              "text": "Oral"
-            },
-            "quantityQuantity": {
-              "value": 200.0,
-              "unit": "mg",
-              "system": "http://unitsofmeasure.org",
-              "code": "mg"
-            }
-          }]
-        }
-      }, {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/21389899",
-        "resource": {
-          "resourceType": "MedicationStatement",
-          "id": "21389899",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2016-06-27T14:59:58.000Z"
-          },
-          "extension": [{
-            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/medication-statement-category",
-                "code": "inpatient",
-                "display": "Inpatient"
-              }],
-              "text": "Inpatient"
-            }
-          }],
-          "text": {
-            "status": "generated",
-            "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: furosemide (Lasix)&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 80 mg, 1 tabs, Oral, Daily&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-          },
-          "patient": {
-            "reference": "Patient/4342010",
-            "display": "Smart, Joe"
-          },
-          "informationSource": {
-            "reference": "Practitioner/1912007",
-            "display": "Who, Doctor"
-          },
-          "dateAsserted": "2016-06-27T09:56:37.000-05:00",
-          "status": "active",
-          "wasNotTaken": false,
-          "effectivePeriod": {
-            "start": "2016-06-27T09:00:00.000-07:00"
-          },
-          "supportingInformation": [{
-            "reference": "MedicationOrder/21389899"
-          }],
-          "medicationCodeableConcept": {
-            "coding": [{
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "202991",
-              "display": "Lasix",
-              "userSelected": false
-            }],
-            "text": "furosemide (Lasix)"
-          },
-          "dosage": [{
-            "text": "80 mg, 1 tabs, Oral, Daily",
-            "_text": {
-              "extension": [{
-                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-                "valueString": "80 Milligram Oral every day. Refills: 0."
-              }]
-            },
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2016-06-27T09:00:00.000-07:00"
-                }
-              },
-              "code": {
-                "coding": [{
-                  "system": "http://hl7.org/fhir/timing-abbreviation",
-                  "code": "QD",
-                  "display": "QD",
-                  "userSelected": false
-                }],
-                "text": "Daily"
-              }
-            },
-            "route": {
-              "coding": [{
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38288",
-                "display": "ORAL",
-                "userSelected": false
-              }],
-              "text": "Oral"
-            },
-            "quantityQuantity": {
-              "value": 80.0,
-              "unit": "mg",
-              "system": "http://unitsofmeasure.org",
-              "code": "mg"
-            }
-          }]
-        }
-      }, {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298109",
-        "resource": {
-          "resourceType": "MedicationStatement",
-          "id": "22298109",
-          "meta": {
-            "versionId": "0",
-            "lastUpdated": "2017-02-09T16:31:47.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 1 g, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Taken&lt;/b>: Yes&lt;/p>&lt;/div>"
-          },
-          "extension": [{
-            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/medication-statement-category",
-                "code": "inpatient",
-                "display": "Inpatient"
-              }],
-              "text": "Inpatient"
-            }
-          }],
-          "patient": {
-            "reference": "Patient/4342010",
-            "display": "Smart, Joe"
-          },
-          "informationSource": {
-            "reference": "Practitioner/4474007",
-            "display": "Song, River"
-          },
-          "dateAsserted": "2017-02-09T10:31:00.000-06:00",
-          "status": "active",
-          "wasNotTaken": false,
-          "effectivePeriod": {
-            "start": "2017-02-09T09:00:00.000-08:00"
-          },
-          "supportingInformation": [{
-            "reference": "MedicationOrder/22298109"
-          }],
-          "medicationCodeableConcept": {
-            "coding": [{
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "11124",
-              "display": "Vancomycin",
-              "userSelected": false
-            }],
-            "text": "vancomycin"
-          },
-          "dosage": [{
-            "text": "1 g, IV, q12hr",
-            "_text": {
-              "extension": [{
-                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-                "valueString": "1 Gram Intravenous every 12 hours. Refills: 0."
-              }]
-            },
-            "timing": {
-              "repeat": {
-                "boundsPeriod": {
-                  "start": "2017-02-09T09:00:00.000-08:00"
-                }
-              },
-              "code": {
-                "text": "q12hr"
-              }
-            },
-            "route": {
-              "coding": [{
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38276",
-                "display": "INTRAVENOUS",
-                "userSelected": false
-              }],
-              "text": "IV"
-            },
-            "quantityQuantity": {
-              "value": 1.0,
-              "unit": "g",
-              "system": "http://unitsofmeasure.org",
-              "code": "g"
-            }
-          }]
-        }
-      }, {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/22298077",
-        "resource": {
-          "resourceType": "MedicationStatement",
-          "id": "22298077",
-          "meta": {
+    DSTU2_MEDICATION_STATEMENT_ENTRY ||= {
+        "resourceType": "MedicationStatement",
+        "id": "309799821",
+        "meta": {
             "versionId": "1",
-            "lastUpdated": "2017-02-09T16:30:45.000Z"
-          },
-          "text": {
+            "lastUpdated": "2020-03-20T01:00:37.000Z"
+        },
+        "text": {
             "status": "generated",
-            "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin + Dextrose 5% in Water 100 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 100 mg, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
-          },
-          "contained": [{
-            "resourceType": "Medication",
-            "id": "2770945",
-            "code": {
-              "text": "vancomycin + Dextrose 5% in Water 100 mL"
-            },
-            "product": {
-              "ingredient": [{
-                "item": {
-                  "reference": "#2770945-1",
-                  "display": "vancomycin"
+            "div": "<div><p><b>Medication Statement</b></p><p><b>Patient Name</b>: SMART, JOE</p><p><b>Medication Name</b>: levoFLOXacin</p><p><b>Dosage Instructions</b>: 728 mg = 145.6 mL, IV Piggyback, Daily</p><p><b>Status</b>: Active</p><p><b>Taken</b>: Yes</p></div>"
+        },
+        "extension": [
+            {
+                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/medication-statement-category",
+                            "code": "inpatient",
+                            "display": "Inpatient"
+                        }
+                    ],
+                    "text": "Inpatient"
+                }
+            }
+        ],
+        "patient": {
+            "reference": "Patient/12724067",
+            "display": "SMART, JOE"
+        },
+        "informationSource": {
+            "reference": "Practitioner/4122622",
+            "display": "Cerner Test, Physician - Hospitalist Cerner"
+        },
+        "dateAsserted": "2020-03-05T11:26:02.000-06:00",
+        "status": "active",
+        "wasNotTaken": false,
+        "effectivePeriod": {
+            "start": "2020-03-05T11:26:00.000-06:00"
+        },
+        "supportingInformation": [
+            {
+                "reference": "MedicationOrder/309799821"
+            }
+        ],
+        "medicationCodeableConcept": {
+            "coding": [
+                {
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "82122",
+                    "display": "Levofloxacin",
+                    "userSelected": false
+                }
+            ],
+            "text": "levoFLOXacin"
+        },
+        "dosage": [
+            {
+                "text": "728 mg = 145.6 mL, IV Piggyback, Daily",
+                "_text": {
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                            "valueString": "IV Piggyback every day. Refills: 0."
+                        }
+                    ]
                 },
-                "amount": {
-                  "numerator": {
-                    "value": 100.0,
+                "timing": {
+                    "repeat": {
+                        "boundsPeriod": {
+                            "start": "2020-03-05T11:26:00.000-06:00"
+                        }
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/timing-abbreviation",
+                                "code": "QD",
+                                "display": "QD",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Daily"
+                    }
+                },
+                "route": {
+                    "coding": [
+                        {
+                            "system": "http://ncimeta.nci.nih.gov",
+                            "code": "C38279",
+                            "display": "INTRAVENOUS DRIP",
+                            "userSelected": false
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "47625008",
+                            "display": "Intravenous route (qualifier value)",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "IV Piggyback"
+                },
+                "quantityQuantity": {
+                    "value": 728.0,
                     "unit": "mg",
                     "system": "http://unitsofmeasure.org",
                     "code": "mg"
-                  },
-                  "denominator": {
-                    "value": 100.0,
-                    "unit": "mL",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mL"
-                  }
                 }
-              }, {
-                "item": {
-                  "reference": "#2778758-2",
-                  "display": "Dextrose 5% in Water"
-                },
-                "amount": {
-                  "numerator": {
-                    "value": 100.0,
-                    "unit": "mL",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mL"
-                  },
-                  "denominator": {
-                    "value": 100.0,
-                    "unit": "mL",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mL"
-                  }
-                }
-              }]
             }
-          }, {
-            "resourceType": "Medication",
-            "id": "2770945-1",
-            "code": {
-              "coding": [{
-                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                "code": "11124",
-                "display": "Vancomycin",
-                "userSelected": false
-              }],
-              "text": "vancomycin"
-            }
-          }, {
-            "resourceType": "Medication",
-            "id": "2778758-2",
-            "code": {
-              "coding": [{
-                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                "code": "309778",
-                "display": "Glucose 50 MG/ML Injectable Solution",
-                "userSelected": false
-              }],
-              "text": "Dextrose 5% in Water"
-            }
-          }],
-          "extension": [{
-            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
-            "valueCodeableConcept": {
-              "coding": [{
-                "system": "http://hl7.org/fhir/medication-statement-category",
-                "code": "inpatient",
-                "display": "Inpatient"
-              }],
-              "text": "Inpatient"
-            }
-          }],
-          "patient": {
-            "reference": "Patient/4342010",
-            "display": "Smart, Joe"
-          },
-          "informationSource": {
-            "reference": "Practitioner/4474007",
-            "display": "Song, River"
-          },
-          "dateAsserted": "2017-02-09T09:29:09.000-06:00",
-          "status": "entered-in-error",
-          "effectivePeriod": {
-            "start": "2017-02-09T08:00:00.000-08:00",
-            "end": "2017-02-09T08:30:45.000-08:00"
-          },
-          "supportingInformation": [{
-            "reference": "MedicationOrder/22298077"
-          }],
-          "medicationReference": {
-            "reference": "#2770945",
-            "display": "vancomycin + Dextrose 5% in Water 100 mL"
-          },
-          "dosage": [{
-            "text": "100 mg, IV, q12hr",
-            "_text": {
-              "extension": [{
-                "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-                "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
-              }]
-            },
-            "timing": {
-              "repeat": {
-                "boundsQuantity": {
-                  "value": 6,
-                  "unit": "days",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "d"
-                }
-              },
-              "code": {
-                "text": "q12hr"
-              }
-            },
-            "route": {
-              "coding": [{
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38276",
-                "display": "INTRAVENOUS",
-                "userSelected": false
-              }],
-              "text": "IV"
-            },
-            "quantityQuantity": {
-              "value": 100.0,
-              "unit": "mL",
-              "system": "http://unitsofmeasure.org",
-              "code": "mL"
-            }
-          }]
-        }
-      }]
+        ]
     }
 
-    DSTU2_MEDICATION_STATEMENT_ENTRY ||= {
-      "resourceType": "MedicationStatement",
-      "id": "22298077",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2017-02-09T16:30:45.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div>&lt;p>&lt;b>Medication Statement&lt;/b>&lt;/p>&lt;p>&lt;b>Patient Name&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Medication Name&lt;/b>: vancomycin + Dextrose 5% in Water 100 mL&lt;/p>&lt;p>&lt;b>Dosage Instructions&lt;/b>: 100 mg, IV, q12hr&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;/div>"
-      },
-      "contained": [{
-        "resourceType": "Medication",
-        "id": "2770945",
-        "code": {
-          "text": "vancomycin + Dextrose 5% in Water 100 mL"
-        },
-        "product": {
-          "ingredient": [{
-            "item": {
-              "reference": "#2770945-1",
-              "display": "vancomycin"
+    DSTU2_MEDICATION_STATEMENT_BUNDLE ||= {
+        "resourceType": "Bundle",
+        "id": "07ff213c-cc9d-4a68-9969-737045211516",
+        "type": "searchset",
+        "total": 2,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement?patient=12724067"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement/309799821",
+                "resource": DSTU2_MEDICATION_STATEMENT_ENTRY
             },
-            "amount": {
-              "numerator": {
-                "value": 100.0,
-                "unit": "mg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mg"
-              },
-              "denominator": {
-                "value": 100.0,
-                "unit": "mL",
-                "system": "http://unitsofmeasure.org",
-                "code": "mL"
-              }
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement/309799757",
+                "resource": {
+                    "resourceType": "MedicationStatement",
+                    "id": "309799757",
+                    "meta": {
+                        "versionId": "1",
+                        "lastUpdated": "2020-03-20T01:00:37.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Medication Statement</b></p><p><b>Patient Name</b>: SMART, JOE</p><p><b>Medication Name</b>: vancomycin</p><p><b>Dosage Instructions</b>: 2,275 mg, IV Piggyback, Once</p><p><b>Status</b>: Active</p><p><b>Taken</b>: Yes</p></div>"
+                    },
+                    "extension": [
+                        {
+                            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
+                            "valueCodeableConcept": {
+                                "coding": [
+                                    {
+                                        "system": "http://hl7.org/fhir/medication-statement-category",
+                                        "code": "inpatient",
+                                        "display": "Inpatient"
+                                    }
+                                ],
+                                "text": "Inpatient"
+                            }
+                        }
+                    ],
+                    "patient": {
+                        "reference": "Patient/12724067",
+                        "display": "SMART, JOE"
+                    },
+                    "informationSource": {
+                        "reference": "Practitioner/4122622",
+                        "display": "Cerner Test, Physician - Hospitalist Cerner"
+                    },
+                    "dateAsserted": "2020-03-05T11:26:02.000-06:00",
+                    "status": "active",
+                    "wasNotTaken": false,
+                    "effectivePeriod": {
+                        "start": "2020-03-05T11:26:00.000-06:00",
+                        "end": "2020-03-05T11:26:00.000-06:00"
+                    },
+                    "supportingInformation": [
+                        {
+                            "reference": "MedicationOrder/309799757"
+                        }
+                    ],
+                    "medicationCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                "code": "11124",
+                                "display": "Vancomycin",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "vancomycin"
+                    },
+                    "dosage": [
+                        {
+                            "text": "2,275 mg, IV Piggyback, Once",
+                            "_text": {
+                                "extension": [
+                                    {
+                                        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
+                                        "valueString": "IV Piggyback once. Refills: 0."
+                                    }
+                                ]
+                            },
+                            "timing": {
+                                "repeat": {
+                                    "boundsPeriod": {
+                                        "start": "2020-03-05T11:26:00.000-06:00",
+                                        "end": "2020-03-05T11:26:00.000-06:00"
+                                    }
+                                },
+                                "code": {
+                                    "text": "Once"
+                                }
+                            },
+                            "route": {
+                                "coding": [
+                                    {
+                                        "system": "http://ncimeta.nci.nih.gov",
+                                        "code": "C38279",
+                                        "display": "INTRAVENOUS DRIP",
+                                        "userSelected": false
+                                    },
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "47625008",
+                                        "display": "Intravenous route (qualifier value)",
+                                        "userSelected": false
+                                    }
+                                ],
+                                "text": "IV Piggyback"
+                            },
+                            "quantityQuantity": {
+                                "value": 2275.0,
+                                "unit": "mg",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mg"
+                            }
+                        }
+                    ]
+                }
             }
-          }, {
-            "item": {
-              "reference": "#2778758-2",
-              "display": "Dextrose 5% in Water"
-            },
-            "amount": {
-              "numerator": {
-                "value": 100.0,
-                "unit": "mL",
-                "system": "http://unitsofmeasure.org",
-                "code": "mL"
-              },
-              "denominator": {
-                "value": 100.0,
-                "unit": "mL",
-                "system": "http://unitsofmeasure.org",
-                "code": "mL"
-              }
-            }
-          }]
-        }
-      }, {
-        "resourceType": "Medication",
-        "id": "2770945-1",
-        "code": {
-          "coding": [{
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "11124",
-            "display": "Vancomycin",
-            "userSelected": false
-          }],
-          "text": "vancomycin"
-        }
-      }, {
-        "resourceType": "Medication",
-        "id": "2778758-2",
-        "code": {
-          "coding": [{
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "309778",
-            "display": "Glucose 50 MG/ML Injectable Solution",
-            "userSelected": false
-          }],
-          "text": "Dextrose 5% in Water"
-        }
-      }],
-      "extension": [{
-        "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category",
-        "valueCodeableConcept": {
-          "coding": [{
-            "system": "http://hl7.org/fhir/medication-statement-category",
-            "code": "inpatient",
-            "display": "Inpatient"
-          }],
-          "text": "Inpatient"
-        }
-      }],
-      "patient": {
-        "reference": "Patient/4342010",
-        "display": "Smart, Joe"
-      },
-      "informationSource": {
-        "reference": "Practitioner/4474007",
-        "display": "Song, River"
-      },
-      "dateAsserted": "2017-02-09T09:29:09.000-06:00",
-      "status": "entered-in-error",
-      "effectivePeriod": {
-        "start": "2017-02-09T08:00:00.000-08:00",
-        "end": "2017-02-09T08:30:45.000-08:00"
-      },
-      "supportingInformation": [{
-        "reference": "MedicationOrder/22298077"
-      }],
-      "medicationReference": {
-        "reference": "#2770945",
-        "display": "vancomycin + Dextrose 5% in Water 100 mL"
-      },
-      "dosage": [{
-        "text": "100 mg, IV, q12hr",
-        "_text": {
-          "extension": [{
-            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display",
-            "valueString": "Intravenous every 12 hours for 6 Days. Refills: 0."
-          }]
-        },
-        "timing": {
-          "repeat": {
-            "boundsQuantity": {
-              "value": 6,
-              "unit": "days",
-              "system": "http://unitsofmeasure.org",
-              "code": "d"
-            }
-          },
-          "code": {
-            "text": "q12hr"
-          }
-        },
-        "route": {
-          "coding": [{
-            "system": "http://ncimeta.nci.nih.gov",
-            "code": "C38276",
-            "display": "INTRAVENOUS",
-            "userSelected": false
-          }],
-          "text": "IV"
-        },
-        "quantityQuantity": {
-          "value": 100.0,
-          "unit": "mL",
-          "system": "http://unitsofmeasure.org",
-          "code": "mL"
-        }
-      }]
+        ]
     }
 
     DSTU2_MEDICATION_STATEMENT_CREATE ||= {
       "resourceType": "MedicationStatement",
-      "contained":
-      [
+      "contained": [
         {
-          "resourceType":"Medication",
-          "id":"123",
-          "code":{
-            "text":"FHIR Test Medication"
+          "resourceType": "Medication",
+          "id": "123",
+          "code": {
+            "text": "FHIR Test Medication"
           }
         }
       ],
       "patient": {
-        "reference":"Patient/1316024"
+        "reference": "Patient/12724067"
       },
-      "status":"active",
+      "status": "active",
       "medicationReference":{
         "reference":"#123"
       },
-      "dosage":
-      [
+      "dosage": [
         {
-          "timing":{
-            "code":{
-              "coding":
-              [
+          "timing": {
+            "code": {
+              "coding": [
                 {
-                  "system":"http://hl7.org/fhir/v3/vs/GTSAbbreviation",
-                  "code":"BID"
+                  "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                  "code": "BID"
                 }
               ],
-              "text":"BID"
+              "text": "BID"
             }
           },
-          "quantityQuantity":{
-            "value":60.0,
-            "units":"mg",
-            "system":"http://unitsofmeasure.org",
-            "code":"mg"
+          "quantityQuantity": {
+            "value": 60.0,
+            "units": "mg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
           }
         }
       ]
@@ -635,23 +283,21 @@ module Cerner
 
     DSTU2_MEDICATION_STATEMENT_UPDATE ||= {
       "resourceType": "MedicationStatement",
-      "id": "28953901",
-      "contained":
-      [
-        {
-          "resourceType":"Medication",
-          "id":"123",
-          "code":{
-            "text":"FHIR Test Medication"
-          }
-        }
-      ],
+      "id": "309799821",
       "status": "completed",
       "patient": {
-        "reference": "Patient/1316024"
+        "reference": "Patient/12724067"
       },
-      "medicationReference": {
-        "reference": "#123"
+      "medicationCodeableConcept": {
+          "coding": [
+              {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "82122",
+                  "display": "Levofloxacin",
+                  "userSelected": false
+              }
+          ],
+          "text": "levoFLOXacin"
       }
     }
 

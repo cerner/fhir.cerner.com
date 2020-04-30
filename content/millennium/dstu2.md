@@ -14,7 +14,7 @@ All API access is over HTTPS. See [Service Root URL](#service-root-url) for more
 All data is sent and received as JSON.
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+$ curl -i -H "Accept: application/json+fhir" https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
 HTTP/1.1 200 OK
 Date: Tue, 05 Jan 2016 20:02:23 GMT
 cache-control: no-cache
@@ -36,7 +36,7 @@ Transfer-Encoding: chunked
     "status": "generated",
     "div": "&lt;div>Generated Conformance Statement&lt;/div>"
   },
-  "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata",
+  "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata",
   "name": "Cerner Conformance Statement",
   "status": "draft",
   "publisher": "Cerner",
@@ -295,7 +295,7 @@ launch time. For standalone applications, the URL can be requested (or configure
 
 The open sandbox instance allows developers to experiment with the service without requiring
 authentication. We recommend using this endpoint for initial proof of concepts and integration. The service root URL for
-this instance is: `https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
+this instance is: `https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/:resource[?:parameters]`
 
 Note: The open endpoint exposes read-only resources. No writes are available in sandbox without using authentication.
 
@@ -304,8 +304,8 @@ Note: The open endpoint exposes read-only resources. No writes are available in 
 The secure sandbox instance can be used for testing an application with [authorization](#authorization). The service
 root URL for this instance is different if the patient or a patient's proxy is logging in.
 
-Non-Patient: `https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
-Patient Access: `https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/:resource[?:parameters]`
+Non-Patient: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/:resource[?:parameters]`
+Patient Access: `https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/:resource[?:parameters]`
 
 
 ### Resource
@@ -319,7 +319,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 <pre class="terminal">
-$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationOrder?patient=2744010&status=active"
+$ curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationOrder?patient=2744010&status=active"
 </pre>
 
 In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource being accessed, while `patient` and `status`
@@ -331,19 +331,19 @@ In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource bein
 
  For example, one must take into account the entire url and not simply the id or resource + id:
 
-     https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/1316024
+     https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/1316024
 
  In another context the id "Patient/1316024" may identify another person entirely. In the following example a different resource may be returned because the context (service root url) has changed.
 
-     https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/1316024
+     https://fhir-open.cerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/1316024
 
  Similarly when considering an identifier one must consider it only in its full context. Even though some identifiers may exist across multiple systems (ex: MRN) it is not guaranteed that they will refer to the same resource.
 
-     https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+     https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
 
  For example, when using the above MRN in a different system, we are not guaranteed that the same Patient resource is returned in the response bundle:
 
-     https://fhir-open.sandboxcerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
+     https://fhir-open.cerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient?identifier=urn:oid:1.1.1.1.1.1|10002700
 
 ## Common Application Errors
 
@@ -513,10 +513,10 @@ follow these Link header values instead of constructing your own URLs.
       "type": "searchset",
       "link": [{
         "relation": "self",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&_count=50"
+        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=1316024&_count=50"
       }, {
         "relation": "next",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?subject%3APatient=1316024&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
+        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=1316024&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
       }], ...
     }  
 
@@ -544,7 +544,7 @@ HTML 5 Security Guide.
 Here's a sample request sent from the origin `http://example.com`:
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
 HTTP/1.1 200 OK
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
@@ -555,7 +555,7 @@ Access-Control-Allow-Credentials: true
 This is what a CORS preflight request looks like:
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: http://example.com
 Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD

@@ -58,17 +58,17 @@ _Implementation Notes_
 
 #### Request
 
-    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
 
-<%= RequestButton.get('open', :dstu2, 'Device?patient=4342008', 200, :dstu2_device_bundle) %>
+<%= RequestButton.get('open', :dstu2, 'Device?patient=12724066', 200, :dstu2_device_bundle) %>
 
 ### Example Read by Ids
 
 #### Request
 
-    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768"
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?_id=31539245"
 
-<%= RequestButton.get('open', :dstu2, 'Device?_id=15601768', 200, :dstu2_device_bundle_by_id) %>
+<%= RequestButton.get('open', :dstu2, 'Device?_id=31539245', 200, :dstu2_device_bundle_by_id) %>
 
 ### Errors
 
@@ -92,9 +92,9 @@ _Implementation Notes_
 
 #### Request
 
-    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768"
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245"
 
-<%= RequestButton.get('open', :dstu2, 'Device/15601768', 200, :dstu2_device) %>
+<%= RequestButton.get('open', :dstu2, 'Device/31539245', 200, :dstu2_device) %>
 
 ### Errors
 

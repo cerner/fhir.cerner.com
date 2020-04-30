@@ -1,299 +1,218 @@
 module Cerner
   module Resources
 
-    DSTU2_ALLERGY_INTOLERANCE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "c7330db8-59df-499b-9f97-9f89b79dbfb4",
-      "type": "searchset",
-      "total": 2,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?patient=4342010"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
-          "resource": {
-            "resourceType": "AllergyIntolerance",
-            "id": "5703737",
-            "meta": {
-              "versionId": "5703737",
-              "lastUpdated": "2016-06-27T14:10:11.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Peanuts&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: High Risk&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Food&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: Dyspnea&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 1982&lt;/p>&lt;/div>"
-            },
-            "onset": "1982",
-            "recordedDate": "2016-06-27T09:10:11.000-05:00",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Who, Doctor"
-            },
-            "patient": {
-              "reference": "Patient/4342010",
-              "display": "Smart, Joe"
-            },
-            "substance": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "256349002",
-                  "display": "Peanut - dietary (substance)",
-                  "userSelected": false
-                }
-              ],
-              "text": "Peanuts"
-            },
-            "status": "active",
-            "criticality": "CRITH",
-            "type": "allergy",
-            "category": "food",
-            "reaction": [
-              {
-                "id": "5703739",
-                "manifestation": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "267036007",
-                        "display": "Dyspnea (finding)",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Dyspnea"
-                  }
-                ]
-              }
-            ]
-          }
+    DSTU2_ALLERGY_INTOLERANCE_RESOURCE ||= {
+        "resourceType": "AllergyIntolerance",
+        "id": "12760025",
+        "meta": {
+            "versionId": "12760025",
+            "lastUpdated": "2020-03-04T20:16:02.000Z"
         },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703733",
-          "resource": {
-            "resourceType": "AllergyIntolerance",
-            "id": "5703733",
-            "meta": {
-              "versionId": "5703733",
-              "lastUpdated": "2016-06-27T14:08:41.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: No known medicine allergy&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
-            },
-            "recordedDate": "2016-06-27T09:08:41.000-05:00",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Who, Doctor"
-            },
-            "patient": {
-              "reference": "Patient/4342010",
-              "display": "Smart, Joe"
-            },
-            "substance": {
-              "coding": [
+        "text": {
+            "status": "generated",
+            "div": "<div><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: SMART, SANDY A</p><p><b>Allergy</b>: Egg</p><p><b>Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>Category</b>: Food</p><p><b>Reactions</b>: Breathing abnormal</p><p><b>Onset</b>: Dec 2019</p></div>"
+        },
+        "onset": "2019-12",
+        "recordedDate": "2020-03-04T14:16:02.000-06:00",
+        "patient": {
+            "reference": "Patient/12742399",
+            "display": "SMART, SANDY A"
+        },
+        "substance": {
+            "coding": [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "409137002",
-                  "display": "No known drug allergies (context-dependent category)",
-                  "userSelected": false
+                    "system": "http://snomed.info/sct",
+                    "code": "102263004",
+                    "display": "Eggs (edible) (substance)",
+                    "userSelected": false
                 }
-              ],
-              "text": "No known medicine allergy"
-            },
-            "status": "active",
-            "type": "allergy"
-          }
-        }
-      ]
+            ],
+            "text": "Egg"
+        },
+        "status": "active",
+        "criticality": "CRITH",
+        "type": "allergy",
+        "category": "food",
+        "reaction": [
+            {
+                "id": "12760027",
+                "manifestation": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "386813002",
+                                "display": "Abnormal breathing (finding)",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "Breathing abnormal"
+                    }
+                ]
+            }
+        ]
     }
-    
+
+    DSTU2_ALLERGY_INTOLERANCE_BUNDLE ||= {
+        "resourceType": "Bundle",
+        "id": "7c99ef7b-3d34-40af-a86e-426375329d7b",
+        "type": "searchset",
+        "total": 2,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12742399"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760019",
+                "resource": {
+                    "resourceType": "AllergyIntolerance",
+                    "id": "12760019",
+                    "meta": {
+                        "versionId": "12760019",
+                        "lastUpdated": "2020-03-04T20:15:37.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: SMART, SANDY A</p><p><b>Allergy</b>: acetaminophen</p><p><b>Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>Reactions</b>: Rash</p><p><b>Onset</b>: Dec 2019</p></div>"
+                    },
+                    "onset": "2019-12",
+                    "recordedDate": "2020-03-04T14:15:37.000-06:00",
+                    "patient": {
+                        "reference": "Patient/12742399",
+                        "display": "SMART, SANDY A"
+                    },
+                    "substance": {
+                        "coding": [
+                            {
+                                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                "code": "161",
+                                "display": "Acetaminophen",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "acetaminophen"
+                    },
+                    "status": "active",
+                    "criticality": "CRITH",
+                    "reaction": [
+                        {
+                            "id": "12760021",
+                            "manifestation": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "http://snomed.info/sct",
+                                            "code": "271807003",
+                                            "display": "Eruption of skin (disorder)",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Rash"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025",
+                "resource": DSTU2_ALLERGY_INTOLERANCE_RESOURCE
+            }
+        ]
+    }
+
     DSTU2_ALLERGY_INTOLERANCE_BUNDLE_BY_STATUS ||= {
-      "resourceType": "Bundle",
-      "id": "c7330db8-59df-499b-9f97-9f89b79dbfb4",
-      "type": "searchset",
-      "total": 2,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?patient=4342010&status=active"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
-          "resource": {
-            "resourceType": "AllergyIntolerance",
-            "id": "5703737",
-            "meta": {
-              "versionId": "5703737",
-              "lastUpdated": "2016-06-27T14:10:11.000Z"
+        "resourceType": "Bundle",
+        "id": "fb2804ce-a379-4ae0-ae48-a608787f83f1",
+        "type": "searchset",
+        "total": 2,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12742399&status=active"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025",
+                "resource": DSTU2_ALLERGY_INTOLERANCE_RESOURCE
             },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Peanuts&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: High Risk&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Food&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: Dyspnea&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 1982&lt;/p>&lt;/div>"
-            },
-            "onset": "1982",
-            "recordedDate": "2016-06-27T09:10:11.000-05:00",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Who, Doctor"
-            },
-            "patient": {
-              "reference": "Patient/4342010",
-              "display": "Smart, Joe"
-            },
-            "substance": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "256349002",
-                  "display": "Peanut - dietary (substance)",
-                  "userSelected": false
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760019",
+                "resource": {
+                    "resourceType": "AllergyIntolerance",
+                    "id": "12760019",
+                    "meta": {
+                        "versionId": "12760019",
+                        "lastUpdated": "2020-03-04T20:15:37.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: SMART, SANDY A</p><p><b>Allergy</b>: acetaminophen</p><p><b>Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>Reactions</b>: Rash</p><p><b>Onset</b>: Dec 2019</p></div>"
+                    },
+                    "onset": "2019-12",
+                    "recordedDate": "2020-03-04T14:15:37.000-06:00",
+                    "patient": {
+                        "reference": "Patient/12742399",
+                        "display": "SMART, SANDY A"
+                    },
+                    "substance": {
+                        "coding": [
+                            {
+                                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                                "code": "161",
+                                "display": "Acetaminophen",
+                                "userSelected": false
+                            }
+                        ],
+                        "text": "acetaminophen"
+                    },
+                    "status": "active",
+                    "criticality": "CRITH",
+                    "reaction": [
+                        {
+                            "id": "12760021",
+                            "manifestation": [
+                                {
+                                    "coding": [
+                                        {
+                                            "system": "http://snomed.info/sct",
+                                            "code": "271807003",
+                                            "display": "Eruption of skin (disorder)",
+                                            "userSelected": false
+                                        }
+                                    ],
+                                    "text": "Rash"
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ],
-              "text": "Peanuts"
-            },
-            "status": "active",
-            "criticality": "CRITH",
-            "type": "allergy",
-            "category": "food",
-            "reaction": [
-              {
-                "id": "5703739",
-                "manifestation": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "267036007",
-                        "display": "Dyspnea (finding)",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Dyspnea"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703733",
-          "resource": {
-            "resourceType": "AllergyIntolerance",
-            "id": "5703733",
-            "meta": {
-              "versionId": "5703733",
-              "lastUpdated": "2016-06-27T14:08:41.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: No known medicine allergy&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
-            },
-            "recordedDate": "2016-06-27T09:08:41.000-05:00",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Who, Doctor"
-            },
-            "patient": {
-              "reference": "Patient/4342010",
-              "display": "Smart, Joe"
-            },
-            "substance": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "409137002",
-                  "display": "No known drug allergies (context-dependent category)",
-                  "userSelected": false
-                }
-              ],
-              "text": "No known medicine allergy"
-            },
-            "status": "active",
-            "type": "allergy"
-          }
-        }
-      ]
+            }
+        ]
     }
 
     DSTU2_ALLERGY_INTOLERANCE_BUNDLE_BY_ID ||= {
-      "resourceType": "Bundle",
-      "id": "db663826-30c9-4278-a6e2-b2b6843334f7",
-      "type": "searchset",
-      "total": 1,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?_id=5703737"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/5703737",
-          "resource": {
-            "resourceType": "AllergyIntolerance",
-            "id": "5703737",
-            "meta": {
-              "versionId": "5703737",
-              "lastUpdated": "2016-06-27T14:10:11.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Allergy Intolerance&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Smart, Joe&lt;/p>&lt;p>&lt;b>Allergy&lt;/b>: Peanuts&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;p>&lt;b>Criticality&lt;/b>: High Risk&lt;/p>&lt;p>&lt;b>Category&lt;/b>: Food&lt;/p>&lt;p>&lt;b>Reactions&lt;/b>: Dyspnea&lt;/p>&lt;p>&lt;b>Onset&lt;/b>: 1982&lt;/p>&lt;/div>"
-            },
-            "onset": "1982",
-            "recordedDate": "2016-06-27T09:10:11.000-05:00",
-            "recorder": {
-              "reference": "Practitioner/1912007",
-              "display": "Who, Doctor"
-            },
-            "patient": {
-              "reference": "Patient/4342010",
-              "display": "Smart, Joe"
-            },
-            "substance": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "256349002",
-                  "display": "Peanut - dietary (substance)",
-                  "userSelected": false
-                }
-              ],
-              "text": "Peanuts"
-            },
-            "status": "active",
-            "criticality": "CRITH",
-            "type": "allergy",
-            "category": "food",
-            "reaction": [
-              {
-                "id": "5703739",
-                "manifestation": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "267036007",
-                        "display": "Dyspnea (finding)",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Dyspnea"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
+        "resourceType": "Bundle",
+        "id": "f458542b-3e85-4930-949c-606f0941510e",
+        "type": "searchset",
+        "total": 1,
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=12760025"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025",
+                "resource": DSTU2_ALLERGY_INTOLERANCE_RESOURCE
+            }
+        ]
     }
-
 
     DSTU2_ALLERGY_INTOLERANCE_CREATE ||= {
       "resourceType": "AllergyIntolerance",
@@ -304,13 +223,13 @@ module Cerner
       "type": "allergy",
       "onset": "2015-12-15T00:00:00Z",
       "patient": {
-        "reference": "Patient/1316020"
+        "reference": "Patient/12742399"
       },
       "reporter": {
-        "reference": "Patient/1316020"
+        "reference": "Patient/12742399"
       },
       "recorder": {
-        "reference": "Practitioner/1316007"
+        "reference": "Practitioner/683925"
       },
       "reaction": [
         {
@@ -323,7 +242,7 @@ module Cerner
       ],
       "note": {
         "authorReference": {
-          "reference": "Practitioner/41562141"
+          "reference": "Practitioner/683925"
         },
         "time": "2017-02-28T09:03:00Z",
         "text": "Note 1"
@@ -340,10 +259,10 @@ module Cerner
 
     DSTU2_ALLERGY_INTOLERANCE_UPDATE ||= {
       "resourceType": "AllergyIntolerance",
-      "id": "1194890",
+      "id": "12760025",
       "meta": {
-        "versionId": "1197522",
-        "lastUpdated": "2015-06-11T14:43:38.000Z"
+        "versionId": "12760025",
+        "lastUpdated": "2020-03-04T20:16:02.000Z"
       },
       "contained": [
         {
@@ -365,27 +284,21 @@ module Cerner
           ]
         }
       ],
-      "onset": "2014",
-      "recordedDate": "2015-06-11T09:43:38.000-05:00",
-      "recorder": {
-        "reference": "Practitioner/2048007"
-      },
+      "onset": "2020-2",
+      "recordedDate": "2020-05-04T14:16:02.000-06:00",
       "patient": {
-        "reference": "Patient/1316020"
-      },
-      "reporter": {
-        "reference": "#638994"
+        "reference": "Patient/12742399"
       },
       "substance": {
         "coding": [
           {
             "system": "http://snomed.info/sct",
-            "code": "256277009",
-            "display": "Grass pollen (substance)",
+            "code": "102263004",
+            "display": "Eggs (edible) (substance)",
             "userSelected": false
           }
         ],
-        "text": "Grass"
+        "text": "Egg"
       },
       "status": "active",
       "criticality": "CRITH",
@@ -410,41 +323,5 @@ module Cerner
       ]
     }
 
-    DSTU2_ALLERGY_INTOLERANCE_RESOURCE ||= {
-      "resourceType": "AllergyIntolerance",
-      "id": "3643739",
-      "meta": {
-        "versionId": "3643739",
-        "lastUpdated": "2015-03-11T20:36:08.000Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: RHEUM, TEST ONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Dust allergy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reactions&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: &lt;/p&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: &lt;/p&gt;&lt;/div&gt;"
-      },
-      "recordedDate": "2015-03-11T15:36:08.000",
-      "recorder": {
-        "reference": "Practitioner/3270007",
-        "display": "Who, Doctor"
-      },
-      "patient": {
-        "reference": "Patient/2744010",
-        "display": "RHEUM, TEST ONE"
-      },
-      "substance": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "390952000",
-            "display": "Dust allergy (disorder)",
-            "userSelected": true
-          }
-        ],
-        "text": "Dust allergy"
-      },
-      "status": "active",
-      "type": "allergy",
-      "category": "environment"
-    }
-    
   end
 end
