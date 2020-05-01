@@ -1,0 +1,27 @@
+---
+name: NutritionOrder # TODO: Add the terminology bindings
+field_name_base_url: http://hl7.org/fhir/R4/nutritionorder-definitions.html
+fields:
+- name:
+  required: 'No'
+  type:
+  description:
+  binding:
+    description:
+    terminology:
+    - display:
+      system:
+      info_link:
+- name:
+  required: 'No'
+  type:
+  description:
+  binding:
+    description:
+    terminology:
+    - display:
+      system:
+      info_link:
+    - display:
+      system:
+      info_link:
