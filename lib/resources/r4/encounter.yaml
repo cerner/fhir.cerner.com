@@ -317,7 +317,9 @@ fields:
     description: The start and end times for the period the participant was involved in the encounter.
     example: |
       {
-        "reference": "Practitioner/1912007"
+        "period": {
+          "start": "2017-03-02T01:13:00Z"
+        }
       }
 
   - name: individual
@@ -327,9 +329,7 @@ fields:
     description: The personnel present at the encounter.
     example: |
       {
-        "period": {
-          "start": "2017-03-02T01:13:00Z"
-        }
+        "reference": "Practitioner/1912007"
       }
     note: Required if participant is given.
 
