@@ -511,7 +511,7 @@ Please reference the <a href="/authorization/">authorization</a> documentation f
 
 ## Pagination
 
-The pagination links are included in the Bundle when a resource returns multiple items. It is important to
+The pagination links are included in the Bundle when a resource returns more items than the Bundle page size. It is important to
 follow these Link header values instead of constructing your own URLs.
 
     {
@@ -533,6 +533,7 @@ The possible `relation` values are:
 --------|------------------------------------------------------
  `self` | Shows the URL of the current page of results.
  `next` | Shows the URL of the immediate next page of results.
+ `previous` | If paging, shows the URL of the previous page of results.
 
 
 ### Concurrency
