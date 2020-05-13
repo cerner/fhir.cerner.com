@@ -3,6 +3,17 @@ name: Observation
 field_name_base_url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
 fields:
 
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "Observation"
+    }
+  note: resourceType must be Observation.
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
+
 - name: category
   required: 'No'
   type: List of CodeableConcept
