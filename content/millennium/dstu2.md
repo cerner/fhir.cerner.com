@@ -529,10 +529,10 @@ follow these Link header values instead of constructing your own URLs.
 
 The possible `relation` values are:
 
- Name   | Description
---------|------------------------------------------------------
- `self` | Shows the URL of the current page of results.
- `next` | Shows the URL of the immediate next page of results.
+ Name       | Description
+------------|------------------------------------------------------
+ `self`     | Shows the URL of the current page of results.
+ `next`     | Shows the URL of the immediate next page of results.
  `previous` | If paging, shows the URL of the previous page of results.
 
 
