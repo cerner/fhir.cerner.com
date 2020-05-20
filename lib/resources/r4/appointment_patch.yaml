@@ -89,16 +89,16 @@ operations:
         <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
       </ul>
   - name: replace-provider-vmr
-    path: /contained/0/telecom/0/period/end
+    path: /contained/0/telecom/0/value
     operation: replace
     type: string
-    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The provider video visit link
     example: |
       {
         "op": "replace",
-        "path": "/contained/0/telecom/0/period/end",
-        "value":  "2019-07-13T08:30:00.000Z"
+        "path": "/contained/0/telecom/0/value",
+        "value":  "http://providerlink.vmr.net"
       }
     note: >
       <ul>
@@ -107,16 +107,16 @@ operations:
         <li>The appointment must already contain VMR data</li>
       </ul>
   - name: replace-patient-vmr
-    path: /contained/0/telecom/0/period/end
+    path: /contained/1/telecom/0/value
     operation: replace
     type: string
-    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
     description: The provider video visit link
     example: |
       {
         "op": "replace",
-        "path": "/contained/0/telecom/0/period/end",
-          "value":  "2019-07-13T08:30:00.000Z"
+        "path": "/contained/1/telecom/0/value",
+          "value":  "http://patientlink.vmr.net"
         }
     note: >
        <ul>
@@ -124,17 +124,16 @@ operations:
           <li>This patch operation must be accompanied by all other video visit link patch operations</li>
           <li>The appointment must already contain VMR data</li>
         </ul>
-
   - name: replace-period-start
-    path: /contained/0/telecom/0/period/end
+    path: /contained/0/telecom/0/period/start
     operation: replace
     type: datetime
-    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
-    description: The end datetime for the video visit
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
+    description: The start datetime for the video visit
     example: |
       {
         "op": "replace",
-        "path": "/contained/0/telecom/0/period/end",
+        "path": "/contained/0/telecom/0/period/start",
         "value":  "2019-07-13T08:30:00.000Z"
       }
     note: >
@@ -154,7 +153,7 @@ operations:
       {
         "op": "replace",
         "path": "/contained/0/telecom/0/period/end",
-        "value":  "2019-07-13T08:30:00.000Z"
+        "value":  "2019-07-14T08:30:00.000Z"
       }
     note: >
       <ul>
