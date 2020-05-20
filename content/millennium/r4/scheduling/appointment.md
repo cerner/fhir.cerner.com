@@ -161,7 +161,7 @@ _Implementation Notes_
 * Only operations on the paths listed below are supported.
 * For video visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
 * Video Visit linking requires additional client configuration and application support.
-* Additional Video Visit cloud configuration is required to access these patch operations
+* Additional Video Visit cloud configuration is required to access these patch operations.
 
 ### Authorization Types
 
@@ -211,9 +211,13 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
     PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
 
-#### Body
+#### ADD Body
 
-<%= json(:r4_appointment_video_visit_patch) %>
+<%= json(:r4_appointment_video_visit_add_patch) %>
+
+#### REPLACE Body
+
+<%= json(:r4_appointment_video_visit_replace_patch) %>
 
 #### Response
 
