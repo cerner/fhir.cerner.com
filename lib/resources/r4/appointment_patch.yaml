@@ -166,3 +166,4 @@ operations:
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
         <li>This patch operation must be accompanied by all other video visit link patch operations with an op of replace</li>
       </ul>
+  
