@@ -832,6 +832,12 @@ associated with a valueUri:
 
     A valueUri indicating the OAuth2 "token" endpoint for this 
     FHIR<sup>®</sup> server.
+    
+*   introspect
+
+    A valueUri indicating the OAuth2 "introspect" endpoint for this 
+    FHIR<sup>®</sup> server; see
+    [RFC 7662](https://tools.ietf.org/html/rfc7662) for details.
 	
 *   manage
 
