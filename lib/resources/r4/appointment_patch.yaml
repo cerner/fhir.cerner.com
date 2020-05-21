@@ -120,8 +120,8 @@ operations:
       {
         "op": "replace",
         "path": "/contained/1/telecom/0/value",
-          "value":  "http://patientlink.vmr.net"
-        }
+        "value":  "http://patientlink.vmr.net"
+      }
     note: >
        <ul>
           <li>This patch operation may be used only for Video Visit appointments</li>
