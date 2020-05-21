@@ -186,6 +186,7 @@ _Implementation Notes_
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.
+* The `id` is a combination of encounter id `123` and coverage id `456` separated by a hyphen. Example: `123-456`
 
 ### Authorization Types
 
@@ -229,6 +230,51 @@ X-Runtime: 2.260092
 <%= disclaimer %>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Delete
+
+Delete an existing Encounter-level Coverage.
+
+    DELETE /Coverage/:id
+
+_Implementation Notes_
+
+* Only Encounter-level Coverages may be deleted. Deletes are not currently supported for Patient-level Coverages.
+* The `id` is a combination of encounter id `123` and coverage id `456` separated by a hyphen. Example: `123-456`
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'If-Match': 'W/"&lt;Current version of the Coverage resource>"'} %>
+
+### Example
+
+#### Request
+
+    DELETE https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 20 May 2020 18:55:23 GMT
+Server-Response-Time: 2260.237021
+Vary: Origin
+X-Request-Id: 160d603d256dce10d510f7da2ca1780e
+X-Runtime: 2.60092
+</pre>
+
+<%= disclaimer %>
 
 ### Errors
 
