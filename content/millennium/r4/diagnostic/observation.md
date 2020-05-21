@@ -46,6 +46,8 @@ The following fields are returned if valued:
 * valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
   This extension is defined and referenced from the newer version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
 
+* [Performer Function]   
+
 ## Search
 
 Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied query parameters:
@@ -125,3 +127,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [OperationOutcomes]: ../../#operation-outcomes
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
+[Performer Function]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
