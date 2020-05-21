@@ -262,7 +262,7 @@ _Implementation Notes_
 
 #### Response
 
-<%= headers status: 200 %>
+<%= headers status: 204 %>
 <pre class="terminal">
 Cache-Control: no-cache
 Content-Length: 0
