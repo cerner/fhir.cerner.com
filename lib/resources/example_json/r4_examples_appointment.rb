@@ -322,27 +322,27 @@ module Cerner
     ]
 
     R4_APPOINTMENT_VIDEO_VISIT_REPLACE_PATCH ||= [
-        {
-          "op": "replace",
-          "path": "/contained/0/telecom/0/value",
-          "value": "http://providerlink.vmr.net"
-        },
-        {
-            "op": "replace",
-            "path": "/contained/1/telecom/0/value",
-            "value": "http://patientlink.vmr.net"
-        },
-        {
-            "op": "replace",
-            "path": "/contained/0/telecom/0/period/start",
-            "value": "2019-07-13T08:00:00.000Z"
-        },
-        {
-            "op": "replace",
-            "path": "/contained/0/telecom/0/period/end",
-            "value": "2019-07-13T08:10:00.000Z"
-        }
-      ]
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/value",
+        "value": "http://providerlink.vmr.net"
+      },
+      {
+        "op": "replace",
+        "path": "/contained/1/telecom/0/value",
+        "value": "http://patientlink.vmr.net"
+      },
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/period/start",
+        "value": "2019-07-13T08:00:00.000Z"
+      },
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/period/end",
+        "value": "2019-07-13T08:10:00.000Z"
+      }
+    ]
 
     R4_APPOINTMENT_CREATE ||= [
       {
