@@ -186,7 +186,6 @@ _Implementation Notes_
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.
-* The `id` is a combination of encounter id `123` and coverage id `456` separated by a hyphen. Example: `123-456`
 
 ### Authorization Types
 
@@ -244,7 +243,6 @@ Delete an existing Encounter-level Coverage.
 _Implementation Notes_
 
 * Only Encounter-level Coverages may be deleted. Deletes are not currently supported for Patient-level Coverages.
-* The `id` is a combination of encounter id `123` and coverage id `456` separated by a hyphen. Example: `123-456`
 
 ### Authorization Types
 
