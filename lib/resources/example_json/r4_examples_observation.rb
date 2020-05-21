@@ -467,7 +467,22 @@ module Cerner
                       "issued": "2017-09-12T17:00:48.000Z",
                       "performer": [
                         {
-                          "reference": "Practitioner/1994021"
+                          "reference": "Practitioner/1994021",
+                          "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction",
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                            "code": "LA",
+                                            "display": "legal authenticator"
+                                        }
+                                    ],
+                                    "text": "legal authenticator"
+                                }
+                            }
+                          ]
                         }
                       ],
                       "valueQuantity": {
