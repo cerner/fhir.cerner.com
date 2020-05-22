@@ -23,7 +23,7 @@ operations:
     operation: add
     type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
-    description: The provider video visit link
+    description: The provider Video Visit link
     example: |
       {
         "op": "add",
@@ -32,15 +32,15 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for video visit appointments</li>
-        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
       </ul>
   - name: add-patient-vmr
     path: /contained/1/telecom/0/value
     operation: add
     type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
-    description: The patient video visit link
+    description: The patient Video Visit link
     example: |
       {
         "op": "add",
@@ -49,15 +49,15 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for video visit appointments</li>
-        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
       </ul>
   - name: add-period-start
     path: /contained/0/telecom/0/period/start
     operation: add
     type: datetime
     url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
-    description: The start datetime for the video visit
+    description: The start datetime for the Video Visit
     example: |
       {
         "op": "add",
@@ -66,16 +66,16 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for video visit appointments</li>
-        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
-        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
       </ul>
   - name: add-period-end
     path: /contained/0/telecom/0/period/end
     operation: add
     type: datetime
     url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
-    description: The end datetime for the video visit
+    description: The end datetime for the Video Visit
     example: |
       {
         "op": "add",
@@ -84,7 +84,77 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for video visit appointments</li>
-        <li>This patch operation must be accompanied by all other video visit link patch operations</li>
-        <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+      </ul>
+  - name: replace-provider-vmr
+    path: /contained/0/telecom/0/value
+    operation: replace
+    type: string
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
+    description: The provider Video Visit link
+    example: |
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/value",
+        "value":  "http://providerlink.vmr.net"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+      </ul>
+  - name: replace-patient-vmr
+    path: /contained/1/telecom/0/value
+    operation: replace
+    type: string
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
+    description: The provider Video Visit link
+    example: |
+      {
+        "op": "replace",
+        "path": "/contained/1/telecom/0/value",
+        "value":  "http://patientlink.vmr.net"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+      </ul>
+  - name: replace-period-start
+    path: /contained/0/telecom/0/period/start
+    operation: replace
+    type: datetime
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start
+    description: The start datetime for the Video Visit
+    example: |
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/period/start",
+        "value":  "2019-07-13T08:30:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+      </ul>
+  - name: replace-period-end
+    path: /contained/0/telecom/0/period/end
+    operation: replace
+    type: datetime
+    url: http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end
+    description: The end datetime for the Video Visit
+    example: |
+      {
+        "op": "replace",
+        "path": "/contained/0/telecom/0/period/end",
+        "value":  "2019-07-14T08:30:00.000Z"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
       </ul>
