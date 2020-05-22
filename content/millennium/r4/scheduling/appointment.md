@@ -27,7 +27,7 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Cancelled
 
-Video Visit functionality is for supported vendors only, and requires additional configuration and application support.
+Video Visit functionality is available for supported vendors only, and requires additional configuration and application support.
 
 The following fields are returned if valued:
 
@@ -35,10 +35,10 @@ The following fields are returned if valued:
 * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
 * [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
 * [Participant](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant){:target="_blank"}
-   * [Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
-   * [Actor](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
-   * [Required](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
-   * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
+  * [Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
+  * [Actor](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
+  * [Required](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
+  * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
 * [Reason code](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode){:target="_blank"}
 * [Description](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.description){:target="_blank"}
 * [Start date time](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.start){:target="_blank"}
@@ -59,8 +59,7 @@ Search for Appointments that meet supplied query parameters:
 
 _Implementation Notes_
 
-- Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when
-  integrating your application with the client's production environment. See [overview](#overview) for details.
+* Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when integrating your application with the client's production environment. See [overview](#overview) for details.
 
 ### Authorization Types
 
@@ -68,27 +67,23 @@ _Implementation Notes_
 
 ### Parameters
 
- Name          | Required?                                                | Type          | Description
----------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
-`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
-`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
-`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
-`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
-`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
-`status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
-[`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
+ Name           | Required?                                                | Type          | Description
+----------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------
+ `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
+ `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+ `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+ `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+ [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
 Notes:
 
-- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination.
-  For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
-
-- The `date` parameter may be provided:
-  - once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
-  - twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
-
-- The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
+* The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination. For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
+* The `date` parameter may be provided:
+  * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
+  * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
+* The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
 ### Headers
 
@@ -104,6 +99,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_appointment_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -134,6 +131,8 @@ List an individual Appointment by its id:
 <%= headers status: 200 %>
 <%= json(:r4_appointment_entry) %>
 
+<%= disclaimer %>
+
 ### Example - Video Visit
 
 #### Request
@@ -144,6 +143,8 @@ List an individual Appointment by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_appointment_video_visit_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -204,17 +205,46 @@ X-Runtime: 2.260092
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-### Example - Video Visit Links
+<%= disclaimer %>
+
+### Example - Add Video Visit Links
 
 #### Request
 
     PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
 
-#### ADD Body
+#### Body
 
 <%= json(:r4_appointment_video_visit_add_patch) %>
 
-#### REPLACE Body
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
+### Example - Replace Video Visit Links
+
+#### Request
+
+    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+
+#### Body
 
 <%= json(:r4_appointment_video_visit_replace_patch) %>
 
@@ -236,6 +266,8 @@ X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -309,6 +341,8 @@ X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
 
 ### Errors
 
