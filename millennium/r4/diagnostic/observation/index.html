@@ -527,6 +527,7 @@
 <ul>
   <li>valueAttachment: URL for this extension is defined as: <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment</code>
 This extension is defined and referenced from the newer version of FHIR. See <a href="https://www.hl7.org/fhir/r4/versions.html#extensions">Extensions for converting between versions</a> and <a href="https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_">R5 Snapshot of Observation.value</a> for more information.</li>
+  <li><a href="http://hl7.org/fhir/R4/extension-event-performerfunction.html">performerFunction</a></li>
 </ul>
 
 <h2 id="search">Search</h2>
@@ -1128,7 +1129,22 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "issued": "2017-09-12T17:00:48.000Z",
         "performer": [
           {
-            "reference": "Practitioner/1994021"
+            "reference": "Practitioner/1994021",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code": "LA",
+                      "display": "legal authenticator"
+                    }
+                  ],
+                  "text": "legal authenticator"
+                }
+              }
+            ]
           }
         ],
         "valueQuantity": {

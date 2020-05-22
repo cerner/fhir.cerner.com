@@ -103,7 +103,8 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#example---video-visit-links" id="markdown-toc-example---video-visit-links">Example - Video Visit Links</a></li>
+      <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
+      <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
@@ -140,7 +141,7 @@
   <li>From Checked-In to Cancelled</li>
 </ul>
 
-<p>Video visit functionality is for supported vendors only, and requires additional configuration and application support.</p>
+<p>Video Visit functionality is available for supported vendors only, and requires additional configuration and application support.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -316,8 +317,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Valid ids for the <code>practitioner</code> and <code>location</code> search parameters will be determined by the client and provided when
-integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
+  <li>Valid ids for the <code>practitioner</code> and <code>location</code> search parameters will be determined by the client and provided when integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -395,15 +395,11 @@ integrating your application with the client’s production environment. See <a 
 <p>Notes:</p>
 
 <ul>
-  <li>
-    <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination.
-For example, <code>patient=4704007,1316024</code> is supported but <code>patient=4704007&amp;patient=1316024</code> and <code>patient=4704007&amp;location=633867</code> are not.</p>
-  </li>
+  <li>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination. For example, <code>patient=4704007,1316024</code> is supported but <code>patient=4704007&amp;patient=1316024</code> and <code>patient=4704007&amp;location=633867</code> are not.</li>
   <li>The <code>date</code> parameter may be provided:
     <ul>
       <li>once with a prefix and time component to indicate a specific date/time. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z</code>, <code>&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
-      <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define
-an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
+      <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
     </ul>
   </li>
   <li>The retrieved appointments are sorted first by <code>start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>start</code> time ascending (earliest first).</li>
@@ -549,6 +545,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -685,6 +683,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="example---video-visit">Example - Video Visit</h3>
 
@@ -863,6 +863,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors-1">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -879,8 +881,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;d
 <ul>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
-  <li>For video visit link patch operation paths, <code>contained</code> index 0 represents the provider link and <code>contained</code> index 1 represents the patient link.</li>
-  <li>Video Visit linking requires additional client configuration and application support.</li>
+  <li>For Video Visit link patch operation paths, <code>contained</code> index 0 represents the provider link and <code>contained</code> index 1 represents the patient link.</li>
+  <li>Video Visit link patching requires additional client configuration, cloud configuration, and application support.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -909,15 +911,15 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
   <tbody>
   
     <tr>
-      <td class="body-field">
+      <td>
         <a name="replace-status">
           
             </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status"><code>/status</code></a>
           
         
       </td>
-      <td class="body-field">replace</td>
-      <td class="body-field">
+      <td>replace</td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -951,15 +953,15 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
     </tr>
   
     <tr>
-      <td class="body-field">
+      <td>
         <a name="add-provider-vmr">
           
             </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/0/telecom/0/value</code></a>
           
         
       </td>
-      <td class="body-field">add</td>
-      <td class="body-field">
+      <td>add</td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -967,7 +969,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The provider video visit link</li></ul>
+            <ul style="list-style-type: none"><li>The provider Video Visit link</li></ul>
           
           
             <li><i>Example</i></li>
@@ -983,8 +985,8 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>This patch operation may be used only for video visit appointments</li>
-  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
 </ul>
 </li></ul>
           
@@ -994,15 +996,15 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
     </tr>
   
     <tr>
-      <td class="body-field">
+      <td>
         <a name="add-patient-vmr">
           
             </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/1/telecom/0/value</code></a>
           
         
       </td>
-      <td class="body-field">add</td>
-      <td class="body-field">
+      <td>add</td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1010,7 +1012,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The patient video visit link</li></ul>
+            <ul style="list-style-type: none"><li>The patient Video Visit link</li></ul>
           
           
             <li><i>Example</i></li>
@@ -1026,8 +1028,8 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>This patch operation may be used only for video visit appointments</li>
-  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
 </ul>
 </li></ul>
           
@@ -1037,15 +1039,15 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
     </tr>
   
     <tr>
-      <td class="body-field">
+      <td>
         <a name="add-period-start">
           
             </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start"><code>/contained/0/telecom/0/period/start</code></a>
           
         
       </td>
-      <td class="body-field">add</td>
-      <td class="body-field">
+      <td>add</td>
+      <td>
 <code>datetime</code> </td>
     </tr>
     <tr>
@@ -1053,7 +1055,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The start datetime for the video visit</li></ul>
+            <ul style="list-style-type: none"><li>The start datetime for the Video Visit</li></ul>
           
           
             <li><i>Example</i></li>
@@ -1069,9 +1071,9 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>This patch operation may be used only for video visit appointments</li>
-  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
-  <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
 </ul>
 </li></ul>
           
@@ -1081,15 +1083,15 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
     </tr>
   
     <tr>
-      <td class="body-field">
+      <td>
         <a name="add-period-end">
           
             </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end"><code>/contained/0/telecom/0/period/end</code></a>
           
         
       </td>
-      <td class="body-field">add</td>
-      <td class="body-field">
+      <td>add</td>
+      <td>
 <code>datetime</code> </td>
     </tr>
     <tr>
@@ -1097,7 +1099,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The end datetime for the video visit</li></ul>
+            <ul style="list-style-type: none"><li>The end datetime for the Video Visit</li></ul>
           
           
             <li><i>Example</i></li>
@@ -1113,9 +1115,183 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>This patch operation may be used only for video visit appointments</li>
-  <li>This patch operation must be accompanied by all other video visit link patch operations</li>
-  <li>The value for this patch operation will be applied to both the provider video visit link and the patient video visit link</li>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-provider-vmr">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/0/telecom/0/value</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The provider Video Visit link</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/contained/0/telecom/0/value",
+  "value":  "http://providerlink.vmr.net"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-patient-vmr">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/1/telecom/0/value</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The provider Video Visit link</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/contained/1/telecom/0/value",
+  "value":  "http://patientlink.vmr.net"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-period-start">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start"><code>/contained/0/telecom/0/period/start</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>datetime</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The start datetime for the Video Visit</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/contained/0/telecom/0/period/start",
+  "value":  "2019-07-13T08:30:00.000Z"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-period-end">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end"><code>/contained/0/telecom/0/period/end</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>datetime</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The end datetime for the Video Visit</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/contained/0/telecom/0/period/end",
+  "value":  "2019-07-14T08:30:00.000Z"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This patch operation may be used only for Video Visit appointments</li>
+  <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+  <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
 </ul>
 </li></ul>
           
@@ -1164,7 +1340,9 @@ X-Runtime: 2.260092
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<h3 id="example---video-visit-links">Example - Video Visit Links</h3>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
 
 <h4 id="request-4">Request</h4>
 
@@ -1216,6 +1394,62 @@ X-Runtime: 2.260092
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
+
+<h4 id="request-5">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+</code></pre>
+
+<h4 id="body-2">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/value",
+    "value": "http://providerlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/1/telecom/0/value",
+    "value": "http://patientlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/start",
+    "value": "2019-07-13T08:00:00.000Z"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/end",
+    "value": "2019-07-13T08:10:00.000Z"
+  }
+]</code></pre>
+
+<h4 id="response-5">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -1227,8 +1461,9 @@ X-Runtime: 2.260092
   <li>Updating an Appointment resource without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
   <li>Updating an Appointment resource which is currently being modified will result in a <code>423 Locked</code> response.</li>
   <li>If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), <code>424 Failed Dependency</code> response will be returned.</li>
-  <li>Patching a video visit appointment that has previously been patched for video visit links will result in a <code>409 Conflict</code> response.</li>
-  <li>Patching a video visit appointment with any missing required patch operations will result in a <code>422 Unprocessable Entity</code> response.</li>
+  <li>Patching a Video Visit appointment with add operations that has previously been patched for Video Visit links will result in a <code>409 Conflict</code> response.</li>
+  <li>Mixing add and replace patch operations is not supported while patching a Video Visit Appointment and will result in a <code>422 Unprocessable Entity</code> response.</li>
+  <li>Patching a Video Visit appointment with any missing required patch operations will result in a <code>422 Unprocessable Entity</code> response.</li>
 </ul>
 
 <h2 id="create">Create</h2>
@@ -1288,15 +1523,15 @@ X-Runtime: 2.260092
   <tbody>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-resourceType">
         
           </a><a target="_blank" href="http://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1324,15 +1559,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-slot">
         
           </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot"><code>slot</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>) </td>
     </tr>
     <tr>
@@ -1364,15 +1599,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-status">
         
           </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status"><code>status</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -1400,15 +1635,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-participant">
         
           </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
     </tr>
     <tr>
@@ -1444,15 +1679,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-participant.actor">
         
           </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a>) </td>
     </tr>
     <tr>
@@ -1483,15 +1718,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-participant.status">
         
           </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
         
         
       </td>
-      <td class="body-field">Yes </td>
-      <td class="body-field">
+      <td>Yes </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
     </tr>
     <tr>
@@ -1519,15 +1754,15 @@ X-Runtime: 2.260092
     </tr>
     
     <tr>
-      <td class="body-field">
+      <td>
         <a name="create-comment">
         
           </a><a target="_blank" href="http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment"><code>comment</code></a>
         
         
       </td>
-      <td class="body-field">No </td>
-      <td class="body-field">
+      <td>No </td>
+      <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
@@ -1556,35 +1791,33 @@ X-Runtime: 2.260092
 
 <h3 id="example-3">Example</h3>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-2">Body</h4>
+<h4 id="body-3">Body</h4>
 
-<pre class="body-response"><code class="language-javascript">[
-  {
-    "resourceType": "Appointment",
-    "status": "booked",
-    "slot": [
-      {
-        "reference": "Slot/21265426-633867-6828001-60"
-      }
-    ],
-    "participant": [
-      {
-        "actor": {
-          "reference": "Patient/4704007",
-          "display": "Smart, Barney R"
-        },
-        "status": "accepted"
-      }
-    ]
-  }
-]</code></pre>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Appointment",
+  "status": "booked",
+  "slot": [
+    {
+      "reference": "Slot/21265426-633867-6828001-60"
+    }
+  ],
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/4704007",
+        "display": "Smart, Barney R"
+      },
+      "status": "accepted"
+    }
+  ]
+}</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1604,6 +1837,8 @@ X-Runtime: 3.890282
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-3">Errors</h3>
 
