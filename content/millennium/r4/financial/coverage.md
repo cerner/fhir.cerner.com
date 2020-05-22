@@ -263,8 +263,6 @@ _Implementation Notes_
 <%= headers status: 204 %>
 <pre class="terminal">
 Cache-Control: no-cache
-Content-Length: 0
-Content-Type: text/html
 Date: Wed, 20 May 2020 18:55:23 GMT
 Server-Response-Time: 2260.237021
 Vary: Origin
