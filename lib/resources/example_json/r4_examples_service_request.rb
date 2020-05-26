@@ -140,7 +140,6 @@ module Cerner
       "resourceType": "Bundle",
       "id": "b630105a-2ec0-4877-8f8c-3b26b53cacd9",
       "type": "searchset",
-      "total": 1,
       "link": [
         {
           "relation": "self",

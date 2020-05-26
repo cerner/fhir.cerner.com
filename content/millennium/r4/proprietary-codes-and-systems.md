@@ -53,6 +53,17 @@ The Observation Resource supports proprietary codes for:
 * Observation.code and Observation.component.code codes are maintained in [Code Set 72 Clinical Event Codes](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes)
 * Observation.interpretation and Observation.component.interpretation codes are maintained in [Code Set 52 Result Interpretation](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-result-interpretation)
 
+### Care-Provision
+
+<h3>Service Request</h3>
+
+The ServiceRequest Resource supports proprietary codes for:
+
+* ServiceRequest.category codes are maintained in [Code Set 6000 Catalog Type](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6000-catalog-type)
+* ServiceRequest.occurrence.timing codes are maintained in [Code Set 4003 Frequency](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency)
+* ServiceRequest.asNeededCodeableConcept codes are maintained in [Code Set 4005](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication)
+* ServiceRequest.bodySite codes are maintained in [Code Set 1028 Body Site](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site) and [Code Set 14045 Surgerical Procedure Modifiers](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14045-surgical-procedure-modifiers)
+
 ### Documents
 
 <!-- use html header to avoid showing up in toc -->
@@ -487,6 +498,17 @@ This code set contains the stop type of an order such as Physician Stop, Hard St
       "userSelected": true
     }
 
+##### Code Set 6000 Catalog Type
+
+A code determined by a terminology system.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6000",
+      "code": "22399249",
+      "display": "Referral",
+      "userSelected": true
+    }
+
 ##### Code Set 12022 Severity
 
 This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.
@@ -495,6 +517,17 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022",
       "code": "3294",
       "display": "Moderate",
+    }
+
+##### Code Set 14045 Surgical Procedure Modifiers
+
+This code set contains the area of the body the surgery procedure is being executed.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14045",
+      "code": "3858",
+      "display": "Left",
+      "userSelected": true
     }
 
 ##### Code Set 14249 Scheduling Appointment Type Synonyms

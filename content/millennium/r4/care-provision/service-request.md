@@ -22,7 +22,7 @@ The following fields are returned if valued:
 * [Intent](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.intent){:target="_blank"}
 * [Category](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.category){:target="_blank"}
 * [Priority](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.priority){:target="_blank"}
-* [Service](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.code){:target="_blank"}
+* [Code](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.code){:target="_blank"}
 * [Order Details](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.orderDetail){:target="_blank"}
 * [Quantity](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.quantity_x_){:target="_blank"}
 * [Patient](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.subject){:target="_blank"}
@@ -61,6 +61,10 @@ Search for ServiceRequests that meet supplied query parameters:
  `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the service request. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`                 | N                  | [`number`]    | The maximum number of ServiceRequests to retrieve in a page. Example: `50`
 
+ ### Notes
+
+ * If `_id` is provided, no other parameters may be provided.
+
  * The `_lastUpdated` parameter may be provided:
      * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
      * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
@@ -79,6 +83,7 @@ Search for ServiceRequests that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:R4_SERVICE_REQUEST_BUNDLE) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -108,6 +113,7 @@ List an individual ServiceRequest by its id:
 
 <%= headers status: 200 %>
 <%= json(:R4_SERVICE_REQUEST) %>
+<%= disclaimer %>
 
 ### Errors
 
