@@ -1,0 +1,94 @@
+---
+  name: ServiceRequest
+  field_name_base_url: https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest
+  fields:
+  - name: status
+    required: 'Yes'
+    type: code
+    description: The status of a service order.
+    binding:
+      description: The status of a service order.
+      terminology:
+      - display: Request Status
+        system: http://hl7.org/fhir/request-status
+        info_link: https://www.hl7.org/fhir/valueset-request-status.html
+  - name: intent
+    required: 'Yes'
+    type: code
+    description: The kind of service request.
+    binding:
+      description: The kind of service request.
+      terminology:
+      - display: Request Intent
+        system: http://hl7.org/fhir/request-intent
+        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
+  - name: category
+    required: 'No'
+    type: CodeableConcept
+    description: Classification of the requested service.
+    binding:
+      description: Classification of the requested service.
+      terminology:
+      - display: Service Request Category Codes
+        system: http://www.snomed.org/
+        info_link: https://www.hl7.org/fhir/valueset-servicerequest-category.html
+  - name: priority
+    required: 'Yes'
+    type: code
+    description: Identifies the level of importance to be assigned to actioning the request.
+    binding:
+      description: Identifies the level of importance to be assigned to actioning the request.
+      terminology:
+      - display: Request Priority
+        system: http://hl7.org/fhir/request-priority
+        info_link: https://www.hl7.org/fhir/valueset-request-priority.html
+  - name: code
+    required: 'No'
+    type: CodeableConcept
+    description: Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.
+    binding:
+      description: Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.
+      terminology:
+      - display: Procedure Codes
+        system: http://www.snomed.org/
+        info_link: https://www.hl7.org/fhir/valueset-procedure-code.html
+  - name: orderDetail
+    required: 'No'
+    type: CodeableConcept
+    description: Codified order entry details which are based on order context.
+    binding:
+      description: Codified order entry details which are based on order context.
+      terminology:
+      - display: Service Request Order Details Codes
+        system: http://snomed.info/sct
+        info_link: https://www.hl7.org/fhir/valueset-servicerequest-orderdetail.html
+  - name: asNeeded[x]
+    required: 'No'
+    type: CodeableConcept
+    description: A coded concept identifying the pre-condition that should hold prior to performing a procedure.
+    binding:
+      description: A coded concept identifying the pre-condition that should hold prior to performing a procedure.
+      terminology:
+      - display: asNeededCodeableConcept
+        system: http://snomed.info/sct
+        info_link: https://www.hl7.org/fhir/valueset-medication-as-needed-reason.html
+  - name: reasonCode
+    required: 'No'
+    type: CodeableConcept
+    description: Diagnosis or problem codes justifying the reason for requesting the service investigation.
+    binding:
+      description: Diagnosis or problem codes justifying the reason for requesting the service investigation.
+      terminology:
+      - display: Procedure Reason Codes
+        system: http://snomed.info/sct
+        info_link: https://www.hl7.org/fhir/valueset-procedure-reason.html
+  - name: bodySite
+    required: 'No'
+    type: CodeableConcept
+    description: Codes describing anatomical locations. May include laterality.
+    binding:
+      description: Codes describing anatomical locations. May include laterality.
+      terminology:
+      - display: SNOMED CT Body Structures
+        system: http://snomed.info/sct
+        info_link: https://www.hl7.org/fhir/valueset-body-site.html
