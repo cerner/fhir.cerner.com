@@ -27,7 +27,7 @@ module Cerner
       "intent": "order",
       "category": [{
         "coding": [{
-          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/6000",
+          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/6000",
           "code": "2515",
           "display": "Patient Care",
           "userSelected": true
@@ -67,7 +67,7 @@ module Cerner
       "asNeededCodeableConcept": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/4005",
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4005",
             "code": "664912",
             "display": "inflammation",
             "userSelected": true
@@ -110,7 +110,7 @@ module Cerner
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/1028",
+              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/1028",
               "code": "309344",
               "display": "Arm L",
               "userSelected": true

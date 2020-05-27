@@ -49,21 +49,20 @@ Search for ServiceRequests that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required?          | Type          | Description
------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
+ Name                     | Required?                       | Type          | Description
+--------------------------|---------------------------------|---------------|-----------------------------------------------------------------------------------------------------
  `_id`                    | This, or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id` or `subject`     | [`reference`] | The specific patient to return ServiceRequests for. Example: `12345`
- `subject`                | This, or `_id` or `patient`     | [`reference`] | The subject associated with the ServiceReuest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
- `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the service request. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
- `_count`                 | N                  | [`number`]    | The maximum number of ServiceRequests to retrieve in a page. Example: `50`
-
- * The `_lastUpdated` parameter may be provided:
-     * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-     * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+ `subject`                | This, or `_id` or `patient`     | [`reference`] | The subject associated with the ServiceRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
+ `_lastUpdated`           | N                               | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the service request. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
+ [`_count`]               | N                               | [`number`]    | The maximum number of ServiceRequests to retrieve in a page. Example: `50`
 
 ### Note
 
   * If `_id` is provided, no other parameters may be provided.
+  * The `_lastUpdated` parameter may be provided:
+      * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
+      * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
 ### Headers
 
@@ -118,6 +117,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`number`]: http://hl7.org/fhir/R4/search.html#number
 [status]: https://www.hl7.org/fhir/r4/valueset-servicerequest-status.html
 [errors]: ../../#client-errors
