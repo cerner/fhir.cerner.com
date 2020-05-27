@@ -61,9 +61,9 @@ Search for ServiceRequests that meet supplied query parameters:
      * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
      * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
- ### Notes
+### Note
 
- * If `_id` is provided, no other parameters may be provided.
+  * If `_id` is provided, no other parameters may be provided.
 
 ### Headers
 
