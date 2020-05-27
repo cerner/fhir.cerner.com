@@ -532,7 +532,7 @@ This code set contains type of diet. Such as Halal, Vegan or Kosher.
 
 ##### Code Set 6103 Beverage Modifiers
 
-This code set contains type of Beverage. Such as No carbonated, caffeinated etc.
+This code set contains type of Beverage Modifier. Such as No carbonated, caffeinated etc.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6103",
@@ -543,7 +543,7 @@ This code set contains type of Beverage. Such as No carbonated, caffeinated etc.
 
 ##### Code Set 6107 Dietary Supplement
 
-This code set contains the nutritional products to be given in order to add further nutritional value to the diet.
+This code set contains the kind of nutritional supplement.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6107",
@@ -666,7 +666,7 @@ This code set describes the required consistency of liquids to be served to the 
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/100123",
-      "code": "2055555955",
+      "code": "46122603",
       "display": "Nectar Thick",
       "userSelected": true
     }
@@ -677,7 +677,7 @@ This code set describes the texture modifications that should be made for the pa
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/100197",
-      "code": "2055560779",
+      "code": "46122587",
       "display": "NDD2 (Ground)",
       "userSelected": true
     }

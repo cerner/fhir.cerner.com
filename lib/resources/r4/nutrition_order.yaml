@@ -2,6 +2,26 @@
   name: NutritionOrder
   field_name_base_url: https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder
   fields:
+  - name: status
+    required: 'Yes'
+    type: code
+    description: The workflow status of the nutrition order/request.
+    binding:
+      description: The status of the nutrition order.
+      terminology:
+      - display: Request Status
+        system: http://hl7.org/fhir/request-status
+        info_link: https://www.hl7.org/fhir/valueset-request-status.html
+  - name: intent
+    required: 'Yes'
+    type: code
+    description: Indicates the level of authority/intentionality associated with the NutrionOrder.
+    binding:
+      description: The degree of authority/intentionality associated to the order.
+      terminology:
+      - display: Request Intent
+        system: http://hl7.org/fhir/request-intent
+        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
   - name: foodPreferenceModifier
     required: 'No'
     type: List of CodeableConcept
@@ -10,11 +30,11 @@
       description: Information about a patient's food preference.
       terminology:
       - display: Diet
-        system: http://hl7.org/fhir/R4/codesystem-encounter-diet.html
+        system: http://terminology.hl7.org/CodeSystem/diet
         info_link: http://hl7.org/fhir/R4/valueset-encounter-diet.html
       - display: Millennium Dietary Modifiers
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6102
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-dietary-modifier
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6102-dietary-modifiers
       - display: Millennium Beverage Modifiers
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6103
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6103-beverage-modifiers
@@ -28,7 +48,7 @@
       - display: SNOMED CT
         system: http://snomed.info/sct
         info_link: http://hl7.org/fhir/r4/snomedct.html
-  - name: schedule.code
+  - name: oralDiet.schedule.code
     required: 'No'
     type: CodeableConcept
     description: A code for the timing schedule.
@@ -37,7 +57,7 @@
       terminology:
       - display: TimingAbbreviation
         system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
-        info_link: https://www.hl7.org/fhir/valueset-servicerequest-category.html
+        info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
       - display: SNOMED CT
         system: http://snomed.info/sct
         info_link: http://hl7.org/fhir/r4/snomedct.html
@@ -51,9 +71,6 @@
     binding:
       description: Texture modifications that should be made for solid food.
       terminology:
-      - display: SNOMED CT
-        system: http://snomed.info/sct
-        info_link: http://hl7.org/fhir/r4/snomedct.html
       - display: Millennium Diet Consistency
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100197
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-100197-diet-consistency
@@ -64,10 +81,7 @@
     binding:
       description: The required consistency of fluids served to the patient.
       terminology:
-      - display: SNOMED CT
-        system: http://snomed.info/sct
-        info_link: http://hl7.org/fhir/r4/snomedct.html
-      - display: Millennium Diet Consistency
+      - display: Millennium Beverage Consistency
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100123
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-100123-beverage-consistency
   - name: supplement.type

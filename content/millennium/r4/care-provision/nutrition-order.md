@@ -54,7 +54,7 @@ Search for NutritionOrders that meet supplied query parameters:
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the nutrition order is for. Example: `12345`
  `status`          | No                             | [`token`]     | The status of the nutrition order. Example: `active`
  `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
- `_count`          | No                             | [`number`]    | The maximum number of nutrition orders to include in a page.
+[`_count`]         | No                             | [`number`]    | The maximum number of nutrition orders to include in a page.
 
 Notes:
 
@@ -71,7 +71,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder?patient=5568007
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder?patient=1882013
 
 #### Response
 
@@ -102,7 +102,7 @@ List an individual NutritionOrder by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder/40880687
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder/216493655
 
 #### Response
 
@@ -118,6 +118,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [`date`]: https://hl7.org/fhir/R4/search.html#date
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
