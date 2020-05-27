@@ -4,4 +4,5 @@ layout: api
 ---
 
 <%= render '/care-provision.*' %>
+* [NutritionOrder](../care-provision/nutrition-order)
 * [ServiceRequest](../care-provision/service-request)

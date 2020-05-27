@@ -44,7 +44,17 @@ Example outbound CodeableConcept displaying both standard and proprietary codes:
       }
     }
 
-### Care-Provision
+### Care Provision
+
+<h3>NutritionOrder</h3>
+
+The NutritionOrder Resource supports proprietary codes for:
+
+* NutritionOrder.foodPreferenceModifier codes are maintained in [Code Set 6102 Dietary Modifiers](#code-set-6102-dietary-modifiers) and [Code Set 6103 Beverage Modifiers](#code-set-6103-beverage-modifiers)
+* NutritionOrder.oralDiet.schedule.code codes are maintained in [Code Set 4003 Frequency](#code-set-4003-frequency)
+* NutritionOrder.oralDiet.texture.modifier codes are maintained in [Code Set 100197 Diet Consistency](#code-set-100197-diet-consistency)
+* NutritionOrder.oralDiet.fluidConsistencyType codes are maintained in [Code Set 100123 Beverage Consistency](#code-set-100123-beverage-consistency)
+* NutritionOrder.supplement.type codes are maintained in [Code Set 6107 Dietary Supplements](#code-set-6107-dietary-supplement)
 
 <h3>ServiceRequest</h3>
 
@@ -509,6 +519,39 @@ This code set contains the catalog types of the order catalog.
       "userSelected": true
     }
 
+##### Code Set 6102 Dietary Modifiers
+
+This code set contains type of diet. Such as Halal, Vegan or Kosher.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6102",
+      "code": "658486",
+      "display": "Kosher",
+      "userSelected": true
+    }
+
+##### Code Set 6103 Beverage Modifiers
+
+This code set contains type of Beverage. Such as No carbonated, caffeinated etc.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6103",
+      "code": "658489",
+      "display": "No caffeinated beverages",
+      "userSelected": true
+    }
+
+##### Code Set 6107 Dietary Supplement
+
+This code set contains the nutritional products to be given in order to add further nutritional value to the diet.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/6107",
+      "code": "658509",
+      "display": "High protein pudding",
+      "userSelected": true
+    }
+
 ##### Code Set 12022 Severity
 
 This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.
@@ -614,6 +657,28 @@ This code set describes why an immunization was not administered when documented
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/30440",
       "code": "688466",
       "display": "Postpone due to refusal",
+      "userSelected": true
+    }
+
+##### Code Set 100123 Beverage Consistency
+
+This code set describes the required consistency of liquids to be served to the patient.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/100123",
+      "code": "2055555955",
+      "display": "Nectar Thick",
+      "userSelected": true
+    }
+
+##### Code Set 100197 Diet Consistency
+
+This code set describes the texture modifications that should be made for the patient.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/100197",
+      "code": "2055560779",
+      "display": "NDD2 (Ground)",
       "userSelected": true
     }
 
