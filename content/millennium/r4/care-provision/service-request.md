@@ -9,11 +9,7 @@ title: ServiceRequest | R4 API
 
 ## Overview
 
-ServiceRequest is a record of a request for a Service or diagnostic or other service to be planned, proposed, or performed, as distinguished by the ServiceRequest.intent field value, with or on a patient. The Service will lead to either a Service or DiagnosticReport, which in turn may reference one or more Observations, which summarize the performance of the Services and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one practitioner or organization to another when a patient is required to be referred to another provider for a consultation /second opinion and/or for short term or longer term management of one or more health issues or problems.
-
-The principal intention of ServiceRequest is to support ordering Services for one patient (which includes non-human patients in veterinary medicine). However, in many contexts, healthcare related processes include performing diagnostic investigations on groups of subjects, devices involved in the provision of healthcare, and even environmental locations such as ducts, bodies of water, etc. ServiceRequest supports all these usages. The service request may represent an order that is entered by a practitioner in a CPOE system as well as a proposal made by a clinical decision support (CDS) system based on a patient's clinical record and context of care. Planned Services referenced by a CarePlan may also be represented by this resource.
-
-
+The ServiceRequest resource returns the requests or orders for procedures, diagnostic tests or other services to be performed on a patient. This resource includes a wide range of requests including diagnostic procedures, therapies, patient care activities, referrals, and consults. Medication, dietary and appointment requests are NOT returned with the ServiceRequest resource.
 
 The following fields are returned if valued:
 
@@ -23,7 +19,7 @@ The following fields are returned if valued:
 * [Category](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.category){:target="_blank"}
 * [Priority](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.priority){:target="_blank"}
 * [Code](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.code){:target="_blank"}
-* [Order Details](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.orderDetail){:target="_blank"}
+* [Order Detail](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.orderDetail){:target="_blank"}
 * [Quantity](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.quantity_x_){:target="_blank"}
 * [Patient](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.subject){:target="_blank"}
 * [Encounter](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.encounter){:target="_blank"}
@@ -32,10 +28,10 @@ The following fields are returned if valued:
 * [Authored on Date](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.authoredOn){:target="_blank"}
 * [Requester](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.requester){:target="_blank"}
 * [Performer](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.performer){:target="_blank"}
-* [Location References](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.locationReference){:target="_blank"}
+* [Location Reference](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.locationReference){:target="_blank"}
 * [Reason Code](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.reasonCode){:target="_blank"}
 * [Body site](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.bodySite){:target="_blank"}
-* [Notes](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.note){:target="_blank"}
+* [Note](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.note){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -61,13 +57,13 @@ Search for ServiceRequests that meet supplied query parameters:
  `_lastUpdated`           | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the service request. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`                 | N                  | [`number`]    | The maximum number of ServiceRequests to retrieve in a page. Example: `50`
 
- ### Notes
-
- * If `_id` is provided, no other parameters may be provided.
-
  * The `_lastUpdated` parameter may be provided:
      * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
      * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+
+ ### Notes
+
+ * If `_id` is provided, no other parameters may be provided.
 
 ### Headers
 
