@@ -8,6 +8,21 @@ module Cerner
         "versionId": "0",
         "lastUpdated": "2020-03-25T00:11:51.000Z"
       },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Service Request&lt;/b>&lt;/p>"\
+               "&lt;p>&lt;b>Patient&lt;/b>: Lagunov, Sameera&lt;/p>"\
+               "&lt;p>&lt;b>Code&lt;/b>: Resuscitation Status&lt;/p>"\
+               "&lt;p>&lt;b>Occurrence&lt;/b>: Mar 24, 2020 7:05 P.M. CDT&lt;/p>&lt;p>&lt;b>Quantity&lt;/b>: 3.0 &lt;/p>"\
+               "&lt;p>&lt;b>Priority&lt;/b>: routine&lt;/p>"\
+               "&lt;p>&lt;b>As Needed&lt;/b>: inflammation&lt;/p>"\
+               "&lt;p>&lt;b>Body Site&lt;/b>:&lt;/p>&lt;ul>&lt;li>Arm L&lt;/li>&lt;/ul>&lt;p>"\
+               "&lt;b>Reason&lt;/b>:&lt;/p>&lt;ul>&lt;li>Fracture&lt;/li>&lt;/ul>"\
+               "&lt;p>&lt;b>Status&lt;/b>: active&lt;/p>"\
+               "&lt;p>&lt;b>Intent&lt;/b>: Order&lt;/p>"\
+               "&lt;p>&lt;b>Requester&lt;/b>: McCready, Tim&lt;/p>"\
+               "&lt;p>&lt;b>Order Detail&lt;/b>: 03/24/20 19:05:00, Full Resuscitation&lt;/p>"\
+      },
       "status": "active",
       "intent": "order",
       "category": [{
@@ -118,22 +133,7 @@ module Cerner
           "time": "2014-10-10T15:25:45.000Z",
           "text": "A comment"
         }
-      ],
-      "text": {
-        "status": "generated",
-        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Service Request&lt;/b>&lt;/p>"\
-            "&lt;p>&lt;b>Patient&lt;/b>: Lagunov, Sameera&lt;/p>"\
-             "&lt;p>&lt;b>Code&lt;/b>: Resuscitation Status&lt;/p>"\
-             "&lt;p>&lt;b>Occurrence&lt;/b>: Mar 24, 2020 7:05 P.M. CDT&lt;/p>&lt;p>&lt;b>Quantity&lt;/b>: 3.0 &lt;/p>"\
-             "&lt;p>&lt;b>Priority&lt;/b>: routine&lt;/p>"\
-             "&lt;p>&lt;b>As Needed&lt;/b>: inflammation&lt;/p>"\
-             "&lt;p>&lt;b>Body Site&lt;/b>:&lt;/p>&lt;ul>&lt;li>Arm L&lt;/li>&lt;/ul>&lt;p>"\
-             "&lt;b>Reason&lt;/b>:&lt;/p>&lt;ul>&lt;li>Fracture&lt;/li>&lt;/ul>"\
-             "&lt;p>&lt;b>Status&lt;/b>: active&lt;/p>"\
-             "&lt;p>&lt;b>Intent&lt;/b>: Order&lt;/p>"\
-             "&lt;p>&lt;b>Requester&lt;/b>: McCready, Tim&lt;/p>"\
-             "&lt;p>&lt;b>Order Detail&lt;/b>: 03/24/20 19:05:00, Full Resuscitation&lt;/p>"\
-      }
+      ]
     }
 
     R4_SERVICE_REQUEST_BUNDLE ||={
