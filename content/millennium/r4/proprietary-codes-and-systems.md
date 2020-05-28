@@ -60,10 +60,10 @@ The NutritionOrder Resource supports proprietary codes for:
 
 The ServiceRequest Resource supports proprietary codes for:
 
-* ServiceRequest.category codes are maintained in [Code Set 6000 Catalog Type](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6000-catalog-type)
-* ServiceRequest.occurrence.timing codes are maintained in [Code Set 4003 Frequency](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency)
-* ServiceRequest.asNeededCodeableConcept codes are maintained in [Code Set 4005](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication)
-* ServiceRequest.bodySite codes are maintained in [Code Set 1028 Body Site](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site) and [Code Set 14045 Surgical Procedure Modifiers](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14045-surgical-procedure-modifiers)
+* ServiceRequest.category codes are maintained in [Code Set 6000 Catalog Type](#code-set-6000-catalog-type)
+* ServiceRequest.occurrence.timing codes are maintained in [Code Set 4003 Frequency](#code-set-4003-frequency)
+* ServiceRequest.asNeededCodeableConcept codes are maintained in [Code Set 4005](#code-set-4005-reason-for-medication)
+* ServiceRequest.bodySite codes are maintained in [Code Set 1028 Body Site](#code-set-1028-body-site) and [Code Set 14045 Surgical Procedure Modifiers](#code-set-14045-surgical-procedure-modifiers)
 
 ### Diagnostic
 

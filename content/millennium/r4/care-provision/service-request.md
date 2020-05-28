@@ -45,7 +45,7 @@ Search for ServiceRequests that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Parameters
 
@@ -92,7 +92,7 @@ List an individual ServiceRequest by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Headers
 
