@@ -102,7 +102,7 @@ List an individual ServiceRequest by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest/56770371
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest/41636441
 
 #### Response
 
