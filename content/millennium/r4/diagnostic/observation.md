@@ -14,6 +14,7 @@ The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Identifier](https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier){:target="_blank"}
+* [BasedOn](https://hl7.org/fhir/R4/observation-definitions.html#Observation.basedOn){:target="_blank"}
 * [Status](https://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
 * [Category (laboratory, social history)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
 * [Code (Observation name or text)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
