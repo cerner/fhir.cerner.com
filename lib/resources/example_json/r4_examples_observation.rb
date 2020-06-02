@@ -425,6 +425,11 @@ module Cerner
                           "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-17003791-2020030912450100"
                         }
                       ],
+                      "basedOn": [
+                           {
+                              "reference": "ServiceRequest/8213648"
+                            }
+                        ],
                       "status": "final",
                       "category": [
                           {
