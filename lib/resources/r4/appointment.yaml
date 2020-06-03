@@ -38,13 +38,13 @@ fields:
     {
       "status": "booked"
     }
-  note: When creating a new appointment, the status must be `booked`.
+  note: When creating a new appointment, the status must be `booked` or `proposed`.
 
 - name: participant
   required: 'Yes'
   type: BackboneElement
   description: Participants involved in appointment.
-  note: At most one participant can be populated, and participant.type is an unsupported field.
+  note: Participant.type is an unsupported field.
   action: create
   example: |
     {
@@ -77,7 +77,7 @@ fields:
     required: 'Yes'
     type: code
     description: Participation status of the Patient.
-    note: When creating a new appointment, this value must be `accepted`.
+    note: When creating a new appointment, this value must be `accepted` or `needs-action`.
     example: |
       {
         "status": "accepted"
@@ -168,3 +168,20 @@ fields:
   binding:
     description: Coded reason this appointment is scheduled.
     note: Currently not bound to any terminology.
+
+- name: requestedPeriod
+  required: 'No'
+  type: List of Period
+  description: 	Potential date/time interval(s) requested to allocate the appointment within.
+  action: create
+  note: Only supported when `Appointment.status` is set to `proposed`
+  example: |
+    {
+      "requestedPeriod": [
+       	{
+          "start": "2015-02-07T13:28:17-05:00",
+          "end": "2016-02-07T13:28:17-05:00"
+        }
+      ]
+    }
+  url: http://hl7.org/fhir/appointment-definitions.html#Appointment.requestedPeriod

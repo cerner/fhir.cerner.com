@@ -292,13 +292,21 @@ Create a new Appointment.
 _Implementation Notes_
 
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
-* `Appointment.status` must be set to `booked`.
-* `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
-  * `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
-* `Appointment.participant` must be a list containing a single participant.
+* `Appointment.status` must be set to `booked` or `proposed`.
+* When`Appointment.status` is set to `booked`.
+  * `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
+    * `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
+  * `Appointment.participant` must be a list containing a single participant.
   * `Appointment.participant.type` must not be set.
   * `Appointment.participant.actor` must be a reference to a Patient.
   * `Appointment.participant.status` must be set to `accepted`.
+* When `Appointment.status` is set to `proposed`.
+  * `Appointment.participant` must be a list containing exactly one patient and at least one location.
+  * `Appointment.participant.type` must not be set.
+  * `Appointment.participant.actor` must be a reference to a Patient or Location.
+  * `Appointment.participant.status` must be set to `needs-action`.
+  * `Appointment.requestedPeriod` must be a list containing a single period.
+    * Both `Appointment.requestedPeriod.start` and `Appointment.requestedPeriod.end` must be set.
 
 ### Authorization Types
 
@@ -312,7 +320,7 @@ _Implementation Notes_
 
 <%= definition_table(:appointment, :create, :r4) %>
 
-### Example
+### Example - Booked Appointment
 
 #### Request
 
@@ -338,6 +346,38 @@ Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 X-Runtime: 3.890282
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
+### Example - Proposed Appointment
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+
+#### Body
+
+  <%= json(:r4_appointment_request_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Tue, 12 May 2020 20:25:01 GMT
+Etag: W/"0"
+Last-Modified: Tue, 12 May 2020 20:25:01 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
+Server-Response-Time: 917.285226
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
+X-Runtime: 0.917206
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
