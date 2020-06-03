@@ -64,7 +64,7 @@ fields:
     required: 'Yes'
     type: Reference (Patient)
     description: A person that is participating in the appointment.
-    note: The reference must be a Patient participant and display is not a required field.
+    note: The reference must be a Patient or Location participant and display is not a required field.
     example: |
       {
         "actor": {
