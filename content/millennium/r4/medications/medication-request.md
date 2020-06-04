@@ -19,6 +19,9 @@ The following fields are returned if valued:
 * [Status](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.status){:target="_blank"}
 * [Status Reason](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason){:target="_blank"}
 * [Intent](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent){:target="_blank"}
+
+NOTE: For reads and searches we are currently always returning a value of "Order" in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support "Plan" and "Order" in accordance with the US Core Profile pending changes.
+
 * [Category](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
