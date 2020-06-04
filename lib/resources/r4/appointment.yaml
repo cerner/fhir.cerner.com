@@ -1,6 +1,6 @@
 ---
 name: Appointment
-field_name_base_url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment
+field_name_base_url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment
 fields:
 - name: resourceType
   required: 'Yes'
@@ -12,7 +12,7 @@ fields:
       "resourceType": "Appointment"
     }
   note: resourceType must be Appointment
-  url: http://hl7.org/fhir/r4/json.html#resources
+  url: https://hl7.org/fhir/r4/json.html#resources
 
 - name: status
   required: 'Yes'
@@ -55,13 +55,13 @@ fields:
         }
       ]
     }
-  url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType
+  url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType
   binding:
     description:  Additional details about where the content was created (e.g. clinical specialty).
     terminology:
     - display: Practice Setting Code Value Set
       system: http://snomed.info/sct
-      info_link: http://hl7.org/fhir/r4/valueset-c80-practice-codes.html
+      info_link: https://hl7.org/fhir/r4/valueset-c80-practice-codes.html
     - display: Millennium Scheduling Appointment Synonyms or Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms
@@ -141,7 +141,7 @@ fields:
     {
       "comment: "Further explain MRI results"
     }
-  url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
+  url: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
 
 - name: participant.type
   required: 'Yes'
@@ -164,7 +164,7 @@ fields:
         }
       ]
     }
-  url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type
+  url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type
   binding:
     description: Role of participant in the appointment.
     terminology:
@@ -187,4 +187,4 @@ fields:
         }
       ]
     }
-  url: http://hl7.org/fhir/appointment-definitions.html#Appointment.requestedPeriod
+  url: https://hl7.org/fhir/appointment-definitions.html#Appointment.requestedPeriod

@@ -363,7 +363,7 @@ module Cerner
       ]
     }
 
-    R4_APPOINTMENT_REQUEST_CREATE ||= {
+    R4_PROPOSED_APPOINTMENT_CREATE ||= {
       "resourceType": "Appointment",
       "status": "proposed",
       "serviceType": [

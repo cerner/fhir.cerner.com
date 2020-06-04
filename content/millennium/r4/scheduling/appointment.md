@@ -326,7 +326,7 @@ _Implementation Notes_
 
 #### Body
 
-  <%= json(:r4_appointment_request_create) %>
+  <%= json(:r4_proposed_appointment_create) %>
 
 #### Response
 
