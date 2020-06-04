@@ -14,21 +14,6 @@ fields:
   note: resourceType must be Appointment
   url: http://hl7.org/fhir/r4/json.html#resources
 
-- name: slot
-  required: 'Yes'
-  type: Reference (Slot)
-  description: The availability to which the appointment is booked.
-  action: create
-  example: |
-    {
-      "slot": [
-        {
-          "reference": "Slot/21265426-633867-6828001-60"
-        }
-      ]
-    }
-  note: At most one slot can be populated.
-
 - name: status
   required: 'Yes'
   type: code
@@ -40,65 +25,14 @@ fields:
     }
   note: When creating a new appointment, the status must be `booked` or `proposed`.
 
-- name: participant
-  required: 'Yes'
-  type: BackboneElement
-  description: Participants involved in appointment.
-  note: Participant.type is an unsupported field.
-  action: create
-  example: |
-    {
-      "participant": [
-        {
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
-          },
-          "status": "accepted"
-        }
-      ]
-    }
-  children:
-
-  - name: actor
-    required: 'Yes'
-    type: Reference (Patient)
-    description: A person that is participating in the appointment.
-    note: The reference must be a Patient or Location participant and display is not a required field.
-    example: |
-      {
-        "actor": {
-          "reference": "Patient/4704007",
-          "display": "Smart, Barney R"
-        }
-      }
-
-  - name: status
-    required: 'Yes'
-    type: code
-    description: Participation status of the Patient.
-    note: When creating a new appointment, this value must be `accepted` or `needs-action`.
-    example: |
-      {
-        "status": "accepted"
-      }
-
-- name: comment
-  required: 'No'
-  type: string
-  description: Additional text to aid in facilitating the appointment.
-  action: create
-  example: |
-    {
-      "comment: "Further explain MRI results"
-    }
-  url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
-
 - name: serviceType
   required: 'No'
   type: CodeableConcept
-  description: 	The specific service that is to be performed during this appointment.
-  action: read
+  description: The specific service that is to be performed during this appointment.
+  action:
+  - read
+  - create
+  note: Required when `Appointment.status` is set to `proposed`. Must contain exactly one CodeableConcept.
   example: |
     {
       "serviceType": [
@@ -132,10 +66,87 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms
 
+- name: reasonCode
+  type: List of CodeableConcept
+  description: Coded reason this appointment is scheduled.
+  action: terminology
+  binding:
+    description: Coded reason this appointment is scheduled.
+    note: Currently not bound to any terminology.
+
+- name: slot
+  required: 'No'
+  type: Reference (Slot)
+  description: The availability to which the appointment is booked.
+  action: create
+  example: |
+    {
+      "slot": [
+        {
+          "reference": "Slot/21265426-633867-6828001-60"
+        }
+      ]
+    }
+  note: Required when `Appointment.status` is set to `booked`. Must contain exactly one Reference.
+
+- name: participant
+  required: 'Yes'
+  type: BackboneElement
+  description: Participants involved in appointment.
+  note: Participant.type must not be set.
+  action: create
+  example: |
+    {
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/4704007",
+            "display": "Smart, Barney R"
+          },
+          "status": "accepted"
+        }
+      ]
+    }
+  children:
+
+  - name: actor
+    required: 'Yes'
+    type: Reference (Patient, Location)
+    description: A Patient or Location that is participating in the Appointment.
+    note: See Implementation Notes above for more information. Reference.display is not required.
+    example: |
+      {
+        "actor": {
+          "reference": "Patient/4704007",
+          "display": "Smart, Barney R"
+        }
+      }
+
+  - name: status
+    required: 'Yes'
+    type: code
+    description: Participation status of the Patient or Location.
+    note: When creating a new appointment with a status of `booked`, this value must be `accepted`. When creating a new appointment with a status of `proposed`, this value must be `needs-action`.
+    example: |
+      {
+        "status": "accepted"
+      }
+
+- name: comment
+  required: 'No'
+  type: string
+  description: Additional text to aid in facilitating the appointment.
+  action: create
+  example: |
+    {
+      "comment: "Further explain MRI results"
+    }
+  url: http://hl7.org/fhir/r4/appointment-definitions.html#Appointment.comment
+
 - name: participant.type
   required: 'Yes'
   type: List of CodeableConcept
-  description: 	Role of participant in the appointment.
+  description: Role of participant in the appointment.
   action: read
   example: |
     {
@@ -155,30 +166,22 @@ fields:
     }
   url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type
   binding:
-    description:  Role of participant in the appointment.
+    description: Role of participant in the appointment.
     terminology:
     - display: Millennium Scheduling Resource Roles
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14250-scheduling-resource-roles
 
-- name: reasonCode
-  type: List of CodeableConcept
-  description: Coded reason this appointment is scheduled.
-  action: terminology
-  binding:
-    description: Coded reason this appointment is scheduled.
-    note: Currently not bound to any terminology.
-
 - name: requestedPeriod
   required: 'No'
   type: List of Period
-  description: 	Potential date/time interval(s) requested to allocate the appointment within.
+  description: Potential date/time interval(s) requested to allocate the appointment within.
   action: create
-  note: Only supported when `Appointment.status` is set to `proposed`
+  note: Required when `Appointment.status` is set to `proposed`.
   example: |
     {
       "requestedPeriod": [
-       	{
+        {
           "start": "2015-02-07T13:28:17-05:00",
           "end": "2016-02-07T13:28:17-05:00"
         }

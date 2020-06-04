@@ -365,6 +365,7 @@ module Cerner
 
     R4_APPOINTMENT_REQUEST_CREATE ||= {
       "resourceType": "Appointment",
+      "status": "proposed",
       "serviceType": [
         {
           "coding": [
@@ -375,30 +376,29 @@ module Cerner
           ]
         }
       ],
-      "requestedPeriod": [
-        {
-          "start": "2015-02-07T13:28:17-05:00",
-          "end": "2016-02-07T13:28:17-05:00"
-        }
-      ],
+      "comment": "Appointment request comment",
       "participant": [
         {
           "actor": {
-          "reference": "Patient/773933",
-          "display": "TAYLOR, MARCUS CERNER"
+            "reference": "Patient/773933",
+            "display": "TAYLOR, MARCUS CERNER"
           },
           "status": "needs-action"
         },
         {
           "actor": {
-          "reference": "Location/4062906",
-          "display": "Operation Room"
+            "reference": "Location/4062906",
+            "display": "Operation Room"
           },
           "status": "needs-action"
         }
       ],
-      "status": "proposed",
-      "comment": "comment"
+      "requestedPeriod": [
+        {
+          "start": "2020-02-07T13:28:17-05:00",
+          "end": "2021-02-07T13:28:17-05:00"
+        }
+      ]
     }
   end
 end
