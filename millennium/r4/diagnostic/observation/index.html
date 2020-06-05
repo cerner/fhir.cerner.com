@@ -99,6 +99,7 @@
 <ul>
   <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier" target="_blank">Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.basedOn" target="_blank">BasedOn</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.status" target="_blank">Status</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.category" target="_blank">Category (laboratory, social history)</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.code" target="_blank">Code (Observation name or text)</a></li>
@@ -1085,6 +1086,11 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
           {
             "system": "https://fhir.cerner.com/ceuuid",
             "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-17003791-2020030912450100"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/8213648"
           }
         ],
         "status": "final",
