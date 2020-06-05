@@ -292,13 +292,19 @@ Create a new Appointment.
 _Implementation Notes_
 
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
-* `Appointment.status` must be set to `booked`.
-* `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
-  * `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
-* `Appointment.participant` must be a list containing a single participant.
-  * `Appointment.participant.type` must not be set.
+* `Appointment.status` must be set to `proposed` or `booked`.
+* When `Appointment.status` is set to `proposed`:
+  * `Appointment.serviceType` must be a list containing exactly one CodeableConcept.
+  * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.
+  * `Appointment.participant.actor` must be a reference to a Patient or a Location.
+  * `Appointment.participant.status` must be set to `needs-action`.
+  * `Appointment.requestedPeriod` must be a list containing a single Period. Both `Appointment.requestedPeriod.start` and `Appointment.requestedPeriod.end` must be set.
+* When`Appointment.status` is set to `booked`:
+  * `Appointment.slot` must be a list containing exactly one reference to the Slot in which this appointment is being booked. `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
+  * `Appointment.participant` must be a list containing exactly one Patient participant.
   * `Appointment.participant.actor` must be a reference to a Patient.
   * `Appointment.participant.status` must be set to `accepted`.
+* `Appointment.participant.type` must not be set.
 
 ### Authorization Types
 
@@ -312,7 +318,39 @@ _Implementation Notes_
 
 <%= definition_table(:appointment, :create, :r4) %>
 
-### Example
+### Example - Proposed Appointment
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+
+#### Body
+
+  <%= json(:r4_proposed_appointment_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Tue, 12 May 2020 20:25:01 GMT
+Etag: W/"0"
+Last-Modified: Tue, 12 May 2020 20:25:01 GMT
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
+Server-Response-Time: 917.285226
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
+X-Runtime: 0.917206
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
+### Example - Booked Appointment
 
 #### Request
 

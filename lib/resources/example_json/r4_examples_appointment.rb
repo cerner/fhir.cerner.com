@@ -362,5 +362,43 @@ module Cerner
         }
       ]
     }
+
+    R4_PROPOSED_APPOINTMENT_CREATE ||= {
+      "resourceType": "Appointment",
+      "status": "proposed",
+      "serviceType": [
+        {
+          "coding": [
+            {
+              "code": "394586005",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      ],
+      "comment": "Appointment request comment",
+      "participant": [
+        {
+          "actor": {
+            "reference": "Patient/773933",
+            "display": "TAYLOR, MARCUS CERNER"
+          },
+          "status": "needs-action"
+        },
+        {
+          "actor": {
+            "reference": "Location/4062906",
+            "display": "Operation Room"
+          },
+          "status": "needs-action"
+        }
+      ],
+      "requestedPeriod": [
+        {
+          "start": "2020-02-07T13:28:17-05:00",
+          "end": "2021-02-07T13:28:17-05:00"
+        }
+      ]
+    }
   end
 end
