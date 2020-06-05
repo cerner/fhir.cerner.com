@@ -29,9 +29,7 @@ fields:
   required: 'No'
   type: CodeableConcept
   description: The specific service that is to be performed during this appointment.
-  action:
-  - read
-  - create
+  action: create
   note: Required when `Appointment.status` is set to `proposed`. Must contain exactly one CodeableConcept.
   example: |
     {
