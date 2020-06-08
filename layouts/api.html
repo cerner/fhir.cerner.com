@@ -10,7 +10,10 @@
       <h2>Soarian</h2>
     <% end %>
     <ul>
-      <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
+      <% if @item[:solution] == 'millennium' %>
+        <li><a href="/<%= @item[:solution] %>/overview/" class="active">Overview</a></li>
+      <% end %>
+      <li><a href="/<%= @item[:solution] %>/dstu2/">DSTU 2 Final (1.0.2)</a></li>
       <% if @item[:solution] == 'millennium' %>
         <li><a href="/<%= @item[:solution] %>/r4/">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="/<%= @item[:solution] %>/faq/" class="nav-faq">FAQ</a></li>
@@ -24,7 +27,9 @@
       <%= yield %>
     </div>
 
-    <%= render "/#{@item[:solution].to_s}_#{@item[:version].to_s}_sidebar.*" %>
+    <% if @item[:version] != 'overview' %>
+      <%= render "/#{@item[:solution].to_s}_#{@item[:version].to_s}_sidebar.*" %>
+    <% end %>
   </div><!-- #wrapper -->
 
   <%= render '/footer.*' %>
