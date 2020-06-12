@@ -19,6 +19,7 @@ The following fields are returned if valued:
 * [Status](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.status){:target="_blank"}
 * [Status Reason](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason){:target="_blank"}
 * [Intent](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent){:target="_blank"}
+    * Details in Implementation Notes sections for reads and searches.
 * [Category](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
@@ -63,6 +64,10 @@ Search for MedicationRequests that meet supplied query parameters:
 
     GET /MedicationRequest?:parameters
 
+_Implementation Notes_
+
+We are currently always returning a value of "Order" in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support "Plan" and "Order" in accordance with the US Core Profile pending changes.
+
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: false, system: true) %>
@@ -106,6 +111,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 List an individual MedicationRequest by its id:
 
     GET /MedicationRequest/:id
+
+_Implementation Notes_
+
+We are currently always returning a value of "Order" in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support "Plan" and "Order" in accordance with the US Core Profile pending changes.
 
 ### Authorization Types
 
