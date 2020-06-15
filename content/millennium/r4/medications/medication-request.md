@@ -179,7 +179,6 @@ Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/4595905
 Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 X-Runtime: 3.890282
