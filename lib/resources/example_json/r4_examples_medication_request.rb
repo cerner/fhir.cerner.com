@@ -464,12 +464,12 @@ module Cerner
         "reference": "Encounter/1621910"
       },
       "note": [
-    		{
-    			"authorString": "Leslie Knope",
-    			"time": "2020-03-03T20:07:53Z",
-    			"text": "Patient has had medication in past."
-    		}
-    	],
+            {
+                "authorString": "Leslie Knope",
+                "time": "2020-03-03T20:07:53Z",
+                "text": "Patient has had medication in past."
+            }
+        ],
       "dosageInstruction": [
         {
           "text": "5 mL, Oral, Daily.",
@@ -527,7 +527,7 @@ module Cerner
         }
       ],
       "dispenseRequest": {
-      	"numberOfRepeatsAllowed": 5,
+          "numberOfRepeatsAllowed": 5,
           "quantity": {
               "value": 10.0,
               "system": "http://unitsofmeasure.org",

@@ -185,8 +185,14 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 X-Runtime: 3.890282
 </pre>
 
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`reference`]: http://hl7.org/fhir/R4/search.html#reference
+[`date`]: http://hl7.org/fhir/R4/search.html#date
+[`number`]: http://hl7.org/fhir/R4/search.html#number
+[status]: https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
