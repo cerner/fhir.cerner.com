@@ -4,7 +4,6 @@ field_name_base_url: https://hl7.org/fhir/R4/medicationrequest-definitions.html#
 fields:
 - name: resourceType
   required: 'Yes'
-  cardinality: 1..1
   type: string
   description: The type of the FHIR resource.
   action: create
@@ -34,6 +33,7 @@ fields:
   required: 'No'
   type: CodeableConcept
   description: Reason for the current status
+  action: get
   binding:
     description: Reason for the current status
     terminology:
@@ -48,11 +48,14 @@ fields:
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001970-void-order-reasons
 - name: intent
   required: 'Yes'
-  cardinality: 1..1
   type: code
   description: Whether the request is a proposal, plan, or an original order.
   action: create
-  note: When creating a new MedicationRequest, the intent must be `order` or `plan`
+  note: >
+    <ul>
+      <li>When creating a MedicationRequest, the intent must be `order` or `plan`.</li>
+      <li>When read back, the created MedicationRequest will always have an intent of `order`. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. In the future, MedicationRequests with intents of `order` and `plan` will be supported in accordance with pending changes to the US Core Profile.</li>
+    </ul>
   example: |
     {
       "intent": "order"
@@ -61,6 +64,7 @@ fields:
   required: 'No'
   type: CodeableConcept
   description: Type of Medication Request
+  action: get
   binding:
     description: Type of Medication Request
     terminology:
@@ -77,6 +81,7 @@ fields:
   required: 'No'
   type: code
   description: Medication Request Priority
+  action: get
   binding:
     description: Medication Request Priority
     terminology:
@@ -85,7 +90,6 @@ fields:
       info_link: https://hl7.org/fhir/r4/valueset-request-priority.html
 - name: doNotPerform
   required: 'No'
-  cardinality: 0..1
   type: boolean
   description: Indicates whether or not the provider is asking for the medication request not to occur.
   action: create
@@ -96,7 +100,6 @@ fields:
     }
 - name: reported[x]
   required: 'Yes'
-  cardinality: 0..1
   type: boolean
   description: Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.
   action: create
@@ -109,7 +112,7 @@ fields:
   required: 'Yes'
   type: CodeableConcept
   description: A code that defines the medication
-  note: Must be of type CodeableConcept. `text` and/or one `coding` with a `system` and <code>code</code> must be provided.
+  note: Must be of type CodeableConcept. `text` and/or one `coding` with a `system` and `code` must be provided.
   example: |
     {
       "medicationCodeableConcept": {
@@ -130,7 +133,6 @@ fields:
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
 - name: subject
   required: 'Yes'
-  cardinality: 1..1
   type: Reference (Patient|Group)
   description: A link to a resource representing the person or set of individuals to whom the medication will be given.
   note: Must be a `Patient` reference.
@@ -143,7 +145,6 @@ fields:
     }
 - name: encounter
   required: 'No'
-  cardinality: 0..1
   type: Reference (Encounter)
   description: The Encounter this medication request was created or to which the creation of this record is tightly associated.
   action: create
@@ -157,6 +158,7 @@ fields:
   required: 'No'
   type: CodeableConcept
   description: Reason why medication is/was taken
+  action: get
   binding:
     description: Reason why medication is/was taken
     terminology:
@@ -171,7 +173,6 @@ fields:
       info_link: https://hl7.org/fhir/sid/icd-10
 - name: note
   required: 'No'
-  cardinality: 0..*
   type: Annotation
   description: Information about the medication request.
   action: create
@@ -187,14 +188,12 @@ fields:
     }
 - name: dosageInstruction
   required: 'No'
-  cardinality: 0..*
   type: Dosage
   description: Indicates how the medication is to be used by the patient.
   note: Can only be provided once.
   children:
   - name: text
     required: 'No'
-    cardinality: 0..1
     type: string
     description: The free text dosage instructions.
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.text
@@ -209,7 +208,6 @@ fields:
       }
   - name: additionalInstruction
     required: 'No'
-    cardinality: 0..*
     type: string
     description: The supplemental instruction or warnings to the patient.
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction
@@ -229,14 +227,12 @@ fields:
       }
   - name: timing
     required: 'No'
-    cardinality: 0..1
     type: Timing
     description: When the medication should be administered.
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing
     children:
     - name: repeat
       required: 'No'
-      cardinality: 0..1
       type: Element
       description: When the event is to occur.
       url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat
@@ -244,7 +240,6 @@ fields:
       children:
       - name: bounds[x]
         required: 'No'
-        cardinality: 0..1
         type: Period
         description: The outer bounds for start and/or end limits of the timing schedule.
         url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_
@@ -266,7 +261,6 @@ fields:
           }
       - name: count
         required: 'No'
-        cardinality: 0..1
         type: positiveInt
         description: The number of times to repeat.
         url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.count
@@ -284,7 +278,6 @@ fields:
           }
       - name: duration
         required: 'No'
-        cardinality: 0..1
         type: decimal
         description: How long when it happens.
         note: If provided, `durationUnit` must be provided.
@@ -304,7 +297,6 @@ fields:
           }
       - name: durationUnit
         required: 'No'
-        cardinality: 0..1
         type: code
         description: The units of time for the duration.
         note: If provided, `duration` must be provided.
@@ -324,13 +316,12 @@ fields:
           }
     - name: code
       required: 'No'
-      cardinality: 0..1
       type: CodeableConcept
       description: Code for a known/defined timing pattern
       note: |
         <ul>
           <li>If provided, only the `coding` field is supported.</li>
-          <li>When the `coding` field is provided, `system` and <code>code</code> must be provided together.</li>
+          <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
         </ul>
       url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.code
       binding:
@@ -364,10 +355,9 @@ fields:
         }
   - name: asNeeded[x]
     required: 'No'
-    cardinality: 0..1
     type: boolean | CodeableConcept
     description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
-    note: When providing the `asNeededCodeableConcept` field, and the `coding` field is provided, `system` and <code>code</code> must be provided together.
+    note: When providing the `asNeededCodeableConcept` field, and the `coding` field is provided, `system` and `code` must be provided together.
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_
     binding:
       description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
@@ -404,13 +394,12 @@ fields:
       }
   - name: site
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: The anatomic site where the medication first enters the body.
     note: |
       <ul>
         <li>If provided, only the `coding` field is supported.</li>
-        <li>When the `coding` field is provided, `system` and <code>code</code> must be provided together.</li>
+        <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
       </ul>
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.site
     binding:
@@ -439,13 +428,12 @@ fields:
       }
   - name: route
     required: 'No'
-    cardinality: 0..1
     type: CodeableConcept
     description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
     note: |
       <ul>
         <li>If provided, only the `coding` field is supported.</li>
-        <li>When the `coding` field is provided, `system` and <code>code</code> must be provided together.</li>
+        <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
       </ul>
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.route
     binding:
@@ -474,7 +462,6 @@ fields:
       }
   - name: doseAndRate
     required: 'No'
-    cardinality: 0..*
     type: Element
     description: How drug should enter body.
     note: Can only be provided once.
@@ -483,10 +470,9 @@ fields:
     children:
     - name: dose[x]
       required: 'No'
-      cardinality: 0..1
       type: SimpleQuantity
       description: Amount of medication per dose.
-      note: Must be of type `SimpleQuantity`. Must contain the `system` and <code>code</code> fields if either are provided.
+      note: Must be of type `SimpleQuantity`. Must contain the `system` and `code` fields if either are provided.
       url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_
       example: |
         {
@@ -507,14 +493,12 @@ fields:
         }
 - name: dispenseRequest
   required: 'No'
-  cardinality: 0..1
   type: BackboneElement
   description: Medication supply authorization.
   action: create
   children:
   - name: numberOfRepeatsAllowed
     required: 'No'
-    cardinality: 0..1
     type: unsignedInt
     description: Number of refills authorized.
     url: https://www.hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
@@ -526,12 +510,11 @@ fields:
       }
   - name: quantity
     required: 'No'
-    cardinality: 0..1
     type: SimpleQuantity
     description: Amount of medication to supply per dispense.
     note: |
       <ul>
-        <li>Must contain the `system` and <code>code</code> fields if either are provided.</li>
+        <li>Must contain the `system` and `code` fields if either are provided.</li>
         <li>The `unit` field is not supported.</li>
       </ul>
     url: https://www.hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity
@@ -547,14 +530,12 @@ fields:
       }
 - name: substitution
   required: 'No'
-  cardinality: 0..1
   type: BackboneElement
   description: Any restrictions on medication substitution.
   action: create
   children:
   - name: allowed[x]
     required: 'No'
-    cardinality: 1..1
     type: boolean
     description: Whether substitution is allowed or not.
     note: Only type of `boolean` is supported.
