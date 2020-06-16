@@ -182,6 +182,8 @@ Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
