@@ -86,7 +86,7 @@ Notes:
 
 ### Headers
 
-<%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -117,7 +117,7 @@ List an individual Appointment by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers fhir_json: true %>
 
 ### Example
 
@@ -195,24 +195,23 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 <%= disclaimer %>
 
-#### Request for patching appointment to booked
+### Example - Update Status to Booked
+
+#### Request
 
     PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
 
 #### Body
 
-<%= json(:r4_appointment_request_patch) %>
+<%= json(:r4_appointment_booked_patch) %>
 
 #### Response
 
@@ -224,11 +223,8 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -255,11 +251,8 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -286,11 +279,8 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -354,7 +344,7 @@ _Implementation Notes_
 
 #### Body
 
-  <%= json(:r4_proposed_appointment_create) %>
+<%= json(:r4_proposed_appointment_create) %>
 
 #### Response
 
@@ -367,11 +357,8 @@ Date: Tue, 12 May 2020 20:25:01 GMT
 Etag: W/"0"
 Last-Modified: Tue, 12 May 2020 20:25:01 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
-Server-Response-Time: 917.285226
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
-X-Runtime: 0.917206
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -386,7 +373,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Body
 
-  <%= json(:r4_appointment_create) %>
+<%= json(:r4_appointment_create) %>
 
 #### Response
 
@@ -399,11 +386,8 @@ Date: Thu, 30 May 2019 19:49:25 GMT
 Etag: W/"0"
 Last-Modified: Thu, 30 May 2019 19:49:23 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
-X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

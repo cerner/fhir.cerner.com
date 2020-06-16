@@ -12,33 +12,33 @@ operations:
       {
         "op": "replace",
         "path": "/status",
-        "value":  "cancelled"
+        "value": "cancelled"
       }
     note: >
       <ul>
-        <li>Only "arrived", "checked-in", "cancelled" and "booked" are supported</li>
-        <li>add-slot operation should be accompanied for patching the status to "booked"</li>
+        <li>Only "arrived", "checked-in", "cancelled", and "booked" are supported</li>
+        <li>This patch operation must be accompanied by the add Slot patch operation when updating status to "booked"</li>
       </ul>
   - name: add-slot
     path: /slot
     operation: add
-    cardinality: 0..*
     type: Reference (Slot)
     url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot
-    description: The availability to which the appointment is booked.
+    description: The slot that this appointment is filling
     example: |
       {
-              "op": "add",
-              "path": "/slot",
-              "value": [{
-                "reference":"Slot/1986119705-4048128-15648907-60"
-              }]
+        "op": "add",
+        "path": "/slot",
+        "value": [
+          {
+            "reference":"Slot/1986119705-4048128-15648907-60"
+          }
+        ]
       }
     note: >
       <ul>
-        <li>Only when patching the appointment to "booked" add slot is required</li>
-        <li>This patch operation must be accompanied by replace status operation with value "booked"</li>
-        <li>Only a single slot value should be provided</li>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+        <li>Only one Slot reference may be provided in the value array</li>
       </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
@@ -50,7 +50,7 @@ operations:
       {
         "op": "add",
         "path": "/contained/0/telecom/0/value",
-        "value":  "http://providerlink.vmr.net"
+        "value": "http://providerlink.vmr.net"
       }
     note: >
       <ul>
@@ -67,7 +67,7 @@ operations:
       {
         "op": "add",
         "path": "/contained/1/telecom/0/value",
-        "value":  "http://patientlink.vmr.net"
+        "value": "http://patientlink.vmr.net"
       }
     note: >
       <ul>
@@ -84,7 +84,7 @@ operations:
       {
         "op": "add",
         "path": "/contained/0/telecom/0/period/start",
-        "value":  "2019-07-13T08:00:00.000Z"
+        "value": "2019-07-13T08:00:00.000Z"
       }
     note: >
       <ul>
@@ -102,7 +102,7 @@ operations:
       {
         "op": "add",
         "path": "/contained/0/telecom/0/period/end",
-        "value":  "2019-07-13T08:30:00.000Z"
+        "value": "2019-07-13T08:30:00.000Z"
       }
     note: >
       <ul>
