@@ -1,26 +1,44 @@
 ---
 name: MedicationRequest
-field_name_base_url: http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest
+field_name_base_url: https://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest
 fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "MedicationRequest"
+    }
+  note: resourceType must be MedicationRequest
+  url: https://hl7.org/fhir/r4/json.html#resources
 - name: status
   required: 'Yes'
   type: code
   description: The current state of the medication request.
+  action: create
+  example: |
+    {
+      "status": "active"
+    }
+  note: When creating a new MedicationRequest, the status must be `active`
   binding:
     description: The current state of the medication request.
     terminology:
     - display: MedicationRequest Status
-      system: http://hl7.org/fhir/CodeSystem/medicationrequest-status
+      system: https://hl7.org/fhir/CodeSystem/medicationrequest-status
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status.html
 - name: statusReason
   required: 'No'
   type: CodeableConcept
   description: Reason for the current status
+  action: get
   binding:
     description: Reason for the current status
     terminology:
     - display: MedicationRequest Status Reason Codes
-      system: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
+      system: https://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status-reason.html
     - display: Millennium Cancel Reasons
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1309
@@ -28,18 +46,33 @@ fields:
     - display: Millennium Void Order Reason
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001970
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001970-void-order-reasons
+- name: intent
+  required: 'Yes'
+  type: code
+  description: Whether the request is a proposal, plan, or an original order.
+  action: create
+  note: >
+    <ul>
+      <li>When creating a MedicationRequest, the intent must be `order` or `plan`.</li>
+      <li>When read back, the created MedicationRequest will always have an intent of `order`. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. In the future, MedicationRequests with intents of `order` and `plan` will be supported in accordance with pending changes to the US Core Profile.</li>
+    </ul>
+  example: |
+    {
+      "intent": "order"
+    }
 - name: category
   required: 'No'
   type: CodeableConcept
   description: Type of Medication Request
+  action: get
   binding:
     description: Type of Medication Request
     terminology:
     - display: Medication Request Category Codes
-      system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
+      system: https://terminology.hl7.org/CodeSystem/medicationrequest-category
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-category.html
     - display: Medication Usage Category Codes
-      system: http://terminology.hl7.org/CodeSystem/medication-statement-category
+      system: https://terminology.hl7.org/CodeSystem/medication-statement-category
       info_link: https://hl7.org/fhir/r4/valueset-medication-statement-category.html
     - display: Cerner Medication Request Category for Pharmacy Charge-only orders
       system: https://fhir.cerner.com/medicationrequest-category
@@ -48,26 +81,84 @@ fields:
   required: 'No'
   type: code
   description: Medication Request Priority
+  action: get
   binding:
     description: Medication Request Priority
     terminology:
     - display: Request Priority
-      system: http://hl7.org/fhir/request-priority
+      system: https://hl7.org/fhir/request-priority
       info_link: https://hl7.org/fhir/r4/valueset-request-priority.html
+- name: doNotPerform
+  required: 'No'
+  type: boolean
+  description: Indicates whether or not the provider is asking for the medication request not to occur.
+  action: create
+  note: If provided, must be set to `false`.
+  example: |
+    {
+      "doNotPerform": false
+    }
+- name: reported[x]
+  required: 'Yes'
+  type: boolean
+  description: Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.
+  action: create
+  note: Must be of type boolean and must be set to `true`.
+  example: |
+    {
+      "reportedBoolean": true
+    }
 - name: medication[x]
   required: 'Yes'
   type: CodeableConcept
   description: A code that defines the medication
+  note: Must be of type CodeableConcept. `text` and/or one `coding` with a `system` and `code` must be provided.
+  example: |
+    {
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "352362"
+          }
+        ],
+        "text": "Acetaminophen"
+      }
+    }
   binding:
     description: A code that defines the medication
     terminology:
     - display: RxNorm
       system: https://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+- name: subject
+  required: 'Yes'
+  type: Reference (Patient|Group)
+  description: A link to a resource representing the person or set of individuals to whom the medication will be given.
+  note: Must be a `Patient` reference.
+  action: create
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/1316024"
+      }
+    }
+- name: encounter
+  required: 'No'
+  type: Reference (Encounter)
+  description: The Encounter this medication request was created or to which the creation of this record is tightly associated.
+  action: create
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/1621910"
+      }
+    }
 - name: reasonCode
   required: 'No'
   type: CodeableConcept
   description: Reason why medication is/was taken
+  action: get
   binding:
     description: Reason why medication is/was taken
     terminology:
@@ -75,63 +166,383 @@ fields:
       system: http://snomed.info/sct
       info_link: http://snomed.info/sct
     - display: ICD-9
-      system: http://hl7.org/fhir/sid/icd-9
-      info_link: http://hl7.org/fhir/sid/icd-9
+      system: https://hl7.org/fhir/sid/icd-9
+      info_link: https://hl7.org/fhir/sid/icd-9
     - display: ICD-10
-      system: http://hl7.org/fhir/sid/icd-10
-      info_link: http://hl7.org/fhir/sid/icd-10
-- name: dosageInstruction.timing.code
+      system: https://hl7.org/fhir/sid/icd-10
+      info_link: https://hl7.org/fhir/sid/icd-10
+- name: note
   required: 'No'
-  type: CodeableConcept
-  description: Code for a known/defined timing pattern
-  binding:
-    description: Code for a known/defined timing pattern
-    terminology:
-    - display: TimingAbbreviation
-      system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
-      info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
-    - display: SNOMED CT
-      system: http://snomed.info/sct
-      info_link: http://snomed.info/sct
-    - display: Millennium Frequency
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency
-- name: dosageInstruction.asNeededCodeableConcept
+  type: Annotation
+  description: Information about the medication request.
+  action: create
+  example: |
+    {
+      "note": [
+        {
+          "authorString": "Leslie Knope",
+          "time": "2020-03-03T20:07:53Z",
+          "text": "Patient has had medication in past."
+        }
+      ]
+    }
+- name: dosageInstruction
   required: 'No'
-  type: CodeableConcept
-  description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
-  binding:
+  type: Dosage
+  description: Indicates how the medication is to be used by the patient.
+  note: Can only be provided once.
+  children:
+  - name: text
+    required: 'No'
+    type: string
+    description: The free text dosage instructions.
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.text
+    action: create
+    example: |
+      {
+        "dosageInstruction": [
+          {
+            "text": "5 mL, Oral, Daily."
+          }
+        ]
+      }
+  - name: additionalInstruction
+    required: 'No'
+    type: string
+    description: The supplemental instruction or warnings to the patient.
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction
+    note: If provided, can only be provided once. `text` is only supported.
+    action: create
+    example: |
+      {
+        "dosageInstruction": [
+          {
+            "additionalInstruction": [
+              {
+                "text": "Take with food."
+              }
+            ]
+          }
+        ]
+      }
+  - name: timing
+    required: 'No'
+    type: Timing
+    description: When the medication should be administered.
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing
+    children:
+    - name: repeat
+      required: 'No'
+      type: Element
+      description: When the event is to occur.
+      url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat
+      action: create
+      children:
+      - name: bounds[x]
+        required: 'No'
+        type: Period
+        description: The outer bounds for start and/or end limits of the timing schedule.
+        url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_
+        note: If provided, must be of type `Period`. If an `end` is given a `start` must be provided.
+        example: |
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2020-03-03T20:07:53Z",
+                      "end": "2021-03-03T20:07:53Z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+      - name: count
+        required: 'No'
+        type: positiveInt
+        description: The number of times to repeat.
+        url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.count
+        example: |
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "count": 1
+                  }
+                }
+              }
+            ]
+          }
+      - name: duration
+        required: 'No'
+        type: decimal
+        description: How long when it happens.
+        note: If provided, `durationUnit` must be provided.
+        url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.duration
+        example: |
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "duration": 1,
+                    "durationUnit": "d"
+                  }
+                }
+              }
+            ]
+          }
+      - name: durationUnit
+        required: 'No'
+        type: code
+        description: The units of time for the duration.
+        note: If provided, `duration` must be provided.
+        url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.durationUnit
+        example: |
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "duration": 5,
+                    "durationUnit": "h"
+                  }
+                }
+              }
+            ]
+          }
+    - name: code
+      required: 'No'
+      type: CodeableConcept
+      description: Code for a known/defined timing pattern
+      note: |
+        <ul>
+          <li>If provided, only the `coding` field is supported.</li>
+          <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
+        </ul>
+      url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.code
+      binding:
+        description: Code for a known/defined timing pattern
+        terminology:
+        - display: TimingAbbreviation
+          system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
+          info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
+        - display: SNOMED CT
+          system: http://snomed.info/sct
+          info_link: http://snomed.info/sct
+        - display: Millennium Frequency
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency
+      example: |
+        {
+          "dosageInstruction": [
+            {
+              "timing": {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                      "code": "BID"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+  - name: asNeeded[x]
+    required: 'No'
+    type: boolean | CodeableConcept
     description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
-    terminology:
-    - display: SNOMED CT
-      system: http://snomed.info/sct
-      info_link: http://snomed.info/sct
-    - display: Millennium Reason for Medication
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4005
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication
-- name: dosageInstruction.site
-  required: 'No'
-  type: CodeableConcept
-  description: The anatomic site where the medication first enters the body.
-  binding:
+    note: When providing the `asNeededCodeableConcept` field, and the `coding` field is provided, `system` and `code` must be provided together.
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_
+    binding:
+      description: Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://snomed.info/sct
+      - display: Millennium Reason for Medication
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4005
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication
+    example: |
+      {
+        "dosageInstruction": [
+          {
+            "asNeededBoolean": true
+          }
+        ]
+      }
+    example2: |
+      {
+        "dosageInstruction": [
+          {
+            "asNeededCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "25064002"
+                }
+              ],
+              "text": "For headaches"
+            }
+          }
+        ]
+      }
+  - name: site
+    required: 'No'
+    type: CodeableConcept
     description: The anatomic site where the medication first enters the body.
-    terminology:
-    - display: SNOMED CT
-      system: http://snomed.info/sct
-      info_link: http://snomed.info/sct
-    - display: Millennium Bodysite
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1028
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site
-- name: dosageInstruction.route
-  required: 'No'
-  type: CodeableConcept
-  description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
-  binding:
+    note: |
+      <ul>
+        <li>If provided, only the `coding` field is supported.</li>
+        <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
+      </ul>
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.site
+    binding:
+      description: The anatomic site where the medication first enters the body.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://snomed.info/sct
+      - display: Millennium Bodysite
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1028
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site
+    example: |
+      {
+        "dosageInstruction": [
+          {
+            "site": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "368208006"
+                }
+              ]
+            }
+          }
+        ]
+      }
+  - name: route
+    required: 'No'
+    type: CodeableConcept
     description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
-    terminology:
-    - display: SNOMED CT
-      system: http://snomed.info/sct
-      info_link: http://snomed.info/sct
-    - display: Millennium Routes
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route
+    note: |
+      <ul>
+        <li>If provided, only the `coding` field is supported.</li>
+        <li>When the `coding` field is provided, `system` and `code` must be provided together.</li>
+      </ul>
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.route
+    binding:
+      description: Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://snomed.info/sct
+      - display: Millennium Routes
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4001
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4001-medication-administration-route
+    example: |
+      {
+        "dosageInstruction": [
+          {
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "41974700"
+                }
+              ]
+            }
+          }
+        ]
+      }
+  - name: doseAndRate
+    required: 'No'
+    type: Element
+    description: How drug should enter body.
+    note: Can only be provided once.
+    url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate
+    action: create
+    children:
+    - name: dose[x]
+      required: 'No'
+      type: SimpleQuantity
+      description: Amount of medication per dose.
+      note: Must be of type `SimpleQuantity`. Must contain the `system` and `code` fields if either are provided.
+      url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_
+      example: |
+        {
+          "dosageInstruction": [
+            {
+              "doseAndRate": [
+                {
+                  "doseQuantity": {
+                    "value": 5,
+                    "unit": "tabs",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "tbl"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+- name: dispenseRequest
+  required: 'No'
+  type: BackboneElement
+  description: Medication supply authorization.
+  action: create
+  children:
+  - name: numberOfRepeatsAllowed
+    required: 'No'
+    type: unsignedInt
+    description: Number of refills authorized.
+    url: https://www.hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
+    example: |
+      {
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 5
+        }
+      }
+  - name: quantity
+    required: 'No'
+    type: SimpleQuantity
+    description: Amount of medication to supply per dispense.
+    note: |
+      <ul>
+        <li>Must contain the `system` and `code` fields if either are provided.</li>
+        <li>The `unit` field is not supported.</li>
+      </ul>
+    url: https://www.hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity
+    example: |
+      {
+        "dispenseRequest": {
+          "quantity": {
+            "value": 12,
+            "system": "http://unitsofmeasure.org",
+            "code": "tbl"
+          }
+        }
+      }
+- name: substitution
+  required: 'No'
+  type: BackboneElement
+  description: Any restrictions on medication substitution.
+  action: create
+  children:
+  - name: allowed[x]
+    required: 'No'
+    type: boolean
+    description: Whether substitution is allowed or not.
+    note: Only type of `boolean` is supported.
+    url: https://www.hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.substitution.allowed_x_
+    example: |
+      {
+        "substitution": {
+          "allowedBoolean": true
+        }
+      }
