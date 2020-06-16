@@ -53,7 +53,7 @@ fields:
   type: code
   description: Whether the request is a proposal, plan, or an original order.
   action: create
-  note: When creating a new MedicationRequest, the status must be `order` or `plan`
+  note: When creating a new MedicationRequest, the intent must be `order` or `plan`
   example: |
     {
       "intent": "order"
