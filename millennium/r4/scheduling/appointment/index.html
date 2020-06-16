@@ -103,6 +103,7 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#example---update-status-to-booked" id="markdown-toc-example---update-status-to-booked">Example - Update Status to Booked</a></li>
       <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
       <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
@@ -128,8 +129,6 @@
 
 <p>When integrating your application with a client’s production environment you will work with the client to determine the Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.</p>
 
-<p>When updating an appointment, the resource provides the ability to change the <a href="https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status">Appointment.status</a> from booked to arrived, checked-in, or cancelled.</p>
-
 <p>The status of arrived does not change the state of the millennium appointment but instead updates the patient tracking status to a value of Arrived.</p>
 
 <p>R4 exposes a native checked-in status which allows for an appointment to transition from the booked state to the checked-in state. This is a change from the DSTU2 value mapping.</p>
@@ -137,6 +136,7 @@
 <p>When updating an appointment, the resource provides the ability to change the <a href="https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status">Appointment.status</a> in the following sequences:</p>
 
 <ul>
+  <li>From Proposed to Booked, or Cancelled</li>
   <li>From Booked to Arrived, Checked-In, or Cancelled</li>
   <li>From Arrived to Checked-In, or Cancelled</li>
   <li>From Checked-In to Cancelled</li>
@@ -409,7 +409,7 @@
 
 <h3 id="headers">Headers</h3>
 
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
 <h3 id="example">Example</h3>
@@ -568,7 +568,7 @@
 
 <h3 id="headers-1">Headers</h3>
 
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
 <h3 id="example-1">Example</h3>
@@ -936,7 +936,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li><pre>{
   "op": "replace",
   "path": "/status",
-  "value":  "cancelled"
+  "value": "cancelled"
 }
 </pre></li></ul>
           
@@ -945,7 +945,55 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Only "arrived", "checked-in", and "cancelled" are supported</li>
+  <li>Only "arrived", "checked-in", "cancelled", and "booked" are supported</li>
+  <li>This patch operation must be accompanied by the add Slot patch operation when updating status to "booked"</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-slot">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot"><code>/slot</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The slot that this appointment is filling</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/slot",
+  "value": [
+    {
+      "reference":"Slot/1986119705-4048128-15648907-60"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+  <li>Only one Slot reference may be provided in the value array</li>
 </ul>
 </li></ul>
           
@@ -978,7 +1026,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li><pre>{
   "op": "add",
   "path": "/contained/0/telecom/0/value",
-  "value":  "http://providerlink.vmr.net"
+  "value": "http://providerlink.vmr.net"
 }
 </pre></li></ul>
           
@@ -1021,7 +1069,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li><pre>{
   "op": "add",
   "path": "/contained/1/telecom/0/value",
-  "value":  "http://patientlink.vmr.net"
+  "value": "http://patientlink.vmr.net"
 }
 </pre></li></ul>
           
@@ -1064,7 +1112,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li><pre>{
   "op": "add",
   "path": "/contained/0/telecom/0/period/start",
-  "value":  "2019-07-13T08:00:00.000Z"
+  "value": "2019-07-13T08:00:00.000Z"
 }
 </pre></li></ul>
           
@@ -1108,7 +1156,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li><pre>{
   "op": "add",
   "path": "/contained/0/telecom/0/period/end",
-  "value":  "2019-07-13T08:30:00.000Z"
+  "value": "2019-07-13T08:30:00.000Z"
 }
 </pre></li></ul>
           
@@ -1333,18 +1381,15 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
+<h3 id="example---update-status-to-booked">Example - Update Status to Booked</h3>
 
 <h4 id="request-4">Request</h4>
 
@@ -1356,23 +1401,17 @@ X-Runtime: 2.260092
 <pre class="body-response"><code class="language-javascript">[
   {
     "op": "add",
-    "path": "/contained/0/telecom/0/value",
-    "value": "http://providerlink.vmr.net"
+    "path": "/slot",
+    "value": [
+      {
+        "reference": "Slot/1986119705-4048128-15648907-60"
+      }
+    ]
   },
   {
-    "op": "add",
-    "path": "/contained/1/telecom/0/value",
-    "value": "http://patientlink.vmr.net"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/start",
-    "value": "2019-07-13T08:00:00.000Z"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/end",
-    "value": "2019-07-13T08:10:00.000Z"
+    "op": "replace",
+    "path": "/status",
+    "value": "booked"
   }
 ]</code></pre>
 
@@ -1385,20 +1424,17 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
-Etag: W/"10-1"
+Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
+<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
 
 <h4 id="request-5">Request</h4>
 
@@ -1409,22 +1445,22 @@ X-Runtime: 2.260092
 
 <pre class="body-response"><code class="language-javascript">[
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/value",
     "value": "http://providerlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/1/telecom/0/value",
     "value": "http://patientlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/start",
     "value": "2019-07-13T08:00:00.000Z"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/end",
     "value": "2019-07-13T08:10:00.000Z"
   }
@@ -1441,11 +1477,59 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
+
+<h4 id="request-6">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+</code></pre>
+
+<h4 id="body-3">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/value",
+    "value": "http://providerlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/1/telecom/0/value",
+    "value": "http://patientlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/start",
+    "value": "2019-07-13T08:00:00.000Z"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/end",
+    "value": "2019-07-13T08:10:00.000Z"
+  }
+]</code></pre>
+
+<h4 id="response-6">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
@@ -1898,12 +1982,12 @@ X-Runtime: 2.260092
 
 <h3 id="example---proposed-appointment">Example - Proposed Appointment</h3>
 
-<h4 id="request-6">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-3">Body</h4>
+<h4 id="body-4">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -1943,7 +2027,7 @@ X-Runtime: 2.260092
   ]
 }</code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1955,11 +2039,8 @@ Date: Tue, 12 May 2020 20:25:01 GMT
 Etag: W/"0"
 Last-Modified: Tue, 12 May 2020 20:25:01 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
-Server-Response-Time: 917.285226
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
-X-Runtime: 0.917206
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
@@ -1968,12 +2049,12 @@ X-Runtime: 0.917206
 
 <h3 id="example---booked-appointment">Example - Booked Appointment</h3>
 
-<h4 id="request-7">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-4">Body</h4>
+<h4 id="body-5">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -1994,7 +2075,7 @@ X-Runtime: 0.917206
   ]
 }</code></pre>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2006,11 +2087,8 @@ Date: Thu, 30 May 2019 19:49:25 GMT
 Etag: W/"0"
 Last-Modified: Thu, 30 May 2019 19:49:23 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
-X-Runtime: 3.890282
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>

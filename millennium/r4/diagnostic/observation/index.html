@@ -638,6 +638,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     <ul>
       <li>May be a list of comma separated values. A system must be provided for each code.</li>
       <li>Searches only <code>Observation.code</code>. For example when fetching blood pressures the resource will be only be returned when the search is based on <code>85354-9(Systolic and Diastolic BP)</code>. Using the component codes <code>8480-6(Systolic BP)</code> or <code>8462-4 (Diastolic BP)</code> will not return the resource.</li>
+      <li>Searching with proprietary codes or systems is not supported.</li>
     </ul>
   </li>
   <li>
