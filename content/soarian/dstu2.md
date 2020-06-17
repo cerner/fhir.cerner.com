@@ -124,7 +124,7 @@ ID                                | Value\[x] Type      | Description
 
 ## Pagination
 
-The pagination [links](#secure-sandbox) are included in the Bundle when a resource returns multiple items. It is important to follow these Link header values instead of constructing your own URLs.
+The pagination [links](#secure-sandbox) are included in the Bundle when a resource returns more items than the Bundle page size. It is important to follow these Link header values instead of constructing your own URLs.
 
 <%= json(:SOARIAN_FHIR_LINK) %>
 
@@ -134,6 +134,7 @@ Name                                                 | Description
 -----------------------------------------------------|-----------------------------------------------------
 `self`                                               | Shows the URL of the current page of results.
 `next`                                               | Shows the URL of the immediate next page of results.
+`previous`                                           | If paging, shows the URL of the previous page of results.
 
 
 ## Common Errors

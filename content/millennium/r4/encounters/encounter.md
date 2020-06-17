@@ -56,6 +56,7 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
+* A populated Encounter response bundle will be sorted from newest to oldest based on the start of the [Encounter.period].
 
 ### Authorization Types
 
@@ -236,6 +237,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [contained]: https://hl7.org/fhir/r4/references.html#contained
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
+[Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`number`]: https://hl7.org/fhir/r4/search.html#number
