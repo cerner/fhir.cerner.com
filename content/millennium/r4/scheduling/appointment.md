@@ -316,6 +316,7 @@ _Implementation Notes_
   * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.
   * `Appointment.participant.actor` must be a reference to a Patient or a Location.
   * `Appointment.participant.status` must be set to `needs-action`.
+  * `Appointment.reasonCode` must be a list containing exactly one CodeableConcept.
   * `Appointment.requestedPeriod` must be a list containing a single Period. Both `Appointment.requestedPeriod.start` and `Appointment.requestedPeriod.end` must be set.
 * When`Appointment.status` is set to `booked`:
   * `Appointment.slot` must be a list containing exactly one reference to the Slot in which this appointment is being booked. `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
