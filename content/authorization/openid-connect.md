@@ -42,7 +42,8 @@ values are of importance in identifying the user:
 The subject value of the identity assertion corresponds to the user
 identifier asserted by the authentication system being used, locally
 unique within context of the "issuer".  This value may be a user's 
-username, or could be an opaque identifier, such as a UUID.  Both the 
+username, or could be an opaque identifier (such as a UUID), depending
+on the tenant's identity strategy.  Both the 
 issuer and subject value combined constitute a globally-unique
 identifier for the authenticated user.
 
@@ -87,7 +88,7 @@ an OpenID Connect identity token:
 {
     "access_token": "eyJraWQiOiIyMDE2LTEyLTE0VDE2OjQ5OjIxLjQ5OS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3J0YWwiLCJ1cm46Y29tOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltcyI6eyJ2ZXIiOiIxLjAiLCJ0bnQiOiIwYjhhMDExMS1lOGU2LTRjMjYtYTkxYy01MDY5Y2JjNmIxY2EiLCJhenMiOiJ1c2VyXC9QYXRpZW50LnJlYWQgb25saW5lX2FjY2VzcyBvcGVuaWQifSwiYXpwIjoiOTRiYmQ5MGQtNDgyYS00YTEwLWI3ZGYtYjQwZWRiMjc4ZGEyIiwiaXNzIjoiaHR0cHM6XC9cL2F1dGhvcml6YXRpb24uc2FuZGJveGNlcm5lci5jb21cLyIsImV4cCI6MTQ4MTc0Nzc4NCwiaWF0IjoxNDgxNzQ3MTg0LCJqdGkiOiIzNjQ4OWEyNS04YzRjLTQ0NjEtYTJjNy1iY2U3NDE0YTUxYWIiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJ1c2VyXC9QYXRpZW50LnJlYWQgb25saW5lX2FjY2VzcyBvcGVuaWQifX0sImNsaWVudCI6eyJuYW1lIjoiU2FuZGJveENsaWVudCIsImlkIjoiOTRiYmQ5MGQtNDgyYS00YTEwLWI3ZGYtYjQwZWRiMjc4ZGEyIn0sInVzZXIiOnsicHJpbmNpcGFsIjoicG9ydGFsIiwicGVyc29uYSI6InByb3ZpZGVyIiwiaWRzcCI6IjBiOGEwMTExLWU4ZTYtNGMyNi1hOTFjLTUwNjljYmM2YjFjYSIsInByaW5jaXBhbFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2luc3RhbmNlXC8wYjhhMDExMS1lOGU2LTRjMjYtYTkxYy01MDY5Y2JjNmIxY2FcL3ByaW5jaXBhbFwvMDAwMC4wMDAwLjAwNDQuMUQ4NyIsImlkc3BVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLnNhbmRib3hjZXJuZXIuY29tXC9hY2NvdW50c1wvZmhpcnBsYXkudGVtcF9yaG8uY2VybmVyYXNwLmNvbVwvMGI4YTAxMTEtZThlNi00YzI2LWE5MWMtNTA2OWNiYzZiMWNhXC9sb2dpbiJ9LCJ0ZW5hbnQiOiIwYjhhMDExMS1lOGU2LTRjMjYtYTkxYy01MDY5Y2JjNmIxY2EifX0.AaMZoMXUrZmnKwdAVC5uT2rbRMSOfO_zUGVJKce6o4NlUS7ECEF6Q8I0vvGkJDWfULxaqf4ITo1PUOfPnarjxw",
     "refresh_token": "daf989e2-649a-48c8-b2d8-18efa70be0ef",
-    "scope": "user/Patient.read online_access openid",
+    "scope": "user/Patient.read online_access openid fhirUser",
     "id_token": "eyJraWQiOiIyMDE2LTEyLTE0VDE2OjQ5OjIxLjUxMS5yc2EiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJwb3J0YWwiLCJhdWQiOiI5NGJiZDkwZC00ODJhLTRhMTAtYjdkZi1iNDBlZGIyNzhkYTIiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5zYW5kYm94Y2VybmVyLmNvbVwvdGVuYW50c1wvMGI4YTAxMTEtZThlNi00YzI2LWE5MWMtNTA2OWNiYzZiMWNhXC9vaWRjXC9pZHNwc1wvMGI4YTAxMTEtZThlNi00YzI2LWE5MWMtNTA2OWNiYzZiMWNhXC8iLCJleHAiOjE0ODE3NDc3ODQsImlhdCI6MTQ4MTc0NzE4NH0.YvF8Pqelk6Ze4srAjUnHZ192-bxaglYcbvbf8_AfDXtsmLKcSfHtQ9MmeGX5k6E-Mv4sqDEwzKPmU8p2GifOzYeJwu-TvJDCMDoqMk7WSLbb9wJk2gJ3Ipi7SEQcyVdPBGx9GMb4oX00bom0aliT2v-oGUeCcGOIPjVFM3eVaxgaHo7L_4shRX-FbUa96ORarD0c92m4PZZoiHqujCuRC7TjRfIvPXnBCCCl5naEo-gqkTNEfSf_jpfZPLAsQgW5jFcFiz9ihrBgM6A7yIE-1wSpIm9EiwY5gm3lJQTyGzYg3tzoOHIBWzbVTeTYTUlNMiwC_icHv2j9FDWHSxKTfw",
     "token_type": "Bearer",
     "expires_in": 570
@@ -102,7 +103,9 @@ The claims of the identity token in the above example are as follows:
   "aud": "94bbd90d-482a-4a10-b7df-b40edb278da2",
   "iss": "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/oidc/idsps/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/",
   "exp": 1481747784,
-  "iat": 1481747184
+  "iat": 1481747184,
+  "name": "Portal User",
+  "fhirUser": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/98765"  
 }
 </pre>
 
@@ -140,13 +143,6 @@ In this example, the jwks_uri is: ``https://authorization.sandboxcerner.com/jwk`
 SMART<sup>®</sup> on FHIR<sup>®</sup> currently does not prescribe
 mechanisms for managing session state between applications, or
 providing a sign-out experience for users.
-
-## Additional User Information
-
-Cerner's implementation does not currently support the "profile"
-scope for OpenID Connect, which would traditionally provide
-access to demographic information and the FHIR<sup>®</sup>
-endpoint URL for an individual.
 
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html
 [OPENID-TokenValidation]: http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation
