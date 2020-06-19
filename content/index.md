@@ -9,7 +9,7 @@ layout: overview
     HL7<sup>®</sup> FHIR<sup>®</sup> standard in your SMART app.
   </h1>
   <p class="intro">Jump right into the API documentation to get started.</p>
-  <a href="millennium/dstu2/" class="button">Browse the Millennium documentation</a>
+  <a href="millennium/overview/" class="button">Browse the Millennium documentation</a>
   <a href="soarian/dstu2/" class="button">Browse the Soarian documentation</a>
 </div>
 

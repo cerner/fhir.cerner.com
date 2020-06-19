@@ -3,17 +3,10 @@ title: DSTU 2
 layout: api
 ---
 
-# Overview
-
-This describes the resources that make up Cerner's implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
-please post to our [developer group](https://groups.google.com/d/forum/cerner-fhir-developers).
+# DSTU 2 Overview
 
 * TOC
 {:toc}
-
-## Current Version
-
-Cerner's implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard. Cerner is adding support for the R4 First Normative Content (4.0.0) version of the FHIR<sup>®</sup> standard.
 
 ## Schema
 

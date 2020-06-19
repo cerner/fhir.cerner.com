@@ -1,23 +1,15 @@
 <%= render '/head.*' %>
 
-<body class="<%= @item[:version].to_s %>_api">
+<body>
   <%= render '/header.*' %>
 
   <div class="sub-nav">
-    <% if @item[:solution] == 'millennium' %>
-      <h2>Millennium</h2>
-    <% elsif @item[:solution] == 'soarian' %>
-      <h2>Soarian</h2>
-    <% end %>
+    <h2>Millennium</h2>
     <ul>
-      <% if @item[:solution] == 'millennium' %>
-        <li><a href="/<%= @item[:solution] %>/overview/">Overview</a></li>
+        <li><a href="/<%= @item[:solution] %>/overview/" class="active">Overview</a></li>
         <li><a href="/<%= @item[:solution] %>/dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="/<%= @item[:solution] %>/r4/">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="/<%= @item[:solution] %>/faq/" class="nav-faq">FAQ</a></li>
-      <% elsif @item[:solution] == 'soarian' %>
-        <li><a href="/<%= @item[:solution] %>/dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
-      <% end %>
       <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
     </ul>
   </div>
@@ -26,8 +18,8 @@
     <div class="content">
       <%= yield %>
     </div>
-
-    <%= render "/#{@item[:solution].to_s}_#{@item[:version].to_s}_sidebar.*" %>
+    
+    <%= render "/#{@item[:solution].to_s}_overview_sidebar.*" %>
   </div><!-- #wrapper -->
 
   <%= render '/footer.*' %>
