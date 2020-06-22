@@ -380,12 +380,6 @@ module Cerner
       ],
       "reasonCode": [
         {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "413095006"
-            }
-          ],
           "text": "I have a cramp"
         }
       ]
@@ -406,12 +400,6 @@ module Cerner
       ],
       "reasonCode": [
         {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "413095006"
-            }
-          ],
           "text": "I have a cramp"
         }
       ],

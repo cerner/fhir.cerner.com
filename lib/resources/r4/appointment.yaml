@@ -67,10 +67,28 @@ fields:
 - name: reasonCode
   type: List of CodeableConcept
   description: Coded reason this appointment is scheduled.
-  action: terminology
+  action:
+  - terminology
+  - create
   binding:
     description: Coded reason this appointment is scheduled.
     note: Currently not bound to any terminology.
+  note: reasonCode.text is required.
+  example: |
+    {
+      "reasonCode": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "413095006"
+            }
+          ],
+          "text": "I have a cramp"
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/appointment-definitions.html#Appointment.reasonCode
 
 - name: slot
   required: 'No'
@@ -170,6 +188,7 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14250-scheduling-resource-roles
 
+
 - name: requestedPeriod
   required: 'No'
   type: List of Period
@@ -182,28 +201,6 @@ fields:
         {
           "start": "2015-02-07T13:28:17-05:00",
           "end": "2016-02-07T13:28:17-05:00"
-        }
-      ]
-    }
-  url: https://hl7.org/fhir/appointment-definitions.html#Appointment.requestedPeriod
-
-- name: reasonCode
-  required: 'No'
-  type: List of CodeableConcept
-  description: Coded reason this appointment is scheduled.
-  action: create
-  note: Must contain a text field.
-  example: |
-    {
-      "reasonCode": [
-        {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "413095006"
-            }
-          ],
-          "text": "I have a cramp"
         }
       ]
     }
