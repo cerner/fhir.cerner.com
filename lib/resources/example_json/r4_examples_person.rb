@@ -3,215 +3,321 @@ module Cerner
   
       R4_COMBINED_PERSON_ENTRY ||= {
         "resourceType": "Person",
-        "id": "4768007",
+        "id": "971923",
+        "meta": {
+            "versionId": "0"
+        },
+        "text": {
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Inactive</p><p><b>Link</b>: Person/933924</p></div>"
+        },
         "active": false,
         "link": [
-          {
-            "target": {
-              "reference": "Person/3440007"
+            {
+                "target": {
+                    "reference": "Person/933924"
+                }
             }
-          }
         ]
-      }
+    }
   
       R4_PERSON_ENTRY ||= {
         "resourceType": "Person",
-        "id": "4342009",
+        "id": "725944",
         "meta": {
-          "versionId": "3",
-          "lastUpdated": "2016-11-11T18:10:13.000Z"
+            "versionId": "10",
+            "lastUpdated": "2020-03-04T15:25:48.000Z"
         },
         "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+            "status": "generated",
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Active</p><p><b>Name</b>: SMITH, MORGAN</p><p><b>DOB</b>: Jan  1, 1970</p><p><b>Administrative Gender</b>: Female</p></div>"
         },
         "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
+            {
+                "id": "CI-1312161-0",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                            "code": "10",
+                            "display": "MRN",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical record number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "MRN"
+                },
+                "system": "urn:oid:1.1.1.1.1.1",
+                "value": "10000057",
+                "period": {
+                    "start": "2007-03-07T17:56:56.000Z"
                 }
-              ],
-              "text": "Federated Person Principal"
             },
-            "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:YP2qT7jS2sa",
-            "period": {
-              "start": "2016-11-01T10:00:00.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
+            {
+                "id": "CI-858753-1",
+                "use": "usual",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                            "code": "10",
+                            "display": "MRN",
+                            "userSelected": true
+                        },
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical record number",
+                            "userSelected": false
+                        }
+                    ],
+                    "text": "MRN"
+                },
+                "value": "10000086",
+                "period": {
+                    "start": "2006-09-20T22:28:53.000Z"
                 }
-              ],
-              "text": "Federated Person Principal"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:YP2QT7JS2SA",
-            "period": {
-              "start": "2016-11-01T10:00:00.000Z"
             }
-          }
         ],
         "name": [
-          {
-            "use": "official",
-            "text": "Smart, Nancy",
-            "family": [
-              "Smart"
-            ],
-            "given": [
-              "Nancy"
-            ],
-            "period": {
-              "start": "2016-06-22T20:43:05.000Z"
+            {
+                "id": "CI-725944-0",
+                "use": "official",
+                "text": "SMITH, MORGAN",
+                "family": "SMITH",
+                "given": [
+                    "MORGAN"
+                ],
+                "period": {
+                    "start": "2006-09-20T21:55:51.000Z"
+                }
+            },
+            {
+                "id": "CI-17446991-0",
+                "use": "official",
+                "text": "lastName Jr., firstName middleName",
+                "family": "lastName",
+                "given": [
+                    "firstName",
+                    "middleName"
+                ],
+                "prefix": [
+                    "Dr."
+                ],
+                "suffix": [
+                    "Jr."
+                ],
+                "period": {
+                    "start": "2014-01-20T15:48:39.000Z",
+                    "end": "2014-03-20T15:48:39.000Z"
+                }
             }
-          }
+        ],
+        "telecom": [
+            {
+                "id": "CI-PH-693923-0",
+                "system": "phone",
+                "value": "8168675234",
+                "use": "home",
+                "rank": "1",
+                "period": {
+                    "start": "2006-09-20T21:55:51.000Z"
+                }
+            }
         ],
         "gender": "female",
-        "birthDate": "1980-08-11",
+        "birthDate": "1970-01-01",
+        "address": [
+            {
+                "id": "CI-717915-0",
+                "use": "home",
+                "text": "123 Sesame Street\nKansas City, MO 64112\nUSA",
+                "line": [
+                    "123 Sesame Street"
+                ],
+                "city": "Kansas City",
+                "district": "Jackson",
+                "state": "MO",
+                "postalCode": "64112",
+                "country": "USA",
+                "period": {
+                    "start": "2006-09-20T21:55:51.000Z"
+                }
+            }
+        ],
         "active": true
-      }
+        }
   
       R4_PERSON_BUNDLE ||= {
         "resourceType": "Bundle",
-        "id": "7e526ecc-99ef-4c34-bbaa-f17f732b36e9",
+        "id": "d44e3941-2944-455f-b3d0-a34d3039e470",
         "type": "searchset",
-        "total": 1,
-        "link": [{
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI"
-        }],
-        "entry": [{
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/1316024",
-          "resource": {
-            "resourceType": "Person",
-            "id": "1316024",
-            "meta": {
-              "versionId": "32",
-              "lastUpdated": "2017-01-12T17:51:03.000Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div>&lt;p>&lt;b>Person&lt;/b>&lt;/p>&lt;p>&lt;b>Name&lt;/b>: Williams, Rory&lt;/p>&lt;p>&lt;b>DOB&lt;/b>: 1961-04-30&lt;/p>&lt;p>&lt;b>Sex&lt;/b>: Male&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Active&lt;/p>&lt;/div>"
-            },
-            "identifier": [{
-              "use": "usual",
-              "type": {
-                "coding": [{
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
-                }],
-                "text": "Federated Person Principal"
-              },
-              "system": "urn:oid:2.16.840.1.113883.3.13.6",
-              "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
-              "period": {
-                "start": "2016-11-01T10:00:00.000Z"
-              }
-            }, {
-              "use": "usual",
-              "type": {
-                "coding": [{
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
-                }],
-                "text": "Federated Person Principal"
-              },
-              "system": "urn:oid:2.16.840.1.113883.3.13.6",
-              "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
-              "period": {
-                "start": "2016-11-01T10:00:00.000Z"
-              }
-            }, {
-              "use": "usual",
-              "type": {
-                "coding": [{
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
-                }],
-                "text": "Federated Person Principal"
-              },
-              "system": "urn:oid:2.16.840.1.113883.3.13.6",
-              "value": "NEW-FEDPRINCIPAL-ALIAS-12212016",
-              "period": {
-                "start": "2016-01-02T05:00:00.000Z",
-                "end": "2017-01-02T05:00:00.000Z"
-              }
-            }],
-            "name": [{
-              "use": "official",
-              "text": "Williams, Rory",
-              "family": ["Williams"],
-              "given": ["Rory"],
-              "period": {
-                "start": "2012-05-17T14:54:31.000Z"
-              }
-            }, {
-              "given": ["Rory"],
-              "period": {
-                "start": "2012-05-22T15:45:50.000Z"
-              }
-            }],
-            "telecom": [{
-              "system": "phone",
-              "value": "1231231231",
-              "use": "work",
-              "period": {
-                "start": "2013-03-11T07:17:03.000Z"
-              }
-            }, {
-              "system": "phone",
-              "value": "8168229121",
-              "use": "home",
-              "period": {
-                "start": "2012-05-17T15:33:18.000Z"
-              }
-            }, {
-              "system": "phone",
-              "value": "8162324455",
-              "use": "mobile",
-              "period": {
-                "start": "2013-01-30T14:56:59.000Z"
-              }
-            }],
-            "gender": "male",
-            "birthDate": "1961-04-30",
-            "address": [{
-              "use": "home",
-              "text": "101 Someplace Cool\nKansas City, MO 64199\nUSA",
-              "line": ["101 Someplace Cool"],
-              "city": "Kansas City",
-              "district": "Jackson",
-              "state": "MO",
-              "postalCode": "64199",
-              "country": "USA",
-              "period": {
-                "start": "2012-05-17T15:33:18.000Z"
-              }
-            }],
-            "active": true
-          }
-        }]
-      }
+        "link": [
+            {
+                "relation": "self",
+                "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?identifier=urn%3Aoid%3A1.1.1.1.1.1%7C10000360"
+            }
+        ],
+        "entry": [
+            {
+                "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/1316024",
+                "resource": {
+                    "resourceType": "Person",
+                    "id": "1316024",
+                    "meta": {
+                        "versionId": "131",
+                        "lastUpdated": "2020-05-19T13:07:12.000Z"
+                    },
+                    "text": {
+                        "status": "generated",
+                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Active</p><p><b>Name</b>: PETERS, TIMOTHY CCCC</p><p><b>DOB</b>: Apr 29, 1961</p><p><b>Administrative Gender</b>: Male</p></div>"
+                    },
+                    "identifier": [
+                        {
+                            "id": "CI-3541687-0",
+                            "use": "usual",
+                            "type": {
+                                "coding": [
+                                    {
+                                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                                        "code": "2",
+                                        "display": "Community Medical Record Number",
+                                        "userSelected": true
+                                    },
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                        "code": "MR",
+                                        "display": "Medical record number",
+                                        "userSelected": false
+                                    }
+                                ],
+                                "text": "Community Medical Record Number"
+                            },
+                            "value": "109759",
+                            "period": {
+                                "start": "2014-09-12T18:43:57.000Z"
+                            }
+                        },
+                        {
+                            "id": "CI-2542281-9",
+                            "use": "usual",
+                            "type": {
+                                "coding": [
+                                    {
+                                        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                                        "code": "10",
+                                        "display": "MRN",
+                                        "userSelected": true
+                                    },
+                                    {
+                                        "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                        "code": "MR",
+                                        "display": "Medical record number",
+                                        "userSelected": false
+                                    }
+                                ],
+                                "text": "MRN"
+                            },
+                            "system": "urn:oid:1.1.1.1.1.1",
+                            "value": "10000360",
+                            "period": {
+                                "start": "2012-05-17T14:54:30.000Z"
+                            }
+                        }
+                    ],
+                    "telecom": [
+                        {
+                            "id": "CI-PH-10530189-0",
+                            "system": "phone",
+                            "value": "913-444-8880",
+                            "use": "work",
+                            "rank": "1",
+                            "period": {
+                                "start": "2018-01-05T22:24:32.000Z",
+                                "end": "2019-04-03T06:15:00.000Z"
+                            }
+                        },
+                        {
+                            "id": "CI-PH-1093987-1",
+                            "system": "phone",
+                            "value": "8168229121",
+                            "use": "home",
+                            "rank": "1",
+                            "period": {
+                                "start": "2012-05-17T15:33:18.000Z",
+                                "end": "2019-04-03T06:15:00.000Z"
+                            }
+                        },
+                        {
+                            "id": "CI-EM-38331446-0",
+                            "system": "email",
+                            "value": "test2email@test.com",
+                            "use": "home",
+                            "rank": "1",
+                            "period": {
+                                "start": "2020-05-19T13:09:23.000Z"
+                            }
+                        },
+                        {
+                            "id": "CI-EM-33085446-1",
+                            "system": "email",
+                            "value": "xyz1234@xyz.com",
+                            "use": "home",
+                            "rank": "1",
+                            "period": {
+                                "start": "2020-03-03T10:36:29.000Z",
+                                "end": "2019-04-03T06:15:00.000Z"
+                            }
+                        }
+                    ],
+                    "gender": "male",
+                    "birthDate": "1961-04-29",
+                    "address": [
+                        {
+                            "id": "CI-1131934-0",
+                            "use": "home",
+                            "text": "9430 Blue Ridge Blvd\nKansas City, IN 64199\nUSA",
+                            "line": [
+                                "9430 Blue Ridge Blvd"
+                            ],
+                            "city": "Kansas City",
+                            "district": "Jackson",
+                            "state": "IN",
+                            "postalCode": "64199",
+                            "country": "USA",
+                            "period": {
+                                "start": "2012-05-17T15:33:18.000Z"
+                            }
+                        },
+                        {
+                            "id": "CI-32540545-1",
+                            "use": "home",
+                            "text": "1212 Faircastle Drive\nApartment 406\nOverland Park, KS 64199\nUSA",
+                            "line": [
+                                "1212 Faircastle Drive",
+                                "Apartment 406"
+                            ],
+                            "city": "Overland Park",
+                            "district": "Jackson",
+                            "state": "KS",
+                            "postalCode": "64199",
+                            "country": "USA",
+                            "period": {
+                                "start": "2012-05-17T15:33:18.000Z"
+                            }
+                        }
+                    ],
+                    "active": true
+                }
+            }
+        ]
+    }
     end
   end
   

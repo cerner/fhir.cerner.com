@@ -34,7 +34,7 @@ Search for Persons that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Parameters
 
@@ -55,7 +55,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?_id=4342009
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?_id=1316024
 
 #### Response
 
@@ -74,7 +74,7 @@ List an individual Person by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Headers
 
@@ -84,7 +84,7 @@ List an individual Person by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/4342009
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/725944
 
 #### Response
 
@@ -98,7 +98,7 @@ The ability to perform person combine or uncombine operations is not available t
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/1011933
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/971923
 
 #### Response
 
@@ -108,3 +108,6 @@ The ability to perform person combine or uncombine operations is not available t
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
