@@ -9,7 +9,7 @@ module Cerner
         },
         "text": {
             "status": "generated",
-            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Inactive</p><p><b>Link</b>: Person/933924</p></div>"
+            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt&lt;p&gt&lt;b&gtPerson&lt;/b&gt&lt;/p&gt&lt;p&gt&lt;b&gtStatus&lt;/b&gt: Inactive&lt;/p&gt&lt;p&gt&lt;b&gtLink&lt;/b&gt: Person/933924&lt;/p&gt&lt;/div&gt"
         },
         "active": false,
         "link": [
@@ -30,7 +30,7 @@ module Cerner
         },
         "text": {
             "status": "generated",
-            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Active</p><p><b>Name</b>: SMITH, MORGAN</p><p><b>DOB</b>: Jan  1, 1970</p><p><b>Administrative Gender</b>: Female</p></div>"
+            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt&lt;p&gt&lt;b&gtPerson&lt;/b&gt&lt;/p&gt&lt;p&gt&lt;b&gtStatus&lt;/b&gt: Active&lt;/p&gt&lt;p&gt&lt;b&gtName&lt;/b&gt: SMITH, MORGAN&lt;/p&gt&lt;p&gt&lt;b&gtDOB&lt;/b&gt: Jan  1, 1970&lt;/p&gt&lt;p&gt&lt;b&gtAdministrative Gender&lt;/b&gt: Female&lt;/p&gt&lt;/div&gt"
         },
         "identifier": [
             {
@@ -176,7 +176,7 @@ module Cerner
                     },
                     "text": {
                         "status": "generated",
-                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Person</b></p><p><b>Status</b>: Active</p><p><b>Name</b>: PETERS, TIMOTHY CCCC</p><p><b>DOB</b>: Apr 29, 1961</p><p><b>Administrative Gender</b>: Male</p></div>"
+                        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt&lt;p&gt&lt;b&gtPerson&lt;/b&gt&lt;/p&gt&lt;p&gt&lt;b&gtStatus&lt;/b&gt: Active&lt;/p&gt&lt;p&gt&lt;b&gtName&lt;/b&gt: PETERS, TIMOTHY CCCC&lt;/p&gt&lt;p&gt&lt;b&gtDOB&lt;/b&gt: Apr 29, 1961&lt;/p&gt&lt;p&gt&lt;b&gtAdministrative Gender&lt;/b&gt: Male&lt;/p&gt&lt;/div&gt"
                     },
                     "identifier": [
                         {
