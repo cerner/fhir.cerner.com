@@ -1,0 +1,115 @@
+---
+  name: ServiceRequest
+  field_name_base_url: https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest
+  fields:
+  - name: status
+    required: 'Yes'
+    type: code
+    description: The status of a service order.
+    binding:
+      description: The status of a service order.
+      terminology:
+      - display: Request Status
+        system: http://hl7.org/fhir/request-status
+        info_link: https://www.hl7.org/fhir/valueset-request-status.html
+  - name: intent
+    required: 'Yes'
+    type: code
+    description: The kind of service request.
+    binding:
+      description: The kind of service request.
+      terminology:
+      - display: Request Intent
+        system: http://hl7.org/fhir/request-intent
+        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
+  - name: category
+    required: 'No'
+    type:  List of CodeableConcept
+    description: Classification of the requested service.
+    binding:
+      description: A code that classifies the request for service.
+      terminology:
+      - display: Millennium Catalog Types
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/6000
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6000-catalog-types
+  - name: priority
+    required: 'Yes'
+    type: code
+    description: Identifies the level of importance to be assigned to actioning the request.
+    binding:
+      description: Identifies the level of importance to be assigned to actioning the request.
+      terminology:
+      - display: Request Priority
+        system: http://hl7.org/fhir/request-priority
+        info_link: https://www.hl7.org/fhir/valueset-request-priority.html
+  - name: code
+    required: 'No'
+    type: CodeableConcept
+    description: A code that identifies a particular service.
+    binding:
+      description: A code that identifies a particular service that has been requested.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+  - name: occurrence.timing
+    required: 'No'
+    type: CodeableConcept
+    description: Code for a known/defined timing pattern.
+    binding:
+      description: Code for a known/defined timing pattern.
+      terminology:
+      - display: TimingAbbreviation
+        system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
+        info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: Millennium Frequency
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/4003
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency
+  - name: asNeededCodeableConcept
+    required: 'No'
+    type: CodeableConcept
+    description: A coded concept identifying the pre-condition that should hold prior to performing a procedure.
+    binding:
+      description: A code representing the pre-condition for performing the service.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: Millennium Reason Codes
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/4005
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4005-reason-for-medication
+  - name: reasonCode
+    required: 'No'
+    type:  List of CodeableConcept
+    description: Diagnosis or problem codes justifying the reason for requesting the service investigation.
+    binding:
+      description: A reason code for why the service is being requested.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: ICD-9
+        system: http://hl7.org/fhir/sid/icd-9
+        info_link: https://hl7.org/fhir/r4/icd.html
+      - display: ICD-10
+        system: http://hl7.org/fhir/sid/icd-10
+        info_link: https://hl7.org/fhir/r4/icd.html
+  - name: bodySite
+    required: 'No'
+    type:  List of CodeableConcept
+    description: Codes describing anatomical locations. May include laterality.
+    binding:
+      description: A code representing the anatomic location where the procedure should be performed.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: Millennium Bodysite
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/1028
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-1028-body-site
+      - display: Millennium Surgical Procedure Modifier
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/14045
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14045-surgical-procedure-modifiers
