@@ -8,7 +8,7 @@ module Cerner
       },
       "text": {
         "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Link&lt;/b&gt;: Person/933924&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Link&lt;/b&gt;: Person/933924&lt;/p&gt;&lt;/div&gt;"
       },
       "active": false,
       "link": [
