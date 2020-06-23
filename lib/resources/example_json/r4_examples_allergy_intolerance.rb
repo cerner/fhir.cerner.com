@@ -131,8 +131,7 @@ module Cerner
         }
       ],
       "entry": [
-        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/983733",
-        "resource": R4_ALLERGY_INTOLERANCE_ENTRY
+        R4_ALLERGY_INTOLERANCE_ENTRY
       ]
     }
 
