@@ -1,0 +1,93 @@
+---
+  name: NutritionOrder
+  field_name_base_url: https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder
+  fields:
+  - name: status
+    required: 'Yes'
+    type: code
+    description: The workflow status of the nutrition order/request.
+    binding:
+      description: The status of the nutrition order.
+      terminology:
+      - display: Request Status
+        system: http://hl7.org/fhir/request-status
+        info_link: https://www.hl7.org/fhir/valueset-request-status.html
+  - name: intent
+    required: 'Yes'
+    type: code
+    description: Indicates the level of authority/intentionality associated with the NutrionOrder.
+    binding:
+      description: The degree of authority/intentionality associated to the order.
+      terminology:
+      - display: Request Intent
+        system: http://hl7.org/fhir/request-intent
+        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
+  - name: foodPreferenceModifier
+    required: 'No'
+    type: List of CodeableConcept
+    description: Modifier is used to convey order-specific modifiers about the type of food that should be given.
+    binding:
+      description: Information about a patient's food preference.
+      terminology:
+      - display: Millennium Dietary Modifiers
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6102
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6102-dietary-modifiers
+      - display: Millennium Beverage Modifiers
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6103
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6103-beverage-modifiers
+  - name: oralDiet.type
+    required: 'No'
+    type: List of CodeableConcept
+    description: The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
+    binding:
+      description: The kind of diet or dietary restriction.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/r4/snomedct.html
+  - name: oralDiet.schedule.code
+    required: 'No'
+    type: CodeableConcept
+    description: A code for the timing schedule.
+    binding:
+      description: Code for a known/defined timing pattern.
+      terminology:
+      - display: TimingAbbreviation
+        system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
+        info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/r4/snomedct.html
+      - display: Millennium Frequency
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003-frequency
+  - name: oralDiet.texture.modifier
+    required: 'No'
+    type: CodeableConcept
+    description: Any texture modifications (for solid foods) that should be made.
+    binding:
+      description: Texture modifications that should be made for solid food.
+      terminology:
+      - display: Millennium Diet Consistency
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100197
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-100197-diet-consistency
+  - name: oralDiet.fluidConsistencyType
+    required: 'No'
+    type: List of CodeableConcept
+    description: The required consistency of liquids or fluids served to the patient.
+    binding:
+      description: The required consistency of fluids served to the patient.
+      terminology:
+      - display: Millennium Beverage Consistency
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100123
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-100123-beverage-consistency
+  - name: supplement.type
+    required: 'No'
+    type: CodeableConcept
+    description: The kind of nutritional supplement product required.
+    binding:
+      description: The kind of nutritional supplement required.
+      terminology:
+      - display: Millennium Dietary Supplement
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6107
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6107-dietary-supplement
