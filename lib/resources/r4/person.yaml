@@ -1,0 +1,24 @@
+---
+name: Person
+field_name_base_url: https://hl7.org/fhir/R4/person-definitions.html#Person
+fields:
+- name: identifier
+  type: List of Identifier
+  description: The identifier for the person.
+  action: terminology
+  children:
+
+  - name: type
+    type: CodeableConcept
+    description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    action: terminology
+    binding:
+      description: The type used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: v2 Identifier Type
+        system: https://terminology.hl7.org/CodeSystem/v2-0203
+        info_link: https://hl7.org/fhir/R4/v2/0203/index.html
+      - display: Millennium Person Identifier (Alias) Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types
