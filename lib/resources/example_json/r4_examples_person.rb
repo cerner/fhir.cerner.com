@@ -1,6 +1,5 @@
 module Cerner
   module Resources
-
     R4_COMBINED_PERSON_ENTRY ||= {
       "resourceType": "Person",
       "id": "971923",
@@ -13,11 +12,12 @@ module Cerner
       },
       "active": false,
       "link": [
-      {
-        "target": {
-          "reference": "Person/933924"
+        {
+          "target": {
+            "reference": "Person/933924"
+          }
         }
-      }]
+      ]
     }
 
     R4_PERSON_ENTRY ||= {
@@ -35,53 +35,53 @@ module Cerner
         {
           "id": "CI-1312161-0",
           "use": "usual",
-            "type": {
-              "coding": [
-                {
+          "type": {
+            "coding": [
+              {
                 "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
                 "code": "10",
                 "display": "MRN",
                 "userSelected": true
-                },
-                {
+              },
+              {
                 "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
                 "code": "MR",
                 "display": "Medical record number",
                 "userSelected": false
-                }
-              ],
-              "text": "MRN"
-            },
-            "system": "urn:oid:1.1.1.1.1.1",
-            "value": "10000057",
-            "period": {
-              "start": "2007-03-07T17:56:56.000Z"
-            }
+              }
+            ],
+            "text": "MRN"
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "10000057",
+          "period": {
+            "start": "2007-03-07T17:56:56.000Z"
+          }
         },
         {
-        "id": "CI-858753-1",
-        "use": "usual",
-        "type": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
-              "code": "10",
-              "display": "MRN",
-              "userSelected": true
-            },
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-              "code": "MR",
-              "display": "Medical record number",
-              "userSelected": false
-            }
-          ],
-          "text": "MRN"
-        },
-        "value": "10000086",
-        "period": {
-          "start": "2006-09-20T22:28:53.000Z"
-        }
+          "id": "CI-858753-1",
+          "use": "usual",
+          "type": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4",
+                "code": "10",
+                "display": "MRN",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "MR",
+                "display": "Medical record number",
+                "userSelected": false
+              }
+            ],
+            "text": "MRN"
+          },
+          "value": "10000086",
+          "period": {
+            "start": "2006-09-20T22:28:53.000Z"
+          }
         }
       ],
       "name": [
