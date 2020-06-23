@@ -43,7 +43,7 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../overview/" class="nav-dstu2-api">Millennium</a></li>
         <li><a href="../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
         <li><a href="../../../smart" class="nav-dstu2-api">SMART</a></li>
@@ -63,8 +63,9 @@
       <h2>Millennium</h2>
     
     <ul>
-      <li><a href="../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
       
+        <li><a href="../../overview/">Overview</a></li>
+        <li><a href="../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
       
@@ -80,6 +81,7 @@
   <li>
 <a href="#proprietary-codes" id="markdown-toc-proprietary-codes">Proprietary Codes</a>    <ul>
       <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#care-provision" id="markdown-toc-care-provision">Care Provision</a></li>
       <li><a href="#diagnostic" id="markdown-toc-diagnostic">Diagnostic</a></li>
       <li><a href="#documents" id="markdown-toc-documents">Documents</a></li>
       <li><a href="#encounters" id="markdown-toc-encounters">Encounters</a></li>
@@ -142,6 +144,40 @@
   }
 }
 </code></pre>
+
+<h3 id="care-provision">Care Provision</h3>
+
+<h3>NutritionOrder</h3>
+
+<p>The NutritionOrder Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>NutritionOrder.foodPreferenceModifier codes are maintained in <a href="#code-set-6102-dietary-modifiers">Code Set 6102 Dietary Modifiers</a> and <a href="#code-set-6103-beverage-modifiers">Code Set 6103 Beverage Modifiers</a>
+</li>
+  <li>NutritionOrder.oralDiet.schedule.code codes are maintained in <a href="#code-set-4003-frequency">Code Set 4003 Frequency</a>
+</li>
+  <li>NutritionOrder.oralDiet.texture.modifier codes are maintained in <a href="#code-set-100197-diet-consistency">Code Set 100197 Diet Consistency</a>
+</li>
+  <li>NutritionOrder.oralDiet.fluidConsistencyType codes are maintained in <a href="#code-set-100123-beverage-consistency">Code Set 100123 Beverage Consistency</a>
+</li>
+  <li>NutritionOrder.supplement.type codes are maintained in <a href="#code-set-6107-dietary-supplement">Code Set 6107 Dietary Supplements</a>
+</li>
+</ul>
+
+<h3>ServiceRequest</h3>
+
+<p>The ServiceRequest Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>ServiceRequest.category codes are maintained in <a href="#code-set-6000-catalog-type">Code Set 6000 Catalog Type</a>
+</li>
+  <li>ServiceRequest.occurrence.timing codes are maintained in <a href="#code-set-4003-frequency">Code Set 4003 Frequency</a>
+</li>
+  <li>ServiceRequest.asNeededCodeableConcept codes are maintained in <a href="#code-set-4005-reason-for-medication">Code Set 4005</a>
+</li>
+  <li>ServiceRequest.bodySite codes are maintained in <a href="#code-set-1028-body-site">Code Set 1028 Body Site</a> and <a href="#code-set-14045-surgical-procedure-modifiers">Code Set 14045 Surgical Procedure Modifiers</a>
+</li>
+</ul>
 
 <h3 id="diagnostic">Diagnostic</h3>
 
@@ -681,6 +717,54 @@
 }
 </code></pre>
 
+<h5 id="code-set-6000-catalog-type">Code Set 6000 Catalog Type</h5>
+
+<p>This code set contains the catalog types of the order catalog.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6000",
+  "code": "2516",
+  "display": "Pharmacy",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-6102-dietary-modifiers">Code Set 6102 Dietary Modifiers</h5>
+
+<p>This code set contains type of diet. Such as Halal, Vegan or Kosher.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6102",
+  "code": "658486",
+  "display": "Kosher",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-6103-beverage-modifiers">Code Set 6103 Beverage Modifiers</h5>
+
+<p>This code set contains type of Beverage Modifier. Such as No carbonated, caffeinated etc.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6103",
+  "code": "658489",
+  "display": "No caffeinated beverages",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-6107-dietary-supplement">Code Set 6107 Dietary Supplement</h5>
+
+<p>This code set contains the kind of nutritional supplement.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/6107",
+  "code": "658509",
+  "display": "High protein pudding",
+  "userSelected": true
+}
+</code></pre>
+
 <h5 id="code-set-12022-severity">Code Set 12022 Severity</h5>
 
 <p>This code set contains levels of severity (mild, moderate, severe) used by multiple Millennium concepts including allergies, problems, diagnoses and family history.</p>
@@ -689,6 +773,18 @@
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022",
   "code": "3294",
   "display": "Moderate",
+}
+</code></pre>
+
+<h5 id="code-set-14045-surgical-procedure-modifiers">Code Set 14045 Surgical Procedure Modifiers</h5>
+
+<p>This code set contains the area of the body the surgery procedure is being executed.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14045",
+  "code": "3858",
+  "display": "Left",
+  "userSelected": true
 }
 </code></pre>
 
@@ -787,6 +883,30 @@
 }
 </code></pre>
 
+<h5 id="code-set-100123-beverage-consistency">Code Set 100123 Beverage Consistency</h5>
+
+<p>This code set describes the required consistency of liquids to be served to the patient.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100123",
+  "code": "46122603",
+  "display": "Nectar Thick",
+  "userSelected": true
+}
+</code></pre>
+
+<h5 id="code-set-100197-diet-consistency">Code Set 100197 Diet Consistency</h5>
+
+<p>This code set describes the texture modifications that should be made for the patient.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/100197",
+  "code": "46122587",
+  "display": "NDD2 (Ground)",
+  "userSelected": true
+}
+</code></pre>
+
 <h4 id="code-set-4001970-void-order-reasons">Code Set 4001970 Void Order Reasons</h4>
 
 <p>This code set contains the various reasons why an order was voided.</p>
@@ -869,7 +989,7 @@
     <ul>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Overview</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">R4 Overview</a>
 </h3>
         <ul class="js-guides">
           <li><a href="../../../authorization/">Authorization</a></li>
@@ -883,6 +1003,15 @@
         <ul class="js-guides">
           <li><a href="../conformance/capability-statement/">Capability Statement</a></li>
           <li><a href="../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../care-provision/">Care Provision</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../care-provision/nutrition-order/">NutritionOrder</a></li>
+          <li><a href="../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -951,6 +1080,7 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../individuals/patient/">Patient</a></li>
+          <li><a href="../individuals/person/">Person</a></li>
           <li><a href="../individuals/practitioner/">Practitioner</a></li>
           <li><a href="../individuals/related-person/">RelatedPerson</a></li>
         </ul>

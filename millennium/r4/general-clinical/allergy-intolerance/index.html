@@ -43,7 +43,7 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../overview/" class="nav-dstu2-api">Millennium</a></li>
         <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
         <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
@@ -63,8 +63,9 @@
       <h2>Millennium</h2>
     
     <ul>
-      <li><a href="../../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
       
+        <li><a href="../../../overview/">Overview</a></li>
+        <li><a href="../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
       
@@ -612,118 +613,115 @@
     {
       "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/983733",
       "resource": {
-        "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/983733",
-        "resource": {
-          "resourceType": "AllergyIntolerance",
-          "id": "983733",
-          "meta": {
-            "versionId": "983733",
-            "lastUpdated": "2012-07-11T08:57:32.000Z"
-          },
-          "text": {
-            "status": "generated",
-            "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Picka, Guru 1013&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1990&lt;/p&gt;&lt;/div&gt;"
-          },
-          "contained": [
+        "resourceType": "AllergyIntolerance",
+        "id": "983733",
+        "meta": {
+          "versionId": "983733",
+          "lastUpdated": "2012-07-11T08:57:32.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Picka, Guru 1013&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1990&lt;/p&gt;&lt;/div&gt;"
+        },
+        "contained": [
+          {
+            "resourceType": "RelatedPerson",
+            "id": "19775876",
+            "patient": {
+              "reference": "Patient/1420008",
+              "display": "Picka, Guru 1013"
+            },
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "40683002",
+                  "display": "Parent (person)",
+                  "userSelected": false
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "PRN",
+                  "display": "parent",
+                  "userSelected": false
+                }
+              ],
+              "text": "parent"
+            }
+          }
+        ],
+        "clinicalStatus": {
+          "coding": [
             {
-              "resourceType": "RelatedPerson",
-              "id": "19775876",
-              "patient": {
-                "reference": "Patient/1420008",
-                "display": "Picka, Guru 1013"
-              },
-              "relationship": {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "resolved",
+              "display": "Resolved",
+              "userSelected": false
+            }
+          ],
+          "text": "Resolved"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed",
+              "display": "Confirmed",
+              "userSelected": false
+            }
+          ],
+          "text": "Resolved"
+        },
+        "type": "allergy",
+        "category": [
+          "environment"
+        ],
+        "criticality": "high",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "33008008",
+              "display": "Dust (substance)",
+              "userSelected": false
+            }
+          ],
+          "text": "Dust"
+        },
+        "patient": {
+          "reference": "Patient/1420008",
+          "display": "Picka, Guru 1013"
+        },
+        "encounter": {
+          "reference": "Encounter/657884"
+        },
+        "onsetDateTime": "1990",
+        "recordedDate": "2012-07-11T03:57:32.000-05:00",
+        "recorder": {
+          "reference": "Practitioner/1",
+          "display": "SYSTEM, SYSTEM"
+        },
+        "asserter": {
+          "reference": "#19775876"
+        },
+        "reaction": [
+          {
+            "id": "58297369",
+            "manifestation": [
+              {
                 "coding": [
                   {
                     "system": "http://snomed.info/sct",
-                    "code": "40683002",
-                    "display": "Parent (person)",
-                    "userSelected": false
-                  },
-                  {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "PRN",
-                    "display": "parent",
-                    "userSelected": false
+                    "code": "247472004",
+                    "display": "Weal (disorder)"
                   }
                 ],
-                "text": "parent"
-              }
-            }
-          ],
-          "clinicalStatus": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-                "code": "resolved",
-                "display": "Resolved",
-                "userSelected": false
+                "text": "Blastobacter"
               }
             ],
-            "text": "Resolved"
-          },
-          "verificationStatus": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-                "code": "confirmed",
-                "display": "Confirmed",
-                "userSelected": false
-              }
-            ],
-            "text": "Resolved"
-          },
-          "type": "allergy",
-          "category": [
-            "environment"
-          ],
-          "criticality": "high",
-          "code": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "33008008",
-                "display": "Dust (substance)",
-                "userSelected": false
-              }
-            ],
-            "text": "Dust"
-          },
-          "patient": {
-            "reference": "Patient/1420008",
-            "display": "Picka, Guru 1013"
-          },
-          "encounter": {
-            "reference": "Encounter/657884"
-          },
-          "onsetDateTime": "1990",
-          "recordedDate": "2012-07-11T03:57:32.000-05:00",
-          "recorder": {
-            "reference": "Practitioner/1",
-            "display": "SYSTEM, SYSTEM"
-          },
-          "asserter": {
-            "reference": "#19775876"
-          },
-          "reaction": [
-            {
-              "id": "58297369",
-              "manifestation": [
-                {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "247472004",
-                      "display": "Weal (disorder)"
-                    }
-                  ],
-                  "text": "Blastobacter"
-                }
-              ],
-              "severity": "severe"
-            }
-          ]
-        }
+            "severity": "severe"
+          }
+        ]
       }
     }
   ]
@@ -2527,7 +2525,7 @@ If-Match: W/"&lt;Current version of the AllergyIntolerance resource&gt;"</code><
     <ul>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">R4 Overview</a>
 </h3>
         <ul class="js-guides">
           <li><a href="../../../../authorization/">Authorization</a></li>
@@ -2541,6 +2539,15 @@ If-Match: W/"&lt;Current version of the AllergyIntolerance resource&gt;"</code><
         <ul class="js-guides">
           <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
           <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
+          <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -2609,6 +2616,7 @@ If-Match: W/"&lt;Current version of the AllergyIntolerance resource&gt;"</code><
 </h3>
         <ul class="js-guides">
           <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/person/">Person</a></li>
           <li><a href="../../individuals/practitioner/">Practitioner</a></li>
           <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
         </ul>

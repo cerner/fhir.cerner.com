@@ -43,7 +43,7 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../../dstu2/" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../../../overview/" class="nav-dstu2-api">Millennium</a></li>
         <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
         <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
@@ -63,8 +63,9 @@
       <h2>Millennium</h2>
     
     <ul>
-      <li><a href="../../../dstu2/" class="active">DSTU 2 Final (1.0.2)</a></li>
       
+        <li><a href="../../../overview/">Overview</a></li>
+        <li><a href="../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
       
@@ -237,7 +238,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode">Appointment.reasonCode</a>
+          <a target="_blank" href="https://hl7.org/fhir/appointment-definitions.html#Appointment.reasonCode">Appointment.reasonCode</a>
       
       </td>
     </tr>
@@ -1565,6 +1566,8 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   <li>The modifier elements <a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules">implicitRules</a> and <a href="http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> are not supported and will be rejected if present.</li>
   <li>
 <code>Appointment.status</code> must be set to <code>proposed</code> or <code>booked</code>.</li>
+  <li>
+<code>Appointment.reasonCode</code> if set, must be a list containing exactly one CodeableConcept.</li>
   <li>When <code>Appointment.status</code> is set to <code>proposed</code>:
     <ul>
       <li>
@@ -1738,6 +1741,46 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Required when <code>Appointment.status</code> is set to <code>proposed</code>. Must contain exactly one CodeableConcept.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-reasonCode">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/appointment-definitions.html#Appointment.reasonCode"><code>reasonCode</code></a>
+        
+        
+      </td>
+      <td> </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Coded reason this appointment is scheduled.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "reasonCode": [
+    {
+      "text": "I have a cramp"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The <code>reasonCode.text</code> is required.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -2002,6 +2045,11 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
       ]
     }
   ],
+  "reasonCode": [
+    {
+      "text": "I have a cramp"
+    }
+  ],
   "comment": "Appointment request comment",
   "participant": [
     {
@@ -2072,6 +2120,11 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
       },
       "status": "accepted"
     }
+  ],
+  "reasonCode": [
+    {
+      "text": "I have a cramp"
+    }
   ]
 }</code></pre>
 
@@ -2107,7 +2160,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
     <ul>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Overview</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">R4 Overview</a>
 </h3>
         <ul class="js-guides">
           <li><a href="../../../../authorization/">Authorization</a></li>
@@ -2121,6 +2174,15 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
         <ul class="js-guides">
           <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
           <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
+          <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -2189,6 +2251,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </h3>
         <ul class="js-guides">
           <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/person/">Person</a></li>
           <li><a href="../../individuals/practitioner/">Practitioner</a></li>
           <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
         </ul>

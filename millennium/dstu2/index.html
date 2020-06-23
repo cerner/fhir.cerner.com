@@ -43,7 +43,7 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="./" class="nav-dstu2-api">Millennium</a></li>
+        <li><a href="../overview/" class="nav-dstu2-api">Millennium</a></li>
         <li><a href="../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
         <li><a href="../../authorization" class="nav-dstu2-api">Authorization</a></li>
         <li><a href="../../smart" class="nav-dstu2-api">SMART</a></li>
@@ -63,8 +63,9 @@
       <h2>Millennium</h2>
     
     <ul>
-      <li><a href="./" class="active">DSTU 2 Final (1.0.2)</a></li>
       
+        <li><a href="../overview/">Overview</a></li>
+        <li><a href="./">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../r4/">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../faq/" class="nav-faq">FAQ</a></li>
       
@@ -74,13 +75,9 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="overview">Overview</h1>
-
-<p>This describes the resources that make up Cerner’s implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If you have any problems or requests,
-please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.</p>
+      <h1 id="dstu-2-overview">DSTU 2 Overview</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#current-version" id="markdown-toc-current-version">Current Version</a></li>
   <li>
 <a href="#schema" id="markdown-toc-schema">Schema</a>    <ul>
       <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
@@ -115,10 +112,6 @@ please post to our <a href="https://groups.google.com/d/forum/cerner-fhir-develo
   </li>
   <li><a href="#cross-origin-resource-sharing" id="markdown-toc-cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
 </ul>
-
-<h2 id="current-version">Current Version</h2>
-
-<p>Cerner’s implementation currently supports the DSTU 2 Final (1.0.2) version of the FHIR<sup>®</sup> standard. Cerner is adding support for the R4 First Normative Content (4.0.0) version of the FHIR<sup>®</sup> standard.</p>
 
 <h2 id="schema">Schema</h2>
 
@@ -705,7 +698,7 @@ interaction may list system authentication, this is currently available only in 
 
 <h2 id="pagination">Pagination</h2>
 
-<p>The pagination links are included in the Bundle when a resource returns multiple items. It is important to
+<p>The pagination links are included in the Bundle when a resource returns more items than the Bundle page size. It is important to
 follow these Link header values instead of constructing your own URLs.</p>
 
 <pre><code>{
@@ -740,6 +733,10 @@ follow these Link header values instead of constructing your own URLs.</p>
       <td><code>next</code></td>
       <td>Shows the URL of the immediate next page of results.</td>
     </tr>
+    <tr>
+      <td><code>previous</code></td>
+      <td>If paging, shows the URL of the previous page of results.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -748,7 +745,7 @@ follow these Link header values instead of constructing your own URLs.</p>
 <p>Developers need to account for data concurrency within the response. The FHIR specification states:</p>
 
 <blockquote>
-  <p>The results of a search operation are only guaranteed to be current at the moment the operation isexecuted. After the operation is executed, ongoing actions performed on the resources against which thesearch was executed will render the results increasingly stale. The significance of this depends on thenature of the search, and the kind of use that is being made of the results.</p>
+  <p>The results of a search operation are only guaranteed to be current at the moment the operation is executed. After the operation is executed, ongoing actions performed on the resources against which the search was executed will render the results increasingly stale. The significance of this depends on the nature of the search, and the kind of use that is being made of the results.</p>
 </blockquote>
 
 <blockquote>
@@ -794,7 +791,7 @@ Access-Control-Allow-Credentials: true
     <ul>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Overview</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">DSTU 2 Overview</a>
         </h3>
         <ul class="js-guides">
           <li><a href="../../authorization/">Authorization</a></li>
