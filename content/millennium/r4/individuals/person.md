@@ -40,8 +40,8 @@ Search for Persons that meet supplied query parameters:
 
  Name                 | Required?                                    | Type       | Description
 ----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
- `_id`                | No, if the identifier is populated           | [`token`]  | The logical resource id associated with the resource.
- `identifier`         | Yes, or `_id`                                | [`token`]  | The person identifier.  Example: `urn:oid:2.16.840.1.113883.3.13.6|01022228`
+ `_id`                | This, or any other required search parameter | [`token`]  | The logical resource id associated with the resource.
+ `identifier`         | This or `_id`                                | [`token`]  | The person identifier.  Example: `urn:oid:2.16.840.1.113883.3.13.6|01022228`
  
 Notes:
 
@@ -61,6 +61,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_person_bundle) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -91,6 +93,12 @@ List an individual Person by its id:
 <%= headers status: 200 %>
 <%= json(:r4_person_entry) %>
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ### Person Combines Example
 
 Cerner Millennium supports the ability to logically merge a person record into another person record when both records are describing the same person. This is known as a “person combine”. If necessary, this merging can later be undone by performing a “person uncombine”. When the requested person record has been combined into another record, an inactive Person entry will be returned which has a link to the current Person entry. Entries for combined patients will only be returned when retrieving the entries directly by id. They will not be returned when searching with other parameters.
@@ -104,6 +112,8 @@ The ability to perform person combine or uncombine operations is not available t
 
 <%= headers status: 200 %>
 <%= json(:r4_combined_person_entry) %>
+
+<%= disclaimer %>
 
 ### Errors
 
