@@ -16,9 +16,6 @@ fields:
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
-      - display: Identifier Type Codes
-        system: http://hl7.org/fhir/ValueSet/identifier-type
-        info_link: https://hl7.org/fhir/R4/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: https://terminology.hl7.org/CodeSystem/v2-0203
         info_link: https://hl7.org/fhir/R4/v2/0203/index.html
