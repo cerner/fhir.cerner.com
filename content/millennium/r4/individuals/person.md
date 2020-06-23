@@ -13,14 +13,14 @@ The Person resource identifies an individual outside of a specific health care c
 
 The following fields are returned if valued:
 
-* [Person id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Identifier (Cerner alias Federated Person Principal)](http://hl7.org/fhir/R4/person-definitions.html#Person.identifier){:target="_blank"}
-* [Name](http://hl7.org/fhir/R4/person-definitions.html#Person.name){:target="_blank"}
-* [Telecom](http://hl7.org/fhir/R4/person-definitions.html#Person.telecom){:target="_blank"}
-* [Gender](http://hl7.org/fhir/R4/person-definitions.html#Person.gender){:target="_blank"}
-* [Date of birth](http://hl7.org/fhir/R4/person-definitions.html#Person.birthDate){:target="_blank"}
-* [Address](http://hl7.org/fhir/R4/person-definitions.html#Person.address){:target="_blank"}
-* [Active](http://hl7.org/fhir/R4/person-definitions.html#Person.active){:target="_blank"}
+* [Person id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Identifier (Cerner alias Federated Person Principal)](https://hl7.org/fhir/R4/person-definitions.html#Person.identifier){:target="_blank"}
+* [Name](https://hl7.org/fhir/R4/person-definitions.html#Person.name){:target="_blank"}
+* [Telecom](https://hl7.org/fhir/R4/person-definitions.html#Person.telecom){:target="_blank"}
+* [Gender](https://hl7.org/fhir/R4/person-definitions.html#Person.gender){:target="_blank"}
+* [Date of birth](https://hl7.org/fhir/R4/person-definitions.html#Person.birthDate){:target="_blank"}
+* [Address](https://hl7.org/fhir/R4/person-definitions.html#Person.address){:target="_blank"}
+* [Active](https://hl7.org/fhir/R4/person-definitions.html#Person.active){:target="_blank"}
 
 ## Terminology Bindings
 
