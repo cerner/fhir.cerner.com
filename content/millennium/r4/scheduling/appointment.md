@@ -311,6 +311,7 @@ _Implementation Notes_
 
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
 * `Appointment.status` must be set to `proposed` or `booked`.
+* `Appointment.reasonCode` if set, must be a list containing exactly one CodeableConcept.
 * When `Appointment.status` is set to `proposed`:
   * `Appointment.serviceType` must be a list containing exactly one CodeableConcept.
   * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.

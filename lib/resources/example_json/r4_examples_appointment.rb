@@ -377,6 +377,11 @@ module Cerner
           },
           "status": "accepted"
         }
+      ],
+      "reasonCode": [
+        {
+          "text": "I have a cramp"
+        }
       ]
     }
 
@@ -391,6 +396,11 @@ module Cerner
               "system": "http://snomed.info/sct"
             }
           ]
+        }
+      ],
+      "reasonCode": [
+        {
+          "text": "I have a cramp"
         }
       ],
       "comment": "Appointment request comment",

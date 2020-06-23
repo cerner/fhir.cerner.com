@@ -67,10 +67,22 @@ fields:
 - name: reasonCode
   type: List of CodeableConcept
   description: Coded reason this appointment is scheduled.
-  action: terminology
+  action:
+  - terminology
+  - create
   binding:
     description: Coded reason this appointment is scheduled.
     note: Currently not bound to any terminology.
+  note: The `reasonCode.text` is required.
+  example: |
+    {
+      "reasonCode": [
+        {
+          "text": "I have a cramp"
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/appointment-definitions.html#Appointment.reasonCode
 
 - name: slot
   required: 'No'
