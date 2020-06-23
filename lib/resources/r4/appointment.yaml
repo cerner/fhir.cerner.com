@@ -182,7 +182,6 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14250
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14250-scheduling-resource-roles
 
-
 - name: requestedPeriod
   required: 'No'
   type: List of Period
