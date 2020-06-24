@@ -86,7 +86,7 @@ Notes:
 
 * You may search via:
   * `_id` alone
-  * `patient`, `identifier`, and `type` set to 'statement'.
+  * `patient`, `identifier` system set to codeSet 28200, and `type` set to 'statement'.
   * `-guarantor` and `type` set to 'financial-account'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
