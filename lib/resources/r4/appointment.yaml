@@ -65,6 +65,7 @@ fields:
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms
 
 - name: reasonCode
+  required: 'No'
   type: List of CodeableConcept
   description: Coded reason this appointment is scheduled.
   action:
