@@ -2,10 +2,209 @@
 name: DocumentReference
 field_name_base_url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference
 fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "DocumentReference"
+    }
+  note: resourceType must be DocumentReference.
+  url: http://hl7.org/fhir/r4/documentreference.html
+
+- name: authenticator
+  required: 'No'
+  type: Reference
+  action:
+  - create
+  - update
+  description: Who/what authenticated the document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
+  example: |
+    {
+      "authenticator": {
+        "reference": "Practitioner/123456"
+      }
+    }
+
+- name: author
+  required: 'No'
+  type: Reference
+  action:
+    - create
+    - update
+  description: Who and/or what authored the document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
+  example: |
+    {
+      "author": [
+        {
+          "reference": "Practitioner/123456"
+        }
+      ]
+    }
+
+- name: subject
+  required: 'Yes'
+  type: Reference
+  action:
+    - create
+    - update
+  description: Who/what is the subject of the document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/1234546"
+      }
+    }
+
+- name: context
+  required: 'No'
+  type: Backbone Element
+  action:
+    - create
+    - update
+  description: Clinical context of document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
+  example: |
+    {
+      "encounter": [
+        {
+          "reference": "Encounter/123456"
+        }
+      ],
+      "period": {
+        "start": "2020-01-01T00:00:00.000Z",
+        "end": "2020-01-01T01:00:00.000Z"
+      }
+    }
+
+- name: context.encounter
+  required: 'No'
+  type: Reference
+  action:
+    - create
+    - update
+  description: Context of the document content
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
+  example: |
+    {
+      "encounter": [
+        {
+          "reference": "Encounter/123456"
+        }
+      ]
+    }
+
+- name: context.period
+  required: 'No'
+  type: Period
+  action:
+    - create
+    - update
+  description: Time of service that is being documented
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
+  example: |
+    {
+      "period": {
+        "start": "2020-01-01T00:00:00.000Z",
+        "end": "2020-01-01T01:00:00.000Z"
+      }
+    }
+
+- name: content.attachment
+  required: 'Yes'
+  type: Attachment
+  action:
+  - create
+  - update
+  description: Where to access the document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
+  example: |
+   {
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/xml;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "title": "title",
+            "creation": "2020-01-15T14:35:29.000Z"
+          }
+        }
+      ]
+   }
+
+- name: status
+  required: 'Yes'
+  type: code
+  action:
+    - create
+  description: current
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
+  example: |
+    {
+      "status": "current"
+    }
+
+- name: status
+  required: 'Yes'
+  type: code
+  action:
+    - update
+  description: current | entered-in-error
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
+  example: |
+    {
+      "status": "current"
+    }
+
+- name: docStatus
+  required: 'Yes'
+  type: code
+  action:
+  - create
+  description: final | amended
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
+  example: |
+    {
+      "docStatus": "final"
+    }
+
+- name: docStatus
+  required: 'Yes'
+  type: code
+  action:
+    - update
+  description: final | amended | entered-in-error
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
+  example: |
+    {
+      "docStatus": "final"
+    }
+
 - name: type
   required: 'No'
   type: CodeableConcept
+  action:
+  - create
+  - update
   description: Precise type of clinical document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
+  example: |
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "4062515",
+            "display": "CT Pelvis w/ + w/o Contrast",
+            "userSelected": true
+          }
+        ]
+      }
+    }
   binding:
     description: Precise type of clinical document
     terminology:
@@ -16,9 +215,27 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
 
+- name: identifier
+  required: 'No'
+  type: Identifier
+  action:
+  - create
+  description: Other identifiers for the document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.identifier
+  example: |
+    {
+      "identifier": [
+        {
+          "system": "https://fhir.cerner.com/location/source/0/0/1",
+          "value": "identifer 1"
+        }
+      ]
+    }
+
 - name: category
   required: 'No'
   type: List of CodeableConcept
+  action: terminology
   description: A categorization for the type of document referenced.
   binding:
     description: A categorization for the type of document referenced.

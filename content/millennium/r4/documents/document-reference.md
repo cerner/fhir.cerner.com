@@ -115,3 +115,123 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+
+## Create
+
+Create a new document reference.
+
+    POST /DocumentReference
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Body Fields
+
+<%= definition_table(:document_reference, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference
+
+### Body
+
+<%= json(:R4_DOCUMENT_REFERENCE_POST) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 14 Feb 2020 22:05:40 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/16885181
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Update
+
+Update an existing document reference.
+
+    PUT /DocumentReference/:id
+
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers %>
+
+### Body fields
+
+<%= definition_table(:document_reference, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/10070301
+
+### Body
+
+<%= json(:R4_DOCUMENT_REFERENCE_UPDATE) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: text/html
+    Date: Tue, 20 Aug 2019 21:17:04 GMT
+    Etag: W/"12809861"
+    Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+    Server-Response-Time: 777.661584
+    Status: 200 OK
+    Vary: Origin
+    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+    X-Runtime: 0.777583
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[errors]: ../../#client-errors
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update

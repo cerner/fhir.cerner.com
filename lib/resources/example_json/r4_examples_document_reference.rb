@@ -334,5 +334,116 @@ module Cerner
           }
       ]
     }
+
+    R4_DOCUMENT_REFERENCE_POST ||= {
+      "resourceType": "DocumentReference",
+      "status": "current",
+      "docStatus": "final",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "2820507",
+            "display": "Admission Note-Physician",
+            "userSelected": true
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/123456",
+        "display": "PETERS, TIMOTHY CCCC"
+      },
+      "author": [
+        {
+          "reference": "Practitioner/123456"
+        }
+      ],
+      "authenticator": {
+        "reference": "Practitioner/123456"
+      },
+      "identifier": [
+        {
+          "system": "https://fhir.cerner.com/location/source/0/0/1",
+          "value": "new identifier"
+        }
+      ],
+      "content":  [
+        {
+          "attachment": {
+            "contentType": "application/xml;charset=utf-8",
+            "data": "PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "title": "title",
+            "creation": "2020-01-15T14:35:29.000Z"
+          }
+        }
+      ],
+      "context": {
+        "encounter": [
+          {
+            "reference": "Encounter/123456"
+          }
+        ],
+        "period": {
+          "start": "2020-01-01T00:00:00.000Z",
+          "end": "2020-01-01T01:00:00.000Z"
+        }
+      }
+    }
+
+    R4_DOCUMENT_REFERENCE_UPDATE ||= {
+      "resourceType": "DocumentReference",
+      "id": "123456",
+      "status": "current",
+      "docStatus": "final",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "code": "2820507",
+            "display": "Admission Note-Physician",
+            "userSelected": true
+          }
+        ]
+      },
+      "subject": {
+        "reference": "Patient/123456",
+        "display": "PETERS, TIMOTHY CCCC"
+      },
+      "author": [
+        {
+          "reference": "Practitioner/123456"
+        }
+      ],
+      "authenticator": {
+        "reference": "Practitioner/123456"
+      },
+      "identifier": [
+        {
+          "system": "https://fhir.cerner.com/location/source/0/0/1",
+          "value": "identifier 1"
+        }
+      ],
+      "content":  [
+        {
+          "attachment": {
+            "contentType": "application/xml;charset=utf-8",
+            "data": "PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "title": "title",
+            "creation": "2020-01-15T14:35:29.000Z"
+          }
+        }
+      ],
+      "context": {
+        "encounter": [
+          {
+            "reference": "Encounter/123456"
+          }
+        ],
+        "period": {
+          "start": "2020-01-01T00:00:00.000Z",
+          "end": "2020-01-01T01:00:00.000Z"
+        }
+      }
+    }
   end
 end
