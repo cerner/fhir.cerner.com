@@ -187,6 +187,7 @@ fields:
   action:
     - update
   description: current | entered-in-error
+  note: Both docStatus and status can be used to in-error the same document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -223,6 +224,7 @@ fields:
   action:
     - update
   description: final | amended | entered-in-error
+  note: Both docStatus and status can be used to in-error the same document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {

@@ -182,6 +182,7 @@ Update an existing document reference.
 _Implementation Notes_
 
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* Both write and read scopes are required to update a document reference
 
 ### Authorization Types
 
