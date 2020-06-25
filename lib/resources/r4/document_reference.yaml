@@ -20,6 +20,7 @@ fields:
   - create
   - update
   description: Who/what authenticated the document
+  note: The authenticator field is only supported with system access
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
   example: |
     {
