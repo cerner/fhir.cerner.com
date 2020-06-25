@@ -405,10 +405,6 @@ module Cerner
           }
         ]
       },
-      "subject": {
-        "reference": "Patient/123456",
-        "display": "PETERS, TIMOTHY CCCC"
-      },
       "author": [
         {
           "reference": "Practitioner/123456"
@@ -434,11 +430,6 @@ module Cerner
         }
       ],
       "context": {
-        "encounter": [
-          {
-            "reference": "Encounter/123456"
-          }
-        ],
         "period": {
           "start": "2020-01-01T00:00:00.000Z",
           "end": "2020-01-01T01:00:00.000Z"

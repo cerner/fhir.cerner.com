@@ -132,7 +132,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body Fields
 
@@ -189,7 +189,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the DocumentReference resource>"'} %>
 
 ### Body fields
 

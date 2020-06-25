@@ -50,7 +50,6 @@ fields:
   type: Reference
   action:
     - create
-    - update
   description: Who/what is the subject of the document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject
   example: |
@@ -64,17 +63,31 @@ fields:
   required: 'No'
   type: Backbone Element
   action:
-    - create
+   - create
+  description: Clinical context of document
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
+  example: |
+   {
+     "encounter": [
+       {
+         "reference": "Encounter/123456"
+       }
+     ],
+     "period": {
+       "start": "2020-01-01T00:00:00.000Z",
+       "end": "2020-01-01T01:00:00.000Z"
+     }
+   }
+
+- name: context
+  required: 'No'
+  type: Backbone Element
+  action:
     - update
   description: Clinical context of document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
   example: |
     {
-      "encounter": [
-        {
-          "reference": "Encounter/123456"
-        }
-      ],
       "period": {
         "start": "2020-01-01T00:00:00.000Z",
         "end": "2020-01-01T01:00:00.000Z"
@@ -86,7 +99,6 @@ fields:
   type: Reference
   action:
     - create
-    - update
   description: Context of the document content
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
@@ -119,7 +131,6 @@ fields:
   type: Attachment
   action:
   - create
-  - update
   description: Where to access the document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
@@ -135,6 +146,28 @@ fields:
         }
       ]
    }
+
+- name: content.attachment
+  required: 'Yes'
+  type: Attachment
+  action:
+    - update
+  description: Where to access the document
+  note: attachment.conentType must match the contentType of the already existing document reference
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
+  example: |
+    {
+       "content": [
+         {
+           "attachment": {
+             "contentType": "application/xml;charset=utf-8",
+             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+             "title": "title",
+             "creation": "2020-01-15T14:35:29.000Z"
+           }
+         }
+       ]
+    }
 
 - name: status
   required: 'Yes'
