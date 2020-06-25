@@ -192,6 +192,12 @@ fields:
     {
       "status": "current"
     }
+  binding:
+    description: The status of the document reference
+    terminology:
+      - display: DocumentReference Status
+        system: http://hl7.org/fhir/r4/codesystem-document-reference-status.html
+        info_link: http://hl7.org/fhir/r4/valueset-document-reference-status.html
 
 - name: docStatus
   required: 'Yes'
@@ -204,6 +210,12 @@ fields:
     {
       "docStatus": "final"
     }
+  binding:
+    description: Status of the underlying document.
+    terminology:
+      - display: DocumentReference docStatus
+        system: http://hl7.org/fhir/r4/codesystem-composition-status.html
+        info_link: http://hl7.org/fhir/r4/valueset-composition-status.html
 
 - name: docStatus
   required: 'Yes'
