@@ -9,6 +9,8 @@ title: Encounter | R4 API
 
 ## Overview
 
+Test PR 2 site
+
 The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
 
 The following fields are returned if valued:
