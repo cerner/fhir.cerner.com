@@ -9,7 +9,7 @@ title: CarePlan | R4 API
 
 ## Overview
 
-The R4 CarePlan resource can be used to represent both care plans and care teams.
+The R4 CarePlan resource can be used to represent care plans.
 
 ### Care Plans
 
@@ -27,26 +27,6 @@ The following fields are returned if valued:
 * [Category (assess-plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
 * [Care plan](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.relatedPlan.plan){:target="_blank"}
 
-### Care Teams
-
-The CareTeam resource will be available in the STU3 version to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in R4. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
-
-The following fields are returned if valued:
-
-* [Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject (patient only)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
-* [Status](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.status){:target="_blank"}
-* [Context (patient encounter)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.context){:target="_blank"}
-* [Time period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
-* [Last modified](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.modified){:target="_blank"}
-* [Category (careteam, longitudinal, or encounter)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
-* [Participant](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.participant){:target="_blank"}
-* Participant details (only applies to references to contained RelatedPerson)
-  * [Patient](http://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
-  * [Name](http://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
-  * [Contact information (eg: telephone)](http://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.telecom){:target="_blank"}
-* [Participant Role](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.participant.role){:target="_blank"}
-
 ## Terminology Bindings
 
 <%= terminology_table(:care_plan, :dstu2) %>
@@ -63,10 +43,6 @@ _Implementation Notes_
 * The [CarePlan.activity] element is not supported and will not be returned. This means that the [CarePlan.activity.detail.status] and [CarePlan.activity.detail.prohibited] modifier elements will not be returned.
 
 * The description of the CarePlan is included in the [CarePlan.text.div] element as ASCII text.
-
-* In R4 CareTeam is not a stand alone resource. It is a CarePlan with participants. A CareTeam will be returned only if a CareTeam specific category code is supplied.
-
-* A CareTeam participant ([CarePlan.participant]) may have a reference to a [contained] RelatedPerson.
 
 ### Authorization Types
 
@@ -117,19 +93,6 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_care_plan_bundle) %>
-
-<%= disclaimer %>
-
-### Example retrieve care teams
-
-#### Request
-
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=4734007&category=careteam
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_care_team_bundle) %>
 
 <%= disclaimer %>
 
