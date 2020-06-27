@@ -18,18 +18,21 @@ The CarePlan resource describes the intentions of how one or more practitioners 
 The following fields are returned if valued:
 
 * [Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject (patient only)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
+* [Meta](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.meta){:target="_blank"}
+* [Text](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.text){:target="_blank"}
 * [Status](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.status){:target="_blank"}
-* [Context (patient encounter)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.context){:target="_blank"}
-* [Date/Time created](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
+* [Intent](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.intent){:target="_blank"}
+* [Category](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
+* [Title](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.title){:target="_blank"}
+* [Subject](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
+* [Encounter](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.encounter){:target="_blank"}
+* [Period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
 * [Author](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.author){:target="_blank"}
-* [Date/Time last modified](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.modified){:target="_blank"}
-* [Category (assess-plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
 * [Care plan](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.relatedPlan.plan){:target="_blank"}
 
 ## Terminology Bindings
 
-<%= terminology_table(:care_plan, :dstu2) %>
+<%= terminology_table(:care_plan, :r4) %>
 
 
 ## Search
@@ -63,21 +66,22 @@ _Implementation Notes_
 Notes:
 
 - The `_id` parameter
-  - May not be provided with the `category`, `context`, `date`, `patient`, or `subject` parameters.
+  - May not be provided with any other parameters.
   - When provided, `_count` is ignored.
 
 - The `date` parameter
-  - May be provided up to two times, and must use the `ge` or `le` prefixes.
-    - When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
-  - Will be ignored if `category` is set to `encounter`.
+  - When provided, must use both `ge` and `le` prefixes in the same search 
+    - The lower value must have the `ge` prefix and the higher value must have the `le` prefix
+    - If date precision must be consistent
+  - May be combined with the patient and category parameters.
 
 - The `patient` parameter
-  - Unless the `subject` parameter is provided, this is required when `category` is set to `careteam`, `assess-plan`, or `longitudinal`.
-  - Cannot be provided with the `subject` parameter.
+  - This is required when `_id` is not provided.
 
 - The `category` parameter
   - Must be provided when `_id` is not provided.
   - Only supports the code `assess-plan`.
+  - This can be combined with the patient parameter.
 
 ### Headers
 
@@ -92,7 +96,7 @@ Notes:
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:dstu2_care_plan_bundle) %>
+<%= json(:r4_care_plan_bundle) %>
 
 <%= disclaimer %>
 
@@ -118,12 +122,12 @@ List an individual CarePlan by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/6017316
+    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/17463459
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:dstu2_care_plan_entry) %>
+<%= json(:r4_care_plan_entry) %>
 
 <%= disclaimer %>
 
@@ -136,10 +140,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [CarePlan.activity.detail.prohibited]: https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.activity.detail.prohibited
 [CarePlan.participant]: http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.participant
 [CarePlan.text.div]: https://www.hl7.org/fhir/careplan-definitions.html#CarePlan.text.div
-[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
-[Argonaut profile]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-careteam.html
-[Argonaut system]: http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html
-[CareTeam category system]: http://hl7.org/fhir/stu3/valueset-care-team-category.html
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`date`]: http://hl7.org/fhir/r4/search.html#date
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
