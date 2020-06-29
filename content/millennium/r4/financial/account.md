@@ -86,8 +86,9 @@ Notes:
 
 * You may search via:
   * `_id` alone
-  * `patient`, `identifier`, and `type` set to 'statement'.
-  * `-guarantor` and `type` set to 'financial-account'.
+  * `patient`, `identifier`, and `type` set to 'statement'
+  * `-guarantor` and `type` set to 'financial-account'
+* When searching via `identifier`, the system must be 'https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200'. You may not search via `identifier` with a system of 'https://fhir.cerner.com/accountnumber'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
 ### Headers
