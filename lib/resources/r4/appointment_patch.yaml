@@ -61,6 +61,7 @@ operations:
         <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
         <li>Only one CodeableConcept may be provided in the value array</li>
         <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
+        <li>When the value array is empty, reasonCode will be removed</li>
       </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
