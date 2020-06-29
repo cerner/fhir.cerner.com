@@ -40,6 +40,28 @@ operations:
         <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
         <li>Only one Slot reference may be provided in the value array</li>
       </ul>
+  - name: add-reasonCode
+    path: /reasonCode
+    operation: add
+    type: List of CodeableConcept
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode
+    description: The clinical reason for why this appointment is being scheduled
+    example: |
+      {
+        "op": "add",
+        "path": "/reasonCode",
+        "value": [
+          {
+            "text": "I have a headache"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+        <li>Only one CodeableConcept may be provided in the value array</li>
+        <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
+      </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
     operation: add
