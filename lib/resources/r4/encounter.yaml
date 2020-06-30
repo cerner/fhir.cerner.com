@@ -546,3 +546,92 @@ fields:
         system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
         info_link: http://hl7.org/fhir/r4/v3/ObservationValue/cs.html
     note: Encounters created with meta.security set with code 'UNCERTREL' will be returned with an external encounter type.
+
+- name: Client Organization Extension
+  required: 'Yes'
+  type: Reference (Organization)
+  description: The financially responsible organization.
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  example: |
+    {
+      "serviceProvider": {
+        "reference": "Organization/675844"
+      }
+    }
+
+- name: Estimated Financial Responsibility Amount Extension
+  terminology_name: extension[x].valueMoney.currency
+  required: 'Yes'
+  type: Money
+  description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+      "valueMoney": {
+          "value": 60.0,
+          "currency": "SEK"
+      }
+    }
+  binding:
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>estimated-financial-responsibility-amount</code> extensions.
+    terminology:
+      - display: Currencies
+        system: urn:iso:std:iso:4217
+        info_link: http://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: Payment Collection status Extension
+  terminology_name: extension[x].valueCodeableConcept
+  required: 'Yes'
+  type: CodeableConcept
+  description: The payment collection status
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+      "valueCodeableConcept": {
+          "coding": [
+              {
+                  "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4003489",
+                  "code": "40016413",
+                  "display": "1st Attempt - Left Message",
+                  "userSelected": true
+              }
+          ],
+          "text": "1st Attempt - Left Message"
+      }
+    }
+  binding:
+    description: The payment collection status. This binding is used in <code>payment-collection-status</code> extensions.
+    terminology:
+      - display: Payment Collection Status
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003489
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003489-payment-collection-status
+
+- name: Estimated Financial Responsibility Not Collected Reason Extension
+  terminology_name: extension[x].valueCodeableConcept
+  required: 'Yes'
+  type: CodeableConcept
+  description: The reason no estimated amount is collected for the encounter.
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason",
+      "valueCodeableConcept": {
+        "coding": [
+        {
+          "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4660008",
+          "code": "70189603",
+          "display": "Under 21 Years of Age",
+          "userSelected": true
+        }
+        ],
+        "text": "Under 21 Years of Age"
+      }
+    }
+  binding:
+    description: The reason no estimated amount is collected for the encounter. This binding is used in <code>estimated-financial-responsibility-not-collected-reason</code> extensions.
+    terminology:
+      - display: Estimated Financial Responsibility Not Collected Reason
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4660008
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4660008-estimated-financial-responsibility-not-collected-reason
