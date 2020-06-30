@@ -17,9 +17,7 @@ The CarePlan resource describes the intentions of how one or more practitioners 
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Meta](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.meta){:target="_blank"}
-* [Text](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.text){:target="_blank"}
+* [CarePlan Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.status){:target="_blank"}
 * [Intent](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.intent){:target="_blank"}
 * [Category](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
@@ -60,7 +58,6 @@ _Implementation Notes_
  `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=1316024`
  `category`   | See notes | [`token`]     | Only support 'assess-plan'
  [`_count`]   | N         | [`number`]    | Number of results per page.
- [`_revinclude`]| N       |               | This can be a future enhancement and will not hold up the initial deployment of CarePlan. Required for USCDI
 
 
 Notes:
@@ -144,7 +141,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: http://hl7.org/fhir/r4/search.html#date
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
 [`_count`]: http://hl7.org/fhir/r4/search.html#count
-[`_revinclude`]: http://hl7.org/fhir/r4/search.html#revinclude
 [`number`]: http://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
