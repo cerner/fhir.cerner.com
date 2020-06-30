@@ -215,13 +215,11 @@ _Implementation Notes_
     cache-control → no-cache
     etag → W/"0"
     location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationStatement/20465903
-    server-response-time → 1260.984596
     strict-transport-security → max-age=631152000
     vary → Origin,User-Agent,Accept-Encoding
     x-content-type-options → nosniff
     x-frame-options → SAMEORIGIN
     x-request-id → 682c633c-b20f-4f6f-8fae-c58b3aeffe04
-    x-runtime → 1.260940
     x-xss-protection → 1; mode=block
 </pre>
 
@@ -285,13 +283,11 @@ _Implementation Notes_
     access-control-max-age → 0
     cache-control → no-cache
     etag → W/"1"
-    server-response-time → 653.7616069999999
     strict-transport-security → max-age=631152000
     vary → Origin,User-Agent,Accept-Encoding
     x-content-type-options → nosniff
     x-frame-options → SAMEORIGIN
     x-request-id → 9dba8326-899a-406f-a125-3fc3d6605dad
-    x-runtime → 0.653722
     x-xss-protection → 1; mode=block
 </pre>
 

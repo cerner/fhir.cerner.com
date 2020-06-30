@@ -164,11 +164,9 @@ Date: Wed, 27 Mar 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4595905
-Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
-X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -221,11 +219,9 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
 Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

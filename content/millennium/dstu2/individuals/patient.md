@@ -210,13 +210,11 @@ Notes:
     Cache-Control → no-cache
     Vary → Origin,User-Agent,Accept-Encoding
     Strict-Transport-Security → max-age=631152000
-    Server-Response-Time → 9272.410216999999
     X-Xss-Protection → 1; mode=block
     Pragma → no-cache
     X-Request-Id → 78a19072002b8651623351cfedaffe70
     Etag → W/"0"
     X-Frame-Options → SAMEORIGIN
-    X-Runtime → 9.272318
     X-Content-Type-Options → nosniff
     Expires → Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified → Tue, 27 Feb 2018 16:48:00 GMT

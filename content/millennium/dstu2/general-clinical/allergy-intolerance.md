@@ -167,13 +167,11 @@ Create new allergies.
     Cache-Control → no-cache
     Vary → Origin,User-Agent,Accept-Encoding
     Strict-Transport-Security → max-age=631152000
-    Server-Response-Time → 10023.126891
     X-Xss-Protection → 1; mode=block
     Pragma → no-cache
     X-Request-Id → b0fee21c20d2a240d9b4b86cfbcbd87c
     Etag → W/"6167733"
     X-Frame-Options → SAMEORIGIN
-    X-Runtime → 10.023081
     X-Content-Type-Options → nosniff
     Expires → Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified → Tue, 28 Feb 2017 21:03:00 GMT
@@ -235,13 +233,11 @@ Notes:
     Cache-Control →  no-cache
     Vary →  Origin,User-Agent,Accept-Encoding
     Strict-Transport-Security →  max-age=631152000
-    Server-Response-Time →  647.014821
     X-Xss-Protection →  1; mode=block
     Pragma →  no-cache
     X-Request-Id →  d30766e5445f973b32efa9ec516cb5db
     Etag →  W/"6167741"
     X-Frame-Options →  SAMEORIGIN
-    X-Runtime →  0.646992
     X-Content-Type-Options →  nosniff
     Expires →  Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified →  Tue, 28 Feb 2017 21:03:00 GMT

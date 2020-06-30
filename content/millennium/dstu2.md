@@ -20,10 +20,8 @@ Date: Tue, 05 Jan 2016 20:02:23 GMT
 cache-control: no-cache
 vary: Origin,User-Agent
 strict-transport-security: max-age=631152000
-server-response-time: 6003.4422970000005
 x-xss-protection: 1; mode=block
 x-request-id: 637dd651-6943-4d45-8e8a-0577da7640a2
-x-runtime: 6.003411
 x-frame-options: SAMEORIGIN
 x-content-type-options: nosniff
 Status: 200 OK

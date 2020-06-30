@@ -136,11 +136,9 @@ Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"6767735"
 Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Organization/6767735,
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
-Server-Response-Time: 296.405243
 Status: 201 Created
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
-X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
@@ -154,4 +152,3 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-

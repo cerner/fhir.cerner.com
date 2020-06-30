@@ -186,13 +186,11 @@ _Implementation Notes_
    access-control-max-age → 0
    cache-control → no-cache
    location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/5789254
-   server-response-time → 5497.564885
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding
    x-content-type-options → nosniff
    x-frame-options → SAMEORIGIN
    x-request-id → 9c7510c0-0bb5-4148-b37e-51a774c4091b
-   x-runtime → 5.497541
    x-xss-protection → 1; mode=block
 </pre>
 
