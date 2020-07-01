@@ -209,6 +209,7 @@ fields:
       <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
       <li> Only one `prefix` and one `suffix` may be provided. </li>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li> `family`, `given`, `prefix`, and `suffix` have a character limit of 100. </li> 
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
 
@@ -234,6 +235,7 @@ fields:
     <ul>
       <li> Each telecom must contain the `system`, `use`, and `value` fields. </li>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li> `value` has a character limit of 100. </li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
 
@@ -289,6 +291,8 @@ fields:
       <li> Each address must contain the `use` field. </li>
       <li> Each address must not contain the `text` field. </li>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li> `line`, `city`, `district`, `state`, and `country` have a character limit of 100. </li>
+      <li> `postalCode` has a character limit of 25. </li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.address
 
