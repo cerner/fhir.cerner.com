@@ -32,6 +32,7 @@ implementation. For this reason, we highly encourage development against R4 when
 
 ## Supported Resources Between Versions
 
-To determine what resources and actions are supported by our DSTU2 and R4 implementations you can browse our 
-documentation for both DSTU2 and R4 and compare between each version. You can also compare the Conformance (DSTU2) and 
-CapabilityStatement (R4) for the list of supported resources and actions.
+The table below gives a live view of what resources and actions are currently supported by our DSTU2 and R4 implementations 
+for system and provider access.
+
+<%= render '/millennium_diff_table.*' %>
