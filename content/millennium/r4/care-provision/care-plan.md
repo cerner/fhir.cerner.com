@@ -19,14 +19,14 @@ The following fields are returned if valued:
 
 * [CarePlan Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.status){:target="_blank"}
-* [Intent](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.intent){:target="_blank"}
-* [Category](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
+* [Intent (plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.intent){:target="_blank"}
+* [Category (assess-plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
 * [Title](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.title){:target="_blank"}
-* [Subject](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
+* [Description](http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.description) {:target="_blank"}
+* [Subject (Patient Only)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
 * [Encounter](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.encounter){:target="_blank"}
-* [Period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
+* [Effective Period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
 * [Author](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.author){:target="_blank"}
-* [Care plan](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.relatedPlan.plan){:target="_blank"}
 
 ## Terminology Bindings
 
