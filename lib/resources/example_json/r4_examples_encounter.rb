@@ -12,6 +12,49 @@ module Cerner
         "status": "generated",
         "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
       },
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization",
+          "valueReference": {
+            "reference": "Organization/675844"
+          }
+        },
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+          "valueMoney": {
+            "value": 60.0,
+            "currency": "SEK"
+          }
+        },
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4003489",
+                "code": "40016413",
+                "display": "1st Attempt - Left Message",
+                "userSelected": true
+              }
+            ],
+            "text": "1st Attempt - Left Message"
+          }
+        },
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4660008",
+                "code": "70189603",
+                "display": "Under 21 Years of Age",
+                "userSelected": true
+              }
+            ],
+            "text": "Under 21 Years of Age"
+          }
+        }
+      ],
       "identifier": [
         {
           "use": "usual",

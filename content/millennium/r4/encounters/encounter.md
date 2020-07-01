@@ -37,14 +37,33 @@ The following fields are returned if valued:
    * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
    * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
+* [Extensions including client organization, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
+
+### Contained Location Bindings
+
+<%= terminology_table(:encounter_contained_location, :r4) %>
 
 ## Terminology Bindings
 
 <%= terminology_table(:encounter, :r4) %>
 
-### Contained Location Bindings
+## Extensions
 
-<%= terminology_table(:encounter_contained_location, :r4) %>
+* [Client Organization]
+* [Estimated Financial Responsibility Amount]
+* [Payment Collection Status]
+* [Estimated Financial Responsibility Not Collected Reason]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                                                        | Value\[x] Type      | Description
+-----------------------------------------------------------|---------------------|----------------------------------------------------------------
+ `client-organization`                                     | [`Reference`]       | The financially responsible organization.
+ `estimated-financial-responsibility-amount`               | [`Money`]           | The estimated amount to be collected for the encounter.
+ `estimated-financial-responsibility-not-collected-reason` | [`CodeableConcept`] | The reason no estimated amount is collected for the encounter.
+ `payment-collection-status`                               | [`CodeableConcept`] | The status of the payment collection for the encounter.
 
 ## Search
 
@@ -234,13 +253,19 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
+[`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
+[`number`]: https://hl7.org/fhir/r4/search.html#number
+[`reference`]: http://hl7.org/fhir/r4/references.html#Reference
+[`token`]: https://hl7.org/fhir/r4/search.html#token
+[Client Organization]: #custom-extensions
 [contained]: https://hl7.org/fhir/r4/references.html#contained
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
 [Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
-[`reference`]: https://hl7.org/fhir/r4/search.html#reference
-[`token`]: https://hl7.org/fhir/r4/search.html#token
-[`number`]: https://hl7.org/fhir/r4/search.html#number
-[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [errors]: ../../#client-errors
+[Estimated Financial Responsibility Amount]: #custom-extensions
+[Estimated Financial Responsibility Not Collected Reason]: #custom-extensions
 [OperationOutcomes]: ../../#operation-outcomes
+[Payment Collection Status]: #custom-extensions

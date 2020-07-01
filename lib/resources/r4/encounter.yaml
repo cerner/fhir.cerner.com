@@ -546,3 +546,42 @@ fields:
         system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
         info_link: http://hl7.org/fhir/r4/v3/ObservationValue/cs.html
     note: Encounters created with meta.security set with code 'UNCERTREL' will be returned with an external encounter type.
+
+- name: Estimated Financial Responsibility Amount Extension
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  terminology_name: extension[x].valueMoney.currency
+  type: Money
+  description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
+  action: terminology
+  binding:
+    description: Currency codes from [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>estimated-financial-responsibility-amount</code> extensions.
+    terminology:
+      - display: Currencies
+        system: urn:iso:std:iso:4217
+        info_link: http://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: Estimated Financial Responsibility Not Collected Reason Extension
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  terminology_name: extension[x].valueCodeableConcept
+  type: CodeableConcept
+  description: The reason no estimated amount is collected for the encounter.
+  action: terminology
+  binding:
+    description: The reason no estimated amount is collected for the encounter. This binding is used in <code>estimated-financial-responsibility-not-collected-reason</code> extensions.
+    terminology:
+      - display: Estimated Financial Responsibility Not Collected Reason
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4660008
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4660008-estimated-financial-responsibility-not-collected-reason
+
+- name: Payment Collection status Extension
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  terminology_name: extension[x].valueCodeableConcept
+  type: CodeableConcept
+  description: The payment collection status
+  action: terminology
+  binding:
+    description: The payment collection status. This binding is used in <code>payment-collection-status</code> extensions.
+    terminology:
+      - display: Payment Collection Status
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003489
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003489-payment-collection-status
