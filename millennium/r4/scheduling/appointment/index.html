@@ -105,6 +105,7 @@
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
       <li><a href="#example---update-status-to-booked" id="markdown-toc-example---update-status-to-booked">Example - Update Status to Booked</a></li>
+      <li><a href="#example---update-reasoncode" id="markdown-toc-example---update-reasoncode">Example - Update reasonCode</a></li>
       <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
       <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
@@ -1005,6 +1006,55 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
   
     <tr>
       <td>
+        <a name="add-reasonCode">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode"><code>/reasonCode</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The clinical reason for why this appointment is being scheduled</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/reasonCode",
+  "value": [
+    {
+      "text": "I have a headache"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+  <li>Only one CodeableConcept may be provided in the value array</li>
+  <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
+  <li>When the value array is empty, reasonCode will be removed</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
         <a name="add-provider-vmr">
           
             </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value"><code>/contained/0/telecom/0/value</code></a>
@@ -1435,7 +1485,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
+<h3 id="example---update-reasoncode">Example - Update reasonCode</h3>
 
 <h4 id="request-5">Request</h4>
 
@@ -1443,6 +1493,60 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </code></pre>
 
 <h4 id="body-2">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "add",
+    "path": "/slot",
+    "value": [
+      {
+        "reference": "Slot/1986119705-4048128-15648907-60"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/status",
+    "value": "booked"
+  },
+  {
+    "op": "add",
+    "path": "/reasonCode",
+    "value": [
+      {
+        "text": "I have a headache"
+      }
+    ]
+  }
+]</code></pre>
+
+<h4 id="response-5">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
+
+<h4 id="request-6">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+</code></pre>
+
+<h4 id="body-3">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -1467,7 +1571,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   }
 ]</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1488,12 +1592,12 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
 
-<h4 id="request-6">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
 </code></pre>
 
-<h4 id="body-3">Body</h4>
+<h4 id="body-4">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -1518,7 +1622,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   }
 ]</code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1755,7 +1859,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
         
         
       </td>
-      <td> </td>
+      <td>No </td>
       <td>
 <code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
@@ -2025,12 +2129,12 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h3 id="example---proposed-appointment">Example - Proposed Appointment</h3>
 
-<h4 id="request-7">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-4">Body</h4>
+<h4 id="body-5">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2075,7 +2179,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   ]
 }</code></pre>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2097,12 +2201,12 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 
 <h3 id="example---booked-appointment">Example - Booked Appointment</h3>
 
-<h4 id="request-8">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
 </code></pre>
 
-<h4 id="body-5">Body</h4>
+<h4 id="body-6">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2128,7 +2232,7 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
   ]
 }</code></pre>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 

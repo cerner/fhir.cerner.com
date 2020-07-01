@@ -78,10 +78,15 @@
       <h1 id="encounter">Encounter</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
-<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
       <li><a href="#contained-location-bindings" id="markdown-toc-contained-location-bindings">Contained Location Bindings</a></li>
+    </ul>
+  </li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
     </ul>
   </li>
   <li>
@@ -164,7 +169,57 @@
     </ul>
   </li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider" target="_blank">Service provider (Organization)</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including client organization, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason</a></li>
 </ul>
+
+<h3 id="contained-location-bindings">Contained Location Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.type">Location.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indicates the type of function performed at the location.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/v3/ServiceDeliveryLocationRoleType/vs.html">v3 Code System RoleCode</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -836,20 +891,12 @@
       </td>
     </tr>
     
-  </tbody>
-</table>
-
-<h3 id="contained-location-bindings">Contained Location Bindings</h3>
-
-<table style="display: table; white-space: normal">
-  <tbody>
-    
       
       
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.type">Location.type</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions">Encounter.extension[x].valueMoney.currency</a>
       
       </td>
     </tr>
@@ -858,7 +905,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Indicates the type of function performed at the location.</li></ul>
+            <ul style="list-style-type: none"><li>Currency codes from [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>estimated-financial-responsibility-amount</code> extensions.</li></ul>
           
           
 
@@ -867,9 +914,9 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/v3/ServiceDeliveryLocationRoleType/vs.html">v3 Code System RoleCode</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-currencies.html">Currencies</a><br>
                       
-                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                        System: urn:iso:std:iso:4217 <br>
                       
                       </p>
                     
@@ -885,6 +932,133 @@
       </td>
     </tr>
     
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions">Encounter.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The reason no estimated amount is collected for the encounter. This binding is used in <code>estimated-financial-responsibility-not-collected-reason</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4660008-estimated-financial-responsibility-not-collected-reason">Estimated Financial Responsibility Not Collected Reason</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4660008 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions">Encounter.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The payment collection status. This binding is used in <code>payment-collection-status</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003489-payment-collection-status">Payment Collection Status</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003489 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Client Organization</a></li>
+  <li><a href="#custom-extensions">Estimated Financial Responsibility Amount</a></li>
+  <li><a href="#custom-extensions">Payment Collection Status</a></li>
+  <li><a href="#custom-extensions">Estimated Financial Responsibility Not Collected Reason</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>client-organization</code></td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>Reference</code></a></td>
+      <td>The financially responsible organization.</td>
+    </tr>
+    <tr>
+      <td><code>estimated-financial-responsibility-amount</code></td>
+      <td><a href="http://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
+      <td>The estimated amount to be collected for the encounter.</td>
+    </tr>
+    <tr>
+      <td><code>estimated-financial-responsibility-not-collected-reason</code></td>
+      <td><a href="http://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The reason no estimated amount is collected for the encounter.</td>
+    </tr>
+    <tr>
+      <td><code>payment-collection-status</code></td>
+      <td><a href="http://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The status of the payment collection for the encounter.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -933,7 +1107,7 @@
       <td><code>patient</code></td>
       <td>This or <code>subject</code> or <code>account</code> or <code>_id</code>
 </td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>reference</code></a></td>
       <td>The patient present at the encounter. Example: <code>12345</code>
 </td>
     </tr>
@@ -941,7 +1115,7 @@
       <td><code>subject</code></td>
       <td>This or <code>patient</code> or <code>account</code> or <code>_id</code>
 </td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>reference</code></a></td>
       <td>The patient present at the encounter. Example: <code>subject=Patient/1316024</code> or <code>subject:Patient=1316024</code>
 </td>
     </tr>
@@ -949,7 +1123,7 @@
       <td><code>account</code></td>
       <td>This or <code>patient</code> or <code>subject</code> or <code>_id</code>
 </td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>reference</code></a></td>
       <td>The account associated with the encounters. Example: <code>F703726</code>
 </td>
     </tr>
@@ -1249,6 +1423,49 @@
     "status": "generated",
     "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East Medical Center, BE Hospital, BE CT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Emergency Medicine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 20, 2016  9:05 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Abdominal pain&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Julius, Scott&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization",
+      "valueReference": {
+        "reference": "Organization/675844"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+      "valueMoney": {
+        "value": 60.0,
+        "currency": "SEK"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4003489",
+            "code": "40016413",
+            "display": "1st Attempt - Left Message",
+            "userSelected": true
+          }
+        ],
+        "text": "1st Attempt - Left Message"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/4660008",
+            "code": "70189603",
+            "display": "Under 21 Years of Age",
+            "userSelected": true
+          }
+        ],
+        "text": "Under 21 Years of Age"
+      }
+    }
+  ],
   "identifier": [
     {
       "use": "usual",
