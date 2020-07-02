@@ -22,7 +22,7 @@ The following fields are returned if valued:
 * [Intent (plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.intent){:target="_blank"}
 * [Category (assess-plan)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.category){:target="_blank"}
 * [Title](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.title){:target="_blank"}
-* [Description](http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.description) {:target="_blank"}
+* [Description](http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.description){:target="_blank"}
 * [Subject (Patient Only)](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject){:target="_blank"}
 * [Encounter](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.encounter){:target="_blank"}
 * [Effective Period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
@@ -47,7 +47,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Parameters
 
@@ -56,7 +56,7 @@ _Implementation Notes_
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource.
  `date`       | N         | [`date`]      | Time period plan covers. Example: `date=ge2016&date=le2017 (Jan 1, 2016 - Dec 31, 2017)` or `date=ge2016-08-24T12:00:00.000Z&date=le2017-01-24T12:00:00.000Z`
  `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=1316024`
- `category`   | See notes | [`token`]     | Only support 'assess-plan'
+ `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`
  [`_count`]   | N         | [`number`]    | Number of results per page.
 
 
@@ -109,7 +109,7 @@ List an individual CarePlan by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(practitioner: true, system: true) %>
 
 ### Headers
 

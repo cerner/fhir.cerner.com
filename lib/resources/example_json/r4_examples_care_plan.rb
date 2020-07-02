@@ -10,7 +10,7 @@ module Cerner
         },
         "text": {
             "status": "additional",
-            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: History and Physical Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Chief Complaint&#10;History of Present Illness&#10;Review of Systems&#10;Medical History&#10;Ongoing&#10;Active silicosis&#10;Allergy testing - no reaction&#10;Breast wound&#10;hidden display as&#10;Housebound&#10;Locking knee&#10;Minimal shared activities&#10;No significant medical problems&#10;Preop testing&#10;pTX stage&#10;Pyogenic Arthritis Involving Multiple Sites&#10;Reality testing&#10;something spooky&#10;T activation syndrome&#10;Taste-blindness&#10;Test diet&#10;Test distance for visual acuity&#10;Testicular failure&#10;Toe Flexion&#10;Visual testing normal&#10;Vitamin D deficiency&#10;Water slide activities&#10;Resolved&#10;Active labor&#10;Inconsistent results on voice testing&#10;Marital problems&#10;O/E - tuning fork testing&#10;Z deformity of thumb&#10;Surgical History&#10;Tone deafness (2006),  Tonsil biopsy sample (Week of 05/17/1989),  ADA - Adenosine deaminase (1989).&#10;Family History&#10;Patient was adopted&#10;Social History&#10;Alcohol&#10;Current, Beer, Wine, Liquor, Home made hard stuff, Several times per day, 5 drinks/episode average. 10 drinks/episode maximum. Started age 8 Years. Previous treatment: None. Alcohol use interferes with work or home: Yes. Drinks more than intended: Yes. Others hurt by drinking: No. Ready to change: No. Household alcohol concerns: No.&#10;Employment/School&#10;Employed, Work/School description: Desk Job. Activity level: Desk/Office. Operates hazardous equipment: No.&#10;Exercise&#10;Exercise duration: 30. Exercise frequency: 3-4 times/week. Self assessment: Fair condition. Exercise type: Walking, Swimming.&#10;Home/Environment - Low Risk&#10;Lives with Alone. Living situation: Home/Independent. Alcohol abuse in household: Yes. Substance abuse in household: Yes. Smoker in household: No. Injuries/Abuse/Neglect in household: No. Feels unsafe at home: No. Safe place to go: Yes. Agency(s)/Others notified: No. Family/Friends available for support: Yes. Concern for family members at home: No. Major illness in household: No. Financial concerns: No. TV/Computer concerns: No. Risks in environment: Does not wear helmet, Pets/Animal exposure, Stairs.&#10;Nutrition/Health&#10;Type of diet: Generl. Wants to lose weight: No. Sleeping concerns: No. Feels highly stressed: Yes.&#10;Sexual&#10;Sexually active: No. History of sexual abuse: No.&#10;Substance Abuse - Medium Risk&#10;Current, Amphetamines, Cocaine, Ecstasy, Hallucinogens/LSD, Heroin, Inhalants/Glues/Solvents, Marijuana, Methamphetamines, Prescription medications, Daily, Previous treatment: Treatment center, Inpatient, Outpatient. Started age 8 Years. IV drug use: Yes. Drug use interferes with work/home: Yes. Ready to change: No. Household substance abuse concerns: No.&#10;Tobacco&#10;Current every day smoker, Cigars, hand, Household tobacco concerns: Yes&#10;Allergies&#10;oxyCODONE&#10;Peanuts&#10;sulfa drugs&#65533;&#65533;(Anaphylactic reaction)&#10;uranium&#10;iodine&#65533;&#65533;(Hives, Sneezing)&#10;penicillin V potassium&#65533;&#65533;(Hives)&#10;skin test antigens, multiple&#10;Home Medication List&#10;Aceon 2 mg oral tablet, 1 tab(s), Oral, Daily, 11 refills&#10;acetaminophen-tramadol&#10;Physical Exam&#10;Vitals &amp; Measurements&#10;Lab Results&#10;Radiology Results&#10;Assessment/Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Shaik, Faiz Ahmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Mar 10, 2016  7:43 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+            "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: History and Physical Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Chief Complaint&amp;#10;History of Present Illness&amp;#10;Review of Systems&amp;#10;Medical History&amp;#10;Ongoing&amp;#10;Active silicosis&amp;#10;Allergy testing - no reaction&amp;#10;Breast wound&amp;#10;hidden display as&amp;#10;Housebound&amp;#10;Locking knee&amp;#10;Minimal shared activities&amp;#10;No significant medical problems&amp;#10;Preop testing&amp;#10;pTX stage&amp;#10;Pyogenic Arthritis Involving Multiple Sites&amp;#10;Reality testing&amp;#10;something spooky&amp;#10;T activation syndrome&amp;#10;Taste-blindness&amp;#10;Test diet&amp;#10;Test distance for visual acuity&amp;#10;Testicular failure&amp;#10;Toe Flexion&amp;#10;Visual testing normal&amp;#10;Vitamin D deficiency&amp;#10;Water slide activities&amp;#10;Resolved&amp;#10;Active labor&amp;#10;Inconsistent results on voice testing&amp;#10;Marital problems&amp;#10;O/E - tuning fork testing&amp;#10;Z deformity of thumb&amp;#10;Surgical History&amp;#10;Tone deafness (2006),  Tonsil biopsy sample (Week of 05/17/1989),  ADA - Adenosine deaminase (1989).&amp;#10;Family History&amp;#10;Patient was adopted&amp;#10;Social History&amp;#10;Alcohol&amp;#10;Current, Beer, Wine, Liquor, Home made hard stuff, Several times per day, 5 drinks/episode average. 10 drinks/episode maximum. Started age 8 Years. Previous treatment: None. Alcohol use interferes with work or home: Yes. Drinks more than intended: Yes. Others hurt by drinking: No. Ready to change: No. Household alcohol concerns: No.&amp;#10;Employment/School&amp;#10;Employed, Work/School description: Desk Job. Activity level: Desk/Office. Operates hazardous equipment: No.&amp;#10;Exercise&amp;#10;Exercise duration: 30. Exercise frequency: 3-4 times/week. Self assessment: Fair condition. Exercise type: Walking, Swimming.&amp;#10;Home/Environment - Low Risk&amp;#10;Lives with Alone. Living situation: Home/Independent. Alcohol abuse in household: Yes. Substance abuse in household: Yes. Smoker in household: No. Injuries/Abuse/Neglect in household: No. Feels unsafe at home: No. Safe place to go: Yes. Agency(s)/Others notified: No. Family/Friends available for support: Yes. Concern for family members at home: No. Major illness in household: No. Financial concerns: No. TV/Computer concerns: No. Risks in environment: Does not wear helmet, Pets/Animal exposure, Stairs.&amp;#10;Nutrition/Health&amp;#10;Type of diet: Generl. Wants to lose weight: No. Sleeping concerns: No. Feels highly stressed: Yes.&amp;#10;Sexual&amp;#10;Sexually active: No. History of sexual abuse: No.&amp;#10;Substance Abuse - Medium Risk&amp;#10;Current, Amphetamines, Cocaine, Ecstasy, Hallucinogens/LSD, Heroin, Inhalants/Glues/Solvents, Marijuana, Methamphetamines, Prescription medications, Daily, Previous treatment: Treatment center, Inpatient, Outpatient. Started age 8 Years. IV drug use: Yes. Drug use interferes with work/home: Yes. Ready to change: No. Household substance abuse concerns: No.&amp;#10;Tobacco&amp;#10;Current every day smoker, Cigars, hand, Household tobacco concerns: Yes&amp;#10;Allergies&amp;#10;oxyCODONE&amp;#10;Peanuts&amp;#10;sulfa drugs&amp;#65533;&amp;#65533;(Anaphylactic reaction)&amp;#10;uranium&amp;#10;iodine&amp;#65533;&amp;#65533;(Hives, Sneezing)&amp;#10;penicillin V potassium&amp;#65533;&amp;#65533;(Hives)&amp;#10;skin test antigens, multiple&amp;#10;Home Medication List&amp;#10;Aceon 2 mg oral tablet, 1 tab(s), Oral, Daily, 11 refills&amp;#10;acetaminophen-tramadol&amp;#10;Physical Exam&amp;#10;Vitals &amp;amp; Measurements&amp;#10;Lab Results&amp;#10;Radiology Results&amp;#10;Assessment/Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Shaik, Faiz Ahmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Mar 10, 2016  7:43 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "intent": "plan",
@@ -70,7 +70,7 @@ module Cerner
                     },
                     "text": {
                         "status": "additional",
-                        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: History and Physical Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Chief Complaint&#10;History of Present Illness&#10;Review of Systems&#10;Medical History&#10;Ongoing&#10;Active silicosis&#10;Allergy testing - no reaction&#10;Breast wound&#10;hidden display as&#10;Housebound&#10;Locking knee&#10;Minimal shared activities&#10;No significant medical problems&#10;Preop testing&#10;pTX stage&#10;Pyogenic Arthritis Involving Multiple Sites&#10;Reality testing&#10;something spooky&#10;T activation syndrome&#10;Taste-blindness&#10;Test diet&#10;Test distance for visual acuity&#10;Testicular failure&#10;Toe Flexion&#10;Visual testing normal&#10;Vitamin D deficiency&#10;Water slide activities&#10;Resolved&#10;Active labor&#10;Inconsistent results on voice testing&#10;Marital problems&#10;O/E - tuning fork testing&#10;Z deformity of thumb&#10;Surgical History&#10;Tone deafness (2006),  Tonsil biopsy sample (Week of 05/17/1989),  ADA - Adenosine deaminase (1989).&#10;Family History&#10;Patient was adopted&#10;Social History&#10;Alcohol&#10;Current, Beer, Wine, Liquor, Home made hard stuff, Several times per day, 5 drinks/episode average. 10 drinks/episode maximum. Started age 8 Years. Previous treatment: None. Alcohol use interferes with work or home: Yes. Drinks more than intended: Yes. Others hurt by drinking: No. Ready to change: No. Household alcohol concerns: No.&#10;Employment/School&#10;Employed, Work/School description: Desk Job. Activity level: Desk/Office. Operates hazardous equipment: No.&#10;Exercise&#10;Exercise duration: 30. Exercise frequency: 3-4 times/week. Self assessment: Fair condition. Exercise type: Walking, Swimming.&#10;Home/Environment - Low Risk&#10;Lives with Alone. Living situation: Home/Independent. Alcohol abuse in household: Yes. Substance abuse in household: Yes. Smoker in household: No. Injuries/Abuse/Neglect in household: No. Feels unsafe at home: No. Safe place to go: Yes. Agency(s)/Others notified: No. Family/Friends available for support: Yes. Concern for family members at home: No. Major illness in household: No. Financial concerns: No. TV/Computer concerns: No. Risks in environment: Does not wear helmet, Pets/Animal exposure, Stairs.&#10;Nutrition/Health&#10;Type of diet: Generl. Wants to lose weight: No. Sleeping concerns: No. Feels highly stressed: Yes.&#10;Sexual&#10;Sexually active: No. History of sexual abuse: No.&#10;Substance Abuse - Medium Risk&#10;Current, Amphetamines, Cocaine, Ecstasy, Hallucinogens/LSD, Heroin, Inhalants/Glues/Solvents, Marijuana, Methamphetamines, Prescription medications, Daily, Previous treatment: Treatment center, Inpatient, Outpatient. Started age 8 Years. IV drug use: Yes. Drug use interferes with work/home: Yes. Ready to change: No. Household substance abuse concerns: No.&#10;Tobacco&#10;Current every day smoker, Cigars, hand, Household tobacco concerns: Yes&#10;Allergies&#10;oxyCODONE&#10;Peanuts&#10;sulfa drugs&#65533;&#65533;(Anaphylactic reaction)&#10;uranium&#10;iodine&#65533;&#65533;(Hives, Sneezing)&#10;penicillin V potassium&#65533;&#65533;(Hives)&#10;skin test antigens, multiple&#10;Home Medication List&#10;Aceon 2 mg oral tablet, 1 tab(s), Oral, Daily, 11 refills&#10;acetaminophen-tramadol&#10;Physical Exam&#10;Vitals &amp; Measurements&#10;Lab Results&#10;Radiology Results&#10;Assessment/Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Shaik, Faiz Ahmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Mar 10, 2016  7:43 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+                        "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: History and Physical Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Chief Complaint&amp;#10;History of Present Illness&amp;#10;Review of Systems&amp;#10;Medical History&amp;#10;Ongoing&amp;#10;Active silicosis&amp;#10;Allergy testing - no reaction&amp;#10;Breast wound&amp;#10;hidden display as&amp;#10;Housebound&amp;#10;Locking knee&amp;#10;Minimal shared activities&amp;#10;No significant medical problems&amp;#10;Preop testing&amp;#10;pTX stage&amp;#10;Pyogenic Arthritis Involving Multiple Sites&amp;#10;Reality testing&amp;#10;something spooky&amp;#10;T activation syndrome&amp;#10;Taste-blindness&amp;#10;Test diet&amp;#10;Test distance for visual acuity&amp;#10;Testicular failure&amp;#10;Toe Flexion&amp;#10;Visual testing normal&amp;#10;Vitamin D deficiency&amp;#10;Water slide activities&amp;#10;Resolved&amp;#10;Active labor&amp;#10;Inconsistent results on voice testing&amp;#10;Marital problems&amp;#10;O/E - tuning fork testing&amp;#10;Z deformity of thumb&amp;#10;Surgical History&amp;#10;Tone deafness (2006),  Tonsil biopsy sample (Week of 05/17/1989),  ADA - Adenosine deaminase (1989).&amp;#10;Family History&amp;#10;Patient was adopted&amp;#10;Social History&amp;#10;Alcohol&amp;#10;Current, Beer, Wine, Liquor, Home made hard stuff, Several times per day, 5 drinks/episode average. 10 drinks/episode maximum. Started age 8 Years. Previous treatment: None. Alcohol use interferes with work or home: Yes. Drinks more than intended: Yes. Others hurt by drinking: No. Ready to change: No. Household alcohol concerns: No.&amp;#10;Employment/School&amp;#10;Employed, Work/School description: Desk Job. Activity level: Desk/Office. Operates hazardous equipment: No.&amp;#10;Exercise&amp;#10;Exercise duration: 30. Exercise frequency: 3-4 times/week. Self assessment: Fair condition. Exercise type: Walking, Swimming.&amp;#10;Home/Environment - Low Risk&amp;#10;Lives with Alone. Living situation: Home/Independent. Alcohol abuse in household: Yes. Substance abuse in household: Yes. Smoker in household: No. Injuries/Abuse/Neglect in household: No. Feels unsafe at home: No. Safe place to go: Yes. Agency(s)/Others notified: No. Family/Friends available for support: Yes. Concern for family members at home: No. Major illness in household: No. Financial concerns: No. TV/Computer concerns: No. Risks in environment: Does not wear helmet, Pets/Animal exposure, Stairs.&amp;#10;Nutrition/Health&amp;#10;Type of diet: Generl. Wants to lose weight: No. Sleeping concerns: No. Feels highly stressed: Yes.&amp;#10;Sexual&amp;#10;Sexually active: No. History of sexual abuse: No.&amp;#10;Substance Abuse - Medium Risk&amp;#10;Current, Amphetamines, Cocaine, Ecstasy, Hallucinogens/LSD, Heroin, Inhalants/Glues/Solvents, Marijuana, Methamphetamines, Prescription medications, Daily, Previous treatment: Treatment center, Inpatient, Outpatient. Started age 8 Years. IV drug use: Yes. Drug use interferes with work/home: Yes. Ready to change: No. Household substance abuse concerns: No.&amp;#10;Tobacco&amp;#10;Current every day smoker, Cigars, hand, Household tobacco concerns: Yes&amp;#10;Allergies&amp;#10;oxyCODONE&amp;#10;Peanuts&amp;#10;sulfa drugs&amp;#65533;&amp;#65533;(Anaphylactic reaction)&amp;#10;uranium&amp;#10;iodine&amp;#65533;&amp;#65533;(Hives, Sneezing)&amp;#10;penicillin V potassium&amp;#65533;&amp;#65533;(Hives)&amp;#10;skin test antigens, multiple&amp;#10;Home Medication List&amp;#10;Aceon 2 mg oral tablet, 1 tab(s), Oral, Daily, 11 refills&amp;#10;acetaminophen-tramadol&amp;#10;Physical Exam&amp;#10;Vitals &amp;amp; Measurements&amp;#10;Lab Results&amp;#10;Radiology Results&amp;#10;Assessment/Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Shaik, Faiz Ahmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Mar 10, 2016  7:43 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
                     },
                     "status": "active",
                     "intent": "plan",
@@ -114,7 +114,7 @@ module Cerner
                     },
                     "text": {
                         "status": "additional",
-                        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Admission H &amp; P&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Koester, Oliver&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Oct 23, 2015  3:25 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+                        "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Admission H &amp;amp; P&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Koester, Oliver&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Oct 23, 2015  3:25 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
                     },
                     "status": "active",
                     "intent": "plan",
@@ -144,94 +144,6 @@ module Cerner
                     "author": {
                         "reference": "Practitioner/1830030",
                         "display": "Koester, Oliver"
-                    }
-                }
-            },
-            {
-                "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/13411332",
-                "resource": {
-                    "resourceType": "CarePlan",
-                    "id": "13411332",
-                    "meta": {
-                        "versionId": "1",
-                        "lastUpdated": "2015-10-22T15:06:07.000-05:00"
-                    },
-                    "text": {
-                        "status": "additional",
-                        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Document with image&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: section 1&#10;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Koester, Oliver&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Oct 22, 2015  8:02 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
-                    },
-                    "status": "active",
-                    "intent": "plan",
-                    "category": [
-                        {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/us/core/CodeSystem/careplan-category",
-                                    "code": "assess-plan",
-                                    "display": "Assessment and Plan of Treatment"
-                                }
-                            ],
-                            "text": "Assessment and Plan of Treatment"
-                        }
-                    ],
-                    "title": "Document with image",
-                    "subject": {
-                        "reference": "Patient/1316020",
-                        "display": "Houde, Harry Potter"
-                    },
-                    "encounter": {
-                        "reference": "Encounter/1693915"
-                    },
-                    "period": {
-                        "start": "2015-10-22T15:02:00.000-05:00"
-                    },
-                    "author": {
-                        "reference": "Practitioner/1830030",
-                        "display": "Koester, Oliver"
-                    }
-                }
-            },
-            {
-                "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/6326319",
-                "resource": {
-                    "resourceType": "CarePlan",
-                    "id": "6326319",
-                    "meta": {
-                        "versionId": "3",
-                        "lastUpdated": "2014-06-05T09:36:34.000-05:00"
-                    },
-                    "text": {
-                        "status": "additional",
-                        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Office Visit Note Test&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;:  Maybe the crawler will pick this up&#10;,  One more for good measure&#10;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Rentz, Alex&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Jun  5, 2014  2:26 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
-                    },
-                    "status": "active",
-                    "intent": "plan",
-                    "category": [
-                        {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/us/core/CodeSystem/careplan-category",
-                                    "code": "assess-plan",
-                                    "display": "Assessment and Plan of Treatment"
-                                }
-                            ],
-                            "text": "Assessment and Plan of Treatment"
-                        }
-                    ],
-                    "title": "Office Visit Note Test",
-                    "subject": {
-                        "reference": "Patient/1316020",
-                        "display": "Houde, Harry Potter"
-                    },
-                    "encounter": {
-                        "reference": "Encounter/1693915"
-                    },
-                    "period": {
-                        "start": "2014-06-05T09:26:00.000-05:00"
-                    },
-                    "author": {
-                        "reference": "Practitioner/1894036",
-                        "display": "Rentz, Alex"
                     }
                 }
             },
