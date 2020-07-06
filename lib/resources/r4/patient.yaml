@@ -137,16 +137,16 @@ fields:
     }
   note: |
     <ul>
-      <li> At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
+      <li>At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
         <ul>
-          <li> Must contain only an `assigner` field with a reference to the Organization in which the patient is being enrolled. </li>
+          <li>Must contain only an `assigner` field with a reference to the Organization in which the patient is being enrolled.</li>
         </ul>
       </li>
-      <li> Subsequent identifiers may be provided, but have the following constraints:
+      <li>Subsequent identifiers may be provided, but have the following constraints:
         <ul>
-          <li> Must not contain the `assigner` and `use` fields. </li>
-          <li> Must contain the `type`, `system`, and `value` fields. </li>
-          <li> When specifying a `period`, must include a time component with a timezone. </li>
+          <li>Must not contain the `assigner` and `use` fields.</li>
+          <li>Must contain the `type`, `system`, and `value` fields.</li>
+          <li>When specifying a `period`, must include a time component with a timezone.</li>
         </ul>
       </li>
     </ul>
@@ -196,19 +196,21 @@ fields:
     }
   note: |
     <ul>
-      <li> At least one name <b>must</b> be provided. The provided name must meet the following conditions:
+      <li>At least one name <b>must</b> be provided. The provided name must meet the following conditions:
         <ul>
-          <li> Must have a `use` of 'official'. </li>
-          <li> Must not have an `end` date on `period`, or must not include `period`. </li>
-          <li> Must include both `given` and `family`. </li>
+          <li>Must have a `use` of 'official'.</li>
+          <li>Must not have an `end` date on `period`, or must not include `period`.</li>
+          <li>Must include both `given` and `family`.</li>
         </ul>
       </li>
-      <li> Each name must include the `use` field. </li>
-      <li> Each name must contain either the `given` or `family` fields. </li>
-      <li> Each name cannot contain the `text` field. </li>
-      <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
-      <li> Only one `prefix` and one `suffix` may be provided. </li>
-      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li>Each name must include the `use` field.</li>
+      <li>Each name must contain either the `given` or `family` fields.</li>
+      <li>Each name cannot contain the `text` field.</li>
+      <li>Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+      <li>Only one `prefix` and one `suffix` may be provided.</li>
+      <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+      <li>The `family` field has a character limit of 100.</li> 
+      <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
 
@@ -232,8 +234,9 @@ fields:
     }
   note: |
     <ul>
-      <li> Each telecom must contain the `system`, `use`, and `value` fields. </li>
-      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li>Each telecom must contain the `system`, `use`, and `value` fields.</li>
+      <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+      <li>The `value` field has a character limit of 100.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
 
@@ -286,9 +289,12 @@ fields:
     }
   note: |
     <ul>
-      <li> Each address must contain the `use` field. </li>
-      <li> Each address must not contain the `text` field. </li>
-      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li>Each address must contain the `use` field.</li>
+      <li>Each address must not contain the `text` field.</li>
+      <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+      <li>Each value for the `line` field has a character limit of 100.</li>
+      <li>The `city`, `district`, `state`, and `country` fields have a character limit of 100.</li>
+      <li>The `postalCode` field has a character limit of 25.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.address
 
