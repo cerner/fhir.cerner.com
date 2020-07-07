@@ -62,27 +62,17 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle) %>
-
-<%= disclaimer %>
+<%= RequestButton.get(:dstu2, 'Device?patient=4478007', 200, :dstu2_device_bundle) %>
 
 ### Example Read by Ids
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle_by_id) %>
-
-<%= disclaimer %>
+<%= RequestButton.get(:dstu2, 'Device?_id=15575768', 200, :dstu2_device_bundle_by_id) %>
 
 ### Errors
 
@@ -110,14 +100,9 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device) %>
-
-<%= disclaimer %>
+<%= RequestButton.get(:dstu2, 'Device/15575768', 200, :dstu2_device) %>
 
 ### Errors
 

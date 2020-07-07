@@ -1375,6 +1375,12 @@ ul + pre {
   margin-top: 1em;
 }
 
+pre.body-response {
+  height: 500px;
+  min-height: 200px;
+  resize: vertical;
+}
+
 pre span.comment {color: #aaa;}
 
 .headers {
@@ -1516,6 +1522,7 @@ pre span.comment {color: #aaa;}
 /*------------------------------------------------------------------------------
     Millennium Overview Table
 ------------------------------------------------------------------------------*/
+
 #millennium-table-div {
   width: 980px;
   margin-top: 40px;
@@ -1541,7 +1548,7 @@ pre span.comment {color: #aaa;}
 }
 
 #millennium-diff-table tr {
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 #millennium-diff-table td {
@@ -1554,7 +1561,7 @@ pre span.comment {color: #aaa;}
   background: #f5faff;
 }
 
-#millennium-diff-table tbody:hover td[rowspan], 
+#millennium-diff-table tbody:hover td[rowspan],
 #millennium-diff-table tr:hover td {
    background: #ebf6fd;
 }
@@ -1568,12 +1575,18 @@ pre span.comment {color: #aaa;}
   margin: 0 3px;
 }
 
-#table-failure-message {
+.failure-message {
+  margin-top: 1em;
   padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
   background-color: #FFF9E6;
   border-color: #FFE79D;
+}
+
+.failure-message p {
+  display: inline;
+  margin: 0;
 }
 
 .hide {
@@ -1645,6 +1658,57 @@ pre span.comment {color: #aaa;}
   transition-delay: 0.5s;
   transition-duration: 0.2s;
   transform: translateX(-50%) scaleY(1);
+}
+
+/* @end */
+
+/*------------------------------------------------------------------------------
+    Example/Live Response Tabs
+------------------------------------------------------------------------------*/
+
+.example-tabs {
+  max-width: 630px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.example-tabs ul {
+  list-style: none;
+  margin: 0;
+}
+
+.example-tabs li {
+  display: inline-block;
+}
+
+.example-tabs li a {
+  color: #767676;
+  font-size: 14px;
+  margin-right: 16px;
+  padding: 4px 2px 8px;
+  text-decoration: none;
+}
+
+.example-tabs li a:hover {
+  color: #4183C4;
+}
+
+.example-tabs li .active{
+  color: #222;
+  border-bottom: 2px solid #d8d8d8;
+}
+
+.example-tabs li .active:hover {
+  color: #222;
+}
+
+.example-tab-content pre {
+  margin-top: 0;
+}
+
+.example-failure-message {
+  font: 13px/1.4em "Helvetica Neue", arial,freesans,clean,sans-serif;
+  white-space: pre-wrap;
 }
 
 /* @end */
