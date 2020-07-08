@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'digest/sha1'
 
 module Nanoc::DataSources
-
   class Static < Nanoc::DataSource
 
     identifier :static
@@ -16,24 +17,24 @@ module Nanoc::DataSources
       # Convert filenames to items
       filenames.map do |filename|
         attributes = {
-          :extension => File.extname(filename)[1..-1],
-          :filename  => filename,
+          extension: File.extname(filename)[1..],
+          filename: filename
         }
-        identifier = filename[(prefix.length+1)..-1] + '/'
+        identifier = filename[(prefix.length + 1)..] + '/'
 
-        mtime      = File.mtime(filename)
-        checksum   = checksum_for(filename)
+        mtime = File.mtime(filename)
+        checksum = checksum_for(filename)
 
         new_item(
           filename,
           attributes,
           identifier,
-          :binary => true, :mtime => mtime, :checksum => checksum
+          binary: true, mtime: mtime, checksum: checksum
         )
       end
     end
 
-  private
+    private
 
     # Returns a checksum of the given filenames
     # TODO un-duplicate this somewhere

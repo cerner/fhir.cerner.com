@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AttributesHelper
   def add_version_attribute
     @items.each do |item|

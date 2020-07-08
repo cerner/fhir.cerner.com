@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 
 class RedirectGenerator
@@ -10,11 +12,11 @@ class RedirectGenerator
       to_url = redirect_item[1][:url]
       deprecated = redirect_item[1][:deprecated]
 
-      redirect = {:url => to_url, :deprecated => deprecated} 
-      
+      redirect = {url: to_url, deprecated: deprecated}
+
       items.create(
         from_url.include?('/r4/') ? r4_redirect_template.result(binding) : dstu2_redirect_template.result(binding),
-        {:redirect => true, :redirect_to => to_url, :title => 'Redirecting', :layout => 'overview'},
+        {redirect: true, redirect_to: to_url, title: 'Redirecting', layout: 'overview'},
         from_url
       )
     end
