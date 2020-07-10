@@ -161,24 +161,22 @@ _Implementation Notes_
 
 <%= headers status: 201 %>
 <pre class="terminal">
-    Date → Tue, 28 Feb 2017 21:26:37 GMT
-    Cache-Control → no-cache
-    Vary → Origin,User-Agent,Accept-Encoding
-    Strict-Transport-Security → max-age=631152000
-    Server-Response-Time → 9272.410216999999
-    X-Xss-Protection → 1; mode=block
-    Pragma → no-cache
-    X-Request-Id → 78a19072002b8651623351cfedaffe70
-    Etag → W/"6809861"
-    X-Frame-Options → SAMEORIGIN
-    X-Runtime → 9.272318
-    X-Content-Type-Options → nosniff
-    Expires → Mon, 01 Jan 1990 00:00:00 GMT
-    Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
-    Location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p6809861
-    Status → 201 Created
-    Content-Length → 0
-    Content-Type → application/json
+Date: Tue, 28 Feb 2017 21:26:37 GMT
+Cache-Control: no-cache
+Vary: Origin,User-Agent,Accept-Encoding
+Strict-Transport-Security: max-age=631152000
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+X-Request-Id: 78a19072002b8651623351cfedaffe70
+Etag: W/"6809861"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Tue, 28 Feb 2017 21:26:44 GMT
+Location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p6809861
+Status: 201 Created
+Content-Length: 0
+Content-Type: application/json
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -198,6 +196,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 <%= headers status: 201 %>
 <pre class="terminal">
+<<<<<<< HEAD
     Date → Tue, 28 Feb 2017 21:30:28 GMT
     Cache-Control → no-cache
     Vary → Origin,User-Agent,Accept-Encoding
@@ -216,6 +215,24 @@ The `ETag` response header indicates the current `If-Match` version to use on su
     Status → 201 Created
     Content-Length → 0
     Content-Type → application/json
+=======
+Date: Tue, 28 Feb 2017 21:30:28 GMT
+Cache-Control: no-cache
+Vary: Origin,User-Agent,Accept-Encoding
+Strict-Transport-Security: max-age=631152000
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+X-Request-Id: 1b0d589dde95bcafcefd3a1965b5cadf
+Etag: W/"36474555"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Tue, 28 Feb 2017 21:30:28 GMT
+Location: https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d36474555
+Status: 201 Created
+Content-Length: 0
+Content-Type: application/json
+>>>>>>> ee8b9b0... Remove non-purposefully added response headers, standardize response header formatting. Fixes #397
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -269,23 +286,21 @@ Notes:
 
 <%= headers status: 200 %>
 <pre class="terminal">
-    Date → Wed, 01 Mar 2017 15:42:52 GMT
-    Cache-Control → no-cache
-    Vary → Origin,User-Agent,Accept-Encoding
-    Strict-Transport-Security → max-age=631152000
-    Server-Response-Time → 1227.508429
-    X-Xss-Protection → 1; mode=block
-    Pragma → no-cache
-    X-Request-Id → c58a2925586fa64a89568b9ceac14475
-    Etag → W/"43538555"
-    X-Frame-Options → SAMEORIGIN
-    X-Runtime → 1.227476
-    X-Content-Type-Options → nosniff
-    Expires → Mon, 01 Jan 1990 00:00:00 GMT
-    Last-Modified → Wed, 01 Mar 2017 15:42:52 GMT
-    Status → 200 OK
-    Content-Length → 0
-    Content-Type → application/json
+Date: Wed, 01 Mar 2017 15:42:52 GMT
+Cache-Control: no-cache
+Vary: Origin,User-Agent,Accept-Encoding
+Strict-Transport-Security: max-age=631152000
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+X-Request-Id: c58a2925586fa64a89568b9ceac14475
+Etag: W/"43538555"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Wed, 01 Mar 2017 15:42:52 GMT
+Status: 200 OK
+Content-Length: 0
+Content-Type: application/json
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

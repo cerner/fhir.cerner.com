@@ -202,11 +202,9 @@ Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"12793861"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p12793861
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
-Server-Response-Time: 296.405243
 Status: 201 Created
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
-X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
@@ -255,17 +253,15 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <pre class="terminal">
-    Cache-Control: no-cache
-    Content-Length: 0
-    Content-Type: text/html
-    Date: Tue, 20 Aug 2019 21:17:04 GMT
-    Etag: W/"12809861"
-    Last-Modified: TTue, 20 Aug 2019 21:17:04 GMT
-    Server-Response-Time: 777.661584
-    Status: 200 OK
-    Vary: Origin
-    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-    X-Runtime: 0.777583
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 20 Aug 2019 21:17:04 GMT
+Etag: W/"12809861"
+Last-Modified: TTue, 20 Aug 2019 21:17:04 GMT
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.

@@ -173,27 +173,25 @@ _Implementation Notes_
 
 <%= headers status: 201 %>
 <pre class="terminal">
-   Connection → Keep-Alive
-   Content-Encoding → gzip
-   Content-Length → 20
-   Content-Type → text/html; charset=UTF-8
-   Date → Wed, 06 Jan 2016 18:09:18 GMT
-   Keep-Alive → timeout=15, max=100
-   Status → 201 Created
-   access-control-allow-methods → DELETE, GET, POST, PUT, OPTIONS, HEAD
-   access-control-allow-origin → *
-   access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
-   access-control-max-age → 0
-   cache-control → no-cache
-   location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/5789254
-   server-response-time → 5497.564885
-   strict-transport-security → max-age=631152000
-   vary → Origin,User-Agent,Accept-Encoding
-   x-content-type-options → nosniff
-   x-frame-options → SAMEORIGIN
-   x-request-id → 9c7510c0-0bb5-4148-b37e-51a774c4091b
-   x-runtime → 5.497541
-   x-xss-protection → 1; mode=block
+Connection: Keep-Alive
+Content-Encoding: gzip
+Content-Length: 20
+Content-Type: text/html; charset=UTF-8
+Date: Wed, 06 Jan 2016 18:09:18 GMT
+Keep-Alive: timeout=15, max=100
+Status: 201 Created
+access-control-allow-methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+access-control-allow-origin: *
+access-control-expose-headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
+access-control-max-age: 0
+cache-control: no-cache
+location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/5789254
+strict-transport-security: max-age=631152000
+vary: Origin,User-Agent,Accept-Encoding
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-request-id: 9c7510c0-0bb5-4148-b37e-51a774c4091b
+x-xss-protection: 1; mode=block
 </pre>
 
 <%= disclaimer %>
