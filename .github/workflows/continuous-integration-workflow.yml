@@ -17,17 +17,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout repo.
+    - name: Checkout repo
       uses: actions/checkout@v2
 
+      # Installs version mentioned in .ruby-version file
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
 
     - name: Install Gems
       run: bundle install
 
-    - name: Run tests
+    - name: Run Tests
       run: rspec
 
-    - name: Run rubocop
+    - name: Run Rubocop
       run: rubocop
