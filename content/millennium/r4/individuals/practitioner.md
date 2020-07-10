@@ -151,7 +151,6 @@ Date: Mon, 09 Dec 2019 18:57:39 GMT
 Etag: W/"0"
 Last-Modified: Mon, 09 Dec 2019 18:57:39 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/7118008
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
 </pre>

@@ -176,7 +176,6 @@ X-Content-Type-Options: nosniff
 Expires: Mon, 01 Jan 1990 00:00:00 GMT
 Last-Modified: Tue, 28 Feb 2017 21:03:00 GMT
 Location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/6167733
-Status: 201 Created
 Content-Length: 0
 Content-Type: application/json
 </pre>
@@ -229,21 +228,20 @@ Notes:
 
 <%= headers status: 200 %>
 <pre class="terminal">
-Date:  Tue, 28 Feb 2017 21:19:18 GMT
-Cache-Control:  no-cache
-Vary:  Origin,User-Agent,Accept-Encoding
-Strict-Transport-Security:  max-age=631152000
-X-Xss-Protection:  1; mode=block
-Pragma:  no-cache
-X-Request-Id:  d30766e5445f973b32efa9ec516cb5db
-Etag:  W/"6167741"
-X-Frame-Options:  SAMEORIGIN
-X-Content-Type-Options:  nosniff
-Expires:  Mon, 01 Jan 1990 00:00:00 GMT
-Last-Modified:  Tue, 28 Feb 2017 21:03:00 GMT
-Status:  200 OK
-Content-Length:  0
-Content-Type:  application/json
+Date: Tue, 28 Feb 2017 21:19:18 GMT
+Cache-Control: no-cache
+Vary: Origin,User-Agent,Accept-Encoding
+Strict-Transport-Security: max-age=631152000
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+X-Request-Id: d30766e5445f973b32efa9ec516cb5db
+Etag: W/"6167741"
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Expires: Mon, 01 Jan 1990 00:00:00 GMT
+Last-Modified: Tue, 28 Feb 2017 21:03:00 GMT
+Content-Length: 0
+Content-Type: application/json
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

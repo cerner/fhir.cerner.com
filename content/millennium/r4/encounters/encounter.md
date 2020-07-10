@@ -210,7 +210,6 @@ Date: Wed, 27 Mar 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1621910
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>
@@ -265,7 +264,6 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </pre>

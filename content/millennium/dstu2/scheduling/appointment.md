@@ -182,7 +182,6 @@ Content-Type: text/html; charset=UTF-8
 Date: Wed, 13 Jan 2016 21:45:47 GMT
 Keep-Alive: timeout=15, max=100
 Last-Modified: Tue, 15 Dec 2015 19:13:20 GMT
-Status: 201 Created
 access-control-allow-methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
 access-control-allow-origin: *
 access-control-expose-headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
@@ -252,7 +251,6 @@ Content-Type: text/html; charset=UTF-8
 Date: Wed, 13 Jan 2016 21:50:53 GMT
 Keep-Alive: timeout=15, max=100
 Last-Modified: Tue, 15 Dec 2015 19:13:20 GMT
-Status: 200 OK
 access-control-allow-methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
 access-control-allow-origin: *
 access-control-expose-headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date

@@ -179,7 +179,6 @@ Content-Length: 20
 Content-Type: text/html; charset=UTF-8
 Date: Wed, 06 Jan 2016 18:09:18 GMT
 Keep-Alive: timeout=15, max=100
-Status: 201 Created
 access-control-allow-methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
 access-control-allow-origin: *
 access-control-expose-headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date

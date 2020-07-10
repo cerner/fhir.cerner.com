@@ -219,7 +219,6 @@ X-Content-Type-Options: nosniff
 Expires: Mon, 01 Jan 1990 00:00:00 GMT
 Last-Modified: Tue, 27 Feb 2018 16:48:00 GMT
 Location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/4842008
-Status: 201 Created
 Content-Length: 0
 Content-Type: application/json
 </pre>

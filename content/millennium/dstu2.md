@@ -24,7 +24,6 @@ x-xss-protection: 1; mode=block
 x-request-id: 637dd651-6943-4d45-8e8a-0577da7640a2
 x-frame-options: SAMEORIGIN
 x-content-type-options: nosniff
-Status: 200 OK
 Content-Type: application/json+fhir; charset=utf-8
 Transfer-Encoding: chunked
 

@@ -183,7 +183,6 @@ Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"6767735"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/6767735
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
 </pre>
@@ -242,7 +241,6 @@ Content-Type: application/json
 Date: Thu, 05 Dec 2019 17:21:08 GMT
 Etag: W/"8167765"
 Last-Modified: Thu, 05 Dec 2019 17:21:08 GMT
-Status: 200 OK
 X-Request-Id: a53f6469ff29031e9197b40f526e9ca6
 Vary: Origin
 </pre>

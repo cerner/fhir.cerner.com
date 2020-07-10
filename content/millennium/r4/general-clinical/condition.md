@@ -202,7 +202,6 @@ Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"12793861"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p12793861
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
 </pre>
@@ -259,7 +258,6 @@ Content-Type: text/html
 Date: Tue, 20 Aug 2019 21:17:04 GMT
 Etag: W/"12809861"
 Last-Modified: TTue, 20 Aug 2019 21:17:04 GMT
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 </pre>
