@@ -183,7 +183,7 @@ function matchDstu2Resources(dstu2Resources, r4Resources) {
 
 /**
  * Returns the remaining R4 resources that have no DSTU2 counterpart.
- * Resources that are extended from Basic are returned in place of the Basic resource.
+ * Resources that are extended from Basic are returned from the configuration.
  * @param {array} r4Resources - The array of R4 resources from metadata.
  * @returns {array} Array of R4 resources.
  */
@@ -307,20 +307,29 @@ function sortMatchedResources(resourceArray) {
 }
 
 /**
- * Creates a td element containing the corresponding icon for an action if it is supported, or a dot if it is not.
+ * Creates a td element containing the corresponding icon and alt text for an action if it is supported.
+ * @param {string} resourceName - The name of the resource.
+ * @param {string} version - The API version of the given resource.
  * @param {bool} action - An action from the resource object.
  * @param {string} iconName - The class name of the icon to be displayed for the action.
  * @param {string} title - The title to be set for the given icon.
  * @returns {HTMLElement} - The created td.
  */
-function getActionIcon(action, iconName, title) {
+function getActionIcon(resourceName, version, action, iconName, title) {
   let tableData = document.createElement('td');
   tableData.className = 'icon';
   if (action) {
     let icon = document.createElement('i');
     icon.title = title;
     icon.className = iconName;
+    icon.setAttribute('aria-hidden','true');
+
+    let altText = document.createElement('span');
+    altText.className = 'hide';
+    altText.innerText = `${resourceName} ${title} is supported by ${version}.`;
+
     tableData.appendChild(icon);
+    tableData.appendChild(altText);
   }
   else {
     tableData.appendChild(document.createTextNode(''));
@@ -331,9 +340,10 @@ function getActionIcon(action, iconName, title) {
 /**
  * Creates an array of all the td elements for the actions of a given resource.
  * @param {object} resource - The resource object containing its supported actions.
+ * @param {string} version - The API version of the given resource.
  * @returns {array} Array of the td elements.
  */
-function getSupportedActions(resource) {
+function getSupportedActions(resource, version) {
   let supportedActions = [];
   let icons = {
     read: 'octicon octicon-file-text',
@@ -345,12 +355,12 @@ function getSupportedActions(resource) {
   }
 
   // Build a td for each action and icon and add it to the array.
-  supportedActions.push(getActionIcon(resource.readSupported, icons.read, 'read'));
-  supportedActions.push(getActionIcon(resource.searchSupported, icons.search, 'search'));
-  supportedActions.push(getActionIcon(resource.createSupported, icons.create, 'create'));
-  supportedActions.push(getActionIcon(resource.updateSupported, icons.update, 'update'));
-  supportedActions.push(getActionIcon(resource.patchSupported, icons.patch, 'patch'));
-  supportedActions.push(getActionIcon(resource.deleteSupported, icons.delete, 'delete'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.readSupported, icons.read, 'read'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.searchSupported, icons.search, 'search'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.createSupported, icons.create, 'create'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.updateSupported, icons.update, 'update'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.patchSupported, icons.patch, 'patch'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.deleteSupported, icons.delete, 'delete'));
 
   return supportedActions;
 }
@@ -359,11 +369,12 @@ function getSupportedActions(resource) {
  * Creates an array of a resource's td elements spanned to the specified rowspan.
  * If notes are supplied, a span element containing the notes is added after the resource's name.
  * @param {object} resource - The resource object.
+ * @param {string} version - The API version of the given resource.
  * @param {number} [rowSpan = 1] - The number of rows the data should span.
  * @param {string} [notes = null] - Notes to be displayed on the resource in the table.
  * @returns {array} The resource's td elements.
  */
-function createResourceRow(resource, rowSpan = 1, notes = null) {
+function createResourceRow(resource, version, rowSpan = 1, notes = null) {
   let tableData = document.createElement('td');
   tableData.appendChild(document.createTextNode(resource.resourceName));
   tableData.className = 'resource-name';
@@ -377,7 +388,7 @@ function createResourceRow(resource, rowSpan = 1, notes = null) {
   }
 
   let resourceRow = [tableData];
-  let supportedActions = getSupportedActions(resource);
+  let supportedActions = getSupportedActions(resource, version);
   for (let i = 0; i < supportedActions.length; i++) {
     supportedActions[i].rowSpan = rowSpan;
     resourceRow.push(supportedActions[i]);
@@ -404,7 +415,7 @@ function spanR4WithDstu2(dstu2Resources, r4Resources, notes) {
     let tableRow = document.createElement('tr');
     tableBody.appendChild(tableRow);
 
-    let dstu2ResourceInfo = createResourceRow(dstu2Resources[i], 1, notes);
+    let dstu2ResourceInfo = createResourceRow(dstu2Resources[i], 'DSTU 2', 1, notes);
     for (let j = 0; j < dstu2ResourceInfo.length; j++) {
       tableRow.appendChild(dstu2ResourceInfo[j]);
     }
@@ -412,7 +423,7 @@ function spanR4WithDstu2(dstu2Resources, r4Resources, notes) {
 
   // Add the R4 resource to the first DSTU2 row that is created and span it
   let tableRow = tableBody.childNodes[tableBody.childNodes.length-rowSpan];
-  let r4ResourceInfo = createResourceRow(r4Resources[0], rowSpan, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', rowSpan, notes);
   for (let i = 0; i < r4ResourceInfo.length; i++) {
     tableRow.appendChild(r4ResourceInfo[i]);
   }
@@ -435,8 +446,8 @@ function spanDstu2WithR4(dstu2Resources, r4Resources, notes) {
 
   // Create the row for the DSTU2 resource and span it
   // Add the first R4 resource to this row
-  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], rowSpan, notes);
-  let r4ResourceInfo = createResourceRow(r4Resources[0], 1, notes);
+  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], 'DSTU 2', rowSpan, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', 1, notes);
   for (let i = 0; i < dstu2ResourceInfo.length; i++) {
     tableRow.appendChild(dstu2ResourceInfo[i]);
   }
@@ -449,7 +460,7 @@ function spanDstu2WithR4(dstu2Resources, r4Resources, notes) {
     let tableRow = document.createElement('tr');
     tableBody.appendChild(tableRow);
 
-    let r4ResourceInfo = createResourceRow(r4Resources[i], 1, notes);
+    let r4ResourceInfo = createResourceRow(r4Resources[i], 'R4', 1, notes);
     for (let j = 0; j < r4ResourceInfo.length; j++) {
       tableRow.appendChild(r4ResourceInfo[j]);
     }
@@ -469,8 +480,8 @@ function alignSingleResources(dstu2Resources, r4Resources, notes) {
   let tableRow = document.createElement('tr');
   tableBody.appendChild(tableRow);
 
-  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], 1, notes);
-  let r4ResourceInfo = createResourceRow(r4Resources[0], 1, notes);
+  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], 'DSTU 2', 1, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', 1, notes);
   for (let i = 0; i < dstu2ResourceInfo.length; i++) {
     tableRow.appendChild(dstu2ResourceInfo[i]);
   }
@@ -521,7 +532,7 @@ function generateTable(resourcesObject) {
         let tableRow = document.createElement('tr');
         tableBody.appendChild(tableRow);
 
-        let dstu2ResourceInfo = createResourceRow(dstu2Resource);
+        let dstu2ResourceInfo = createResourceRow(dstu2Resource, 'DSTU 2');
         for (let j = 0; j < dstu2ResourceInfo.length; j++) {
           tableRow.appendChild(dstu2ResourceInfo[j]);
         }
@@ -545,7 +556,7 @@ function generateTable(resourcesObject) {
       emptyRow.colSpan = 7;
       tableRow.appendChild(emptyRow);
 
-      let r4ResourceInfo = createResourceRow(r4Resource, 1, notes)
+      let r4ResourceInfo = createResourceRow(r4Resource, 'R4', 1, notes)
       for (let k = 0; k < r4ResourceInfo.length; k++) {
         tableRow.appendChild(r4ResourceInfo[k]);
       }
