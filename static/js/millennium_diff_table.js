@@ -205,9 +205,7 @@ function getUnmatchedResources(r4Resources) {
           });
         }
       }
-      else {
-        resources.push({ r4Resources: [buildResource(currentResource)] });
-      }
+      resources.push({ r4Resources: [buildResource(currentResource)] });
     }
   }
 
