@@ -1551,12 +1551,12 @@ pre span.comment {color: #aaa;}
 }
 
 #millennium-diff-table tbody:nth-child(odd) {
-  background: #f9f9f9;
+  background: #f5faff;
 }
 
 #millennium-diff-table tbody:hover td[rowspan], 
 #millennium-diff-table tr:hover td {
-   background: #f2f2f2; 
+   background: #ebf6fd;
 }
 
 #table-key {
