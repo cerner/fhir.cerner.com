@@ -323,7 +323,7 @@ function getActionIcon(action, iconName, title) {
     tableData.appendChild(icon);
   }
   else {
-    tableData.appendChild(document.createTextNode('·'));
+    tableData.appendChild(document.createTextNode(''));
   }
   return tableData;
 }
@@ -340,7 +340,7 @@ function getSupportedActions(resource) {
     search: 'octicon octicon-search',
     create: 'octicon octicon-plus',
     update: 'octicon octicon-pencil',
-    patch: 'octicon octicon-tools',
+    patch: 'octicon octicon-diff',
     delete: 'octicon octicon-trashcan'
   }
 
