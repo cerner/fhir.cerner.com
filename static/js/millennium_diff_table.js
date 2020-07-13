@@ -66,40 +66,15 @@ function getConfiguration(resourceName) {
 function buildResource(resourceObject) {
   let supportedActions = resourceObject.interaction;
 
-  let newResource = {
+  return {
     resourceName: resourceObject.type,
-    readSupported: false,
-    searchSupported: false,
-    createSupported: false,
-    updateSupported: false,
-    patchSupported: false,
-    deleteSupported: false
+    readSupported: supportedActions.filter(action => action.code == "read").length > 0,
+    searchSupported: supportedActions.filter(action => action.code == "search-type").length > 0,
+    createSupported: supportedActions.filter(action => action.code == "create").length > 0,
+    updateSupported: supportedActions.filter(action => action.code == "update").length > 0,
+    patchSupported: supportedActions.filter(action => action.code == "patch").length > 0,
+    deleteSupported: supportedActions.filter(action => action.code == "delete").length > 0
   };
-
-  for (let i = 0; i < supportedActions.length; i++) {
-    switch (supportedActions[i].code) {
-      case "read":
-        newResource.readSupported = true;
-        break;
-      case "search-type":
-        newResource.searchSupported = true;
-        break;
-      case "create":
-        newResource.createSupported = true;
-        break;
-      case "update":
-        newResource.updateSupported = true;
-        break;
-      case "patch":
-        newResource.patchSupported = true;
-        break;
-      case "delete":
-        newResource.deleteSupported = true;
-        break;
-    }
-  }
-
-  return newResource;
 }
 
 /**
