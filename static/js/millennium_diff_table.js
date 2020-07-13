@@ -5,22 +5,22 @@ const capabilityStatementURL = 'https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e
 const capabilityStatementHeaders = { Accept: 'application/fhir+json' };
 
 // Configuration for resources that have been altered from DSTU2 to R4, or extended from Basic
-const resourceConfig = ({
+const resourceConfig = {
   combinedResources: [
     {
       dstu2Resources: ["Conformance"],
       r4Resources: ["CapabilityStatement"],
-      notes: "The Conformance resource was renamed to CapabilityStatement in R4."
+      notes: "The DSTU 2 Conformance resource was renamed to CapabilityStatement in R4."
     },
     {
       dstu2Resources: ["MedicationOrder", "MedicationStatement"],
       r4Resources: ["MedicationRequest"],
-      notes: "Our implementations of the MedicationOrder and MedicationStatement resources have been implemented into MedicationRequest in R4."
+      notes: "Cerner's DSTU 2 implementations of MedicationOrder and MedicationStatement were shifted to MedicationRequest in R4."
     },
     {
       dstu2Resources: ["ProcedureRequest"],
       r4Resources: ["ServiceRequest"],
-      notes: "The ProcedureRequest resource was renamed to ServiceRequest in R4."
+      notes: "The DSTU 2 ProcedureRequest resource was renamed to ServiceRequest in R4."
     }
   ],
   basicResources: [
@@ -31,10 +31,10 @@ const resourceConfig = ({
           code: "create"
         }
     ],
-    notes: "FinancialTransaction is a custom resource implemented through the Basic resource."
+    notes: "FinancialTransaction is a custom resource implemented via extensions on the Basic resource."
     }
   ]
-});
+};
 
 /**
  * Retreives the configuration for a specific resource by its name.
