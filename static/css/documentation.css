@@ -1564,12 +1564,11 @@ pre span.comment {color: #aaa;}
 }
 
 #table-failure-message {
-  padding: 15px;
+  padding: 12px;
   border: 1px solid transparent;
   border-radius: 4px;
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+  background-color: #FFF9E6;
+  border-color: #FFE79D;
 }
 
 .hide {
