@@ -1564,16 +1564,16 @@ the entries directly by id. They will not be returned when searching with other 
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
+  <li>At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
     <ul>
-      <li> Must contain only an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled. </li>
+      <li>Must contain only an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled.</li>
     </ul>
   </li>
-  <li> Subsequent identifiers may be provided, but have the following constraints:
+  <li>Subsequent identifiers may be provided, but have the following constraints:
     <ul>
-      <li> Must not contain the <code>assigner</code> and <code>use</code> fields. </li>
-      <li> Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
-      <li> When specifying a <code>period</code>, must include a time component with a timezone. </li>
+      <li>Must not contain the <code>assigner</code> and <code>use</code> fields.</li>
+      <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
+      <li>When specifying a <code>period</code>, must include a time component with a timezone.</li>
     </ul>
   </li>
 </ul>
@@ -1672,19 +1672,21 @@ the entries directly by id. They will not be returned when searching with other 
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> At least one name <b>must</b> be provided. The provided name must meet the following conditions:
+  <li>At least one name <b>must</b> be provided. The provided name must meet the following conditions:
     <ul>
-      <li> Must have a <code>use</code> of 'official'. </li>
-      <li> Must not have an <code>end</code> date on <code>period</code>, or must not include <code>period</code>. </li>
-      <li> Must include both <code>given</code> and <code>family</code>. </li>
+      <li>Must have a <code>use</code> of 'official'.</li>
+      <li>Must not have an <code>end</code> date on <code>period</code>, or must not include <code>period</code>.</li>
+      <li>Must include both <code>given</code> and <code>family</code>.</li>
     </ul>
   </li>
-  <li> Each name must include the <code>use</code> field. </li>
-  <li> Each name must contain either the <code>given</code> or <code>family</code> fields. </li>
-  <li> Each name cannot contain the <code>text</code> field. </li>
-  <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
-  <li> Only one <code>prefix</code> and one <code>suffix</code> may be provided. </li>
-  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li>Each name must include the <code>use</code> field.</li>
+  <li>Each name must contain either the <code>given</code> or <code>family</code> fields.</li>
+  <li>Each name cannot contain the <code>text</code> field.</li>
+  <li>Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+  <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+  <li>The <code>family</code> field has a character limit of 100.</li> 
+  <li>Each value for the <code>given</code>, <code>prefix</code>, and <code>suffix</code> fields has a character limit of 100.</li>
 </ul>
 </li></ul>
       
@@ -1733,8 +1735,9 @@ the entries directly by id. They will not be returned when searching with other 
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Each telecom must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
-  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li>Each telecom must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+  <li>The <code>value</code> field has a character limit of 100.</li>
 </ul>
 </li></ul>
       
@@ -1856,9 +1859,12 @@ the entries directly by id. They will not be returned when searching with other 
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Each address must contain the <code>use</code> field. </li>
-  <li> Each address must not contain the <code>text</code> field. </li>
-  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li>Each address must contain the <code>use</code> field.</li>
+  <li>Each address must not contain the <code>text</code> field.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+  <li>Each value for the <code>line</code> field has a character limit of 100.</li>
+  <li>The <code>city</code>, <code>district</code>, <code>state</code>, and <code>country</code> fields have a character limit of 100.</li>
+  <li>The <code>postalCode</code> field has a character limit of 25.</li>
 </ul>
 </li></ul>
       
@@ -4146,6 +4152,7 @@ X-Runtime: 0.296306
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
 </h3>
         <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
           <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
           <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
