@@ -85,8 +85,10 @@ module Cerner
         hash = get_resource(key)
         hash = yield hash if block_given?
 
+        escaped_values_hash = deep_transform_values(hash)
+
         '<pre class="body-response"><code class="language-javascript">'\
-        "#{JSON.pretty_generate(hash)}</code></pre>"
+        "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
 
       def html(key)
@@ -150,6 +152,19 @@ module Cerner
       def disclaimer
         '<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not '\
         "guaranteed to yield the results shown on the site.</p>\n"
+      end
+
+      def deep_transform_values(value)
+        return value.gsub('<', '&lt;').gsub('>', '&gt;') if value.is_a?(String)
+        return value unless value.is_a?(Hash)
+
+        value.transform_values do |val|
+          if val.is_a?(Array)
+            val.map! { |array_value| deep_transform_values(array_value) }
+          else
+            deep_transform_values(val)
+          end
+        end
       end
     end
   end
