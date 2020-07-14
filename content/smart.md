@@ -92,7 +92,7 @@ If you'd like to flex your app based on the current execution context (embedded 
 
 #### Embedded in *PowerChart*? ####
 
-If I want to flex my app based on where it's being loaded, how do I programmatically determine when my app is embedded within *PowerChart*? Good question! Check out this [method](https://github.com/cerner/fhir-client-cerner-additions/blob/master/src/js/utils.js#L14) which checks for certain conditions to exist and determine if the app is loaded within PowerChart or not.
+If I want to flex my app based on where it's being loaded, how do I programmatically determine when my app is embedded within *PowerChart*? Good question! Check out this [method](https://github.com/cerner/fhir-client-cerner-additions/blob/main/src/js/utils.js#L14) which checks for certain conditions to exist and determine if the app is loaded within PowerChart or not.
 
 ### HTML5 DOCTYPE ###
 
