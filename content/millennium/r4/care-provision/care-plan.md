@@ -11,8 +11,6 @@ title: CarePlan | R4 API
 
 The R4 CarePlan resource can be used to represent care plans.
 
-### Care Plans
-
 The CarePlan resource describes the intentions of how one or more practitioners plan to deliver care to a specific patient. Care plans are used in a variety of areas and scopes ranging from encounter or visit specific to cross-visits.  Care plans are used to group activities, goals and/or practitioners to create context. Care plans are intended to be specific to the patient. It is possible for a planned activity to stand alone without a care plan such as a scheduled appointment.  
 
 The following fields are returned if valued:
