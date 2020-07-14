@@ -1,0 +1,32 @@
+---
+name: CarePlan
+field_name_base_url: http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan
+fields:
+- name: status
+  required: 'Yes'
+  binding:
+    description: >
+      Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
+    terminology:
+    - display: Request Status
+      system: http://hl7.org/fhir/request-status
+      info_link: http://hl7.org/fhir/R4/valueset-request-status.html
+- name: intent
+  required: 'Yes'
+  binding:
+    description: >
+      Codes indicating the degree of authority/intentionality associated with a care plan. Current;y "plan" is the only status binding which is supported.
+    terminology:
+    - display: Request Intent
+      system: http://hl7.org/fhir/R4/codesystem-request-intent.html
+      info_link: http://hl7.org/fhir/R4/valueset-care-plan-intent.html
+- name: category
+  required: 'No'
+  type: List of CodeableConcept
+  binding:
+    description: >
+      Identifies what "kind" of plan this is to support differentiation between multiple co-existing plans; e.g. "Home health", "psychiatric", "asthma", "disease management", etc. Currently "assess-plan" is the only category binding which is supported.
+    terminology:
+    - display: Request Category
+      system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
+      info_link: http://hl7.org/fhir/R4/valueset-care-plan-category.html
