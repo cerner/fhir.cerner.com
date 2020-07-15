@@ -1560,7 +1560,12 @@ pre span.comment {color: #aaa;}
 }
 
 #table-key {
-  margin-top: 30px;
+  margin-top: 2em;
+}
+
+#table-key > * {
+  display: inline-block;
+  margin: 0 3px;
 }
 
 #table-failure-message {
