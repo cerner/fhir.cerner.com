@@ -1309,6 +1309,44 @@ p code {
   max-width: 500px;
 }
 
+.loading-spinner {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.loading-spinner div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border: 4px solid #393d41;
+  border-radius: 50%;
+  animation: loading-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #393d41 transparent transparent transparent;
+}
+.loading-spinner div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loading-spinner div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loading-spinner div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* @end */
 
 /*------------------------------------------------------------------------------
@@ -1471,6 +1509,142 @@ pre span.comment {color: #aaa;}
 
 .program-info-column ul {
   margin-left: 15px;
+}
+
+/* @end */
+
+/*------------------------------------------------------------------------------
+    Millennium Overview Table
+------------------------------------------------------------------------------*/
+#millennium-table-div {
+  width: 980px;
+  margin-top: 40px;
+}
+
+#millennium-diff-table {
+  border-collapse: separate;
+  margin-left: -13px;
+}
+
+#millennium-diff-table .resource-name {
+  width: 150px;
+  text-align: left;
+}
+
+#millennium-diff-table .icon {
+  width: 16px;
+  padding: 6px 5px 6px 5px;
+}
+
+#millennium-diff-table thead tr th {
+  border: 0px;
+}
+
+#millennium-diff-table tr {
+  background-color: transparent;  
+}
+
+#millennium-diff-table td {
+  border: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#millennium-diff-table tbody:nth-child(odd) {
+  background: #f5faff;
+}
+
+#millennium-diff-table tbody:hover td[rowspan], 
+#millennium-diff-table tr:hover td {
+   background: #ebf6fd;
+}
+
+#table-key {
+  margin-top: 2em;
+}
+
+#table-key > * {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+#table-failure-message {
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #FFF9E6;
+  border-color: #FFE79D;
+}
+
+.hide {
+  display: none;
+}
+
+/*------------------------------
+    Overview Table Tooltip
+-------------------------------*/
+
+[data-tooltip] {
+  cursor: help;
+  position: absolute;
+  margin-left: 4px;
+  color: #4183C4;
+  z-index: 10;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 10px 18px;
+  min-width: 50px;
+  max-width: 300px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #393d41;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, -5px) scale(0.5);
+}
+
+[data-tooltip]:after {
+  content: '';
+  border-style: solid;
+  border-width: 5px 5px 0px 5px;
+  border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+  transition-duration: 0s;
+  transform: translateX(-50%) scaleY(0);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, -5px) scale(1);
+}
+
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s;
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
 }
 
 /* @end */

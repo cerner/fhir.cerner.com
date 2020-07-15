@@ -1,5 +1,10 @@
 // Init sidebar
 $(function() {
+  // Generate table when HTML element exists
+  if (document.getElementById('millennium-diff-table') != null) {
+    displayOverviewTable();
+  }
+
   // Set class 'active' for the appropriate subnav link
   var pageUrl = location.href.match(/(.+\/millennium\/[^\/]+\/)/)[0]
   $('.sub-nav li a').each(function() {
@@ -88,3 +93,26 @@ $(function() {
     }, 19 * 1000); // Let first loop run through 19 seconds
   }
 });
+
+/**
+ * Sends a GET request to the specified URL with the given parameters.
+ * @param {string} url - The URL to request from.
+ * @param {object} headers - The headers to use in the GET request.
+ * @param {bool} [cache = false] - Whether or not to cache the returned results.
+ * @param {function(response)} callback - The function called when the AJAX request has completed successfully.
+ * @param {function} onFail  - The function called when the AJAX request fails.
+ */
+function fetchData(url, headers, cache = false, callback, onFail) {
+  $.ajax({
+      type: 'GET',
+      url: url,
+      headers: headers,
+      cache: cache,
+    })
+    .done(function(response) {
+      callback(response);
+    })
+    .fail(function(e) {
+      onFail(e);
+    });
+}
