@@ -46,6 +46,10 @@ Layout/EmptyLinesAroundAttributeAccessor:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
+# Maximum line length of 120 chars
+Layout/LineLength:
+  Max: 120
+
 
 # -------------------------------------------------------- Lint --------------------------------------------------------
 
@@ -115,20 +119,14 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 10
 
-# Maximum line length of 120 chars
-Metrics/LineLength:
-  Max: 120
-
 # Avoid methods longer than 30 lines of code
 Metrics/MethodLength:
-  Exclude:
-    - 'engines/*/spec/**/*'
   Max: 30
 
 # Do not apply the module length check to spec files.
 Metrics/ModuleLength:
   Exclude:
-    - 'engines/*/spec/**/*'
+    - 'lib/resources/example_json/*.rb'
     - 'spec/**/*'
 
 # Avoid parameter lists longer than three or four parameters. Not enforced.
