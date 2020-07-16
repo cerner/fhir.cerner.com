@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.6.2'
@@ -11,8 +13,10 @@ group :development do
   gem 'adsf'
   gem 'fssm'
   gem 'guard-nanoc'
+  gem 'rubocop', '~> 0.86'
 end
 
 group :test do
   gem 'html-proofer'
+  gem 'rspec', '~> 3.9'
 end

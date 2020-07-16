@@ -1,5 +1,5 @@
+# frozen_string_literal: true
+
 def redirect
-  if @item[:redirect]
-    "<meta http-equiv=\"refresh\" content=\"5;URL=#{@item[:redirect_to]}\" />"
-  end
+  "<meta http-equiv=\"refresh\" content=\"5;URL=#{@item[:redirect_to]}\" />" if @item[:redirect]
 end

@@ -1,0 +1,254 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'lib/resources/example_json/*.rb'
+
+# ------------------------------------------------------- Layout -------------------------------------------------------
+
+# All three of these enforce that there are no empty lines before and after the body of their respective construct.
+# Bad:
+# def foo
+#
+#   bar
+#
+# end
+#
+# Good:
+# def foo
+#   bar
+# end
+# Not enforced.
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# Checks that the indentation of method names for calls that span lines is relative to what the call is made on.
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+# Checks that there is exactly one space between a method and it's first argument when parentheses are not used.
+# Not enforced.
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+# Use spaces inside hash literal braces. Not enforced.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# Use empty lines around attribute accessors.
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+# Prevents unnecessary spacing for method calls.
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+# Maximum line length of 120 chars
+Layout/LineLength:
+  Max: 120
+
+
+# -------------------------------------------------------- Lint --------------------------------------------------------
+
+# Don't use assignment in conditions. Not enforced, since this is occasionally useful.
+Lint/AssignmentInCondition:
+  Enabled: false
+Naming/MethodParameterName:
+  MinNameLength: 1
+
+# Prevents use of deprecated code.
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+# Prevents mix named captures and numbered captures in a Regexp literal.
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+# Prevents the `Exception` class from being raised.
+Lint/RaiseException:
+  Enabled: true
+
+# Prevents a created struct from being overwritten unexpectedly.
+Lint/StructNewOverride:
+  Enabled: true
+
+
+
+
+# ------------------------------------------------------- Naming -------------------------------------------------------
+
+# Ensure numbered variables use snake_case, i.e. variable_1.
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: optional
+
+# ------------------------------------------------------- Metrics ------------------------------------------------------
+
+# Counts the number of assignments, branches (including method calls), and conditions, keeps it below a maximum.
+# Not enforced.
+Metrics/AbcSize:
+  Enabled: false
+
+# Avoid blocks longer than 25 lines of code, except for RSpec's DSL
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - '**/routes.rb'
+    - '**/spec_helper.rb'
+  ExcludedMethods:
+    - after
+    - before
+    - context
+    - describe
+    - feature
+    - it
+    - let
+    - scenario
+    - shared_examples
+    - shared_examples_for
+
+# Restrict the number of lines in a class (not counting comments) to a maximum
+Metrics/ClassLength:
+  Max: 150
+
+# Avoid deep nesting
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# Avoid methods longer than 30 lines of code
+Metrics/MethodLength:
+  Max: 30
+
+# Do not apply the module length check to spec and example JSON files.
+Metrics/ModuleLength:
+  Exclude:
+    - 'lib/resources/example_json/*.rb'
+    - 'spec/**/*'
+
+# Avoid parameter lists longer than three or four parameters. Not enforced.
+Metrics/ParameterLists:
+  Enabled: false
+
+# Tries to score methods for complexity, with some special cases around case..when statements.
+# Not enforced (we use Metrics/CyclomaticComplexity instead).
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+
+# ------------------------------------------------------- Style --------------------------------------------------------
+
+# Forces the use of the shortcut %() for single-line strings with interpolation and double quotes.
+# Not enforced.
+Style/BarePercentLiterals:
+  Enabled: false
+
+# Always use {} for single line blocks and do..end for multi-line blocks
+Style/BlockDelimiters:
+  EnforcedStyle: line_count_based
+
+# There are two styles for defining class/module hierarchies
+# class Alpha
+#   class Beta
+#   end
+# end
+#
+# class Alpha::Beta
+# end
+#
+# Allow both (not enforced).
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Forces consistent use of is_a? vs kind_of?
+# Not enforced.
+Style/ClassCheck:
+  Enabled: false
+
+# Document classes and non-namespace modules. Not enforced.
+Style/Documentation:
+  Enabled: false
+
+# Disallows !!variable to convert variable to a boolean
+# Not enforced.
+Style/DoubleNegation:
+  Enabled: false
+
+# Checks that empty method definitions have 'end' on a separate line.
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Disallows guard clauses.
+# Not enforced because it conflicts with removing Style/MultilineIfModifier.
+Style/GuardClause:
+  Enabled: false
+
+# Disallows trailing comments on any line with code in it.
+# Not enforced.
+Style/InlineComment:
+  Enabled: false
+
+# Favor unless over if for negative conditions (or control flow or). Not enforced.
+Style/NegatedIf:
+  Enabled: false
+
+# Checks that the next keyword is used rather than a condition to skip the body of a loop
+# Not enforced.
+Style/Next:
+  Enabled: false
+
+# Uses slashes for single-line regexes, and %r for multiline regexes or regexes with inner slashes.
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+
+# Always use 'raise' command, never 'fail'
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+# Use symbols as procs whenever possible. Instead of
+# arr.map { |x| x.id }
+# use
+# arr.map(&:id)
+# Not enforced.
+Style/SymbolProc:
+  Enabled: false
+
+# Use %w or %W for arrays of words. Not enforced.
+Style/WordArray:
+  Enabled: false
+  EnforcedStyle: percent
+
+# Enforces scientific exponential notation formatting.
+Style/ExponentialNotation:
+  Enabled: true
+
+# Forces `each_keys` and `each_values` to be used for hashes rather than:
+#   hash.keys.each { |k| p k }
+#   hash.values.each { |v| p v }
+Style/HashEachMethods:
+  Enabled: true
+
+# Ensures that `transform_keys` or `transform_values` is used rather than `each_with_object` or `map` for hashes.
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
+# Ensures the `fetch` method is not provided an unnecessary block when a method call will suffice.
+Style/RedundantFetchBlock:
+  Enabled: true
+
+# Checks for unnecessary single-element Regexp character classes.
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+# Checks for redundant escapes inside Regexp literals.
+Style/RedundantRegexpEscape:
+  Enabled: true
+
+# Checks that arrays are sliced with endless ranges instead of ary[start..-1]
+Style/SlicingWithRange:
+  Enabled: true
