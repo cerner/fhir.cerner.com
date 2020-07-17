@@ -1,6 +1,6 @@
 ---
   name: NutritionOrder
-  field_name_base_url: https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder
+  field_name_base_url: https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder
   fields:
   - name: status
     required: 'Yes'
@@ -11,7 +11,7 @@
       terminology:
       - display: Request Status
         system: http://hl7.org/fhir/request-status
-        info_link: https://www.hl7.org/fhir/valueset-request-status.html
+        info_link: https://www.hl7.org/fhir/r4/valueset-request-status.html
   - name: intent
     required: 'Yes'
     type: code
@@ -21,7 +21,7 @@
       terminology:
       - display: Request Intent
         system: http://hl7.org/fhir/request-intent
-        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
+        info_link: https://www.hl7.org/fhir/r4/valueset-request-intent.html
   - name: foodPreferenceModifier
     required: 'No'
     type: List of CodeableConcept
@@ -45,7 +45,7 @@
       - display: SNOMED CT
         system: http://snomed.info/sct
         info_link: http://hl7.org/fhir/r4/snomedct.html
-  - name: oralDiet.schedule.code
+  - name: oralDiet.schedule
     required: 'No'
     type: CodeableConcept
     description: A code for the timing schedule.

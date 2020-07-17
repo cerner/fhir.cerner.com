@@ -1,6 +1,6 @@
 ---
   name: ServiceRequest
-  field_name_base_url: https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest
+  field_name_base_url: https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest
   fields:
   - name: status
     required: 'Yes'
@@ -21,7 +21,7 @@
       terminology:
       - display: Request Intent
         system: http://hl7.org/fhir/request-intent
-        info_link: https://www.hl7.org/fhir/valueset-request-intent.html
+        info_link: https://www.hl7.org/fhir/r4/valueset-request-intent.html
   - name: category
     required: 'No'
     type:  List of CodeableConcept
@@ -31,7 +31,7 @@
       terminology:
       - display: Millennium Catalog Types
         system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/6000
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6000-catalog-types
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-6000-catalog-type
   - name: priority
     required: 'Yes'
     type: code
@@ -52,6 +52,9 @@
       - display: SNOMED CT
         system: http://snomed.info/sct
         info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: Millennium Order Catalog
+        system: https://fhir.cerner.com/&lt;EHRsourceid&gt;/codeSet/200
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-200-order-catalog
   - name: occurrence.timing
     required: 'No'
     type: CodeableConcept

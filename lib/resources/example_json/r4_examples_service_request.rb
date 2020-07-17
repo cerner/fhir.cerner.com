@@ -42,6 +42,11 @@ module Cerner
         "priority": "routine",
         "code": {
           "coding": [{
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/200",
+            "code": "3976772",
+            "userSelected": true
+          },
+          {
             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
             "code": "854986",
             "display": "Perindopril Erbumine 2 MG Oral Tablet [Aceon]",
