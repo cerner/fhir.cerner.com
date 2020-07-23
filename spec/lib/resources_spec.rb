@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+provider# frozen_string_literal: true
 
 require 'resources'
 
@@ -467,8 +467,8 @@ describe Cerner::Resources::Helpers do
   end
 
   describe '#authorization_types' do
-    let(:practitioner_link) do
-      '<a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a>'
+    let(:provider_link) do
+      '<a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a>'
     end
     let(:patient_link) do
       '<a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a>'
@@ -480,23 +480,23 @@ describe Cerner::Resources::Helpers do
 
     let(:expected_div) { "<div class=\"auth-types\">#{returned_links}</div>" }
 
-    context 'when the practitioner, patient, and system parameters are not provided' do
+    context 'when the provider, patient, and system parameters are not provided' do
       subject(:authorization_types) { Cerner::Resources::Helpers.authorization_types }
 
-      let(:returned_links) { practitioner_link }
+      let(:returned_links) { provider_link }
 
-      it 'returns the "Practitioner" authorization link' do
+      it 'returns the "Provider" authorization link' do
         expect(authorization_types).to eq(expected_div)
       end
     end
 
-    context 'when the practitioner, patient, and system parameters are provided' do
+    context 'when the provider, patient, and system parameters are provided' do
       subject(:authorization_types) do
-        Cerner::Resources::Helpers.authorization_types(practitioner: practitioner, patient: patient, system: system)
+        Cerner::Resources::Helpers.authorization_types(provider: provider, patient: patient, system: system)
       end
 
-      context 'when practitioner is false' do
-        let(:practitioner) { false }
+      context 'when provider is false' do
+        let(:provider) { false }
 
         context 'when patient is false' do
           let(:patient) { false }
@@ -545,17 +545,17 @@ describe Cerner::Resources::Helpers do
         end
       end
 
-      context 'when practitioner is true' do
-        let(:practitioner) { true }
+      context 'when provider is true' do
+        let(:provider) { true }
 
         context 'when patient is false' do
           let(:patient) { false }
 
           context 'when system is false' do
             let(:system) { false }
-            let(:returned_links) { practitioner_link }
+            let(:returned_links) { provider_link }
 
-            it 'returns the "Practitioner" authorization link' do
+            it 'returns the "Provider" authorization link' do
               expect(authorization_types).to eq(expected_div)
             end
           end
@@ -563,9 +563,9 @@ describe Cerner::Resources::Helpers do
           context 'when system is true' do
             let(:system) { true }
 
-            let(:returned_links) { "#{practitioner_link}#{divider}#{system_link}" }
+            let(:returned_links) { "#{provider_link}#{divider}#{system_link}" }
 
-            it 'returns the "Practitioner" and "System" authorization links with a divider' do
+            it 'returns the "Provider" and "System" authorization links with a divider' do
               expect(authorization_types).to eq(expected_div)
             end
           end
@@ -576,7 +576,7 @@ describe Cerner::Resources::Helpers do
 
           context 'when system is false' do
             let(:system) { false }
-            let(:returned_links) { "#{practitioner_link}#{divider}#{patient_link}" }
+            let(:returned_links) { "#{provider_link}#{divider}#{patient_link}" }
 
             it 'returns the "Provider" and "Patient" authorization links with a divider' do
               expect(authorization_types).to eq(expected_div)
@@ -586,7 +586,7 @@ describe Cerner::Resources::Helpers do
           context 'when system is true' do
             let(:system) { true }
 
-            let(:returned_links) { "#{practitioner_link}#{divider}#{patient_link}#{divider}#{system_link}" }
+            let(:returned_links) { "#{provider_link}#{divider}#{patient_link}#{divider}#{system_link}" }
 
             it 'returns the "Provider", "Patient", and "System" authorization links with dividers' do
               expect(authorization_types).to eq(expected_div)

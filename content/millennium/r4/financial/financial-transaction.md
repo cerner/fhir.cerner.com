@@ -60,7 +60,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: false, patient: false, system: true) %>
+<%= authorization_types(provider: false, patient: false, system: true) %>
 
 ### Headers
 
