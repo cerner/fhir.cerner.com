@@ -737,6 +737,7 @@ The Account Resource supports proprietary systems for:
 The MedicationRequest Resource supports proprietary systems for:
 
 * MedicationRequest.category is [Medication Request Category](#medication-request-category) for medication requests.
+* MedicationRequest.medication[x] is [Medication Request Synonym](#medication-request-synonym) for medication requests.
 
 ### List of Systems
 
@@ -758,4 +759,15 @@ This system is the category and is only for a pharmacy charge-only order. The co
       "system": "https://fhir.cerner.com/medicationrequest-category",
       "code": "charge-only",
       "display": "Charge-Only"
+    }
+
+##### Medication Request Synonym
+
+This system is the synonym id for a order and the ingredients.
+
+    {
+      "system": "https://fhir.cerner.com/<Ehr source id>/synonym",
+      "code": "2762111",
+      "display": "lidocaine topical",
+      "userSelected": true
     }

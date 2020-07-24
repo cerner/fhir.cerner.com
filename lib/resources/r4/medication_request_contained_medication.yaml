@@ -25,3 +25,6 @@ fields:
     - display: Millennium Drug Form
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4002
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4002-form
+    - display: Millennium Synonym
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/Synonym
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-synonym

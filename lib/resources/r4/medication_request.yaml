@@ -77,6 +77,9 @@ fields:
     - display: Cerner Medication Request Category for Pharmacy Charge-only orders
       system: https://fhir.cerner.com/medicationrequest-category
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-category
+    - display: Cerner Medication Request Synonym's for orders
+      system: https://fhir.cerner.com/synonym
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-synonym
 - name: priority
   required: 'No'
   type: code
@@ -120,6 +123,12 @@ fields:
           {
             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
             "code": "352362"
+          },
+          {
+            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/synonym",
+            "code": "2749131",
+            "display": "amoxapine",
+            "userSelected": true
           }
         ],
         "text": "Acetaminophen"
