@@ -5,7 +5,7 @@ module Cerner
 
     # TODO: All; Missing mappings
     R4_SERVICE_REQUEST ||= {
-      'fullUrl': 'https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest/41636441',
+      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/41636441',
       'resource': {
         'resourceType': 'ServiceRequest',
         'id': '41636441',
@@ -15,7 +15,7 @@ module Cerner
         },
         'text': {
           'status': 'generated',
-          'div': '&lt;div xmlns='http://www.w3.org/1999/xhtml'>&lt;p>&lt;b>Service Request&lt;/b>&lt;/p>'\
+          'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Service Request&lt;/b>&lt;/p>'\
                  '&lt;p>&lt;b>Patient&lt;/b>: Lagunov, Sameera&lt;/p>'\
                  '&lt;p>&lt;b>Code&lt;/b>: Resuscitation Status&lt;/p>'\
                  '&lt;p>&lt;b>Occurrence&lt;/b>: Mar 24, 2020 7:05 P.M. CDT&lt;/p>&lt;p>&lt;b>Quantity&lt;/b>: 3.0 '\
@@ -32,7 +32,7 @@ module Cerner
         'intent': 'order',
         'category': [{
           'coding': [{
-            'system': 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/6000',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6000',
             'code': '2515',
             'display': 'Patient Care',
             'userSelected': true
@@ -46,16 +46,16 @@ module Cerner
         'priority': 'routine',
         'code': {
           'coding': [{
-            'system': 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/200',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/200',
             'code': '3976772',
             'userSelected': true
           },
-          {
-            'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
-            'code': '854986',
-            'display': 'Perindopril Erbumine 2 MG Oral Tablet [Aceon]',
-            'userSelected': false
-          }],
+                     {
+                       'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
+                       'code': '854986',
+                       'display': 'Perindopril Erbumine 2 MG Oral Tablet [Aceon]',
+                       'userSelected': false
+                     }],
           'text': 'Resuscitation Status'
         },
         'orderDetail': [
@@ -77,7 +77,7 @@ module Cerner
         'asNeededCodeableConcept': {
           'coding': [
             {
-              'system': 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4005',
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4005',
               'code': '664912',
               'display': 'inflammation',
               'userSelected': true
@@ -120,7 +120,7 @@ module Cerner
           {
             'coding': [
               {
-                'system': 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/1028',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/1028',
                 'code': '309344',
                 'display': 'Arm L',
                 'userSelected': true
@@ -154,7 +154,7 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest'\
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest'\
                  '?patient=1316020'
         }
       ],

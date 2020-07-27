@@ -64,7 +64,7 @@ Notes:
   - When provided, `_count` is ignored.
 
 - The `date` parameter
-  - When provided, must use both `ge` and `le` prefixes in the same search 
+  - When provided, must use both `ge` and `le` prefixes in the same search
     - The lower value must have the `ge` prefix and the higher value must have the `le` prefix
     - If date precision must be consistent
   - May be combined with the patient and category parameters.
@@ -85,7 +85,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316020&category=assess-plan
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?patient=1316020&category=assess-plan
 
 #### Response
 
@@ -116,7 +116,7 @@ List an individual CarePlan by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/17463459
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/17463459
 
 #### Response
 

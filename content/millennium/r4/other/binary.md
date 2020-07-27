@@ -59,6 +59,8 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 <%= headers status: 200 %>
 <%= json(:r4_binary_entry) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
