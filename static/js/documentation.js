@@ -6,7 +6,7 @@ $(function() {
   }
 
   // Set class 'active' for the appropriate subnav link
-  var pageUrl = location.href.match(/(.+\/((millennium)|(soarian))\/[^\/]+\/)/)[0]
+  var pageUrl = location.href.match(/(.+\/((millennium)|(soarian))\/[^\/]+\/)/)[0];
   $('.sub-nav li a').each(function() {
     $(this).toggleClass('active', this.href === pageUrl);
   });
@@ -83,23 +83,27 @@ $(function() {
 
   // Toggle between expanding and collapsing all categories
   $('.expand-all a').click(function() {
-    $(this).text() == '+ Expand All' ? $(this).text('- Collapse All') : $(this).text('+ Expand All')
+    $(this).text() == '+ Expand All' ? $(this).text('- Collapse All') : $(this).text('+ Expand All');
     $('.js-toggle-list .js-topic').each(function() {
-      var li = $(this).find('.js-guides li')
-      if($('.expand-all a').text() == '- Collapse All') {
-        if(li.css('display') == 'none') {
-          $(this).find('.js-expand-btn').toggleClass('collapsed expanded')
+      var expandButton = $(this).find('.js-expand-btn');
+      var li = $(this).find('.js-guides li');
+
+      if ($('.expand-all a').text() == '- Collapse All') {
+        if (expandButton.hasClass('collapsed')) {
+          expandButton.toggleClass('collapsed expanded');
           li.slideToggle(100);
         }
       }
       else {
-        if(li.css('display') != 'none') {
-          $(this).find('.js-expand-btn').toggleClass('collapsed expanded')
+        if (expandButton.hasClass('expanded')) {
+          expandButton.toggleClass('collapsed expanded');
           li.slideToggle(100);
         }
       }
-    })
-  })
+    });
+
+    return false;
+  });
 
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
