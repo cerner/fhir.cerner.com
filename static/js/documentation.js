@@ -53,11 +53,21 @@ $(function() {
 
   // Toggle style list. Expanded items stay
   // expanded when new items are clicked.
+  // Expand All button text is switched if all 
+  // items are manually expanded or collapsed
   $('#js-sidebar .js-toggle-list .js-expand-btn').click(function(){
     var clickedTopic = $(this).parents('.js-topic'),
         topicGuides  = clickedTopic.find('.js-guides li')
     $(this).toggleClass('collapsed expanded')
     topicGuides.slideToggle(100)
+
+    if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.collapsed').length === 0) {
+      $('.expand-all a').text('- Collapse All');
+    }
+    else if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length === 0) {
+      $('.expand-all a').text('+ Expand All');
+    }
+
     return false
   })
 
