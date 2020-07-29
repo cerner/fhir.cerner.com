@@ -16,6 +16,10 @@ group :development do
   gem 'rubocop', '~> 0.86'
 end
 
+group :development, :test do
+  gem 'jasmine'
+end
+
 group :test do
   gem 'html-proofer'
   gem 'rspec', '~> 3.9'

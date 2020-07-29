@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'nanoc/tasks'
+# require 'nanoc/tasks'
 
 task default: [:test]
 
@@ -19,3 +19,6 @@ desc 'Remove the output dir'
 task :remove_output_dir do
   FileUtils.rm_r('output') if File.exist?('output')
 end
+
+require 'jasmine'
+load 'jasmine/tasks/jasmine.rake'
