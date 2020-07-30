@@ -39,7 +39,7 @@ Authorization is not required.
 
     curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-<%= RequestButton.get(:r4, 'metadata', 200, :r4_open_metadata) %>
+<%= RequestButton.get('open', :r4, 'metadata', 200, :r4_open_metadata) %>
 
 ### Closed Endpoint Example
 
@@ -47,6 +47,6 @@ Authorization is not required.
 
     curl -i -H "Accept: application/fhir+json" "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-<%= RequestButton.get(:r4_closed, 'metadata', 200, :r4_auth_metadata) %>
+<%= RequestButton.get('ehr', :r4, 'metadata', 200, :r4_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url
