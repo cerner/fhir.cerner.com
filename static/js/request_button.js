@@ -107,15 +107,15 @@ function showResponse(tabClicked, randomId) {
 
   tabClicked.classList.add('active');
 
-  if (tabClicked.textContent === 'Example Response') {
-    responses[0].classList.remove('hide');
-    responses[1].classList.add('hide');
-  }
-  else {
-    responses[0].classList.add('hide');
-    responses[1].classList.remove('hide');
-
-    window.responseDiv = responses[1];
-    makeRequest(tabClicked);
+  for (let i = 0; i < responses.length; i++) {
+    if (responses[i].dataset.content === tabClicked.dataset.tab) {
+      if (responses[i].dataset.content === 'live-response-tab') {
+        window.responseDiv = responses[i];
+      }
+      responses[i].classList.remove('hide');
+    }
+    else {
+      responses[i].classList.add('hide');
+    }
   }
 }
