@@ -97,7 +97,7 @@ function makeRequest(liveResponseTab) {
  * @param {HTMLElement} tabClicked - The tab clicked, either the example response or the live response.
  * @param {number} randomId - The random ID associated with group of responses.
  */
-function showResponse(tabClicked, randomId) {
+function showTab(tabClicked, randomId) {
   let tabs = document.getElementById(randomId).children;
   let responses = document.querySelectorAll(`[data-id="${randomId}"]`)[0].children;
 

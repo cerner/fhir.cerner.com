@@ -34,14 +34,14 @@ class RequestButton
         <ul id="#{random_id}">
           <li>
             <a class="active" href="#example-response" data-tab="example-response-tab"
-              onclick="showResponse(this, '#{random_id}'); return false;">
+              onclick="showTab(this, '#{random_id}'); return false;">
               Example Response
             </a>
           </li>
           <li>
             <a href="#live-response" data-tab="live-response-tab" data-url="#{request_url}"
               data-header="#{accept_header}" data-status="#{example_status}"
-              onclick="showResponse(this, '#{random_id}'); makeRequest(this); return false;">
+              onclick="showTab(this, '#{random_id}'); makeRequest(this); return false;">
               Live Response
             </a>
           </li>
