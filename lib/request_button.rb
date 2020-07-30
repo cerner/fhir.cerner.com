@@ -3,13 +3,6 @@
 require 'securerandom'
 
 class RequestButton
-  # The open and closed URLs for each API version
-  URLS = {
-    dstu2: 'https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
-    dstu2_closed: 'https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
-    r4: 'https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
-    r4_closed: 'https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/'
-  }.freeze
 
   # The base URL for Cerner's sandbox server
   BASE_URL = 'https://fhir-%s.sandboxcerner.com/%s/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/%s'
@@ -36,15 +29,34 @@ class RequestButton
     accept_header = HEADERS[version]
     random_id = SecureRandom.uuid
 
-      "<div class=\"example-tabs\"><ul id=\"#{random_id}\"><li><a class=\"active\" href=\"#example-response\" "\
-      "data-tab=\"example-response-tab\" onclick=\"showResponse(this, '#{random_id}')\">Example Response</a></li>"\
-      "<li><a href=\"#live-response\" data-tab=\"live-response-tab\" data-url=\"#{request_url}\" "\
-      "data-header=\"#{accept_header}\" data-status=\"#{example_status}\" "\
-      "onclick=\"showResponse(this, '#{random_id}')\">Live Response</a></li></ul></div>"\
-      "<div data-id=\"#{random_id}\" class=\"example-tab-content\">"\
-      "<div>#{headers(status: example_status)}#{json(example_json)}</div>"\
-      '<div class="hide"><pre class="headers"><code> </code></pre><pre class="body-response">'\
-      "<code class=\"language-javascript\"></code></pre></div></div>#{disclaimer}"
-    end
+    <<~HTML.strip
+      <div class="example-tabs">
+        <ul id="#{random_id}">
+          <li>
+            <a class="active" href="#example-response" data-tab="example-response-tab"
+              onclick="showResponse(this, '#{random_id}'); return false;">
+              Example Response
+            </a>
+          </li>
+          <li>
+            <a href="#live-response" data-tab="live-response-tab" data-url="#{request_url}"
+              data-header="#{accept_header}" data-status="#{example_status}"
+              onclick="showResponse(this, '#{random_id}'); makeRequest(this); return false;">
+              Live Response
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div data-id="#{random_id}" class="example-tab-content">
+        <div data-content="example-response-tab">
+          #{headers(status: example_status)}#{json(example_json)}
+        </div>
+        <div data-content="live-response-tab" class="hide">
+          <pre class="headers"><code> </code></pre>
+          <pre class="body-response"><code class="language-javascript"></code></pre>
+        </div>
+      </div>
+      #{disclaimer}
+    HTML
   end
 end

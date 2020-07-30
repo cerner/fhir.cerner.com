@@ -28,7 +28,7 @@ function displayLoadingSpinner(responseBody) {
   let loadingSpinnerHTML = '<div class="loading-spinner"><div></div><div></div><div></div><div></div></div>';
   template.innerHTML = loadingSpinnerHTML.trim();
 
-  let loadingSpinner = template.content.firstChild;
+  let loadingSpinner = template.content.firstElementChild;
   responseBody.appendChild(loadingSpinner);
 }
 
@@ -45,16 +45,16 @@ function showRequestFailureMessage(xhr = null, emptyBundle = false) {
     body.children[1].classList.add('hide');
   }
 
-  status.firstChild.innerText = 'Status: ' + statuses[xhr.status];
-  body.firstChild.classList.add('example-failure-message');
+  status.firstElementChild.innerText = 'Status: ' + statuses[xhr.status];
+  body.firstElementChild.classList.add('example-failure-message');
 
   if (emptyBundle) {
-    body.firstChild.innerText = 'Unfortunately, this request returned no results. To view what a request containing ' +
+    body.firstElementChild.innerText = 'Unfortunately, this request returned no results. To view what a request containing ' +
                                 'results might look like, please view the example response.\n' +
                                 `X-Request-Id: ${xhr.getResponseHeader('X-Request-Id')}`;
   }
   else {
-    body.firstChild.innerHTML = 'Failed to make this request: If this issue persists, please post to our ' +
+    body.firstElementChild.innerHTML = 'Failed to make this request: If this issue persists, please post to our ' +
                                 '<a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group' +
                                 `</a>.\nX-Request-Id: ${xhr.getResponseHeader('X-Request-Id')}`;
   }
@@ -84,8 +84,8 @@ function makeRequest(liveResponseTab) {
         showRequestFailureMessage(xhr, true);
       }
       else {
-        status.firstChild.innerText = 'Status: ' + statuses[xhr.status];
-        body.firstChild.innerText += JSON.stringify(response, null, 2);
+        status.firstElementChild.innerText = 'Status: ' + statuses[xhr.status];
+        body.firstElementChild.innerText += JSON.stringify(response, null, 2);
       }
     }, showRequestFailureMessage);
   }
@@ -93,7 +93,7 @@ function makeRequest(liveResponseTab) {
 
 /**
  * Toggles between the example response and the live response.
- * The first time the live response tab is clicked, a GET request is performed for the example.
+ * The content div for the live response is set to the window for showing errors.
  * @param {HTMLElement} tabClicked - The tab clicked, either the example response or the live response.
  * @param {number} randomId - The random ID associated with group of responses.
  */
@@ -102,7 +102,7 @@ function showResponse(tabClicked, randomId) {
   let responses = document.querySelectorAll(`[data-id="${randomId}"]`)[0].children;
 
   for (let i = 0; i < tabs.length; i++) {
-    tabs[i].firstChild.classList.remove('active');
+    tabs[i].firstElementChild.classList.remove('active');
   }
 
   tabClicked.classList.add('active');
