@@ -53,19 +53,25 @@ $(function() {
 
   // Toggle style list. Expanded items stay
   // expanded when new items are clicked.
-  // Expand All button text is switched if all 
-  // items are manually expanded or collapsed
+  // Button text is Expand All if one or
+  // less items are expanded.
   $('#js-sidebar .js-toggle-list .js-expand-btn').click(function(){
     var clickedTopic = $(this).parents('.js-topic'),
         topicGuides  = clickedTopic.find('.js-guides li')
     $(this).toggleClass('collapsed expanded')
     topicGuides.slideToggle(100)
 
-    if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.collapsed').length === 0) {
-      $('.expand-all a').text('- Collapse All');
+    if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length > 1) {
+      $('.expand-collapse a').text('- Collapse All');
     }
-    else if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length === 0) {
-      $('.expand-all a').text('+ Expand All');
+    else if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length < 1) {
+      $('.expand-collapse a').text('+ Expand All');
+    }
+    else {
+      if ($('#js-sidebar .js-toggle-list .js-expand-btn').length === 1) {
+        $('.expand-collapse a').text('- Collapse All');
+      }
+      else $('.expand-collapse a').text('+ Expand All');
     }
 
     return false
@@ -92,13 +98,13 @@ $(function() {
   })
 
   // Toggle between expanding and collapsing all categories
-  $('.expand-all a').click(function() {
+  $('.expand-collapse a').click(function() {
     $(this).text() == '+ Expand All' ? $(this).text('- Collapse All') : $(this).text('+ Expand All');
     $('.js-toggle-list .js-topic').each(function() {
       var expandButton = $(this).find('.js-expand-btn');
       var li = $(this).find('.js-guides li');
 
-      if ($('.expand-all a').text() == '- Collapse All') {
+      if ($('.expand-collapse a').text() == '- Collapse All') {
         if (expandButton.hasClass('collapsed')) {
           expandButton.toggleClass('collapsed expanded');
           li.slideToggle(100);
