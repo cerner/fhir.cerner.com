@@ -3,30 +3,51 @@
 require 'request_button'
 
 describe RequestButton do
-  # Used to test the example and live response tabs based on a specific version, URL, and accept header.
+  # Used to test the example and live response tabs based on a specific prefix, version, and accept header.
   #
   # Example:
-  #   context 'when version is :version' do
+  #   context "when prefix is 'prefix' and version is :version" do
   #     include_examples(
-  #       'generates the example/live response HTML based on the provided parameters',
+  #       'generates the example/live response HTML based on the provided params',
+  #       'prefix',
   #       :version,
-  #       version_url,
   #       version_header
   #     )
   #   end
-  shared_examples 'generates the example/live response HTML based on the provided parameters' do |version, url, header|
-    subject(:get) { RequestButton.get(version, endpoint, example_status, example_json) }
+  shared_examples 'generates the example/live response HTML based on the provided params' do |prefix, version, header|
+    subject(:get) { RequestButton.get(prefix, version, suffix, example_status, example_json) }
 
+    let(:base_url) { 'https://fhir-%s.sandboxcerner.com/%s/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/%s' }
     let(:expected_html) do
-      "<div class=\"example-tabs\"><ul id=\"#{random_id}\"><li><a class=\"active\" href=\"#example-response\" "\
-      "data-tab=\"example-response-tab\" onclick=\"showResponse(this, '#{random_id}')\">Example Response</a></li>"\
-      "<li><a href=\"#live-response\" data-tab=\"live-response-tab\" data-url=\"#{url}#{endpoint}\" "\
-      "data-header=\"#{header}\" data-status=\"#{example_status}\" "\
-      "onclick=\"showResponse(this, '#{random_id}')\">Live Response</a></li></ul></div>"\
-      "<div data-id=\"#{random_id}\" class=\"example-tab-content\">"\
-      "<div>#{status}#{response}</div>"\
-      '<div class="hide"><pre class="headers"><code> </code></pre><pre class="body-response">'\
-      "<code class=\"language-javascript\"></code></pre></div></div>#{disclaimer}"
+      <<~HTML.strip
+        <div class="example-tabs">
+          <ul id="#{random_id}">
+            <li>
+              <a class="active" href="#example-response" data-tab="example-response-tab"
+                onclick="showResponse(this, '#{random_id}'); return false;">
+                Example Response
+              </a>
+            </li>
+            <li>
+              <a href="#live-response" data-tab="live-response-tab" data-url="#{format(base_url, prefix, version, suffix)}"
+                data-header="#{header}" data-status="#{example_status}"
+                onclick="showResponse(this, '#{random_id}'); makeRequest(this); return false;">
+                Live Response
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div data-id="#{random_id}" class="example-tab-content">
+          <div data-content="example-response-tab">
+            #{status}#{response}
+          </div>
+          <div data-content="live-response-tab" class="hide">
+            <pre class="headers"><code> </code></pre>
+            <pre class="body-response"><code class="language-javascript"></code></pre>
+          </div>
+        </div>
+        #{disclaimer}
+      HTML
     end
     let(:random_id) { 123 }
     let(:status) { '<pre class="headers">...</pre>' }
@@ -62,42 +83,60 @@ describe RequestButton do
   end
 
   describe '.get' do
-    let(:endpoint) { 'metadata' }
+    let(:suffix) { 'metadata' }
     let(:example_status) { 200 }
     let(:example_json) { :dstu2_open_metadata }
 
-    context 'when version is :dstu2' do
+    context "when prefix is 'open' and version is :dstu2" do
       include_examples(
-        'generates the example/live response HTML based on the provided parameters',
+        'generates the example/live response HTML based on the provided params',
+        'open',
         :dstu2,
-        'https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
         'application/json+fhir'
       )
     end
 
-    context 'when version is :dstu2_closed' do
+    context "when prefix is 'ehr' and version is :dstu2" do
       include_examples(
-        'generates the example/live response HTML based on the provided parameters',
-        :dstu2_closed,
-        'https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
+        'generates the example/live response HTML based on the provided params',
+        'ehr',
+        :dstu2,
         'application/json+fhir'
       )
     end
 
-    context 'when version is :r4' do
+    context "when prefix is 'myrecord' and version is :dstu2" do
       include_examples(
-        'generates the example/live response HTML based on the provided parameters',
+        'generates the example/live response HTML based on the provided params',
+        'myrecord',
+        :dstu2,
+        'application/json+fhir'
+      )
+    end
+
+    context "when prefix is 'open' and version is :r4" do
+      include_examples(
+        'generates the example/live response HTML based on the provided params',
+        'open',
         :r4,
-        'https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
         'application/fhir+json'
       )
     end
 
-    context 'when version is :r4_closed' do
+    context "when prefix is 'ehr' and version is :r4" do
       include_examples(
-        'generates the example/live response HTML based on the provided parameters',
-        :r4_closed,
-        'https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/',
+        'generates the example/live response HTML based on the provided params',
+        'ehr',
+        :r4,
+        'application/fhir+json'
+      )
+    end
+
+    context "when prefix is 'myrecord' and version is :r4" do
+      include_examples(
+        'generates the example/live response HTML based on the provided params',
+        'myrecord',
+        :r4,
         'application/fhir+json'
       )
     end
