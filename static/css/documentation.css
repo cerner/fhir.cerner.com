@@ -1454,16 +1454,16 @@ pre span.comment {color: #aaa;}
   background-color: transparent;
 }
 
-.expand-all {
+.expand-collapse {
   text-align: right;
   margin: 4px 0px 8px;
 }
 
-.expand-all a {
+.expand-collapse a {
   color: #767676;
 }
 
-.expand-all a:hover {
+.expand-collapse a:hover {
   cursor: pointer;
   text-decoration: none;
   color: #4183C4;
