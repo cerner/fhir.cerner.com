@@ -62,9 +62,9 @@ Search for Devices that meet supplied query parameters:
 
 #### Request
 
-    curl -i -H "Accept: application/fhir+json" "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
+    curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
 
-<%= RequestButton.get(:r4, 'Device?patient=4478007', 200, :R4_DEVICE_BUNDLE) %>
+<%= RequestButton.get('open', :r4, 'Device?patient=1316024', 200, :R4_DEVICE_BUNDLE) %>
 
 ### Errors
 
@@ -88,9 +88,9 @@ List an individual Device by its id:
 
 #### Request
 
-    curl -i -H "Accept: application/fhir+json" "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765"
+    curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765"
 
-<%= RequestButton.get(:r4, 'Device/15577765', 200, :R4_DEVICE) %>
+<%= RequestButton.get('open', :r4, 'Device/15573768', 200, :R4_DEVICE) %>
 
 ### Errors
 
