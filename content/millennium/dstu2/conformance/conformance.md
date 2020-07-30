@@ -29,10 +29,6 @@ Authorization is not required.
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
 
-### Headers
-
-<%= headers head: {Accept: 'application/json+fhir'} %>
-
 ### Open Endpoint Example
 
 #### Request

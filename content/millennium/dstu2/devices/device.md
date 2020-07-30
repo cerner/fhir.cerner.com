@@ -54,10 +54,6 @@ _Implementation Notes_
  `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `7891`
  `patient` | This or `_id`     | [`reference`] | The patient on whom the device is affixed. Example: `12345`
 
-### Headers
-
-<%= headers %>
-
 ### Example
 
 #### Request
@@ -91,10 +87,6 @@ _Implementation Notes_
 ### Authorization Types
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
-
-### Headers
-
-<%= headers %>
 
 ### Example
 

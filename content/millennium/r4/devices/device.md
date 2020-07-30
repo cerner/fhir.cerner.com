@@ -54,9 +54,6 @@ Search for Devices that meet supplied query parameters:
  `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `2226920`
  `patient` | This or `_id`     | [`reference`] | The patient to whom the device is affixed. Example: `12345`
 
-### Headers
-
-<%= headers fhir_json: true %>
 
 ### Example
 
@@ -80,9 +77,6 @@ List an individual Device by its id:
 
 <%= authorization_types(practitioner: true, patient: false, system: true)%>
 
-### Headers
-
-<%= headers fhir_json: true %>
 
 ### Example
 
