@@ -12,6 +12,7 @@
   <script src="../../js/jquery.js" type="text/javascript"></script>
   <script src="../../js/millennium_diff_table.js" type="text/javascript"></script>
   <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../js/request_button.js" type="text/javascript"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -136,7 +137,7 @@ implementations for system and provider access.</p>
 <div></div>
 <div></div>
 </div>
-<div id="table-failure-message">
+<div class="failure-message">
   Failed to fetch resource information: If this issue persists, please post to our 
   <a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group</a>.
 </div>
@@ -145,6 +146,10 @@ implementations for system and provider access.</p>
     </div>
     
     <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all hide">+ Expand All</a>
+    <a href="#" class="js-collapse-all">- Collapse All</a>
+  </div>
   <div class="js-toggle-list sidebar-module expandable">
     <ul>
       <li class="js-topic">

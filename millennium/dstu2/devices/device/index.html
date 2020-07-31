@@ -12,6 +12,7 @@
   <script src="../../../../js/jquery.js" type="text/javascript"></script>
   <script src="../../../../js/millennium_diff_table.js" type="text/javascript"></script>
   <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../js/request_button.js" type="text/javascript"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -86,7 +87,6 @@
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#example-read-by-ids" id="markdown-toc-example-read-by-ids">Example Read by Ids</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
@@ -95,7 +95,6 @@
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
@@ -259,22 +258,30 @@
   </tbody>
 </table>
 
-<h3 id="headers">Headers</h3>
-
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
-<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
-
 <h3 id="example">Example</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+<pre><code>curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
 </code></pre>
 
-<h4 id="response">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
+<div class="example-tabs">
+  <ul id="afab62f1-2e4d-45c2-8906-784f5924a004">
+    <li>
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'afab62f1-2e4d-45c2-8906-784f5924a004'); return false;">
+        Example Response
+      </a>
+    </li>
+    <li>
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4342008" data-header="application/json+fhir" data-status="200" onclick="showTab(this, 'afab62f1-2e4d-45c2-8906-784f5924a004'); makeRequest(this); return false;">
+        Live Response
+      </a>
+    </li>
+  </ul>
+</div>
+<div data-id="afab62f1-2e4d-45c2-8906-784f5924a004" class="example-tab-content">
+  <div data-content="example-response-tab">
+    <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
   "id": "c2ce1064-f327-4642-8c1f-3f08c21af2b6",
@@ -490,20 +497,38 @@
     }
   ]
 }</code></pre>
-
+  </div>
+  <div data-content="live-response-tab" class="hide">
+    <pre class="headers"><code> </code></pre>
+    <pre class="body-response"><code class="language-javascript"></code></pre>
+  </div>
+</div>
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="example-read-by-ids">Example Read by Ids</h3>
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768
+<pre><code>curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768"
 </code></pre>
 
-<h4 id="response-1">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
+<div class="example-tabs">
+  <ul id="765df3cd-621d-409b-a2a0-b50d8b93bc81">
+    <li>
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '765df3cd-621d-409b-a2a0-b50d8b93bc81'); return false;">
+        Example Response
+      </a>
+    </li>
+    <li>
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15601768" data-header="application/json+fhir" data-status="200" onclick="showTab(this, '765df3cd-621d-409b-a2a0-b50d8b93bc81'); makeRequest(this); return false;">
+        Live Response
+      </a>
+    </li>
+  </ul>
+</div>
+<div data-id="765df3cd-621d-409b-a2a0-b50d8b93bc81" class="example-tab-content">
+  <div data-content="example-response-tab">
+    <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
   "id": "b18560e7-4e72-4f7c-82e6-e3bc1ea1b18a",
@@ -569,7 +594,12 @@
     }
   ]
 }</code></pre>
-
+  </div>
+  <div data-content="live-response-tab" class="hide">
+    <pre class="headers"><code> </code></pre>
+    <pre class="body-response"><code class="language-javascript"></code></pre>
+  </div>
+</div>
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors">Errors</h3>
@@ -595,22 +625,30 @@
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
-<h3 id="headers-1">Headers</h3>
-
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
-<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
-
 <h3 id="example-1">Example</h3>
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768
+<pre><code>curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768"
 </code></pre>
 
-<h4 id="response-2">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
+<div class="example-tabs">
+  <ul id="bcb8a0ef-555d-4bcd-a0ea-c4c1f9be74e5">
+    <li>
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'bcb8a0ef-555d-4bcd-a0ea-c4c1f9be74e5'); return false;">
+        Example Response
+      </a>
+    </li>
+    <li>
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15601768" data-header="application/json+fhir" data-status="200" onclick="showTab(this, 'bcb8a0ef-555d-4bcd-a0ea-c4c1f9be74e5'); makeRequest(this); return false;">
+        Live Response
+      </a>
+    </li>
+  </ul>
+</div>
+<div data-id="bcb8a0ef-555d-4bcd-a0ea-c4c1f9be74e5" class="example-tab-content">
+  <div data-content="example-response-tab">
+    <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Device",
   "id": "15575768",
@@ -659,7 +697,12 @@
     "display": "SMART, FRED RICK"
   }
 }</code></pre>
-
+  </div>
+  <div data-content="live-response-tab" class="hide">
+    <pre class="headers"><code> </code></pre>
+    <pre class="body-response"><code class="language-javascript"></code></pre>
+  </div>
+</div>
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
@@ -670,6 +713,10 @@
     </div>
 
     <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
   <div class="js-toggle-list sidebar-module expandable">
     <ul>
       <li class="js-topic">
