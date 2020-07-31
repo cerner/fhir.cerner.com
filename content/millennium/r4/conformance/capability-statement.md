@@ -29,30 +29,20 @@ Authorization is not required.
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
 
-### Headers
-
-<%= headers head: {Accept: 'application/fhir+json'} %>
-
 ### Open Endpoint Example
 
 #### Request
 
-    GET /metadata
+    curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_open_metadata) %>
+<%= RequestButton.get('open', :r4, 'metadata', 200, :r4_open_metadata) %>
 
 ### Closed Endpoint Example
 
 #### Request
 
-    GET /metadata?_format=json
+    curl -i -H "Accept: application/fhir+json" "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_auth_metadata) %>
+<%= RequestButton.get('ehr', :r4, 'metadata', 200, :r4_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url

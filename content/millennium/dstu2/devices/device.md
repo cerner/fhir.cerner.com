@@ -54,35 +54,21 @@ _Implementation Notes_
  `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `7891`
  `patient` | This or `_id`     | [`reference`] | The patient on whom the device is affixed. Example: `12345`
 
-### Headers
-
-<%= headers %>
-
 ### Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device?patient=4342008', 200, :dstu2_device_bundle) %>
 
 ### Example Read by Ids
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle_by_id) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device?_id=15601768', 200, :dstu2_device_bundle_by_id) %>
 
 ### Errors
 
@@ -102,22 +88,13 @@ _Implementation Notes_
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
 
-### Headers
-
-<%= headers %>
-
 ### Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device/15601768', 200, :dstu2_device) %>
 
 ### Errors
 

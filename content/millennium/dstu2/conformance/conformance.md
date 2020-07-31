@@ -29,34 +29,20 @@ Authorization is not required.
 
 <%= authorization_types(practitioner: true, patient: true, system: true) %>
 
-### Headers
-
-<%= headers head: {Accept: 'application/json+fhir'} %>
-
 ### Open Endpoint Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_open_metadata) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'metadata', 200, :dstu2_open_metadata) %>
 
 ### Closed Endpoint Example
 
 #### Request
 
-    GET https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata?_format=json
+    curl -i -H "Accept: application/json+fhir" "https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_auth_metadata) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('ehr', :dstu2, 'metadata', 200, :dstu2_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url

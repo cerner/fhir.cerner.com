@@ -54,20 +54,14 @@ Search for Devices that meet supplied query parameters:
  `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `2226920`
  `patient` | This or `_id`     | [`reference`] | The patient to whom the device is affixed. Example: `12345`
 
-### Headers
-
-<%= headers fhir_json: true %>
 
 ### Example
 
 #### Request
 
-    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+    curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:R4_DEVICE_BUNDLE) %>
+<%= RequestButton.get('open', :r4, 'Device?patient=1316024', 200, :R4_DEVICE_BUNDLE) %>
 
 ### Errors
 
@@ -83,20 +77,14 @@ List an individual Device by its id:
 
 <%= authorization_types(practitioner: true, patient: false, system: true)%>
 
-### Headers
-
-<%= headers fhir_json: true %>
 
 ### Example
 
 #### Request
 
-    GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765
+    curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:R4_DEVICE) %>
+<%= RequestButton.get('open', :r4, 'Device/15573768', 200, :R4_DEVICE) %>
 
 ### Errors
 

@@ -109,8 +109,8 @@ function fetchData(url, headers, cache = false, callback, onFail) {
       headers: headers,
       cache: cache,
     })
-    .done(function(response) {
-      callback(response);
+    .done(function(response, responseText, xhr) {
+      callback(response, xhr);
     })
     .fail(function(e) {
       onFail(e);

@@ -433,7 +433,7 @@ function spanR4WithDstu2(dstu2Resources, r4Resources, notes) {
  * Spans a DSTU2 resource to align with the R4 resources that match it.
  * @param {array} dstu2Resources  - The array of DSTU2 resources.
  * @param {array} r4Resources - The array of R4 resources.
- * @param {*} notes - Notes to be displayed on the resource in the table.
+ * @param {string} notes - Notes to be displayed on the resource in the table.
  */
 function spanDstu2WithR4(dstu2Resources, r4Resources, notes) {
   let table = document.getElementById('millennium-diff-table');
@@ -567,9 +567,9 @@ function generateTable(resourcesObject) {
 /**
  * Hides the loading spinner and displays the failure message.
  */
-function showFailureMessage(error) {
+function showTableFailureMessage() {
   document.getElementById('diff-table-spinner').classList.toggle('hide');
-  document.getElementById('table-failure-message').classList.toggle('hide');
+  document.getElementsByClassName('failure-message')[0].classList.toggle('hide');
 }
 
 /**
@@ -578,7 +578,7 @@ function showFailureMessage(error) {
  */
 function displayOverviewTable() {
   document.getElementById('millennium-table-div').classList.toggle('hide');
-  document.getElementById('table-failure-message').classList.toggle('hide');
+  document.getElementsByClassName('failure-message')[0].classList.toggle('hide');
 
   fetchData(conformanceURL, conformanceHeaders, true, function(dstu2Response) {
     fetchData(capabilityStatementURL, capabilityStatementHeaders, true, function(r4Response) {
@@ -587,6 +587,6 @@ function displayOverviewTable() {
       generateTable(tableResources);
       document.getElementById('diff-table-spinner').classList.toggle('hide')
       document.getElementById('millennium-table-div').classList.toggle('hide');
-    }, showFailureMessage);
-  }, showFailureMessage);
+    }, showTableFailureMessage);
+  }, showTableFailureMessage);
 }
