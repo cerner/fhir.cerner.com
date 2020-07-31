@@ -6,7 +6,7 @@ $(function() {
   }
 
   // Set class 'active' for the appropriate subnav link
-  var pageUrl = location.href.match(/(.+\/millennium\/[^\/]+\/)/)[0]
+  var pageUrl = location.href.match(/(.+\/(millennium|soarian)\/[^\/]+\/)/)[0];
   $('.sub-nav li a').each(function() {
     $(this).toggleClass('active', this.href === pageUrl);
   });
@@ -53,11 +53,33 @@ $(function() {
 
   // Toggle style list. Expanded items stay
   // expanded when new items are clicked.
+  // Button is expand all if one or less items
+  // are expanded and collapse all otherwise.
   $('#js-sidebar .js-toggle-list .js-expand-btn').click(function(){
     var clickedTopic = $(this).parents('.js-topic'),
         topicGuides  = clickedTopic.find('.js-guides li')
     $(this).toggleClass('collapsed expanded')
     topicGuides.slideToggle(100)
+
+    if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length > 1) {
+      $('.js-expand-all').addClass('hide');
+      $('.js-collapse-all').removeClass('hide');
+    }
+    else if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length < 1) {
+      $('.js-expand-all').removeClass('hide');
+      $('.js-collapse-all').addClass('hide');
+    }
+    else {
+      if ($('#js-sidebar .js-toggle-list .js-expand-btn').length === 1) {
+        $('.js-expand-all').addClass('hide');
+        $('.js-collapse-all').removeClass('hide');
+      }
+      else {
+        $('.js-expand-all').removeClass('hide');
+        $('.js-collapse-all').addClass('hide');
+      }
+    }
+
     return false
   })
 
@@ -80,6 +102,42 @@ $(function() {
 
     return false
   })
+
+  // Expand all categories
+  $('.js-expand-all').click(function() {
+    $(this).toggleClass('hide');
+    $('.js-collapse-all').toggleClass('hide');
+
+    $('.js-toggle-list .js-topic').each(function() {
+      var expandButton = $(this).find('.js-expand-btn');
+      var li = $(this).find('.js-guides li');
+
+      if (expandButton.hasClass('collapsed')) {
+        expandButton.toggleClass('collapsed expanded');
+        li.slideToggle(100);
+      }
+    });
+
+    return false;
+  });
+
+  // Collapse all categories
+  $('.js-collapse-all').click(function() {
+    $(this).toggleClass('hide');
+    $('.js-expand-all').toggleClass('hide');
+
+    $('.js-toggle-list .js-topic').each(function() {
+      var expandButton = $(this).find('.js-expand-btn');
+      var li = $(this).find('.js-guides li');
+
+      if (expandButton.hasClass('expanded')) {
+        expandButton.toggleClass('collapsed expanded');
+        li.slideToggle(100);
+      }
+    });
+
+    return false;
+  });
 
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
