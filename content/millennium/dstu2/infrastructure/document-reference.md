@@ -62,14 +62,14 @@ _Implementation Notes_
 
 ### Parameters
 
- Name           | Required?                              | Type          | Description
-----------------|----------------------------------------|---------------|-----------------------------------------------------------------------------------------------
-`_id`           | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `_id=7499283`
-`patient`       | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `patient=1316024`
-`subject`       | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316024 or subject:Patient=1316024`
-`encounter`     | No                                     | [`reference`] | The encounter to which the document reference belongs.  Must represent an Encounter resource.  May include a single or comma separated list of references. Example: `encounter=1621910`
-`created`       | No                                     | [`date`]      | A date/time the referenced document was created.  Must use the `ge` and `le` prefixes.  Example: `created=le2017-01-5&created=ge2017-02-7`
-[`_count`]      | No                                     | [`number`]    | The maximum number of results to return.
+ Name        | Required?                              | Type          | Description
+-------------|----------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`       | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `_id=7499283`
+ `patient`   | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `patient=1316024`
+ `subject`   | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316024 or subject:Patient=1316024`
+ `encounter` | No                                     | [`reference`] | The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: `encounter=1621910`
+ `created`   | No                                     | [`date`]      | A date/time the referenced document was created. Must use the `ge` and `le` prefixes. Example: `created=ge2017-01-07&created=le2017-02-05`
+ [`_count`]  | No                                     | [`number`]    | The maximum number of results to return.
 
 Notes:
 
