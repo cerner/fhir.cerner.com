@@ -89,7 +89,7 @@ Notes:
 * The `start` parameter may be provided:
   * Once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   * Twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)
+    an upper and lower bound. (e.g. `&start=ge2014&start=lt2016`, `&start=ge2016-07&start=lt2017-07`)
 
 * The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
 
