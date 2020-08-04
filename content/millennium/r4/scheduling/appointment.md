@@ -321,6 +321,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 In addition, the following errors may be returned:
 
+* If either the patient URL or the provider URLs are longer than 255 characters, it will return a `500 Internal Server Error` response.
 * Updating an Appointment resource with the incorrect version will result in a `409 Conflict` response.
 * Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
