@@ -100,6 +100,7 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.dietPreference codes are maintained in [Code Set 18 Diet](#code-set-18-diet)
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
+* Custom Attribute extensions on Encounter may contain Custom Attribute Value codes. These codes may be from [any Code Set](#list-of-code-sets)
 
 ### Entities
 
@@ -199,7 +200,7 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
 
-### List of Code Sets
+#### List of Code Sets
 
 ##### Code Set 2 Admission Source
 
