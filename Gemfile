@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.2'
 
-gem 'kramdown', '~> 1.6'
+gem 'kramdown', '~> 2.3'
 gem 'nanoc', '~> 4.0'
 gem 'nokogiri', '~> 1.10.8'
 gem 'yajl-ruby', '~> 1.3'
