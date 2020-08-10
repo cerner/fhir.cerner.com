@@ -388,6 +388,7 @@ fields:
       }
     }
   note: Only the admitSource and dischargeDisposition fields are supported on write.
+
   children:
 
   - name: admitSource
@@ -551,14 +552,13 @@ fields:
   url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
   terminology_name: extension[x].extension[x].valueCodeableConcept
   type: CodeableConcept
+  note: The value of the custom attribute is not limited to a single codeSet.
   description: The value of the client defined custom attribute. This extension is nested under a <code>custom-attribute</code> extension.
-  note:
-    - The value of the custom attribute is not limited to a single codeSet.
   binding:
     description: The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>customm-attribute</code> extensions.
     terminology:
       - display: Custom Attribute Value
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;codeSet&gt;
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/x&lt;codeSet&gt;/
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
 
 - name: Estimated Financial Responsibility Amount Extension
