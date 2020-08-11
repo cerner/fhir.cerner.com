@@ -43,6 +43,6 @@ Authorization is not required.
 
     curl -i -H "Accept: application/json+fhir" " https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata"
 
-<%= RequestButton.get('ehr', :dstu2, 'metadata', 200, :dstu2_auth_metadata) %>
+<%= RequestButton.get('ehr-code', :dstu2, 'metadata', 200, :dstu2_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url
