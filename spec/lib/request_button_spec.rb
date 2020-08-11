@@ -17,7 +17,7 @@ describe RequestButton do
   shared_examples 'generates the example/live response HTML based on the provided params' do |prefix, version, header|
     subject(:get) { RequestButton.get(prefix, version, suffix, example_status, example_json) }
 
-    let(:base_url) { 'https://fhir-%s.sandboxcerner.com/%s/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/%s' }
+    let(:base_url) { 'https://fhir-%s.cerner.com/%s/ec2458f2-1e24-41c8-b71b-0e701af7583d/%s' }
     let(:expected_html) do
       <<~HTML.strip
         <div class="example-tabs">
