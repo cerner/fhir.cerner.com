@@ -15,7 +15,7 @@ fields:
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
 
 - name: category
-  required: 'No'
+  required: 'Yes'
   type: List of CodeableConcept
   description: A code that classifies the general type of observation being made.
   binding:

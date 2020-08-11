@@ -28,6 +28,8 @@ The following fields are returned if valued:
 * For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
     * [Quantity units](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
+* For Observations with `valueCodeableConcept`
+    * [Codeable concept](https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept){:target="_blank"}    
 * [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation (abnormal flagging)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note (comments)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
@@ -148,7 +150,7 @@ _Implementation Notes_
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation
 
-#### Body
+#### Vitals Create Body Example
 
 <%= json(:r4_observation_create) %>
 
@@ -168,6 +170,36 @@ Status: 201 Created
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
 X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+#### Labs Create Body Example
+
+<%= json(:r4_observation_labs_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 31 Jul 2020 22:35:22 GMT
+Etag: W/"1"
+Location: https://fhir-ehr.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Observation/M-17834008
+Last-Modified: Fri, 31 Jul 2020 22:35:22 GMT
+Server-Response-Time: 13044.967
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 572f1f21-3a03-429a-9001-abcb9c9bec9f
+X-Runtime: 13.044806
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.

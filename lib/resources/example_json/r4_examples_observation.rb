@@ -1,6 +1,6 @@
 module Cerner
     module Resources
-  
+
         R4_OBSERVATION_BUNDLE ||=
         {
           "resourceType": "Bundle",
@@ -535,7 +535,7 @@ module Cerner
                                     }
                                 ],
                                 "text": "Normal Range"
-                            }     
+                            }
                           }
                       ]
                   }
@@ -624,6 +624,49 @@ module Cerner
         "effectiveDateTime": "2001-06-20T21:24:00.000Z",
         "issued": "2001-06-20T21:25:54.000Z"
       }
+
+      R4_OBSERVATION_LABS_CREATE ||= {
+        "resourceType": "Observation",
+        "status": "final",
+        "meta": {
+            "source": "43ba6d6a-1006-4546-bf28-48d84a98dbb1"
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "laboratory",
+                        "display": "Test Lab Result"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
+                    "code": "23257247",
+                    "display": "Hep B Core Ab IgM",
+                    "userSelected": true
+                }
+            ],
+            "text": "Hep B Core Ab IgM"
+        },
+        "subject": {
+            "reference": "Patient/1307954"
+        },
+        "effectiveDateTime": "2020-07-04T07:15:00Z",
+        "extension": [
+            {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment",
+                "valueAttachment": {
+                    "contentType": "application/rtf",
+                    "data": "VGhpcyBpc24ndCBSVEYsIGJ1dCB5b3UgZ2V0IHRoZSBpZGVhLi4u"
+                }
+            }
+        ]
+    }
     end
   end
   
