@@ -69,12 +69,15 @@ resources and exchange context information with client applications.
 
 ## Registration ##
 In order for your client application to utilize any protected resources,
-your client application must first register. A Cerner Care account is required to
+your client application must first be registered. A Cerner Care account is required to
 register applications. Obtaining a Cerner Care account is free and
 requires nothing but an email address.
 
 If registering an application that is using the public app profile and requires access only when the user is online,
 your client application must first register using our [code Console][CERNER-CODE-CONSOLE].
+
+If you are a Cerner client developing an application, please see this [document][CLIENT-APPS-DOC] about how to make your
+self-developed app available in your domain.
 
 If registering a confidential client application (required for offline_access and
 access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION]
@@ -1179,3 +1182,4 @@ preceding documentation.
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
 [AUTHZ-SPEC]: ../authorization/authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
 [CERNER-CENTRAL-MYDOMAIN]: https://wiki.cerner.com/display/CernerCentral/Accessing+Cerner+Central#AccessingCernerCentral-my_domainMyDomain "My Domain"
+[CLIENT-APPS-DOC]: https://connect.cerner.com/docs/DOC-682161 "Maing Self-Developed SMART Apps Available in Your Domain"

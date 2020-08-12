@@ -133,7 +133,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:R4_MEDICATION_REQUEST) %>
+<%= json(:R4_MEDICATION_REQUEST_ENTRY) %>
 
 ### Errors
 
