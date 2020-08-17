@@ -16,9 +16,9 @@ module Cerner
           'div': '&lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;&lt;p&gt;&lt;b&gt;Medication Request&lt;'\
                  '/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;'\
                  '/b&gt;: Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication&lt;/b&gt;'\
-                 ': hepatitis B adult vaccine (hepatitis B adult vaccine dialysis 40 mcg/mL intramuscular suspension)&lt;'\
-                 '/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 40 mcg = 1 mL, IM, Once&lt;/p&gt;&lt;p&gt;&lt;'\
-                 'b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;'\
+                 ': hepatitis B adult vaccine (hepatitis B adult vaccine dialysis 40 mcg/mL intramuscular suspension)'\
+                 '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Instructions&lt;/b&gt;: 40 mcg = 1 mL, IM, Once&lt;/p&gt;&lt;p'\
+                 '&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Authored On&lt;'\
                  '/b&gt;: Jul  6, 2020  8:37 P.M. UTC&lt;/p&gt;&lt;/div&gt;'
         },
         'status': 'active',

@@ -2,7 +2,6 @@
 
 module Cerner
   module Resources
-    # TODO: All; Missing mappings
     R4_OBSERVATION_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '79c71e5b-2793-4ace-bc5e-190e38784e80',

@@ -2,8 +2,6 @@
 
 module Cerner
   module Resources
-
-    # TODO: All; Missing mappings
     R4_SERVICE_REQUEST ||= {
       'resourceType': 'ServiceRequest',
       'id': '309771111',

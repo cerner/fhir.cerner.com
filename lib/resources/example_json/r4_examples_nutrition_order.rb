@@ -2,7 +2,6 @@
 
 module Cerner
   module Resources
-    # TODO: All; Missing mappings
     R4_NUTRITION_ORDER_ENTRY ||= {
       'resourceType': 'NutritionOrder',
       'id': '313790117',

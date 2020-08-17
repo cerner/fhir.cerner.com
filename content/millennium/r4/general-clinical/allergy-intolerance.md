@@ -151,7 +151,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"6767735"
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/6767735,
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/6767735
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created
