@@ -64,10 +64,10 @@ _Implementation Notes_
 
  Name        | Required?                              | Type          | Description
 -------------|----------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`       | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `_id=7499283`
- `patient`   | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `patient=1316024`
- `subject`   | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/1316024 or subject:Patient=1316024`
- `encounter` | No                                     | [`reference`] | The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: `encounter=1621910`
+ `_id`       | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `_id=7891`
+ `patient`   | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `patient=12345`
+ `subject`   | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: `subject=Patient/12345 or subject:Patient=12345`
+ `encounter` | No                                     | [`reference`] | The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: `encounter=4567`
  `created`   | No                                     | [`date`]      | A date/time the referenced document was created. Must use the `ge` and `le` prefixes. Example: `created=ge2017-01-07&created=le2017-02-05`
  [`_count`]  | No                                     | [`number`]    | The maximum number of results to return.
 
@@ -228,7 +228,7 @@ _Implementation Notes_
 
  Name     | Required? | Type          | Description
 ----------|-----------|---------------|-------------------------------------------------
-`patient` | Y         | [`reference`] | A reference to the patient whose document references are required. Example: `14067892`
+`patient` | Y         | [`reference`] | A reference to the patient whose document references are required. Example: `12345`
 `type`    | Y         | [`token`]     | The document reference type, can be a list of comma separated values. Example: `http://loinc.org|34133-9`
 `start`   | N         | [`date`]      | The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
 `end`     | N         | [`date`]      | The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`

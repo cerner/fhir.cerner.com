@@ -51,7 +51,7 @@ Search for Devices that meet supplied query parameters:
 
  Name      | Required?         | Type          | Description
 -----------|-------------------|---------------|------------------------------------------------------------------------
- `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `2226920`
+ `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `7890`
  `patient` | This or `_id`     | [`reference`] | The patient to whom the device is affixed. Example: `12345`
 
 

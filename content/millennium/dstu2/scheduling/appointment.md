@@ -71,7 +71,7 @@ _Implementation Notes_
 Notes:
 
 - The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
-  For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
+  For example, `patient=1234,5678` is supported but `patient=1234&patient=5678` and `patient=1234&location=5678` are not.
 
 - The `date` parameter may be provided:
   - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)

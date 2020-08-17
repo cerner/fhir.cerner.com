@@ -42,9 +42,9 @@ Search for Goals that meet supplied query parameters:
 
  Name              | Required?                                | Type          | Description
 -------------------|------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`             | This, or one of `patient`, or `subject`. | [`token`]     | The logical resource id associated with the Goal. Example: `_id=24110557`
- `patient`         | This, or one of `_id`, or `subject`.     | [`reference`] | The patient who has the goal. Example: `patient=1316024`
- `subject:Patient` | This, or one of `_id`, or `patient`.     | [`reference`] | The subject who this goal is intended for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
+ `_id`             | This, or one of `patient`, or `subject`. | [`token`]     | The logical resource id associated with the Goal. Example: `_id=7891`
+ `patient`         | This, or one of `_id`, or `subject`.     | [`reference`] | The patient who has the goal. Example: `patient=12345`
+ `subject:Patient` | This, or one of `_id`, or `patient`.     | [`reference`] | The subject who this goal is intended for. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `targetdate`      | N                                        | [`date`]      | A date or date range from which to find Goals. Example: `targetdate=ge2016-10-01&targetdate=le2016-12-01`
 
 Notes:

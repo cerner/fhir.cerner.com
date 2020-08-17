@@ -331,11 +331,11 @@ In this example, MedicationOrder is the FHIR<sup>®</sup> standard resource bein
 
  For example, one must take into account the entire url and not simply the id or resource + id:
 
-     https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/1316024
+     https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742400
 
- In another context the id "Patient/1316024" may identify another person entirely. In the following example a different resource may be returned because the context (service root url) has changed.
+ In another context the id "Patient/12742400" may identify another person entirely. In the following example a different resource may be returned because the context (service root url) has changed.
 
-     https://fhir-open.cerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/1316024
+     https://fhir-open.cerner.com/dstu2/d075cf8b-3261-481d-97e5-ba6c48d3b41f/Patient/12742400
 
  Similarly when considering an identifier one must consider it only in its full context. Even though some identifiers may exist across multiple systems (ex: MRN) it is not guaranteed that they will refer to the same resource.
 
@@ -513,10 +513,10 @@ follow these Link header values instead of constructing your own URLs.
       "type": "searchset",
       "link": [{
         "relation": "self",
-        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=1316024&_count=50"
+        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=12742400&_count=50"
       }, {
         "relation": "next",
-        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=1316024&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
+        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?subject%3APatient=12742400&pageContext=35d95fe0-03bf-426c-bc35-2533f7fde4eb&direction=NEXT"
       }], ...
     }  
 

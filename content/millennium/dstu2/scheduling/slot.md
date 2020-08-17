@@ -66,8 +66,8 @@ _Implementation Notes_
 ------------------|----------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------
  `_id`            | Yes or `slot-type`         | [`token`]     | The logical resource id associated with the resource.
  `slot-type`      | Yes or `_id`               | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `http://snomed.info/sct|394581000`
- `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
- `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/1234`
+ `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `5678`
  `start`          | Yes when using `slot-type` | [`date`]      | The Slot date-time. Example: `2016`
  [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
  [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
@@ -75,7 +75,7 @@ _Implementation Notes_
 Notes:
 
 * The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
-  For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
+  For example, `-location=123,456` is supported but `-location=123&-location=456` is not.
 
 * `slot-type` is a required search parameter when `_id` is not provided.
 
