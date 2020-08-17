@@ -68,17 +68,17 @@ _Implementation Notes_
 
  Name           | Required?                                                | Type          | Description
 ----------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
+ `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `7890`
  `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
- `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
- `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `1234`
+ `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `4567`
+ `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `6789`
  `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
  [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
 Notes:
 
-* The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination. For example, `patient=4704007,1316024` is supported but `patient=4704007&patient=1316024` and `patient=4704007&location=633867` are not.
+* The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination. For example, `patient=1234,5678` is supported but `patient=1234&patient=5678` and `patient=1234&location=5678` are not.
 * The `date` parameter may be provided:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
@@ -92,7 +92,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&date=lt2017-10-04T14:00:00.000Z&patient=4704007
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&date=ge2020-01-01T22:22:16.270Z
 
 #### Response
 
@@ -123,7 +123,7 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 
 #### Response
 
@@ -136,7 +136,7 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/3005756
 
 #### Response
 
@@ -179,7 +179,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 
 #### Body
 
@@ -207,7 +207,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 
 #### Body
 
@@ -235,7 +235,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 
 #### Body
 
@@ -263,7 +263,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
 
 #### Body
 
@@ -291,7 +291,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
 
 #### Body
 
@@ -369,7 +369,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 
 #### Body
 
@@ -385,7 +385,7 @@ Content-Type: application/fhir+json
 Date: Tue, 12 May 2020 20:25:01 GMT
 Etag: W/"0"
 Last-Modified: Tue, 12 May 2020 20:25:01 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/6427746
 Vary: Origin
 X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 </pre>
@@ -398,7 +398,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 
 #### Body
 
@@ -414,7 +414,7 @@ Content-Type: application/fhir+json
 Date: Thu, 30 May 2019 19:49:25 GMT
 Etag: W/"0"
 Last-Modified: Thu, 30 May 2019 19:49:23 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>

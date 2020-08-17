@@ -1,210 +1,166 @@
+# frozen_string_literal: true
+
 module Cerner
   module Resources
 
     R4_PRACTITIONER_ENTRY ||= {
-      "resourceType": "Practitioner",
-      "id": "1994021",
-      "meta": {
-        "versionId": "0",
-        "lastUpdated": "2013-11-04T13:25:17.000-06:00"
+      'resourceType': 'Practitioner',
+      'id': '4122622',
+      'meta': {
+        'versionId': '18',
+        'lastUpdated': '2016-04-28T15:01:59.000Z'
       },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, '\
+               'Physician - Hospitalist Cerner</p><p><b>Identifiers</b>: MESSAGING: 4122622, EXTERNALID: '\
+               'CERNERPHYSHOSP, NPI: 1111111111</p><p><b>Status</b>: Active</p></div>'
       },
-      "identifier": [
+      'identifier': [
         {
-          "use": "usual",
-          "type": {
-            "coding": [
+          'use': 'usual',
+          'type': {
+            'coding': [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                "code": "DEA",
-                "display": "Drug Enforcement Administration registration number"
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'U',
+                'display': 'Unspecified identifier'
               }
             ],
-            "text": "DOCDEA"
+            'text': 'Messaging'
           },
-          "value": "234234123",
-          "period": {
-            "start": "2013-11-08T00:00:00.000-06:00"
-          }
-        }
-      ],
-      "active": true,
-      "name": [
-        {
-          "use": "usual",
-          "text": "Williams, Rory",
-          "family": "Williams",
-          "given": [
-            "Rory"
-          ],
-          "prefix": [
-            "Dr."
-          ],
-          "suffix": [
-            "M.D."
-          ],
-          "period": {
-            "start": "2013-11-04T13:25:17.000-06:00"
-          }
-        }
-      ],
-      "telecom": [
-        {
-          "system": "phone",
-          "value": "8165550192",
-          "use": "work"
-        }
-      ],
-      "address": [
-        {
-          "use": "work",
-          "text": "123 Main St.\nBirmingham, AL 56265\nUSA",
-          "line": [
-            "123 Main St."
-          ],
-          "city": "Birmingham",
-          "district": "Jefferson",
-          "state": "AL",
-          "postalCode": "56265",
-          "country": "USA"
-        }
-      ],
-      "gender": "male"
-    }
-
-    R4_PRACTITIONER_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "5c966d5a-966c-499b-aa3c-6f903a628dd8",
-      "type": "searchset",
-      "total": 1,
-      "link": [
-        {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021"
-        }
-      ],
-      "entry": [
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1994021",
-          "resource": {
-            "resourceType": "Practitioner",
-            "id": "1994021",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2013-11-04T13:25:17.000-06:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Williams, Rory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCDEA: 234234123&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-            },
-            "identifier": [
+          '_system': {
+            'extension': [
               {
-                "use": "usual",
-                "type": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                      "code": "DEA",
-                      "display": "Drug Enforcement Administration registration number"
-                    }
-                  ],
-                  "text": "DOCDEA"
-                },
-                "value": "234234123",
-                "period": {
-                  "start": "2013-11-08T00:00:00.000-06:00"
-                }
-              }
-            ],
-            "active": true,
-            "name": [
-                {
-                "use": "usual",
-                "text": "Williams, Rory",
-                "family": "Williams",
-                "given": [
-                  "Rory"
-                ],
-                "prefix": [
-                  "Dr."
-                ],
-                "suffix": [
-                    "M.D."
-                ],
-                "period": {
-                  "start": "2013-11-04T13:25:17.000-06:00"
-                }
-              }
-            ],
-            "telecom": [
-              {
-                "system": "phone",
-                "value": "8165550192",
-                "use": "work"
-              }
-            ],
-            "address": [
-              {
-                "use": "work",
-                "text": "123 Main St.\nBirmingham, AL 56265\nUSA",
-                "line": [
-                  "123 Main St."
-                ],
-                "city": "Birmingham",
-                "district": "Jefferson",
-                "state": "AL",
-                "postalCode": "56265",
-                "country": "USA"
-              }
-            ],
-            "gender": "male"
-          }
-        }
-      ]
-    }
-
-    R4_PRACTITIONER_CREATE ||= {
-      "resourceType": "Practitioner",
-      "active": true,
-      "name": [
-        {
-          "family": "Williams",
-          "given": [
-            "Rory", "James"
-          ],
-          "prefix": [
-            "Dr."
-          ],
-          "suffix": [
-            "M.D."
-          ],
-          "period": {
-          	"start": "2019-12-01T00:00:00.000Z"
-          }
-        }
-      ],
-      "identifier": [
-        {
-          "type": {
-            "coding": [
-              {
-                "code": "DEA",
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                'valueCode': 'unknown'
               }
             ]
           },
-          "system": "urn:oid:2.16.840.1.113883.4.814",
-          "value": "CW1234563",
-          "period": {
-            "start": "2019-12-01T00:00:00.000Z",
-            "end": "2029-12-01T23:59:59.000Z"
+          'value': '4122622',
+          'period': {
+            'start': '2015-08-18T05:00:00.000Z'
+          }
+        },
+        {
+          'use': 'usual',
+          'type': {
+            'text': 'External Identifier'
+          },
+          '_system': {
+            'extension': [
+              {
+                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                'valueCode': 'unknown'
+              }
+            ]
+          },
+          'value': 'CERNERPHYSHOSP',
+          'period': {
+            'start': '2016-04-28T15:01:59.000Z'
+          }
+        },
+        {
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'NPI',
+                'display': 'National provider identifier'
+              }
+            ],
+            'text': 'National Provider Identifier'
+          },
+          '_system': {
+            'extension': [
+              {
+                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                'valueCode': 'unknown'
+              }
+            ]
+          },
+          'value': '1111111111',
+          'period': {
+            'start': '2015-10-14T05:00:00.000Z'
+          }
+        }
+      ],
+      'active': true,
+      'name': [
+        {
+          'use': 'usual',
+          'text': 'Cerner Test, Physician - Hospitalist Cerner',
+          'family': 'Cerner Test',
+          'given': [
+            'Physician - Hospitalist',
+            'Cerner'
+          ],
+          'period': {
+            'start': '2016-04-28T15:01:59.000Z'
           }
         }
       ]
-    }
+    }.freeze
+
+    R4_PRACTITIONER_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '129834f7-c7d2-4d34-b247-97ebb3e42b4d',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=4122622'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/4122622',
+          'resource': R4_PRACTITIONER_ENTRY
+        }
+      ]
+    }.freeze
+
+    R4_PRACTITIONER_CREATE ||= {
+      'resourceType': 'Practitioner',
+      'active': true,
+      'name': [
+        {
+          'family': 'Williams',
+          'given': [
+            'Rory', 'James'
+          ],
+          'prefix': [
+            'Dr.'
+          ],
+          'suffix': [
+            'M.D.'
+          ],
+          'period': {
+            'start': '2019-12-01T00:00:00.000Z'
+          }
+        }
+      ],
+      'identifier': [
+        {
+          'type': {
+            'coding': [
+              {
+                'code': 'DEA',
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203'
+              }
+            ]
+          },
+          'system': 'urn:oid:2.16.840.1.113883.4.814',
+          'value': 'CW1234563',
+          'period': {
+            'start': '2019-12-01T00:00:00.000Z',
+            'end': '2029-12-01T23:59:59.000Z'
+          }
+        }
+      ]
+    }.freeze
 
   end
 end

@@ -65,7 +65,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?patient=4342012
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12724066
 
 #### Response
 
@@ -77,7 +77,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition?_id=d35686553,p6317881,b5777d90-52f0-42e8-9f68-485c4d2375a7
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?_id=d2572382197,p73077203,00a5d6eb-c567-42f7-be07-53804cece075
 
 #### Response
 
@@ -107,7 +107,7 @@ List an individual Condition by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/b5777d90-52f0-42e8-9f68-485c4d2375a7
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/00a5d6eb-c567-42f7-be07-53804cece075
 
 #### Response
 
@@ -151,7 +151,7 @@ Notes:
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
+    POST https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition
 
 #### Body
 
@@ -175,7 +175,7 @@ Notes:
     X-Content-Type-Options → nosniff
     Expires → Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified → Tue, 28 Feb 2017 21:26:44 GMT
-    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/p6809861
+    Location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p6809861
     Status → 201 Created
     Content-Length → 0
     Content-Type → application/json
@@ -188,7 +188,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition
+    POST https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition
 
 #### Body
 
@@ -212,7 +212,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
     X-Content-Type-Options → nosniff
     Expires → Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified → Tue, 28 Feb 2017 21:30:28 GMT
-    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d36474555
+    Location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d36474555
     Status → 201 Created
     Content-Length → 0
     Content-Type → application/json
@@ -258,7 +258,7 @@ Notes:
 
 #### Request
 
-    PUT https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Condition/d43534563
+    PUT https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2572382197
 
 #### Body
 

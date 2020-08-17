@@ -42,7 +42,7 @@ Search for Persons that meet supplied query parameters:
 ----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
  `_id`                | This, or any other required search parameter | [`token`]  | The logical resource id associated with the resource.
  `identifier`         | This or `_id`                                | [`token`]  | The person identifier.  Example: `urn:oid:2.16.840.1.113883.3.13.6|01022228`
- 
+
 Notes:
 
 * `identifier` value must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN`
@@ -55,7 +55,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person?_id=725944
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Person?_id=12724067
 
 #### Response
 
@@ -86,7 +86,7 @@ List an individual Person by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/725944
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Person/12724067
 
 #### Response
 
@@ -106,7 +106,7 @@ The ability to perform person combine or uncombine operations is not available t
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Person/971923
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Person/12742633
 
 #### Response
 

@@ -52,7 +52,7 @@ _Implementation Notes_
 --------------|-----------|---------------|--------------
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource.
  `date`       | N         | [`date`]      | Time period plan covers. Example: `date=ge2016&date=le2017 (Jan 1, 2016 - Dec 31, 2017)` or `date=ge2016-08-24T12:00:00.000Z&date=le2017-01-24T12:00:00.000Z`
- `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=1316024`
+ `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=12345`
  `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`
  [`_count`]   | N         | [`number`]    | Number of results per page.
 
@@ -64,7 +64,7 @@ Notes:
   - When provided, `_count` is ignored.
 
 - The `date` parameter
-  - When provided, must use both `ge` and `le` prefixes in the same search 
+  - When provided, must use both `ge` and `le` prefixes in the same search
     - The lower value must have the `ge` prefix and the higher value must have the `le` prefix
     - If date precision must be consistent
   - May be combined with the patient and category parameters.
@@ -85,7 +85,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan?patient=1316020&category=assess-plan
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?patient=12742400&category=assess-plan
 
 #### Response
 
@@ -116,7 +116,7 @@ List an individual CarePlan by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/CarePlan/17463459
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/17463459
 
 #### Response
 

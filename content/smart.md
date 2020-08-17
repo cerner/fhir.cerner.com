@@ -159,7 +159,7 @@ Your app must be reachable through an https endpoint. Also, you need a valid SSL
 
 #### Public Access ####
 
-In order for *PowerChart* to open and display your app in Cerner's Sandbox FHIRPLAY environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
+In order for *PowerChart* to open and display your app in Cerner's sandbox environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
 
 If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible. However, the app's URL will need to be accessible from your organization's Citrix servers. A good way to test the connectivity is by opening IE browser from Citrix servers to your app's URL.
 

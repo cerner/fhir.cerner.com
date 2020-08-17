@@ -1,7 +1,5 @@
 AllCops:
   TargetRubyVersion: 2.6
-  Exclude:
-    - 'lib/resources/example_json/*.rb'
 
 # ------------------------------------------------------- Layout -------------------------------------------------------
 

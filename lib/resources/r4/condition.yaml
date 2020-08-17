@@ -194,7 +194,7 @@ fields:
       "severity": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/12022",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/12022",
             "code": "3293",
             "display": "Mild"
           }

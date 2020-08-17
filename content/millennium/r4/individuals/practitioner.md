@@ -54,7 +54,7 @@ Search for Practitioners that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner?_id=1994021
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=4122622
 
 #### Response
 
@@ -83,7 +83,7 @@ List an individual Practitioner by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/1994021
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/4122622
 
 #### Response
 
@@ -116,7 +116,7 @@ Create an individual Practitioner.
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner
 
 #### Body
 
@@ -132,7 +132,7 @@ Content-Type: application/fhir+json
 Date: Mon, 09 Dec 2019 18:57:39 GMT
 Etag: W/"0"
 Last-Modified: Mon, 09 Dec 2019 18:57:39 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Practitioner/7118008
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/7118008
 Server-Response-Time: 724.624
 Status: 201 Created
 Vary: Origin

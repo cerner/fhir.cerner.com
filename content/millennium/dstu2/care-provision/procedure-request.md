@@ -46,9 +46,9 @@ Search for ProcedureRequests that meet supplied query parameters:
 
  Name         | Required?                             | Type          | Description
 --------------|---------------------------------------|---------------|------------------------------------------------------------------------------------
- `_id`        | This, or `patient` or `subject`       | [`token`]     | The logical resource id associated with the ProcedureRequest. Example: `_id=44869605` |
- `patient`    | This, or `_id` or `subject`           | [`reference`] | The patient associated with the ProcedureRequest. Example: `patient=1316020` or `patient=Patient/1316020` |
- `subject`    | This, or `_id` or `patient`           | [`reference`] | The subject associated with the ProcedureRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`  |
+ `_id`        | This, or `patient` or `subject`       | [`token`]     | The logical resource id associated with the ProcedureRequest. Example: `_id=7891` |
+ `patient`    | This, or `_id` or `subject`           | [`reference`] | The patient associated with the ProcedureRequest. Example: `patient=12345` or `patient=Patient/12345` |
+ `subject`    | This, or `_id` or `patient`           | [`reference`] | The subject associated with the ProcedureRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`  |
  `_lastUpdated`  | N                                  | [`date`]      |  An explicit or implied date-time range within which the most recent clinically relevant update was made to the procedure request. Must be prefixed by ‘ge’ or ‘le’. Example: ge2014-05-19T20:54:02.000Z |
  `_count`       | N                                   | [`number`]    | The maximum number of ProcedureRequests to retrieve in a page. |
 
@@ -68,7 +68,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ProcedureRequest?patient=1316024
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/ProcedureRequest?patient=12724067
 
 #### Response
 
@@ -99,7 +99,7 @@ List an individual ProcedureRequest by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ProcedureRequest/28005933
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/ProcedureRequest/309771147
 
 #### Response
 

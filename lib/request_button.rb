@@ -5,7 +5,7 @@ require 'securerandom'
 class RequestButton
 
   # The base URL for Cerner's sandbox server
-  BASE_URL = 'https://fhir-%s.sandboxcerner.com/%s/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/%s'
+  BASE_URL = 'https://fhir-%s.cerner.com/%s/ec2458f2-1e24-41c8-b71b-0e701af7583d/%s'
 
   # The accept header for each API version
   HEADERS = {

@@ -43,7 +43,7 @@ _Implementation Notes_
 
     `https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance`
 
-    `https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/StructureDefinition/account-balance`
+    `https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/StructureDefinition/account-balance`
 
 ### Authorization Types
 

@@ -26,7 +26,7 @@ fields:
           "type": {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
                 "code": "1077",
                 "display": "FIN NBR"
               }
@@ -52,7 +52,7 @@ fields:
         "type": {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
               "code": "1077",
               "display": "FIN NBR"
             }
@@ -64,7 +64,7 @@ fields:
         "type": {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/319",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
               "code": "1077"
             }
           ]
@@ -153,7 +153,7 @@ fields:
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/71",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71",
               "code": "309310"
             }
           ]
@@ -209,7 +209,7 @@ fields:
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/3",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/3",
               "code": "309203"
             }
           ]
@@ -291,7 +291,7 @@ fields:
           {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/333",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
                 "code": "1126"
               }
             ]
@@ -410,7 +410,7 @@ fields:
         "admitSource": {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/2",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/2",
               "code": "670834"
             }
           ]
@@ -491,7 +491,7 @@ fields:
         "dischargeDisposition": {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/19",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/19",
               "code": "638660"
             }
           ]

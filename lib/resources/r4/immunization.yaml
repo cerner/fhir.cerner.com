@@ -50,7 +50,7 @@ fields:
       "statusReason": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30440",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/30440",
             "code": "679607",
             "display": "Patient Refuses",
             "userSelected": true
@@ -80,7 +80,7 @@ fields:
       "vaccineCode": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
             "code": "2797921",
             "display": "hepatitis A-hepatitis B vaccine",
             "userSelected": false
@@ -157,7 +157,7 @@ fields:
       "reportOrigin": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/30200",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/30200",
             "code": "20738688",
             "display": "Primary Care Provider",
             "userSelected": false
@@ -227,7 +227,7 @@ fields:
       "site": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/97",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/97",
             "code": "576",
             "display": "Left Arm",
             "userSelected": false
@@ -256,7 +256,7 @@ fields:
       "route": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4001",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4001",
             "code": "318167",
             "display": "IM",
             "userSelected": false

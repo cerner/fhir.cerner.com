@@ -1,270 +1,350 @@
+# frozen_string_literal: true
+
 module Cerner
   module Resources
     R4_ALLERGY_INTOLERANCE_ENTRY ||= {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance/983733",
-      "resource": {
-        "resourceType": "AllergyIntolerance",
-        "id": "983733",
-        "meta": {
-          "versionId": "983733",
-          "lastUpdated": "2012-07-11T08:57:32.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Allergy Intolerance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: "\
-                 "Picka, Guru 1013&lt;/p&gt;&lt;p&gt;&lt;b&gt;Allergy&lt;/b&gt;: Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;"\
-                 "Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;"\
-                 "/p&gt;&lt;p&gt;&lt;b&gt;Criticality&lt;/b&gt;: High Risk&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: "\
-                 "Environment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: 1990&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
+      'resourceType': 'AllergyIntolerance',
+      'id': '12760025',
+      'meta': {
+        'versionId': '12760025',
+        'lastUpdated': '2020-03-04T20:16:02Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: '\
+               'SMART, SANDY A</p><p><b>Allergy</b>: Eggs (edible) (substance)</p><p><b>Verification Status</b>: '\
+               'Confirmed</p><p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>'\
+               'Category</b>: Food</p><p><b>Reactions</b>: Breathing abnormal</p><p><b>Onset</b>: Dec 14, 2019  '\
+               '6:00 P.M. CST</p></div>'
+      },
+      'clinicalStatus': {
+        'coding': [
           {
-            "resourceType": "RelatedPerson",
-            "id": "19775876",
-            "patient": {
-              "reference": "Patient/1420008",
-              "display": "Picka, Guru 1013"
-            },
-            "relationship": {
-              "coding": [
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+            'code': 'active',
+            'display': 'Active'
+          }
+        ],
+        'text': 'Active'
+      },
+      'verificationStatus': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+            'code': 'confirmed',
+            'display': 'Confirmed'
+          }
+        ],
+        'text': 'Active'
+      },
+      'type': 'allergy',
+      'category': [
+        'food'
+      ],
+      'criticality': 'high',
+      'code': {
+        'coding': [
+          {
+            'system': 'http://snomed.info/sct',
+            'code': '102263004',
+            'display': 'Eggs (edible) (substance)'
+          }
+        ],
+        'text': 'Egg'
+      },
+      'patient': {
+        'reference': 'Patient/12742399',
+        'display': 'SMART, SANDY A'
+      },
+      'encounter': {
+        'reference': 'Encounter/97953523'
+      },
+      'onsetDateTime': '2019-12-15T00:00:00Z',
+      'recordedDate': '2020-03-04T20:16:02Z',
+      'recorder': {
+        'reference': 'Practitioner/12724045',
+        'display': 'Graham, Joshua'
+      },
+      'reaction': [
+        {
+          'id': '12760027',
+          'manifestation': [
+            {
+              'coding': [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "40683002",
-                  "display": "Parent (person)",
-                  "userSelected": false
-                },
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                  "code": "PRN",
-                  "display": "parent",
-                  "userSelected": false
+                  'system': 'http://snomed.info/sct',
+                  'code': '386813002',
+                  'display': 'Abnormal breathing (finding)'
                 }
               ],
-              "text": "parent"
+              'text': 'Breathing abnormal'
             }
-          }
-        ],
-        "clinicalStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-              "code": "resolved",
-              "display": "Resolved",
-              "userSelected": false
-            }
-          ],
-          "text": "Resolved"
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-              "code": "confirmed",
-              "display": "Confirmed",
-              "userSelected": false
-            }
-          ],
-          "text": "Resolved"
-        },
-        "type": "allergy",
-        "category": [
-          "environment"
-        ],
-        "criticality": "high",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "33008008",
-              "display": "Dust (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "Dust"
-        },
-        "patient": {
-          "reference": "Patient/1420008",
-          "display": "Picka, Guru 1013"
-        },
-        "encounter": {
-          "reference": "Encounter/657884"
-        },
-        "onsetDateTime": "1990",
-        "recordedDate": "2012-07-11T03:57:32.000-05:00",
-        "recorder": {
-          "reference": "Practitioner/1",
-          "display": "SYSTEM, SYSTEM"
-        },
-        "asserter": {
-          "reference": "#19775876"
-        },
-        "reaction": [
-          {
-            "id": "58297369",
-            "manifestation": [
-              {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "247472004",
-                    "display": "Weal (disorder)"
-                  }
-                ],
-                "text": "Blastobacter"
-              }
-            ],
-            "severity": "severe"
-          }
-        ]
-      }
-    }
+          ]
+        }
+      ]
+    }.freeze
 
     R4_ALLERGY_INTOLERANCE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "160ad230-6a5c-4813-96e2-2b36be102145",
-      "type": "searchset",
-      "total": 1,
-      "link": [
+      'resourceType': 'Bundle',
+      'id': '30e959ca-24f5-43a5-bf8d-46bbb1991b01',
+      'type': 'searchset',
+      'link': [
         {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/AllergyIntolerance?_id=983733"
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance'\
+                 '?patient=12742399'
         }
       ],
-      "entry": [
-        R4_ALLERGY_INTOLERANCE_ENTRY
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025',
+          'resource': R4_ALLERGY_INTOLERANCE_ENTRY
+        },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760007',
+          'resource': {
+            'resourceType': 'AllergyIntolerance',
+            'id': '12760007',
+            'meta': {
+              'versionId': '12760007',
+              'lastUpdated': '2020-03-04T20:13:51Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: '\
+                     'SMART, SANDY A</p><p><b>Allergy</b>: Cow&apos;s milk (substance)</p><p><b>Verification Status'\
+                     '</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p>'\
+                     '<p><b>Category</b>: Food</p><p><b>Reactions</b>: Hives</p><p><b>Onset</b>: Dec 14, 2019  6:00 '\
+                     'P.M. CST</p></div>'
+            },
+            'contained': [
+              {
+                'resourceType': 'RelatedPerson',
+                'id': '638993',
+                'patient': {
+                  'reference': 'Patient/12742399',
+                  'display': 'SMART, SANDY A'
+                },
+                'relationship': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://snomed.info/sct',
+                        'code': '35359004',
+                        'display': 'Family (social concept)'
+                      },
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                        'code': 'FAMMEMB',
+                        'display': 'family member'
+                      }
+                    ],
+                    'text': 'family member'
+                  }
+                ]
+              }
+            ],
+            'clinicalStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+                  'code': 'active',
+                  'display': 'Active'
+                }
+              ],
+              'text': 'Active'
+            },
+            'verificationStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+                  'code': 'confirmed',
+                  'display': 'Confirmed'
+                }
+              ],
+              'text': 'Active'
+            },
+            'type': 'allergy',
+            'category': [
+              'food'
+            ],
+            'criticality': 'high',
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '3718001',
+                  'display': "Cow's milk (substance)"
+                }
+              ],
+              'text': "Cow's Milk"
+            },
+            'patient': {
+              'reference': 'Patient/12742399',
+              'display': 'SMART, SANDY A'
+            },
+            'encounter': {
+              'reference': 'Encounter/97953523'
+            },
+            'onsetDateTime': '2019-12-15T00:00:00Z',
+            'recordedDate': '2020-03-04T20:13:51Z',
+            'recorder': {
+              'reference': 'Practitioner/12724045',
+              'display': 'Graham, Joshua'
+            },
+            'asserter': {
+              'reference': '#638993'
+            },
+            'reaction': [
+              {
+                'id': '12760009',
+                'manifestation': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://snomed.info/sct',
+                        'code': '247472004',
+                        'display': 'Weal (disorder)'
+                      }
+                    ],
+                    'text': 'Hives'
+                  }
+                ]
+              }
+            ]
+          }
+        }
       ]
-    }
+    }.freeze
 
     R4_ALLERGY_INTOLERANCE_CREATE ||= {
-      "resourceType": "AllergyIntolerance",
-      "contained":[
+      'resourceType': 'AllergyIntolerance',
+      'contained': [
         {
-          "resourceType": "PractitionerRole",
-          "id": "638995",
-          "code":[
+          'resourceType': 'PractitionerRole',
+          'id': '638995',
+          'code': [
             {
-              "coding":[
+              'coding': [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/practitioner-role",
-                  "code": "nurse"
+                  'system': 'http://terminology.hl7.org/CodeSystem/practitioner-role',
+                  'code': 'nurse'
                 }
               ]
             }
           ]
         }
       ],
-      "clinicalStatus":{
-        "coding":[
-           {
-              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-              "code": "active"
-           }
-        ]
-      },
-      "verificationStatus":{
-        "coding":[
-           {
-              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-              "code": "confirmed"
-           }
-        ]
-      },
-      "type": "allergy",
-      "category":[
-        "medication"
-      ],
-      "criticality": "high",
-      "code":{
-        "coding":[
+      'clinicalStatus': {
+        'coding': [
           {
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "723"
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+            'code': 'active'
+          }
+        ]
+      },
+      'verificationStatus': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+            'code': 'confirmed'
+          }
+        ]
+      },
+      'type': 'allergy',
+      'category': [
+        'medication'
+      ],
+      'criticality': 'high',
+      'code': {
+        'coding': [
+          {
+            'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
+            'code': '723'
           }
         ],
-        "text": "amoxicillin"
+        'text': 'amoxicillin'
       },
-      "patient":{
-        "reference": "Patient/1316020"
+      'patient': {
+        'reference': 'Patient/12742399'
       },
-      "encounter":{
-        "reference": "Encounter/4749909"
+      'encounter': {
+        'reference': 'Encounter/97953523'
       },
-      "onsetDateTime": "2019-09-11T05:00:00.000Z",
-      "asserter":{
-        "reference": "#638995"
+      'onsetDateTime': '2019-09-11T05:00:00.000Z',
+      'asserter': {
+        'reference': '#638995'
       },
-      "note": [
+      'note': [
         {
-          "authorReference": {
-            "reference": "Practitioner/2578010"
+          'authorReference': {
+            'reference': 'Practitioner/12742399'
           },
-          "text": "Updated with additional details provided by patient."
+          'text': 'Updated with additional details provided by patient.'
         }
       ],
-      "reaction":[
+      'reaction': [
         {
-          "manifestation":[
+          'manifestation': [
             {
-              "coding":[
+              'coding': [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "271757001"
+                  'system': 'http://snomed.info/sct',
+                  'code': '271757001'
                 }
               ],
-              "text": "Papular eruption"
+              'text': 'Papular eruption'
             }
           ],
-          "severity": "severe"
+          'severity': 'severe'
         }
       ]
-    }
+    }.freeze
 
     R4_ALLERGY_INTOLERANCE_UPDATE ||= {
-      "resourceType": "AllergyIntolerance",
-      "id": "7403733",
-      "clinicalStatus": {
-        "coding": [
+      'resourceType': 'AllergyIntolerance',
+      'id': '12760025',
+      'clinicalStatus': {
+        'coding': [
           {
-            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-            "code": "active"
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+            'code': 'active'
           }
         ]
       },
-      "verificationStatus": {
-        "coding": [
+      'verificationStatus': {
+        'coding': [
           {
-            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-            "code": "unconfirmed"
+            'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+            'code': 'unconfirmed'
           }
         ]
       },
-      "category": [
-        "food"
+      'category': [
+        'food'
       ],
-      "code": {
-        "coding": [
+      'code': {
+        'coding': [
           {
-            "system": "http://snomed.info/sct",
-            "code": "91935009",
-            "display": "Allergy to peanuts (disorder)"
+            'system': 'http://snomed.info/sct',
+            'code': '102263004',
+            'display': 'Eggs (edible) (substance)'
           }
         ],
-        "text": "Allergy to peanuts"
+        'text': 'Egg'
       },
-      "patient": {
-        "reference": "Patient/4342008",
-        "display": "SMART, WILMA"
+      'patient': {
+        'reference': 'Patient/12742399'
       },
-      "recordedDate": "2019-02-08T00:00:00Z",
-      "recorder": {
-        "reference": "Practitioner/2042017",
-        "display": "Generated Domain User for 0"
+      'recordedDate': '2019-02-08T00:00:00Z',
+      'recorder': {
+        'reference': 'Practitioner/12724045'
       },
-      "note": [
+      'note': [
         {
-          "text": "Updated with additional details provided by patient."
+          'text': 'Updated with additional details provided by patient.'
         }
       ]
-    }
+    }.freeze
   end
 end
