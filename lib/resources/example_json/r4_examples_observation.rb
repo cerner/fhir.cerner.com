@@ -246,6 +246,24 @@ module Cerner
                     'valueCodeableConcept': {
                       'coding': [
                         {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v2-0912',
+                          'code': 'OP',
+                          'display': 'ordering provider'
+                        }
+                      ],
+                      'text': 'ordering provider'
+                    },
+                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+                  }
+                ],
+                'reference': 'Practitioner/1994008'
+              },
+              {
+                'extension': [
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
                           'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
                           'code': 'LA',
                           'display': 'legal authenticator'
@@ -254,9 +272,22 @@ module Cerner
                       'text': 'legal authenticator'
                     },
                     'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                          'code': 'PPRF',
+                          'display': 'primary performer'
+                        }
+                      ],
+                      'text': 'primary performer'
+                    },
+                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
                   }
                 ],
-                'reference': 'Practitioner/12724064'
+                'reference': 'Practitioner/1974008'
               }
             ],
             'valueQuantity': {
