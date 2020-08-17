@@ -302,7 +302,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Organization?_id=1750115
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization?_id=675844
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -311,28 +311,28 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "c95d5aee-f885-4459-8de9-22e2c851bb76",
+  "id": "572dbd7f-2505-41cd-a9ac-240db77545a1",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca//Organization?_id=1750115"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization?_id=675844"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca//Organization/1750115",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/675844",
       "resource": {
         "resourceType": "Organization",
-        "id": "1750115",
+        "id": "675844",
         "meta": {
-          "versionId": "2",
-          "lastUpdated": "2018-04-27T19:46:08Z"
+          "versionId": "29",
+          "lastUpdated": "2018-05-22T16:46:28Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: RCA Testing Organization&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;NPI&lt;/b&gt;: 1234567893&lt;/p&gt;&lt;p&gt;&lt;b&gt;TAXID&lt;/b&gt;: 48-7283726321&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Model Hospital&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;TAXID&lt;/b&gt;: 123456785&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
@@ -340,9 +340,9 @@
             "type": {
               "coding": [
                 {
-                  "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/334",
                   "code": "TAXID",
-                  "display": "Tax Identifier",
+                  "display": "zzTax Identifier",
                   "userSelected": true
                 },
                 {
@@ -351,31 +351,10 @@
                   "display": "Tax ID number"
                 }
               ],
-              "text": "Tax Identifier"
+              "text": "zzTax Identifier"
             },
             "system": "urn:oid:2.16.840.1.113883.4.4",
-            "value": "48-7283726321"
-          },
-          {
-            "use": "official",
-            "type": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
-                  "code": "NPI",
-                  "display": "Organization NPI",
-                  "userSelected": true
-                },
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "NPI",
-                  "display": "National provider identifier"
-                }
-              ],
-              "text": "Organization NPI"
-            },
-            "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1234567893"
+            "value": "123456785"
           }
         ],
         "active": true,
@@ -383,7 +362,7 @@
           {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
                 "code": "EMPLOYER",
                 "display": "Employer",
                 "userSelected": true
@@ -394,9 +373,9 @@
           {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                "code": "RCCLINIC",
-                "display": "RCA Clinic Organizations",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "PLACEOFSVC",
+                "display": "Place of Service",
                 "userSelected": true
               },
               {
@@ -405,56 +384,103 @@
                 "display": "Healthcare Provider"
               }
             ],
-            "text": "RCA Clinic Organizations"
+            "text": "Place of Service"
           },
           {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-                "code": "FACILITY",
-                "display": "Facility",
-                "userSelected": true
-              }
-            ],
-            "text": "Facility"
-          },
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
                 "code": "CLIENT",
                 "display": "Client",
                 "userSelected": true
               }
             ],
             "text": "Client"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "LABORATORY",
+                "display": "Exchange Lab",
+                "userSelected": true
+              }
+            ],
+            "text": "Exchange Lab"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "FACILITY",
+                "display": "Facility",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility"
           }
         ],
-        "name": "RCA Testing Organization",
+        "name": "Model Hospital",
         "telecom": [
           {
             "system": "phone",
-            "value": "9138273648",
-            "use": "work"
-          },
-          {
-            "system": "phone",
-            "value": "9192739427",
+            "value": "5555550013",
             "use": "work"
           }
         ],
         "address": [
           {
             "use": "work",
-            "text": "9600 Metcalf Avenue\nOverland Park, KS 66212\nUSA",
+            "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
             "line": [
-              "9600 Metcalf Avenue"
+              "6276 Rockriver Drive"
             ],
-            "city": "Overland Park",
-            "district": "Johnson",
-            "state": "KS",
-            "postalCode": "66212",
-            "country": "USA"
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "use": "billing",
+            "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+            "line": [
+              "6276 Rockriver Drive"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "use": "billing",
+            "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+            "line": [
+              "6276 Rockriver Drive"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+            "line": [
+              "6276 Rockriver Drive"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+            "line": [
+              "6276 Rockriver Drive"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
           }
         ]
       }
@@ -490,7 +516,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Organization/2113010
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/675844
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -499,14 +525,14 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Organization",
-  "id": "2113010",
+  "id": "675844",
   "meta": {
-    "versionId": "0",
-    "lastUpdated": "2019-11-27T02:18:49Z"
+    "versionId": "29",
+    "lastUpdated": "2018-05-22T16:46:28Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: fhir-org1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;NPI&lt;/b&gt;: FHIR-NPI-1011&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Organization&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Model Hospital&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;TAXID&lt;/b&gt;: 123456785&lt;/p&gt;&lt;/div&gt;"
   },
   "identifier": [
     {
@@ -514,21 +540,21 @@
       "type": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/334",
-            "code": "NPI",
-            "display": "Organization NPI",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/334",
+            "code": "TAXID",
+            "display": "zzTax Identifier",
             "userSelected": true
           },
           {
             "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "NPI",
-            "display": "National provider identifier"
+            "code": "TAX",
+            "display": "Tax ID number"
           }
         ],
-        "text": "Organization NPI"
+        "text": "zzTax Identifier"
       },
-      "system": "http://hl7.org/fhir/sid/us-npi",
-      "value": "FHIR-NPI-1011"
+      "system": "urn:oid:2.16.840.1.113883.4.4",
+      "value": "123456785"
     }
   ],
   "active": true,
@@ -536,39 +562,125 @@
     {
       "coding": [
         {
-          "system": "https://fhir.cerner.com/fb8067d7-e012-4703-8888-17b86d11f0f8/codeSet/278",
-          "code": "GOVTDEPT",
-          "display": "Government Department",
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+          "code": "EMPLOYER",
+          "display": "Employer",
+          "userSelected": true
+        }
+      ],
+      "text": "Employer"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+          "code": "PLACEOFSVC",
+          "display": "Place of Service",
           "userSelected": true
         },
         {
           "system": "http://terminology.hl7.org/CodeSystem/organization-type",
-          "code": "govt",
-          "display": "Government"
+          "code": "prov",
+          "display": "Healthcare Provider"
         }
       ],
-      "text": "Government Department"
+      "text": "Place of Service"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+          "code": "CLIENT",
+          "display": "Client",
+          "userSelected": true
+        }
+      ],
+      "text": "Client"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+          "code": "LABORATORY",
+          "display": "Exchange Lab",
+          "userSelected": true
+        }
+      ],
+      "text": "Exchange Lab"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+          "code": "FACILITY",
+          "display": "Facility",
+          "userSelected": true
+        }
+      ],
+      "text": "Facility"
     }
   ],
-  "name": "fhir-org1",
+  "name": "Model Hospital",
   "telecom": [
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueCode": "unknown"
-        }
-      ]
+      "system": "phone",
+      "value": "5555550013",
+      "use": "work"
     }
   ],
   "address": [
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueCode": "unknown"
-        }
-      ]
+      "use": "work",
+      "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+      "line": [
+        "6276 Rockriver Drive"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "US"
+    },
+    {
+      "use": "billing",
+      "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+      "line": [
+        "6276 Rockriver Drive"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "US"
+    },
+    {
+      "use": "billing",
+      "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+      "line": [
+        "6276 Rockriver Drive"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "US"
+    },
+    {
+      "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+      "line": [
+        "6276 Rockriver Drive"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "US"
+    },
+    {
+      "text": "6276 Rockriver Drive\\nKansas City, MO 64117\\nUS",
+      "line": [
+        "6276 Rockriver Drive"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64117",
+      "country": "US"
     }
   ]
 }</code></pre>
@@ -834,7 +946,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Organization
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization
 </code></pre>
 
 <h4 id="body">Body</h4>
@@ -879,7 +991,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
 Etag: W/"6767735"
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Organization/6767735,
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/6767735
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created

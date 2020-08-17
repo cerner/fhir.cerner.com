@@ -348,7 +348,7 @@
       <td><code>_id</code></td>
       <td>Yes, or one of <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Appointment. Example: <code>3005759</code>
+      <td>The logical resource id associated with the Appointment. Example: <code>7890</code>
 </td>
     </tr>
     <tr>
@@ -363,7 +363,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Patient references. Example: <code>4704007</code>
+      <td>A single or comma separated list of Patient references. Example: <code>1234</code>
 </td>
     </tr>
     <tr>
@@ -371,7 +371,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>2578010</code>
+      <td>A single or comma separated list of Practitioner references. Example: <code>4567</code>
 </td>
     </tr>
     <tr>
@@ -379,7 +379,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Location references. Example: <code>633867</code>
+      <td>A single or comma separated list of Location references. Example: <code>6789</code>
 </td>
     </tr>
     <tr>
@@ -401,7 +401,7 @@
 <p>Notes:</p>
 
 <ul>
-  <li>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination. For example, <code>patient=4704007,1316024</code> is supported but <code>patient=4704007&amp;patient=1316024</code> and <code>patient=4704007&amp;location=633867</code> are not.</li>
+  <li>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination. For example, <code>patient=1234,5678</code> is supported but <code>patient=1234&amp;patient=5678</code> and <code>patient=1234&amp;location=5678</code> are not.</li>
   <li>The <code>date</code> parameter may be provided:
     <ul>
       <li>once with a prefix and time component to indicate a specific date/time. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z</code>, <code>&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
@@ -420,7 +420,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&amp;date=lt2017-10-04T14:00:00.000Z&amp;patient=4704007
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&amp;date=ge2020-01-01T22:22:16.270Z
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -429,123 +429,105 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "0f5531d7-01d5-40ad-a482-3d1645f68e32",
+  "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=ge2017-10-04T13:00:00.000Z&amp;date=lt2017-10-04T14:00:00.000Z&amp;patient=4704007"
-    },
-    {
-      "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?-pageContext=H4sIAAAAAAAAAI1SXW%2FCIBT9LzxXC%2FSDyptTH%2FZizOzDssUH1l5bEoWGollm%2FO%2BDtpuNmckSkhPOvRzOPXBBomm0VPYIym5BmKJeGGnBSIH4BTWigq38AsRJgD6gkmopLOTy6BhEMckmhE4IyUnKMXZrijF%2BQwECVf7VGOeUcrdIOqWsazzoQlip1UKX0CL%2BHuOUZtksiHGcEZrtAmfBSufteenLfm%2F0WZZgfomjm0Cqalvoxl9WW9vwMKwPbKpNFe5racKXOByNia7BeOpeiMWMsSQJemQBSzC5oednM5akA2aejzq%2BQ99Hhj0hAyY9RoNONNSjgadOJ3H%2BFXzap0fR9olFo8R8%2B3zsHvEfzy4bOEt9au%2FqE3Irrf77MgaskArK%2BX1Su5vYxn2PpTRQ%2BCd0cuvVa%2B6O1qLdjDoQ34tDCx2%2Fdu57zpoTXL8Bnx1Hw38CAAA%3D&amp;-pageDirection=NEXT"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?date=ge2020-01-01T22%3A22%3A16.270Z&amp;patient=4817663"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517",
       "resource": {
-        "resourceType": "Appointment",
-        "id": "3005756",
-        "meta": {
-          "versionId": "3",
-          "lastUpdated": "2019-01-04T20:31:42.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Oct  4, 2017  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Oct  4, 2017  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "cancelled",
-        "serviceType": [
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                "code": "21265426",
-                "display": "Same Day",
-                "userSelected": true
-              },
-              {
-                "system": "http://snomed.info/sct",
-                "code": "408443003",
-                "display": "General medical practice",
-                "userSelected": false
-              }
-            ],
-            "text": "Same Day"
-          }
-        ],
-        "description": "Same Day",
-        "start": "2017-10-04T13:00:00.000Z",
-        "end": "2017-10-04T14:00:00.000Z",
-        "minutesDuration": 60,
-        "participant": [
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                    "code": "4574",
-                    "display": "Resource",
-                    "userSelected": true
-                  }
-                ],
-                "text": "Resource"
-              },
-              {
-                "coding": [
-                  {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                    "code": "PPRF",
-                    "display": "primary performer"
-                  }
-                ]
-              }
-            ],
-            "actor": {
-              "reference": "Practitioner/2578010",
-              "display": "Jones, Clive"
-            },
-            "required": "required",
-            "status": "accepted"
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517",
+        "resource": {
+          "resourceType": "Appointment",
+          "id": "4817517",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2020-07-06T18:46:08.000Z"
           },
-          {
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-                    "code": "4572",
-                    "display": "Patient",
-                    "userSelected": true
-                  }
-                ],
-                "text": "Patient"
-              }
-            ],
-            "actor": {
-              "reference": "Patient/4704007",
-              "display": "Smart, Barney R"
-            },
-            "required": "required",
-            "status": "accepted"
+          "text": {
+            "status": "generated",
+            "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
           },
-          {
-            "actor": {
-              "reference": "Location/4048128",
-              "display": "Baseline East"
+          "status": "booked",
+          "serviceType": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                  "code": "24477854",
+                  "display": "Established Patient",
+                  "userSelected": true
+                }
+              ],
+              "text": "Established Patient"
+            }
+          ],
+          "description": "Established Patient",
+          "start": "2020-07-08T13:00:00.000Z",
+          "end": "2020-07-08T13:15:00.000Z",
+          "minutesDuration": 15,
+          "participant": [
+            {
+              "type": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code": "PPRF",
+                      "display": "primary performer"
+                    }
+                  ]
+                }
+              ],
+              "actor": {
+                "reference": "Practitioner/593923",
+                "display": "Cerner Test, Physician - Primary Care Cerner"
+              },
+              "required": "required",
+              "status": "accepted"
             },
-            "required": "required",
-            "status": "accepted"
-          }
-        ],
-        "requestedPeriod": [
-          {
-            "start": "2017-10-04T13:00:00.000Z",
-            "end": "2017-10-04T14:00:00.000Z"
-          }
-        ]
+            {
+              "type": [
+                {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+                      "code": "4572",
+                      "display": "Patient",
+                      "userSelected": true
+                    }
+                  ],
+                  "text": "Patient"
+                }
+              ],
+              "actor": {
+                "reference": "Patient/12724066",
+                "display": "SMART, NANCY"
+              },
+              "required": "required",
+              "status": "accepted"
+            },
+            {
+              "actor": {
+                "reference": "Location/21304876",
+                "display": "MX Clinic 1"
+              },
+              "required": "required",
+              "status": "accepted"
+            }
+          ],
+          "requestedPeriod": [
+            {
+              "start": "2020-07-08T13:00:00.000Z",
+              "end": "2020-07-08T13:15:00.000Z"
+            }
+          ]
+        }
       }
     }
   ]
@@ -579,7 +561,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -587,107 +569,93 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Appointment",
-  "id": "3005756",
-  "meta": {
-    "versionId": "3",
-    "lastUpdated": "2019-01-04T20:31:42.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Oct  4, 2017  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Oct  4, 2017  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p&gt;&lt;/div&gt;"
-  },
-  "status": "cancelled",
-  "serviceType": [
-    {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-          "code": "21265426",
-          "display": "Same Day",
-          "userSelected": true
-        },
-        {
-          "system": "http://snomed.info/sct",
-          "code": "408443003",
-          "display": "General medical practice",
-          "userSelected": false
-        }
-      ],
-      "text": "Same Day"
-    }
-  ],
-  "description": "Same Day",
-  "start": "2017-10-04T13:00:00.000Z",
-  "end": "2017-10-04T14:00:00.000Z",
-  "minutesDuration": 60,
-  "participant": [
-    {
-      "type": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-              "code": "4574",
-              "display": "Resource",
-              "userSelected": true
-            }
-          ],
-          "text": "Resource"
-        },
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-              "code": "PPRF",
-              "display": "primary performer"
-            }
-          ]
-        }
-      ],
-      "actor": {
-        "reference": "Practitioner/2578010",
-        "display": "Jones, Clive"
-      },
-      "required": "required",
-      "status": "accepted"
+  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517",
+  "resource": {
+    "resourceType": "Appointment",
+    "id": "4817517",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2020-07-06T18:46:08.000Z"
     },
-    {
-      "type": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-              "code": "4572",
-              "display": "Patient",
-              "userSelected": true
-            }
-          ],
-          "text": "Patient"
-        }
-      ],
-      "actor": {
-        "reference": "Patient/4704007",
-        "display": "Smart, Barney R"
-      },
-      "required": "required",
-      "status": "accepted"
+    "text": {
+      "status": "generated",
+      "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
     },
-    {
-      "actor": {
-        "reference": "Location/4048128",
-        "display": "Baseline East"
+    "status": "booked",
+    "serviceType": [
+      {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+            "code": "24477854",
+            "display": "Established Patient",
+            "userSelected": true
+          }
+        ],
+        "text": "Established Patient"
+      }
+    ],
+    "description": "Established Patient",
+    "start": "2020-07-08T13:00:00.000Z",
+    "end": "2020-07-08T13:15:00.000Z",
+    "minutesDuration": 15,
+    "participant": [
+      {
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "PPRF",
+                "display": "primary performer"
+              }
+            ]
+          }
+        ],
+        "actor": {
+          "reference": "Practitioner/593923",
+          "display": "Cerner Test, Physician - Primary Care Cerner"
+        },
+        "required": "required",
+        "status": "accepted"
       },
-      "required": "required",
-      "status": "accepted"
-    }
-  ],
-  "requestedPeriod": [
-    {
-      "start": "2017-10-04T13:00:00.000Z",
-      "end": "2017-10-04T14:00:00.000Z"
-    }
-  ]
+      {
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+                "code": "4572",
+                "display": "Patient",
+                "userSelected": true
+              }
+            ],
+            "text": "Patient"
+          }
+        ],
+        "actor": {
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
+        },
+        "required": "required",
+        "status": "accepted"
+      },
+      {
+        "actor": {
+          "reference": "Location/21304876",
+          "display": "MX Clinic 1"
+        },
+        "required": "required",
+        "status": "accepted"
+      }
+    ],
+    "requestedPeriod": [
+      {
+        "start": "2020-07-08T13:00:00.000Z",
+        "end": "2020-07-08T13:15:00.000Z"
+      }
+    ]
+  }
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -696,7 +664,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/3005756
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -705,19 +673,19 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
-  "id": "3005757",
+  "id": "4817663",
   "meta": {
-    "versionId": "3",
-    "lastUpdated": "2019-01-04T20:31:42.000Z"
+    "versionId": "1-1",
+    "lastUpdated": "2020-07-14T19:23:46.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: cancelled&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: EVisit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Oct  4, 2017  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Oct  4, 2017  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Jones, Clive, Patient: Smart, Barney R, Location: Baseline East&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Video Visit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Aug  3, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Aug  3, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
   },
   "contained": [
     {
       "resourceType": "HealthcareService",
-      "id": "607",
+      "id": "33",
       "type": [
         {
           "text": "Patient Virtual Meeting Room"
@@ -726,17 +694,17 @@
       "telecom": [
         {
           "system": "url",
-          "value": "http://patientlink.vmr.net",
+          "value": "https://www.google.com/",
           "period": {
-            "start": "2017-10-04T13:00:00.000Z",
-            "end": "2017-10-04T14:00:00.000Z"
+            "start": "2020-08-03T08:00:00.000Z",
+            "end": "2020-08-03T23:10:00.000Z"
           }
         }
       ]
     },
     {
       "resourceType": "HealthcareService",
-      "id": "610",
+      "id": "36",
       "type": [
         {
           "text": "Provider Virtual Meeting Room"
@@ -745,53 +713,42 @@
       "telecom": [
         {
           "system": "url",
-          "value": "http://providerlink.vmr.net",
+          "value": "https://www.google.com/",
           "period": {
-            "start": "2017-10-04T13:00:00.000Z",
-            "end": "2017-10-04T14:00:00.000Z"
+            "start": "2020-08-03T08:00:00.000Z",
+            "end": "2020-08-03T23:10:00.000Z"
           }
         }
       ]
     }
   ],
-  "status": "cancelled",
+  "status": "booked",
   "serviceType": [
     {
       "coding": [
         {
-          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-          "code": "21265426",
-          "display": "Same Day",
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+          "code": "2572307911",
+          "display": "Video Visit",
           "userSelected": true
-        },
-        {
-          "system": "http://snomed.info/sct",
-          "code": "408443003",
-          "display": "General medical practice",
-          "userSelected": false
         }
       ],
-      "text": "Same Day"
+      "text": "Video Visit"
     }
   ],
-  "description": "Same Day",
-  "start": "2017-10-04T13:00:00.000Z",
-  "end": "2017-10-04T14:00:00.000Z",
-  "minutesDuration": 60,
+  "reasonCode": [
+    {
+      "text": "Test Video Appointment"
+    }
+  ],
+  "description": "Video Visit",
+  "start": "2020-08-03T13:00:00.000Z",
+  "end": "2020-08-03T13:15:00.000Z",
+  "minutesDuration": 15,
+  "comment": "Test Video Visit Appointment Create and PATCH",
   "participant": [
     {
       "type": [
-        {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
-              "code": "4574",
-              "display": "Resource",
-              "userSelected": true
-            }
-          ],
-          "text": "Resource"
-        },
         {
           "coding": [
             {
@@ -803,8 +760,8 @@
         }
       ],
       "actor": {
-        "reference": "Practitioner/2578010",
-        "display": "Jones, Clive"
+        "reference": "Practitioner/593923",
+        "display": "Cerner Test, Physician - Primary Care Cerner"
       },
       "required": "required",
       "status": "accepted"
@@ -814,7 +771,7 @@
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14250",
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
               "code": "4572",
               "display": "Patient",
               "userSelected": true
@@ -824,16 +781,16 @@
         }
       ],
       "actor": {
-        "reference": "Patient/4704007",
-        "display": "Smart, Barney R"
+        "reference": "Patient/12724066",
+        "display": "SMART, NANCY"
       },
       "required": "required",
       "status": "accepted"
     },
     {
       "actor": {
-        "reference": "Location/4048128",
-        "display": "Baseline East"
+        "reference": "Location/21304876",
+        "display": "MX Clinic 1"
       },
       "required": "required",
       "status": "accepted"
@@ -845,7 +802,7 @@
         }
       ],
       "actor": {
-        "reference": "#607"
+        "reference": "#33"
       },
       "status": "accepted"
     },
@@ -856,15 +813,15 @@
         }
       ],
       "actor": {
-        "reference": "#610"
+        "reference": "#36"
       },
       "status": "accepted"
     }
   ],
   "requestedPeriod": [
     {
-      "start": "2017-10-04T13:00:00.000Z",
-      "end": "2017-10-04T14:00:00.000Z"
+      "start": "2020-08-03T13:00:00.000Z",
+      "end": "2020-08-03T13:15:00.000Z"
     }
   ]
 }</code></pre>
@@ -1410,7 +1367,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="body">Body</h4>
@@ -1446,7 +1403,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h4 id="request-4">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="body-1">Body</h4>
@@ -1457,7 +1414,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
     "path": "/slot",
     "value": [
       {
-        "reference": "Slot/1986119705-4048128-15648907-60"
+        "reference": "Slot/24477854-21304876-62852027-0"
       }
     ]
   },
@@ -1491,7 +1448,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h4 id="request-5">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="body-2">Body</h4>
@@ -1502,7 +1459,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
     "path": "/slot",
     "value": [
       {
-        "reference": "Slot/1986119705-4048128-15648907-60"
+        "reference": "Slot/24477854-21304876-62852027-0"
       }
     ]
   },
@@ -1545,7 +1502,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h4 id="request-6">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
 </code></pre>
 
 <h4 id="body-3">Body</h4>
@@ -1596,7 +1553,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h4 id="request-7">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
 </code></pre>
 
 <h4 id="body-4">Body</h4>
@@ -1825,7 +1782,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
     {
       "coding": [
         {
-          "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
           "code": "667105",
           "display": "Surgery",
           "userSelected": true
@@ -2133,7 +2090,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h4 id="request-8">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
 <h4 id="body-5">Body</h4>
@@ -2160,15 +2117,14 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   "participant": [
     {
       "actor": {
-        "reference": "Patient/773933",
-        "display": "TAYLOR, MARCUS CERNER"
+        "reference": "Patient/12724066"
       },
       "status": "needs-action"
     },
     {
       "actor": {
-        "reference": "Location/4062906",
-        "display": "Operation Room"
+        "reference": "Location/21304876",
+        "display": "MX Clinic 1"
       },
       "status": "needs-action"
     }
@@ -2192,7 +2148,7 @@ Content-Type: application/fhir+json
 Date: Tue, 12 May 2020 20:25:01 GMT
 Etag: W/"0"
 Last-Modified: Tue, 12 May 2020 20:25:01 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/6427746
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/6427746
 Vary: Origin
 X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 </pre>
@@ -2205,7 +2161,7 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 
 <h4 id="request-9">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
 <h4 id="body-6">Body</h4>
@@ -2215,14 +2171,13 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
   "status": "booked",
   "slot": [
     {
-      "reference": "Slot/21265426-633867-6828001-60"
+      "reference": "Slot/24477854-21304876-62852027-0"
     }
   ],
   "participant": [
     {
       "actor": {
-        "reference": "Patient/4704007",
-        "display": "Smart, Barney R"
+        "reference": "Patient/12724066"
       },
       "status": "accepted"
     }
@@ -2245,7 +2200,7 @@ Content-Type: application/fhir+json
 Date: Thu, 30 May 2019 19:49:25 GMT
 Etag: W/"0"
 Last-Modified: Thu, 30 May 2019 19:49:23 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/20465903
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>

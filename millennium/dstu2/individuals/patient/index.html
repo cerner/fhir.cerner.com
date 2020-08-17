@@ -393,7 +393,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=12724067
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -402,38 +402,30 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "567efe76-2573-46be-85dc-8ea698dfa9d0",
+  "id": "917b3535-59c9-4b9d-b5bd-604eccb6aaee",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient?_id=4342009&amp;_count=20"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=12724067"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342009",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724067",
       "resource": {
         "resourceType": "Patient",
-        "id": "4342009",
+        "id": "12724067",
         "meta": {
-          "versionId": "2",
-          "lastUpdated": "2016-06-22T20:51:35.000Z"
+          "versionId": "6",
+          "lastUpdated": "2020-03-30T19:43:17.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1980-08-11&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 29, 1976&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-            "valueDateTime": "1980-08-11T12:33:00.000-05:00"
-          },
-          {
-            "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
-            "valueCode": "F"
-          },
           {
             "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
             "extension": [
@@ -443,6 +435,14 @@
                   "system": "http://hl7.org/fhir/v3/Race",
                   "code": "2106-3",
                   "display": "White",
+                  "userSelected": false
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://hl7.org/fhir/v3/Race",
+                  "code": "2106-3",
                   "userSelected": false
                 }
               },
@@ -465,8 +465,16 @@
                 }
               },
               {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://hl7.org/fhir/v3/Ethnicity",
+                  "code": "2186-5",
+                  "userSelected": false
+                }
+              },
+              {
                 "url": "text",
-                "valueString": "Not Hispanic or Latino"
+                "valueString": "Not Hispanic, Latino, or Spanish Origin"
               }
             ]
           }
@@ -485,10 +493,18 @@
               ],
               "text": "MRN"
             },
-            "system": "urn:oid:1.1.1.1.1.1",
-            "value": "10002701",
+            "system": "urn:oid:2.16.840.1.113883.6.1000",
+            "value": "6931",
+            "_value": {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/rendered-value",
+                  "valueString": "00000006931"
+                }
+              ]
+            },
             "period": {
-              "start": "2016-06-22T20:43:05.000Z"
+              "start": "2019-12-26T15:14:12.000Z"
             }
           }
         ],
@@ -496,20 +512,48 @@
         "name": [
           {
             "use": "official",
-            "text": "Smart, Nancy",
+            "text": "SMART, JOE",
             "family": [
-              "Smart"
+              "SMART"
             ],
             "given": [
-              "Nancy"
+              "JOE"
             ],
             "period": {
-              "start": "2016-06-22T20:43:05.000Z"
+              "start": "2019-12-26T15:14:12.000Z"
             }
           }
         ],
-        "gender": "female",
-        "birthDate": "1980-08-11",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "8168888886",
+            "use": "home",
+            "period": {
+              "start": "2019-12-26T15:14:12.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1976-04-29",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "text": "12345 Main St\\nKansas city, MO 64116\\nUS",
+            "line": [
+              "12345 Main St"
+            ],
+            "city": "Kansas city",
+            "district": "Jackson",
+            "state": "MO",
+            "postalCode": "64116",
+            "country": "US",
+            "period": {
+              "start": "2019-12-26T15:13:36.000Z"
+            }
+          }
+        ],
         "maritalStatus": {
           "coding": [
             {
@@ -539,8 +583,8 @@
         ],
         "careProvider": [
           {
-            "reference": "Practitioner/1912007",
-            "display": "Forrest, Fhir"
+            "reference": "Practitioner/4122622",
+            "display": "Cerner Test, Physician - Hospitalist Cerner"
           }
         ]
       }
@@ -583,7 +627,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4342008
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724067
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -592,24 +636,16 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Patient",
-  "id": "4342008",
+  "id": "12724067",
   "meta": {
-    "versionId": "2",
-    "lastUpdated": "2016-06-22T20:27:38.000Z"
+    "versionId": "6",
+    "lastUpdated": "2020-03-30T19:43:17.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Smart, Wilma&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1947-03-16&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 29, 1976&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-      "valueDateTime": "1947-03-16T13:36:00.000-06:00"
-    },
-    {
-      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
-      "valueCode": "F"
-    },
     {
       "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
       "extension": [
@@ -617,14 +653,22 @@
           "url": "ombCategory",
           "valueCoding": {
             "system": "http://hl7.org/fhir/v3/Race",
-            "code": "2054-5",
-            "display": "Black or African American",
+            "code": "2106-3",
+            "display": "White",
+            "userSelected": false
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/v3/Race",
+            "code": "2106-3",
             "userSelected": false
           }
         },
         {
           "url": "text",
-          "valueString": "Black or African American"
+          "valueString": "White"
         }
       ]
     },
@@ -635,14 +679,22 @@
           "url": "ombCategory",
           "valueCoding": {
             "system": "http://hl7.org/fhir/v3/Ethnicity",
-            "code": "2135-2",
-            "display": "Hispanic or Latino",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino",
+            "userSelected": false
+          }
+        },
+        {
+          "url": "detailed",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/v3/Ethnicity",
+            "code": "2186-5",
             "userSelected": false
           }
         },
         {
           "url": "text",
-          "valueString": "Hispanic or Latino"
+          "valueString": "Not Hispanic, Latino, or Spanish Origin"
         }
       ]
     }
@@ -661,10 +713,18 @@
         ],
         "text": "MRN"
       },
-      "system": "urn:oid:1.1.1.1.1.1",
-      "value": "10002700",
+      "system": "urn:oid:2.16.840.1.113883.6.1000",
+      "value": "6931",
+      "_value": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/rendered-value",
+            "valueString": "00000006931"
+          }
+        ]
+      },
       "period": {
-        "start": "2016-06-22T20:25:56.000Z"
+        "start": "2019-12-26T15:14:12.000Z"
       }
     }
   ],
@@ -672,20 +732,59 @@
   "name": [
     {
       "use": "official",
-      "text": "Smart, Wilma",
+      "text": "SMART, JOE",
       "family": [
-        "Smart"
+        "SMART"
       ],
       "given": [
-        "Wilma"
+        "JOE"
       ],
       "period": {
-        "start": "2016-06-22T20:25:58.000Z"
+        "start": "2019-12-26T15:14:12.000Z"
       }
     }
   ],
-  "gender": "female",
-  "birthDate": "1947-03-16",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168888886",
+      "use": "home",
+      "period": {
+        "start": "2019-12-26T15:14:12.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1976-04-29",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "text": "12345 Main St\\nKansas city, MO 64116\\nUS",
+      "line": [
+        "12345 Main St"
+      ],
+      "city": "Kansas city",
+      "district": "Jackson",
+      "state": "MO",
+      "postalCode": "64116",
+      "country": "US",
+      "period": {
+        "start": "2019-12-26T15:13:36.000Z"
+      }
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/MaritalStatus",
+        "code": "M",
+        "display": "Married",
+        "userSelected": false
+      }
+    ],
+    "text": "Married"
+  },
   "communication": [
     {
       "language": {
@@ -704,8 +803,8 @@
   ],
   "careProvider": [
     {
-      "reference": "Practitioner/1912007",
-      "display": "Forrest, Fhir"
+      "reference": "Practitioner/4122622",
+      "display": "Cerner Test, Physician - Hospitalist Cerner"
     }
   ]
 }</code></pre>
@@ -723,7 +822,7 @@ the entries directly by id. They will not be returned when searching with other 
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/1504027
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742633
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -732,19 +831,27 @@ the entries directly by id. They will not be returned when searching with other 
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Patient",
-  "id": "1504027",
+  "id": "12742633",
   "meta": {
     "versionId": "0"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Replaced By&lt;/b&gt;: Patient/1504028&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Replaced By&lt;/b&gt;: Patient/12724067&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;/div&gt;"
   },
   "active": false,
+  "_gender": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+        "valueCode": "unknown"
+      }
+    ]
+  },
   "link": [
     {
       "other": {
-        "reference": "Patient/1504028"
+        "reference": "Patient/12724067"
       },
       "type": "replace"
     }
@@ -1347,7 +1454,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient
+<pre><code>POST https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient
 </code></pre>
 
 <h4 id="body">Body</h4>
@@ -1357,7 +1464,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
   "identifier": [
     {
       "assigner": {
-        "reference": "Organization/619848"
+        "reference": "Organization/685844"
       }
     }
   ],
@@ -1442,10 +1549,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
   ],
   "careProvider": [
     {
-      "reference": "Practitioner/4594010"
-    },
-    {
-      "reference": "Practitioner/4646007"
+      "reference": "Practitioner/4122622"
     }
   ]
 }</code></pre>
@@ -1469,7 +1573,7 @@ string separated by blank spaces. Only one <code>prefix</code> and one <code>suf
     X-Content-Type-Options → nosniff
     Expires → Mon, 01 Jan 1990 00:00:00 GMT
     Last-Modified → Tue, 27 Feb 2018 16:48:00 GMT
-    Location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Patient/4842008
+    Location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/4842008
     Status → 201 Created
     Content-Length → 0
     Content-Type → application/json

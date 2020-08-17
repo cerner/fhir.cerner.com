@@ -229,7 +229,7 @@
       <td><code>patient</code></td>
       <td>Yes, if neither <code>_id</code> nor <code>identifier</code> are set</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A reference to a patient related which the RelatedPerson is associated. Example: <code>14067892</code>
+      <td>A reference to a patient related which the RelatedPerson is associated. Example: <code>12345</code>
 </td>
     </tr>
   </tbody>
@@ -252,7 +252,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AEC2458F2-1E24-41C8-B71B-0E701AF7583D-CH%3APRINCIPAL%3A332TE8FP7VD3RT4C
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -261,27 +261,27 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "be20eb42-4ce3-47bd-a657-a9de36603300",
+  "id": "c9e2d518-3ae5-44f2-a61f-ccc68e938ad0",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AE8A84236-C258-4952-98B7-A6FF8A9C587A-CH%3APRINCIPAL%3A332TE8FP7VD3RT4C"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/5796399",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/490017058",
       "resource": {
         "resourceType": "RelatedPerson",
-        "id": "5796399",
+        "id": "490017058",
         "meta": {
-          "versionId": "30"
+          "versionId": "6"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
@@ -298,95 +298,76 @@
               "text": "Federated Person Principal"
             },
             "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
-            "period": {
-              "start": "2016-11-01T10:00:00.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:332TE8FP7VD3RT4C",
+            "_value": {
+              "extension": [
                 {
-                  "system": "http://hl7.org/fhir/v2/0203",
-                  "code": "AN",
-                  "display": "Account number",
-                  "userSelected": false
+                  "url": "http://hl7.org/fhir/StructureDefinition/rendered-value",
+                  "valueString": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:332TE8FP7VD3RT4C"
                 }
-              ],
-              "text": "Federated Person Principal"
+              ]
             },
-            "system": "urn:oid:2.16.840.1.113883.3.13.6",
-            "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
             "period": {
-              "start": "2016-11-01T10:00:00.000Z"
+              "start": "2020-06-30T20:26:38.000Z"
             }
           }
         ],
         "patient": {
-          "reference": "Patient/3838011",
-          "display": "Peters, Jennifer"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
         "name": {
           "use": "official",
-          "text": "PETERS, TIMOTHY",
+          "text": "SMART, HAILEY",
           "family": [
-            "PETERS"
+            "SMART"
           ],
           "given": [
-            "TIMOTHY"
+            "HAILEY"
           ],
           "period": {
-            "start": "2012-05-17T14:54:31.000Z"
+            "start": "2019-12-26T15:15:35.000Z"
           }
         },
         "telecom": [
           {
             "system": "phone",
-            "value": "1231231231",
-            "use": "work",
-            "period": {
-              "start": "2013-03-11T07:17:03.000Z"
-            }
-          },
-          {
-            "system": "phone",
-            "value": "8168229121",
+            "value": "8168888886",
             "use": "home",
             "period": {
-              "start": "2012-05-17T15:33:18.000Z"
+              "start": "2019-12-26T15:15:35.000Z"
             }
           },
           {
-            "system": "phone",
-            "value": "8162324455",
-            "use": "mobile",
+            "system": "email",
+            "value": "haileysmart@yopmail.com",
+            "use": "home",
             "period": {
-              "start": "2013-01-30T14:56:59.000Z"
+              "start": "2020-06-30T19:56:19.000Z"
             }
           }
         ],
-        "gender": "male",
-        "birthDate": "1961-04-30",
+        "gender": "female",
+        "birthDate": "2003-12-02",
         "address": [
           {
             "use": "home",
-            "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
+            "text": "12345 Main St\\nKansas City, MO 64116\\nUS",
             "line": [
-              "9430 Blue Ridge Blvd"
+              "12345 Main St"
             ],
             "city": "Kansas City",
             "district": "Jackson",
             "state": "MO",
-            "postalCode": "64199",
-            "country": "USA",
+            "postalCode": "64116",
+            "country": "US",
             "period": {
-              "start": "2012-05-17T15:33:18.000Z"
+              "start": "2019-12-26T15:15:03.000Z"
             }
           }
         ],
         "period": {
-          "start": "2015-10-30T06:50:09.000Z"
+          "start": "2019-12-26T16:06:26.000Z"
         }
       }
     }
@@ -421,7 +402,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/5796399
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/490017058
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -430,13 +411,13 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "RelatedPerson",
-  "id": "5796399",
+  "id": "490017058",
   "meta": {
-    "versionId": "30"
+    "versionId": "6"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: 1961-04-30&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Male&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;RelatedPerson&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Sex&lt;/b&gt;: Female&lt;/p&gt;&lt;/div&gt;"
   },
   "identifier": [
     {
@@ -453,95 +434,76 @@
         "text": "Federated Person Principal"
       },
       "system": "urn:oid:2.16.840.1.113883.3.13.6",
-      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
-      "period": {
-        "start": "2016-11-01T10:00:00.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:332TE8FP7VD3RT4C",
+      "_value": {
+        "extension": [
           {
-            "system": "http://hl7.org/fhir/v2/0203",
-            "code": "AN",
-            "display": "Account number",
-            "userSelected": false
+            "url": "http://hl7.org/fhir/StructureDefinition/rendered-value",
+            "valueString": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:332TE8FP7VD3RT4C"
           }
-        ],
-        "text": "Federated Person Principal"
+        ]
       },
-      "system": "urn:oid:2.16.840.1.113883.3.13.6",
-      "value": "urn:cerner:identity-federation:realm:687f29dd-69dd-4de5-acb1-fd8a2241ef3a:principal:EC4Ax54P8GI",
       "period": {
-        "start": "2016-11-01T10:00:00.000Z"
+        "start": "2020-06-30T20:26:38.000Z"
       }
     }
   ],
   "patient": {
-    "reference": "Patient/3838011",
-    "display": "Peters, Timothy"
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
   },
   "name": {
     "use": "official",
-    "text": "PETERS, TIMOTHY",
+    "text": "SMART, HAILEY",
     "family": [
-      "PETERS"
+      "SMART"
     ],
     "given": [
-      "TIMOTHY"
+      "HAILEY"
     ],
     "period": {
-      "start": "2012-05-17T14:54:31.000Z"
+      "start": "2019-12-26T15:15:35.000Z"
     }
   },
   "telecom": [
     {
       "system": "phone",
-      "value": "1231231231",
-      "use": "work",
-      "period": {
-        "start": "2013-03-11T07:17:03.000Z"
-      }
-    },
-    {
-      "system": "phone",
-      "value": "8168229121",
+      "value": "8168888886",
       "use": "home",
       "period": {
-        "start": "2012-05-17T15:33:18.000Z"
+        "start": "2019-12-26T15:15:35.000Z"
       }
     },
     {
-      "system": "phone",
-      "value": "8162324455",
-      "use": "mobile",
+      "system": "email",
+      "value": "haileysmart@yopmail.com",
+      "use": "home",
       "period": {
-        "start": "2013-01-30T14:56:59.000Z"
+        "start": "2020-06-30T19:56:19.000Z"
       }
     }
   ],
-  "gender": "male",
-  "birthDate": "1961-04-30",
+  "gender": "female",
+  "birthDate": "2003-12-02",
   "address": [
     {
       "use": "home",
-      "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
+      "text": "12345 Main St\\nKansas City, MO 64116\\nUS",
       "line": [
-        "9430 Blue Ridge Blvd"
+        "12345 Main St"
       ],
       "city": "Kansas City",
       "district": "Jackson",
       "state": "MO",
-      "postalCode": "64199",
-      "country": "USA",
+      "postalCode": "64116",
+      "country": "US",
       "period": {
-        "start": "2012-05-17T15:33:18.000Z"
+        "start": "2019-12-26T15:15:03.000Z"
       }
     }
   ],
   "period": {
-    "start": "2015-10-30T06:50:09.000Z"
+    "start": "2019-12-26T16:06:26.000Z"
   }
 }</code></pre>
 

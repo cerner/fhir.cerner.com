@@ -311,7 +311,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?patient=589763
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -320,70 +320,70 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "d6343987-1e8f-486c-8f0f-dad4ac73510f",
+  "id": "a8876443-c615-4244-9044-047dea2d92dd",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?patient=589763"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/12724066-490016987-490016987",
       "resource": {
         "resourceType": "Coverage",
-        "id": "589763-11500257-11500257",
+        "id": "12724066-490016987-490016987",
         "meta": {
-          "versionId": "0-0",
-          "lastUpdated": "2019-10-22T18:10:49.000Z"
+          "versionId": "24-24",
+          "lastUpdated": "2020-07-06T17:03:43.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber&lt;/b&gt;: WOLFE, STEPHANIE T&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: Stephanie Wolfe&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dependent Number&lt;/b&gt;: KEWIL4WW&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Sep  5, 2012  9:30 A.M. CDT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Aetna Missouri POS - Open&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: plan: Value: 729823 Name: Aetna Missouri POS Open&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Aug 14, 2015  7:07 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: SELF PAY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: plan: Value: 2800235 Name: Self Pay&lt;/p&gt;&lt;/div&gt;"
         },
+        "status": "active",
         "subscriber": {
-          "reference": "Patient/1626016",
-          "display": "WOLFE, STEPHANIE T"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
-        "subscriberId": "1626016",
         "beneficiary": {
-          "reference": "Patient/1626016",
-          "display": "WOLFE, STEPHANIE T"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
-        "dependent": "KEWIL4WW",
-        "relationship": [
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self",
+              "userSelected": false
+            }
+          ],
+          "text": "Self"
+        },
+        "period": {
+          "start": "2015-08-14T19:07:56.000Z"
+        },
+        "payor": [
           {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
-                "code": "child"
-              }
-            ]
+            "reference": "Organization/589803",
+            "display": "SELF PAY"
           }
         ],
-        "period": {
-          "start": "2012-09-05T14:30:12.000Z",
-          "end": "2013-09-05T14:30:12.000Z"
-        },
-        "payor": {
-          "reference": "Organization/643847",
-          "display": "Aetna Missouri POS - Open"
-        },
         "class": [
           {
             "type": {
               "coding": [
                 {
-                  "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
                   "code": "plan"
                 }
-              ],
-              "text": "plan"
+              ]
             },
-            "value": "729823",
-            "name": "Aetna Missouri POS Open"
+            "value": "2800235",
+            "name": "Self Pay"
           }
         ]
       }
@@ -397,7 +397,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -406,66 +406,67 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "8cdbd4b8-6bae-4e18-a6f6-42e1a655e5d8",
+  "id": "d42baa44-1566-458c-8457-10fbfacfc3e5",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage?-encounter=1175911"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/1175911-1760527",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/97954095-98320174",
       "resource": {
         "resourceType": "Coverage",
-        "id": "1175911-1760527",
+        "id": "97954095-98320174",
         "meta": {
-          "versionId": "1",
-          "lastUpdated": "2020-01-28T16:53:52.000Z"
+          "versionId": "0",
+          "lastUpdated": "2020-07-27T21:01:55.000Z"
         },
         "text": {
           "status": "extensions",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber&lt;/b&gt;: JUREVICIUS, DARSHELLE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 1175911&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: Jurevicius, BABYBOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dependent Number&lt;/b&gt;: 1626016&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Sep  5, 2014  2:30 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage End Date&lt;/b&gt;: Sep  5, 2015  2:30 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Cigna&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: plan: Value: 729825 Name: Cigna, group: Value: 456 Name: name&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subscriber Id&lt;/b&gt;: 12345&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 97954095&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dependent Number&lt;/b&gt;: 12345&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Feb  2, 2020  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage End Date&lt;/b&gt;: Feb  3, 2021  5:59 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Aetna&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: plan: Value: 2830233 Name: Aetna&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
             "valueReference": {
-              "reference": "Encounter/1175911"
+              "reference": "Encounter/97954095"
             }
           }
         ],
         "status": "active",
         "subscriber": {
-          "reference": "Patient/1122005",
-          "display": "JUREVICIUS, DARSHELLE"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
+        "subscriberId": "12345",
         "beneficiary": {
-          "reference": "Patient/1122006",
-          "display": "Jurevicius, BABYBOY"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
-        "dependent": "1626016",
+        "dependent": "12345",
         "relationship": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
-              "code": "other",
-              "display": "Other",
+              "code": "self",
+              "display": "Self",
               "userSelected": false
             }
           ],
-          "text": "Brother"
+          "text": "Self"
         },
         "period": {
-          "start": "2014-09-05T14:30:12.000Z",
-          "end": "2015-09-05T14:30:12.000Z"
+          "start": "2020-02-02T06:00:00.000Z",
+          "end": "2021-02-03T05:59:59.000Z"
         },
         "payor": [
           {
-            "reference": "Organization/643848",
-            "display": "Cigna"
+            "reference": "Organization/3064032",
+            "display": "Aetna"
           }
         ],
         "class": [
@@ -478,20 +479,8 @@
                 }
               ]
             },
-            "value": "729825",
-            "name": "Cigna"
-          },
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
-                  "code": "group"
-                }
-              ]
-            },
-            "value": "456",
-            "name": "name"
+            "value": "2830233",
+            "name": "Aetna"
           }
         ]
       }
@@ -1097,7 +1086,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
 
 <h4 id="body">Body</h4>
@@ -1171,7 +1160,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/589763-11500257-11500257
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
 Server-Response-Time: 3890.363996
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
@@ -1184,7 +1173,7 @@ X-Runtime: 3.890282
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
 
 <h4 id="body-1">Body</h4>
@@ -1270,7 +1259,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
 Server-Response-Time: 3890.363996
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
@@ -1684,7 +1673,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h4 id="request-4">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
 
 <h4 id="body-2">Body</h4>
@@ -1797,7 +1786,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h4 id="request-5">Request</h4>
 
-<pre><code>DELETE https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/623884-674012
+<pre><code>DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
 
 <h4 id="response-5">Response</h4>

@@ -1,7 +1,7 @@
-const conformanceURL = 'https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata';
+const conformanceURL = 'https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata';
 const conformanceHeaders = { Accept: 'application/json+fhir' };
 
-const capabilityStatementURL = 'https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/metadata';
+const capabilityStatementURL = 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata';
 const capabilityStatementHeaders = { Accept: 'application/fhir+json' };
 
 // Configuration for resources that have been altered from DSTU2 to R4, or extended from Basic

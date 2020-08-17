@@ -305,7 +305,7 @@
       <td>This, or one of <code>patient</code> or <code>subject</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>_id=7499283</code>
+      <td>The logical resource id associated with the resource. Example: <code>_id=7891</code>
 </td>
     </tr>
     <tr>
@@ -313,7 +313,7 @@
       <td>This, or one of <code>_id</code> or <code>subject</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient to which the document reference belongs. Example: <code>patient=1316024</code>
+      <td>The patient to which the document reference belongs. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
@@ -321,14 +321,14 @@
       <td>This, or one of <code>_id</code> or <code>patient</code>
 </td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: <code>subject=Patient/1316024 or subject:Patient=1316024</code>
+      <td>The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: <code>subject=Patient/12345 or subject:Patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>encounter</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: <code>encounter=1621910</code>
+      <td>The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: <code>encounter=4567</code>
 </td>
     </tr>
     <tr>
@@ -369,7 +369,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference?patient=1316024&amp;created=ge2016-01-06&amp;created=le2016-01-07
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066&amp;created=ge2020-01-01&amp;created=le2020-12-31
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -378,53 +378,57 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "21392fef-2513-43de-aa6c-a51c27a26d31",
+  "id": "0be75cc8-da20-460a-a39e-9825bdb87472",
   "type": "searchset",
-  "total": 4,
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference?patient=1316024&amp;created=ge2016-01-06&amp;created=le2016-01-07"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066&amp;created=ge2020-01-01&amp;created=le2020-12-31"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/6589312",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197286315",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "6589312",
+        "id": "197286315",
         "meta": {
-          "versionId": "6589311",
-          "lastUpdated": "2016-07-27T18:00:43.000Z"
+          "versionId": "197286314",
+          "lastUpdated": "2020-04-05T04:00:46.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Pregnancy Summary Document&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Pregnancy Summary Document&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
         },
         "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
         "type": {
           "coding": [
             {
-              "system": "http://loinc.org",
-              "code": "34839-1"
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "22520442",
+              "display": "Pregnancy Summary Document",
+              "userSelected": true
             },
             {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-              "code": "2820583",
-              "display": "Rheumatology Consultation",
-              "userSelected": true
+              "system": "http://loinc.org",
+              "_code": {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                    "valueCode": "unknown"
+                  }
+                ]
+              }
             }
           ],
-          "text": "Rheumatology Consultation"
+          "text": "Pregnancy Summary Document"
         },
-        "authenticator": {
-          "reference": "Practitioner/2044324"
-        },
-        "created": "2016-01-06T09:10:14.000Z",
-        "indexed": "2016-01-06T09:10:14.000Z",
+        "created": "2020-04-05T04:00:45.000Z",
+        "indexed": "2020-04-05T04:00:45.000Z",
         "status": "current",
         "docStatus": {
           "coding": [
@@ -436,216 +440,16 @@
           ],
           "text": "Auth (Verified)"
         },
-        "description": "Rheumatology Note",
+        "description": "Pregnancy Summary Document",
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589312",
-              "title": "Rheumatology Note"
+              "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197286315",
+              "title": "Pregnancy Summary Document"
             }
           }
-        ],
-        "context": {
-          "encounter": {
-            "reference": "Encounter/1309918"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/6589307",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "id": "6589307",
-        "meta": {
-          "versionId": "6589306",
-          "lastUpdated": "2016-07-27T17:38:08.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY"
-        },
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "34839-1"
-            },
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-              "code": "2820583",
-              "display": "Rheumatology Consultation",
-              "userSelected": true
-            }
-          ],
-          "text": "Rheumatology Consultation"
-        },
-        "authenticator": {
-          "reference": "Practitioner/2044324"
-        },
-        "created": "2016-01-06T09:10:14.000Z",
-        "indexed": "2016-01-06T09:10:14.000Z",
-        "status": "current",
-        "docStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/composition-status",
-              "code": "final",
-              "display": "Final"
-            }
-          ],
-          "text": "Auth (Verified)"
-        },
-        "description": "Rheumatology Note",
-        "content": [
-          {
-            "attachment": {
-              "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589307",
-              "title": "Rheumatology Note"
-            }
-          }
-        ],
-        "context": {
-          "encounter": {
-            "reference": "Encounter/1309918"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/6589287",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "id": "6589287",
-        "meta": {
-          "versionId": "6589286",
-          "lastUpdated": "2016-07-27T17:36:32.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY"
-        },
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "34839-1"
-            },
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-              "code": "2820583",
-              "display": "Rheumatology Consultation",
-              "userSelected": true
-            }
-          ],
-          "text": "Rheumatology Consultation"
-        },
-        "authenticator": {
-          "reference": "Practitioner/2044324"
-        },
-        "created": "2016-01-06T09:10:14.000Z",
-        "indexed": "2016-01-06T09:10:14.000Z",
-        "status": "current",
-        "docStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/composition-status",
-              "code": "final",
-              "display": "Final"
-            }
-          ],
-          "text": "Auth (Verified)"
-        },
-        "description": "Rheumatology Note",
-        "content": [
-          {
-            "attachment": {
-              "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589287",
-              "title": "Rheumatology Note"
-            }
-          }
-        ],
-        "context": {
-          "encounter": {
-            "reference": "Encounter/1309918"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/6589283",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "id": "6589283",
-        "meta": {
-          "versionId": "6589282",
-          "lastUpdated": "2016-07-27T17:35:23.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Rheumatology Consultation&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Rheumatology Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  6, 2016  9:10 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/1316024",
-          "display": "PETERS, TIMOTHY"
-        },
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "34839-1"
-            },
-            {
-              "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-              "code": "2820583",
-              "display": "Rheumatology Consultation",
-              "userSelected": true
-            }
-          ],
-          "text": "Rheumatology Consultation"
-        },
-        "authenticator": {
-          "reference": "Practitioner/2044324"
-        },
-        "created": "2016-01-06T09:10:14.000Z",
-        "indexed": "2016-01-06T09:10:14.000Z",
-        "status": "current",
-        "docStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/composition-status",
-              "code": "final",
-              "display": "Final"
-            }
-          ],
-          "text": "Auth (Verified)"
-        },
-        "description": "Rheumatology Note",
-        "content": [
-          {
-            "attachment": {
-              "contentType": "application/pdf",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-6589283",
-              "title": "Rheumatology Note"
-            }
-          }
-        ],
-        "context": {
-          "encounter": {
-            "reference": "Encounter/1309918"
-          }
-        }
+        ]
       }
     }
   ]
@@ -686,7 +490,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/7499283
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197286315
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -695,40 +499,43 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "DocumentReference",
-  "id": "7499283",
+  "id": "197286315",
   "meta": {
-    "versionId": "7499282",
-    "lastUpdated": "2018-01-08T14:51:05.000Z"
+    "versionId": "197286314",
+    "lastUpdated": "2020-04-05T04:00:46.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIMOTHY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Depart Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Physician Emergency department Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Jan  3, 2018  7:30 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Pregnancy Summary Document&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Pregnancy Summary Document&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Auth (Verified)&lt;/p&gt;&lt;/div&gt;"
   },
   "subject": {
-    "reference": "Patient/1316024",
-    "display": "PETERS, TIMOTHY"
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
   },
   "type": {
     "coding": [
       {
-        "system": "http://loinc.org",
-        "code": "68608-9"
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+        "code": "22520442",
+        "display": "Pregnancy Summary Document",
+        "userSelected": true
       },
       {
-        "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-        "code": "3374547",
-        "display": "Depart Summary",
-        "userSelected": true
+        "system": "http://loinc.org",
+        "_code": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "unknown"
+            }
+          ]
+        }
       }
     ],
-    "text": "Depart Summary"
+    "text": "Pregnancy Summary Document"
   },
-  "authenticator": {
-    "reference": "Practitioner/4464007",
-    "display": "Portal, Portal"
-  },
-  "created": "2018-01-03T07:30:20.000Z",
-  "indexed": "2018-01-03T07:30:20.000Z",
+  "created": "2020-04-05T04:00:45.000Z",
+  "indexed": "2020-04-05T04:00:45.000Z",
   "status": "current",
   "docStatus": {
     "coding": [
@@ -740,21 +547,16 @@
     ],
     "text": "Auth (Verified)"
   },
-  "description": "Physician Emergency department Note",
+  "description": "Pregnancy Summary Document",
   "content": [
     {
       "attachment": {
         "contentType": "application/pdf",
-        "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-7499283",
-        "title": "Physician Emergency department Note"
+        "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197286315",
+        "title": "Pregnancy Summary Document"
       }
     }
-  ],
-  "context": {
-    "encounter": {
-      "reference": "Encounter/1621910"
-    }
-  }
+  ]
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -903,8 +705,8 @@
         <ul style="list-style-type: none"><li><pre>{
   "coding": [
     {
-     "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
-     "code": "3374547"
+     "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+     "code": "2820583"
     }
   ]
  }
@@ -912,7 +714,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>The type must include a LOINC or a proprietary coding. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example: 'https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72'. <br><br> Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites. <br><br> Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.</li></ul>
+        <ul style="list-style-type: none"><li>The type must include a LOINC or a proprietary coding. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example: 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br><br> Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites. <br><br> Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1373,7 +1175,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>POST https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference
+<pre><code>POST https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference
 </code></pre>
 
 <h4 id="body">Body</h4>
@@ -1442,7 +1244,7 @@
    access-control-expose-headers → ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
    access-control-max-age → 0
    cache-control → no-cache
-   location → https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/5789254
+   location → https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/5789254
    server-response-time → 5497.564885
    strict-transport-security → max-age=631152000
    vary → Origin,User-Agent,Accept-Encoding
@@ -1611,7 +1413,7 @@
       <td><code>patient</code></td>
       <td>Y</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A reference to the patient whose document references are required. Example: <code>14067892</code>
+      <td>A reference to the patient whose document references are required. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
@@ -1654,7 +1456,7 @@
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&amp;type=http%3A%2F%2Floinc.org%7C34133-9
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=12724066&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
 <h4 id="response-3">Response</h4>
@@ -1663,23 +1465,23 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "90db1def-39bd-491f-a26a-ce8049c9926a",
+  "id": "33c6587c-ab3c-4846-a2c6-05724fe4013e",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/$docref?patient=1316035&amp;type=http%3A%2F%2Floinc.org%7C34133-9"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=12724066&amp;type=http%3A%2F%2Floinc.org%7C34133-9"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/b584c2b8-4d89-4b7b-a7a3-0d2cb68b2c46",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/c7d249c7-1742-47a8-9fca-1fc361728aa8",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "b584c2b8-4d89-4b7b-a7a3-0d2cb68b2c46",
+        "id": "c7d249c7-1742-47a8-9fca-1fc361728aa8",
         "subject": {
-          "reference": "Patient/1316035"
+          "reference": "Patient/12724066"
         },
         "type": {
           "coding": [
@@ -1690,13 +1492,13 @@
           ],
           "text": "Summary of episode note"
         },
-        "indexed": "2020-04-01T18:32:12Z",
+        "indexed": "2020-07-08T17:05:01Z",
         "status": "current",
         "content": [
           {
             "attachment": {
               "contentType": "application/xml",
-              "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035"
+              "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=12724066"
             },
             "format": [
               {

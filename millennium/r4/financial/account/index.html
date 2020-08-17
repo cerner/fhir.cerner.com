@@ -466,7 +466,7 @@
       <td><code>identifier</code></td>
       <td>See notes</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>Aliases of the Account like Statement Number. Example: <code>https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|500000078</code>
+      <td>Aliases of the Account like Statement Number. Example: <code>https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|500000078</code>
 </td>
     </tr>
     <tr>
@@ -480,7 +480,7 @@
       <td><code>patient</code></td>
       <td>See notes</td>
       <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>reference</code></a></td>
-      <td>The entity that caused the expenses. Example: <code>Patient/1316024</code>
+      <td>The entity that caused the expenses. Example: <code>Patient/12345</code>
 </td>
     </tr>
     <tr>
@@ -526,7 +526,7 @@
 <h4 id="request---id">Request - <code>_id</code>
 </h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=F703726
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -541,18 +541,18 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=F703726"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F703726",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F703726",
       "resource": {
         "resourceType": "Account",
         "id": "F703726",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: financial-account&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Sep 27, 2013  4:12 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Number&lt;/b&gt;: 10000381&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: financial-account&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Sep 27, 2013  4:12 P.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Number&amp;lt;/b&amp;gt;: 10000381&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
         },
         "identifier": [
           {
@@ -591,7 +591,7 @@
 <h4 id="request---patient-identifier-and-type">Request - <code>patient</code>, <code>identifier</code>, and <code>type</code>
 </h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?identifier=https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|68002&amp;patient=6330017&amp;type=statement
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?identifier=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|68002&amp;patient=6330017&amp;type=statement
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -606,18 +606,18 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?patient=6330017&amp;identifier=https%3A%2F%2Ffhir.cerner.com%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2FcodeSet%2F28200%7C68002&amp;type=statement"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?patient=6330017&amp;identifier=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F28200%7C68002&amp;type=statement"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/S2580833",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/S2580833",
       "resource": {
         "resourceType": "Account",
         "id": "S2580833",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: statement&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Aug 13, 2019  3:01 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Statement Number&lt;/b&gt;: 68002&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330015-6330017&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: statement&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Aug 13, 2019  3:01 P.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Statement Number&amp;lt;/b&amp;gt;: 68002&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330015-6330017&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
         },
         "extension": [
           {
@@ -632,7 +632,7 @@
             "valueCodeableConcept": {
               "coding": [
                 {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4002640",
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4002640",
                   "code": "20752989",
                   "display": "Pending",
                   "userSelected": true
@@ -651,7 +651,7 @@
         "identifier": [
           {
             "use": "usual",
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200",
             "value": "68002"
           }
         ],
@@ -685,7 +685,7 @@
 <h4 id="request----guarantor-and-type">Request - <code>-guarantor</code> and <code>type</code>
 </h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?-guarantor=6330015-6330015&amp;type=financial-account
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?-guarantor=6330015-6330015&amp;type=financial-account
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -700,18 +700,18 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?-guarantor=6330015-6330015&amp;type=financial-account"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?-guarantor=6330015-6330015&amp;type=financial-account"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1127724",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1127724",
       "resource": {
         "resourceType": "Account",
         "id": "F1127724",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: financial-account&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Aug  2, 2019  7:14 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Number&lt;/b&gt;: 344&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330014-6330015&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330015-6330015&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: financial-account&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Aug  2, 2019  7:14 P.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Number&amp;lt;/b&amp;gt;: 344&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330014-6330015&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330015-6330015&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
         },
         "identifier": [
           {
@@ -763,13 +763,13 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1131724",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1131724",
       "resource": {
         "resourceType": "Account",
         "id": "F1131724",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: financial-account&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Aug 12, 2019 10:29 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Number&lt;/b&gt;: 343&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330015-6330017&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: financial-account&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Aug 12, 2019 10:29 P.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Number&amp;lt;/b&amp;gt;: 343&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330015-6330017&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
         },
         "identifier": [
           {
@@ -813,13 +813,13 @@
       }
     },
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/F1131725",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/F1131725",
       "resource": {
         "resourceType": "Account",
         "id": "F1131725",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: financial-account&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Aug 12, 2019 10:59 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Number&lt;/b&gt;: 347&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330014-6330016&lt;/p&gt;&lt;p&gt;&lt;b&gt;Guarantor&lt;/b&gt;: 6330015-6330016&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: financial-account&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Aug 12, 2019 10:59 P.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Number&amp;lt;/b&amp;gt;: 347&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330014-6330016&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Guarantor&amp;lt;/b&amp;gt;: 6330015-6330016&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
         },
         "identifier": [
           {
@@ -901,7 +901,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/G2572738
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G2572738
 </code></pre>
 
 <h4 id="response-3">Response</h4>
@@ -913,7 +913,7 @@
   "id": "G2572738",
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Account&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: guarantor-balance&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Aug  5, 2019  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Period End Date&lt;/b&gt;: Aug  6, 2019  4:59 A.M. UTC&lt;/p&gt;&lt;/div&gt;"
+    "div": "&amp;lt;div xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: guarantor-balance&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Aug  5, 2019  5:00 A.M. UTC&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period End Date&amp;lt;/b&amp;gt;: Aug  6, 2019  4:59 A.M. UTC&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
   },
   "extension": [
     {
@@ -928,7 +928,7 @@
       "valueCodeableConcept": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/24451",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451",
             "code": "629234",
             "display": "Ready to bill",
             "userSelected": true

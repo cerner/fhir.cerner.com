@@ -199,21 +199,21 @@
       <td><code>_id</code></td>
       <td>This, or one of <code>patient</code>, or <code>subject</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Goal. Example: <code>_id=24110557</code>
+      <td>The logical resource id associated with the Goal. Example: <code>_id=7891</code>
 </td>
     </tr>
     <tr>
       <td><code>patient</code></td>
       <td>This, or one of <code>_id</code>, or <code>subject</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the goal. Example: <code>patient=1316024</code>
+      <td>The patient who has the goal. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>subject:Patient</code></td>
       <td>This, or one of <code>_id</code>, or <code>patient</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject who this goal is intended for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/1316020</code> or <code>subject:Patient=1316020</code>
+      <td>The subject who this goal is intended for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/12345</code> or <code>subject:Patient=12345</code>
 </td>
     </tr>
     <tr>
@@ -246,7 +246,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724066
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -255,127 +255,47 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "5ecc9ee8-8a52-4676-a2c6-b8698d30e284",
+  "id": "94553cc2-fba5-410f-a0a4-fe760b4a8c72",
   "type": "searchset",
-  "total": 3,
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?patient=685925"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724066"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59475953",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/183353727",
       "resource": {
         "resourceType": "Goal",
-        "id": "59475953",
+        "id": "183353727",
         "meta": {
-          "versionId": "1485975664000",
-          "lastUpdated": "2017-02-01T19:01:04.000Z"
+          "versionId": "1594062592000",
+          "lastUpdated": "2020-07-06T19:09:52.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Granger, Hermione&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Test goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-11-09&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-11-30&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Walk 2 miles a day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Jul  1, 2021&lt;/p&gt;&lt;/div&gt;"
         },
         "subject": {
-          "reference": "Patient/685925",
-          "display": "Granger, Hermione"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
-        "startDate": "2016-11-09",
-        "targetDate": "2016-11-30",
+        "startDate": "2020-07-06",
+        "targetDate": "2021-07-01",
         "category": [
           {
-            "text": "Community"
+            "text": "Family"
           }
         ],
-        "description": "Test goal",
+        "description": "Walk 2 miles a day",
         "status": "in-progress",
-        "statusDate": "2016-11-09",
-        "note": [
-          {
-            "authorReference": {
-              "reference": "Practitioner/4594024",
-              "display": "Pomfrey, Poppy"
-            },
-            "time": "2017-02-01T19:01:04.000Z",
-            "text": "Test comment for the goal \"Test goal\""
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535837",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59535837",
-        "meta": {
-          "versionId": "1482335249000",
-          "lastUpdated": "2016-12-21T15:47:29.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Granger, Hermione&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Met goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Achieved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-12-13&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: 2016-12-23&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/685925",
-          "display": "Granger, Hermione"
-        },
-        "startDate": "2016-12-13",
-        "targetDate": "2016-12-23",
-        "category": [
-          {
-            "text": "Community"
-          },
-          {
-            "text": "Safety"
-          }
-        ],
-        "description": "Met goal",
-        "status": "achieved",
-        "statusDate": "2016-12-21"
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59535833",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "59535833",
-        "meta": {
-          "versionId": "1485975696000",
-          "lastUpdated": "2017-02-01T19:01:36.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: Granger, Hermione&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Test Goal without a target date&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Granger, Hermione&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2016-12-21&lt;/p&gt;&lt;/div&gt;"
-        },
-        "subject": {
-          "reference": "Patient/685925",
-          "display": "Granger, Hermione"
-        },
-        "startDate": "2016-12-21",
-        "category": [
-          {
-            "text": "Behavioral"
-          }
-        ],
-        "description": "Test Goal without a target date",
-        "status": "in-progress",
-        "statusDate": "2016-12-21",
+        "statusDate": "2020-07-06",
         "author": {
-          "reference": "Patient/685925",
-          "display": "Granger, Hermione"
-        },
-        "note": [
-          {
-            "authorReference": {
-              "reference": "Practitioner/4594024",
-              "display": "Pomfrey, Poppy"
-            },
-            "time": "2017-02-01T19:01:36.000Z",
-            "text": "This is a test. I repeat, this is only a test!"
-          }
-        ]
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
+        }
       }
     }
   ]
@@ -387,7 +307,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=183353727
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -396,37 +316,47 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "5c7be2b1-79b7-4387-abde-df3ffc2247ba",
+  "id": "b399773c-51f2-43f1-a539-ec85e5d6609c",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal?_id=59563849"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=183353727"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/183353727",
       "resource": {
         "resourceType": "Goal",
-        "id": "59563849",
+        "id": "183353727",
         "meta": {
-          "versionId": "1485363855000",
-          "lastUpdated": "2017-01-25T17:04:15.000Z"
+          "versionId": "1594062592000",
+          "lastUpdated": "2020-07-06T19:09:52.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Walk 2 miles a day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Jul  1, 2021&lt;/p&gt;&lt;/div&gt;"
         },
         "subject": {
-          "reference": "Patient/1045932",
-          "display": "TEST, LISA"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
-        "startDate": "2017-01-25",
-        "description": "A New Goal",
+        "startDate": "2020-07-06",
+        "targetDate": "2021-07-01",
+        "category": [
+          {
+            "text": "Family"
+          }
+        ],
+        "description": "Walk 2 miles a day",
         "status": "in-progress",
-        "statusDate": "2017-01-25"
+        "statusDate": "2020-07-06",
+        "author": {
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
+        }
       }
     }
   ]
@@ -460,7 +390,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Goal/59563849
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/183353727
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -469,23 +399,33 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Goal",
-  "id": "59563849",
+  "id": "183353727",
   "meta": {
-    "versionId": "1485363855000",
-    "lastUpdated": "2017-01-25T17:04:15.000Z"
+    "versionId": "1594062592000",
+    "lastUpdated": "2020-07-06T19:09:52.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: TEST, LISA&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: A New Goal&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: 2017-01-25&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Walk 2 miles a day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: In Progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Jul  1, 2021&lt;/p&gt;&lt;/div&gt;"
   },
   "subject": {
-    "reference": "Patient/1045932",
-    "display": "TEST, LISA"
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
   },
-  "startDate": "2017-01-25",
-  "description": "A New Goal",
+  "startDate": "2020-07-06",
+  "targetDate": "2021-07-01",
+  "category": [
+    {
+      "text": "Family"
+    }
+  ],
+  "description": "Walk 2 miles a day",
   "status": "in-progress",
-  "statusDate": "2017-01-25"
+  "statusDate": "2020-07-06",
+  "author": {
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
+  }
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>

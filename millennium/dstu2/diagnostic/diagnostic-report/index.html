@@ -286,7 +286,7 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport?patient=1316020&amp;_count=10
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&amp;_count=10
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -295,169 +295,67 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "9791066f-1dcb-42ff-838a-ade00f4037f0",
+  "id": "05cb2a6a-1de9-4de9-a3ff-16c1f347f910",
   "type": "searchset",
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport?patient=1316020&amp;_count=10"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&amp;_count=10"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/5153487",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197198634",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "5153487",
+        "id": "197198634",
         "meta": {
-          "versionId": "3",
-          "lastUpdated": "2015-08-06T20:03:21.000Z"
+          "versionId": "1",
+          "lastUpdated": "2019-12-26T21:36:00.000Z"
         },
         "text": {
           "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Wrist Complete Left&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Interfaced-Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Song, River&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "unknown",
-        "category": {
-          "text": "RADRPT"
-        },
-        "code": {
-          "text": "RADRPT"
-        },
-        "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
-        },
-        "encounter": {
-          "reference": "Encounter/2787906"
-        },
-        "effectiveDateTime": "2015-08-06T20:03:09.000Z",
-        "issued": "2015-08-06T20:03:21.000Z",
-        "performer": {
-          "display": "Interfaced-Unknown"
-        },
-        "request": [
-          {
-            "reference": "ProcedureRequest/18954087"
-          }
-        ],
-        "presentedForm": [
-          {
-            "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5153487",
-            "title": "XR Wrist Complete Left"
-          },
-          {
-            "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-5153487",
-            "title": "XR Wrist Complete Left"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/4135365",
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "4135365",
-        "meta": {
-          "versionId": "5",
-          "lastUpdated": "2016-09-14T16:33:16.000Z"
-        },
-        "text": {
-          "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: CT Abdomen w/ Contrast&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Chase, Robert&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Cuddy, Lisa&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Radiology Reports&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Admission H &amp;amp; P - Radiology&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Date&lt;/b&gt;: 2019-12-26T21:35:07.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Issued&lt;/b&gt;: 2019-12-26T21:35:59.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "final",
         "category": {
-          "text": "RADRPT"
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0074",
+              "code": "RAD",
+              "display": "Radiology",
+              "userSelected": false
+            }
+          ],
+          "text": "Radiology Reports"
         },
         "code": {
-          "text": "RADRPT"
+          "text": "Radiology Reports"
         },
         "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
         "encounter": {
-          "reference": "Encounter/2153909"
+          "reference": "Encounter/97939518"
         },
-        "effectiveDateTime": "2014-12-05T22:31:02.000Z",
-        "issued": "2016-09-14T16:33:11.000Z",
+        "effectiveDateTime": "2019-12-26T21:35:07.000Z",
+        "issued": "2019-12-26T21:35:59.000Z",
         "performer": {
-          "reference": "Practitioner/1314015",
-          "display": "Chase, Robert"
+          "reference": "Practitioner/4122622",
+          "display": "Cerner Test, Physician - Hospitalist Cerner"
         },
-        "request": [
-          {
-            "reference": "ProcedureRequest/17233929"
-          }
-        ],
         "presentedForm": [
           {
             "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-4135365",
-            "title": "CT Abdomen w/ Contrast"
+            "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197198634",
+            "title": "Admission H &amp; P - Radiology"
           },
           {
             "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-4135365",
-            "title": "CT Abdomen w/ Contrast"
-          }
-        ]
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DiagnosticReport/3411366",
-      "resource": {
-        "resourceType": "DiagnosticReport",
-        "id": "3411366",
-        "meta": {
-          "versionId": "2",
-          "lastUpdated": "2014-05-05T18:43:26.000Z"
-        },
-        "text": {
-          "status": "additional",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: RADRPT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: XR Abdomen AP | XR Abdomen Series w/ Chest 1 View&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: House, Gregory&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ordering Provider&lt;/b&gt;: &lt;ul&gt;&lt;li&gt;Wilson, James&lt;/li&gt;&lt;li&gt;Cameron, Allison&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "unknown",
-        "category": {
-          "text": "RADRPT"
-        },
-        "code": {
-          "text": "RADRPT"
-        },
-        "subject": {
-          "reference": "Patient/1316020",
-          "display": "Peralta, Jake"
-        },
-        "encounter": {
-          "reference": "Encounter/1309912"
-        },
-        "effectiveDateTime": "2014-05-05T18:43:11.000Z",
-        "issued": "2014-05-05T18:43:26.000Z",
-        "performer": {
-          "reference": "Practitioner/1985700",
-          "display": "House, Gregory"
-        },
-        "request": [
-          {
-            "reference": "ProcedureRequest/15785901"
-          },
-          {
-            "reference": "ProcedureRequest/15717975"
-          }
-        ],
-        "presentedForm": [
-          {
-            "contentType": "text/html",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-3411366",
-            "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
-          },
-          {
-            "contentType": "application/pdf",
-            "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/XR-3411366",
-            "title": "XR Abdomen AP | XR Abdomen Series w/ Chest 1 View"
+            "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634",
+            "title": "Admission H &amp; P - Radiology"
           }
         ]
       }

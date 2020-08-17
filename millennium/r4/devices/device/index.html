@@ -246,7 +246,7 @@
       <td>This or <code>patient</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Device. Example: <code>2226920</code>
+      <td>The logical resource id associated with the Device. Example: <code>7890</code>
 </td>
     </tr>
     <tr>
@@ -264,50 +264,50 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
+<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="c32991a5-6173-497d-8f79-6ec7c435df83">
+  <ul id="c11a4205-8ae1-4b50-9dc3-05ff08f941ea">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'c32991a5-6173-497d-8f79-6ec7c435df83'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'c11a4205-8ae1-4b50-9dc3-05ff08f941ea'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=1316024" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'c32991a5-6173-497d-8f79-6ec7c435df83'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'c11a4205-8ae1-4b50-9dc3-05ff08f941ea'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="c32991a5-6173-497d-8f79-6ec7c435df83" class="example-tab-content">
+<div data-id="c11a4205-8ae1-4b50-9dc3-05ff08f941ea" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "cc8573d6-b121-4cc5-8360-1747145302c3",
+  "id": "082eb1ae-1a78-41ff-a551-cfc11ff7c812",
   "type": "searchset",
-  "total": 5,
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245",
       "resource": {
         "resourceType": "Device",
-        "id": "15577765",
+        "id": "31539245",
         "meta": {
-          "versionId": "0",
-          "lastUpdated": "2012-06-18T05:00:00.000Z"
+          "versionId": "1",
+          "lastUpdated": "2020-07-06T23:58:35.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Smith and Nephew Wound Management D&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Apr 10, 2010  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  7, 2020  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Total Hip Set&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: MODELNBR661488&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: 1721123408&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Pacemaker Plus&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  9, 2017 12:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  2, 2040 10:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: 7723&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: 17642857292&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Pacemaker&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: T0765&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Model Clinic&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
@@ -321,239 +321,36 @@
               ],
               "text": "Serial Number"
             },
-            "value": "SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+            "value": "17642857292"
           }
         ],
         "udiCarrier": [
           {
-            "carrierHRF": "UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
-          }
-        ],
-        "status": "inactive",
-        "distinctIdentifier": "DA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
-        "manufacturer": "Smith and Nephew Wound Management D",
-        "manufactureDate": "2010-04-10T05:00:00.000Z",
-        "expirationDate": "2020-07-07T05:00:00.000Z",
-        "lotNumber": "LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
-        "serialNumber": "SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
-        "deviceName": [
-          {
-            "name": "Total Hip Set",
-            "type": "manufacturer-name"
-          }
-        ],
-        "modelNumber": "MODELNBR661488",
-        "type": {
-          "text": "Total Hip Set"
-        },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART Jr, FRED RICK"
-        },
-        "owner": {
-          "reference": "Organization/619848",
-          "display": "Baseline East Medical Center"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768",
-      "resource": {
-        "resourceType": "Device",
-        "id": "15575768",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2001-01-01T06:00:00.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: 567884-IP&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: PBR668583H&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Insulin Pump&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: MiniMed Paradigm® 522/722&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East &lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "PBR668583H"
+            "carrierHRF": "1721123408"
           }
         ],
         "status": "active",
-        "manufactureDate": "2001-01-01T06:00:00.000Z",
-        "lotNumber": "567884-IP",
-        "serialNumber": "PBR668583H",
+        "manufacturer": "Pacemaker Plus",
+        "manufactureDate": "2017-01-09T12:00:00.000Z",
+        "expirationDate": "2040-07-02T10:00:00.000Z",
+        "lotNumber": "7723",
+        "serialNumber": "17642857292",
         "deviceName": [
           {
-            "name": "Insulin Pump",
+            "name": "Pacemaker",
             "type": "user-friendly-name"
           }
         ],
-        "modelNumber": "MiniMed Paradigm® 522/722",
+        "modelNumber": "T0765",
         "type": {
-          "text": "Insulin Pump"
+          "text": "Pacemaker"
         },
         "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART Jr, FRED RICK"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
         "owner": {
-          "display": "Baseline East "
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577768",
-      "resource": {
-        "resourceType": "Device",
-        "id": "15577768",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2002-01-01T06:00:00.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  1, 2002  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: ser100-1001&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Stryker MDM X3 Hip System&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: MDM X3&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "ser100-1001"
-          }
-        ],
-        "status": "active",
-        "manufactureDate": "2002-01-01T06:00:00.000Z",
-        "serialNumber": "ser100-1001",
-        "deviceName": [
-          {
-            "name": "Stryker MDM X3 Hip System",
-            "type": "user-friendly-name"
-          }
-        ],
-        "modelNumber": "MDM X3",
-        "type": {
-          "text": "Stryker MDM X3 Hip System"
-        },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART Jr, FRED RICK"
-        },
-        "owner": {
-          "display": "Baseline East Medical Center"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577769",
-      "resource": {
-        "resourceType": "Device",
-        "id": "15577769",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2004-01-01T06:00:00.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  1, 2003  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: ser100-1004&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Stryker Triathalon Total Knee&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: Triathalon&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "ser100-1004"
-          }
-        ],
-        "status": "active",
-        "manufactureDate": "2003-01-01T06:00:00.000Z",
-        "serialNumber": "ser100-1004",
-        "deviceName": [
-          {
-            "name": "Stryker Triathalon Total Knee",
-            "type": "user-friendly-name"
-          }
-        ],
-        "modelNumber": "Triathalon",
-        "type": {
-          "text": "Stryker Triathalon Total Knee"
-        },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART Jr, FRED RICK"
-        },
-        "owner": {
-          "display": "Baseline East Medical Center"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577770",
-      "resource": {
-        "resourceType": "Device",
-        "id": "15577770",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2004-01-01T06:00:00.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  1, 2004  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: ser100-1004&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medtronic Advisa MRI SureScan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: A2DR01&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "ser100-1004"
-          }
-        ],
-        "status": "active",
-        "manufactureDate": "2004-01-01T06:00:00.000Z",
-        "serialNumber": "ser100-1004",
-        "deviceName": [
-          {
-            "name": "Medtronic Advisa MRI SureScan",
-            "type": "user-friendly-name"
-          }
-        ],
-        "modelNumber": "A2DR01",
-        "type": {
-          "text": "Medtronic Advisa MRI SureScan"
-        },
-        "patient": {
-          "reference": "Patient/4478007",
-          "display": "SMART Jr, FRED RICK"
-        },
-        "owner": {
-          "display": "Baseline East Medical Center"
+          "display": "Model Clinic"
         }
       }
     }
@@ -588,36 +385,36 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15577765"
+<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245"
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="175b981e-d601-4d1d-a5a6-f713b22d3e57">
+  <ul id="33419dd7-324c-46aa-aa05-c2cb15559428">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '175b981e-d601-4d1d-a5a6-f713b22d3e57'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '33419dd7-324c-46aa-aa05-c2cb15559428'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15573768" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '175b981e-d601-4d1d-a5a6-f713b22d3e57'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '33419dd7-324c-46aa-aa05-c2cb15559428'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="175b981e-d601-4d1d-a5a6-f713b22d3e57" class="example-tab-content">
+<div data-id="33419dd7-324c-46aa-aa05-c2cb15559428" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Device",
-  "id": "15577765",
+  "id": "31539245",
   "meta": {
-    "versionId": "0",
-    "lastUpdated": "2012-06-18T05:00:00.000Z"
+    "versionId": "1",
+    "lastUpdated": "2020-07-06T23:58:35.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Smith and Nephew Wound Management D&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Apr 10, 2010  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  7, 2020  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Total Hip Set&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: MODELNBR661488&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART Jr, FRED RICK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: 1721123408&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Pacemaker Plus&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  9, 2017 12:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  2, 2040 10:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: 7723&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: 17642857292&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Pacemaker&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: T0765&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Model Clinic&lt;/p&gt;&lt;/div&gt;"
   },
   "identifier": [
     {
@@ -631,38 +428,36 @@
         ],
         "text": "Serial Number"
       },
-      "value": "SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+      "value": "17642857292"
     }
   ],
   "udiCarrier": [
     {
-      "carrierHRF": "UDIDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4"
+      "carrierHRF": "1721123408"
     }
   ],
-  "status": "inactive",
-  "distinctIdentifier": "DA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
-  "manufacturer": "Smith and Nephew Wound Management D",
-  "manufactureDate": "2010-04-10T05:00:00.000Z",
-  "expirationDate": "2020-07-07T05:00:00.000Z",
-  "lotNumber": "LOTDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
-  "serialNumber": "SERIALNBRDA88ABA9-9FAD-4A03-9E9A-B52299AE9AE4",
+  "status": "active",
+  "manufacturer": "Pacemaker Plus",
+  "manufactureDate": "2017-01-09T12:00:00.000Z",
+  "expirationDate": "2040-07-02T10:00:00.000Z",
+  "lotNumber": "7723",
+  "serialNumber": "17642857292",
   "deviceName": [
     {
-      "name": "Total Hip Set",
-      "type": "manufacturer-name"
+      "name": "Pacemaker",
+      "type": "user-friendly-name"
     }
   ],
-  "modelNumber": "MODELNBR661488",
+  "modelNumber": "T0765",
   "type": {
-    "text": "Total Hip Set"
+    "text": "Pacemaker"
   },
   "patient": {
-    "reference": "Patient/4478007",
-    "display": "SMART Jr, FRED RICK"
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
   },
   "owner": {
-    "reference": "Organization/619848",
-    "display": "Baseline East Medical Center"
+    "display": "Model Clinic"
   }
 }</code></pre>
   </div>

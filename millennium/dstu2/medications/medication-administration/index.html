@@ -428,7 +428,7 @@ The following fields are returned if valued:</p>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration?patient=4642007
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?patient=12724066
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -437,62 +437,57 @@ The following fields are returned if valued:</p>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "a9117d85-042f-4dda-9e38-dce0286c57a4",
+  "id": "b3e1848e-92db-482f-a7b1-62808aacd8ec",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration?patient=4642007"
-    },
-    {
-      "relation": "next",
-      "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration?patient=4642007&amp;-pageContext=H4sIAAAAAAAAADWMuwoCMRBF_yW1BJN1iU4nrqVWW9hJSCYmYB6Ms4KI_25AvN3hHs5bNHtDAeJ8vMxi1Ymw8An93udUDgvXEPq7UAGHVJAgJw8uWmKJz65CiIna3b4kY25XilX-RPto0tUMRptRb4fexuInnvM_qkal9M4Mm3Xf5wtjreoSiQAAAA%3D%3D&amp;-pageDirection=NEXT"
+      "url": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?patient=12724066"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration/7283373",
+      "fullUrl": "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197292849",
       "resource": {
         "resourceType": "MedicationAdministration",
-        "id": "7283373",
+        "id": "197292849",
         "meta": {
-          "versionId": "7283374",
-          "lastUpdated": "2017-11-22T17:25:12.000Z"
+          "versionId": "197292850",
+          "lastUpdated": "2020-07-06T21:13:24.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Connie&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Was Not Given&lt;/b&gt;: False&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 120&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: 2017-11-22T17:25:00.000Z&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 650 mg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: Jul  6, 2020  9:11 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
-        "status": "in-progress",
+        "status": "completed",
         "patient": {
-          "reference": "Patient/4642007",
-          "display": "Smart, Connie"
+          "reference": "Patient/12724066",
+          "display": "SMART, NANCY"
         },
         "practitioner": {
-          "reference": "Practitioner/1776007",
-          "display": "Jones, Martha"
+          "reference": "Practitioner/12724064",
+          "display": "Spence, Open Platform IA, Stephen"
         },
         "encounter": {
-          "reference": "Encounter/4251906"
+          "reference": "Encounter/97953477"
         },
         "prescription": {
-          "reference": "MedicationOrder/22954085"
+          "reference": "MedicationOrder/313764715"
         },
         "wasNotGiven": false,
-        "effectiveTimeDateTime": "2017-11-22T17:25:00.000Z",
+        "effectiveTimeDateTime": "2020-07-06T21:11:00.000Z",
         "medicationCodeableConcept": {
           "coding": [
             {
               "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "161",
-              "display": "Acetaminophen",
+              "code": "313782",
+              "display": "Acetaminophen 325 MG Oral Tablet",
               "userSelected": false
             }
           ],
           "text": "acetaminophen"
         },
         "dosage": {
-          "text": "120 mg Oral q4hr",
           "route": {
             "coding": [
               {
@@ -511,283 +506,12 @@ The following fields are returned if valued:</p>
             "text": "Oral"
           },
           "quantity": {
-            "value": 120,
+            "value": 650,
             "unit": "mg",
-            "system": "http://unitsofmeasure.org"
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
           }
         }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration/7283283",
-      "resource": {
-        "resourceType": "MedicationAdministration",
-        "id": "7283283",
-        "meta": {
-          "versionId": "7283294",
-          "lastUpdated": "2017-11-22T16:10:18.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Connie&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: Sodium Chloride 0.154 MEQ/ML Injectable Solution&lt;/p&gt;&lt;p&gt;&lt;b&gt;Was Not Given&lt;/b&gt;: False&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 100&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: 2017-11-22T16:09:00.000Z&lt;/p&gt;&lt;/div&gt;"
-        },
-        "contained": [
-          {
-            "resourceType": "Medication",
-            "id": "7283283",
-            "product": {
-              "ingredient": [
-                {
-                  "item": {
-                    "reference": "#7283285-1",
-                    "display": "Sodium Chloride 0.154 MEQ/ML Injectable Solution"
-                  },
-                  "amount": {
-                    "numerator": {
-                      "value": 100,
-                      "unit": "mL",
-                      "system": "http://unitsofmeasure.org"
-                    }
-                  }
-                },
-                {
-                  "item": {
-                    "reference": "#7283287-2",
-                    "display": "Glucose 50 MG/ML Injectable Solution"
-                  },
-                  "amount": {
-                    "numerator": {
-                      "value": 25,
-                      "unit": "mL",
-                      "system": "http://unitsofmeasure.org"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "resourceType": "Medication",
-            "id": "7283285-1",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "313002",
-                  "display": "Sodium Chloride 0.154 MEQ/ML Injectable Solution",
-                  "userSelected": false
-                }
-              ],
-              "text": "Sodium Chloride 0.9%"
-            }
-          },
-          {
-            "resourceType": "Medication",
-            "id": "7283287-2",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                  "code": "309778",
-                  "display": "Glucose 50 MG/ML Injectable Solution",
-                  "userSelected": false
-                }
-              ],
-              "text": "Dextrose 5% in Water"
-            }
-          }
-        ],
-        "status": "in-progress",
-        "patient": {
-          "reference": "Patient/4642007",
-          "display": "Smart, Connie"
-        },
-        "practitioner": {
-          "reference": "Practitioner/1776007",
-          "display": "Jones, Martha"
-        },
-        "encounter": {
-          "reference": "Encounter/4251906"
-        },
-        "prescription": {
-          "reference": "MedicationOrder/22961893"
-        },
-        "wasNotGiven": false,
-        "effectiveTimeDateTime": "2017-11-22T16:09:00.000Z",
-        "medicationReference": {
-          "reference": "#7283283",
-          "display": "Sodium Chloride 0.154 MEQ/ML Injectable Solution"
-        },
-        "note": "PRODUCT NOTE\nADMIN NOTE\nOrder coment\n2017-11-22T16:10:18.000Z - 1776007",
-        "dosage": {
-          "text": "IV Piggyback BID",
-          "siteCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "368208006",
-                "display": "left upper arm structure (body structure)",
-                "userSelected": false
-              }
-            ],
-            "text": "Left Upper Arm"
-          },
-          "route": {
-            "coding": [
-              {
-                "system": "http://ncimeta.nci.nih.gov",
-                "code": "C38279",
-                "display": "INTRAVENOUS DRIP",
-                "userSelected": false
-              },
-              {
-                "system": "http://snomed.info/sct",
-                "code": "47625008",
-                "display": "Intravenous route (qualifier value)",
-                "userSelected": false
-              }
-            ],
-            "text": "IV Piggyback"
-          },
-          "quantity": {
-            "value": 100,
-            "unit": "mL",
-            "system": "http://unitsofmeasure.org"
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration/7277367",
-      "resource": {
-        "resourceType": "MedicationAdministration",
-        "id": "7277367",
-        "meta": {
-          "versionId": "7277366",
-          "lastUpdated": "2017-11-21T22:26:04.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Connie&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: Dextrose 2.5% with 0.45% NaCl&lt;/p&gt;&lt;p&gt;&lt;b&gt;Was Not Given&lt;/b&gt;: False&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 100&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Rate&lt;/b&gt;: 125&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Start Time&lt;/b&gt;: 2017-11-21T22:40:00.000Z&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective End Time&lt;/b&gt;: 2017-11-21T23:00:00.000Z&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "in-progress",
-        "patient": {
-          "reference": "Patient/4642007",
-          "display": "Smart, Connie"
-        },
-        "practitioner": {
-          "reference": "Practitioner/1776007",
-          "display": "Jones, Martha"
-        },
-        "encounter": {
-          "reference": "Encounter/4251906"
-        },
-        "prescription": {
-          "reference": "MedicationOrder/22954301"
-        },
-        "wasNotGiven": false,
-        "effectiveTimePeriod": {
-          "start": "2017-11-21T22:40:00.000Z",
-          "end": "2017-11-21T23:00:00.000Z"
-        },
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "244095",
-              "display": "Glucose 25 MG/ML / Sodium Chloride 0.0769 MEQ/ML Injectable Solution",
-              "userSelected": false
-            }
-          ],
-          "text": "Dextrose 2.5% with 0.45% NaCl"
-        },
-        "dosage": {
-          "text": "1000 mL IV at 125 mL/hr",
-          "siteCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "78791008",
-                "display": "structure of right hand (body structure)",
-                "userSelected": false
-              }
-            ],
-            "text": "Right Hand"
-          },
-          "quantity": {
-            "value": 100,
-            "unit": "mL",
-            "system": "http://unitsofmeasure.org"
-          },
-          "rateRatio": {
-            "numerator": {
-              "value": 125,
-              "unit": "mL",
-              "system": "http://unitsofmeasure.org"
-            },
-            "denominator": {
-              "value": 1,
-              "unit": "h",
-              "system": "http://unitsofmeasure.org"
-            }
-          }
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration/7277321",
-      "resource": {
-        "resourceType": "MedicationAdministration",
-        "id": "7277321",
-        "meta": {
-          "versionId": "7277322",
-          "lastUpdated": "2017-11-21T21:56:15.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Connie&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Was Not Given&lt;/b&gt;: True&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: stopped&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: 2017-11-21T21:56:00.000Z&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "stopped",
-        "patient": {
-          "reference": "Patient/4642007",
-          "display": "Smart, Connie"
-        },
-        "practitioner": {
-          "reference": "Practitioner/1776007",
-          "display": "Jones, Martha"
-        },
-        "encounter": {
-          "reference": "Encounter/4251906"
-        },
-        "prescription": {
-          "reference": "MedicationOrder/22954085"
-        },
-        "wasNotGiven": true,
-        "reasonNotGiven": [
-          {
-            "coding": [
-              {
-                "code": "2593",
-                "display": "Not Done: Patient Sleeping",
-                "userSelected": true
-              }
-            ],
-            "text": "Not Done: Patient Sleeping"
-          }
-        ],
-        "effectiveTimeDateTime": "2017-11-21T21:56:00.000Z",
-        "medicationCodeableConcept": {
-          "coding": [
-            {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "161",
-              "display": "Acetaminophen",
-              "userSelected": false
-            }
-          ],
-          "text": "acetaminophen"
-        },
-        "note": "2017-11-21T21:56:14.000Z - 1776007 - Result comment entered for acetaminophen - Chart Not Done workflow\n"
       }
     }
   ]
@@ -828,7 +552,7 @@ The following fields are returned if valued:</p>
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationAdministration/7283373
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197292849
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -837,45 +561,44 @@ The following fields are returned if valued:</p>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "MedicationAdministration",
-  "id": "7283373",
+  "id": "197292849",
   "meta": {
-    "versionId": "7283374",
-    "lastUpdated": "2017-11-22T17:25:12.000Z"
+    "versionId": "197292850",
+    "lastUpdated": "2020-07-06T21:13:24.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, Connie&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Was Not Given&lt;/b&gt;: False&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 120&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: in-progress&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: 2017-11-22T17:25:00.000Z&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 650 mg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: Jul  6, 2020  9:11 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
   },
-  "status": "in-progress",
+  "status": "completed",
   "patient": {
-    "reference": "Patient/4642007",
-    "display": "Smart, Connie"
+    "reference": "Patient/12724066",
+    "display": "SMART, NANCY"
   },
   "practitioner": {
-    "reference": "Practitioner/1776007",
-    "display": "Jones, Martha"
+    "reference": "Practitioner/12724064",
+    "display": "Spence, Open Platform IA, Stephen"
   },
   "encounter": {
-    "reference": "Encounter/4251906"
+    "reference": "Encounter/97953477"
   },
   "prescription": {
-    "reference": "MedicationOrder/22954085"
+    "reference": "MedicationOrder/313764715"
   },
   "wasNotGiven": false,
-  "effectiveTimeDateTime": "2017-11-22T17:25:00.000Z",
+  "effectiveTimeDateTime": "2020-07-06T21:11:00.000Z",
   "medicationCodeableConcept": {
     "coding": [
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "code": "161",
-        "display": "Acetaminophen",
+        "code": "313782",
+        "display": "Acetaminophen 325 MG Oral Tablet",
         "userSelected": false
       }
     ],
     "text": "acetaminophen"
   },
   "dosage": {
-    "text": "120 mg Oral q4hr",
     "route": {
       "coding": [
         {
@@ -894,9 +617,10 @@ The following fields are returned if valued:</p>
       "text": "Oral"
     },
     "quantity": {
-      "value": 120,
+      "value": 650,
       "unit": "mg",
-      "system": "http://unitsofmeasure.org"
+      "system": "http://unitsofmeasure.org",
+      "code": "mg"
     }
   }
 }</code></pre>
