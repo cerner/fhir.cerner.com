@@ -97,23 +97,22 @@ module Cerner
 
     R4_APPOINTMENT_VIDEO_VISIT_ENTRY ||= {
       'resourceType': 'Appointment',
-      'id': '4817663',
+      'id': '4817572',
       'meta': {
-        'versionId': '1-1',
-        'lastUpdated': '2020-07-14T19:23:46.000Z'
+        'versionId': '2-1',
+        'lastUpdated': '2020-07-11T05:05:01.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: booked</p>'\
-                   '<p><b>Service Type</b>: Video Visit</p><p><b>Start</b>: Aug  3, 2020  1:00 P.M. UTC</p><p><b>End'\
-                   '</b>: Aug  3, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Practitioner: Cerner Test, Physician '\
-                   '- Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1</p><p><b>Video Visit</b>: Yes'\
-                   '</p></div>'
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: noshow</p>'\
+               '<p><b>Service Type</b>: Video Visit</p><p><b>Start</b>: Jul 10, 2020  1:00 P.M. UTC</p><p><b>End</b>: '\
+               'Jul 10, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Patient: SMART, NANCY, Practitioner: Applegate '\
+               'MD, Christina, Location: MX Clinic 1</p><p><b>Video Visit</b>: Yes</p></div>'
       },
       'contained': [
         {
           'resourceType': 'HealthcareService',
-          'id': '33',
+          'id': '28',
           'type': [
             {
               'text': 'Patient Virtual Meeting Room'
@@ -124,15 +123,15 @@ module Cerner
               'system': 'url',
               'value': 'https://www.google.com/',
               'period': {
-                'start': '2020-08-03T08:00:00.000Z',
-                'end': '2020-08-03T23:10:00.000Z'
+                'start': '2020-07-13T08:00:00.000Z',
+                'end': '2020-07-13T08:10:00.000Z'
               }
             }
           ]
         },
         {
           'resourceType': 'HealthcareService',
-          'id': '36',
+          'id': '31',
           'type': [
             {
               'text': 'Provider Virtual Meeting Room'
@@ -143,14 +142,14 @@ module Cerner
               'system': 'url',
               'value': 'https://www.google.com/',
               'period': {
-                'start': '2020-08-03T08:00:00.000Z',
-                'end': '2020-08-03T23:10:00.000Z'
+                'start': '2020-07-13T08:00:00.000Z',
+                'end': '2020-07-13T08:10:00.000Z'
               }
             }
           ]
         }
       ],
-      'status': 'booked',
+      'status': 'noshow',
       'serviceType': [
         {
           'coding': [
@@ -166,34 +165,14 @@ module Cerner
       ],
       'reasonCode': [
         {
-          'text': 'Test Video Appointment'
+          'text': 'Testing Video Visit'
         }
       ],
       'description': 'Video Visit',
-      'start': '2020-08-03T13:00:00.000Z',
-      'end': '2020-08-03T13:15:00.000Z',
+      'start': '2020-07-10T13:00:00.000Z',
+      'end': '2020-07-10T13:15:00.000Z',
       'minutesDuration': 15,
-      'comment': 'Test Video Visit Appointment Create and PATCH',
       'participant': [
-        {
-          'type': [
-            {
-              'coding': [
-                {
-                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
-                  'code': 'PPRF',
-                  'display': 'primary performer'
-                }
-              ]
-            }
-          ],
-          'actor': {
-            'reference': 'Practitioner/593923',
-            'display': 'Cerner Test, Physician - Primary Care Cerner'
-          },
-          'required': 'required',
-          'status': 'accepted'
-        },
         {
           'type': [
             {
@@ -216,6 +195,36 @@ module Cerner
           'status': 'accepted'
         },
         {
+          'type': [
+            {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250',
+                  'code': '4574',
+                  'display': 'Resource',
+                  'userSelected': true
+                }
+              ],
+              'text': 'Resource'
+            },
+            {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                  'code': 'PPRF',
+                  'display': 'primary performer'
+                }
+              ]
+            }
+          ],
+          'actor': {
+            'reference': 'Practitioner/593923',
+            'display': 'Applegate MD, Christina'
+          },
+          'required': 'required',
+          'status': 'accepted'
+        },
+        {
           'actor': {
             'reference': 'Location/21304876',
             'display': 'MX Clinic 1'
@@ -230,7 +239,7 @@ module Cerner
             }
           ],
           'actor': {
-            'reference': '#33'
+            'reference': '#28'
           },
           'status': 'accepted'
         },
@@ -241,15 +250,15 @@ module Cerner
             }
           ],
           'actor': {
-            'reference': '#36'
+            'reference': '#31'
           },
           'status': 'accepted'
         }
       ],
       'requestedPeriod': [
         {
-          'start': '2020-08-03T13:00:00.000Z',
-          'end': '2020-08-03T13:15:00.000Z'
+          'start': '2020-07-10T13:00:00.000Z',
+          'end': '2020-07-10T13:15:00.000Z'
         }
       ]
     }.freeze
