@@ -256,7 +256,7 @@ _Implementation Notes_
 
 #### Request
 
-    DELETE https://fhir-ehr-code.sandboxcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
+    DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 
 #### Response
 
