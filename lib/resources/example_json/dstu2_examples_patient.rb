@@ -123,14 +123,6 @@ module Cerner
           'period': {
             'start': '2019-12-26T15:14:12.000Z'
           }
-        },
-        {
-          'system': 'email',
-          'value': 'nick.p.hanson@cerner.com',
-          'use': 'home',
-          'period': {
-            'start': '2020-03-30T19:31:11.000Z'
-          }
         }
       ],
       'gender': 'male',

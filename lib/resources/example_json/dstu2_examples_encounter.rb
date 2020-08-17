@@ -182,21 +182,6 @@ module Cerner
             'reference': 'Practitioner/4122630',
             'display': "Cerner Test, Physician - Women's Health Cerner"
           }
-        },
-        {
-          'type': [
-            {
-              'text': 'Database Coordinator'
-            }
-          ],
-          'period': {
-            'start': '2020-03-13T16:20:00.000Z',
-            'end': '2020-03-14T05:01:18.000Z'
-          },
-          'individual': {
-            'reference': 'Practitioner/12724045',
-            'display': 'Graham, Joshua'
-          }
         }
       ],
       'period': {
