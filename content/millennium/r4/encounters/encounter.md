@@ -182,7 +182,7 @@ Content-Type: application/fhir+json
 Date: Wed, 27 Mar 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97939518
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1621910
 Server-Response-Time: 3890.363996
 Status: 201 Created
 Vary: Origin
@@ -224,7 +224,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1621910
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97939518
 
 #### Body
 

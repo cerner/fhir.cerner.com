@@ -84,7 +84,7 @@ Notes:
 
 * The `slot-type` parameter may contain standard codes or proprietary codes. If multiple `slot-type` parameters are used they must be either all standard codes or all proprietary codes.
   * When using standard codes, choose codes bound to Slot.type as noted in the [Terminology Bindings](#terminology-bindings) table above.
-  * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4062744`
+  * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854`
 
 * The `start` parameter may be provided:
   * Once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)

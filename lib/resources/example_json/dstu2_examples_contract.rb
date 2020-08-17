@@ -5,18 +5,19 @@ module Cerner
 
     DSTU2_CONTRACT_ENTRY ||= {
       'resourceType': 'Contract',
-      'id': '490059635',
+      'id': '490068369',
       'meta': {
-        'versionId': '2'
+        'versionId': '51'
       },
       'text': {
         'status': 'generated',
-        'div': '<div><p><b>Contract</b></p><p><b>Actor Name</b>: Smart, Nancy</p><p><b>Subject Name</b>: SMART, '\
-               'TIMMY</p><p><b>Applies Begin</b>: Jun 30, 2020  8:41 P.M. UTC</p><p><b>Type</b>: Consent report '\
-               '(record artifact)</p><p><b>Subtype</b>: Consent status (finding)</p></div>'
+        'div': '<div><p><b>Contract</b></p><p><b>Actor Name</b>: SMART, NANCY</p>'\
+               '<p><b>Subject Name</b>: SMART, TIMMY</p><p><b>Applies Begin</b>: Aug 10, 2020  4:37 P.M. UTC</p>'\
+               '<p><b>Type</b>: Consent report (record artifact)</p>'\
+               '<p><b>Subtype</b>: Consent status (finding)</p></div>'
       },
       'applies': {
-        'start': '2020-06-30T20:41:33.000Z'
+        'start': '2020-08-10T16:37:51.000Z'
       },
       'subject': [
         {
@@ -73,8 +74,8 @@ module Cerner
       'actor': [
         {
           'entity': {
-            'reference': 'RelatedPerson/490059635',
-            'display': 'Smart, Nancy'
+            'reference': 'RelatedPerson/490068369',
+            'display': 'SMART, NANCY'
           },
           'role': [
             {

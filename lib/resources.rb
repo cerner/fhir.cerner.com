@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'cgi'
 require 'yajl/json_gem'
 
 module Cerner
@@ -155,7 +156,7 @@ module Cerner
       end
 
       def deep_transform_values(value)
-        return value.gsub('<', '&lt;').gsub('>', '&gt;') if value.is_a?(String)
+        return CGI.escape_html(value) if value.is_a?(String)
         return value unless value.is_a?(Hash)
 
         value.transform_values do |val|

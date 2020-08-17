@@ -10,26 +10,25 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient='\
-                 '3998008&_count=50'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12724066'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-93-5525867',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-1-73080191',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'SH-93-5525867',
+            'id': 'SH-1-73080191',
             'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
+              'versionId': '73080191',
+              'lastUpdated': '2020-06-11T04:05:33.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-                     'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories'\
-                     '&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Tobacco&lt;/p>&lt;p>&lt;b>Result&lt;/b>'\
-                     ': Medium Risk&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, 2016  9:58 P.M. UTC&lt;/p>&lt;/div>'
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+                     '<p><b>Categories</b>: Social History</p><p><b>Code</b>: Alcohol</p>'\
+                     '<p><b>Issued Date</b>: Jun 11, 2020  4:05 A.M. UTC</p></div>'
             },
             'status': 'final',
             'category': [
@@ -48,68 +47,41 @@ module Cerner
               'coding': [
                 {
                   'system': 'http://snomed.info/sct',
-                  'code': '229819007',
-                  'display': 'Tobacco use and exposure (observable entity)'
+                  'code': '363905002',
+                  'display': 'Details of alcohol drinking behavior (observable entity)'
                 }
               ],
-              'text': 'Tobacco'
+              'text': 'Alcohol'
             },
             'subject': {
-              'reference': 'Patient/3998008'
+              'reference': 'Patient/12724066'
             },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'valueCodeableConcept': {
-              'coding': [
-                {
-                  'system': 'http://snomed.info/sct',
-                  'code': '25594002',
-                  'display': 'Moderate risk of (contextual qualifier) (qualifier value)'
-                }
-              ],
-              'text': 'Medium Risk'
-            },
+            'issued': '2020-06-11T04:05:33.000Z',
             'hasMember': [
               {
-                'reference': 'Observation/SH-5525867-q6930400'
+                'reference': 'Observation/SH-73080191-q4625817'
               },
               {
-                'reference': 'Observation/SH-5525867-q6930404'
-              },
-              {
-                'reference': 'Observation/SH-5525867-q6930316'
-              },
-              {
-                'reference': 'Observation/SH-5525867-q6930360'
-              },
-              {
-                'reference': 'Observation/SH-5525867-q6930372'
-              },
-              {
-                'reference': 'Observation/SH-5525867-q6930368'
-              },
-              {
-                'reference': 'Observation/SH-5525867-q6930376'
+                'reference': 'Observation/SH-73080191-q4625813'
               }
             ]
           }
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930400',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-73080191-q4625817',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930400',
+            'id': 'SH-73080191-q4625817',
             'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
+              'versionId': '73080191',
+              'lastUpdated': '2020-06-11T04:05:33.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-                     'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories'\
-                     '&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco use&lt;/p>&lt;p>&lt;b>'\
-                     'Response&lt;/b>: Current some day smoker&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, 2016  '\
-                     '9:58 P.M. UTC&lt;/p>&lt;/div>'
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+                     '<p><b>Categories</b>: Social History</p><p><b>Question</b>: SHX Alcohol use</p>'\
+                     '<p><b>Response</b>: Past</p><p><b>Issued Date</b>: Jun 11, 2020  4:05 A.M. UTC</p></div>'
             },
             'status': 'final',
             'category': [
@@ -127,45 +99,45 @@ module Cerner
             'code': {
               'coding': [
                 {
-                  'system': 'http://loinc.org',
-                  'code': '72166-2'
+                  'system': 'http://snomed.info/sct',
+                  'code': '363905002',
+                  'display': 'Details of alcohol drinking behavior (observable entity)'
                 }
               ],
-              'text': 'SHX Tobacco use'
+              'text': 'SHX Alcohol use'
             },
             'subject': {
-              'reference': 'Patient/3998008'
+              'reference': 'Patient/12724066'
             },
-            'issued': '2016-01-26T21:58:41.000Z',
+            'issued': '2020-06-11T04:05:33.000Z',
             'valueCodeableConcept': {
               'coding': [
                 {
                   'system': 'http://snomed.info/sct',
-                  'code': '428041000124106',
-                  'display': 'Occasional tobacco smoker (finding)'
+                  'code': '410513005',
+                  'display': 'In the past (qualifier value)'
                 }
               ],
-              'text': 'Current some day smoker'
+              'text': 'Past'
             }
           }
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930404',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/'\
+                     'SH-73080191-q4625813',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930404',
+            'id': 'SH-73080191-q4625813',
             'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
+              'versionId': '73080191',
+              'lastUpdated': '2020-06-11T04:05:33.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-                     'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories'\
-                     '&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco type&lt;/p>&lt;p>&lt;b>'\
-                     'Response&lt;/b>: Cigarettes, Chewing tobacco&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, '\
-                     '2016  9:58 P.M. UTC&lt;/p>&lt;/div>'
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+                     '<p><b>Categories</b>: Social History</p><p><b>Question</b>: SHX Alcohol type</p>'\
+                     '<p><b>Response</b>: Liquor</p><p><b>Issued Date</b>: Jun 11, 2020  4:05 A.M. UTC</p></div>'
             },
             'status': 'final',
             'category': [
@@ -181,296 +153,51 @@ module Cerner
               }
             ],
             'code': {
-              'text': 'SHX Tobacco type'
-            },
-            'subject': {
-              'reference': 'Patient/3998008'
-            },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'component': [
-              {
-                'code': {
-                  'text': 'SHX Tobacco type'
-                },
-                'valueCodeableConcept': {
-                  'text': 'Cigarettes'
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '363905002',
+                  'display': 'Details of alcohol drinking behavior (observable entity)'
                 }
-              },
-              {
-                'code': {
-                  'text': 'SHX Tobacco type'
-                },
-                'valueCodeableConcept': {
-                  'coding': [
-                    {
-                      'system': 'http://snomed.info/sct',
-                      'code': '81911001',
-                      'display': 'Chewing tobacco (substance)'
-                    }
-                  ],
-                  'text': 'Chewing tobacco'
-                }
-              }
-            ]
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930316',
-          'resource': {
-            'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930316',
-            'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>'\
-                     '&lt;b>Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>'\
-                     'Categories&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco number of '\
-                     'years&lt;/p>&lt;p>&lt;b>Response&lt;/b>: 10&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, '\
-                     '2016  9:58 P.M. UTC&lt;/p>&lt;/div>'
-            },
-            'status': 'final',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code': 'social-history',
-                    'display': 'Social History'
-                  }
-                ],
-                'text': 'Social History'
-              }
-            ],
-            'code': {
-              'text': 'SHX Tobacco number of years'
+              ],
+              'text': 'SHX Alcohol type'
             },
             'subject': {
-              'reference': 'Patient/3998008'
+              'reference': 'Patient/12724066'
             },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'valueString': '10'
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930360',
-          'resource': {
-            'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930360',
-            'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-                     'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories'\
-                     '&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco started at age&lt;/p>'\
-                     '&lt;p>&lt;b>Response&lt;/b>: 22 Years&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, 2016  '\
-                     '9:58 P.M. UTC&lt;/p>&lt;/div>'
-            },
-            'status': 'final',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code': 'social-history',
-                    'display': 'Social History'
-                  }
-                ],
-                'text': 'Social History'
-              }
-            ],
-            'code': {
-              'text': 'SHX Tobacco started at age'
-            },
-            'subject': {
-              'reference': 'Patient/3998008'
-            },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'valueString': '22 Years'
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930372',
-          'resource': {
-            'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930372',
-            'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>'\
-                     '&lt;b>Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>'\
-                     'Categories&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco readiness '\
-                     'to change&lt;/p>&lt;p>&lt;b>Response&lt;/b>: No&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, '\
-                     '2016  9:58 P.M. UTC&lt;/p>&lt;/div>'
-            },
-            'status': 'final',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code': 'social-history',
-                    'display': 'Social History'
-                  }
-                ],
-                'text': 'Social History'
-              }
-            ],
-            'code': {
-              'text': 'SHX Tobacco readiness to change'
-            },
-            'subject': {
-              'reference': 'Patient/3998008'
-            },
-            'issued': '2016-01-26T21:58:41.000Z',
+            'issued': '2020-06-11T04:05:33.000Z',
             'valueCodeableConcept': {
               'coding': [
                 {
                   'system': 'http://snomed.info/sct',
-                  'code': '373067005',
-                  'display': 'No (qualifier value)'
+                  'code': '6524003',
+                  'display': 'Distilled spirits (substance)'
                 }
               ],
-              'text': 'No'
+              'text': 'Liquor'
             }
           }
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-'\
-                     'q6930368',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292892',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930368',
-            'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;'\
-                     'b>Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>'\
-                     'Categories&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco previous '\
-                     'treatment&lt;/p>&lt;p>&lt;b>Response&lt;/b>: None&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: '\
-                     'Jan 26, 2016  9:58 P.M. UTC&lt;/p>&lt;/div>'
-            },
-            'status': 'final',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code': 'social-history',
-                    'display': 'Social History'
-                  }
-                ],
-                'text': 'Social History'
-              }
-            ],
-            'code': {
-              'text': 'SHX Tobacco previous treatment'
-            },
-            'subject': {
-              'reference': 'Patient/3998008'
-            },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'valueCodeableConcept': {
-              'coding': [
-                {
-                  'system': 'http://snomed.info/sct',
-                  'code': '260413007',
-                  'display': 'None (qualifier value)'
-                }
-              ],
-              'text': 'None'
-            }
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-5525867-q6930376',
-          'resource': {
-            'resourceType': 'Observation',
-            'id': 'SH-5525867-q6930376',
-            'meta': {
-              'versionId': '1252402',
-              'lastUpdated': '2016-01-26T21:58:41.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-                     'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories'\
-                     '&lt;/b>: Social History&lt;/p>&lt;p>&lt;b>Question&lt;/b>: SHX Tobacco household concerns&lt;'\
-                     '/p>&lt;p>&lt;b>Response&lt;/b>: Yes&lt;/p>&lt;p>&lt;b>Issued Date&lt;/b>: Jan 26, 2016  9:58 '\
-                     'P.M. UTC&lt;/p>&lt;/div>'
-            },
-            'status': 'final',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    'code': 'social-history',
-                    'display': 'Social History'
-                  }
-                ],
-                'text': 'Social History'
-              }
-            ],
-            'code': {
-              'text': 'SHX Tobacco household concerns'
-            },
-            'subject': {
-              'reference': 'Patient/3998008'
-            },
-            'issued': '2016-01-26T21:58:41.000Z',
-            'valueCodeableConcept': {
-              'coding': [
-                {
-                  'system': 'http://snomed.info/sct',
-                  'code': '373066001',
-                  'display': 'Yes (qualifier value)'
-                }
-              ],
-              'text': 'Yes'
-            }
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327',
-          'resource': {
-            'resourceType': 'Observation',
-            'id': 'M-7167327',
+            'id': 'M-197292892',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2017-09-12T17:01:08.000Z'
+              'lastUpdated': '2020-07-07T20:38:08.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-              'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories&lt;'\
-              '/b>: Vital Signs&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Temperature Oral&lt;/p>&lt;p>&lt;b>Result&lt;/b>: '\
-              '37 DegC&lt;/p>&lt;p>&lt;b>Interpretation&lt;/b>: Normal&lt;/p>&lt;p>&lt;b>Effective Date&lt;/b>: '\
-              'Sep 12, 2017  5:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Reference Range&lt;/b>: 34.00-37.40 DegC&lt;/p>&lt;/div>'
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+                     '<p><b>Categories</b>: Vital Signs</p><p><b>Code</b>: Height/Length Measured</p>'\
+                     '<p><b>Result</b>: 162 cm</p><p><b>Effective Date</b>: Jul  7, 2020  8:37 P.M. UTC</p></div>'
             },
             'identifier': [
               {
                 'system': 'https://fhir.cerner.com/ceuuid',
-                'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-17003791-2020030912450100'
-              }
-            ],
-            'basedOn': [
-              {
-                'reference': 'ServiceRequest/8213648'
+                'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-197292892-2020070720380800'
               }
             ],
             'status': 'final',
@@ -490,35 +217,33 @@ module Cerner
               'coding': [
                 {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '703558',
-                  'display': 'Temperature Oral',
+                  'code': '4154126',
+                  'display': 'Height/Length Measured',
                   'userSelected': true
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '8331-1'
+                  'code': '3137-7'
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '8331-1'
+                  'code': '8302-2'
                 }
               ],
-              'text': 'Temperature Oral'
+              'text': 'Height/Length Measured'
             },
             'subject': {
-              'reference': 'Patient/3998008'
+              'reference': 'Patient/12724066'
             },
             'encounter': {
-              'reference': 'Encounter/3651924'
+              'reference': 'Encounter/97954096'
             },
-            'effectiveDateTime': '2017-09-12T17:00:00.000Z',
-            'issued': '2017-09-12T17:00:48.000Z',
+            'effectiveDateTime': '2020-07-07T20:37:00.000Z',
+            'issued': '2020-07-07T20:37:59.000Z',
             'performer': [
               {
-                'reference': 'Practitioner/1994021',
                 'extension': [
                   {
-                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction',
                     'valueCodeableConcept': {
                       'coding': [
                         {
@@ -528,59 +253,19 @@ module Cerner
                         }
                       ],
                       'text': 'legal authenticator'
-                    }
+                    },
+                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
                   }
-                ]
+                ],
+                'reference': 'Practitioner/12724064'
               }
             ],
             'valueQuantity': {
-              'value': 37,
-              'unit': 'DegC',
+              'value': 162,
+              'unit': 'cm',
               'system': 'http://unitsofmeasure.org',
-              'code': 'Cel'
-            },
-            'interpretation': [
-              {
-                'coding': [
-                  {
-                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
-                    'code': '214',
-                    'userSelected': true
-                  },
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
-                    'code': 'N',
-                    'display': 'Normal'
-                  }
-                ]
-              }
-            ],
-            'referenceRange': [
-              {
-                'low': {
-                  'value': 34.00,
-                  'unit': 'DegC',
-                  'system': 'http://unitsofmeasure.org',
-                  'code': 'Cel'
-                },
-                'high': {
-                  'value': 37.40,
-                  'unit': 'DegC',
-                  'system': 'http://unitsofmeasure.org',
-                  'code': 'Cel'
-                },
-                'type': {
-                  'coding': [
-                    {
-                      'system': 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
-                      'code': 'normal',
-                      'display': 'Normal Range'
-                    }
-                  ],
-                  'text': 'Normal Range'
-                }
-              }
-            ]
+              'code': 'cm'
+            }
           }
         }
       ]

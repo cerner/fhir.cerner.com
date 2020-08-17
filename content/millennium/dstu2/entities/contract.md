@@ -107,7 +107,7 @@ List an individual Contract by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490059635
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490068369
 
 #### Response
 
