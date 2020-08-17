@@ -101,7 +101,7 @@ Request a system account by following these steps:
   - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that
   can be used instead. For example: https://yourcompanynamegoeshere.cernercentral.com/system-accounts
 - Fill out the fields as follows:
-  - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
+  - **Description**:  \<App Name> - SMART/FHIR application - <short description/purpose of the App>
   - **Production System**: No
   - **Cerner Client**: No, unless you are a Cerner Client developing their own application. If you are a client:
     - **Client Name**: Your organization. For example: My Health System
