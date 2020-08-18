@@ -116,9 +116,9 @@ module Cerner
 
         auth_types = []
 
-        auth_types << template % %w[user provider Provider] if provider
-        auth_types << template % %w[user patient Patient] if patient
-        auth_types << template % %w[system system System] if system
+        auth_types << format(template, 'user', 'provider', 'Provider') if provider
+        auth_types << format(template, 'user', 'patient', 'Patient') if patient
+        auth_types << format(template, 'system', 'system', 'System') if system
 
         "<div class=\"auth-types\">#{auth_types.join(' | ')}</div>"
       end
