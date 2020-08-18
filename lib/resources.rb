@@ -111,28 +111,16 @@ module Cerner
         end
       end
 
-      def authorization_types(provider: true, patient: false, system: false)
-        html = '<div class="auth-types">'
-        prev = false
+      def authorization_types(provider: false, patient: false, system: false)
+        template = '<a href="/authorization/#requesting-authorization-on-behalf-of-a-%s" class="%s">%s</a>'
 
-        if provider
-          html += '<a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">'\
-                  'Provider</a>'
-          prev = true
-        end
+        auth_types = []
 
-        if patient
-          html += ' | ' if prev
-          html += '<a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a>'
-          prev = true
-        end
+        auth_types << template % %w[user provider Provider] if provider
+        auth_types << template % %w[user patient Patient] if patient
+        auth_types << template % %w[system system System] if system
 
-        if system
-          html += ' | ' if prev
-          html += '<a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>'
-        end
-
-        "#{html}</div>"
+        "<div class=\"auth-types\">#{auth_types.join(' | ')}</div>"
       end
 
       def data_currency
