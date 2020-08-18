@@ -119,6 +119,37 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Retrieve by id
+
+List an individual Observation by its id:
+
+    GET /Observation/M-id
+
+### Authorization Types
+
+<%= authorization_types(practitioner: true, patient: false, system: true) %>
+
+_Implementation Notes_
+
+* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_OBSERVATION_ENTRY) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`date`]: https://hl7.org/fhir/r4/search.html#date
