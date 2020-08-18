@@ -2,7 +2,6 @@
 
 module Cerner
   module Resources
-    # TODO: All; Missing mappings
     R4_OBSERVATION_ENTRY ||= {
       'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327',
       'resource': {
