@@ -127,7 +127,7 @@ List an individual Observation by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 _Implementation Notes_
 
