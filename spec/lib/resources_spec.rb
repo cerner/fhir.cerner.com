@@ -483,9 +483,9 @@ describe Cerner::Resources::Helpers do
     context 'when the provider, patient, and system parameters are not provided' do
       subject(:authorization_types) { Cerner::Resources::Helpers.authorization_types }
 
-      let(:returned_links) { provider_link }
+      let(:returned_links) { '' }
 
-      it 'returns the "Provider" authorization link' do
+      it 'returns an empty div' do
         expect(authorization_types).to eq(expected_div)
       end
     end
