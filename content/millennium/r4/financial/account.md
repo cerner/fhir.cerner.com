@@ -69,16 +69,16 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource. Example: `F703726`
- `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|500000078`
+ `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|500000078`
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
- `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/1316024`
+ `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/12345`
  `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `6330015-6330017`
  `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
 
@@ -86,8 +86,9 @@ Notes:
 
 * You may search via:
   * `_id` alone
-  * `patient`, `identifier`, and `type` set to 'statement'.
-  * `-guarantor` and `type` set to 'financial-account'.
+  * `patient`, `identifier`, and `type` set to 'statement'
+  * `-guarantor` and `type` set to 'financial-account'
+* When searching via `identifier`, the system must be 'https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200'. You may not search via `identifier` with a system of 'https://fhir.cerner.com/accountnumber'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
 ### Headers
@@ -98,7 +99,7 @@ Notes:
 
 #### Request - `_id`
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?_id=F703726
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=F703726
 
 #### Response
 
@@ -107,7 +108,7 @@ Notes:
 
 #### Request - `patient`, `identifier`, and `type`
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?identifier=https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/28200|68002&patient=6330017&type=statement
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?identifier=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|68002&patient=6330017&type=statement
 
 #### Response
 
@@ -116,7 +117,7 @@ Notes:
 
 #### Request - `-guarantor` and `type`
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account?-guarantor=6330015-6330015&type=financial-account
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?-guarantor=6330015-6330015&type=financial-account
 
 #### Response
 
@@ -137,7 +138,7 @@ List an individual Account by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -147,7 +148,7 @@ List an individual Account by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Account/G2572738
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G2572738
 
 #### Response
 

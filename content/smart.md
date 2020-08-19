@@ -92,7 +92,7 @@ If you'd like to flex your app based on the current execution context (embedded 
 
 #### Embedded in *PowerChart*? ####
 
-If I want to flex my app based on where it's being loaded, how do I programmatically determine when my app is embedded within *PowerChart*? Good question! Check out this [method](https://github.com/cerner/fhir-client-cerner-additions/blob/master/src/js/utils.js#L14) which checks for certain conditions to exist and determine if the app is loaded within PowerChart or not.
+If I want to flex my app based on where it's being loaded, how do I programmatically determine when my app is embedded within *PowerChart*? Good question! Check out this [method](https://github.com/cerner/fhir-client-cerner-additions/blob/main/src/js/utils.js#L14) which checks for certain conditions to exist and determine if the app is loaded within PowerChart or not.
 
 ### HTML5 DOCTYPE ###
 
@@ -159,7 +159,7 @@ Your app must be reachable through an https endpoint. Also, you need a valid SSL
 
 #### Public Access ####
 
-In order for *PowerChart* to open and display your app in Cerner's Sandbox FHIRPLAY environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
+In order for *PowerChart* to open and display your app in Cerner's sandbox environment, the URL of your app needs to be publicly accessible. In other words, the URL cannot point to hosts on your internal network.
 
 If you plan to perform tests in *PowerChart* using your organization's environment, the URL of your app does not need to be publicly accessible. However, the app's URL will need to be accessible from your organization's Citrix servers. A good way to test the connectivity is by opening IE browser from Citrix servers to your app's URL.
 

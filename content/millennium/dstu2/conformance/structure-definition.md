@@ -43,13 +43,13 @@ _Implementation Notes_
 
     `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display`
 
-    `https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/StructureDefinition/patient-friendly-display`
+    `https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/StructureDefinition/patient-friendly-display`
 
 ### Authorization Types
 
 Authorization is not required.
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 

@@ -1,253 +1,158 @@
+# frozen_string_literal: true
+
 module Cerner
   module Resources
 
+    R4_PROCEDURE_ENTRY ||= {
+      'resourceType': 'Procedure',
+      'id': '2572382193',
+      'meta': {
+        'versionId': '0',
+        'lastUpdated': '2020-06-11T04:02:54Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p>'\
+               '<p><b>Procedure</b>: Appendectomy;</p><p><b>Date</b>: 2002</p><p><b>Status</b>: Completed</p>'\
+               '<p><b>Recorder</b>: Cerner Test, Physician - Women&apos;s Health Cerner</p></div>'
+      },
+      'status': 'completed',
+      'code': {
+        'coding': [
+          {
+            'system': 'http://www.ama-assn.org/go/cpt',
+            'code': '44950',
+            'display': 'Appendectomy;',
+            'userSelected': true
+          }
+        ],
+        'text': 'Appendectomy;'
+      },
+      'subject': {
+        'reference': 'Patient/12724066',
+        'display': 'SMART, NANCY'
+      },
+      'encounter': {
+        'reference': 'Encounter/97953477'
+      },
+      'performedDateTime': '2002',
+      'recorder': {
+        'reference': 'Practitioner/4122630',
+        'display': "Cerner Test, Physician - Women's Health Cerner"
+      }
+    }.freeze
+
     R4_PROCEDURE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "a5154562-0028-4464-9b60-273f81dc71d1",
-      "type": "searchset",
-      "total": 2,
-      "link": [
+      'resourceType': 'Bundle',
+      'id': '3b3b1ce0-3b6e-4a41-bbb4-9696e2f4b8ed',
+      'type': 'searchset',
+      'link': [
         {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure?patient=1316024"
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066'
         }
       ],
-      "entry": [
+      'entry': [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/21637617",
-          "resource": {
-            "resourceType": "Procedure",
-            "id": "21637617",
-            "meta": {
-              "versionId": "1",
-              "lastUpdated": "2013-04-20T13:18:49Z"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
-            },
-            "status": "completed",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "119954001",
-                  "display": "Adenoid excision (procedure)",
-                  "userSelected": true
-                }
-              ],
-              "text": "Adenoidectomy"
-            },
-            "subject": {
-              "reference": "Patient/1316024",
-              "display": "Larry, Bird"
-            },
-            "encounter": {
-              "reference": "Encounter/1545906"
-            },
-            "performedDateTime": "2011-04-08",
-            "recorder": {
-              "reference": "Practitioner/1696009",
-              "display": "Automation, Physician"
-            },
-            "performer": [
-              {
-                "function": {
-                  "coding": [
-                    {
-                      "system": "http://snomed.info/sct",
-                      "code": "223366009",
-                      "display": "Healthcare professional (occupation)",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Healthcare professional (occupation)"
-                },
-                "actor": {
-                  "reference": "Practitioner/1328007",
-                  "display": "Forrest, Smart"
-                }
-              }
-            ],
-            "location": {
-              "display": "Baseline West"
-            },
-            "note": [
-              {
-                "authorReference": {
-                  "reference": "Practitioner/1696009",
-                  "display": "Automation, Physician"
-                },
-                "time": "2013-04-09T08:53:08Z",
-                "text": "Adenoidectomy testing comment"
-              }
-            ]
-          }
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572382193',
+          'resource': R4_PROCEDURE_ENTRY
         },
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/21425447",
-          "resource": {
-            "resourceType": "Procedure",
-            "id": "21425447",
-            "meta": {
-              "versionId": "1",
-              "lastUpdated": "2013-04-09T06:59:57Z"
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572383421',
+          'resource': {
+            'resourceType': 'Procedure',
+            'id': '2572383421',
+            'meta': {
+              'versionId': '0',
+              'lastUpdated': '2020-06-16T21:09:27Z'
             },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Appendectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Jul 30, 2012&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Entered in Error&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Forrest, Fhir&lt;/p>&lt;/div>"
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY'\
+                     '</p><p><b>Procedure</b>: Coronary artery bypass, using arterial graft(s); 2 coronary arterial '\
+                     'grafts</p><p><b>Date</b>: 2018</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: Cerner '\
+                     'Test, Physician - Oncology Cerner</p></div>'
             },
-            "status": "entered-in-error",
-            "code": {
-              "coding": [
+            'status': 'completed',
+            'code': {
+              'coding': [
                 {
-                  "system": "http://snomed.info/sct",
-                  "code": "80146002",
-                  "display": "Appendectomy (procedure)",
-                  "userSelected": true
+                  'system': 'http://www.ama-assn.org/go/cpt',
+                  'code': '33534',
+                  'display': 'Coronary artery bypass, using arterial graft(s); two coronary arterial grafts',
+                  'userSelected': true
                 }
               ],
-              "text": "Appendectomy"
+              'text': 'Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts'
             },
-            "subject": {
-              "reference": "Patient/1316024",
-              "display": "Larry, Bird"
+            'subject': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCY'
             },
-            "encounter": {
-              "reference": "Encounter/1309918"
+            'encounter': {
+              'reference': 'Encounter/97953477'
             },
-            "performedDateTime": "2012-07-30",
-            "recorder": {
-              "reference": "Practitioner/1314012",
-              "display": "Forrest, Fhir"
+            'performedDateTime': '2018',
+            'recorder': {
+              'reference': 'Practitioner/763923',
+              'display': 'Cerner Test, Physician - Oncology Cerner'
             }
           }
         }
       ]
-    }
-
-    R4_PROCEDURE_ENTRY ||= {
-      "resourceType": "Procedure",
-      "id": "21637617",
-      "meta": {
-        "versionId": "1",
-        "lastUpdated": "2013-04-20T13:18:49Z"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;p>&lt;b>Procedure&lt;/b>&lt;/p>&lt;p>&lt;b>Patient&lt;/b>: Larry, Bird&lt;/p>&lt;p>&lt;b>Procedure&lt;/b>: Adenoidectomy&lt;/p>&lt;p>&lt;b>Date&lt;/b>: Apr  8, 2011&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Completed&lt;/p>&lt;p>&lt;b>Location&lt;/b>: Baseline West&lt;/p>&lt;p>&lt;b>Recorder&lt;/b>: Automation, Physician&lt;/p>&lt;p>&lt;b>Performer&lt;/b>:&lt;/p>&lt;ul>&lt;li>Naik, Girish; Healthcare professional (occupation)&lt;/li>&lt;/ul>&lt;/div>"
-      },
-      "status": "completed",
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "119954001",
-            "display": "Adenoid excision (procedure)",
-            "userSelected": true
-          }
-        ],
-        "text": "Adenoidectomy"
-      },
-      "subject": {
-        "reference": "Patient/1316024",
-        "display": "Larry, Bird"
-      },
-      "encounter": {
-        "reference": "Encounter/1545906"
-      },
-      "performedDateTime": "2011-04-08",
-      "recorder": {
-        "reference": "Practitioner/1696009",
-        "display": "Automation, Physician"
-      },
-      "performer": [
-        {
-          "function": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "223366009",
-                "display": "Healthcare professional (occupation)",
-                "userSelected": false
-              }
-            ],
-            "text": "Healthcare professional (occupation)"
-          },
-          "actor": {
-            "reference": "Practitioner/1328007",
-            "display": "Forrest, Smart"
-          }
-        }
-      ],
-      "location": {
-        "display": "Baseline West"
-      },
-      "note": [
-        {
-          "authorReference": {
-            "reference": "Practitioner/1696009",
-            "display": "Automation, Physician"
-          },
-          "time": "2013-04-09T08:53:08Z",
-          "text": "Adenoidectomy testing comment"
-        }
-      ]
-    }
+    }.freeze
 
     R4_PROCEDURE_CREATE ||= {
-      "resourceType": "Procedure",
-      "status": "completed",
-      "subject": {
-        "reference": "Patient/1316024",
-        "display": "Larry, Bird"
+      'resourceType': 'Procedure',
+      'status': 'completed',
+      'subject': {
+        'reference': 'Patient/12724066'
       },
-      "code": {
-        "coding": [
+      'code': {
+        'coding': [
           {
-            "system": "http://snomed.info/sct",
-            "code": "119954001",
-            "display": "Adenoid excision (procedure)",
-            "userSelected": true
+            'system': 'http://snomed.info/sct',
+            'code': '119954001',
+            'display': 'Adenoid excision (procedure)',
+            'userSelected': true
           }
         ],
-        "text": "Adenoid excision (text)"
+        'text': 'Adenoid excision (text)'
       },
-      "encounter": {
-        "reference": "Encounter/26070829"
+      'encounter': {
+        'reference': 'Encounter/97953477'
       },
-      "location": {
-        "display": "Baseline East"
+      'location': {
+        'display': 'Baseline East'
       },
-      "performedDateTime": "2019-04-05T20:21:46Z",
-      "performer": [
+      'performedDateTime': '2019-04-05T20:21:46Z',
+      'performer': [
         {
-          "function": {
-            "coding": [
+          'function': {
+            'coding': [
               {
-                "system": "http://snomed.info/sct",
-                "code": "223366009",
-                "display": "Healthcare professional (occupation)",
-                "userSelected": true
+                'system': 'http://snomed.info/sct',
+                'code': '223366009',
+                'display': 'Healthcare professional (occupation)',
+                'userSelected': true
               }
             ],
-            "text": "Healthcare professional (occupation)"
+            'text': 'Healthcare professional (occupation)'
           },
-          "actor": {
-            "reference": "Practitioner/7603729",
-            "display": "msmautotestuser, msmautotestuser"
+          'actor': {
+            'reference': 'Practitioner/4122630'
           }
         }
       ],
-      "note": [
+      'note': [
         {
-          "text": "Procedure comment",
-          "time": "2019-04-05T20:21:46Z",
-          "authorReference": {
-            "reference": "Practitioner/605926"
+          'text': 'Procedure comment',
+          'time': '2019-04-05T20:21:46Z',
+          'authorReference': {
+            'reference': 'Practitioner/4122630'
           }
         }
       ]
-    }
+    }.freeze
   end
 end

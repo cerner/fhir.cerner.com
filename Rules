@@ -1,11 +1,15 @@
+# frozen_string_literal: true
+
 #!/usr/bin/env ruby
 
-# The Rules file contains the processing instructions for all items in a Nanoc site. Three different kinds of rules exist:
+# The Rules file contains the processing instructions for all items in a Nanoc site.
+# Three different kinds of rules exist:
 # http://nanoc.ws/doc/rules/
 # http://nanoc.ws/doc/identifiers-and-patterns/
 #
 # compilation rules
-#      These rules describe the actions that should be executed during compilation (filtering, layouting, and snapshotting).
+#      These rules describe the actions that should be executed during compilation
+#      (filtering, layouting, and snapshotting).
 # routing rules
 #     These rules describe the path where the compiled items should be written to.
 # layouting rules
@@ -14,7 +18,8 @@
 # For every item, Nanoc finds the first matching compilation rule. Similarly, for every layout, Nanoc finds the first
 # matching layouting rule. The first matching rule that is found in the rules file is used.
 #
-# If an item or a layout is not using the correct rule, double-check to make sure that the rules are in the correct order.
+# If an item or a layout is not using the correct rule, double-check to make sure that the rules
+# are in the correct order.
 
 preprocess do
   add_version_attribute
@@ -31,23 +36,23 @@ end
 
 compile '/**/faq.*' do
   filter :erb
-  filter :kramdown, :toc_levels => [2]
+  filter :kramdown, toc_levels: [2]
   layout '/faq.*'
-  filter :relativize_paths, :type => :css
-  filter :relativize_paths, :type => :html
+  filter :relativize_paths, type: :css
+  filter :relativize_paths, type: :html
 end
 
 compile '/**/*' do
   filter :erb
-  filter :kramdown, :toc_levels => [2,3]
-  layout  item[:layout] ? "/#{item[:layout].to_s}.*" : '/api.*'
-  filter :relativize_paths, :type => :css
-  filter :relativize_paths, :type => :html
+  filter :kramdown, toc_levels: [2, 3]
+  layout item[:layout] ? "/#{item[:layout]}.*" : '/api.*'
+  filter :relativize_paths, type: :css
+  filter :relativize_paths, type: :html
 end
 
 route '/static/**/*' do
-  # /static/foo.html → /foo.html
-  item.identifier.to_s.sub(/\A\/static/, '')
+  # /static/foo.html -> /foo.html
+  item.identifier.to_s.sub(%r{\A/static}, '')
 end
 
 route '/CNAME.*' do

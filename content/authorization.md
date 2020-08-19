@@ -69,12 +69,15 @@ resources and exchange context information with client applications.
 
 ## Registration ##
 In order for your client application to utilize any protected resources,
-your client application must first register. A Cerner Care account is required to
+your client application must first be registered. A Cerner Care account is required to
 register applications. Obtaining a Cerner Care account is free and
 requires nothing but an email address.
 
 If registering an application that is using the public app profile and requires access only when the user is online,
 your client application must first register using our [code Console][CERNER-CODE-CONSOLE].
+
+If you are a Cerner client developing an application, please see this [document][CLIENT-APPS-DOC] about how to make your
+self-developed app available in your domain.
 
 If registering a confidential client application (required for offline_access and
 access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION]
@@ -92,13 +95,13 @@ maintain a secret. Currently, our implementation provides management and rotatio
 System Accounts application. In order to register one of these applications, you must first request a system account,
 and then register that as a SMART or FHIR application in our code Console.
 
-Request a system account for *non-production* by following these steps:
+Request a system account by following these steps:
 
-- Login to the Cerner Central System Accounts application for non-production: <https://sandboxcernercentral.com/system-accounts>
+- Login to the Cerner Central System Accounts application: <https://cernercentral.com/system-accounts>
   - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that
-  can be used instead. For example: https://yourcompanynamegoeshere.sandboxcernercentral.com/system-accounts
+  can be used instead. For example: https://yourcompanynamegoeshere.cernercentral.com/system-accounts
 - Fill out the fields as follows:
-  - **Description**: Representing a SMART/FHIR application used for... (name your application and company)
+  - **Description**:  \<App Name> - SMART/FHIR application - <short description/purpose of the App>
   - **Production System**: No
   - **Cerner Client**: No, unless you are a Cerner Client developing their own application. If you are a client:
     - **Client Name**: Your organization. For example: My Health System
@@ -380,16 +383,16 @@ is a fragment from a x-www-form-urlencoded grant request query string
 where the audience is provided:
 
 <pre class="terminal">
-&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F
+&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F
 </pre>
 
 #### Redirect URI ####
 
-When performing an authorization grant request the application may provide a redirect_uri. 
+When performing an authorization grant request the application may provide a redirect_uri.
 This uri should match the redirect_uri setup during the registration phase of the SMART Application.
 
 If your application has multiple redirect_uri's registered with Cerner then a redirect_uri is expected to be passed
-in during the authorization grant request. If no redirect_uri is specified the default redirect_uri 
+in during the authorization grant request. If no redirect_uri is specified the default redirect_uri
 registered for the application will be used.
 
 Details around supplying a redirect_uri are specified in the [SMART Specification](http://www.hl7.org/fhir/smart-app-launch/#step-1-app-asks-for-authorization)
@@ -426,20 +429,20 @@ The following are hypothetical examples of authorization requests:
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       patient/Observation.read patient/MedicationHistory.read launch
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
+audience:     https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 launch:       a17aba51-1395-48d3-b3a9-73f2baf784da
 
-https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=patient%2FObservation.read%20patient%2FMedicationHistory.read%20launch&launch=a17aba51-1395-48d3-b3a9-73f2baf784da&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 <pre class="terminal">
 client id:    bb318a62-fa61-49ae-b692-7d99214f0ec7
 scopes:       user/Observation.read user/MedicationHistory.read
-audience:     https://fhir-ehr.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/
+audience:     https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/
 state:        a4c16a46-2c46-482c-8d66-4cc4a2990bda
 
-https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir-ehr.sandboxcerner.com%2Fdstu2%2F0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&response_type=code&redirect_uri=&scope=user%2FObservation.read%20user%2FMedicationHistory.read%20&launch=&aud=https%3A%2F%2Ffhir-ehr-code.cerner.com%2Fdstu2%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2F&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
 </pre>
 
 ### Invoking an Appropriate User Agent ###
@@ -676,8 +679,8 @@ are example requests / responses:
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 161
@@ -698,7 +701,7 @@ Content-Length: 1462
 Date: Tue, 01 Nov 2016 19:20:25 GMT
 
 {
-  "access_token": "eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCJ9LCJhenAiOiJkZXZqcyIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb21cLyIsImV4cCI6MTQ3ODAyODYyNSwiaWF0IjoxNDc4MDI4MDI1LCJqdGkiOiI0OTNjMGNlOC03ZDg2LTQ3YjctOGI5ZS00OWFkZGI2MjlhMmQiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJ1c2VyXC9PYnNlcnZhdGlvbi5yZWFkIn19LCJjbGllbnQiOnsibmFtZSI6IkRldkpTIERlbW8gQXBwbGljYXRpb24gKGxlZ2FjeSBjbGllbnQgaWQpIiwiaWQiOiJkZXZqcyJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvd2VyY2hhcnQiLCJwZXJzb25hIjoicHJvdmlkZXIiLCJpZHNwIjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwicHJpbmNpcGFsVXJpIjoiaHR0cHM6XC9cL21pbGxlbm5pYS5zYW5kYm94Y2VybmVyLmNvbVwvaW5zdGFuY2VcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvcHJpbmNpcGFsXC8wMDAwLjAwMDAuMDAwRi4zMjVDIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2FjY291bnRzXC9kZXZlbmcubm9ydGhhbWVyaWNhLmNlcm5lci5uZXRcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvbG9naW4ifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.TE7PpJZWgW_V47mdqk8ihFek6Pf5jrk8dS3n6QIqNk0C0tzndXu5Q0OFEcf8CxzWJlIzsK_UYDj1SHPTySVDNQ",
+  "access_token": "eyJraWQiOiIyMDIwLTA3LTI4VDE3OjM2OjA5LjAwNC5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3J0YWwiLCJ1cm46Y29tOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltcyI6eyJ2ZXIiOiIxLjAiLCJ0bnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QiLCJhenMiOiJ1c2VyXC9PYnNlcnZhdGlvbi5yZWFkIn0sImF6cCI6ImZoaXItbG9jYWwiLCJpc3MiOiJodHRwczpcL1wvYXV0aG9yaXphdGlvbi5jZXJuZXIuY29tXC8iLCJleHAiOjE1OTYwNTYwNjEsImlhdCI6MTU5NjA1NTQ2MSwianRpIjoiYmMwMzIwYTMtN2E3Yi00MmVkLTgzZDAtMWMxMTVlMjBkMDQzIiwidXJuOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltczp2ZXJzaW9uOjEiOnsidmVyIjoiMS4wIiwicHJvZmlsZXMiOnsic21hcnQtdjEiOnsiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCJ9fSwiY2xpZW50Ijp7Im5hbWUiOiJGSElSIExvY2FsIFRlc3QgQ2xpZW50IiwiaWQiOiJmaGlyLWxvY2FsIn0sInVzZXIiOnsicHJpbmNpcGFsIjoicG9ydGFsIiwicGVyc29uYSI6InByb3ZpZGVyIiwiaWRzcCI6ImVjMjQ1OGYyLTFlMjQtNDFjOC1iNzFiLTBlNzAxYWY3NTgzZCIsInNlc3Npb25JZCI6IjFiYmEyOGQ0LTUwM2YtNDgyNi04OTE3LTJhOTIzMzczZjE2YyIsInByaW5jaXBhbFR5cGUiOiJ1c2VybmFtZSIsInByaW5jaXBhbFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuY2VybmVyLmNvbVwvaW5zdGFuY2VcL2VjMjQ1OGYyLTFlMjQtNDFjOC1iNzFiLTBlNzAxYWY3NTgzZFwvcHJpbmNpcGFsXC8wMDAwLjAwMDAuMDBDMi42REI1IiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuY2VybmVyLmNvbVwvYWNjb3VudHNcL2MxOTQxLmNlcm5fYWJjbi5jZXJuZXJhc3AuY29tXC9lYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2RcL2xvZ2luIn0sInRlbmFudCI6ImVjMjQ1OGYyLTFlMjQtNDFjOC1iNzFiLTBlNzAxYWY3NTgzZCJ9fQ.AruMhr4eaG3QHb794wzavhcD8NQAnao5sZWAe4cFbX4-oSd3pUwomoZ-zR8stSKhnaodS0l5bKGkd72goX0PNQ", 
   "scope": "user/Observation.read",
   "token_type": "Bearer",
   "expires_in": 570
@@ -750,7 +753,7 @@ can result in errors.  The following is an example error
 response from the grant workflow:
 
 <pre class="terminal">
-https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.sandboxcerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3D0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca
+https://example.com/callback?state=f09dcfff-95ff-4e86-a689-05c8dd9719a2&error=access_denied&error_uri=https%3A%2F%2Fauthorization.cerner.com%2Ferrors%2Furn%253Acerner%253Aerror%253Aauthorization-server%253Aoauth2%253Agrant%253Adenied-by-server%2Finstances%2F42925fc9-7a7e-4cb0-95e4-4d3f178f68b7%3Fpersona%3Dprovider%26client%3Ddevjs%26tenant%3Dec2458f2-1e24-41c8-b71b-0e701af7583d
 </pre>
 
 The following is an example error response from an access
@@ -759,7 +762,7 @@ token request:
 <pre class="terminal">
 {
   "error": "invalid_grant",
-  "error_uri": "https://authorization.sandboxcerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca"
+  "error_uri": "https://authorization.cerner.com/errors/urn%3Acerner%3Aerror%3Aauthorization-server%3Aoauth2%3Atoken%3Acode-invalid-or-expired/instances/6359728c-c966-4929-bbf6-2388d353d89e?client=devjs&tenant=ec2458f2-1e24-41c8-b71b-0e701af7583d"
 }
 </pre>
 
@@ -814,8 +817,8 @@ defined in section 6 "Refreshing an Access Token" of the
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 75
@@ -837,7 +840,7 @@ Content-Length: 1514
 Date: Tue, 01 Nov 2016 20:48:32 GMT
 
 {
-  "access_token": "eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCBvbmxpbmVfYWNjZXNzIn0sImF6cCI6ImRldmpzIiwiaXNzIjoiaHR0cHM6XC9cL2F1dGhvcml6YXRpb24uZGV2Y2VybmVyLmNvbVwvIiwiZXhwIjoxNDc4MDMzOTEyLCJpYXQiOjE0NzgwMzMzMTIsImp0aSI6Ijg3MDY4MjYzLTI1NzItNDJmOC1iMDA3LTlmYTgwMzc5OGMxYiIsInVybjpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXM6dmVyc2lvbjoxIjp7InZlciI6IjEuMCIsInByb2ZpbGVzIjp7InNtYXJ0LXYxIjp7ImF6cyI6InVzZXJcL09ic2VydmF0aW9uLnJlYWQgb25saW5lX2FjY2VzcyJ9fSwiY2xpZW50Ijp7Im5hbWUiOiJEZXZKUyBEZW1vIEFwcGxpY2F0aW9uIChsZWdhY3kgY2xpZW50IGlkKSIsImlkIjoiZGV2anMifSwidXNlciI6eyJwcmluY2lwYWwiOiJwb3dlcmNoYXJ0IiwicGVyc29uYSI6InByb3ZpZGVyIiwiaWRzcCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiIsInByaW5jaXBhbFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2luc3RhbmNlXC8yYzQwMDA1NC00MmQ4LTRlNzQtODdiNy04MGI1YmQ1ZmRlOWZcL3ByaW5jaXBhbFwvMDAwMC4wMDAwLjAwMEYuMzI1QyIsImlkc3BVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLnNhbmRib3hjZXJuZXIuY29tXC9hY2NvdW50c1wvZGV2ZW5nLm5vcnRoYW1lcmljYS5jZXJuZXIubmV0XC8yYzQwMDA1NC00MmQ4LTRlNzQtODdiNy04MGI1YmQ1ZmRlOWZcL2xvZ2luIn0sInRlbmFudCI6IjJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZiJ9fQ.q8WVBhrznHZDh0dlLkU-2ZO9FEwCAMMozlOT0No3ZPkfbTenPW58ausP31pX1vWwFDq1y6GIGQ-MqMO7nf8q7w",
+  "access_token": "eyJraWQiOiIyMDIwLTA3LTI4VDE3OjM2OjA5LjAwNC5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3J0YWwiLCJ1cm46Y29tOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltcyI6eyJ2ZXIiOiIxLjAiLCJ0bnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QiLCJhenMiOiJvbmxpbmVfYWNjZXNzIHVzZXJcL09ic2VydmF0aW9uLnJlYWQifSwiYXpwIjoiZmhpci1sb2NhbCIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmNlcm5lci5jb21cLyIsImV4cCI6MTU5NjA1NjIyOCwiaWF0IjoxNTk2MDU1NjI4LCJqdGkiOiI4YzdjNDBlMy00NDA0LTQ4MmMtYjY2MC0xOTFhNWQ1M2ViNjAiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJvbmxpbmVfYWNjZXNzIHVzZXJcL09ic2VydmF0aW9uLnJlYWQifX0sImNsaWVudCI6eyJuYW1lIjoiRkhJUiBMb2NhbCBUZXN0IENsaWVudCIsImlkIjoiZmhpci1sb2NhbCJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvcnRhbCIsInBlcnNvbmEiOiJwcm92aWRlciIsImlkc3AiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QiLCJzZXNzaW9uSWQiOiIxYmJhMjhkNC01MDNmLTQ4MjYtODkxNy0yYTkyMzM3M2YxNmMiLCJwcmluY2lwYWxUeXBlIjoidXNlcm5hbWUiLCJwcmluY2lwYWxVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLmNlcm5lci5jb21cL2luc3RhbmNlXC9lYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2RcL3ByaW5jaXBhbFwvMDAwMC4wMDAwLjAwQzIuNkRCNSIsImlkc3BVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLmNlcm5lci5jb21cL2FjY291bnRzXC9jMTk0MS5jZXJuX2FiY24uY2VybmVyYXNwLmNvbVwvZWMyNDU4ZjItMWUyNC00MWM4LWI3MWItMGU3MDFhZjc1ODNkXC9sb2dpbiJ9LCJ0ZW5hbnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QifX0.e0fhw5QGS_Nf2GQw5zdPOr79j-NQkk5pWQKuvXgo_jMW3Nwqi47KKrMF2eUkAtf9-_hyHEU_R6Ri8Je5FRfjoA",
   "scope": "user/Observation.read online_access",
   "token_type": "Bearer",
   "expires_in": 570
@@ -926,7 +929,7 @@ access token, include a "bearer" authorization header
 in your HTTP request per [RFC 6750][RFC6750] as follows:
 
 <pre class="terminal">
-Authorization: Bearer eyJraWQiOiIyMDE2LTExLTAxVDE1OjExOjQ4LjY1NS5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3dlcmNoYXJ0IiwidXJuOmNvbTpjZXJuZXI6YXV0aG9yaXphdGlvbjpjbGFpbXMiOnsidmVyIjoiMS4wIiwidG50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwiYXpzIjoidXNlclwvT2JzZXJ2YXRpb24ucmVhZCJ9LCJhenAiOiJkZXZqcyIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmRldmNlcm5lci5jb21cLyIsImV4cCI6MTQ3ODAyODYyNSwiaWF0IjoxNDc4MDI4MDI1LCJqdGkiOiI0OTNjMGNlOC03ZDg2LTQ3YjctOGI5ZS00OWFkZGI2MjlhMmQiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJ1c2VyXC9PYnNlcnZhdGlvbi5yZWFkIn19LCJjbGllbnQiOnsibmFtZSI6IkRldkpTIERlbW8gQXBwbGljYXRpb24gKGxlZ2FjeSBjbGllbnQgaWQpIiwiaWQiOiJkZXZqcyJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvd2VyY2hhcnQiLCJwZXJzb25hIjoicHJvdmlkZXIiLCJpZHNwIjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIiwicHJpbmNpcGFsVXJpIjoiaHR0cHM6XC9cL21pbGxlbm5pYS5zYW5kYm94Y2VybmVyLmNvbVwvaW5zdGFuY2VcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvcHJpbmNpcGFsXC8wMDAwLjAwMDAuMDAwRi4zMjVDIiwiaWRzcFVyaSI6Imh0dHBzOlwvXC9taWxsZW5uaWEuc2FuZGJveGNlcm5lci5jb21cL2FjY291bnRzXC9kZXZlbmcubm9ydGhhbWVyaWNhLmNlcm5lci5uZXRcLzJjNDAwMDU0LTQyZDgtNGU3NC04N2I3LTgwYjViZDVmZGU5ZlwvbG9naW4ifSwidGVuYW50IjoiMmM0MDAwNTQtNDJkOC00ZTc0LTg3YjctODBiNWJkNWZkZTlmIn19.TE7PpJZWgW_V47mdqk8ihFek6Pf5jrk8dS3n6QIqNk0C0tzndXu5Q0OFEcf8CxzWJlIzsK_UYDj1SHPTySVDNQ
+Authorization: Bearer eyJraWQiOiIyMDIwLTA3LTI4VDE3OjM2OjA5LjAwNC5lYyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2In0.eyJzdWIiOiJwb3J0YWwiLCJ1cm46Y29tOmNlcm5lcjphdXRob3JpemF0aW9uOmNsYWltcyI6eyJ2ZXIiOiIxLjAiLCJ0bnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QiLCJhenMiOiJvbmxpbmVfYWNjZXNzIHVzZXJcL09ic2VydmF0aW9uLnJlYWQifSwiYXpwIjoiZmhpci1sb2NhbCIsImlzcyI6Imh0dHBzOlwvXC9hdXRob3JpemF0aW9uLmNlcm5lci5jb21cLyIsImV4cCI6MTU5NjA1NjIyOCwiaWF0IjoxNTk2MDU1NjI4LCJqdGkiOiI4YzdjNDBlMy00NDA0LTQ4MmMtYjY2MC0xOTFhNWQ1M2ViNjAiLCJ1cm46Y2VybmVyOmF1dGhvcml6YXRpb246Y2xhaW1zOnZlcnNpb246MSI6eyJ2ZXIiOiIxLjAiLCJwcm9maWxlcyI6eyJzbWFydC12MSI6eyJhenMiOiJvbmxpbmVfYWNjZXNzIHVzZXJcL09ic2VydmF0aW9uLnJlYWQifX0sImNsaWVudCI6eyJuYW1lIjoiRkhJUiBMb2NhbCBUZXN0IENsaWVudCIsImlkIjoiZmhpci1sb2NhbCJ9LCJ1c2VyIjp7InByaW5jaXBhbCI6InBvcnRhbCIsInBlcnNvbmEiOiJwcm92aWRlciIsImlkc3AiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QiLCJzZXNzaW9uSWQiOiIxYmJhMjhkNC01MDNmLTQ4MjYtODkxNy0yYTkyMzM3M2YxNmMiLCJwcmluY2lwYWxUeXBlIjoidXNlcm5hbWUiLCJwcmluY2lwYWxVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLmNlcm5lci5jb21cL2luc3RhbmNlXC9lYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2RcL3ByaW5jaXBhbFwvMDAwMC4wMDAwLjAwQzIuNkRCNSIsImlkc3BVcmkiOiJodHRwczpcL1wvbWlsbGVubmlhLmNlcm5lci5jb21cL2FjY291bnRzXC9jMTk0MS5jZXJuX2FiY24uY2VybmVyYXNwLmNvbVwvZWMyNDU4ZjItMWUyNC00MWM4LWI3MWItMGU3MDFhZjc1ODNkXC9sb2dpbiJ9LCJ0ZW5hbnQiOiJlYzI0NThmMi0xZTI0LTQxYzgtYjcxYi0wZTcwMWFmNzU4M2QifX0.e0fhw5QGS_Nf2GQw5zdPOr79j-NQkk5pWQKuvXgo_jMW3Nwqi47KKrMF2eUkAtf9-_hyHEU_R6Ri8Je5FRfjoA
 </pre>
 
 If the access token is invalid, the FHIR<sup>®</sup> resource will
@@ -989,8 +992,8 @@ example of such a request:
 
 Request:
 <pre class="terminal">
-POST /tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
-Host: authorization.sandboxcerner.com
+POST /tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token HTTP/1.1
+Host: authorization.cerner.com
 Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
@@ -1001,7 +1004,7 @@ grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient
 
 As an example, here is how the token may be requested via cURL:
 <pre class="terminal">
-curl -X POST 'https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token' \
+curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token' \
   -H 'Accept: application/json' \
   -H "Authorization: Basic $(echo -n $SYSTEM_ACCOUNT_CLIENT_ID:$SYSTEM_ACCOUNT_CLIENT_SECRET | base64)" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -1179,3 +1182,4 @@ preceding documentation.
 [CERNER-CODE-CONSOLE]: https://code.cerner.com/developer/smart-on-fhir/ "Cerner Code Console"
 [AUTHZ-SPEC]: ../authorization/authorization-specification "Cerner FHIR<sup>®</sup> Service Authorization Specification"
 [CERNER-CENTRAL-MYDOMAIN]: https://wiki.cerner.com/display/CernerCentral/Accessing+Cerner+Central#AccessingCernerCentral-my_domainMyDomain "My Domain"
+[CLIENT-APPS-DOC]: https://connect.cerner.com/docs/DOC-682161 "Maing Self-Developed SMART Apps Available in Your Domain"

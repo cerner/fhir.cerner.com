@@ -56,7 +56,7 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 _Implementation Notes_
 
@@ -71,8 +71,8 @@ _Implementation Notes_
 
  Name             | Required?         | Type          | Description
 ------------------|-------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------
- `patient`        | This or `subject` | [`reference`] | The subject (Patient) that the observation is about. Example: `patient=1316024`
- `subject`        | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/1316024` or `subject:Patient=1316024`
+ `patient`        | This or `subject` | [`reference`] | The subject (Patient) that the observation is about. Example: `patient=12345`
+ `subject`        | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `code`           | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`
  `date`           | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`
  `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
@@ -106,12 +106,43 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation?patient=3998008
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12724066
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_OBSERVATION_BUNDLE) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual Observation by its id:
+
+    GET /Observation/M-id
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+_Implementation Notes_
+
+* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_OBSERVATION_ENTRY) %>
 
 <%= disclaimer %>
 

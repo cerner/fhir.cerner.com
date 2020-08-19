@@ -45,7 +45,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -54,35 +54,21 @@ _Implementation Notes_
  `_id`     | This or `patient` | [`token`]     | The logical resource id associated with the Device. Example: `7891`
  `patient` | This or `_id`     | [`reference`] | The patient on whom the device is affixed. Example: `12345`
 
-### Headers
-
-<%= headers %>
-
 ### Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?patient=4478007
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device?patient=12724066', 200, :dstu2_device_bundle) %>
 
 ### Example Read by Ids
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device?_id=15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?_id=31539245"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device_bundle_by_id) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device?_id=31539245', 200, :dstu2_device_bundle_by_id) %>
 
 ### Errors
 
@@ -100,24 +86,15 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
-
-### Headers
-
-<%= headers %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Example
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Device/15575768
+    curl -i -H "Accept: application/json+fhir" "https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245"
 
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:dstu2_device) %>
-
-<%= disclaimer %>
+<%= RequestButton.get('open', :dstu2, 'Device/31539245', 200, :dstu2_device) %>
 
 ### Errors
 
