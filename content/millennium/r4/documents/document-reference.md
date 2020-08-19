@@ -142,7 +142,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference
+    POST https://fhir-ehr.sandboxcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference
 
 ### Body
 

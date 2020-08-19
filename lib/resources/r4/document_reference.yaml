@@ -56,7 +56,7 @@ fields:
   example: |
     {
       "subject": {
-        "reference": "Patient/1234546"
+        "reference": "Patient/1415936"
       }
     }
 
@@ -139,10 +139,10 @@ fields:
       "content": [
         {
           "attachment": {
-            "contentType": "application/xml;charset=utf-8",
-            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "contentType": "text/xml",
+            "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
             "title": "title",
-            "creation": "2020-01-15T14:35:29.000Z"
+            "creation": "2020-07-29T21:02:04.000Z"
           }
         }
       ]
@@ -206,7 +206,7 @@ fields:
   type: code
   action:
   - create
-  description: final | amended
+  description: final | amended | entered-in-error
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
@@ -236,7 +236,6 @@ fields:
   required: 'No'
   type: CodeableConcept
   action:
-  - create
   - update
   description: Precise type of clinical document
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
@@ -263,22 +262,40 @@ fields:
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
 
-- name: identifier
+- name: type
   required: 'No'
-  type: Identifier
+  type: CodeableConcept
   action:
   - create
-  description: Other identifiers for the document
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.identifier
+  description: Physician Admission Note
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
-      "identifier": [
-        {
-          "system": "https://fhir.cerner.com/location/source/0/0/1",
-          "value": "identifer 1"
-        }
-      ]
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
+            "code": "2820507",
+            "display": "Admission Note-Physician",
+            "userSelected": true
+          },
+          {
+            "system": "http://loinc.org",
+            "code": "83805-2",
+            "userSelected": false
+          }
+        ],
+      }
     }
+  binding:
+    description: Physician Admission Note
+    terminology:
+    - display: US Core DocumentReference Type
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+    - display: Millennium Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
 
 - name: category
   required: 'No'

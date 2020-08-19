@@ -342,38 +342,36 @@ module Cerner
       "type": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/72",
+            "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
             "code": "2820507",
             "display": "Admission Note-Physician",
             "userSelected": true
+          },
+          {
+            "system": "http://loinc.org",
+            "code": "83805-2",
+            "userSelected": false
           }
-        ]
+        ],
       },
       "subject": {
-        "reference": "Patient/123456",
-        "display": "PETERS, TIMOTHY CCCC"
+        "reference": "Patient/1415936"
       },
       "author": [
         {
-          "reference": "Practitioner/123456"
+          "reference": "Practitioner/123456",
         }
       ],
       "authenticator": {
         "reference": "Practitioner/123456"
       },
-      "identifier": [
-        {
-          "system": "https://fhir.cerner.com/location/source/0/0/1",
-          "value": "new identifier"
-        }
-      ],
-      "content":  [
+      "content": [
         {
           "attachment": {
-            "contentType": "application/xml;charset=utf-8",
-            "data": "PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "contentType": "text/xml",
+            "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
             "title": "title",
-            "creation": "2020-01-15T14:35:29.000Z"
+            "creation": "2020-07-29T21:02:04.000Z"
           }
         }
       ],
