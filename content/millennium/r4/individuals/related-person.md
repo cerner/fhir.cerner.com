@@ -39,7 +39,7 @@ Search for RelatedPersons that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -80,7 +80,7 @@ List an individual RelatedPerson by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 

@@ -32,7 +32,7 @@ Search for Organizations that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -70,7 +70,7 @@ List an individual Organization by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -105,7 +105,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 

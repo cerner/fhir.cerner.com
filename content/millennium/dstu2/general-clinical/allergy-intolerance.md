@@ -47,7 +47,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -109,7 +109,7 @@ List an individual AllergyIntolerance by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -139,7 +139,7 @@ Create new allergies.
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 
@@ -202,7 +202,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 

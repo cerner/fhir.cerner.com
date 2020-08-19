@@ -34,7 +34,7 @@ Search for Persons that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Parameters
 
@@ -76,7 +76,7 @@ List an individual Person by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 

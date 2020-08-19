@@ -50,7 +50,7 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -93,7 +93,7 @@ List an individual Immunization by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -122,7 +122,7 @@ Create a new Immunization.
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true, patient: false) %>
+<%= authorization_types(provider: true, system: true, patient: false) %>
 
 ### Headers
 
@@ -174,7 +174,7 @@ Update an Immunization.
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true, patient: false) %>
+<%= authorization_types(provider: true, system: true, patient: false) %>
 
 ### Headers
 

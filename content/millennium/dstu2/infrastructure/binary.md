@@ -40,7 +40,7 @@ _Implementation Notes_
 
 The necessary OAuth scopes can be determined by checking the attachment.contentType in the referring resource. For attachments with the `application/pdf` contentType, the Binary.read and DocumentReference.read scopes are required. For attachments with the `text/html` contentType, the Binary.read and DiagnosticReport.read scopes are required.
 
-<%= authorization_types(practitioner: true,  patient: true, system: true) %>
+<%= authorization_types(provider: true,  patient: true, system: true) %>
 
 ### Headers
 
@@ -98,7 +98,7 @@ _Implementation Notes_
 
 Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 

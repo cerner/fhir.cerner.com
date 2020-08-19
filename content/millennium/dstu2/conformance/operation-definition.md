@@ -54,7 +54,7 @@ _Implementation Notes_
 
 Authorization is not required.
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
