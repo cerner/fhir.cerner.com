@@ -157,7 +157,7 @@ Patch an existing Appointment.
 
 _Implementation Notes_
 
-* Requires both read and write scopes.
+* For Video Visit link patch operations, both read and write scopes are required.
 * This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * For Video Visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
