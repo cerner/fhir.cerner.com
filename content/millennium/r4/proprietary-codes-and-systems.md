@@ -763,7 +763,7 @@ This system is the category and is only for a pharmacy charge-only order. The co
 
 ##### Medication Request Synonym
 
-This system is the synonym id for a order and the ingredients.
+This system is the synonym id for an order and the ingredients.
 
     {
       "system": "https://fhir.cerner.com/<Ehr source id>/synonym",
