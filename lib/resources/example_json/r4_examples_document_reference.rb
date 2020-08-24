@@ -333,7 +333,7 @@ module Cerner
               }
           }
       ]
-    }
+    }.freeze
 
     R4_DOCUMENT_REFERENCE_POST ||= {
       "resourceType": "DocumentReference",
@@ -386,7 +386,7 @@ module Cerner
           "end": "2020-01-01T01:00:00.000Z"
         }
       }
-    }
+    }.freeze
 
     R4_DOCUMENT_REFERENCE_UPDATE ||= {
       "resourceType": "DocumentReference",
