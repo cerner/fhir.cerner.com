@@ -14,24 +14,24 @@ The ServiceRequest resource returns the requests or orders for procedures, diagn
 The following fields are returned if valued:
 
 * [ServiceRequest id]( https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.status){:target="_blank"}
-* [Intent](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.intent){:target="_blank"}
-* [Category](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.category){:target="_blank"}
-* [Priority](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.priority){:target="_blank"}
-* [Code](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.code){:target="_blank"}
-* [Order Detail](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.orderDetail){:target="_blank"}
-* [Quantity](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.quantity_x_){:target="_blank"}
-* [Patient](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.subject){:target="_blank"}
-* [Encounter](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.encounter){:target="_blank"}
-* [Occurrence](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.occurrence_x_){:target="_blank"}
-* [As needed](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.asNeeded_x_){:target="_blank"}
-* [Authored on Date](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.authoredOn){:target="_blank"}
-* [Requester](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.requester){:target="_blank"}
-* [Performer](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.performer){:target="_blank"}
-* [Location Reference](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.locationReference){:target="_blank"}
-* [Reason Code](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.reasonCode){:target="_blank"}
-* [Body site](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.bodySite){:target="_blank"}
-* [Note](https://www.hl7.org/fhir/servicerequest-definitions.html#ServiceRequest.note){:target="_blank"}
+* [Status](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.status){:target="_blank"}
+* [Intent](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.intent){:target="_blank"}
+* [Category](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.category){:target="_blank"}
+* [Priority](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.priority){:target="_blank"}
+* [Code](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.code){:target="_blank"}
+* [Order Detail](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.orderDetail){:target="_blank"}
+* [Quantity](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.quantity_x_){:target="_blank"}
+* [Patient](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.subject){:target="_blank"}
+* [Encounter](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.encounter){:target="_blank"}
+* [Occurrence](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.occurrence_x_){:target="_blank"}
+* [As needed](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.asNeeded_x_){:target="_blank"}
+* [Authored on Date](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.authoredOn){:target="_blank"}
+* [Requester](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.requester){:target="_blank"}
+* [Performer](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.performer){:target="_blank"}
+* [Location Reference](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.locationReference){:target="_blank"}
+* [Reason Code](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.reasonCode){:target="_blank"}
+* [Body site](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.bodySite){:target="_blank"}
+* [Note](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.note){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -45,7 +45,7 @@ Search for ServiceRequests that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Parameters
 
@@ -53,13 +53,15 @@ Search for ServiceRequests that meet supplied query parameters:
 --------------------------|---------------------------------|---------------|-----------------------------------------------------------------------------------------------------
  `_id`                    | This, or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id` or `subject`     | [`reference`] | The specific patient to return ServiceRequests for. Example: `12345`
- `subject`                | This, or `_id` or `patient`     | [`reference`] | The subject associated with the ServiceRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
+ `subject`                | This, or `_id` or `patient`     | [`reference`] | The subject associated with the ServiceRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
+  `code`                  | N                               | [`token`]      | What is being requested/ordered. Example: `code=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/200|22337316`
  `_lastUpdated`           | N                               | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the service request. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  [`_count`]               | N                               | [`number`]    | The maximum number of ServiceRequests to retrieve in a page. Example: `50`
 
-### Note
+Notes:
 
   * If `_id` is provided, no other parameters may be provided.
+  * When searching via code, the system must be ‘https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/200’ and should always be provided.
   * The `_lastUpdated` parameter may be provided:
       * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
       * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
@@ -72,7 +74,7 @@ Search for ServiceRequests that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest?patient=1316020
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest?patient=12724066
 
 #### Response
 
@@ -92,7 +94,7 @@ List an individual ServiceRequest by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 
@@ -102,7 +104,7 @@ List an individual ServiceRequest by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/ServiceRequest/41636441
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/309771111
 
 #### Response
 

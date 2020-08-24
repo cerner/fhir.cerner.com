@@ -1,137 +1,254 @@
+# frozen_string_literal: true
+
 module Cerner
   module Resources
     R4_NUTRITION_ORDER_ENTRY ||= {
-      "fullUrl": "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder/216493655",
-      "resource": {
-        "resourceType": "NutritionOrder",
-        "id": "216493655",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2020-04-06T17:08:18.000Z"
-        },
-        "text": {
-            "status": "generated",
-            "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;Nutrition Order&lt;/b&gt;"\
-                   "&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SKYWALKER, LUKE&lt;/p&gt;"\
-                   "&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Order"\
-                   "&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: Apr  6, 2020 12:08 P.M. CDT&lt;/p&gt;&lt;p&gt;&lt;"\
-                   "b&gt;Orderer&lt;/b&gt;: Pivonka, Fran M RN&lt;/p&gt;"\
-                   "&lt;p&gt;&lt;b&gt;Diet Type&lt;/b&gt;: Regular Diet&lt;/p&gt;</div>"
-        },
-        "status": "active",
-        "intent": "order",
-        "patient": {
-          "reference": "Patient/1882013",
-          "display": "SKYWALKER, LUKE"
-        },
-        "encounter": {
-          "reference": "Encounter/42476518"
-        },
-        "dateTime": "2020-04-06T12:08:06.000-05:00",
-        "orderer": {
-          "reference": "Practitioner/2028012",
-          "display": "Pivonka, Fran M RN"
-        },
-        "foodPreferenceModifier": [
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/6102",
-                  "code": "658486",
-                  "display": "Kosher",
-                  "userSelected": true
-                }
-              ],
-              "text": "Kosher"
-            },
-            {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/6103",
-                  "code": "658489",
-                  "display": "No caffeinated beverages",
-                  "userSelected": true
-                }
-              ],
-              "text": "No caffeinated beverages"
-            }
-        ],
-        "oralDiet": {
-            "type": [
-              {
-                "text": "Regular Diet"
-              }
-            ],
-            "schedule": [
-              {
-                "repeat": {
-                  "boundsPeriod": {
-                    "start": "2020-04-07T03:08:00.000+10:00"
-                  },
-                  "duration": 5,
-                  "durationUnit": "d",
-                  "when": [
-                    "AC"
-                  ]
-                },
-                "code": {
-                  "coding": [
-                    {
-                      "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/4003",
-                      "code": "696529",
-                      "display": "TID",
-                      "userSelected": true
-                    },
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
-                      "code": "TID",
-                      "display": "TID",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "TID"
-                }
-              }
-            ],
-            "instruction": "04/07/20 3:39:00 AEST, Start Meal: Breakfast, Vegetarian diet, No carbonated beverages, "\
-                           "Low fat, Fluid: 1500 mL, Na: 2 gm, Fat: 25 gm, K: 4 gm (104 meq), Protein: 60 gm, TID"
-        },
-        "supplement": [
-          {
-            "type": {
-              "coding": [
-                  {
-                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/6107",
-                      "code": "658508",
-                      "display": "High fiber supplement",
-                      "userSelected": true
-                  }
-              ],
-              "text": "High fiber supplement"
-            }
-          }
-        ],
-        "note": [
-          {
-            "text": "The diet should be stictly follwed."
-          }
-        ]
-      }
-    }
-
-    R4_NUTRITION_ORDER_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "4227f490-f813-4f83-b7ce-44e1275174e2",
-      "type": "searchset",
-      "link": [
+      'resourceType': 'NutritionOrder',
+      'id': '313790117',
+      'meta': {
+        'versionId': '1',
+        'lastUpdated': '2020-07-22T01:00:20.000Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Nutrition Order</b></p>'\
+               '<p><b>Patient</b>: SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Order</p>'\
+               '<p><b>Date</b>: Jul  7, 2020  4:56 P.M. UTC</p><p><b>Orderer</b>: CERNER, CERNER CERNER</p>'\
+               '<p><b>Diet Type</b>: Low Bacterial Diet</p><p><b>Diet Instruction</b>: 07/07/20 11:56:00 CDT, '\
+               'Start Meal: Breakfast, No salt on tray, High Fiber, 1800 kcal, Low (1,200-1,600 cal) 60g CHO, 25 gm, '\
+               '24 Hour Fluid Permitted 2000 mL, NDD2 (Ground), Thin Liquid</p></div>'
+      },
+      'status': 'active',
+      'intent': 'order',
+      'patient': {
+        'reference': 'Patient/12724066',
+        'display': 'SMART, NANCY'
+      },
+      'encounter': {
+        'reference': 'Encounter/97953477'
+      },
+      'dateTime': '2020-07-07T11:56:58.000-05:00',
+      'orderer': {
+        'reference': 'Practitioner/2',
+        'display': 'CERNER, CERNER CERNER'
+      },
+      'foodPreferenceModifier': [
         {
-          "relation": "self",
-          "url":  "https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder?patient=1882013"
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6102',
+              'code': '658487',
+              'display': 'No salt on tray',
+              'userSelected': true
+            }
+          ],
+          'text': 'No salt on tray'
         }
       ],
-      "entry": [
-          R4_NUTRITION_ORDER_ENTRY
+      'oralDiet': {
+        'type': [
+          {
+            'text': 'Low Bacterial Diet'
+          }
+        ],
+        'schedule': [
+          {
+            'repeat': {
+              'boundsPeriod': {
+                'start': '2020-07-07T11:56:00.000-05:00'
+              }
+            }
+          }
+        ],
+        'nutrient': [
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100194',
+                  'code': '31168901',
+                  'display': 'Low (1,200-1,600 cal) 60g CHO',
+                  'userSelected': true
+                }
+              ],
+              'text': 'Low (1,200-1,600 cal) 60g CHO'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100196',
+                  'code': '31170553',
+                  'display': '800 mg phosphorus',
+                  'userSelected': true
+                }
+              ],
+              'text': '800 mg phosphorus'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6113',
+                  'code': '658535',
+                  'display': '1800 kcal',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '76426001',
+                  'display': 'Calorie diet (finding)',
+                  'userSelected': false
+                }
+              ],
+              'text': '1800 kcal'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6117',
+                  'code': '658559',
+                  'display': '25 gm',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '226358006',
+                  'display': 'Fat - dietary (substance)',
+                  'userSelected': false
+                }
+              ],
+              'text': '25 gm'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6114',
+                  'code': '658544',
+                  'display': '2000 mL',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '33463005',
+                  'display': 'Liquid substance (substance)',
+                  'userSelected': false
+                }
+              ],
+              'text': '2000 mL'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6116',
+                  'code': '658553',
+                  'display': '1 g sodium',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '39972003',
+                  'display': 'Sodium (substance)',
+                  'userSelected': false
+                }
+              ],
+              'text': '1 g sodium'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6118',
+                  'code': '31170471',
+                  'display': '1.5 g potassium',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '88480006',
+                  'display': 'Potassium (substance)',
+                  'userSelected': false
+                }
+              ],
+              'text': '1.5 g potassium'
+            }
+          },
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6119',
+                  'code': '658574',
+                  'display': '40 g protein',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '226356005',
+                  'display': 'Protein and protein derivatives - dietary (substance)',
+                  'userSelected': false
+                }
+              ],
+              'text': '40 g protein'
+            }
+          }
+        ],
+        'texture': [
+          {
+            'modifier': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100197',
+                  'code': '31170621',
+                  'display': 'NDD2 (Ground)',
+                  'userSelected': true
+                }
+              ],
+              'text': 'NDD2 (Ground)'
+            }
+          }
+        ],
+        'fluidConsistencyType': [
+          {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100123',
+                'code': '25442691',
+                'display': 'Thin Liquid',
+                'userSelected': true
+              }
+            ],
+            'text': 'Thin Liquid'
+          }
+        ],
+        'instruction': '07/07/20 11:56:00 CDT, Start Meal: Breakfast, No salt on tray, High Fiber, 1800 kcal, '\
+                       'Low (1,200-1,600 cal) 60g CHO, 25 gm, 24 Hour Fluid Permitted 2000 mL, NDD2 (Ground), '\
+                       'Thin Liquid'
+      }
+    }.freeze
+
+    R4_NUTRITION_ORDER_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '4227f490-f813-4f83-b7ce-44e1275174e2',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder?patient=12724066'
+        }
+      ],
+      'entry': [
+        R4_NUTRITION_ORDER_ENTRY
       ]
-    }
+    }.freeze
   end
 end

@@ -39,15 +39,15 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
  Name         | Required?                             | Type          | Description
 --------------|---------------------------------------|---------------|------------------------------------------------------------------------------------
- `_id`        | This, or one of `patient` or `subject`| [`token`]     | The logical resource id associated with the resource. Example: `_id=24110557`
- `patient`    | This, or one of `_id` or `subject`    | [`reference`] | The patient subject of the Procedure. Example: `patient=1316024`
- `subject`    | This, or one of `_id` or `patient`    | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/1316020` or `subject:Patient=1316020`
+ `_id`        | This, or one of `patient` or `subject`| [`token`]     | The logical resource id associated with the resource. Example: `_id=7891`
+ `patient`    | This, or one of `_id` or `subject`    | [`reference`] | The patient subject of the Procedure. Example: `patient=12345`
+ `subject`    | This, or one of `_id` or `patient`    | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `date`       | N                                     | [`date`]      | The date/time when the Procedure was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
 
 Notes:
@@ -64,7 +64,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure?patient=1316020
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066
 
 #### Response
 
@@ -88,7 +88,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -98,7 +98,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Procedure/24110557
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572382193
 
 #### Response
 

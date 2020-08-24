@@ -61,6 +61,7 @@ The NutritionOrder Resource supports proprietary codes for:
 The ServiceRequest Resource supports proprietary codes for:
 
 * ServiceRequest.category codes are maintained in [Code Set 6000 Catalog Type](#code-set-6000-catalog-type)
+* ServiceRequest.code codes are maintained in [Code Set 200 Order Catalog](#code-set-200-order-catalog)
 * ServiceRequest.occurrence.timing codes are maintained in [Code Set 4003 Frequency](#code-set-4003-frequency)
 * ServiceRequest.asNeededCodeableConcept codes are maintained in [Code Set 4005](#code-set-4005-reason-for-medication)
 * ServiceRequest.bodySite codes are maintained in [Code Set 1028 Body Site](#code-set-1028-body-site) and [Code Set 14045 Surgical Procedure Modifiers](#code-set-14045-surgical-procedure-modifiers)
@@ -362,6 +363,16 @@ This code set maintains medication administration sites such as left arm, right 
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/97",
       "code": "603",
       "display": "Right arm",
+      "userSelected": true
+    }
+
+##### Code Set 200 Order Catalog
+
+This code set is extremely large and highly customized by clients. It maintains the entire catalog of orders defined by a client.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/200",
+      "code": "3976772",
       "userSelected": true
     }
 

@@ -1,525 +1,267 @@
+# frozen_string_literal: true
+
 module Cerner
   module Resources
 
-    DSTU2_APPOINTMENT_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "4344d30c-0b5b-4be9-851a-adabb0fda827",
-      "type": "searchset",
-      "total": 4,
-      "link": [
+    DSTU2_APPOINTMENT_READ ||= {
+      'resourceType': 'Appointment',
+      'id': '4817508',
+      'meta': {
+        'versionId': '1',
+        'lastUpdated': '2020-07-06T16:41:32.000Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div><p><b>Appointment</b></p><p><b>Description</b>: PT Eval</p><p><b>Type</b>: PT Eval</p>'\
+               '<p><b>Start</b>: Oct  6, 2020  2:00 P.M. UTC</p><p><b>End</b>: Oct  6, 2020  3:00 P.M. UTC</p>'\
+               '<p><b>Duration</b>: 60 Minutes</p><p><b>Status</b>: Booked</p><p><b>Reason</b>: torn ACL</p>'\
+               '<p><b>Location</b>: OP Rehab1</p><p><b>Participants</b>:</p><p><b>Patient</b>: SMART, NANCY</p>'\
+               '<br /><p><b>Participant</b>: Sisko, Jon PT</p><p><b>Primary</b>: Yes</p></div>'
+      },
+      'status': 'booked',
+      'type': {
+        'coding': [
+          {
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249',
+            'code': '26054577',
+            'display': 'PT Eval',
+            'userSelected': true
+          }
+        ],
+        'text': 'PT Eval'
+      },
+      'reason': {
+        'coding': [
+          {
+            'extension': [
+              {
+                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                'valueCode': 'unsupported'
+              }
+            ]
+          }
+        ],
+        'text': 'torn ACL'
+      },
+      'description': 'PT Eval',
+      'start': '2020-10-06T14:00:00.000Z',
+      'end': '2020-10-06T15:00:00.000Z',
+      'minutesDuration': 60,
+      'participant': [
         {
-          "relation": "self",
-          "url": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment?date=2017&patient=4704007&_count=50"
+          'type': [
+            {
+              'coding': [
+                {
+                  'extension': [
+                    {
+                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                      'valueCode': 'unknown'
+                    }
+                  ]
+                }
+              ],
+              'text': 'PT Therapists'
+            },
+            {
+              'coding': [
+                {
+                  'system': 'http://hl7.org/fhir/v3/ParticipationType',
+                  'code': 'PPRF',
+                  'display': 'primary performer',
+                  'userSelected': false
+                }
+              ]
+            }
+          ],
+          'actor': {
+            'display': 'Sisko, Jon PT'
+          },
+          'required': 'required',
+          'status': 'accepted'
+        },
+        {
+          'type': [
+            {
+              'coding': [
+                {
+                  'extension': [
+                    {
+                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                      'valueCode': 'unknown'
+                    }
+                  ]
+                }
+              ],
+              'text': 'Patient'
+            }
+          ],
+          'actor': {
+            'reference': 'Patient/12724066',
+            'display': 'SMART, NANCY'
+          },
+          'required': 'required',
+          'status': 'accepted'
+        },
+        {
+          'actor': {
+            'reference': 'Location/21503380',
+            'display': 'OP Rehab1'
+          },
+          'required': 'required',
+          'status': 'accepted'
+        }
+      ]
+    }.freeze
+
+    DSTU2_APPOINTMENT_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': 'c1502c8d-2f96-4d7e-996c-5b39f96046c8',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment'\
+                 '?date=2020&patient=12724066&_count=50'
         }
       ],
-      "entry": [
+      'entry': [
         {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005756",
-          "resource": {
-            "resourceType": "Appointment",
-            "id": "3005756",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2017-10-04T13:06:34.000-05:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "394581000",
-                  "display": "Community medicine",
-                  "userSelected": false
-                },
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                  "code": "21265426",
-                  "display": "Same Day",
-                  "userSelected": true
-                }
-              ],
-              "text": "Same Day"
-            },
-            "status": "booked",
-            "description": "Same Day",
-            "start": "2017-10-04T08:00:00.000-05:00",
-            "end": "2017-10-04T09:00:00.000-05:00",
-            "minutesDuration": 60,
-            "participant": [
-              {
-                "type": [
-                  {
-                    "text": "Resource"
-                  },
-                  {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v3/ParticipationType",
-                        "code": "PPRF",
-                        "display": "primary performer",
-                        "userSelected": false
-                      }
-                    ]
-                  }
-                ],
-                "actor": {
-                  "reference": "Practitioner/2578010",
-                  "display": "Song, River"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "type": [
-                  {
-                    "text": "Patient"
-                  }
-                ],
-                "actor": {
-                  "reference": "Patient/4704007",
-                  "display": "Smart, Barney R"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "actor": {
-                  "reference": "Location/4048128",
-                  "display": "Baseline East"
-                },
-                "required": "required",
-                "status": "accepted"
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005759",
-          "resource": {
-            "resourceType": "Appointment",
-            "id": "3005759",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2017-10-04T13:11:41.000-05:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T10:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline West&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Song, River&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "394581000",
-                  "display": "Community medicine",
-                  "userSelected": false
-                },
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                  "code": "21265426",
-                  "display": "Same Day",
-                  "userSelected": true
-                }
-              ],
-              "text": "Same Day"
-            },
-            "status": "booked",
-            "description": "Same Day",
-            "start": "2017-10-04T09:00:00.000-05:00",
-            "end": "2017-10-04T10:00:00.000-05:00",
-            "minutesDuration": 60,
-            "participant": [
-              {
-                "type": [
-                  {
-                    "text": "Patient"
-                  }
-                ],
-                "actor": {
-                  "reference": "Patient/4704007",
-                  "display": "Smart, Barney R"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "type": [
-                  {
-                    "text": "Resource"
-                  },
-                  {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v3/ParticipationType",
-                        "code": "PPRF",
-                        "display": "primary performer",
-                        "userSelected": false
-                      }
-                    ]
-                  }
-                ],
-                "actor": {
-                  "reference": "Practitioner/2578010",
-                  "display": "Song, River"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "actor": {
-                  "reference": "Location/633867",
-                  "display": "Baseline West"
-                },
-                "required": "required",
-                "status": "accepted"
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005753",
-          "resource": {
-            "resourceType": "Appointment",
-            "id": "3005753",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2017-10-04T13:01:43.000-05:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T22:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T23:54:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Physician, PowerChartTouch&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "394581000",
-                  "display": "Community medicine",
-                  "userSelected": false
-                },
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                  "code": "21265426",
-                  "display": "Same Day",
-                  "userSelected": true
-                }
-              ],
-              "text": "Same Day"
-            },
-            "status": "booked",
-            "description": "Same Day",
-            "start": "2017-10-04T22:54:00.000-05:00",
-            "end": "2017-10-04T23:54:00.000-05:00",
-            "minutesDuration": 60,
-            "participant": [
-              {
-                "type": [
-                  {
-                    "text": "Resource"
-                  },
-                  {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v3/ParticipationType",
-                        "code": "PPRF",
-                        "display": "primary performer",
-                        "userSelected": false
-                      }
-                    ]
-                  }
-                ],
-                "actor": {
-                  "reference": "Practitioner/1376007",
-                  "display": "Physician, PowerChartTouch"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "type": [
-                  {
-                    "text": "Patient"
-                  }
-                ],
-                "actor": {
-                  "reference": "Patient/4704007",
-                  "display": "Smart, Barney R"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "actor": {
-                  "reference": "Location/4048128",
-                  "display": "Baseline East"
-                },
-                "required": "required",
-                "status": "accepted"
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Appointment/3005760",
-          "resource": {
-            "resourceType": "Appointment",
-            "id": "3005760",
-            "meta": {
-              "versionId": "0",
-              "lastUpdated": "2017-10-04T13:33:07.000-05:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-05T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-05T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Franks, StaceyPhys&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-            },
-            "type": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "394581000",
-                  "display": "Community medicine",
-                  "userSelected": false
-                },
-                {
-                  "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-                  "code": "21265426",
-                  "display": "Same Day",
-                  "userSelected": true
-                }
-              ],
-              "text": "Same Day"
-            },
-            "status": "booked",
-            "description": "Same Day",
-            "start": "2017-10-05T08:00:00.000-05:00",
-            "end": "2017-10-05T09:00:00.000-05:00",
-            "minutesDuration": 60,
-            "participant": [
-              {
-                "type": [
-                  {
-                    "text": "Patient"
-                  }
-                ],
-                "actor": {
-                  "reference": "Patient/4704007",
-                  "display": "Smart, Barney R"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "type": [
-                  {
-                    "text": "Resource"
-                  },
-                  {
-                    "coding": [
-                      {
-                        "system": "http://hl7.org/fhir/v3/ParticipationType",
-                        "code": "PPRF",
-                        "display": "primary performer",
-                        "userSelected": false
-                      }
-                    ]
-                  }
-                ],
-                "actor": {
-                  "reference": "Practitioner/1314012",
-                  "display": "Franks, StaceyPhys"
-                },
-                "required": "required",
-                "status": "accepted"
-              },
-              {
-                "actor": {
-                  "reference": "Location/4048128",
-                  "display": "Baseline East"
-                },
-                "required": "required",
-                "status": "accepted"
-              }
-            ]
-          }
+          'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment'\
+                     '/4817508',
+          'resource': DSTU2_APPOINTMENT_READ
         }
       ]
-    }
+    }.freeze
 
-    DSTU2_APPOINTMENT_READ ||= {
-      "resourceType": "Appointment",
-      "id": "3005756",
-      "meta": {
-        "versionId": "0",
-        "lastUpdated": "2017-10-04T13:06:34.000-05:00"
-      },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
-      },
-      "type": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "394581000",
-            "display": "Community medicine",
-            "userSelected": false
-          },
-          {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249",
-            "code": "21265426",
-            "display": "Same Day",
-            "userSelected": true
-          }
-        ],
-        "text": "Same Day"
-      },
-      "status": "booked",
-      "description": "Same Day",
-      "start": "2017-10-04T08:00:00.000-05:00",
-      "end": "2017-10-04T09:00:00.000-05:00",
-      "minutesDuration": 60,
-      "participant": [
-        {
-          "type": [
-            {
-              "text": "Resource"
-            },
-            {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "code": "PPRF",
-                  "display": "primary performer",
-                  "userSelected": false
-                }
-              ]
-            }
-          ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Song, River"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "type": [
-            {
-              "text": "Patient"
-            }
-          ],
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
-          },
-          "required": "required",
-          "status": "accepted"
-        },
-        {
-          "actor": {
-            "reference": "Location/4048128",
-            "display": "Baseline East"
-          },
-          "required": "required",
-          "status": "accepted"
-        }
-      ]
-    }
     DSTU2_APPOINTMENT_UPDATE ||= {
-      "resourceType": "Appointment",
-      "id": "3005756",
-      "meta": {
-        "versionId": "0",
-        "lastUpdated": "2017-10-04T13:06:34.000-05:00"
+      'resourceType': 'Appointment',
+      'id': '4817508',
+      'meta': {
+        'versionId': '1',
+        'lastUpdated': '2020-07-06T16:41:32.000Z'
       },
-      "text": {
-        "status": "generated",
-        "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Same Day&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: 2017-10-04T08:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: 2017-10-04T09:00:00.000-05:00&lt;/p&gt;&lt;p&gt;&lt;b&gt;Minutes Duration&lt;/b&gt;: 60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Baseline East&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Barney R&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Howdeshell, Tami&lt;/p&gt;&lt;p&gt;&lt;b&gt;Primary&lt;/b&gt;: true&lt;/p&gt;&lt;/div&gt;"
+      'text': {
+        'status': 'generated',
+        'div': '<div><p><b>Appointment</b></p><p><b>Description</b>: PT Eval</p><p><b>Type</b>: PT Eval</p>'\
+               '<p><b>Start</b>: Oct  6, 2020  2:00 P.M. UTC</p><p><b>End</b>: Oct  6, 2020  3:00 P.M. UTC</p>'\
+               '<p><b>Duration</b>: 60 Minutes</p><p><b>Status</b>: Booked</p><p><b>Reason</b>: torn ACL</p>'\
+               '<p><b>Location</b>: OP Rehab1</p><p><b>Participants</b>:</p><p><b>Patient</b>: SMART, NANCY</p>'\
+               '<br /><p><b>Participant</b>: Sisko, Jon PT</p><p><b>Primary</b>: Yes</p></div>'
       },
-      "type": {
-        "coding": [
+      'status': 'accepted',
+      'type': {
+        'coding': [
           {
-            "system": "http://snomed.info/sct",
-            "code": "394581000",
-            "display": "Community medicine",
-            "userSelected": false
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249',
+            'code': '26054577',
+            'display': 'PT Eval',
+            'userSelected': true
           }
         ],
-        "text": "Same Day"
+        'text': 'PT Eval'
       },
-      "status": "arrived",
-      "description": "Same Day",
-      "start": "2017-10-04T08:00:00.000-05:00",
-      "end": "2017-10-04T09:00:00.000-05:00",
-      "minutesDuration": 60,
-      "participant": [
+      'reason': {
+        'coding': [
+          {
+            'extension': [
+              {
+                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                'valueCode': 'unsupported'
+              }
+            ]
+          }
+        ],
+        'text': 'torn ACL'
+      },
+      'description': 'PT Eval',
+      'start': '2020-10-06T14:00:00.000Z',
+      'end': '2020-10-06T15:00:00.000Z',
+      'minutesDuration': 60,
+      'participant': [
         {
-          "type": [
+          'type': [
             {
-              "text": "Resource"
+              'coding': [
+                {
+                  'extension': [
+                    {
+                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                      'valueCode': 'unknown'
+                    }
+                  ]
+                }
+              ],
+              'text': 'PT Therapists'
             },
             {
-              "coding": [
+              'coding': [
                 {
-                  "system": "http://hl7.org/fhir/v3/ParticipationType",
-                  "code": "PPRF",
-                  "display": "primary performer",
-                  "userSelected": false
+                  'system': 'http://hl7.org/fhir/v3/ParticipationType',
+                  'code': 'PPRF',
+                  'display': 'primary performer',
+                  'userSelected': false
                 }
               ]
             }
           ],
-          "actor": {
-            "reference": "Practitioner/2578010",
-            "display": "Song, River"
+          'actor': {
+            'display': 'Sisko, Jon PT'
           },
-          "required": "required",
-          "status": "accepted"
+          'required': 'required',
+          'status': 'accepted'
         },
         {
-          "type": [
+          'type': [
             {
-              "text": "Patient"
+              'coding': [
+                {
+                  'extension': [
+                    {
+                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
+                      'valueCode': 'unknown'
+                    }
+                  ]
+                }
+              ],
+              'text': 'Patient'
             }
           ],
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
+          'actor': {
+            'reference': 'Patient/12724066',
+            'display': 'SMART, NANCY'
           },
-          "required": "required",
-          "status": "accepted"
+          'required': 'required',
+          'status': 'accepted'
         },
         {
-          "actor": {
-            "reference": "Location/4048128",
-            "display": "Baseline East"
+          'actor': {
+            'reference': 'Location/21503380',
+            'display': 'OP Rehab1'
           },
-          "required": "required",
-          "status": "accepted"
+          'required': 'required',
+          'status': 'accepted'
         }
       ]
-    }
+    }.freeze
 
     DSTU2_APPOINTMENT_CREATE ||= {
-      "resourceType": "Appointment",
-      "slot": [
+      'resourceType': 'Appointment',
+      'slot': [
         {
-          "reference": "Slot/21265426-633867-6828001-60"
+          'reference': 'Slot/24477854-21304876-62852027-0'
         }
       ],
-      "participant": [
+      'participant': [
         {
-          "actor": {
-            "reference": "Patient/4704007",
-            "display": "Smart, Barney R"
+          'actor': {
+            'reference': 'Patient/12724066'
           },
-          "status": "needs-action"
+          'status': 'needs-action'
         }
       ],
-      "status": "proposed"
-    }
+      'status': 'proposed'
+    }.freeze
   end
 end

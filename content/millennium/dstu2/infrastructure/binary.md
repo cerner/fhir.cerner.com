@@ -40,7 +40,7 @@ _Implementation Notes_
 
 The necessary OAuth scopes can be determined by checking the attachment.contentType in the referring resource. For attachments with the `application/pdf` contentType, the Binary.read and DocumentReference.read scopes are required. For attachments with the `text/html` contentType, the Binary.read and DiagnosticReport.read scopes are required.
 
-<%= authorization_types(practitioner: true,  patient: true, system: true) %>
+<%= authorization_types(provider: true,  patient: true, system: true) %>
 
 ### Headers
 
@@ -56,7 +56,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197198634
 
 #### Response
 
@@ -70,7 +70,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'text/html'} %>
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/TR-5927259
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197198634
 
 #### Response
 
@@ -98,13 +98,13 @@ _Implementation Notes_
 
 Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
  Name     | Required? | Type          | Description
 ----------|-----------|---------------|-------------------------------------------------
-`patient` | Y         | [`reference`] | A reference to the patient that is the subject of the CCD. Example: `14067892`
+`patient` | Y         | [`reference`] | A reference to the patient that is the subject of the CCD. Example: `12345`
 `start`   | N         | [`date`]      | The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
 `end`     | N         | [`date`]      | The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
 
@@ -126,7 +126,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/json+fhir'} %>
 
-    GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
+    GET: https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=12724066
 
 #### Response
 
@@ -140,7 +140,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers head: {'Accept': 'application/xml'} %>
 
-    GET: https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Binary/$autogen-ccd-if?patient=1316035
+    GET: https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=12724066
 
 #### Response
 

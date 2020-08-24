@@ -13,24 +13,24 @@ The NutritionOrder resource returns requests or orders to supply a diet or suppl
 
 The following fields are returned if valued:
 
-* [NutritionOrder id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
-* [Status](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.status)
-* [Intent](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.intent)
-* [Patient](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.patient)
-* [Encounter](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.encounter)
-* [DateTime](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.dateTime)
-* [Orderer](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.orderer)
-* [Food Preference Modifier](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.foodPreferenceModifier)
-* [Oral Diet](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet)
-    * [Type](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.type)
-    * [Schedule](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule)
-    * [Texture](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.texture)
-        * [Texture Modifier](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.modifier)
-    * [Fluid Consistency Type](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.fluidConsistencyType)
-    * [Instruction](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.oralDiet.instruction)
-* [Supplement](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.supplement)
-    * [Type](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.supplement.type)
-* [Note](https://www.hl7.org/fhir/nutritionorder-definitions.html#NutritionOrder.note)
+* [NutritionOrder id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id)
+* [Status](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status)
+* [Intent](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent)
+* [Patient](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.patient)
+* [Encounter](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.encounter)
+* [DateTime](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.dateTime)
+* [Orderer](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.orderer)
+* [Food Preference Modifier](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.foodPreferenceModifier)
+* [Oral Diet](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet)
+    * [Type](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.type)
+    * [Schedule](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule)
+    * [Texture](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.texture)
+        * [Texture Modifier](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.modifier)
+    * [Fluid Consistency Type](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.fluidConsistencyType)
+    * [Instruction](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.oralDiet.instruction)
+* [Supplement](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.supplement)
+    * [Type](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.supplement.type)
+* [Note](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.note)
 
 ## Terminology Bindings
 
@@ -44,7 +44,7 @@ Search for NutritionOrders that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -71,7 +71,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder?patient=1882013
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder?patient=12724066
 
 #### Response
 
@@ -92,7 +92,7 @@ List an individual NutritionOrder by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -102,7 +102,7 @@ List an individual NutritionOrder by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/NutritionOrder/216493655
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
 
 #### Response
 

@@ -1,7 +1,12 @@
 // Init sidebar
 $(function() {
+  // Generate table when HTML element exists
+  if (document.getElementById('millennium-diff-table') != null) {
+    displayOverviewTable();
+  }
+
   // Set class 'active' for the appropriate subnav link
-  var pageUrl = location.href.match(/(.+\/millennium\/[^\/]+\/)/)[0]
+  var pageUrl = location.href.match(/(.+\/(millennium|soarian)\/[^\/]+\/)/)[0];
   $('.sub-nav li a').each(function() {
     $(this).toggleClass('active', this.href === pageUrl);
   });
@@ -48,11 +53,33 @@ $(function() {
 
   // Toggle style list. Expanded items stay
   // expanded when new items are clicked.
+  // Button is expand all if one or less items
+  // are expanded and collapse all otherwise.
   $('#js-sidebar .js-toggle-list .js-expand-btn').click(function(){
     var clickedTopic = $(this).parents('.js-topic'),
         topicGuides  = clickedTopic.find('.js-guides li')
     $(this).toggleClass('collapsed expanded')
     topicGuides.slideToggle(100)
+
+    if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length > 1) {
+      $('.js-expand-all').addClass('hide');
+      $('.js-collapse-all').removeClass('hide');
+    }
+    else if ($('#js-sidebar .js-toggle-list .js-expand-btn').filter('.expanded').length < 1) {
+      $('.js-expand-all').removeClass('hide');
+      $('.js-collapse-all').addClass('hide');
+    }
+    else {
+      if ($('#js-sidebar .js-toggle-list .js-expand-btn').length === 1) {
+        $('.js-expand-all').addClass('hide');
+        $('.js-collapse-all').removeClass('hide');
+      }
+      else {
+        $('.js-expand-all').removeClass('hide');
+        $('.js-collapse-all').addClass('hide');
+      }
+    }
+
     return false
   })
 
@@ -76,6 +103,42 @@ $(function() {
     return false
   })
 
+  // Expand all categories
+  $('.js-expand-all').click(function() {
+    $(this).toggleClass('hide');
+    $('.js-collapse-all').toggleClass('hide');
+
+    $('.js-toggle-list .js-topic').each(function() {
+      var expandButton = $(this).find('.js-expand-btn');
+      var li = $(this).find('.js-guides li');
+
+      if (expandButton.hasClass('collapsed')) {
+        expandButton.toggleClass('collapsed expanded');
+        li.slideToggle(100);
+      }
+    });
+
+    return false;
+  });
+
+  // Collapse all categories
+  $('.js-collapse-all').click(function() {
+    $(this).toggleClass('hide');
+    $('.js-expand-all').toggleClass('hide');
+
+    $('.js-toggle-list .js-topic').each(function() {
+      var expandButton = $(this).find('.js-expand-btn');
+      var li = $(this).find('.js-guides li');
+
+      if (expandButton.hasClass('expanded')) {
+        expandButton.toggleClass('collapsed expanded');
+        li.slideToggle(100);
+      }
+    });
+
+    return false;
+  });
+
   // Dynamic year for footer copyright
   var currentYear = (new Date).getFullYear();
   $.each($(".js-year"), (function() { $(this).text( currentYear ) }));
@@ -88,3 +151,26 @@ $(function() {
     }, 19 * 1000); // Let first loop run through 19 seconds
   }
 });
+
+/**
+ * Sends a GET request to the specified URL with the given parameters.
+ * @param {string} url - The URL to request from.
+ * @param {object} headers - The headers to use in the GET request.
+ * @param {bool} [cache = false] - Whether or not to cache the returned results.
+ * @param {function(response)} callback - The function called when the AJAX request has completed successfully.
+ * @param {function} onFail  - The function called when the AJAX request fails.
+ */
+function fetchData(url, headers, cache = false, callback, onFail) {
+  $.ajax({
+      type: 'GET',
+      url: url,
+      headers: headers,
+      cache: cache,
+    })
+    .done(function(response, responseText, xhr) {
+      callback(response, xhr);
+    })
+    .fail(function(e) {
+      onFail(e);
+    });
+}

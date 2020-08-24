@@ -38,7 +38,7 @@ Search for RelatedPersons that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -46,7 +46,7 @@ Search for RelatedPersons that meet supplied query parameters:
 --------------|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------
  `_id`        | No, if populated all other parameters are ignored | [`token`]     | The logical resource id associated with the resource.
  `identifier` | Yes, if neither `_id` nor `patient` are set       | [`token`]     | A RelatedPerson identifier.
- `patient`    | Yes, if neither `_id` nor `identifier` are set    | [`reference`] | A reference to a patient related which the RelatedPerson is associated. Example: `14067892`
+ `patient`    | Yes, if neither `_id` nor `identifier` are set    | [`reference`] | A reference to a patient related which the RelatedPerson is associated. Example: `12345`
 
 Notes:
 
@@ -60,7 +60,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson?identifier=urn%3Aoid%3A2.16.840.1.113883.3.13.6%7Curn%3Acerner%3Aidentity-federation%3Arealm%3A687f29dd-69dd-4de5-acb1-fd8a2241ef3a%3Aprincipal%3AEC4Ax54P8GI
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?urn%3Aoid%3A2.16.840.1.113883.3.13.6%7CURN%3ACERNER%3AIDENTITY-FEDERATION%3AREALM%3AEC2458F2-1E24-41C8-B71B-0E701AF7583D-CH%3APRINCIPAL%3A332TE8FP7VD3RT4C
 
 #### Response
 
@@ -81,7 +81,7 @@ List an individual RelatedPerson by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -91,7 +91,7 @@ List an individual RelatedPerson by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/RelatedPerson/5796399
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/490017058
 
 #### Response
 

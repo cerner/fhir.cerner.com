@@ -71,7 +71,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -88,7 +88,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter?patient=4342010
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066
 
 #### Response
 
@@ -114,7 +114,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
@@ -124,7 +124,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Encounter/4027918
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97953477
 
 #### Response
 

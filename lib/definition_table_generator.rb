@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'erb'
 require 'yaml'
 
@@ -14,14 +16,13 @@ def patch_definition_table(content_key, version)
 end
 
 class DefinitionTableGenerator
-
   def initialize(version, action)
     @version = version.to_s
     @action = action
   end
 
   def field_definition_table(content_key)
-    render_table(content_key, "#{@action}", 'field_definition_table')
+    render_table(content_key, @action.to_s, 'field_definition_table')
   end
 
   def terminology_table(content_key)
@@ -37,8 +38,8 @@ class DefinitionTableGenerator
   def render_table(content_key, table_name, erb_name, options = nil)
     @table_name = table_name
 
-    schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml"))
-    types = YAML.load(File.read("lib/resources/#{@version}/types.yaml"))
+    schema = YAML.load(File.read("lib/resources/#{@version}/#{content_key}.yaml")) # rubocop:disable Security/YAMLLoad
+    types = YAML.load(File.read("lib/resources/#{@version}/types.yaml")) # rubocop:disable Security/YAMLLoad
 
     fields = flatten_fields(
       fields: @action == :patch ? schema['operations'] : schema['fields'],
@@ -59,27 +60,27 @@ class DefinitionTableGenerator
     ERB.new(File.read("lib/#{erb_name}.erb")).result(binding)
   end
 
-  def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil)
+  def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
     results = []
 
     return results if fields.nil? || fields.empty?
 
-    fields.each do |field|
+    fields.each do |field| # rubocop:disable Metrics/BlockLength
       puts "       - rendering: #{field['name']}"
 
       next unless supported_for_action?(field)
 
-      if erb_name == 'terminology_table'
-        field_name =
-          get_value(field['terminology_name']) ? get_value(field['terminology_name']) : get_value(field['name'])
-      else
-        field_name = get_value(field['name'])
-      end
-      if get_value(field['extension_child'])
-        name = field_name
-      else
-        name = parent.nil? ? field_name : "#{parent}.#{field_name}"
-      end
+      field_name = if erb_name == 'terminology_table'
+                     get_value(field['terminology_name']) || get_value(field['name'])
+                   else
+                     get_value(field['name'])
+                   end
+
+      name = if get_value(field['extension_child'])
+               field_name
+             else
+               parent.nil? ? field_name : "#{parent}.#{field_name}"
+             end
 
       field_type = get_value(field['type'])
 
@@ -105,13 +106,15 @@ class DefinitionTableGenerator
 
       results << values
 
-      results << flatten_fields(
-        fields: field['children'],
-        base_url: base_url,
-        types: types,
-        erb_name: erb_name,
-        parent: name
-      ) unless field['children'].nil?
+      unless field['children'].nil?
+        results << flatten_fields(
+          fields: field['children'],
+          base_url: base_url,
+          types: types,
+          erb_name: erb_name,
+          parent: name
+        )
+      end
     end
 
     results.flatten
@@ -119,8 +122,7 @@ class DefinitionTableGenerator
 
   # Retrieve the value for the current action in context, or the value if no action is defined.
   def get_value(value)
-
-    return nil if value.kind_of?(Array) && @action.nil?
+    return if value.kind_of?(Array) && @action.nil?
     return value if value.nil? || @action.nil?
 
     if value.kind_of?(Array)
@@ -130,14 +132,15 @@ class DefinitionTableGenerator
       return value.find { |v| !v.kind_of?(Hash) }
     end
 
-    return value
+    value
   end
 
   # Determine whether the field is supported for the current action in context.
   def supported_for_action?(field)
     return true if field['action'].nil? || @action.nil?
     return field['action'].include?(@action.to_s) if field['action'].kind_of?(Array)
-    return field['action'] == @action.to_s
+
+    field['action'] == @action.to_s
   end
 
   # Replace the embedded link tags with active hyperlinks.
@@ -163,8 +166,7 @@ class DefinitionTableGenerator
   # If auto_link is true, the string will be split and any word, enclosed or not, will be replaced the same as values
   # enclosed in ``. In general, it is best not to use auto_link on strings with either `` or [] enclosures.
   def activate_field_links(value, types, auto_link: false)
-
-    return nil if value.nil?
+    return if value.nil?
 
     # TODO: It would be nice to enhance these to be more wiki style and allow providing both a display value and a
     # link value. Something like [some display|http://go.somewhere.else]. If no link value is provided, then assume
@@ -175,23 +177,27 @@ class DefinitionTableGenerator
     # The regex would need to be updated to allow additional character sequences.
 
     # Activate type links
-    results = value.gsub(/`((\w|\s|\d|\.)+)`/) { |match|
+    results = value.gsub(/`((\w|\s|\d|\.)+)`/) do |match|
       tag = match.tr('\`', '')
       next "<a target=\"_blank\" href=\"#{types[tag]}\"><code>#{tag}</code></a>" if types[tag]
+
       "<code>#{tag}</code>"
-    }
+    end
 
     # If auto_link is true, activate type strings which have not been explicitly linked.
-    results = results.gsub(/(\w+)/) do |match|
-      next "<a target=\"_blank\" href=\"#{types[match]}\"><code>#{match}</code></a>" if types[match]
-      "<code>#{match}</code>"
-    end if auto_link
+    if auto_link
+      results = results.gsub(/(\w+)/) do |match|
+        next "<a target=\"_blank\" href=\"#{types[match]}\"><code>#{match}</code></a>" if types[match]
+
+        "<code>#{match}</code>"
+      end
+    end
 
     # Activate local links
-    results = results.gsub(/\[(\w+)\]/) { |match|
+    results = results.gsub(/\[(\w+)\]/) do |match|
       tag = match.tr('[]', '')
       "<a href=\"##{@table_name}-#{tag}\">#{tag}</a>"
-    }
+    end
 
     results
   end

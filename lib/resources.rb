@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+require 'cgi'
 require 'yajl/json_gem'
 
 module Cerner
   module Resources
-    module Helpers
+    module Helpers # rubocop:disable Metrics/ModuleLength
 
       STATUSES ||= {
         200 => '200 OK',
@@ -22,31 +25,27 @@ module Cerner
         422 => '422 Unprocessable Entity',
         500 => '500 Server Error',
         502 => '502 Bad Gateway'
-      }
+      }.freeze
 
       def headers(status: nil, head: {}, fhir_json: false)
-        lines = []
-
-        if(status)
-          lines = ["Status: #{STATUSES[status]}"]
-        end
+        lines = status ? ["Status: #{STATUSES[status]}"] : []
 
         head.each do |key, value|
-          case key
-          when :pagination
-            lines << link_header(value)
-          when :Accept
-            lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
-          when :'Content-Type'
-            lines << "<a href=\"../../#media-types\">#{key}</a>: #{value}"
-          when :Authorization
-            lines << "<a href=\"../../#authorization\">#{key}</a>: #{value}"
-          else
-            lines << "#{key}: #{value}"
-          end
+          lines << case key
+                   when :pagination
+                     link_header(value)
+                   when :Accept
+                     "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+                   when :'Content-Type'
+                     "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+                   when :Authorization
+                     "<a href=\"../../#authorization\">#{key}</a>: #{value}"
+                   else
+                     "#{key}: #{value}"
+                   end
         end
 
-        if(lines.empty?)
+        if lines.empty?
           lines = fhir_json ? default_headers_r4 : default_headers
         end
 
@@ -56,9 +55,9 @@ module Cerner
       def link_header(rels)
         formatted_rels = rels.map { |name, url| link_header_rel(name, url) }
 
-        lines = ["Link: #{formatted_rels.shift}"]
+        lines = [+"Link: #{formatted_rels.shift}"]
         while formatted_rels.any?
-          lines.last << ","
+          lines.last << ','
           lines << "      #{formatted_rels.shift}"
         end
 
@@ -66,29 +65,31 @@ module Cerner
       end
 
       def link_header_rel(name, url)
-        %Q{<#{url}>; rel="#{name}"}
+        %Q(<#{url}>; rel="#{name}")
       end
 
       def default_headers
-        lines = ["<a href=\"../../#media-types\">Accept</a>: application/json+fhir"]
-        lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
-
-        lines
+        [
+          '<a href="../../#media-types">Accept</a>: application/json+fhir',
+          '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+        ]
       end
 
       def default_headers_r4
-        lines = ["<a href=\"../../#media-types\">Accept</a>: application/fhir+json"]
-        lines << "<a href=\"../../#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
-
-        lines
+        [
+          '<a href="../../#media-types">Accept</a>: application/fhir+json',
+          '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+        ]
       end
 
       def json(key)
         hash = get_resource(key)
         hash = yield hash if block_given?
 
-        %(<pre class="body-response"><code class="language-javascript">) +
-          JSON.pretty_generate(hash) + "</code></pre>"
+        escaped_values_hash = deep_transform_values(hash)
+
+        '<pre class="body-response"><code class="language-javascript">'\
+        "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
 
       def html(key)
@@ -99,45 +100,27 @@ module Cerner
       end
 
       def get_resource(key)
-        hash = case key
-               when Hash
-                 h = {}
-                 key.each { |k, v| h[k.to_s] = v }
-                 h
-               when Array
-                 key
-               else Resources.const_get(key.to_s.upcase)
-               end
+        case key
+        when Hash
+          h = {}
+          key.each { |k, v| h[k.to_s] = v }
+          h
+        when Array
+          key
+        else Resources.const_get(key.to_s.upcase)
+        end
       end
 
-      def authorization_types(practitioner: true, patient: false, system: false)
-        html = "<div class=\"auth-types\">"
-        prev = false
+      def authorization_types(provider: false, patient: false, system: false)
+        template = '<a href="/authorization/#requesting-authorization-on-behalf-of-a-%s" class="%s">%s</a>'
 
-        if(practitioner)
-          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-user\" class=\"practitioner\">Practitioner</a>"
-          prev = true
-        end
+        auth_types = []
 
-        if(patient)
-          if(prev)
-            html += " | "
-          end
-          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-user\" class=\"patient\">Patient</a>"
-          prev = true
-        end
+        auth_types << format(template, 'user', 'provider', 'Provider') if provider
+        auth_types << format(template, 'user', 'patient', 'Patient') if patient
+        auth_types << format(template, 'system', 'system', 'System') if system
 
-        if(system)
-          if(prev)
-            html += " | "
-          end
-          html += "<a href=\"/authorization/#requesting-authorization-on-behalf-of-a-system\" class=\"system\">System</a>"
-        end
-
-        html += "</div>"
-
-        html
-
+        "<div class=\"auth-types\">#{auth_types.join(' | ')}</div>"
       end
 
       def data_currency
@@ -156,10 +139,24 @@ module Cerner
       end
 
       def disclaimer
-        %(<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>\n)
+        '<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not '\
+        "guaranteed to yield the results shown on the site.</p>\n"
+      end
+
+      def deep_transform_values(value)
+        return CGI.escape_html(value) if value.is_a?(String)
+        return value unless value.is_a?(Hash)
+
+        value.transform_values do |val|
+          if val.is_a?(Array)
+            val.map! { |array_value| deep_transform_values(array_value) }
+          else
+            deep_transform_values(val)
+          end
+        end
       end
     end
   end
 end
 
-include Cerner::Resources::Helpers
+include Cerner::Resources::Helpers # rubocop:disable Style/MixinUsage

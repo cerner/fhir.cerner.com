@@ -58,7 +58,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -66,8 +66,8 @@ _Implementation Notes_
 ------------------|----------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------
  `_id`            | Yes or `slot-type`         | [`token`]     | The logical resource id associated with the resource.
  `slot-type`      | Yes or `_id`               | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `http://snomed.info/sct|394581000`
- `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/2578010`
- `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/1234`
+ `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `5678`
  `start`          | Yes when using `slot-type` | [`date`]      | The Slot date-time. Example: `2016`
  [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
  [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
@@ -75,7 +75,7 @@ _Implementation Notes_
 Notes:
 
 * The `slot-type`, `schedule.actor`, and `-location` parameters may be included only once.
-  For example, `-location=633867,4048128` is supported but `-location=633867&-location=4048128` is not.
+  For example, `-location=123,456` is supported but `-location=123&-location=456` is not.
 
 * `slot-type` is a required search parameter when `_id` is not provided.
 
@@ -84,12 +84,12 @@ Notes:
 
 * The `slot-type` parameter may contain standard codes or proprietary codes. If multiple `slot-type` parameters are used they must be either all standard codes or all proprietary codes.
   * When using standard codes, choose codes bound to Slot.type as noted in the [Terminology Bindings](#terminology-bindings) table above.
-  * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/codeSet/14249|4062744`
+  * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854`
 
 * The `start` parameter may be provided:
   * Once without a prefix or time component to imply a date range. (e.g. `&start=2016`, `&start=2016-07`, `&start=2016-07-04`)
   * Twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define
-    an upper and lower bound. (e.g. `&start=ge2014&date=lt2016`, `&start=ge2016-07&start=lt2017-07`)
+    an upper and lower bound. (e.g. `&start=ge2014&start=lt2016`, `&start=ge2016-07&start=lt2017-07`)
 
 * The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `slot-type` and `Scheduling Location` display.
 
@@ -109,7 +109,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2019&slot-type=http://snomed.info/sct|408443003&_count=5
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?schedule.actor=Practitioner/593923&start=2019&slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854
 
 #### Response
 
@@ -122,7 +122,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot?schedule.actor=Practitioner/2578010&start=2019&slot-type=http://snomed.info/sct|408443003&_count=5&_include=Slot:schedule
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?schedule.actor=Practitioner/593923&start=2019&slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854&_include=Slot:schedule
 
 #### Response
 
@@ -143,7 +143,7 @@ List an individual Schedule by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -153,7 +153,7 @@ List an individual Schedule by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Slot/21265426-633867-3121665-0
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/21265426-633867-3121665-0
 
 #### Response
 
