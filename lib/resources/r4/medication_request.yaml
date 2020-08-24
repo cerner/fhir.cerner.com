@@ -122,7 +122,7 @@ fields:
             "code": "352362"
           },
           {
-            "system": "https://fhir.cerner.com/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/synonym",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/synonym",
             "code": "2749131",
             "display": "amoxapine",
             "userSelected": true
