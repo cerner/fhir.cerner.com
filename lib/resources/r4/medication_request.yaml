@@ -120,12 +120,6 @@ fields:
           {
             "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
             "code": "352362"
-          },
-          {
-            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/synonym",
-            "code": "2749131",
-            "display": "amoxapine",
-            "userSelected": true
           }
         ],
         "text": "Acetaminophen"
