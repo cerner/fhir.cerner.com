@@ -766,8 +766,8 @@ This system is the category and is only for a pharmacy charge-only order. The co
 This system is the synonym id for an order and the ingredients.
 
     {
-      "system": "https://fhir.cerner.com/<Ehr source id>/synonym",
-      "code": "2762111",
-      "display": "lidocaine topical",
-      "userSelected": true
+      'system': 'https://fhir.cerner.com/<Ehr source id>/synonym',
+      'code': '2762111',
+      'display': 'lidocaine topical',
+      'userSelected': true
     }
