@@ -353,5 +353,9 @@ module Cerner
         R4_OBSERVATION_ENTRY
       ]
     }.freeze
+
+    R4_OBSERVATION_CREATE ||= {
+
+    }.freeze
   end
 end

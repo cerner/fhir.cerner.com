@@ -150,6 +150,66 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Create
+
+Create a new Observation.
+
+    POST /Observation
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: false) %> (Labs only)
+<%= authorization_types(provider: false, system: true) %> (Vitals and Labs)
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:observation, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation
+
+#### Body
+
+<%= json(:R4_OBSERVATION_CREATE) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 May 2020 17:23:14 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M-12793861
+Last-Modified: Wed, 14 May 2020 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`date`]: https://hl7.org/fhir/r4/search.html#date
