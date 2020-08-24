@@ -137,8 +137,8 @@ fields:
     - display: RxNorm
       system: https://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
-    - display: Cerner Medication Request Synonym's for orders
-      system: https://fhir.cerner.com/synonym
+    - display: Millennium Medication Order Synonym
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/synonym
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#medication-request-synonym
 - name: subject
   required: 'Yes'
