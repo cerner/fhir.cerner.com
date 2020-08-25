@@ -13,7 +13,7 @@ module Cerner
         },
         'text': {
           'status': 'generated',
-          'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: booked</p>'\
+          'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: Booked</p>'\
                  '<p><b>Service Type</b>: Established Patient</p><p><b>Start</b>: Jul  8, 2020  1:00 P.M. UTC</p>'\
                  '<p><b>End</b>: Jul  8, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Practitioner: Cerner Test, '\
                  'Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1</p></div>'
@@ -104,7 +104,7 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: noshow</p>'\
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: No Show</p>'\
                '<p><b>Service Type</b>: Video Visit</p><p><b>Start</b>: Jul 10, 2020  1:00 P.M. UTC</p><p><b>End</b>: '\
                'Jul 10, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Patient: SMART, NANCY, Practitioner: Applegate '\
                'MD, Christina, Location: MX Clinic 1</p><p><b>Video Visit</b>: Yes</p></div>'
