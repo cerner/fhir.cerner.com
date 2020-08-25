@@ -1,0 +1,40 @@
+---
+name: Location
+field_name_base_url: http://hl7.org/fhir/R4/location-definitions.html#Location
+fields:
+
+  - name: status
+    type: code
+    description: Indicates whether the location is still in use, e.g. Active | Inactive.
+    action: terminology
+    binding:
+      description: Indicates whether the location is still in use.
+      terminology:
+        - display: LocationStatus
+          system: http://hl7.org/fhir/location-status
+          info_link: https://hl7.org/fhir/r4/valueset-location-status.html
+
+  - name: mode
+    type: code
+    description: Indicates whether a resource instance represents a specific location or a class of locations, e.g. instance.
+    action: terminology
+    binding:
+      description: Indicates whether the location is still in use.
+      terminology:
+        - display: LocationMode
+          system: http://hl7.org/fhir/location-mode
+          info_link: https://hl7.org/fhir/r4/valueset-location-mode.html
+
+  - name: physicalType
+    type: List of CodeableConcept
+    description: Physical form of the location, e.g. building, room, vehicle, road.
+    action: terminology
+    binding:
+      description: Physical form of the location.
+      terminology:
+        - display: Location physicalType
+          system: http://terminology.hl7.org/CodeSystem/location-physical-type
+          info_link: http://hl7.org/fhir/R4/valueset-location-physical-type.html
+        - display: Millennium Location Types
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/222
+          info_link: http://localhost:3000/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-alias-type
