@@ -11,7 +11,10 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>: BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>: Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>: Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>' \
+               ': BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>' \
+               ': Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>' \
+               ': Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
       },
       'status': 'active',
       'name': 'BW 2 South',
@@ -67,7 +70,10 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>: BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>: Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>: Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>' \
+               ': BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>' \
+               ': Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>' \
+               ': Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
       },
       'status': 'active',
       'name': 'BW 2 South',
