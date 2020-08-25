@@ -157,6 +157,12 @@ The RelatedPerson Resource supports proprietary codes for:
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
 * RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
 
+<h4>Location</h4>
+
+The Location Resource supports proprietary codes for:
+
+* location.physicalType code is maintained in [Code Set 222 Location Alias Type](#code-set-222-location-alias-type)
+
 ### Medications
 
 <!-- use html header to avoid showing up in toc -->
@@ -376,6 +382,17 @@ This code set is extremely large and highly customized by clients. It maintains 
       "userSelected": true
     }
 
+##### Code Set 222 Location Alias Type
+
+This code set maintains the identifying values for a Location, such as BED, BUILDING, LAB etc.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/222",
+      "code": "NURSEUNIT",
+      "display": "Nurse Unit(s)",
+      "userSelected": true
+    }
+
 ##### Code Set 278 Organization Type
 
 This code set maintains the classification of Organizations, such as GOVT or INSURANCE.
@@ -385,7 +402,7 @@ This code set maintains the classification of Organizations, such as GOVT or INS
       "code": "1077",
       "display": "govt",
       "userSelected": true
-    }    
+    }
 
 ##### Code Set 319 Encounter Alias Type
 
@@ -418,7 +435,7 @@ This code set maintains the identifying values for an Organization, such as NPI,
       "code": "2343451",
       "display": "OID",
       "userSelected": true
-    }    
+    }
 
 ##### Code Set 351 Person Relationship Types
 

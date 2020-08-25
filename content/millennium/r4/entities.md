@@ -5,4 +5,5 @@ layout: api
 
 <%= render '/entities.*' %>
 
+* [Location](../entities/location)
 * [Organization](../entities/organization)
