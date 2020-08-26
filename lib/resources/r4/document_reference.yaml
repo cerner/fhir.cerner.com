@@ -19,7 +19,7 @@ fields:
   action:
   - create
   - update
-  description: Who/what authenticated the document
+  description: Which person or organization authenticates that this document is valid.
   note: The authenticator field is only supported with system access
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
   example: |
@@ -35,7 +35,7 @@ fields:
   action:
     - create
     - update
-  description: Who and/or what authored the document
+  description: Identifies who is responsible for adding the information to the document.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
   example: |
     {
@@ -51,7 +51,7 @@ fields:
   type: Reference
   action:
     - create
-  description: Who/what is the subject of the document
+  description: Who or what the document is about
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject
   example: |
     {
@@ -65,7 +65,7 @@ fields:
   type: Backbone Element
   action:
    - create
-  description: Clinical context of document
+  description: The clinical context in which the document was prepared.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
   example: |
    {
@@ -85,7 +85,7 @@ fields:
   type: Backbone Element
   action:
     - update
-  description: Clinical context of document
+  description: The clinical context in which the document was prepared.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
   example: |
     {
@@ -100,7 +100,7 @@ fields:
   type: Reference
   action:
     - create
-  description: Context of the document content
+  description: Describes the clinical encounter or type of care that the document content is associated with.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
     {
@@ -117,7 +117,7 @@ fields:
   action:
     - create
     - update
-  description: Time of service that is being documented
+  description: The time period over which the service that is described by the document was provided.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
   example: |
     {
@@ -132,7 +132,7 @@ fields:
   type: Attachment
   action:
   - create
-  description: Where to access the document
+  description: The document or URL of the document along with critical metadata to prove content has integrity.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
@@ -153,7 +153,7 @@ fields:
   type: Attachment
   action:
     - update
-  description: Where to access the document
+  description: The document or URL of the document along with critical metadata to prove content has integrity.
   note: attachment.conentType must match the contentType of the already existing document reference
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
@@ -195,7 +195,7 @@ fields:
       "status": "current"
     }
   binding:
-    description: The status of the document reference
+    description: The status of this document reference.
     terminology:
       - display: DocumentReference Status
         system: http://hl7.org/fhir/r4/codesystem-document-reference-status.html
@@ -237,7 +237,7 @@ fields:
   type: CodeableConcept
   action:
   - update
-  description: Precise type of clinical document
+  description: Specifies the particular kind of document referenced.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
@@ -253,7 +253,7 @@ fields:
       }
     }
   binding:
-    description: Precise type of clinical document
+    description: Specifies the particular kind of document referenced.
     terminology:
     - display: US Core DocumentReference Type
       system: http://loinc.org
@@ -267,7 +267,7 @@ fields:
   type: CodeableConcept
   action:
   - create
-  description: Physician Admission Note
+  description: Specifies the particular kind of document referenced.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
@@ -288,7 +288,7 @@ fields:
       }
     }
   binding:
-    description: Physician Admission Note
+    description: Specifies the particular kind of document referenced.
     terminology:
     - display: US Core DocumentReference Type
       system: http://loinc.org
