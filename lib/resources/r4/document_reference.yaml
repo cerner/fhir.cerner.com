@@ -52,7 +52,7 @@ fields:
         info_link: http://hl7.org/fhir/r4/valueset-composition-status.html
 
 - name: type
-  required: 'No'
+  required: 'Yes'
   type: CodeableConcept
   action:
     - create
@@ -101,7 +101,7 @@ fields:
   type: Reference
   action:
     - create
-  description: Who or what the document is about.
+  description: Who the document is about.
   note: Only patient references are supported.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject
   example: |
@@ -148,7 +148,7 @@ fields:
   type: BackboneElement
   action:
     - create
-  description: The document and format referenced. There may be multiple content element repetitions, each with a different format.
+  description: The document and format referenced.
   note: Must contain only one entry
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content
   example: |
@@ -156,7 +156,7 @@ fields:
       "content": [
         {
           "attachment": {
-            "contentType": "text/xml",
+            "contentType": "text/xml;charset=utf-8",
             "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
             "title": "title",
             "creation": "2020-07-29T21:02:04.000Z"
@@ -208,8 +208,8 @@ fields:
   type: Reference
   action:
     - create
-  description: Describes the clinical encounter or type of care that the document content is associated with.
-  note: must contain a single entry and an encounter reference with a valid millennium id.
+  description: Describes the clinical encounter that the document content is associated with.
+  note: Only encounter references are supported
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
     {
