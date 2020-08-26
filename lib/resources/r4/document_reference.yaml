@@ -82,7 +82,7 @@ fields:
 
 - name: context.period
   required: 'Yes'
-  type: Backbone Element
+  type: BackboneElement
   action:
     - create
   description: The time period over which the service that is described by the document was provided.
@@ -161,6 +161,7 @@ fields:
   action:
     - create
   description: current
+  note: The status of this document reference.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -192,6 +193,7 @@ fields:
   action:
   - create
   description: final | amended | entered-in-error
+  note: The status of the underlying document.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
