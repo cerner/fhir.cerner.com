@@ -69,7 +69,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066
+    GET https://fhir-ehr.sandboxcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference?patient=12724066
 
 #### Response
 
@@ -98,7 +98,7 @@ List an individual DocumentReference by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845
+    GET https://fhir-ehr.sandboxcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference/197292845
 
 #### Response
 

@@ -209,7 +209,7 @@ fields:
   action:
     - create
   description: Describes the clinical encounter or type of care that the document content is associated with.
-  note: must contain a single entry and an encounter reference with valid millennium id.
+  note: must contain a single entry and an encounter reference with a valid millennium id.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
     {
