@@ -41,7 +41,7 @@ The following extensions can also be returned:
 _Implementation Notes_
 
 * The API returns the most current patient list.
-* Returns the administrative gender only. Birth sex, if charted and configured, is returned from the Observation resource.   
+* Returns the administrative gender only. Birth sex, if charted and configured, is returned from the Observation resource.
 
 ### Parameters
 
