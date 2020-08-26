@@ -184,14 +184,14 @@ module Cerner
             'code': '83805-2',
             'userSelected': false
           }
-        ],
+        ]
       },
       'subject': {
         'reference': 'Patient/1415936'
       },
       'author': [
         {
-          'reference': 'Practitioner/123456',
+          'reference': 'Practitioner/123456'
         }
       ],
       'authenticator': {
