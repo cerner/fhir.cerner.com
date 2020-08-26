@@ -61,8 +61,8 @@ fields:
     }
 
 - name: context
-  required: 'No'
-  type: Backbone Element
+  required: 'Yes'
+  type: BackboneElement
   action:
    - create
   description: The clinical context in which the document was prepared.
@@ -80,13 +80,14 @@ fields:
      }
    }
 
-- name: context
-  required: 'No'
+- name: context.period
+  required: 'Yes'
   type: Backbone Element
   action:
-    - update
-  description: The clinical context in which the document was prepared.
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
+    - create
+  description: The time period over which the service that is described by the document was provided.
+  note: The period.end field is required; the period.start field is optional.  All dates require a time component.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
   example: |
     {
       "period": {
@@ -109,22 +110,6 @@ fields:
           "reference": "Encounter/123456"
         }
       ]
-    }
-
-- name: context.period
-  required: 'No'
-  type: Period
-  action:
-    - create
-    - update
-  description: The time period over which the service that is described by the document was provided.
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
-  example: |
-    {
-      "period": {
-        "start": "2020-01-01T00:00:00.000Z",
-        "end": "2020-01-01T01:00:00.000Z"
-      }
     }
 
 - name: content.attachment
@@ -287,15 +272,6 @@ fields:
         ],
       }
     }
-  binding:
-    description: Specifies the particular kind of document referenced.
-    terminology:
-    - display: US Core DocumentReference Type
-      system: http://loinc.org
-      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
-    - display: Millennium Event Code
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
 
 - name: category
   required: 'No'
