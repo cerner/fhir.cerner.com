@@ -174,48 +174,48 @@ module Cerner
     }.freeze
 
     R4_DOCUMENT_REFERENCE_POST ||= {
-      "resourceType": "DocumentReference",
-      "status": "current",
-      "docStatus": "final",
-      "type": {
-        "coding": [
+      'resourceType': 'DocumentReference',
+      'status': 'current',
+      'docStatus': 'final',
+      'type': {
+        'coding': [
           {
-            "system": "http://loinc.org",
-            "code": "83805-2",
-            "userSelected": false
+            'system': 'http://loinc.org',
+            'code': '83805-2',
+            'userSelected': false
           }
         ],
       },
-      "subject": {
-        "reference": "Patient/1415936"
+      'subject': {
+        'reference': 'Patient/1415936'
       },
-      "author": [
+      'author': [
         {
-          "reference": "Practitioner/123456",
+          'reference': 'Practitioner/123456',
         }
       ],
-      "authenticator": {
-        "reference": "Practitioner/123456"
+      'authenticator': {
+        'reference': 'Practitioner/123456'
       },
-      "content": [
+      'content': [
         {
-          "attachment": {
-            "contentType": "text/xml",
-            "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
-            "title": "title",
-            "creation": "2020-07-29T21:02:04.000Z"
+          'attachment': {
+            'contentType': 'text/xml',
+            'url': 'https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258',
+            'title': 'title',
+            'creation': '2020-07-29T21:02:04.000Z'
           }
         }
       ],
-      "context": {
-        "encounter": [
+      'context': {
+        'encounter': [
           {
-            "reference": "Encounter/123456"
+            'reference': 'Encounter/123456'
           }
         ],
-        "period": {
-          "start": "2020-01-01T00:00:00.000Z",
-          "end": "2020-01-01T01:00:00.000Z"
+        'period': {
+          'start': '2020-01-01T00:00:00.000Z',
+          'end': '2020-01-01T01:00:00.000Z'
         }
       }
     }.freeze

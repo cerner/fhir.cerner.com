@@ -259,12 +259,6 @@ fields:
       "type": {
         "coding": [
           {
-            "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
-            "code": "2820507",
-            "display": "Admission Note-Physician",
-            "userSelected": true
-          },
-          {
             "system": "http://loinc.org",
             "code": "83805-2",
             "userSelected": false
