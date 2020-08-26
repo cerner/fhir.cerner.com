@@ -19,7 +19,7 @@ fields:
   action:
     - create
   description: current
-  note: The status of this document reference.
+  note: The status of this document reference. Must be a supported Document Reference Status
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -38,7 +38,7 @@ fields:
   action:
     - create
   description: final | amended
-  note: The status of the underlying document.
+  note: The status of the underlying document. Must be a supported Composition Status
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
@@ -57,6 +57,7 @@ fields:
   action:
     - create
   description: Specifies the particular kind of document referenced.
+  note: Coding must include system and code, must not contain proprietary and standard codes together. If proprietary, must be from code set 72.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
@@ -116,7 +117,7 @@ fields:
   action:
     - create
   description: Identifies who is responsible for adding the information to the document.
-  note: The author field is optional for system access.  For provider access, only a single author can be provided, and the author must be the authorized provider.
+  note: The author field is optional for system access.  For provider access, only a single author can be provided, and the author must be the authorized provider. Must contain only Practitioner references with valid millennium ids.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
   example: |
     {
@@ -133,7 +134,7 @@ fields:
   action:
     - create
   description: Which person or organization authenticates that this document is valid.
-  note: The authenticator field is only supported with system access. This field cannot be populated for provider access.
+  note: The authenticator field is only supported with system access. This field cannot be populated for provider access. If set, must be a Practitioner reference with valid millennium id.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
   example: |
     {
@@ -144,10 +145,11 @@ fields:
 
 - name: content
   required: 'Yes'
-  type: Attachment
+  type: BackboneElement
   action:
     - create
   description: The document and format referenced. There may be multiple content element repetitions, each with a different format.
+  note: Must contain only one entry
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content
   example: |
    {
@@ -169,14 +171,15 @@ fields:
   action:
     - create
   description: The document or URL of the document along with critical metadata to prove content has integrity.
+  note: Data and content type must be provided. Content Type must include a supported MIME type and character set.
   url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
      "attachment": {
-            "contentType": "text/xml",
-            "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
+            "contentType": "application/xml;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
             "title": "title",
-            "creation": "2020-07-29T21:02:04.000Z"
+            "creation": "2020-01-15T14:35:29.000Z"
           }
    }
 
@@ -201,11 +204,12 @@ fields:
    }
 
 - name: context.encounter
-  required: 'No'
+  required: 'Yes'
   type: Reference
   action:
     - create
   description: Describes the clinical encounter or type of care that the document content is associated with.
+  note: must contain a single entry and an encounter reference with valid millennium id.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
     {
@@ -218,7 +222,7 @@ fields:
 
 - name: context.period
   required: 'Yes'
-  type: BackboneElement
+  type: Period
   action:
     - create
   description: The time period over which the service that is described by the document was provided.

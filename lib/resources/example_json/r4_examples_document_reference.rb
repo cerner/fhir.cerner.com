@@ -200,8 +200,8 @@ module Cerner
       'content': [
         {
           'attachment': {
-            'contentType': 'text/xml',
-            'url': 'https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258',
+            'contentType': 'application/xml;charset=utf-8',
+            'data': 'PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
             'title': 'title',
             'creation': '2020-07-29T21:02:04.000Z'
           }
