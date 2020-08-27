@@ -59,42 +59,26 @@ fields:
   description: Specifies the particular kind of document referenced.
   note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
-        Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
-        <br/><br/>
-        Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
       "type": {
         "coding": [
           {
-            "system": "http://loinc.org",
-            "code": "83805-2",
-            "userSelected": false
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '20732501',
+            'display': 'Height Weight Allergy Rule - Text',
+            'userSelected': true
           }
         ],
+        'text': 'Height Weight Allergy Rule - Text'
       }
     }
   binding:
     description: Specifies the particular kind of document referenced.
     terminology:
-    - display: LOINC Document Types
-      system: http://loinc.org
-      info_link: http://hl7.org/fhir/DSTU2/valueset-c80-doc-typecodes.html
-      values:
-      - 18842-5 - Discharge Summary
-      - 11488-4 - Consult Note
-      - 11506-3 - Provider-unspecified Progress Note
-      - 34840-9 - Rheumatology Note
-      - 34839-1 - Rheumatology Consult Note
-      - 68608-9 - Summary Note
-      - 34133-9 - Summary of episode Note
-      - 78280-5 - Surgery Education Note
-      note: Please note that the following is not the complete list of terminology bindings mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. This list also does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
-            <br/><br/>
-            Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
     - display: US Core DocumentReference Type
       system: http://loinc.org
       info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
@@ -144,7 +128,7 @@ fields:
     {
       "author": [
         {
-          "reference": "Practitioner/123456"
+          "reference": "Practitioner/2150097"
         }
       ]
     }
@@ -154,13 +138,13 @@ fields:
   type: Reference
   action:
     - create
-  description: Which person or organization authenticates that this document is valid.
+  description: Which person authenticates that this document is valid.
   note: If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
   example: |
     {
       "authenticator": {
-        "reference": "Practitioner/123456"
+        "reference": "Practitioner/21500981"
       }
     }
 
@@ -192,7 +176,7 @@ fields:
   action:
     - create
   description: The document or URL of the document along with critical metadata to prove content has integrity.
-  note: Data and content type must be provided. Content Type must include a supported MIME type and character set. The supported MIME Types are `application/pdf`, `text/rtf`, `text/html`, `application/xml`, and `application/xhtml+xml`
+  note: Data and content type must be provided.
   url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
@@ -202,6 +186,56 @@ fields:
             "title": "title",
             "creation": "2020-01-15T14:35:29.000Z"
           }
+   }
+
+- name: content.attachment.contentType
+  required: 'Yes'
+  type: Code
+  action:
+    - create
+  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported MIME Types are `application/pdf`, `text/rtf`, `text/html`, `application/xml`, and `application/xhtml+xml`
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
+  example: |
+   {
+     "contentType": "application/xml;charset=utf-8"
+   }
+
+- name: content.attachment.data
+  required: 'Yes'
+  type: base64Binary
+  action:
+    - create
+  description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+  note: must be provided.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
+  example: |
+   {
+     "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+   }
+
+- name: content.attachment.title
+  required: 'No'
+  type: Attachment
+  action:
+    - create
+  description: A label or set of text to display in place of the data.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
+  example: |
+   {
+     "title": "title"
+   }
+
+- name: content.attachment.creation
+  required: 'No'
+  type: dateTime
+  action:
+    - create
+  description: The date that the attachment was first created.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  example: |
+   {
+     "creation": "2020-01-15T14:35:29.000Z"
    }
 
 - name: context
@@ -215,7 +249,7 @@ fields:
    {
      "encounter": [
        {
-         "reference": "Encounter/123456"
+         "reference": "Encounter/4208053"
        }
      ],
      "period": {
@@ -236,7 +270,7 @@ fields:
     {
       "encounter": [
         {
-          "reference": "Encounter/123456"
+          "reference": "Encounter/4208053"
         }
       ]
     }

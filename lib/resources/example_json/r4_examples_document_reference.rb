@@ -180,11 +180,13 @@ module Cerner
       'type': {
         'coding': [
           {
-            'system': 'http://loinc.org',
-            'code': '83805-2',
-            'userSelected': false
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '20732501',
+            'display': 'Height Weight Allergy Rule - Text',
+            'userSelected': true
           }
-        ]
+        ],
+        'text': 'Height Weight Allergy Rule - Text'
       },
       'subject': {
         'reference': 'Patient/53663272'
