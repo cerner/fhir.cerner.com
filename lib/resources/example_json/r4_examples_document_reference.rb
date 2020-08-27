@@ -187,15 +187,15 @@ module Cerner
         ]
       },
       'subject': {
-        'reference': 'Patient/1415936'
+        'reference': 'Patient/53663272'
       },
       'author': [
         {
-          'reference': 'Practitioner/123456'
+          'reference': 'Practitioner/21500981'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/123456'
+        'reference': 'Practitioner/21500981'
       },
       'content': [
         {
@@ -210,7 +210,7 @@ module Cerner
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/123456'
+            'reference': 'Encounter/4208059'
           }
         ],
         'period': {

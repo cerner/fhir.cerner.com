@@ -69,7 +69,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference?patient=12724066
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066
 
 #### Response
 
@@ -98,7 +98,7 @@ List an individual DocumentReference by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference/197292845
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845
 
 #### Response
 
@@ -119,6 +119,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * All provided dates must have a time component.
+* Supported MIME Types: application/pdf, text/rtf, text/html, application/xml, and application/xhtml+xml
 
 ### Authorization Types
 
@@ -136,7 +137,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/DocumentReference
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference
 
 ### Body
 
@@ -151,7 +152,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Fri, 14 Feb 2020 22:05:40 GMT
 Etag: W/"12793861"
-Location: https://fhir-ehr-code.cerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/DocumentReference/16885181
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/16885181
 Server-Response-Time: 296.405243
 Status: 201 Created
 Vary: Origin

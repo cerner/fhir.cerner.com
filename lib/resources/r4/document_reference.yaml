@@ -18,8 +18,8 @@ fields:
   type: code
   action:
     - create
-  description: current
-  note: The status of this document reference. Must be a supported Document Reference Status
+  description: The status of this document reference.
+  note: Only `current` is supported
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -37,8 +37,8 @@ fields:
   type: code
   action:
     - create
-  description: final | amended
-  note: The status of the underlying document. Must be a supported Composition Status
+  description: The status of the underlying document. Must be a supported Composition Status
+  note: Only `final` is supported for provider access. `final` and `amended` are supported for system access.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
@@ -57,7 +57,13 @@ fields:
   action:
     - create
   description: Specifies the particular kind of document referenced.
-  note: Coding must include system and code, must not contain proprietary and standard codes together. If proprietary, must be from code set 72.
+  note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
+        <br/><br/>
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72'.
+        <br/><br/>
+        Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
+        <br/><br/>
+        Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
@@ -74,6 +80,21 @@ fields:
   binding:
     description: Specifies the particular kind of document referenced.
     terminology:
+    - display: LOINC Document Types
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/DSTU2/valueset-c80-doc-typecodes.html
+      values:
+      - 18842-5 - Discharge Summary
+      - 11488-4 - Consult Note
+      - 11506-3 - Provider-unspecified Progress Note
+      - 34840-9 - Rheumatology Note
+      - 34839-1 - Rheumatology Consult Note
+      - 68608-9 - Summary Note
+      - 34133-9 - Summary of episode Note
+      - 78280-5 - Surgery Education Note
+      note: Please note that the following is not the complete list of terminology bindings mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. This list also does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites.
+            <br/><br/>
+            Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.
     - display: US Core DocumentReference Type
       system: http://loinc.org
       info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
@@ -117,7 +138,7 @@ fields:
   action:
     - create
   description: Identifies who is responsible for adding the information to the document.
-  note: The author field is optional for system access.  For provider access, only a single author can be provided, and the author must be the authorized provider. Must contain only Practitioner references with valid millennium ids.
+  note: Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
   example: |
     {
@@ -134,7 +155,7 @@ fields:
   action:
     - create
   description: Which person or organization authenticates that this document is valid.
-  note: The authenticator field is only supported with system access. This field cannot be populated for provider access. If set, must be a Practitioner reference with valid millennium id.
+  note: If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
   example: |
     {
@@ -157,7 +178,7 @@ fields:
         {
           "attachment": {
             "contentType": "text/xml;charset=utf-8",
-            "url": "https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/R-17821258",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
             "title": "title",
             "creation": "2020-07-29T21:02:04.000Z"
           }
@@ -171,7 +192,7 @@ fields:
   action:
     - create
   description: The document or URL of the document along with critical metadata to prove content has integrity.
-  note: Data and content type must be provided. Content Type must include a supported MIME type and character set.
+  note: Data and content type must be provided. Content Type must include a supported MIME type and character set. The supported MIME Types are `application/pdf`, `text/rtf`, `text/html`, `application/xml`, and `application/xhtml+xml`
   url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
@@ -204,12 +225,12 @@ fields:
    }
 
 - name: context.encounter
-  required: 'Yes'
+  required: 'No'
   type: Reference
   action:
     - create
   description: Describes the clinical encounter that the document content is associated with.
-  note: Only encounter references are supported
+  note: Only a single encounter reference is supported.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter
   example: |
     {
