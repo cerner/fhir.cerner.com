@@ -329,7 +329,7 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -549,7 +549,7 @@
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-1">Headers</h3>
@@ -664,7 +664,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/3005756
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817572
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -673,19 +673,19 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
-  "id": "4817663",
+  "id": "4817572",
   "meta": {
-    "versionId": "1-1",
-    "lastUpdated": "2020-07-14T19:23:46.000Z"
+    "versionId": "2-1",
+    "lastUpdated": "2020-07-11T05:05:01.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Video Visit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Aug  3, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Aug  3, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: noshow&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Video Visit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul 10, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul 10, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Patient: SMART, NANCY, Practitioner: Applegate MD, Christina, Location: MX Clinic 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
   },
   "contained": [
     {
       "resourceType": "HealthcareService",
-      "id": "33",
+      "id": "28",
       "type": [
         {
           "text": "Patient Virtual Meeting Room"
@@ -696,15 +696,15 @@
           "system": "url",
           "value": "https://www.google.com/",
           "period": {
-            "start": "2020-08-03T08:00:00.000Z",
-            "end": "2020-08-03T23:10:00.000Z"
+            "start": "2020-07-13T08:00:00.000Z",
+            "end": "2020-07-13T08:10:00.000Z"
           }
         }
       ]
     },
     {
       "resourceType": "HealthcareService",
-      "id": "36",
+      "id": "31",
       "type": [
         {
           "text": "Provider Virtual Meeting Room"
@@ -715,14 +715,14 @@
           "system": "url",
           "value": "https://www.google.com/",
           "period": {
-            "start": "2020-08-03T08:00:00.000Z",
-            "end": "2020-08-03T23:10:00.000Z"
+            "start": "2020-07-13T08:00:00.000Z",
+            "end": "2020-07-13T08:10:00.000Z"
           }
         }
       ]
     }
   ],
-  "status": "booked",
+  "status": "noshow",
   "serviceType": [
     {
       "coding": [
@@ -738,34 +738,14 @@
   ],
   "reasonCode": [
     {
-      "text": "Test Video Appointment"
+      "text": "Testing Video Visit"
     }
   ],
   "description": "Video Visit",
-  "start": "2020-08-03T13:00:00.000Z",
-  "end": "2020-08-03T13:15:00.000Z",
+  "start": "2020-07-10T13:00:00.000Z",
+  "end": "2020-07-10T13:15:00.000Z",
   "minutesDuration": 15,
-  "comment": "Test Video Visit Appointment Create and PATCH",
   "participant": [
-    {
-      "type": [
-        {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-              "code": "PPRF",
-              "display": "primary performer"
-            }
-          ]
-        }
-      ],
-      "actor": {
-        "reference": "Practitioner/593923",
-        "display": "Cerner Test, Physician - Primary Care Cerner"
-      },
-      "required": "required",
-      "status": "accepted"
-    },
     {
       "type": [
         {
@@ -788,6 +768,36 @@
       "status": "accepted"
     },
     {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+              "code": "4574",
+              "display": "Resource",
+              "userSelected": true
+            }
+          ],
+          "text": "Resource"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "PPRF",
+              "display": "primary performer"
+            }
+          ]
+        }
+      ],
+      "actor": {
+        "reference": "Practitioner/593923",
+        "display": "Applegate MD, Christina"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
       "actor": {
         "reference": "Location/21304876",
         "display": "MX Clinic 1"
@@ -802,7 +812,7 @@
         }
       ],
       "actor": {
-        "reference": "#33"
+        "reference": "#28"
       },
       "status": "accepted"
     },
@@ -813,15 +823,15 @@
         }
       ],
       "actor": {
-        "reference": "#36"
+        "reference": "#31"
       },
       "status": "accepted"
     }
   ],
   "requestedPeriod": [
     {
-      "start": "2020-08-03T13:00:00.000Z",
-      "end": "2020-08-03T13:15:00.000Z"
+      "start": "2020-07-10T13:00:00.000Z",
+      "end": "2020-07-10T13:15:00.000Z"
     }
   ]
 }</code></pre>
@@ -842,6 +852,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
+  <li>For Video Visit link patch operations, both read and write scopes are required.</li>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
   <li>For Video Visit link patch operation paths, <code>contained</code> index 0 represents the provider link and <code>contained</code> index 1 represents the patient link.</li>
@@ -851,7 +862,7 @@
 <h3 id="authorization-types-2">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-2">Headers</h3>
@@ -1664,7 +1675,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 <h3 id="authorization-types-3">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="practitioner">Practitioner</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-3">Headers</h3>
