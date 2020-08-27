@@ -54,12 +54,21 @@ Search for Practitioners that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=4122622
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_bundle) %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_practitioner_patient_access_bundle) %>
 
 ### Errors
 
@@ -89,6 +98,15 @@ List an individual Practitioner by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_entry) %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_practitioner_patient_access_entry) %>
 
 ### Errors
 
