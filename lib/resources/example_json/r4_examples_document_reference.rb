@@ -172,5 +172,55 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_DOCUMENT_REFERENCE_POST ||= {
+      'resourceType': 'DocumentReference',
+      'status': 'current',
+      'docStatus': 'final',
+      'type': {
+        'coding': [
+          {
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '20732501',
+            'display': 'Height Weight Allergy Rule - Text',
+            'userSelected': true
+          }
+        ],
+        'text': 'Height Weight Allergy Rule - Text'
+      },
+      'subject': {
+        'reference': 'Patient/53663272'
+      },
+      'author': [
+        {
+          'reference': 'Practitioner/21500981'
+        }
+      ],
+      'authenticator': {
+        'reference': 'Practitioner/21500981'
+      },
+      'content': [
+        {
+          'attachment': {
+            'contentType': 'application/xml;charset=utf-8',
+            'data': 'PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
+            'title': 'Height Weight Allergy Rule',
+            'creation': '2020-07-29T21:02:04.000Z'
+          }
+        }
+      ],
+      'context': {
+        'encounter': [
+          {
+            'reference': 'Encounter/4208059'
+          }
+        ],
+        'period': {
+          'start': '2020-01-01T00:00:00.000Z',
+          'end': '2020-01-01T01:00:00.000Z'
+        }
+      }
+    }.freeze
+
   end
 end
