@@ -204,7 +204,7 @@ module Cerner
           'attachment': {
             'contentType': 'application/xml;charset=utf-8',
             'data': 'PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
-            'title': 'title',
+            'title': 'Height Weight Allergy Rule',
             'creation': '2020-07-29T21:02:04.000Z'
           }
         }

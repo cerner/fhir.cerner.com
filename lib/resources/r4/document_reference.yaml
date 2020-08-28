@@ -37,7 +37,7 @@ fields:
   type: code
   action:
     - create
-  description: The status of the underlying document. Must be a supported Composition Status
+  description: The status of the underlying document.
   note: Only `final` is supported for provider access. `final` and `amended` are supported for system access.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
@@ -163,7 +163,7 @@ fields:
           "attachment": {
             "contentType": "text/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "title",
+            "title": "Summary Note",
             "creation": "2020-07-29T21:02:04.000Z"
           }
         }
@@ -183,7 +183,7 @@ fields:
      "attachment": {
             "contentType": "application/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "title",
+            "title": "Summary Note",
             "creation": "2020-01-15T14:35:29.000Z"
           }
    }
@@ -194,7 +194,7 @@ fields:
   action:
     - create
   description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
-  note: Must be provided. Content Type must include a supported MIME type and character set. The supported MIME Types are `application/pdf`, `text/rtf`, `text/html`, `application/xml`, and `application/xhtml+xml`
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
   example: |
    {
@@ -207,7 +207,6 @@ fields:
   action:
     - create
   description: The actual data of the attachment - a sequence of bytes, base64 encoded.
-  note: must be provided.
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
   example: |
    {
@@ -223,7 +222,7 @@ fields:
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
   example: |
    {
-     "title": "title"
+     "title": "Summary Note"
    }
 
 - name: content.attachment.creation
@@ -233,6 +232,7 @@ fields:
     - create
   description: The date that the attachment was first created.
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  note: A time component must be provided with the date.
   example: |
    {
      "creation": "2020-01-15T14:35:29.000Z"
