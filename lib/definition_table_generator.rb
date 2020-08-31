@@ -94,6 +94,7 @@ class DefinitionTableGenerator
         description: get_value(field['description']),
         example: get_value(field['example']),
         example2: get_value(field['example2']),
+        example3: get_value(field['example3']),
         note: get_value(field['note']),
         binding: get_value(field['binding']),
         url: url

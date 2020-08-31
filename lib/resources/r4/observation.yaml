@@ -13,7 +13,7 @@ fields:
   note: |
     <ul>
       <li> resourceType must be Observation. </li>
-    </ul>  
+    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
 
 - name: status
@@ -29,10 +29,10 @@ fields:
     <ul>
       <li> Status codes `final`, `amended` and `corrected` are supported. </li>
     </ul>
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.status  
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.status
 
 - name: category
-  required: 'No'
+  required: 'Yes'
   type: List of CodeableConcept
   description: A code that classifies the general type of observation being made.
   action:
@@ -43,7 +43,7 @@ fields:
     terminology:
     - display: Observation Category Codes
       system: http://terminology.hl7.org/CodeSystem/observation-category
-      info_link: https://hl7.org/fhir/R4/valueset-observation-category.html 
+      info_link: https://hl7.org/fhir/R4/valueset-observation-category.html
   example: |
     {
       "category": [
@@ -63,7 +63,10 @@ fields:
     <ul>
       <li> `Vital Signs` and `Laboratory` categories are supported. </li>
     </ul>
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category      
+    <ul>
+      <li> Only one category may be supplied on create. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category
 
 - name: code
   required: 'Yes'
@@ -113,8 +116,8 @@ fields:
         ],
         "text": 'Height/Length Measured'
       }
-    }  
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code         
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
 
 - name: subject
   required: 'Yes'
@@ -131,7 +134,7 @@ fields:
     <ul>
       <li> Must only include references to Patient. </li>
     </ul>
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject 
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject
 
 - name: encounter
   required: 'No'
@@ -158,7 +161,7 @@ fields:
   note: |
     <ul>
       <li> Only a type of dateTime is supported. </li>
-    </ul>  
+    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective[x]
 
 - name: issued
@@ -184,8 +187,8 @@ fields:
   note: |
     <ul>
       <li> Must be a reference to Patient. </li>
-      <li> Vitals can have upto two perofrmers. </li>
-    </ul>      
+      <li> Vital Signs supports up to two performers. </li>
+    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
 - name: performer.extension
@@ -213,14 +216,14 @@ fields:
     }
   note: |
     <ul>
-      <li> Vitals support extensions on performer. </li>
+      <li> Vital Signs support extensions on performer. </li>
        <li> Only `LA` or `PPRF` extensions are supported </li>
-    </ul>      
+    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
 - name: value[x]
   required: 'Yes'
-  type: Quantity|CodeableConcept|string|time|dateTime
+  type: Quantity|CodeableConcept|string|dateTime
   description: Value of the observation.
   action: create
   example: |
@@ -250,19 +253,15 @@ fields:
     {
       "valueString": '2'
     }
-  example4: |
-    {
-      "valueTime": '09:00:00-06:00'
-    }
-  example5: |
-    {
-      "valueDateTime": '2020-03-05T09:00:00-06:00'
-    }      
   note: |
     <ul>
-      <li> Vitals support `valueQuantity`, `valueCodeableConcept`, `valueString`, `valueTime` and `valueDateTime` </li>
-    </ul>  
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]      
+      <li> Vital Signs support writing observations with `valueQuantity` </li>
+    </ul>
+
+    <ul>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`and `valueString` </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
 - name: dataAbsentReason
   required: 'No'
@@ -275,6 +274,17 @@ fields:
     - display: v4 data absentreason
       system: http://terminology.hl7.org/CodeSystem/data-absent-reason
       info_link: https://hl7.org/fhir/R4/valueset-data-absent-reason.html
+
+- name: valueCodeableConcept
+  type: CodeableConcept
+  description: Codes for value of the observation.
+  action: terminolgy
+  binding:
+    description: Codes for value of the observation.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/R4/snomedct.html
 
 - name: interpretation
   required: 'No'
@@ -315,9 +325,9 @@ fields:
     }
   note: |
     <ul>
-      <li> Supports only one intrpretation </li>
-    </ul>  
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation 
+      <li> Only one interpretation may be supplied. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation
 
 - name: note
   required: 'No'
@@ -376,8 +386,8 @@ fields:
     <ul>
       <li> Only one referenceRange is supported </li>
       <li> ReferenceRange.text is not supported when referenceRange.high and/or referenceRange.low are provided </li>
-    </ul>  
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange   
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
 
 - name: referenceRange.low
   required: 'No'
@@ -393,12 +403,12 @@ fields:
         "code": 'Cel'
       }
     }
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low  
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low
 
 - name: referenceRange.high
   required: 'No'
   type: SimpleQuantity
-  description: Higher bound of the reference range.
+  description: Upper bound of the reference range.
   action: create
   example: |
     {
@@ -409,7 +419,7 @@ fields:
         "code": 'Cel'
       }
     }
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high 
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high
 
 - name: referenceRange.text
   required: 'No'
@@ -419,7 +429,7 @@ fields:
   example: |
     {
       "text": 'Negative'
-    } 
+    }
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text
 
 - name: referenceRange.type
@@ -442,9 +452,9 @@ fields:
     }
   note: |
     <ul>
-      <li> ReferenceRange.type should be normal </li>
-    </ul>  
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type    
+      <li> Only a ReferenceRange.type of normal is supported </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type
 
 - name: component
   required: 'No'

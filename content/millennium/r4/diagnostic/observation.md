@@ -28,6 +28,8 @@ The following fields are returned if valued:
 * For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
     * [Quantity units](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
+* For Observations with `valueCodeableConcept`
+    * [Codeable concept](https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept){:target="_blank"}   
 * [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation (abnormal flagging)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note (comments)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
@@ -180,9 +182,13 @@ _Implementation Notes_
 
     POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation
 
-#### Body
+#### Vitals Body Example
 
 <%= json(:R4_OBSERVATION_CREATE) %>
+
+#### Labs Body Example
+
+<%= json(:R4_OBSERVATION_LABS_CREATE) %>
 
 #### Response
 

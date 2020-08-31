@@ -36,6 +36,10 @@
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre><%= item[:example2] %></pre></li></ul>
       <%end%>
+      <% unless item[:example3].nil? %>
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre><%= item[:example3] %></pre></li></ul>
+      <%end%>
       <% unless item[:note].nil? %>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li><%= item[:note] %></li></ul>
