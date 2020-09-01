@@ -22,20 +22,20 @@ The following fields are returned if valued:
 * [Priority](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority){:target="_blank"}
 * [Subject](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject){:target="_blank"}
 * [Participant:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant){:target="_blank"}
-   * [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
-   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
+  * [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
+  * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
 * [Start/end time of the encounter](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period){:target="_blank"}
 * [Reason for visit](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
 * [Hospitalization:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization){:target="_blank"}
-   * [Admit source](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
-   * [Diet preference](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
-   * [Special courtesy](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
-   * [Special arrangement](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
-   * [Discharge destination](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
-   * [Discharge disposition](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
+  * [Admit source](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
+  * [Diet preference](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
+  * [Special courtesy](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
+  * [Special arrangement](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
+  * [Discharge destination](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+  * [Discharge disposition](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
 * [Location:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location){:target="_blank"}
-   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
-   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
+  * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
+  * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
 * [Extensions including client organization, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
 
@@ -84,7 +84,7 @@ _Implementation Notes_
 ### Parameters
 
  Name       | Required?                                   | Type          | Description
-------------|---------------------------------------------|---------------|-------------------------------------------------------------------------------------------------------
+------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
  `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
  `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
  `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
