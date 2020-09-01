@@ -387,15 +387,12 @@ module Cerner
             "reference": "Patient/1307954"
         },
         "effectiveDateTime": "2020-07-04T07:15:00Z",
-        "extension": [
-            {
-                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment",
-                "valueAttachment": {
-                    "contentType": "application/rtf",
-                    "data": "VGhpcyBpc24ndCBSVEYsIGJ1dCB5b3UgZ2V0IHRoZSBpZGVhLi4u"
-                }
-            }
-        ]
+        "valueQuantity": {
+            "value": 42,
+            "unit": "mg/dL",
+            "code": "mg/dL",
+            "system": "http://unitsofmeasure.org"
+        }
     }
   end
 end

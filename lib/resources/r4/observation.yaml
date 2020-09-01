@@ -147,7 +147,7 @@ fields:
         "reference": "Encounter/631923"
       }
     }
-  url: https://hl7.org/fhir/r4/condition-definitions.html#Condition.encounter
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.encounter
 
 - name: effective[x]
   required: 'Yes'
@@ -162,7 +162,7 @@ fields:
     <ul>
       <li> Only a type of dateTime is supported. </li>
     </ul>
-  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective[x]
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_
 
 - name: issued
   required: 'No'
@@ -186,14 +186,14 @@ fields:
     }
   note: |
     <ul>
-      <li> Must be a reference to Patient. </li>
+      <li> Must be a reference to Practitioner. </li>
       <li> Vital Signs supports up to two performers. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
 - name: performer.extension
-  required: 'Yes'
-  type: List of Reference
+  required: 'No'
+  type: performerFunction
   description:  Distinguishes the type of involvement of the performer in the event.
   action: create
   example: |
@@ -218,12 +218,13 @@ fields:
     <ul>
       <li> Vital Signs support extensions on performer. </li>
        <li> Only `LA` or `PPRF` extensions are supported </li>
+       <li> Laboratory doesn't support performer extensions. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
 - name: value[x]
   required: 'Yes'
-  type: Quantity|CodeableConcept|string|dateTime
+  type: Quantity|CodeableConcept|string
   description: Value of the observation.
   action: create
   example: |
@@ -312,17 +313,28 @@ fields:
               "code": '211',
               "display": 'LOW',
               "userSelected": true
-            },
-            {
-              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
-              "code": 'L',
-              "display": 'Low'
             }
           ],
           "text": 'LOW'
         }
       ]
     }
+  example2: |
+    {
+      "interpretation": [
+        {
+          "coding": [
+            {
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                "code": 'L',
+                "display": 'Low'
+              }
+            ],
+            "text": 'LOW'
+          }
+        ]
+      }
   note: |
     <ul>
       <li> Only one interpretation may be supplied. </li>
@@ -346,7 +358,7 @@ fields:
         }
       ]
     }
-  url: https://hl7.org/fhir/r4/condition-definitions.html#Observation.note
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.note
 
 - name: referenceRange
   required: 'No'
@@ -433,7 +445,7 @@ fields:
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text
 
 - name: referenceRange.type
-  required: 'Yes'
+  required: 'No'
   type: CodeableConcept
   description: Codes to indicate the what part of the targeted reference population it applies to.
   action: create
