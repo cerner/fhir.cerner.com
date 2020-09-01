@@ -436,14 +436,7 @@ module Cerner
                 "reference": "Practitioner/1477926"
             },
             "time": "2020-07-30T20:42:15.000Z",
-            "text": "Potassium level result comments. Testing comments via FHIR Observation write."
-        },
-        {
-            "authorReference": {
-                "reference": "Practitioner/1477926"
-            },
-            "time": "2020-07-30T17:42:15.000Z",
-            "text": "Multiple notes coming in via FHIR"
+            "text": "Specimen slightly hemolyzed."
         }
     ]
     }
