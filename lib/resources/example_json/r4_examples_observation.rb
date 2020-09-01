@@ -359,40 +359,93 @@ module Cerner
     }.freeze
 
       R4_OBSERVATION_LABS_CREATE ||= {
-        "resourceType": "Observation",
-        "status": "final",
-        "category": [
-            {
-                "coding": [
-                    {
-                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-                        "code": "laboratory",
-                        "display": "Test Lab Result"
-                    }
-                ]
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [
+      {
+          "coding": [
+              {
+                  "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                  "code": "laboratory",
+                  "display": "Laboratory"
+              }
+          ],
+          "text": "Laboratory"
+      }
+      ],
+      "code": {
+          "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "718-7",
+                "display": "Hemoglobin [Mass/volume] in Blood"
             }
-        ],
-        "code": {
+          ],
+          "text": "Hemoglobin"
+      },
+  "subject": {
+    "reference": "Patient/2798003"
+  },
+  "encounter": {
+    "reference": "Encounter/2673896"
+  },
+  "issued": "2020-07-30T20:42:00.000Z",
+  "effectiveDateTime": "2020-07-30T20:42:00.000Z",
+  "performer": [
+                    {
+                        "reference": "Practitioner/1477926"
+                    }
+                ],
+   "valueQuantity": {
+       "value": "13.2",
+       "unit": "mg/dL",
+       "system": "http://unitsofmeasure.org",
+       "code": "mg/dL"
+   },
+   "interpretation": [
+          {
             "coding": [
-                {
-                    "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
-                    "code": "23257247",
-                    "display": "Hep B Core Ab IgM",
-                    "userSelected": true
-                }
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
             ],
-            "text": "Hep B Core Ab IgM"
+            "text": "Normal"
+          }
+        ],
+    "referenceRange": [
+          {
+            "low": {
+              "value": 12.0,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            },
+            "high": {
+              "value": 15.5,
+              "unit": "g/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "g/dL"
+            }
+          }
+        ],
+    "note": [
+        {
+            "authorReference": {
+                "reference": "Practitioner/1477926"
+            },
+            "time": "2020-07-30T20:42:15.000Z",
+            "text": "Potassium level result comments. Testing comments via FHIR Observation write."
         },
-        "subject": {
-            "reference": "Patient/1307954"
-        },
-        "effectiveDateTime": "2020-07-04T07:15:00Z",
-        "valueQuantity": {
-            "value": 42,
-            "unit": "mg/dL",
-            "code": "mg/dL",
-            "system": "http://unitsofmeasure.org"
+        {
+            "authorReference": {
+                "reference": "Practitioner/1477926"
+            },
+            "time": "2020-07-30T17:42:15.000Z",
+            "text": "Multiple notes coming in via FHIR"
         }
+    ]
     }
   end
 end
