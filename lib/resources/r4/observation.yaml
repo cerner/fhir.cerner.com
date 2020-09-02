@@ -216,9 +216,8 @@ fields:
     }
   note: |
     <ul>
-      <li> Vital Signs support extensions on performer. </li>
        <li> Only `LA` or `PPRF` extensions are supported </li>
-       <li> Performer extensions aren't supported for Laboratory. </li>
+       <li> Performer extensions are only supported for Vital Signs. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
