@@ -162,7 +162,7 @@ The RelatedPerson Resource supports proprietary codes for:
 
 The Location Resource supports proprietary codes for:
 
-* location.physicalType code is maintained in [Code Set 222 Location Alias Type](#code-set-222-location-alias-type)
+* location.physicalType code is maintained in [Code Set 222 Location Type](#code-set-222-location-type)
 
 ### Medications
 
@@ -383,13 +383,13 @@ This code set is extremely large and highly customized by clients. It maintains 
       "userSelected": true
     }
 
-##### Code Set 222 Location Alias Type
+##### Code Set 222 Location Type
 
-This code set maintains the identifying values for a Location, such as BED, BUILDING, LAB etc.
+This code set maintains the location types, such as BUILDING, NURSEUNIT, BED etc.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/222",
-      "code": "NURSEUNIT",
+      "code": "794",
       "display": "Nurse Unit(s)",
       "userSelected": true
     }

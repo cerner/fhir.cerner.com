@@ -12,7 +12,7 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>' \
-               ': BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>' \
+               ': BW 2 South</p><p><b>Alias</b>:</p>BW2S<p><b>Managing Organization</b>' \
                ': Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>' \
                ': Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
       },
@@ -45,7 +45,7 @@ module Cerner
         'coding': [
           {
             'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
-            'code': 'NURSEUNIT',
+            'code': '794',
             'display': 'Nurse Unit(s)',
             'userSelected': true
           }
@@ -71,7 +71,7 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>' \
-               ': BW 2 South</p><p><b>Alias</b>:</p><ul><li>BW2S</li></ul><p><b>Managing Organization</b>' \
+               ': BW 2 South</p><p><b>Alias</b>:</p>BW2S<p><b>Managing Organization</b>' \
                ': Baseline West Medical Center</p><p><b>Part of</b>: 4062767</p><p><b>Physical Type</b>' \
                ': Nurse Unit(s)</p><p><b>Status</b>: Active</p></div>'
       },
@@ -104,7 +104,7 @@ module Cerner
         'coding': [
           {
             'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
-            'code': 'NURSEUNIT',
+            'code': '794',
             'display': 'Nurse Unit(s)',
             'userSelected': true
           }
