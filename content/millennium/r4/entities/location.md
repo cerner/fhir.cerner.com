@@ -9,17 +9,17 @@ title: Location | R4 API
 
 ## Overview
 
-Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
+The Location resource describes physical places where healthcare services are provided.  In Millennium, facilities are the top level of the patient location hierarchy.  A facility is also an Organization resource at which patient locations are associated.  All facilities are organizations, but not all organizations are facilities.  A location can also be an ambulatory patient care area like a clinic or an emergency room.  The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
 
 The following fields are returned if valued:
 
-* [Location Identifier](http://hl7.org/fhir/R4/location-definitions.html#Location.identifier){:target="_blank"}
+* [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
 * [Mode](http://hl7.org/fhir/R4/location-definitions.html#Location.mode){:target="_blank"}
-* [Contact Information](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
+* [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
