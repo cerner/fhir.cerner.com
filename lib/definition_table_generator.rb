@@ -194,7 +194,10 @@ class DefinitionTableGenerator
     end
 
     # Activate local links
-    results = results.gsub(/\[(\w+)\]/) do |match|
+    # This regex used to use \w, but now it assumes that only letters will be inside links to be activated
+    # If we want to maintain more of the functionality of \w, something like this could be used:
+    # /(?!\[\d+\])\[\w+\]/
+    results = results.gsub(/\[([A-Za-z]+)\]/) do |match|
       tag = match.tr('[]', '')
       "<a href=\"##{@table_name}-#{tag}\">#{tag}</a>"
     end
