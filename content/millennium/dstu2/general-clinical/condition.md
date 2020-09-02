@@ -127,13 +127,13 @@ Create a new condition.
 
 _Implementation Notes_
 
-* A few restrictions are in place based on `Condition.category`
+* The following restrictions are in place based on `Condition.category`:
   * For Conditions with a category code of [diagnosis](http://hl7.org/fhir/dstu2/valueset-condition-category.html):
-    * `Condition.encounter` is required
-    * `Condition.abatementDateTime` is not supported
+    * `Condition.encounter` is required.
+    * `Condition.abatementDateTime` is not supported.
   * For Conditions with a category code of [problem](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes):
-    * If `Condition.dateRecorded` is set on the request body, its value will currently be ignored
-  * Creating Conditions with a category code of [health-concern](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes) is not currently supported
+    * If `Condition.dateRecorded` is set on the request body, its value will currently be ignored.
+  * Creating Conditions with a category code of [health-concern](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes) is not currently supported.
 
 ### Authorization Types
 
