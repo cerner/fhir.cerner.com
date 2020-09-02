@@ -174,7 +174,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Mon, 06 Apr 2020 19:00:43 GMT
 Etag: W/"1"
-Location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/17228728
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/17228728
 Last-Modified: Mon, 06 Apr 2020 19:00:43 GMT
 Vary: Origin
 X-Request-Id: 2e11665d-618d-4017-9a90-c3c1afeeac00

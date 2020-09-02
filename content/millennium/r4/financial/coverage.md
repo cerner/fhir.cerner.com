@@ -175,12 +175,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-<<<<<<< HEAD
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
-Server-Response-Time: 3890.363996
-=======
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Coverage/31363178-11500257
->>>>>>> ee8b9b0... Remove non-purposefully added response headers, standardize response header formatting. Fixes #397
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>

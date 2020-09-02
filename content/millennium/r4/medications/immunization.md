@@ -201,6 +201,7 @@ Date: Sun, 30 Jun 2019 10:35:00 GMT
 Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
+Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>
 

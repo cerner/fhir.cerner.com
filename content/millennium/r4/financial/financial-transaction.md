@@ -90,12 +90,7 @@ Content-Type: application/fhir+json
 Date: Mon, 04 Nov 2019 16:23:57 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:57 GMT
-<<<<<<< HEAD
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-14266754
-Status: 201 Created
-=======
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-14266754
->>>>>>> a9eafa7... Remove Status header
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>
@@ -122,16 +117,7 @@ Content-Type: application/fhir+json
 Date: Mon, 04 Nov 2019 16:23:59 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:59 GMT
-<<<<<<< HEAD
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-74389581
-Server-Response-Time: 3890.363996
-=======
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-74389581
-<<<<<<< HEAD
->>>>>>> ee8b9b0... Remove non-purposefully added response headers, standardize response header formatting. Fixes #397
-Status: 201 Created
-=======
->>>>>>> a9eafa7... Remove Status header
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea69
 </pre>
@@ -158,16 +144,7 @@ Content-Type: application/fhir+json
 Date: Mon, 04 Nov 2019 16:23:58 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
-<<<<<<< HEAD
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-3335800133
-Server-Response-Time: 3890.363996
-=======
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Basic/FT-PL-3335800133
-<<<<<<< HEAD
->>>>>>> ee8b9b0... Remove non-purposefully added response headers, standardize response header formatting. Fixes #397
-Status: 201 Created
-=======
->>>>>>> a9eafa7... Remove Status header
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
 </pre>
