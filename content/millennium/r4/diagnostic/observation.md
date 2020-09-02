@@ -165,8 +165,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: false) %> (Labs only)
-<%= authorization_types(provider: false, system: true) %> (Vitals and Labs)
+<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Laboratory only)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
 
 ### Headers
 

@@ -176,7 +176,7 @@ fields:
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued
 
 - name: performer
-  required: 'Yes'
+  required: 'No'
   type: List of Reference
   description: Limited to "real" people rather than equipment.
   action: create
@@ -187,7 +187,7 @@ fields:
   note: |
     <ul>
       <li> Must be a reference to Practitioner. </li>
-      <li> Vital Signs supports up to two performers. </li>
+      <li> Vital Signs require performer and supports up to two performers. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
@@ -224,7 +224,7 @@ fields:
 
 - name: value[x]
   required: 'Yes'
-  type: Quantity|CodeableConcept|string
+  type: Quantity | CodeableConcept | string
   description: Value of the observation.
   action: create
   example: |
@@ -260,7 +260,7 @@ fields:
     </ul>
 
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`and `valueString` </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept` and `valueString` </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
