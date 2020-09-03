@@ -160,6 +160,9 @@ Create a new Observation.
 
 _Implementation Notes_
 
+* Components are not currently supported when writing Blood Pressures.
+* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+  pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 
@@ -225,3 +228,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
 [performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
+[Configure Blood Pressure Event Set Pairing Hierarchy]: https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing

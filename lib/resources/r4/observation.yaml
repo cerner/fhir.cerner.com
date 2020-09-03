@@ -117,12 +117,16 @@ fields:
         "text": 'Height/Length Measured'
       }
     }
+  note: |
+    <ul>
+      <li> Vital Signs currently support only proprietary codes </li>
+    </ul>  
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
 
 - name: subject
   required: 'Yes'
   type: Reference
-  description: Indicates the patient who the procedure record is associated with.
+  description: Indicates the patient who the observation record is associated with.
   action: create
   example: |
     {
@@ -216,7 +220,7 @@ fields:
     }
   note: |
     <ul>
-       <li> Only `LA` or `PPRF` extensions are supported </li>
+       <li> Only `LA` extensions is supported </li>
        <li> Performer extensions are supported for Vital Signs, but not Laboratory. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
