@@ -133,7 +133,7 @@ List an individual Observation by its id:
 
 _Implementation Notes_
 
-* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented
+* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.
 
 ### Example
 
