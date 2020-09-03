@@ -99,6 +99,15 @@
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -126,6 +135,11 @@
       <li><a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit" target="_blank">Quantity units</a></li>
     </ul>
   </li>
+  <li>For Observations with <code>valueCodeableConcept</code>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept" target="_blank">Codeable concept</a></li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason" target="_blank">Data absent reason</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation" target="_blank">Interpretation (abnormal flagging)</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.note" target="_blank">Note (comments)</a></li>
@@ -146,6 +160,8 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
+      
+      
       
       
     <tr>
@@ -262,6 +278,13 @@
     
       
       
+      
+      
+      
+      
+      
+      
+      
     <tr>
       <td>
       
@@ -286,6 +309,47 @@
                       <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-data-absent-reason.html">v4 data absentreason</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/data-absent-reason <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.valueCodeableConcept">Observation.valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes for value of the observation.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
                       
                       </p>
                     
@@ -358,6 +422,12 @@
       </td>
     </tr>
     
+      
+      
+      
+      
+      
+      
       
       
       
@@ -1033,7 +1103,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented</li>
+  <li>Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.</li>
 </ul>
 
 <h3 id="example-1">Example</h3>
@@ -1218,6 +1288,1178 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create a new Observation.</p>
+
+<pre><code>POST /Observation
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Components are not currently supported when writing Blood Pressures.</li>
+  <li>Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing">Configure Blood Pressure Event Set Pairing Hierarchy</a>.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Laboratory only)</i> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Observation"
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> resourceType must be Observation. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Codes identifying the lifecycle stage of an event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "final"
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Status codes <code>final</code>, <code>amended</code> and <code>corrected</code> are supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code that classifies the general type of observation being made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+      "coding": [
+        {
+          "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+          "code": 'vital-signs',
+          "display": 'Vital Signs'
+        }
+      ],
+      "text": 'Vital Signs'
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> <code>Vital Signs</code> and <code>Laboratory</code> categories are supported. </li>
+</ul>
+<ul>
+  <li> Only one category may be supplied on create. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Describes what was observed. Sometimes this is called the observation "name".</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+        "code": '4154126',
+        "display": 'Height/Length Measured',
+        "userSelected": true
+      }
+    ],
+    "text": 'Height/Length Measured'
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": 'http://loinc.org',
+        "code": '8302-2'
+      },
+      {
+        "system": 'http://loinc.org',
+        "code": '3137-7'
+      }
+    ],
+    "text": 'Height/Length Measured'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Vital Signs currently support only proprietary codes </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-subject">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indicates the patient who the observation record is associated with.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Must only include references to Patient. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/observation-definitions.html#Observation.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Encounter during which the observation was first made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-effective%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_"><code>effective[x]</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Date and time the observation was made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "effectiveDateTime": "2020-07-07T20:37:00.000Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a type of dateTime is supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-issued">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued"><code>issued</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#instant"><code>instant</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Instant the observation was made.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "issued": "2020-07-06T21:02:47.000Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-performer">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer"><code>performer</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Limited to "real" people rather than equipment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+   "reference": 'Practitioner/12724064'
+ }
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Must be a reference to Practitioner. </li>
+  <li> Vital Signs require performer and supports up to two performers. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-performer.extension">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer"><code>performer.extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extension-event-performerfunction.html"><code>performerFunction</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Distinguishes the type of involvement of the performer in the event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+   "extension": [
+     {
+       "valueCodeableConcept": {
+         "coding": [
+           {
+             "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+             "code": 'LA',
+             "display": 'legal authenticator'
+           }
+         ],
+         "text": 'legal authenticator'
+       },
+       "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+     }
+   ],
+ }
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+   <li> Only <code>LA</code> extensions is supported </li>
+   <li> Performer extensions are supported for Vital Signs, but not Laboratory. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-value%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.value%5Bx%5D"><code>value[x]</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Value of the observation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "valueQuantity":
+  {
+    "value": 162,
+    "unit": 'cm',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'cm'
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": 'http://snomed.info/sct',
+        "code": '373066001',
+        "display": 'Yes (qualifier value)'
+      }
+    ],
+    "text": 'Yes'
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "valueString": '2'
+}
+</pre></li></ul>
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Vital Signs support writing observations with <code>valueQuantity</code> </li>
+</ul>
+
+<ul>
+  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code> and <code>valueString</code> </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-dataAbsentReason">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason"><code>dataAbsentReason</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Provides a reason why the expected value in the element Observation.value<a href="#create-x">x</a> is missing.</li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-interpretation">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation"><code>interpretation</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A categorical assessment of an observation value. For example, high, low, normal.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
+          "code": '211',
+          "display": 'LOW',
+          "userSelected": true
+        }
+      ],
+      "text": 'LOW'
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "interpretation": [
+    {
+      "coding": [
+        {
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+            "code": 'L',
+            "display": 'Low'
+          }
+        ],
+        "text": 'LOW'
+      }
+    ]
+  }
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one interpretation may be supplied. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/observation-definitions.html#Observation.note"><code>note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Comments about the observation</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "authorReference": {
+        "reference": 'Practitioner/62955753'
+      },
+      "time": '2018-08-17T09:55:42.000Z',
+      "text": 'Charted at Incorrect Time'
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-referenceRange">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange"><code>referenceRange</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Provides guidance for interpretating the observation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "referenceRange": [
+    {
+      "low": {
+        "value": 35.2,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      },
+      "high": {
+        "value": 36.7,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      },
+      "type": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+            "code": 'normal',
+            "display": 'Normal Range'
+          }
+        ],
+        "text": 'Normal Range'
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one referenceRange is supported </li>
+  <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-referenceRange.low">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low"><code>referenceRange.low</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity"><code>SimpleQuantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Lower bound of the reference range.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "low": {
+    "value": 35.2,
+    "unit": 'degC',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'Cel'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-referenceRange.high">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high"><code>referenceRange.high</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity"><code>SimpleQuantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Upper bound of the reference range.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "low": {
+    "value": 36.7,
+    "unit": 'degC',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'Cel'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-referenceRange.text">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text"><code>referenceRange.text</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "text": 'Negative'
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-referenceRange.type">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type"><code>referenceRange.type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Codes to indicate the what part of the targeted reference population it applies to.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": {
+    "coding": [
+      {
+        "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+        "code": 'normal',
+        "display": 'Normal Range'
+      }
+    ],
+    "text": 'Normal Range'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only a <code>ReferenceRange.type</code> of normal is supported </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation 
+</code></pre>
+
+<h4 id="vitals-body-example">Vitals Body Example</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+        "code": "703558",
+        "display": "Temperature Oral",
+        "userSelected": true
+      }
+    ],
+    "text": "Temperature Oral"
+  },
+  "subject": {
+    "reference": "Patient/12457981"
+  },
+  "encounter": {
+    "reference": "Encounter/97845408"
+  },
+  "effectiveDateTime": "2020-04-03T19:21:00.000Z",
+  "issued": "2020-04-03T19:21:40.000Z",
+  "performer": [
+    {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "LA",
+                "display": "legal authenticator"
+              }
+            ],
+            "text": "legal authenticator"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+        }
+      ],
+      "reference": "Practitioner/11638321"
+    }
+  ],
+  "valueQuantity": {
+    "value": 37.2,
+    "unit": "degC",
+    "system": "http://unitsofmeasure.org",
+    "code": "Cel"
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "N",
+          "display": "Normal"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/11638321"
+      },
+      "time": "2020-09-03T15:03:10.000Z",
+      "text": "No additional test require"
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 35.8,
+        "unit": "degC",
+        "system": "http://unitsofmeasure.org",
+        "code": "Cel"
+      },
+      "high": {
+        "value": 37.3,
+        "unit": "degC",
+        "system": "http://unitsofmeasure.org",
+        "code": "Cel"
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+            "code": "normal",
+            "display": "Normal Range"
+          }
+        ],
+        "text": "Normal Range"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="labs-body-example">Labs Body Example</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ],
+      "text": "Laboratory"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "718-7",
+        "display": "Hemoglobin [Mass/volume] in Blood"
+      }
+    ],
+    "text": "Hemoglobin"
+  },
+  "subject": {
+    "reference": "Patient/2798003"
+  },
+  "encounter": {
+    "reference": "Encounter/2673896"
+  },
+  "issued": "2020-07-30T20:42:00.000Z",
+  "effectiveDateTime": "2020-07-30T20:42:00.000Z",
+  "performer": [
+    {
+      "reference": "Practitioner/1477926"
+    }
+  ],
+  "valueQuantity": {
+    "value": "13.2",
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dL"
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+          "code": "N",
+          "display": "Normal"
+        }
+      ],
+      "text": "Normal"
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 12.0,
+        "unit": "g/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "g/dL"
+      },
+      "high": {
+        "value": 15.5,
+        "unit": "g/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "g/dL"
+      }
+    }
+  ],
+  "note": [
+    {
+      "authorReference": {
+        "reference": "Practitioner/1477926"
+      },
+      "time": "2020-07-30T20:42:15.000Z",
+      "text": "Specimen slightly hemolyzed."
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 May 2020 17:23:14 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M-12793861
+Last-Modified: Wed, 14 May 2020 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on a subsequent update.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 

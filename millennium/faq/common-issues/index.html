@@ -143,8 +143,8 @@ all factors that you should consider when determining a page size that is
 right for your application.</p>
 
 <p>There are two ways we recommend that you test
-your logic once implemented.  First, you can set page size to a lower
-value using the <code>_count</code> parameter in the API calls.  Another way is to
+your logic once implemented.  First, you can set page size to a lower
+value using the <code>_count</code> parameter in the API calls.  Another way is to
 make calls for a patient with a lot of data in the Sandbox domain. You can read
 about our <a href="https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ">available sandbox test patients</a>
 to find a patient who has sufficient data for paging.</p>
@@ -164,8 +164,8 @@ because that is the current requirement for posting to the Cerner EMR.
 Since documents are being converted from one format type to another,
 there is potential for loss of fidelity.
     <ul>
-      <li>A common error we have seen is with the use of <code>&lt;br&gt;</code> tags.  In
-XHTML, they need to be self-closed as follows: <code>&lt;br /&gt;</code>. This
+      <li>A common error we have seen is with the use of <code>&lt;br&gt;</code> tags.  In
+XHTML, they need to be self-closed as follows: <code>&lt;br /&gt;</code>. This
 greatly enhances the accuracy our internal conversion tools.</li>
       <li>Some sanitization is run on provided XHMTL. For example: <code>Applet</code>,
 <code>iframe</code>, <code>link</code>, <code>script</code>, and <code>style</code> tags will be removed
@@ -176,7 +176,7 @@ but the text within will remain.</li>
     </ul>
   </li>
   <li>
-    <p><strong>Modifier Elements:</strong> <a href="https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>,
+    <p><strong>Modifier Elements:</strong> <a href="https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>,
 and <a href="https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a>
 are not supported and will be rejected if present. In addition, each resource
 will call out modifier elements that are not supported. For example: <a href="../../dstu2/infrastructure/document-reference/#create">DocumentReference create</a>
@@ -197,7 +197,7 @@ formatted text as image files within the HTML.</li>
     <p><strong>Images:</strong> If posting images within your documents or as the documents themselves, external image links will not function as intended. All images must be embedded Base64 encoded files using web-safe image formats due to file size. Examples are as follows:</p>
 
     <p><code>
-&lt;img alt="image" src='data:image/png;base64, &lt;-ENCODED IMAGE-&gt; ' /&gt; 
+&lt;img alt="image" src='data:image/png;base64, &lt;-ENCODED IMAGE-&gt; ' /&gt;
 </code></p>
   </li>
   <li>
@@ -241,7 +241,7 @@ with us to determine the best way to return the information you need.</p>
 
 <p>If you are using a specific code to query for lead and use code
 <code>5671-3</code>, then your app would only return results when installed at
-<strong>Hospital A</strong>.  Your app would return nothing if installed at
+<strong>Hospital A</strong>.  Your app would return nothing if installed at
 <strong>Hospital B</strong>. You need to ensure that all codes are accounted for in
 order for the app to work at all sites.</p>
 
@@ -263,7 +263,7 @@ any of these hospital-specific considerations.</p>
 
 <p>The above examples use lead, but similar considerations could exist for
 virtually any lab or measurement where concept mapping and specific
-LOINC codes are used.  If your app uses specific LOINC codes to query
+LOINC codes are used.  If your app uses specific LOINC codes to query
 for information,
 <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a>
 and we will help you work through any considerations that might exist.</p>
@@ -297,7 +297,7 @@ or <a href="https://www.hl7.org/fhir/dstu2/valueset-observation-status.html">Obs
 value sets.</p>
 
 <p>Typically, for MedicationOrder, only medications in <code>Active</code>, <code>On-Hold</code>, or
-<code>Completed</code> statuses are displayed.  For Observation, only results in
+<code>Completed</code> statuses are displayed.  For Observation, only results in
 <code>Final</code> and <code>Amended</code> statuses are displayed.</p>
 
 <p>You can read about our <a href="https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ">available sandbox test patients</a>
@@ -411,17 +411,17 @@ and care of those patients.</p>
 
 <p><em>Patient Chart View</em></p>
 
-<p>The Patient Chart view in PowerChart displays information for a single
+<p>The Patient Chart view in PowerChart displays information for a single
 patient. It is accessed by selecting a patient from one of the Organizer
 views or from Patient Search. Multiple patient charts can be open at the
 same time, and you can easily move between open charts by clicking the
-patient’s name in the Patient Context toolbar. The Patient Chart view is
+patient’s name in the Patient Context toolbar. The Patient Chart view is
 made up of two panes - the Table of Contents and the Workspace. The
 Table of Contents is displayed on the left side of the window and allows
 you to quickly navigate to any area of the patient’s chart. Clicking a
 PowerChart component in the Table of Contents, such as a SMART app,
 opens that component’s Workspace view. The Workspace view displays and
-changes based on which PowerChart component is selected from the Table
+changes based on which PowerChart component is selected from the Table
 of Contents. Each view can include multiple windows, that are accessed
 by clicking tabs or buttons in that view. If you open your SMART app
 from the Table of Contents, information for the patient is displayed in
@@ -445,9 +445,9 @@ removed.</p>
 <p>When you are running a SMART app in multiple open charts in PowerChart,
 there is potential that the app instance will share patient context and
 show same patient’s data on two separate charts. In order to avoid this,
-please read our <a href="../../../smart/#html5-session-storage">SMART topic on sessionStorage</a>.
- 
-If your application uses the open source fhir-client.js library, please
+please read our <a href="../../../smart/#html5-session-storage">SMART topic on sessionStorage</a>.</p>
+
+<p>If your application uses the open source fhir-client.js library, please
 read the <a href="../../../smart/#open-source-fhir-client-libraries">section on minimum required version and additional code</a>
 that must be added in order to fix a session bleed issue.</p>
 

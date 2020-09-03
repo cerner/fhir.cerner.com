@@ -472,7 +472,7 @@
 
 <ul>
   <li>Contents of the document are found by following the Attachment URL. See more information on the <a href="../binary/#authorization-types">Binary resource</a> to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.</li>
-  <li>If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the <a href="http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html">Argonaut profile’s</a> required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.</li>
+  <li>If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the <a href="http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html">Argonaut profile’s</a> required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.</li>
 </ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -628,6 +628,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>resourceType must be DocumentReference</li></ul>
       
@@ -661,6 +662,7 @@
   "reference": "Patient/1234"
 }
 </pre></li></ul>
+      
       
       
       
@@ -713,6 +715,7 @@
 </pre></li></ul>
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The type must include a LOINC or a proprietary coding. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example: 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br><br> Please note that the <a href="#terminology-bindings">list in the terminology bindings section</a> is not the complete list mapped for our sandbox. Our sandbox has many codes, but we only document a few to provide an example. The list does not represent what would be mapped for one of our client’s domains. This is one of the things we evaluate and implement as needed when we are making apps available at client sites. <br><br> Please <a href="https://groups.google.com/d/forum/cerner-fhir-developers">contact us</a> if there is a code you are interested in consuming, and we can evaluate adding it to our sandbox.</li></ul>
       
@@ -750,6 +753,7 @@
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -794,6 +798,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -824,6 +829,7 @@
   "status": "current"
 }
 </pre></li></ul>
+      
       
       
       
@@ -870,6 +876,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Currently support <code>final</code> only</li></ul>
       
@@ -906,6 +913,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -929,6 +937,7 @@
       
         <li><i>Description</i></li>
         <ul style="list-style-type: none"><li>The referenced document</li></ul>
+      
       
       
       
@@ -973,6 +982,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1009,6 +1019,7 @@
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -1054,6 +1065,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>You can validate your document using any available strict XHTML 1.0 validator (eg: <a href="http://validator.w3.org/#validate_by_upload+with_options">w3 validator</a> or this <a href="https://html5.validator.nu/">html5 validator</a>). Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be removed but the text within will remain. If a meta tag is provided, it must be self closed (example: &lt;meta charset='UTF-8'/&gt;).
 </li></ul>
@@ -1081,6 +1093,7 @@
       
         <li><i>Description</i></li>
         <ul style="list-style-type: none"><li>The clinical context in which the document was prepared</li></ul>
+      
       
       
       
@@ -1122,6 +1135,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1156,6 +1170,7 @@
   }
 }
 </pre></li></ul>
+      
       
       
       
