@@ -2,22 +2,79 @@
 name: Observation
 field_name_base_url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
 fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "Observation"
+    }
+  note: |
+    <ul>
+      <li> resourceType must be Observation. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
+
+- name: status
+  required: 'Yes'
+  type: code
+  description: Codes identifying the lifecycle stage of an event.
+  action: create
+  example: |
+    {
+      "status": "final"
+    }
+  note: |
+    <ul>
+      <li> Status codes `final`, `amended` and `corrected` are supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.status
 
 - name: category
-  required: 'No'
+  required: 'Yes'
   type: List of CodeableConcept
   description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - create
   binding:
     description: Codes for high level observation categories.
     terminology:
     - display: Observation Category Codes
       system: http://terminology.hl7.org/CodeSystem/observation-category
       info_link: https://hl7.org/fhir/R4/valueset-observation-category.html
+  example: |
+    {
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> `Vital Signs` and `Laboratory` categories are supported. </li>
+    </ul>
+    <ul>
+      <li> Only one category may be supplied on create. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category
 
 - name: code
   required: 'Yes'
   type: CodeableConcept
   description: Describes what was observed. Sometimes this is called the observation "name".
+  action:
+    - terminology
+    - create
   binding:
     description: Codes identifying names of simple observations.
     terminology:
@@ -30,6 +87,185 @@ fields:
     - display: Millennium Clinical Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
+  example: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '4154126',
+            "display": 'Height/Length Measured',
+            "userSelected": true
+          }
+        ],
+        "text": 'Height/Length Measured'
+      }
+    }
+  example2: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '8302-2'
+          },
+          {
+            "system": 'http://loinc.org',
+            "code": '3137-7'
+          }
+        ],
+        "text": 'Height/Length Measured'
+      }
+    }
+  note: |
+    <ul>
+      <li> Vital Signs currently support only proprietary codes </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
+
+- name: subject
+  required: 'Yes'
+  type: Reference
+  description: Indicates the patient who the observation record is associated with.
+  action: create
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/631923"
+      }
+    }
+  note: |
+    <ul>
+      <li> Must only include references to Patient. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject
+
+- name: encounter
+  required: 'No'
+  type: Reference
+  description: Encounter during which the observation was first made.
+  action: create
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/631923"
+      }
+    }
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.encounter
+
+- name: effective[x]
+  required: 'Yes'
+  type: dateTime
+  description: Date and time the observation was made.
+  action: create
+  example: |
+    {
+      "effectiveDateTime": "2020-07-07T20:37:00.000Z"
+    }
+  note: |
+    <ul>
+      <li> Only a type of dateTime is supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_
+
+- name: issued
+  required: 'No'
+  type: instant
+  description: Instant the observation was made.
+  action: create
+  example: |
+    {
+      "issued": "2020-07-06T21:02:47.000Z"
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued
+
+- name: performer
+  required: 'No'
+  type: List of Reference
+  description: Limited to "real" people rather than equipment.
+  action: create
+  example: |
+   {
+      "reference": 'Practitioner/12724064'
+    }
+  note: |
+    <ul>
+      <li> Must be a reference to Practitioner. </li>
+      <li> Vital Signs require performer and supports up to two performers. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
+
+- name: performer.extension
+  required: 'No'
+  type: performerFunction
+  description: Distinguishes the type of involvement of the performer in the event.
+  action: create
+  example: |
+   {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                "code": 'LA',
+                "display": 'legal authenticator'
+              }
+            ],
+            "text": 'legal authenticator'
+          },
+          "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+        }
+      ],
+    }
+  note: |
+    <ul>
+       <li> Only `LA` extensions is supported </li>
+       <li> Performer extensions are supported for Vital Signs, but not Laboratory. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
+
+- name: value[x]
+  required: 'Yes'
+  type: Quantity | CodeableConcept | string
+  description: Value of the observation.
+  action: create
+  example: |
+    {
+      "valueQuantity":
+      {
+        "value": 162,
+        "unit": 'cm',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'cm'
+      }
+    }
+  example2: |
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": 'http://snomed.info/sct',
+            "code": '373066001',
+            "display": 'Yes (qualifier value)'
+          }
+        ],
+        "text": 'Yes'
+      }
+    }
+  example3: |
+    {
+      "valueString": '2'
+    }
+  note: |
+    <ul>
+      <li> Vital Signs support writing observations with `valueQuantity` </li>
+    </ul>
+
+    <ul>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept` and `valueString` </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
 - name: dataAbsentReason
   required: 'No'
@@ -42,10 +278,24 @@ fields:
       system: http://terminology.hl7.org/CodeSystem/data-absent-reason
       info_link: https://hl7.org/fhir/R4/valueset-data-absent-reason.html
 
+- name: valueCodeableConcept
+  type: CodeableConcept
+  description: Codes for value of the observation.
+  action: terminolgy
+  binding:
+    description: Codes for value of the observation.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/R4/snomedct.html
+
 - name: interpretation
   required: 'No'
   type: List of CodeableConcept
   description: A categorical assessment of an observation value. For example, high, low, normal.
+  action:
+    - terminology
+    - create
   binding:
     description: Codes identifying interpretations of observations.
     terminology:
@@ -55,6 +305,170 @@ fields:
     - display: Interpretation Result
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-interpretation-result
+  example: |
+    {
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
+              "code": '211',
+              "display": 'LOW',
+              "userSelected": true
+            }
+          ],
+          "text": 'LOW'
+        }
+      ]
+    }
+  example2: |
+    {
+      "interpretation": [
+        {
+          "coding": [
+            {
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                "code": 'L',
+                "display": 'Low'
+              }
+            ],
+            "text": 'LOW'
+          }
+        ]
+      }
+  note: |
+    <ul>
+      <li> Only one interpretation may be supplied. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation
+
+- name: note
+  required: 'No'
+  type: List of Annotation
+  description: Comments about the observation
+  action: create
+  example: |
+    {
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/62955753'
+          },
+          "time": '2018-08-17T09:55:42.000Z',
+          "text": 'Charted at Incorrect Time'
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.note
+
+- name: referenceRange
+  required: 'No'
+  type: List of BackboneElement
+  description: Provides guidance for interpretating the observation.
+  action: create
+  example: |
+    {
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35.2,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "high": {
+            "value": 36.7,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "type": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                "code": 'normal',
+                "display": 'Normal Range'
+              }
+            ],
+            "text": 'Normal Range'
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Only one referenceRange is supported </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
+
+- name: referenceRange.low
+  required: 'No'
+  type: SimpleQuantity
+  description: Lower bound of the reference range.
+  action: create
+  example: |
+    {
+      "low": {
+        "value": 35.2,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      }
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low
+
+- name: referenceRange.high
+  required: 'No'
+  type: SimpleQuantity
+  description: Upper bound of the reference range.
+  action: create
+  example: |
+    {
+      "low": {
+        "value": 36.7,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      }
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high
+
+- name: referenceRange.text
+  required: 'No'
+  type: string
+  description: Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.
+  action: create
+  example: |
+    {
+      "text": 'Negative'
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text
+
+- name: referenceRange.type
+  required: 'No'
+  type: CodeableConcept
+  description: Codes to indicate the what part of the targeted reference population it applies to.
+  action: create
+  example: |
+    {
+      "type": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+            "code": 'normal',
+            "display": 'Normal Range'
+          }
+        ],
+        "text": 'Normal Range'
+      }
+    }
+  note: |
+    <ul>
+      <li> Only a `ReferenceRange.type` of normal is supported </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type
 
 - name: component
   required: 'No'
@@ -63,6 +477,8 @@ fields:
     Some observations have multiple component observations. These component observations are expressed as separate code
     value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood
     pressure measurement and multiple component observations for genetics observations.
+  action:
+    - terminology
   children:
 
   - name: code

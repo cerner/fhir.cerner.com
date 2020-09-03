@@ -353,5 +353,196 @@ module Cerner
         R4_OBSERVATION_ENTRY
       ]
     }.freeze
+
+    R4_OBSERVATION_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '703558',
+            "display": 'Temperature Oral',
+            "userSelected": true
+          }
+        ],
+        "text": 'Temperature Oral'
+      },
+      "subject": {
+        "reference": 'Patient/12457981'
+      },
+      "encounter": {
+        "reference": 'Encounter/97845408'
+      },
+      "effectiveDateTime": '2020-04-03T19:21:00.000Z',
+      "issued": '2020-04-03T19:21:40.000Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/11638321'
+        }
+      ],
+      "valueQuantity": {
+        "value": 37.20,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N',
+              "display": 'Normal'
+            }
+          ]
+        }
+      ],
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/11638321'
+          },
+          "time": '2020-09-03T15:03:10.000Z',
+          "text": 'No additional test require'
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35.8,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "high": {
+            "value": 37.3,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "type": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                "code": 'normal',
+                "display": 'Normal Range'
+              }
+            ],
+            "text": 'Normal Range'
+          }
+        }
+      ]
+    }.freeze
+
+    R4_OBSERVATION_LABS_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'laboratory',
+              "display": 'Laboratory'
+            }
+          ],
+          "text": 'Laboratory'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '718-7',
+            "display": 'Hemoglobin [Mass/volume] in Blood'
+          }
+        ],
+        "text": 'Hemoglobin'
+      },
+      "subject": {
+        "reference": 'Patient/2798003'
+      },
+      "encounter": {
+        "reference": 'Encounter/2673896'
+      },
+      "issued": '2020-07-30T20:42:00.000Z',
+      "effectiveDateTime": '2020-07-30T20:42:00.000Z',
+      "performer": [
+        {
+          "reference": 'Practitioner/1477926'
+        }
+      ],
+      "valueQuantity": {
+        "value": '13.2',
+        "unit": 'mg/dL',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mg/dL'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N',
+              "display": 'Normal'
+            }
+          ],
+          "text": 'Normal'
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 12.0,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          },
+          "high": {
+            "value": 15.5,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          }
+        }
+      ],
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/1477926'
+          },
+          "time": '2020-07-30T20:42:15.000Z',
+          "text": 'Specimen slightly hemolyzed.'
+        }
+      ]
+    }.freeze
   end
 end
