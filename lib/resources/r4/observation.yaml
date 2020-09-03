@@ -120,7 +120,7 @@ fields:
   note: |
     <ul>
       <li> Vital Signs currently support only proprietary codes </li>
-    </ul>  
+    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
 
 - name: subject
@@ -198,7 +198,7 @@ fields:
 - name: performer.extension
   required: 'No'
   type: performerFunction
-  description:  Distinguishes the type of involvement of the performer in the event.
+  description: Distinguishes the type of involvement of the performer in the event.
   action: create
   example: |
    {
@@ -271,7 +271,6 @@ fields:
   required: 'No'
   type: CodeableConcept
   description: Provides a reason why the expected value in the element Observation.value[x] is missing.
-  action: terminolgy
   binding:
     description: Codes for reasons data is absent.
     terminology:
@@ -400,7 +399,7 @@ fields:
   note: |
     <ul>
       <li> Only one referenceRange is supported </li>
-      <li> ReferenceRange.text is not supported when referenceRange.high and/or referenceRange.low are provided </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
 
@@ -467,7 +466,7 @@ fields:
     }
   note: |
     <ul>
-      <li> Only a ReferenceRange.type of normal is supported </li>
+      <li> Only a `ReferenceRange.type` of normal is supported </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type
 
