@@ -222,5 +222,50 @@ module Cerner
       }
     }.freeze
 
+    R4_DOCUMENT_REFERENCE_UPDATE ||= {
+      'resourceType': 'DocumentReference',
+      'id': '16885181',
+      'status': 'current',
+      'docStatus': 'amended',
+      'type': {
+        'coding': [
+          {
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '2820507',
+            'display': 'Admission Note-Physician',
+            'userSelected': true
+          }
+        ]
+      },
+      'author': [
+        {
+          'reference': 'Practitioner/21500981'
+        }
+      ],
+      'authenticator': {
+        'reference': 'Practitioner/21500981'
+      },
+      'identifier': [
+        {
+          'system': 'https://fhir.cerner.com/location/source/0/0/1',
+          'value': 'identifier 1'
+        }
+      ],
+      'content':  [
+        'attachment': {
+          'contentType': 'application/xml;charset=utf-8',
+          'data': 'PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
+          'title': 'Admission Note-Physician',
+          'creation': '2020-08-15T14:35:29.000Z'
+        }
+      ],
+      'context': {
+        'period': {
+          'start': '2020-01-01T00:00:00.000Z',
+          'end': '2020-01-01T01:00:00.000Z'
+        }
+      }
+    }.freeze
+
   end
 end

@@ -160,6 +160,58 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 X-Runtime: 2.011826
 </pre>
 
+## Update
+
+Update an existing document reference.
+
+    PUT /DocumentReference/:id
+
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* Both write and read scopes are required to update a document reference
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the DocumentReference resource>"'} %>
+
+### Body fields
+
+<%= definition_table(:document_reference, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/16885181
+
+### Body
+
+<%= json(:R4_DOCUMENT_REFERENCE_UPDATE) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+    Cache-Control: no-cache
+    Content-Length: 0
+    Content-Type: text/html
+    Date: Tue, 20 Aug 2019 21:17:04 GMT
+    Etag: W/"12793861"
+    Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+    Server-Response-Time: 777.661584
+    Status: 200 OK
+    Vary: Origin
+    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+    X-Runtime: 0.777583
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
+
 <%= disclaimer %>
 
 ### Errors

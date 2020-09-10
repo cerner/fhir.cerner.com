@@ -18,6 +18,7 @@ fields:
   type: code
   action:
     - create
+    - update
   description: The status of this document reference.
   note: Only `current` is supported
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
@@ -288,5 +289,44 @@ fields:
       "period": {
         "start": "2020-01-01T00:00:00.000Z",
         "end": "2020-01-01T01:00:00.000Z"
+      }
+    }
+
+- name: docStatus
+  required: 'Yes'
+  type: code
+  action:
+    - update
+  description: The status of the underlying document.
+  note: Only `final` is supported for provider access. `final` and `amended` are supported for system access.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
+  example: |
+    {
+      "docStatus": “amended”
+    }
+
+- name: type
+  required: ‘Yes’
+  type: CodeableConcept
+  action:
+  - update
+  description: Specifies the particular kind of document referenced.
+  note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
+        <br/><br/>
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        <br/><br/>
+
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
+  example: |
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "code": "2820507",
+            "display": "Admission Note-Physician",
+            "userSelected": true
+          }
+        ]
       }
     }
