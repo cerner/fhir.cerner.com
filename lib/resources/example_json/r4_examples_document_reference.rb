@@ -4,170 +4,379 @@ module Cerner
   module Resources
     R4_DOCUMENT_REFERENCE ||= {
       'resourceType': 'DocumentReference',
-      'id': '197292845',
+      'id': '197411797',
       'meta': {
-        'versionId': '1',
-        'lastUpdated': '2020-07-06T21:02:56.000Z'
+          'versionId': '1',
+          'lastUpdated': '2020-12-10T07:20:00.000Z'
       },
       'text': {
-        'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
-               'SMART, NANCY</p><p><b>Document Type</b>: Height Weight Allergy Rule - Text</p><p><b>Document Title'\
-               '</b>: Height Weight Allergy Rule</p><p><b>Service End Date</b>: Jul  6, 2020  9:02 P.M. UTC</p><p>'\
-               '<b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Spence, Open Platform IA, Stephen</p>'\
-               '</div>'
+          'status': 'generated',
+          'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
       },
       'status': 'current',
       'docStatus': 'final',
       'type': {
-        'coding': [
+          'coding': [
+              {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820510',
+                  'display': 'Consultation Note Generic',
+                  'userSelected': true
+              },
+              {
+                  'system': 'http://loinc.org',
+                  'code': '11488-4',
+                  'userSelected': false
+              }
+          ],
+          'text': 'Consultation Note Generic'
+      },
+      'category': [
           {
-            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '20732501',
-            'display': 'Height Weight Allergy Rule - Text',
-            'userSelected': true
+              'coding': [
+                  {
+                      'system': 'http://loinc.org',
+                      'code': '11488-4',
+                      'userSelected': false
+                  }
+              ]
           },
           {
-            'system': 'http://loinc.org',
-            '_code': {
-              'extension': [
-                {
-                  'valueCode': 'unknown',
-                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                }
-              ]
-            }
+              'coding': [
+                  {
+                      'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                      'code': 'clinical-note',
+                      'display': 'Clinical Note',
+                      'userSelected': false
+                  }
+              ],
+              'text': 'Clinical Note'
           }
-        ],
-        'text': 'Height Weight Allergy Rule - Text'
-      },
+      ],
       'subject': {
-        'reference': 'Patient/12724066',
-        'display': 'SMART, NANCY'
+          'reference': 'Patient/12742400',
+          'display': 'PETERS, TIM A'
       },
       'author': [
-        {
-          'reference': 'Practitioner/12724064',
-          'display': 'Spence, Open Platform IA, Stephen'
-        }
+          {
+              'reference': 'Practitioner/12742069',
+              'display': 'Portal, Portal'
+          }
       ],
       'authenticator': {
-        'reference': 'Practitioner/12724064',
-        'display': 'Spence, Open Platform IA, Stephen'
+          'reference': 'Practitioner/12742069',
+          'display': 'Portal, Portal'
       },
       'content': [
-        {
-          'attachment': {
-            'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197292845',
-            'title': 'Height Weight Allergy Rule',
-            'creation': '2020-07-06T21:02:47.000Z'
+          {
+              'attachment': {
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
+                  'title': 'Auto TC Summary',
+                  'creation': '2020-12-10T07:19:54.000Z'
+              }
           }
-        }
       ],
       'context': {
-        'encounter': [
-          {
-            'reference': 'Encounter/97939539'
+          'encounter': [
+              {
+                  'reference': 'Encounter/97953530'
+              }
+          ],
+          'period': {
+              'end': '2020-12-10T07:19:54.000Z'
           }
-        ],
-        'period': {
-          'end': '2020-07-06T21:02:00.000Z'
-        }
+      }
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_PATIENT_ACCESS ||= {
+      'resourceType': 'DocumentReference',
+      'id': '197411797',
+      'meta': {
+          'versionId': '1',
+          'lastUpdated': '2020-12-10T07:20:00.000Z'
+      },
+      'text': {
+          'status': 'generated',
+          'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+      },
+      'status': 'current',
+      'docStatus': 'final',
+      'type': {
+          'coding': [
+              {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820510',
+                  'display': 'Consultation Note Generic'
+              },
+              {
+                  'system': 'http://loinc.org',
+                  'code': '11488-4'
+              }
+          ],
+          'text': 'Consultation Note Generic'
+      },
+      'category': [
+          {
+              'coding': [
+                  {
+                      'system': 'http://loinc.org',
+                      'code': '11488-4'
+                  }
+              ]
+          },
+          {
+              'coding': [
+                  {
+                      'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                      'code': 'clinical-note',
+                      'display': 'Clinical Note'
+                  }
+              ],
+              'text': 'Clinical Note'
+          }
+      ],
+      'subject': {
+          'reference': 'Patient/12742400',
+          'display': 'PETERS, TIM A'
+      },
+      'author': [
+          {
+              'reference': 'Practitioner/12742069',
+              'display': 'Portal, Portal'
+          }
+      ],
+      'authenticator': {
+          'reference': 'Practitioner/12742069',
+          'display': 'Portal, Portal'
+      },
+      'content': [
+          {
+              'attachment': {
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
+                  'title': 'Auto TC Summary',
+                  'creation': '2020-12-10T07:19:54.000Z'
+              }
+          }
+      ],
+      'context': {
+          'encounter': [
+              {
+                  'reference': 'Encounter/97953530'
+              }
+          ],
+          'period': {
+              'end': '2020-12-10T07:19:54.000Z'
+          }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '93314497-f3f1-46c4-93ca-ad058c1d4ba4',
+      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference'\
-                 '?patient=12724066'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
           'resource': R4_DOCUMENT_REFERENCE
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292833',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
           'resource': {
-            'resourceType': 'DocumentReference',
-            'id': '197292833',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2020-07-06T20:39:24.000Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p><p><b>Patient Name'\
-                     '</b>: SMART, NANCY</p><p><b>Document Type</b>: Height Weight Allergy Rule - Text</p><p>'\
-                     '<b>Document Title</b>: Height Weight Allergy Rule</p><p><b>Service End Date</b>: Jul  6, 2020  '\
-                     '8:37 P.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Spence, '\
-                     'Open Platform IA, Stephen</p></div>'
-            },
-            'status': 'current',
-            'docStatus': 'final',
-            'type': {
-              'coding': [
-                {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '20732501',
-                  'display': 'Height Weight Allergy Rule - Text',
-                  'userSelected': true
-                },
-                {
-                  'system': 'http://loinc.org',
-                  '_code': {
-                    'extension': [
+              'resourceType': 'DocumentReference',
+              'id': '197411793',
+              'meta': {
+                  'versionId': '1',
+                  'lastUpdated': '2020-12-10T07:19:56.000Z'
+              },
+              'text': {
+                  'status': 'generated',
+                  'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              },
+              'status': 'current',
+              'docStatus': 'final',
+              'type': {
+                  'coding': [
                       {
-                        'valueCode': 'unknown',
-                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                          'code': '2820555',
+                          'display': 'Progress Note Generic',
+                          'userSelected': true
+                      },
+                      {
+                          'system': 'http://loinc.org',
+                          'code': '11506-3',
+                          'userSelected': false
                       }
-                    ]
+                  ],
+                  'text': 'Progress Note Generic'
+              },
+              'category': [
+                  {
+                      'coding': [
+                          {
+                              'system': 'http://loinc.org',
+                              'code': '11506-3',
+                              'userSelected': false
+                          }
+                      ]
+                  },
+                  {
+                      'coding': [
+                          {
+                              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                              'code': 'clinical-note',
+                              'display': 'Clinical Note',
+                              'userSelected': false
+                          }
+                      ],
+                      'text': 'Clinical Note'
                   }
-                }
               ],
-              'text': 'Height Weight Allergy Rule - Text'
-            },
-            'subject': {
-              'reference': 'Patient/12724066',
-              'display': 'SMART, NANCY'
-            },
-            'author': [
-              {
-                'reference': 'Practitioner/12724064',
-                'display': 'Spence, Open Platform IA, Stephen'
-              }
-            ],
-            'authenticator': {
-              'reference': 'Practitioner/12724064',
-              'display': 'Spence, Open Platform IA, Stephen'
-            },
-            'content': [
-              {
-                'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197292833',
-                  'title': 'Height Weight Allergy Rule',
-                  'creation': '2020-07-06T20:37:35.000Z'
-                }
-              }
-            ],
-            'context': {
-              'encounter': [
-                {
-                  'reference': 'Encounter/97953477'
-                }
+              'subject': {
+                  'reference': 'Patient/12742400',
+                  'display': 'PETERS, TIM A'
+              },
+              'author': [
+                  {
+                      'reference': 'Practitioner/12742069',
+                      'display': 'Portal, Portal'
+                  }
               ],
-              'period': {
-                'end': '2020-07-06T20:37:00.000Z'
+              'authenticator': {
+                  'reference': 'Practitioner/12742069',
+                  'display': 'Portal, Portal'
+              },
+              'content': [
+                  {
+                      'attachment': {
+                          'contentType': 'application/pdf',
+                          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
+                          'title': 'Auto TC Summary',
+                          'creation': '2020-12-10T07:19:53.000Z'
+                      }
+                  }
+              ],
+              'context': {
+                  'encounter': [
+                      {
+                          'reference': 'Encounter/97953530'
+                      }
+                  ],
+                  'period': {
+                      'end': '2020-12-10T07:19:53.000Z'
+                  }
               }
-            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_PATIENT_ACCESS_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
+          'resource': R4_DOCUMENT_REFERENCE_PATIENT_ACCESS
+        },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
+          'resource': {
+              'resourceType': 'DocumentReference',
+              'id': '197411793',
+              'meta': {
+                  'versionId': '1',
+                  'lastUpdated': '2020-12-10T07:19:56.000Z'
+              },
+              'text': {
+                  'status': 'generated',
+                  'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              },
+              'status': 'current',
+              'docStatus': 'final',
+              'type': {
+                  'coding': [
+                      {
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                          'code': '2820555',
+                          'display': 'Progress Note Generic'
+                      },
+                      {
+                          'system': 'http://loinc.org',
+                          'code': '11506-3'
+                      }
+                  ],
+                  'text': 'Progress Note Generic'
+              },
+              'category': [
+                  {
+                      'coding': [
+                          {
+                              'system': 'http://loinc.org',
+                              'code': '11506-3'
+                          }
+                      ]
+                  },
+                  {
+                      'coding': [
+                          {
+                              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                              'code': 'clinical-note',
+                              'display': 'Clinical Note'
+                          }
+                      ],
+                      'text': 'Clinical Note'
+                  }
+              ],
+              'subject': {
+                  'reference': 'Patient/12742400',
+                  'display': 'PETERS, TIM A'
+              },
+              'author': [
+                  {
+                      'reference': 'Practitioner/12742069',
+                      'display': 'Portal, Portal'
+                  }
+              ],
+              'authenticator': {
+                  'reference': 'Practitioner/12742069',
+                  'display': 'Portal, Portal'
+              },
+              'content': [
+                  {
+                      'attachment': {
+                          'contentType': 'application/pdf',
+                          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
+                          'title': 'Auto TC Summary',
+                          'creation': '2020-12-10T07:19:53.000Z'
+                      }
+                  }
+              ],
+              'context': {
+                  'encounter': [
+                      {
+                          'reference': 'Encounter/97953530'
+                      }
+                  ],
+                  'period': {
+                      'end': '2020-12-10T07:19:53.000Z'
+                  }
+              }
           }
         }
       ]
