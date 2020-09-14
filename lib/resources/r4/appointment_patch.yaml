@@ -158,7 +158,7 @@ operations:
     operation: replace
     type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value
-    description: The provider Video Visit link
+    description: The patient Video Visit link
     example: |
       {
         "op": "replace",
