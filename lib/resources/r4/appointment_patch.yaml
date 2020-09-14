@@ -151,6 +151,7 @@ operations:
       <ul>
         <li>This patch operation may be used only for Video Visit appointments</li>
         <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: replace-patient-vmr
     path: /contained/1/telecom/0/value
@@ -168,6 +169,7 @@ operations:
       <ul>
         <li>This patch operation may be used only for Video Visit appointments</li>
         <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: replace-period-start
     path: /contained/0/telecom/0/period/start
