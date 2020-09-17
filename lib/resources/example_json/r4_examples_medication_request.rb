@@ -43,6 +43,12 @@ module Cerner
               'code': '830261',
               'display': 'Hepatitis B Surface Antigen Vaccine 0.04 MG/ML Injectable Suspension',
               'userSelected': false
+            },
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/synonym',
+              'code': '19953289',
+              'display': 'hepatitis B adult vaccine dialysis 40 mcg/mL intramuscular suspension',
+              'userSelected': true
             }
           ],
           'text': 'hepatitis B adult vaccine (hepatitis B adult vaccine dialysis 40 mcg/mL intramuscular suspension)'
