@@ -16,7 +16,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Only "arrived", "checked-in", "cancelled", and "booked" are supported</li>
+        <li>Only "arrived", "checked-in", "cancelled", "booked", and "fulfilled" are supported</li>
         <li>This patch operation must be accompanied by the add Slot patch operation when updating status to "booked"</li>
       </ul>
   - name: add-slot
