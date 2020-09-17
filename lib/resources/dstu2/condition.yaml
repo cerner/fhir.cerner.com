@@ -47,6 +47,7 @@ fields:
         "reference": "Encounter/1309819"
       }
     }
+  note: Encounter is required for Conditions with a category code of diagnosis.
 
 - name: asserter
   required: 'No'

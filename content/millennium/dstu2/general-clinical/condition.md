@@ -127,7 +127,13 @@ Create a new condition.
 
 _Implementation Notes_
 
-* Currently, `health-concern` category code is not supported for writing conditions.
+* The following restrictions are in place based on `Condition.category`:
+  * For Conditions with a category code of [diagnosis](http://hl7.org/fhir/dstu2/valueset-condition-category.html):
+    * `Condition.encounter` is required.
+    * `Condition.abatementDateTime` is not supported.
+  * For Conditions with a category code of [problem](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes):
+    * If `Condition.dateRecorded` is set on the request body, its value will currently be ignored.
+  * Creating Conditions with a category code of [health-concern](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes) is not currently supported.
 
 ### Authorization Types
 
@@ -138,12 +144,6 @@ _Implementation Notes_
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
 
 ### Body fields
-
-Notes:
-
-* `dateRecorded` is currently not honored on a create for Conditions with a category of `problem`.
-* `abatementDateTime` is not supported for Conditions with a category of `diagnosis`.
-* `encounter` is required for Conditions with a category of `diagnosis`.
 
 <%= definition_table(:condition, :create, :dstu2) %>
 
