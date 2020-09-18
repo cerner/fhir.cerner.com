@@ -64,3 +64,36 @@ operations:
         <li>`Encounter.type` value should be a list.</li>
         <li>When a list is provided, the first value would be used to patch `Encounter.type`.</li>
       </ul>
+
+  - name: replace-extension
+    path: /extension
+    operation: replace
+    type: List of Extension
+    url: http://hl7.org/fhir/encounter-definitions.html#Encounter.extension
+    description: The aray of extension of encounter.
+    example: |
+      {
+        "op": "replace",
+        "path": "/extension",
+        "value":  [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+            "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003489",
+                "code": "40016441",
+                "display": "1st Attempt - Left Message",
+                "userSelected": true
+              }
+            ],
+            "text": "1st Attempt - Left Message"
+           }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>`Encounter.extension` value should be a list.</li>
+        <li>When a list is provided, the first value would be used to patch `Encounter.extension`.</li>
+      </ul>
