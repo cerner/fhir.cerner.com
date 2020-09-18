@@ -300,6 +300,38 @@ module Cerner
           }
         }
       ],
+      "appointment": [
+        {
+          "reference": "Appointment/16267757"
+        },
+        {
+          "reference": "Appointment/16267758"
+        },
+        {
+          "reference": "Appointment/16267759"
+        },
+        {
+          "reference": "Appointment/16267760"
+        },
+        {
+          "reference": "Appointment/16267761"
+        },
+        {
+          "reference": "Appointment/16267762"
+        },
+        {
+          "reference": "Appointment/15645757"
+        },
+        {
+          "reference": "Appointment/16269757"
+        },
+        {
+          "reference": "Appointment/15645759"
+        },
+        {
+          "reference": "Appointment/14157757"
+        }
+      ],
       'period': {
         'start': '2019-12-26T15:38:02.000Z',
         'end': '2020-01-07T06:00:00.000Z'
@@ -941,6 +973,38 @@ module Cerner
                   'reference': 'Practitioner/12742575',
                   'display': 'Torres, Drew'
                 }
+              }
+            ],
+            "appointment": [
+              {
+                "reference": "Appointment/16267757"
+              },
+              {
+                "reference": "Appointment/16267758"
+              },
+              {
+                "reference": "Appointment/16267759"
+              },
+              {
+                "reference": "Appointment/16267760"
+              },
+              {
+                "reference": "Appointment/16267761"
+              },
+              {
+                "reference": "Appointment/16267762"
+              },
+              {
+                "reference": "Appointment/15645757"
+              },
+              {
+                "reference": "Appointment/16269757"
+              },
+              {
+                "reference": "Appointment/15645759"
+              },
+              {
+                "reference": "Appointment/14157757"
               }
             ],
             'period': {
