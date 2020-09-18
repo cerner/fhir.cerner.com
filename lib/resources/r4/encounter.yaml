@@ -547,19 +547,23 @@ fields:
         info_link: http://hl7.org/fhir/r4/v3/ObservationValue/cs.html
     note: Encounters created with meta.security set with code 'UNCERTREL' will be returned with an external encounter type.
 
-- name: Custom Attribute Extension
-  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+- name: Custom Attribute Value Extension
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
   terminology_name: extension[x].extension[x].valueCodeableConcept
-  type: CodeableConcept
+  type: Extension
   description: The value of the client defined custom attribute. This extension is nested under a <code>custom-attribute</code> extension.
   action: terminology
   binding:
     description: The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>customm-attribute</code> extensions.
-    note: The value of the custom attribute is not limited to a single codeSet.
     terminology:
       - display: Custom Attribute Value
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;codeSet&gt;
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
+    note: >
+      <ul>
+        <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
+        <li>The value of the custom attribute is not limited to a single codeSet.</li>
+      </ul>
 
 - name: Estimated Financial Responsibility Amount Extension
   url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
