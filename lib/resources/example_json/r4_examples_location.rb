@@ -44,7 +44,7 @@ module Cerner
       'physicalType': {
         'coding': [
           {
-            'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
             'code': '794',
             'display': 'Nurse Unit(s)',
             'userSelected': true
@@ -103,7 +103,7 @@ module Cerner
       'physicalType': {
         'coding': [
           {
-            'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
             'code': '794',
             'display': 'Nurse Unit(s)',
             'userSelected': true

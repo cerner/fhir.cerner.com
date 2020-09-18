@@ -15,4 +15,4 @@ fields:
           info_link: http://hl7.org/fhir/R4/valueset-location-physical-type.html
         - display: Millennium Location Types
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/222
-          info_link: http://localhost:3000/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-type
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-type
