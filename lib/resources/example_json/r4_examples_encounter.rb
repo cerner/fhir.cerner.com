@@ -309,27 +309,6 @@ module Cerner
         },
         {
           "reference": "Appointment/16267759"
-        },
-        {
-          "reference": "Appointment/16267760"
-        },
-        {
-          "reference": "Appointment/16267761"
-        },
-        {
-          "reference": "Appointment/16267762"
-        },
-        {
-          "reference": "Appointment/15645757"
-        },
-        {
-          "reference": "Appointment/16269757"
-        },
-        {
-          "reference": "Appointment/15645759"
-        },
-        {
-          "reference": "Appointment/14157757"
         }
       ],
       'period': {
@@ -984,27 +963,6 @@ module Cerner
               },
               {
                 "reference": "Appointment/16267759"
-              },
-              {
-                "reference": "Appointment/16267760"
-              },
-              {
-                "reference": "Appointment/16267761"
-              },
-              {
-                "reference": "Appointment/16267762"
-              },
-              {
-                "reference": "Appointment/15645757"
-              },
-              {
-                "reference": "Appointment/16269757"
-              },
-              {
-                "reference": "Appointment/15645759"
-              },
-              {
-                "reference": "Appointment/14157757"
               }
             ],
             'period': {
