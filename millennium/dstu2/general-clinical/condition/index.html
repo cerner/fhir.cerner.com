@@ -902,7 +902,24 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Currently, <code>health-concern</code> category code is not supported for writing conditions.</li>
+  <li>The following restrictions are in place based on <code>Condition.category</code>:
+    <ul>
+      <li>For Conditions with a category code of <a href="http://hl7.org/fhir/dstu2/valueset-condition-category.html">diagnosis</a>:
+        <ul>
+          <li>
+<code>Condition.encounter</code> is required.</li>
+          <li>
+<code>Condition.abatementDateTime</code> is not supported.</li>
+        </ul>
+      </li>
+      <li>For Conditions with a category code of <a href="https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes">problem</a>:
+        <ul>
+          <li>If <code>Condition.dateRecorded</code> is set on the request body, its value will currently be ignored.</li>
+        </ul>
+      </li>
+      <li>Creating Conditions with a category code of <a href="https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes">health-concern</a> is not currently supported.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -918,17 +935,6 @@
 <a href="../../#media-types">Content-Type</a>: application/json+fhir</code></pre>
 
 <h3 id="body-fields">Body fields</h3>
-
-<p>Notes:</p>
-
-<ul>
-  <li>
-<code>dateRecorded</code> is currently not honored on a create for Conditions with a category of <code>problem</code>.</li>
-  <li>
-<code>abatementDateTime</code> is not supported for Conditions with a category of <code>diagnosis</code>.</li>
-  <li>
-<code>encounter</code> is required for Conditions with a category of <code>diagnosis</code>.</li>
-</ul>
 
 <table style="white-space: normal">
   <thead>
@@ -1044,6 +1050,9 @@
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Encounter is required for Conditions with a category code of diagnosis.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1752,6 +1761,9 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Encounter is required for Conditions with a category code of diagnosis.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>

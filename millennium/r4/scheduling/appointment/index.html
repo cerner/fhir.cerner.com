@@ -143,7 +143,7 @@
   <li>From Proposed to Booked, or Cancelled</li>
   <li>From Booked to Arrived, Checked-In, or Cancelled</li>
   <li>From Arrived to Checked-In, or Cancelled</li>
-  <li>From Checked-In to Cancelled</li>
+  <li>From Checked-In to Fulfilled, or Cancelled</li>
 </ul>
 
 <p>Video Visit functionality is available for supported vendors only, and requires additional configuration and application support.</p>
@@ -917,7 +917,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Only "arrived", "checked-in", "cancelled", and "booked" are supported</li>
+  <li>Only "arrived", "checked-in", "cancelled", "booked", and "fulfilled" are supported</li>
   <li>This patch operation must be accompanied by the add Slot patch operation when updating status to "booked"</li>
 </ul>
 </li></ul>
@@ -1058,6 +1058,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <ul>
   <li>This patch operation may be used only for Video Visit appointments</li>
   <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+  <li>The URL length must be less than or equal to 255 characters</li>
 </ul>
 </li></ul>
           
@@ -1101,6 +1102,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <ul>
   <li>This patch operation may be used only for Video Visit appointments</li>
   <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+  <li>The URL length must be less than or equal to 255 characters</li>
 </ul>
 </li></ul>
           
@@ -1232,6 +1234,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <ul>
   <li>This patch operation may be used only for Video Visit appointments</li>
   <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+  <li>The URL length must be less than or equal to 255 characters</li>
 </ul>
 </li></ul>
           
@@ -1257,7 +1260,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The provider Video Visit link</li></ul>
+            <ul style="list-style-type: none"><li>The patient Video Visit link</li></ul>
           
           
             <li><i>Example</i></li>
@@ -1275,6 +1278,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <ul>
   <li>This patch operation may be used only for Video Visit appointments</li>
   <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+  <li>The URL length must be less than or equal to 255 characters</li>
 </ul>
 </li></ul>
           

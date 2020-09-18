@@ -971,6 +971,7 @@
 
 <ul>
   <li>MedicationRequest.category is <a href="#medication-request-category">Medication Request Category</a> for medication requests.</li>
+  <li>MedicationRequest.medication[x] is <a href="#medication-request-synonym">Medication Request Synonym</a> for medication requests.</li>
 </ul>
 
 <h3 id="list-of-systems">List of Systems</h3>
@@ -994,6 +995,18 @@
   "system": "https://fhir.cerner.com/medicationrequest-category",
   "code": "charge-only",
   "display": "Charge-Only"
+}
+</code></pre>
+
+<h5 id="medication-request-synonym">Medication Request Synonym</h5>
+
+<p>This system is the synonym id for an order and the ingredients.</p>
+
+<pre><code>{
+  'system': 'https://fhir.cerner.com/&lt;Ehr source id&gt;/synonym',
+  'code': '2762111',
+  'display': 'lidocaine topical',
+  'userSelected': true
 }
 </code></pre>
 

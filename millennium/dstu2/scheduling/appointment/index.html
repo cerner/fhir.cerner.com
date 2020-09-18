@@ -1409,6 +1409,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <p>In addition, the following errors may be returned:</p>
 
 <ul>
+  <li>If either the patient URL or the provider URLs are longer than 255 characters, it will return a <code>422 Unprocessable Entity</code> response.</li>
   <li>Updating an Appointment resource without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
   <li>Updating an Appointment resource which is currently being modified will result in a <code>423 Locked</code> response.</li>
   <li>If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), <code>424 Failed Dependency</code> response will be returned.</li>
