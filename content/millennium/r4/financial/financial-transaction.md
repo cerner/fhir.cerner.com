@@ -39,7 +39,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `financial-transaction-allocation`      | None (contains nested extensions) | Defines how the payment or adjustment is to be allocated across other resources.
  `financial-transaction-amount`          | [`Money`]                         | The total amount of the financial transaction.
  `financial-transaction-card-brand`      | [`string`]                        | Identifies the brand of credit card when credit card is used as a payment method.
- `financial-transaction-date`            | [`date`]                          | Represents the expiration date if method is card, check date if method is check.
+ `financial-transaction-date`            | [`date`]                          | Represents the expiration date if method is card or check date if method is check.
  `financial-transaction-location`        | [`string`]                        | Client configured value representing the location or workflow that the payment was received in.
  `financial-transaction-method`          | [`string`]                        | Describes the method of payment for the financial transaction.
  `financial-transaction-tendered-amount` | [`Money`]                         | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
