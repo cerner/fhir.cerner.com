@@ -954,17 +954,6 @@ module Cerner
                 }
               }
             ],
-            "appointment": [
-              {
-                "reference": "Appointment/16267757"
-              },
-              {
-                "reference": "Appointment/16267758"
-              },
-              {
-                "reference": "Appointment/16267759"
-              }
-            ],
             'period': {
               'start': '2019-12-26T16:31:51.000Z',
               'end': '2019-12-27T05:59:59.000Z'
