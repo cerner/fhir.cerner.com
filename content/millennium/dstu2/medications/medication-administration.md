@@ -45,6 +45,7 @@ Search for MedicationAdministrations that meet supplied query parameters:
 _Implementation Notes_
 
 * [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be referenced independently.
+* Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
 
 
 ### Authorization Types
@@ -101,6 +102,7 @@ List an individual MedicationAdministration by its id:
 _Implementation Notes_
 
 * [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be be referenced independently.
+* Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
 
 ### Authorization Types
 
