@@ -19,7 +19,7 @@ module Cerner
                '</b>: Jan  7, 2020  6:00 A.M. UTC</p><p><b>Reason For Visit</b>: Illness</p><p><b>Attending '\
                'Physician</b>: Cerner Test, Physician - Hospitalist Cerner</p></div>'
       },
-        'extension': [
+      'extension': [
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute',
           'extension': [
@@ -37,7 +37,7 @@ module Cerner
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization',
           'valueReference': {
-              'reference': 'Organization/675844'
+            'reference': 'Organization/675844'
           }
         },
         {
