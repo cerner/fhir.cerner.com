@@ -200,7 +200,7 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
 
-#### List of Code Sets
+### List of Code Sets
 
 ##### Code Set 2 Admission Source
 
