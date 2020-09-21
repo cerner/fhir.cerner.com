@@ -1,5 +1,5 @@
 ---
-name: CarePlan
+name: CareTeam
 field_name_base_url: http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan
 fields:
 - name: status
