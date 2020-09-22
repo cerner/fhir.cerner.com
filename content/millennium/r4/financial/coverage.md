@@ -89,6 +89,14 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
 
+
+#### Response when social healthcare information is returned
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_encounter_social_healthcare_bundle) %>
+
+
+
 <%= disclaimer %>
 
 ### Errors
