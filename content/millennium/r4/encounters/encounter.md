@@ -63,7 +63,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                                                        | Value\[x] Type                                                   | Description
 -----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
  `client-organization`                                     | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference) | The financially responsible organization.
- `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`CodeableConcept`], [`dateTime`].
+ `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`CodeableConcept`], or [`dateTime`].
  `estimated-financial-responsibility-amount`               | [`Money`]                                                        | The estimated amount to be collected for the encounter.
  `estimated-financial-responsibility-not-collected-reason` | [`CodeableConcept`]                                              | The reason no estimated amount is collected for the encounter.
  `payment-collection-status`                               | [`CodeableConcept`]                                              | The status of the payment collection for the encounter.
