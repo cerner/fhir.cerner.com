@@ -160,10 +160,6 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 X-Runtime: 2.011826
 </pre>
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Update
 
 Update an existing document reference:
