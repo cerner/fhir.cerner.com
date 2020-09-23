@@ -297,7 +297,7 @@ fields:
   action:
     - update
   description: The status of the underlying document.
-  note: `final`, `amended`, and `entered-in-error` are supported for all access types. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Each status are supported for all access types&#58; `final`, `amended`, and `entered-in-error`. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
