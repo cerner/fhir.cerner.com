@@ -175,7 +175,7 @@ module Cerner
                               &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Diagnostic Results&lt;/span&gt;
                               &lt;a name=&quot;_61500AA6-4068-421B-9AC5-CA3294098598&quot;&gt;&lt;/a&gt;
                               &lt;div&gt;X-Ray Ankle
-                                (right):&lt;br&gt; CLINICAL HISTORY: Twisted right ankle, pain in joint&lt;br&gt; Routine 3-view radiographs of the right ankle were obtained.  No comparison films were available for this examination.  Normal anatomic alignment of the the ankle structure.  No fracture or dislocation is seen.  Bone mineralization is normal.  No arthritis is observed in the joint.&lt;br&gt; IMPRESSION 1. Normal.  No fracture is seen.&lt;/div&gt;
+                                (right):&lt;br&gt; CLINICAL HISTORY: Twisted right ankle, pain in joint&lt;br&gt; Routine 3-view radiographs of the right ankle were obtained.  No comparison films were available for this examination.  Normal anatomic alignment of the the ankle structure.  No fracture or dislocation is seen.  Bone mineralization is normal.  No arthritis is observed in the joint.&lt;br&gt; IMPRESSION 1. Normal.  No fracture is seen.&lt;/div&gt;
                               &lt;/div&gt;
                             &lt;/div&gt;
                         &lt;/td&gt;

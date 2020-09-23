@@ -32,7 +32,7 @@ Search for Organizations that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -70,7 +70,7 @@ List an individual Organization by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -129,18 +129,18 @@ _Implementation Notes_
 
 <%= headers status: 201 %>
 <pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: text/html
-Date: Wed, 14 Aug 2019 17:23:14 GMT
-Etag: W/"6767735"
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 Aug 2019 17:23:14 GMT
+Etag: W/"6767735"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/6767735
-Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
-Server-Response-Time: 296.405243
-Status: 201 Created
-Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
-X-Runtime: 2.011826
+Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.

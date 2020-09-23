@@ -3,31 +3,32 @@
 module Cerner
   module Resources
     R4_OBSERVATION_ENTRY ||= {
-      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327',
+      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857',
       'resource': {
         'resourceType': 'Observation',
-        'id': 'M-7167327',
+        'id': 'M-197292857',
         'meta': {
           'versionId': '1',
-          'lastUpdated': '2017-09-12T17:01:08.000Z'
+          'lastUpdated': '2020-07-06T21:13:24.000Z'
         },
         'text': {
           'status': 'generated',
-          'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Observation&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-          'Patient Id&lt;/b>: 3998008&lt;/p>&lt;p>&lt;b>Status&lt;/b>: Final&lt;/p>&lt;p>&lt;b>Categories&lt;'\
-          '/b>: Vital Signs&lt;/p>&lt;p>&lt;b>Code&lt;/b>: Temperature Oral&lt;/p>&lt;p>&lt;b>Result&lt;/b>: '\
-          '37 DegC&lt;/p>&lt;p>&lt;b>Interpretation&lt;/b>: Normal&lt;/p>&lt;p>&lt;b>Effective Date&lt;/b>: '\
-          'Sep 12, 2017  5:00 P.M. UTC&lt;/p>&lt;p>&lt;b>Reference Range&lt;/b>: 34.00-37.40 DegC&lt;/p>&lt;/div>'
+          'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
+          '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+          '<p><b>Categories</b>: Vital Signs</p><p><b>Code</b>: Temperature Axillary</p>'\
+          '<p><b>Result</b>: 27 degC</p><p><b>Interpretation</b>: LOW</p>'\
+          '<p><b>Effective Date</b>: Jul  6, 2020  9:11 P.M. UTC</p>'\
+          '<p><b>Reference Range</b>: 35.2-36.7 degC</p></div>'
         },
         'identifier': [
           {
             'system': 'https://fhir.cerner.com/ceuuid',
-            'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-17003791-2020030912450100'
+            'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-197292857-2020070621132500'
           }
         ],
         'basedOn': [
           {
-            'reference': 'ServiceRequest/8213648'
+            'reference': 'ServiceRequest/313764715'
           }
         ],
         'status': 'final',
@@ -47,29 +48,29 @@ module Cerner
           'coding': [
             {
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-              'code': '703558',
-              'display': 'Temperature Oral',
+              'code': '703535',
+              'display': 'Temperature Axillary',
               'userSelected': true
             },
             {
               'system': 'http://loinc.org',
-              'code': '8331-1'
+              'code': '8328-7'
             },
             {
               'system': 'http://loinc.org',
-              'code': '8331-1'
+              'code': '8310-5'
             }
           ],
-          'text': 'Temperature Oral'
+          'text': 'Temperature Axillary'
         },
         'subject': {
-          'reference': 'Patient/3998008'
+          'reference': 'Patient/12724066'
         },
         'encounter': {
-          'reference': 'Encounter/3651924'
+          'reference': 'Encounter/97953477'
         },
-        'effectiveDateTime': '2017-09-12T17:00:00.000Z',
-        'issued': '2017-09-12T17:00:48.000Z',
+        'effectiveDateTime': '2020-07-06T21:11:00.000Z',
+        'issued': '2020-07-06T21:13:23.000Z',
         'performer': [
           {
             'extension': [
@@ -122,8 +123,8 @@ module Cerner
           }
         ],
         'valueQuantity': {
-          'value': 37,
-          'unit': 'DegC',
+          'value': 27,
+          'unit': 'degC',
           'system': 'http://unitsofmeasure.org',
           'code': 'Cel'
         },
@@ -132,28 +133,30 @@ module Cerner
             'coding': [
               {
                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
-                'code': '214',
+                'code': '211',
+                'display': 'LOW',
                 'userSelected': true
               },
               {
                 'system': 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
-                'code': 'N',
-                'display': 'Normal'
+                'code': 'L',
+                'display': 'Low'
               }
-            ]
+            ],
+            'text': 'LOW'
           }
         ],
         'referenceRange': [
           {
             'low': {
-              'value': 34.00,
-              'unit': 'DegC',
+              'value': 35.2,
+              'unit': 'degC',
               'system': 'http://unitsofmeasure.org',
               'code': 'Cel'
             },
             'high': {
-              'value': 37.40,
-              'unit': 'DegC',
+              'value': 36.7,
+              'unit': 'degC',
               'system': 'http://unitsofmeasure.org',
               'code': 'Cel'
             },
@@ -348,6 +351,197 @@ module Cerner
           }
         },
         R4_OBSERVATION_ENTRY
+      ]
+    }.freeze
+
+    R4_OBSERVATION_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '703558',
+            "display": 'Temperature Oral',
+            "userSelected": true
+          }
+        ],
+        "text": 'Temperature Oral'
+      },
+      "subject": {
+        "reference": 'Patient/12457981'
+      },
+      "encounter": {
+        "reference": 'Encounter/97845408'
+      },
+      "effectiveDateTime": '2020-04-03T19:21:00.000Z',
+      "issued": '2020-04-03T19:21:40.000Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/11638321'
+        }
+      ],
+      "valueQuantity": {
+        "value": 37.20,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N',
+              "display": 'Normal'
+            }
+          ]
+        }
+      ],
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/11638321'
+          },
+          "time": '2020-09-03T15:03:10.000Z',
+          "text": 'No additional test require'
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35.8,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "high": {
+            "value": 37.3,
+            "unit": 'degC',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'Cel'
+          },
+          "type": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                "code": 'normal',
+                "display": 'Normal Range'
+              }
+            ],
+            "text": 'Normal Range'
+          }
+        }
+      ]
+    }.freeze
+
+    R4_OBSERVATION_LABS_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'laboratory',
+              "display": 'Laboratory'
+            }
+          ],
+          "text": 'Laboratory'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '718-7',
+            "display": 'Hemoglobin [Mass/volume] in Blood'
+          }
+        ],
+        "text": 'Hemoglobin'
+      },
+      "subject": {
+        "reference": 'Patient/2798003'
+      },
+      "encounter": {
+        "reference": 'Encounter/2673896'
+      },
+      "issued": '2020-07-30T20:42:00.000Z',
+      "effectiveDateTime": '2020-07-30T20:42:00.000Z',
+      "performer": [
+        {
+          "reference": 'Practitioner/1477926'
+        }
+      ],
+      "valueQuantity": {
+        "value": '13.2',
+        "unit": 'mg/dL',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mg/dL'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N',
+              "display": 'Normal'
+            }
+          ],
+          "text": 'Normal'
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 12.0,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          },
+          "high": {
+            "value": 15.5,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          }
+        }
+      ],
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/1477926'
+          },
+          "time": '2020-07-30T20:42:15.000Z',
+          "text": 'Specimen slightly hemolyzed.'
+        }
       ]
     }.freeze
   end
