@@ -228,4 +228,3 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update

@@ -248,10 +248,10 @@ fields:
   example: |
    {
      "encounter": [
-       {
-         "reference": "Encounter/4208053"
-       }
-     ],
+        {
+          "reference": "Encounter/4208053"
+        }
+      ],
      "period": {
        "start": "2020-01-01T00:00:00.000Z",
        "end": "2020-01-01T01:00:00.000Z"
@@ -297,7 +297,7 @@ fields:
   action:
     - update
   description: The status of the underlying document.
-  note: `final`, `amended`, and `entered-in-error` are supported for all access types. If either status or docStatus are updated to 'entered-in-error', the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: `final`, `amended`, and `entered-in-error` are supported for all access types. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
@@ -335,7 +335,7 @@ fields:
   action:
     - update
   description: The status of this document reference.
-  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to 'entered-in-error', the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {

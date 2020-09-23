@@ -251,7 +251,7 @@ module Cerner
           'value': 'identifier 1'
         }
       ],
-      'content':  [
+      'content': [
         'attachment': {
           'contentType': 'application/xml;charset=utf-8',
           'data': 'PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
@@ -266,6 +266,5 @@ module Cerner
         }
       }
     }.freeze
-
   end
 end
