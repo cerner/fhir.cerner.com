@@ -170,80 +170,87 @@ module Cerner
     }.freeze
 
     R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "5e725c76-8875-40c4-91fe-5ddeeddbdfcd",
-      "type": "searchset",
-      "total": 1,
-      "link": [
+      'resourceType': 'Bundle',
+      'id': '5e725c76-8875-40c4-91fe-5ddeeddbdfcd',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
         {
-          "relation": "self",
-          "url": "https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage?-encounter=4706106"
+          'relation': 'self',
+          'url': 'https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage?-encounter=4706106'
         }
       ],
-      "entry": [
-      {
-        "fullUrl": "https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage/PH-4595206-4706106",
-        "resource": {
-           "resourceType": "Coverage",
-           "id": "PH-4595206-4706106",
-           "meta": {
-             "versionId": "0",
-             "lastUpdated": "2020-09-17T19:38:30.000Z"
-           },
-           "text": {
-             "status": "extensions",
-             "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage ##~</b></p><p><b>Status ##~</b>: Active</p> ##~<p><b>Encounter ##~</b>: 4706106</p> ##~<p><b>Beneficiary ##~</b>: LIPTON, BRENDON</p> ##~<p><b>Coverage Start Date ##~</b>: JUL  1 2022  5:00 a.m. #### ~ UTC#### #### ~</p> ##~<p><b>Coverage End Date ##~</b>: JUL  1 2025  5:00 a.m. #### ~ UTC#### #### ~</p> ##~<p><b>Payor ##~</b>: Government ##~</p> ##~<p><b>Class ##~</b>:</p> ##~<dl><dt>Class ##~ ##~</dt><dd><b>Value ##~</b>: 34967421 ##~</dd><dd><b>Name ##~</b>: Charging Category ##~ ##~</dd></dl><p><b>Type ##~</b>: public healthcare</p> ##~</div>"
-           },
-           "extension": [
-             {
-               "valueReference": {
-               "reference": "Encounter/4706106"
-               },
-               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter"
-             }
-           ],
-           "status": "active",
-           "type": {
-             "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-                  "code": "PUBLICPOL",
-                  "display": "public healthcare"
-                }
-             ],
-               "text": "public healthcare"
-           },
-           "beneficiary": {
-             "reference": "Patient/665923",
-              "display": "LIPTON, BRENDON"
-             },
-           "period": {
-             "start": "2022-07-01T05:00:00.000Z",
-             "end": "2025-07-01T05:00:00.000Z"
-           },
-           "payor": [
-               {
-                 "display": "Government ##~"
-               }
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage/PH-4595206-4706106',
+          'resource': {
+            'resourceType': 'Coverage',
+            'id': 'PH-4595206-4706106',
+            'meta': {
+              'versionId': '0',
+              'lastUpdated': '2020-09-17T19:38:30.000Z'
+            },
+            'text': {
+              'status': 'extensions',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage ##~</b></p><p><b>Status ##~</b>:'\
+              'Active</p> ##~<p><b>Encounter ##~</b>: 4706106</p> ##~<p><b>Beneficiary ##~</b>: LIPTON, BRENDON</p>'\
+              '##~<p><b>Coverage Start Date ##~</b>: JUL  1 2022  5:00 a.m. #### ~ UTC#### #### ~</p>'\
+              '##~<p><b>Coverage'\
+              'End Date ##~</b>: JUL  1 2025  5:00 a.m. #### ~ UTC#### #### ~</p> ##~<p><b>Payor ##~</b>: Government'\
+              '##~</p> ##~<p><b>Class ##~</b>:</p> ##~<dl><dt>Class ##~ ##~</dt><dd><b>Value ##~</b>: 34967421'\
+              '##~</dd><dd><b>Name ##~</b>: Charging Category ##~ ##~</dd></dl><p><b>Type ##~</b>:'\
+              'public healthcare</p> ##~</div>'
+            },
+            'extension': [
+              {
+                'valueReference': {
+                  'reference': 'Encounter/4706106'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter'
+              }
             ],
-            "class": [
+            'status': 'active',
+            'type': {
+              'coding': [
                 {
-                 "type": {
-                 "coding": [
-                     {
-                       "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
-                       "code": "class"
-                     }
-                   ]
-                 },
-                 "value": "34967421",
-                 "name": "Charging Category ##~"
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+                  'code': 'PUBLICPOL',
+                  'display': 'public healthcare'
                 }
-              ]
-            }
+              ],
+              'text': 'public healthcare'
+            },
+            'beneficiary': {
+              'reference': 'Patient/665923',
+              'display': 'LIPTON, BRENDON'
+            },
+            'period': {
+              'start': '2022-07-01T05:00:00.000Z',
+              'end': '2025-07-01T05:00:00.000Z'
+            },
+            'payor': [
+              {
+                'display': 'Government ##~'
+              }
+            ],
+            'class': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/coverage-class',
+                      'code': 'class'
+                    }
+                  ]
+                },
+                'value': '34967421',
+                'name': 'Charging Category ##~'
+              }
+            ]
           }
-        ]
-      }.freeze
+        }
+      ]
+    }.freeze
 
     R4_COVERAGE_CREATE ||= {
       'resourceType': 'Coverage',
