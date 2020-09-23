@@ -49,6 +49,10 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 Search for Patient-level or Encounter-level Coverages that meet supplied query parameters:
 
     GET /Coverages?:parameters
+    
+_Implementation Notes_
+  
+* Public Healthcare (PH) represents an insurance policy funded by a public health system such as a provincial or national health plan.
 
 ### Authorization Types
 
@@ -89,13 +93,10 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
 
-
-#### Response when social healthcare information is returned
+#### Response when public healthcare information is returned
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_social_healthcare_bundle) %>
-
-
 
 <%= disclaimer %>
 
