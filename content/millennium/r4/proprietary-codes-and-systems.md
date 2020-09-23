@@ -100,7 +100,7 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.dietPreference codes are maintained in [Code Set 18 Diet](#code-set-18-diet)
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
-* Custom Attribute extensions on Encounter may contain Custom Attribute Value codes. These codes may be from [any Code Set](#list-of-code-sets)
+* Custom Attribute extensions on Encounter may contain Custom Attribute Value codes when Custom Attribute Value is of type CodeableConcept. These codes may be from [any Code Set](#list-of-code-sets)
 
 ### Entities
 
