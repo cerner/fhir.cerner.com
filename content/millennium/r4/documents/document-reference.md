@@ -166,22 +166,22 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
-Update an existing document reference.
+Update an existing document reference:
 
     PUT /DocumentReference/:id
-
-_Implementation Notes_
-
-* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
-* Both write and read scopes are required to update a document reference
 
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: false, system: true) %>
 
+_Implementation Notes_
+
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the DocumentReference resource>"'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>',
+Accept: 'application/json+fhir', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the DocumentReference resource>"'} %>
 
 ### Body fields
 
@@ -228,3 +228,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update

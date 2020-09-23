@@ -18,9 +18,8 @@ fields:
   type: code
   action:
     - create
-    - update
   description: The status of this document reference.
-  note: Only `current` is supported
+  note: Only `current` is supported.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -60,7 +59,7 @@ fields:
   description: Specifies the particular kind of document referenced.
   note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
@@ -298,7 +297,7 @@ fields:
   action:
     - update
   description: The status of the underlying document.
-  note: Only `final` is supported for provider access. `final` and `amended` are supported for system access.
+  note: `final`, `amended`, and `entered-in-error` are supported for all access types. If either status or docStatus are updated to 'entered-in-error', the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
@@ -309,13 +308,12 @@ fields:
   required: ‘Yes’
   type: CodeableConcept
   action:
-  - update
+    - update
   description: Specifies the particular kind of document referenced.
   note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
-
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
     {
@@ -329,4 +327,17 @@ fields:
           }
         ]
       }
+    }
+
+- name: status
+  required: 'Yes'
+  type: code
+  action:
+    - update
+  description: The status of this document reference.
+  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to 'entered-in-error', the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
+  example: |
+    {
+      "status": "entered-in-error"
     }

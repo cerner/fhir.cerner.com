@@ -225,7 +225,7 @@ module Cerner
     R4_DOCUMENT_REFERENCE_UPDATE ||= {
       'resourceType': 'DocumentReference',
       'id': '16885181',
-      'status': 'current',
+      'status': 'entered-in-error',
       'docStatus': 'amended',
       'type': {
         'coding': [
