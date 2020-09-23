@@ -87,6 +87,15 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_bundle) %>
 
+#### Request
+
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?_id=197374911
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_medication_administration_multiple_ingredients_bundle) %>
+
 <%= disclaimer %>
 
 ### Errors
@@ -122,6 +131,15 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_entry) %>
+
+#### Request
+
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197374911
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_medication_administration_multiple_ingredients_entry) %>
 
 <%= disclaimer %>
 
