@@ -75,6 +75,7 @@ Authorization is not required.
  [`account-related-parts`]                                   | A reference to other related Accounts.
  [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
  [`client-organization`]                                     | The financially responsible organization.
+ [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`estimated-financial-responsibility-amount`]               | The estimated amount to be collected for the encounter.
  [`estimated-financial-responsibility-not-collected-reason`] | The reason no estimated amount is collected for the encounter.
  [`financial-transaction-account-number`]                    | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
@@ -93,6 +94,7 @@ Authorization is not required.
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
+[`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`estimated-financial-responsibility-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json
 [`estimated-financial-responsibility-not-collected-reason`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason?_format=json
 [`financial-transaction-account-number`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number?_format=json
