@@ -96,166 +96,166 @@ module Cerner
       'resourceType': 'MedicationAdministration',
       'id': '197374911',
       'meta': {
-          'versionId': '197374914',
-          'lastUpdated': '2020-09-21T16:39:45.000Z'
+        'versionId': '197374914',
+        'lastUpdated': '2020-09-21T16:39:45.000Z'
       },
       'text': {
-          'status': 'generated',
-          'div': '<div><p><b>Medication Administration</b></p><p><b>Patient Name</b>: TEST, ACCESS</p>'\
-                 '<p><b>Medication Display</b>: Erythromycin 500 MG Oral Tablet</p><p><b>Administered</b>: Yes</p>'\
-                 '<p><b>Dosage Quantity</b>: 30 milliliter (iso1000)</p><p><b>Medication Status</b>: Completed</p>'\
-                 '<p><b>Effective Time</b>: Sep 21, 2020  4:39 P.M. UTC</p></div>'
+        'status': 'generated',
+        'div': '<div><p><b>Medication Administration</b></p><p><b>Patient Name</b>: TEST, ACCESS</p>'\
+               '<p><b>Medication Display</b>: Erythromycin 500 MG Oral Tablet</p><p><b>Administered</b>: Yes</p>'\
+               '<p><b>Dosage Quantity</b>: 30 milliliter (iso1000)</p><p><b>Medication Status</b>: Completed</p>'\
+               '<p><b>Effective Time</b>: Sep 21, 2020  4:39 P.M. UTC</p></div>'
       },
       'contained': [
-          {
-              'resourceType': 'Medication',
-              'id': '197374911',
-              'product': {
-                  'ingredient': [
-                      {
-                          'item': {
-                              'reference': '#197374913-1',
-                              'display': 'Erythromycin 500 MG Oral Tablet'
-                          },
-                          'amount': {
-                              'numerator': {
-                                  'value': 500,
-                                  'unit': 'milliliter per hour',
-                                  'system': 'http://unitsofmeasure.org',
-                                  'code': 'mL/h'
-                              },
-                              'denominator': {
-                                  'value': 20,
-                                  'unit': 'milliliter (iso1000)',
-                                  'system': 'http://unitsofmeasure.org',
-                                  'code': 'mL'
-                              }
-                          }
-                      },
-                      {
-                          'item': {
-                              'reference': '#197374915-2',
-                              'display': '1000 ML Sodium Chloride 9 MG/ML Injection'
-                          },
-                          'amount': {
-                              'numerator': {
-                                  'value': 30,
-                                  'unit': 'milliliter (iso1000)',
-                                  'system': 'http://unitsofmeasure.org',
-                                  'code': 'mL'
-                              },
-                              'denominator': {
-                                  'value': 1,
-                                  'unit': 'Each',
-                                  'system': 'http://unitsofmeasure.org',
-                                  'code': '{Each}'
-                              }
-                          }
-                      }
-                  ]
+        {
+          'resourceType': 'Medication',
+          'id': '197374911',
+          'product': {
+            'ingredient': [
+              {
+                'item': {
+                  'reference': '#197374913-1',
+                  'display': 'Erythromycin 500 MG Oral Tablet'
+                },
+                'amount': {
+                  'numerator': {
+                    'value': 500,
+                    'unit': 'milliliter per hour',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': 'mL/h'
+                  },
+                  'denominator': {
+                    'value': 20,
+                    'unit': 'milliliter (iso1000)',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': 'mL'
+                  }
+                }
+              },
+              {
+                'item': {
+                  'reference': '#197374915-2',
+                  'display': '1000 ML Sodium Chloride 9 MG/ML Injection'
+                },
+                'amount': {
+                  'numerator': {
+                    'value': 30,
+                    'unit': 'milliliter (iso1000)',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': 'mL'
+                  },
+                  'denominator': {
+                    'value': 1,
+                    'unit': 'Each',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': '{Each}'
+                  }
+                }
               }
-          },
-          {
-              'resourceType': 'Medication',
-              'id': '197374913-1',
-              'code': {
-                  'coding': [
-                      {
-                          'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
-                          'code': '197650',
-                          'display': 'Erythromycin 500 MG Oral Tablet',
-                          'userSelected': false
-                      }
-                  ],
-                  'text': 'erythromycin'
-              }
-          },
-          {
-              'resourceType': 'Medication',
-              'id': '197374915-2',
-              'code': {
-                  'coding': [
-                      {
-                          'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
-                          'code': '1807639',
-                          'display': '1000 ML Sodium Chloride 9 MG/ML Injection',
-                          'userSelected': false
-                      }
-                  ],
-                  'text': 'Sodium Chloride 0.9%'
-              }
+            ]
           }
+        },
+        {
+          'resourceType': 'Medication',
+          'id': '197374913-1',
+          'code': {
+            'coding': [
+              {
+                'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
+                'code': '197650',
+                'display': 'Erythromycin 500 MG Oral Tablet',
+                'userSelected': false
+              }
+            ],
+            'text': 'erythromycin'
+          }
+        },
+        {
+          'resourceType': 'Medication',
+          'id': '197374915-2',
+          'code': {
+            'coding': [
+              {
+                'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
+                'code': '1807639',
+                'display': '1000 ML Sodium Chloride 9 MG/ML Injection',
+                'userSelected': false
+              }
+            ],
+            'text': 'Sodium Chloride 0.9%'
+          }
+        }
       ],
       'status': 'completed',
       'patient': {
-          'reference': 'Patient/12550005',
-          'display': 'TEST, ACCESS'
+        'reference': 'Patient/12550005',
+        'display': 'TEST, ACCESS'
       },
       'practitioner': {
-          'reference': 'Practitioner/607928',
-          'display': 'Cerner Test, RN Cerner'
+        'reference': 'Practitioner/607928',
+        'display': 'Cerner Test, RN Cerner'
       },
       'encounter': {
-          'reference': 'Encounter/97777411'
+        'reference': 'Encounter/97777411'
       },
       'prescription': {
-          'reference': 'MedicationOrder/316281601'
+        'reference': 'MedicationOrder/316281601'
       },
       'wasNotGiven': false,
       'effectiveTimeDateTime': '2020-09-21T16:39:00.000Z',
       'medicationReference': {
-          'reference': '#197374911',
-          'display': 'Erythromycin 500 MG Oral Tablet'
+        'reference': '#197374911',
+        'display': 'Erythromycin 500 MG Oral Tablet'
       },
       'dosage': {
-          'siteCodeableConcept': {
-              'coding': [
-                  {
-                      'system': 'http://snomed.info/sct',
-                      'code': '123851003',
-                      'display': 'Mouth region structure (body structure)',
-                      'userSelected': false
-                  }
-              ],
-              'text': 'Mouth'
+        'siteCodeableConcept': {
+          'coding': [
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '123851003',
+              'display': 'Mouth region structure (body structure)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Mouth'
+        },
+        'route': {
+          'coding': [
+            {
+              'system': 'http://ncimeta.nci.nih.gov',
+              'code': 'C38288',
+              'display': 'Oral Route of Administration',
+              'userSelected': false
+            },
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '26643006',
+              'display': 'Oral route (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Oral'
+        },
+        'quantity': {
+          'value': 30,
+          'unit': 'milliliter (iso1000)',
+          'system': 'http://unitsofmeasure.org',
+          'code': 'mL'
+        },
+        'rateRatio': {
+          'numerator': {
+            'value': 3.33,
+            'unit': 'milliliter (iso1000)',
+            'system': 'http://unitsofmeasure.org',
+            'code': 'mL'
           },
-          'route': {
-              'coding': [
-                  {
-                      'system': 'http://ncimeta.nci.nih.gov',
-                      'code': 'C38288',
-                      'display': 'Oral Route of Administration',
-                      'userSelected': false
-                  },
-                  {
-                      'system': 'http://snomed.info/sct',
-                      'code': '26643006',
-                      'display': 'Oral route (qualifier value)',
-                      'userSelected': false
-                  }
-              ],
-              'text': 'Oral'
-          },
-          'quantity': {
-              'value': 30,
-              'unit': 'milliliter (iso1000)',
-              'system': 'http://unitsofmeasure.org',
-              'code': 'mL'
-          },
-          'rateRatio': {
-              'numerator': {
-                  'value': 3.33,
-                  'unit': 'milliliter (iso1000)',
-                  'system': 'http://unitsofmeasure.org',
-                  'code': 'mL'
-              },
-              'denominator': {
-                  'value': 1,
-                  'unit': 'hour (iso1000)',
-                  'system': 'http://unitsofmeasure.org',
-                  'code': 'h'
-              }
+          'denominator': {
+            'value': 1,
+            'unit': 'hour (iso1000)',
+            'system': 'http://unitsofmeasure.org',
+            'code': 'h'
           }
+        }
       }
     }.freeze
 
