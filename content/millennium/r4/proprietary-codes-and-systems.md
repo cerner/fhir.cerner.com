@@ -716,6 +716,17 @@ This code set includes the statuses that reflect the current status of a corresp
       "userSelected": true
     }
 
+#### Code Set Nomenclature
+
+This code set contains all nomenclature values configured in the domain.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/nomenclature,
+      "code": "19177939",
+      "display": "Delivered",
+      "userSelected": false,
+    }
+
 ## Proprietary Systems
 
 ### Overview

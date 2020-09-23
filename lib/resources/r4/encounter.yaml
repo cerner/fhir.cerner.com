@@ -556,8 +556,11 @@ fields:
   binding:
     description: The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>customm-attribute</code> extensions.
     terminology:
-      - display: Custom Attribute Value
+      - display: Custom Attribute Code Value
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
+      - display: Custom Attribute Nomenclature Value
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
     note: >
       <ul>
