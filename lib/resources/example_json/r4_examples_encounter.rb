@@ -21,20 +21,6 @@ module Cerner
       },
       'extension': [
         {
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute',
-          'extension': [
-            {
-              'id': 'ENCNTR:17368048',
-              'url': 'custom-attribute-name',
-              'valueString': 'Full Reg Date/Time'
-            },
-            {
-              'url': 'custom-attribute-value',
-              'valueDateTime': '2020-03-04T18:12:22.000Z'
-            }
-          ]
-        },
-        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization',
           'valueReference': {
             'reference': 'Organization/675844'
