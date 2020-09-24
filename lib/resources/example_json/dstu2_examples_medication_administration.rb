@@ -94,38 +94,39 @@ module Cerner
 
     DSTU2_MEDICATION_ADMINISTRATION_MULTIPLE_INGREDIENTS_ENTRY ||= {
       'resourceType': 'MedicationAdministration',
-      'id': '197374911',
+      'id': '197375293',
       'meta': {
-        'versionId': '197374914',
-        'lastUpdated': '2020-09-21T16:39:45.000Z'
+        'versionId': '197375292',
+        'lastUpdated': '2020-09-24T13:41:07.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div><p><b>Medication Administration</b></p><p><b>Patient Name</b>: TEST, ACCESS</p>'\
-               '<p><b>Medication Display</b>: Erythromycin 500 MG Oral Tablet</p><p><b>Administered</b>: Yes</p>'\
-               '<p><b>Dosage Quantity</b>: 30 milliliter (iso1000)</p><p><b>Medication Status</b>: Completed</p>'\
-               '<p><b>Effective Time</b>: Sep 21, 2020  4:39 P.M. UTC</p></div>'
+        'div': '<div><p><b>Medication Administration</b></p><p><b>Patient Name</b>: TEST, BOB</p>'\
+               '<p><b>Medication Display</b>: Dopamine Hydrochloride 80 MG/ML Injection</p>'\
+               '<p><b>Administered</b>: Yes</p><p><b>Dosage Quantity</b>: 12.76 milliliter (iso1000)</p>'\
+               '<p><b>Medication Status</b>: Completed</p><p><b>Effective Start Time</b>: Sep 24, 2020  2:00 P.M. UTC</p>'\
+               '<p><b>Effective End Time</b>: Sep 24, 2020  2:59 P.M. UTC</p></div>'
       },
       'contained': [
         {
           'resourceType': 'Medication',
-          'id': '197374911',
+          'id': '197375293',
           'product': {
             'ingredient': [
               {
                 'item': {
-                  'reference': '#197374913-1',
-                  'display': 'Erythromycin 500 MG Oral Tablet'
+                  'reference': '#197375295-1',
+                  'display': 'Dopamine Hydrochloride 80 MG/ML Injection'
                 },
                 'amount': {
                   'numerator': {
-                    'value': 500,
-                    'unit': 'milliliter per hour',
+                    'value': 12.76,
+                    'unit': 'milliliter (iso1000)',
                     'system': 'http://unitsofmeasure.org',
-                    'code': 'mL/h'
+                    'code': 'mL'
                   },
                   'denominator': {
-                    'value': 20,
+                    'value': 500,
                     'unit': 'milliliter (iso1000)',
                     'system': 'http://unitsofmeasure.org',
                     'code': 'mL'
@@ -134,21 +135,21 @@ module Cerner
               },
               {
                 'item': {
-                  'reference': '#197374915-2',
-                  'display': '1000 ML Sodium Chloride 9 MG/ML Injection'
+                  'reference': '#197375297-2',
+                  'display': '50 ML Glucose 50 MG/ML Injection'
                 },
                 'amount': {
                   'numerator': {
-                    'value': 30,
+                    'value': 12.76,
                     'unit': 'milliliter (iso1000)',
                     'system': 'http://unitsofmeasure.org',
                     'code': 'mL'
                   },
                   'denominator': {
-                    'value': 1,
-                    'unit': 'Each',
+                    'value': 500,
+                    'unit': 'milliliter (iso1000)',
                     'system': 'http://unitsofmeasure.org',
-                    'code': '{Each}'
+                    'code': 'mL'
                   }
                 }
               }
@@ -157,94 +158,80 @@ module Cerner
         },
         {
           'resourceType': 'Medication',
-          'id': '197374913-1',
+          'id': '197375295-1',
           'code': {
             'coding': [
               {
                 'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
-                'code': '197650',
-                'display': 'Erythromycin 500 MG Oral Tablet',
+                'code': '1743951',
+                'display': 'Dopamine Hydrochloride 80 MG/ML Injection',
                 'userSelected': false
               }
             ],
-            'text': 'erythromycin'
+            'text': 'DOPamine'
           }
         },
         {
           'resourceType': 'Medication',
-          'id': '197374915-2',
+          'id': '197375297-2',
           'code': {
             'coding': [
               {
                 'system': 'http://www.nlm.nih.gov/research/umls/rxnorm',
-                'code': '1807639',
-                'display': '1000 ML Sodium Chloride 9 MG/ML Injection',
+                'code': '1795616',
+                'display': '50 ML Glucose 50 MG/ML Injection',
                 'userSelected': false
               }
             ],
-            'text': 'Sodium Chloride 0.9%'
+            'text': 'Dextrose 5% in Water'
           }
         }
       ],
       'status': 'completed',
       'patient': {
-        'reference': 'Patient/12550005',
-        'display': 'TEST, ACCESS'
+        'reference': 'Patient/12545984',
+        'display': 'TEST, BOB'
       },
       'practitioner': {
-        'reference': 'Practitioner/607928',
-        'display': 'Cerner Test, RN Cerner'
+        'reference': 'Practitioner/1',
+        'display': 'SYSTEM, SYSTEM Cerner'
       },
       'encounter': {
-        'reference': 'Encounter/97777411'
+        'reference': 'Encounter/97887460'
       },
       'prescription': {
-        'reference': 'MedicationOrder/316281601'
+        'reference': 'MedicationOrder/316367035'
       },
       'wasNotGiven': false,
-      'effectiveTimeDateTime': '2020-09-21T16:39:00.000Z',
+      'effectiveTimePeriod': {
+        'start': '2020-09-24T14:00:00.000Z',
+        'end': '2020-09-24T14:59:00.000Z'
+      },
       'medicationReference': {
-        'reference': '#197374911',
-        'display': 'Erythromycin 500 MG Oral Tablet'
+        'reference': '#197375293',
+        'display': 'Dopamine Hydrochloride 80 MG/ML Injection'
       },
       'dosage': {
         'siteCodeableConcept': {
           'coding': [
             {
               'system': 'http://snomed.info/sct',
-              'code': '123851003',
-              'display': 'Mouth region structure (body structure)',
+              'code': '66480008',
+              'display': 'Structure of left forearm (body structure)',
               'userSelected': false
             }
           ],
-          'text': 'Mouth'
-        },
-        'route': {
-          'coding': [
-            {
-              'system': 'http://ncimeta.nci.nih.gov',
-              'code': 'C38288',
-              'display': 'Oral Route of Administration',
-              'userSelected': false
-            },
-            {
-              'system': 'http://snomed.info/sct',
-              'code': '26643006',
-              'display': 'Oral route (qualifier value)',
-              'userSelected': false
-            }
-          ],
-          'text': 'Oral'
+          'text': 'Arm, Lower, Left'
         },
         'quantity': {
-          'value': 30,
+          'value': 12.76,
           'unit': 'milliliter (iso1000)',
           'system': 'http://unitsofmeasure.org',
           'code': 'mL'
         },
         'rateRatio': {
           'numerator': {
-            'value': 3.33,
+            'value': 12.76,
             'unit': 'milliliter (iso1000)',
             'system': 'http://unitsofmeasure.org',
             'code': 'mL'
@@ -257,7 +244,7 @@ module Cerner
           }
         }
       }
-    }.freeze
+}    }.freeze
 
     DSTU2_MEDICATION_ADMINISTRATION_MULTIPLE_INGREDIENTS_BUNDLE ||= {
       'resourceType': 'Bundle',
@@ -268,13 +255,13 @@ module Cerner
         {
           'relation': 'self',
           'url': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
-                 'MedicationAdministration?_id=197374911'
+                 'MedicationAdministration?_id=197375293'
         }
       ],
       'entry': [
         {
           'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
-                     'MedicationAdministration/197374911',
+                     'MedicationAdministration/197375293',
           'resource': DSTU2_MEDICATION_ADMINISTRATION_MULTIPLE_INGREDIENTS_ENTRY
         }
       ]

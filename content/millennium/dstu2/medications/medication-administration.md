@@ -89,7 +89,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?_id=197374911
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?_id=197375293
 
 #### Response
 
@@ -134,7 +134,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197374911
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197375293
 
 #### Response
 
