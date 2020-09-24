@@ -21,6 +21,20 @@ module Cerner
       },
       'extension': [
         {
+          'extension': [
+            {
+              'id': 'ENCNTR:17368048',
+              'valueString': 'Full Reg Date/Time',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueDateTime': '2020-03-04T18:12:22.000Z',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
           'valueMoney': {
             'value': 0.0,
