@@ -93,7 +93,7 @@ operations:
         ]
       }
     note: >
+      Supported extensions that can be replaced:
       <ul>
-        <li>`Encounter.extension` value should be a list.</li>
-        <li>When a list is provided, the first value would be used to patch `Encounter.extension`.</li>
+        <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a></li>
       </ul>
