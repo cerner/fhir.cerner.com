@@ -171,35 +171,33 @@ module Cerner
 
     R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '5e725c76-8875-40c4-91fe-5ddeeddbdfcd',
+      'id': '1714d1b5-cabf-4c4a-bb76-c1e2e4d76d64',
       'type': 'searchset',
-      'total': 1,
+      'total': 2,
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467'
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467',
+          'fullUrl': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467',
           'resource': {
             'resourceType': 'Coverage',
             'id': 'PH-98371617-97701467',
             'meta': {
-              'versionId': '0',
-              'lastUpdated': '2020-09-17T19:38:30.000Z'
+              'versionId': '2',
+              'lastUpdated': '2020-09-24T17:11:10.000Z'
             },
             'text': {
               'status': 'extensions',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage~</b></p><p><b>Status</b>:'\
-              'Active</p> <p><b>Encounter</b>: 97701467</p> <p><b>Beneficiary </b>: TRAUMA SURGERY, TESTONE</p>'\
-              '##~<p><b>Coverage Start Date</b>: JUL  1 2022  5:00 a.m. UTC</p>'\
-              '##~<p><b>Coverage'\
-              'End Date</b>: JUL  1 2025  5:00 a.m. UTC</p> <p><b>Payor</b>: Government'\
-              '</p><p><b>Class</b>:</p><dl><dt>Class</dt><dd><b>Value~</b>: 2572499881'\
-              '</dd><dd><b>Name</b>: Charging Category</dd></dl><p><b>Type</b>:'\
-              'public healthcare</p> </div>'
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
+                     '<p><b>Encounter</b>: 97701467</p><p><b>Beneficiary</b>: TRAUMA SURGERY, TESTONE</p>'\
+                     '<p><b>Coverage Start Date</b>: Jul  1, 2022  5:00 A.M. UTC</p><p><b>Coverage End Date</b>'\
+                     ': Jul  1, 2025  5:00 A.M. UTC</p><p><b>Payor</b>: Government</p><p><b>Class</b>:</p><dl>'\
+                     '<dt>Class</dt><dd><b>Value</b>: 2572499881</dd><dd><b>Name</b>: Charging Category</dd></dl>'\
+                     '<p><b>Type</b>: public healthcare</p></div>'
             },
             'extension': [
               {
@@ -251,7 +249,7 @@ module Cerner
         }
       ]
     }.freeze
-
+    
     R4_COVERAGE_CREATE ||= {
       'resourceType': 'Coverage',
       'status': 'active',
