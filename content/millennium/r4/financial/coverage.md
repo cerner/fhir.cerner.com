@@ -93,6 +93,11 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
 
+#### Request
+
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
+
+
 #### Response when public healthcare information is returned
 
 <%= headers status: 200 %>

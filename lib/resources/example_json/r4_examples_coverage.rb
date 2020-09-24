@@ -177,12 +177,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage?-encounter=4706106'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.stagingcerner.com/r4/a758f80e-aa74-4118-80aa-98cc75846c76/Coverage/PH-4595206-4706106',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467',
           'resource': {
             'resourceType': 'Coverage',
             'id': 'PH-98371617-97701467',
@@ -192,14 +192,14 @@ module Cerner
             },
             'text': {
               'status': 'extensions',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage ##~</b></p><p><b>Status ##~</b>:'\
-              'Active</p> ##~<p><b>Encounter ##~</b>: 4706106</p> ##~<p><b>Beneficiary ##~</b>: LIPTON, BRENDON</p>'\
-              '##~<p><b>Coverage Start Date ##~</b>: JUL  1 2022  5:00 a.m. #### ~ UTC#### #### ~</p>'\
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage~</b></p><p><b>Status</b>:'\
+              'Active</p> <p><b>Encounter</b>: 97701467</p> <p><b>Beneficiary </b>: TRAUMA SURGERY, TESTONE</p>'\
+              '##~<p><b>Coverage Start Date</b>: JUL  1 2022  5:00 a.m. UTC</p>'\
               '##~<p><b>Coverage'\
-              'End Date ##~</b>: JUL  1 2025  5:00 a.m. #### ~ UTC#### #### ~</p> ##~<p><b>Payor ##~</b>: Government'\
-              '##~</p> ##~<p><b>Class ##~</b>:</p> ##~<dl><dt>Class ##~ ##~</dt><dd><b>Value ##~</b>: 34967421'\
-              '##~</dd><dd><b>Name ##~</b>: Charging Category ##~ ##~</dd></dl><p><b>Type ##~</b>:'\
-              'public healthcare</p> ##~</div>'
+              'End Date</b>: JUL  1 2025  5:00 a.m. UTC</p> <p><b>Payor</b>: Government'\
+              '</p><p><b>Class</b>:</p><dl><dt>Class</dt><dd><b>Value~</b>: 2572499881'\
+              '</dd><dd><b>Name</b>: Charging Category</dd></dl><p><b>Type</b>:'\
+              'public healthcare</p> </div>'
             },
             'extension': [
               {
@@ -230,7 +230,7 @@ module Cerner
             },
             'payor': [
               {
-                'display': 'Government ##~'
+                'display': 'Government'
               }
             ],
             'class': [
@@ -243,8 +243,8 @@ module Cerner
                     }
                   ]
                 },
-                'value': '34967421',
-                'name': 'Charging Category ##~'
+                'value': '2572499881',
+                'name': 'Charging Category'
               }
             ]
           }
