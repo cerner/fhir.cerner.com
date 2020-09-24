@@ -173,7 +173,7 @@ module Cerner
       'resourceType': 'Bundle',
       'id': '1714d1b5-cabf-4c4a-bb76-c1e2e4d76d64',
       'type': 'searchset',
-      'total': 2,
+      'total': 1,
       'link': [
         {
           'relation': 'self',
@@ -249,7 +249,7 @@ module Cerner
         }
       ]
     }.freeze
-    
+
     R4_COVERAGE_CREATE ||= {
       'resourceType': 'Coverage',
       'status': 'active',
