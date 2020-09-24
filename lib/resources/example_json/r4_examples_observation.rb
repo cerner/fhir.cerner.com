@@ -372,10 +372,8 @@ module Cerner
       "code": {
         "coding": [
           {
-            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            "code": '703558',
-            "display": 'Temperature Oral',
-            "userSelected": true
+            "system": 'http://loinc.org',
+            "code": '8331-1'
           }
         ],
         "text": 'Temperature Oral'
