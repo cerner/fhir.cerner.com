@@ -99,7 +99,6 @@ _Implementation Notes_
 
     GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
 
-
 #### Response
 
 <%= headers status: 200 %>
