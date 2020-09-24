@@ -256,15 +256,15 @@ module Cerner
     }.freeze
     R4_MEDICATION_REQUEST_PATCH ||= [
       {
-        "op": "replace",
-        "path": "/status",
-        "value": "stopped"
+        'op': 'replace',
+        'path': '/status',
+        'value': 'stopped'
       },
       {
-        "op": "test",
-        "path": "/subject/reference",
-        "value": "Patient/1316024"
+        'op': 'test',
+        'path': '/subject/reference',
+        'value': 'Patient/1316024'
       }
-    ]
+    ].freeze
   end
 end
