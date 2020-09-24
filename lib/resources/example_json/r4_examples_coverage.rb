@@ -169,6 +169,87 @@ module Cerner
       ]
     }.freeze
 
+    R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '1714d1b5-cabf-4c4a-bb76-c1e2e4d76d64',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467',
+          'resource': {
+            'resourceType': 'Coverage',
+            'id': 'PH-98371617-97701467',
+            'meta': {
+              'versionId': '2',
+              'lastUpdated': '2020-09-24T17:11:10.000Z'
+            },
+            'text': {
+              'status': 'extensions',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
+                     '<p><b>Encounter</b>: 97701467</p><p><b>Beneficiary</b>: TRAUMA SURGERY, TESTONE</p>'\
+                     '<p><b>Coverage Start Date</b>: Jul  1, 2022  5:00 A.M. UTC</p><p><b>Coverage End Date</b>'\
+                     ': Jul  1, 2025  5:00 A.M. UTC</p><p><b>Payor</b>: Government</p><p><b>Class</b>:</p><dl>'\
+                     '<dt>Class</dt><dd><b>Value</b>: 2572499881</dd><dd><b>Name</b>: Charging Category</dd></dl>'\
+                     '<p><b>Type</b>: public healthcare</p></div>'
+            },
+            'extension': [
+              {
+                'valueReference': {
+                  'reference': 'Encounter/97701467'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter'
+              }
+            ],
+            'status': 'active',
+            'type': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+                  'code': 'PUBLICPOL',
+                  'display': 'public healthcare'
+                }
+              ],
+              'text': 'public healthcare'
+            },
+            'beneficiary': {
+              'reference': 'Patient/12462008',
+              'display': 'TRAUMA SURGERY, TESTONE'
+            },
+            'period': {
+              'start': '2022-07-01T05:00:00.000Z',
+              'end': '2025-07-01T05:00:00.000Z'
+            },
+            'payor': [
+              {
+                'display': 'Government'
+              }
+            ],
+            'class': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/coverage-class',
+                      'code': 'class'
+                    }
+                  ]
+                },
+                'value': '2572499881',
+                'name': 'Charging Category'
+              }
+            ]
+          }
+        }
+      ]
+    }.freeze
+
     R4_COVERAGE_CREATE ||= {
       'resourceType': 'Coverage',
       'status': 'active',
