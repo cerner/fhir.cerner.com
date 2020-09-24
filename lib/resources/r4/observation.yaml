@@ -97,7 +97,7 @@ fields:
           }
         ],
         "text": 'Temperature Oral'
-      },
+      }
     }
   example2: |
     {
