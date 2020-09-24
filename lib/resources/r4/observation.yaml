@@ -92,13 +92,11 @@ fields:
       "code": {
         "coding": [
           {
-            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            "code": '4154126',
-            "display": 'Height/Length Measured',
-            "userSelected": true
+            "system": 'http://loinc.org',
+            "code": '8331-1'
           }
         ],
-        "text": 'Height/Length Measured'
+        "text": 'Temperature Oral'
       }
     }
   example2: |
@@ -117,10 +115,6 @@ fields:
         "text": 'Height/Length Measured'
       }
     }
-  note: |
-    <ul>
-      <li> Vital Signs currently support only proprietary codes </li>
-    </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
 
 - name: subject
