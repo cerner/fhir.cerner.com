@@ -121,10 +121,10 @@ module Cerner
                 },
                 'amount': {
                   'numerator': {
-                    'value': 12.76,
-                    'unit': 'milliliter (iso1000)',
+                    'value': 400,
+                    'unit': 'milligram (mass)',
                     'system': 'http://unitsofmeasure.org',
-                    'code': 'mL'
+                    'code': 'mg'
                   },
                   'denominator': {
                     'value': 500,
@@ -141,7 +141,7 @@ module Cerner
                 },
                 'amount': {
                   'numerator': {
-                    'value': 12.76,
+                    'value': 500,
                     'unit': 'milliliter (iso1000)',
                     'system': 'http://unitsofmeasure.org',
                     'code': 'mL'
