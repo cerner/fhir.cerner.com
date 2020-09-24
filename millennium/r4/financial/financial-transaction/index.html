@@ -384,7 +384,7 @@
     <tr>
       <td><code>financial-transaction-date</code></td>
       <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#date"><code>date</code></a></td>
-      <td>Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.</td>
+      <td>Represents the expiration date if method is card or check date if method is check.</td>
     </tr>
     <tr>
       <td><code>financial-transaction-location</code></td>
@@ -420,8 +420,8 @@
 
 <ul>
   <li>Only the body fields mentioned below are supported.</li>
-  <li>When integrating your application with a client’s production environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.</li>
-  <li>Cerner’s Revenue Cycle Patient Accounting application must be in use at a client site in order to create meaningful FinancialTransactions. A FinancialTransaction can only be targeted at a clinical Encounter that has related financial activity/encounters within the Cerner Revenue Cycle Patient Accounting system.</li>
+  <li>When integrating your application with a client’s environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.</li>
+  <li>Cerner’s Revenue Cycle Patient Accounting application must be in use at a client site in order to create meaningful FinancialTransactions.</li>
   <li>When creating FinancialTransactions, a Basic OAuth2 token scope is required in addition to a FinancialTransaction Oauth2 token scope.</li>
 </ul>
 
@@ -634,7 +634,7 @@
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-  "valueString": "3100"
+  "valueString": "0111"
 }
 </pre></li></ul>
       
@@ -642,7 +642,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. Is required to create a FinancialTransaction resource.</li></ul>
+        <ul style="list-style-type: none"><li>A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. The alias determines the credit or debit impact on the accounts receivable. A valid alias from the tenant is required to create a FinancialTransaction resource.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -672,7 +672,7 @@
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
-  "valueString": "201802160003"
+  "valueString": "98920358"
 }
 </pre></li></ul>
       
@@ -958,7 +958,7 @@
     {
       "url": "target",
       "valueReference": {
-        "reference": "Encounter/31363178"
+        "reference": "Encounter/97953536"
       }
     },
     {
@@ -1007,7 +1007,7 @@
         <ul style="list-style-type: none"><li><pre>{
   "url": "target",
   "valueReference": {
-    "reference": "Encounter/31363178"
+    "reference": "Encounter/97953536"
   }
 }
 </pre></li></ul>
@@ -1130,7 +1130,7 @@
         {
           "url": "target",
           "valueReference": {
-            "reference": "Encounter/31363178"
+            "reference": "Encounter/97953536"
           }
         },
         {
@@ -1144,11 +1144,11 @@
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-      "valueString": "1300"
+      "valueString": "0111"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
-      "valueString": "201802160003"
+      "valueString": "98920358"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
@@ -1256,7 +1256,7 @@ X-Runtime: 3.890282
         {
           "url": "target",
           "valueReference": {
-            "reference": "Encounter/31363178"
+            "reference": "Encounter/97953536"
           }
         },
         {
@@ -1270,11 +1270,11 @@ X-Runtime: 3.890282
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-      "valueString": "1300"
+      "valueString": "0111"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
-      "valueString": "201802160003"
+      "valueString": "98920358"
     }
   ]
 }</code></pre>
@@ -1364,7 +1364,7 @@ X-Runtime: 3.890282
         {
           "url": "target",
           "valueReference": {
-            "reference": "Encounter/31363178"
+            "reference": "Encounter/97953536"
           }
         },
         {
@@ -1378,11 +1378,11 @@ X-Runtime: 3.890282
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-      "valueString": "1300"
+      "valueString": "0111"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
-      "valueString": "201802160003"
+      "valueString": "98920358"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
@@ -1457,7 +1457,7 @@ X-Runtime: 3.890282
         {
           "url": "target",
           "valueReference": {
-            "reference": "Encounter/31363178"
+            "reference": "Encounter/97953536"
           }
         },
         {

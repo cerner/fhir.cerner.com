@@ -265,6 +265,12 @@
 <pre><code>GET /Coverages?:parameters
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan.</li>
+</ul>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -481,6 +487,93 @@
             },
             "value": "2830233",
             "name": "Aetna"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="example---encounter-level-public-healthcare-coverage">Example - Encounter-level Public Healthcare Coverage</h4>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "1714d1b5-cabf-4c4a-bb76-c1e2e4d76d64",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "PH-98371617-97701467",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2020-09-24T17:11:10.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 97701467&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: TRAUMA SURGERY, TESTONE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Jul  1, 2022  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage End Date&lt;/b&gt;: Jul  1, 2025  5:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Government&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;:&lt;/p&gt;&lt;dl&gt;&lt;dt&gt;Class&lt;/dt&gt;&lt;dd&gt;&lt;b&gt;Value&lt;/b&gt;: 2572499881&lt;/dd&gt;&lt;dd&gt;&lt;b&gt;Name&lt;/b&gt;: Charging Category&lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: public healthcare&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Encounter/97701467"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PUBLICPOL",
+              "display": "public healthcare"
+            }
+          ],
+          "text": "public healthcare"
+        },
+        "beneficiary": {
+          "reference": "Patient/12462008",
+          "display": "TRAUMA SURGERY, TESTONE"
+        },
+        "period": {
+          "start": "2022-07-01T05:00:00.000Z",
+          "end": "2025-07-01T05:00:00.000Z"
+        },
+        "payor": [
+          {
+            "display": "Government"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "class"
+                }
+              ]
+            },
+            "value": "2572499881",
+            "name": "Charging Category"
           }
         ]
       }
@@ -1098,7 +1191,7 @@
 
 <h3 id="example---patient-level-coverage-1">Example - Patient-level Coverage</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
@@ -1163,7 +1256,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1185,7 +1278,7 @@ X-Runtime: 3.890282
 
 <h3 id="example---encounter-level-coverage-1">Example - Encounter-level Coverage</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
@@ -1262,7 +1355,7 @@ X-Runtime: 3.890282
   ]
 }</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1685,7 +1778,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h3 id="example">Example</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
@@ -1747,7 +1840,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
   }
 ]</code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1798,12 +1891,12 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <pre><code>DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 204 No Content</code></pre>
 

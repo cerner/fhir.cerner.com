@@ -171,7 +171,7 @@
     </ul>
   </li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider" target="_blank">Service provider (Organization)</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including client organization, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including client organization, custom attribute, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason</a></li>
 </ul>
 
 <h3 id="contained-location-bindings">Contained Location Bindings</h3>
@@ -1023,6 +1023,7 @@
 
 <ul>
   <li><a href="#custom-extensions">Client Organization</a></li>
+  <li><a href="#custom-extensions">Custom Attribute</a></li>
   <li><a href="#custom-extensions">Estimated Financial Responsibility Amount</a></li>
   <li><a href="#custom-extensions">Payment Collection Status</a></li>
   <li><a href="#custom-extensions">Estimated Financial Responsibility Not Collected Reason</a></li>
@@ -1047,18 +1048,23 @@
       <td>The financially responsible organization.</td>
     </tr>
     <tr>
+      <td><code>custom-attribute</code></td>
+      <td>None (contains nested extensions)</td>
+      <td>A client defined custom attribute for the resource. Attribute values can be of type <a href="https://hl7.org/fhir/r4/datatypes.html#integer"><code>integer</code></a>, <a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a>, <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>, or <a href="https://hl7.org/fhir/r4/datatypes.html#dateTime"><code>dateTime</code></a>.</td>
+    </tr>
+    <tr>
       <td><code>estimated-financial-responsibility-amount</code></td>
-      <td><a href="http://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
       <td>The estimated amount to be collected for the encounter.</td>
     </tr>
     <tr>
       <td><code>estimated-financial-responsibility-not-collected-reason</code></td>
-      <td><a href="http://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
       <td>The reason no estimated amount is collected for the encounter.</td>
     </tr>
     <tr>
       <td><code>payment-collection-status</code></td>
-      <td><a href="http://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
       <td>The status of the payment collection for the encounter.</td>
     </tr>
   </tbody>
@@ -1180,6 +1186,20 @@
           "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Model Hospital, MX Hospital, NU05, 102, A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Medicine-General&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Finished&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Dec 26, 2019  3:38 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period End Date&lt;/b&gt;: Jan  7, 2020  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Illness&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:17368048",
+                "valueString": "Full Reg Date/Time",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueDateTime": "2020-03-04T18:12:22.000Z",
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          },
           {
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
             "valueMoney": {
@@ -2194,6 +2214,20 @@
     "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: Model Hospital, MX Hospital, NU05, 102, A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Inpatient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Medicine-General&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;: inpatient encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Finished&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Dec 26, 2019  3:38 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period End Date&lt;/b&gt;: Jan  7, 2020  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Reason For Visit&lt;/b&gt;: Illness&lt;/p&gt;&lt;p&gt;&lt;b&gt;Attending Physician&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:17368048",
+          "valueString": "Full Reg Date/Time",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueDateTime": "2020-03-04T18:12:22.000Z",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
       "valueMoney": {
@@ -3795,6 +3829,63 @@ If-Match: W/"&lt;Current version of the Encounter resource&gt;"</code></pre>
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="replace-extension">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.extension"><code>/extension</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The array of extensions for an encounter.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/extension",
+  "value":  [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003489",
+            "code": "269411463",
+            "display": "1st Attempt - Left Message",
+            "userSelected": true
+          }
+        ],
+        "text": "1st Attempt - Left Message"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>Supported extensions that can be replaced: <ul>
+  <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a>
+</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
@@ -3831,6 +3922,26 @@ If-Match: W/"&lt;Current version of the Encounter resource&gt;"</code></pre>
             "userSelected": false
           }
         ]
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/extension",
+    "value": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003489",
+              "code": "269411463",
+              "display": "1st Attempt - Left Message",
+              "userSelected": true
+            }
+          ],
+          "text": "1st Attempt - Left Message"
+        }
       }
     ]
   }
