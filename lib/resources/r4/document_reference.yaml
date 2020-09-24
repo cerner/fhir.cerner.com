@@ -194,7 +194,7 @@ fields:
   action:
     - create
   description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
-  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
   example: |
    {
