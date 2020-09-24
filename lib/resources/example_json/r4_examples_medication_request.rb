@@ -259,11 +259,6 @@ module Cerner
         'op': 'replace',
         'path': '/status',
         'value': 'stopped'
-      },
-      {
-        'op': 'test',
-        'path': '/subject/reference',
-        'value': 'Patient/1316024'
       }
     ].freeze
   end

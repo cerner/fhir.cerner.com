@@ -224,7 +224,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/MedicationRequest/1621910
+    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/1621910
 
 #### Body
 
