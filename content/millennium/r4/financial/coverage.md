@@ -52,7 +52,7 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
     
 _Implementation Notes_
   
-* Public Healthcare (PH) represents an insurance policy funded by a public health system such as a provincial or national health plan.
+* Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan.
 
 ### Authorization Types
 
@@ -92,6 +92,11 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
+
+#### Response when public healthcare information is returned
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_encounter_social_healthcare_bundle) %>
 
 <%= disclaimer %>
 
