@@ -32,18 +32,3 @@ operations:
         <li>Using `stopped` when the `cancelled` status is most appropriate will result in the status being updated to `cancelled`.</li>
         <li>Using `cancelled` when the `stopped` status is most appropriate will result in the status being updated to `stopped`.</li>
       </ul>
-
-  - name: test-subject-reference
-    path: /subject/reference
-    operation: test
-    cardinality: 1..1
-    type: string
-    url: https://www.hl7.org/fhir/r4/datatypes.html#string
-    description: Who the medication request is for.
-    example: |
-      {
-        "op": "test",
-        "path": "/subject/reference",
-        "value": "Patient/1316024"
-      }
-    note: Only a `Patient` reference is supported.
