@@ -209,7 +209,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, system: true) %>
+<%= authorization_types(provider: true, system: true) %>
 
 ### Headers
 
