@@ -1118,7 +1118,7 @@ module Cerner
               'coding': [
                 {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003489',
-                  'code': '40016441',
+                  'code': '269411463',
                   'display': '1st Attempt - Left Message',
                   'userSelected': true
                 }
