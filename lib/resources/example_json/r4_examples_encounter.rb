@@ -21,12 +21,6 @@ module Cerner
       },
       'extension': [
         {
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization',
-          'valueReference': {
-            'reference': 'Organization/675844'
-          }
-        },
-        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
           'valueMoney': {
             'value': 0.0,
