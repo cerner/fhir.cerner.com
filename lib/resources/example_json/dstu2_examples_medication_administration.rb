@@ -244,7 +244,7 @@ module Cerner
           }
         }
       }
-}    }.freeze
+    }.freeze
 
     DSTU2_MEDICATION_ADMINISTRATION_MULTIPLE_INGREDIENTS_BUNDLE ||= {
       'resourceType': 'Bundle',
