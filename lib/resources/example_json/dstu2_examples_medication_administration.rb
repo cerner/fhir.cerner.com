@@ -104,7 +104,8 @@ module Cerner
         'div': '<div><p><b>Medication Administration</b></p><p><b>Patient Name</b>: TEST, BOB</p>'\
                '<p><b>Medication Display</b>: Dopamine Hydrochloride 80 MG/ML Injection</p>'\
                '<p><b>Administered</b>: Yes</p><p><b>Dosage Quantity</b>: 12.76 milliliter (iso1000)</p>'\
-               '<p><b>Medication Status</b>: Completed</p><p><b>Effective Start Time</b>: Sep 24, 2020  2:00 P.M. UTC</p>'\
+               '<p><b>Medication Status</b>: Completed</p>'\
+               '<p><b>Effective Start Time</b>: Sep 24, 2020  2:00 P.M. UTC</p>'\
                '<p><b>Effective End Time</b>: Sep 24, 2020  2:59 P.M. UTC</p></div>'
       },
       'contained': [
