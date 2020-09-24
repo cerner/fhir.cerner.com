@@ -254,5 +254,12 @@ module Cerner
         'allowedBoolean': true
       }
     }.freeze
+    R4_MEDICATION_REQUEST_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'stopped'
+      }
+    ].freeze
   end
 end
