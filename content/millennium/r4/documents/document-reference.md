@@ -119,7 +119,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * All provided dates must have a time component.
-* Supported MIME Types: application/pdf, text/plain, text/richtext, text/rtf, text/html, application/xml, and application/xhtml+xml
+* Supported MIME Types: application/pdf, text/rtf, text/html, application/xml, and application/xhtml+xml
 
 ### Authorization Types
 
