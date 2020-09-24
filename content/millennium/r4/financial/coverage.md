@@ -93,11 +93,6 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
 
-#### Response when public healthcare information is returned
-
-<%= headers status: 200 %>
-<%= json(:r4_coverage_encounter_social_healthcare_bundle) %>
-
 <%= disclaimer %>
 
 ### Errors
