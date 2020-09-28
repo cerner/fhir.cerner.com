@@ -554,7 +554,7 @@ fields:
   description: The value of the client defined custom attribute. This extension is nested under a <code>custom-attribute</code> extension.
   action: terminology
   binding:
-    description: The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>customm-attribute</code> extensions.
+    description: The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>custom-attribute</code> extensions.
     terminology:
       - display: Custom Attribute Code Value
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;
@@ -565,7 +565,7 @@ fields:
     note: >
       <ul>
         <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
-        <li>The value of the custom attribute is not limited to a single codeSet.</li>
+        <li>The value of the custom attribute is not limited to a single Code Set or nomenclature.</li>
       </ul>
 
 - name: Estimated Financial Responsibility Amount Extension

@@ -716,17 +716,6 @@ This code set includes the statuses that reflect the current status of a corresp
       "userSelected": true
     }
 
-#### Code Set Nomenclature
-
-This code set contains all nomenclature values configured in the domain.
-
-    {
-      "system": "https://fhir.cerner.com/<EHR source id>/nomenclature,
-      "code": "19177939",
-      "display": "Delivered",
-      "userSelected": false,
-    }
-
 ## Proprietary Systems
 
 ### Overview
@@ -782,4 +771,15 @@ This system is the synonym id for an order and the ingredients.
       'code': '2762111',
       'display': 'lidocaine topical',
       'userSelected': true
+    }
+
+##### Nomenclature
+
+This system contains all nomenclature values configured in the domain.
+
+    {
+      "system": "https://fhir.cerner.com/{tenant}/nomenclature",
+      "code": " 4573",
+      "display": "Appointment type test",
+      "userSelected": false
     }
