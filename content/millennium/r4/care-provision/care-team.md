@@ -15,15 +15,15 @@ The CareTeam resource represents a patient’s care team members. Care team memb
 
 The following fields are returned if valued:
 
-* [Care Team id](http://hl7.org/fhir/resource-definitions.html#Resource.id) {:target="_blank"}
-* [Status (Active)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.status) {:target="_blank"}
-* [Category (Longitudinal or Encounter)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.category) {:target="_blank"}
-* [Name (Encounter-Level Only)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.name) {:target="_blank"}
-* [Subject](http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject) {:target="_blank"}
-* [Encounter (Encounter-Level Only)]( http://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter) {:target="_blank"}
-* [Participant](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant) {:target="_blank"}
-  * [Role](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role) {:target="_blank"}
-  * [Member](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member) {:target="_blank"}
+* [Care Team id](http://hl7.org/fhir/resource-definitions.html#Resource.id){:target="_blank"}
+* [Status (Active)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.status){:target="_blank"}
+* [Category (Longitudinal or Encounter)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.category){:target="_blank"}
+* [Name (Encounter-Level Only)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.name){:target="_blank"}
+* [Subject](http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject){:target="_blank"}
+* [Encounter (Encounter-Level Only)]( http://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter){:target="_blank"}
+* [Participant](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant){:target="_blank"}
+  * [Role](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role){:target="_blank"}
+  * [Member](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"}
 
 ## Terminology Bindings
 
