@@ -21,34 +21,38 @@ module Cerner
       },
       'extension': [
         {
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute',
           'extension': [
             {
-              'id': 'ENCNTR:17368048',
-              'url': 'custom-attribute-name',
-              'valueString': 'Full Reg Date/Time'
-            },
-            {
-              'url': 'custom-attribute-value',
-              'valueDateTime': '2020-03-04T18:12:22.000Z'
-            }
-          ]
-        },
-        {
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization',
-          'valueReference': {
-            'reference': 'Organization/675844'
-          }
-        },
-        {
-          'extension': [
-            {
-              'id': 'ENCNTR:17368048',
-              'valueString': 'Full Reg Date/Time',
+              'id': 'ENCNTR:2572582111',
+              'valueString': 'Date Purchased',
               'url': 'custom-attribute-name'
             },
             {
-              'valueDateTime': '2020-03-04T18:12:22.000Z',
+              'valueDateTime': '2020-04-25T05:00:00.000Z',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:2572582103',
+              'valueString': 'Driving Dx',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+                    'code': '13249579',
+                    'display': 'Tension-type headache',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Tension-type headache'
+              },
               'url': 'custom-attribute-value'
             }
           ],
