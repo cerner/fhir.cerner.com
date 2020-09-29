@@ -778,8 +778,8 @@ This system is the synonym id for an order and the ingredients.
 This system contains all nomenclature values configured in the domain.
 
     {
-      "system": "https://fhir.cerner.com/{tenant}/nomenclature",
-      "code": " 4573",
-      "display": "Appointment type test",
-      "userSelected": false
+      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+      'code': '13249579',
+      'display': 'Tension-type headache',
+      'userSelected': false
     }
