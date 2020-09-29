@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module Cerner
-  module Resources
+  module Resources # rubocop:disable Metrics/ModuleLength
 
-    # TODO: Missing data
     R4_CARE_TEAM_ENTRY ||= {
       'resourceType': 'CareTeam',
       'id': 'SA-1316020-2076906-7016273-0-0-0',
@@ -83,10 +82,10 @@ module Cerner
               'status': 'additional',
               'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;'\
                      '&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;'\
-                     '/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Encounter-focused care team'\
-                     '&lt;/p&gt;&lt;p&gt;&lt;p&gt;Encounter&lt;/b&gt;: 2076906&&lt;/p&gt;lt;p&gt;&lt;b&gt;Participant&lt;'\
-                     '/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Name:, Parimi Vaishnavi; Role:Respiratory Therapy&lt;/li&gt;&lt'\
-                     ';/ul&gt;&lt;/div&gt;'
+                     '/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Encounter-focused care '\
+                     'team&lt;/p&gt;&lt;p&gt;&lt;p&gt;Encounter&lt;/b&gt;: 2076906&&lt;/p&gt;lt;p&gt;&lt;b&gt;'\
+                     'Participant&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Name:, Parimi Vaishnavi; Role:Respiratory '\
+                     'Therapy&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;'
             },
             'status': 'active',
             'category': [
@@ -127,4 +126,4 @@ module Cerner
       ]
     }.freeze
   end
-  end
+end
