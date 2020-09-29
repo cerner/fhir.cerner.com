@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Cerner
-  module Resources # rubocop:disable Metrics/ModuleLength
+  module Resources
 
     R4_CARE_TEAM_ENTRY ||= {
       'resourceType': 'CareTeam',
