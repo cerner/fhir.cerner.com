@@ -89,11 +89,25 @@ operations:
               ],
               "text": "1st Attempt - Left Message"
             }
-          }
+          },
+          {
+            'op': 'replace',
+            'path': '/extension',
+            'value': [
+               {
+                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
+                 'valueMoney': {
+                   'value': 10.0,
+                   'currency': 'USD'
+                 }
+               }
+             ]
+           }
         ]
       }
     note: >
       Supported extensions that can be replaced:
       <ul>
         <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a></li>
+        <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json">Estimated Financial Responsibility Amount</a></li>
       </ul>
