@@ -561,7 +561,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
       - display: Custom Attribute Nomenclature Value
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature
-        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature
     note: >
       <ul>
         <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
