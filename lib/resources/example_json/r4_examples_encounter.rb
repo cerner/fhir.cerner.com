@@ -1146,15 +1146,15 @@ module Cerner
         'op': 'replace',
         'path': '/extension',
         'value': [
-           {
-             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
-             'valueMoney': {
-               'value': 10.0,
-               'currency': 'USD'
-             }
-           }
-         ]
-       }
+          {
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
+            'valueMoney': {
+              'value': 10.0,
+              'currency': 'USD'
+            }
+          }
+        ]
+      }
     ].freeze
   end
 end
