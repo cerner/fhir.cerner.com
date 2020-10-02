@@ -7,8 +7,8 @@ module Cerner
       'resourceType': 'Encounter',
       'id': '97939518',
       'meta': {
-        'versionId': '0',
-        'lastUpdated': '2020-01-07T06:00:00.000Z'
+        'versionId': '1',
+        'lastUpdated': '2020-10-02T00:08:17.000Z'
       },
       'text': {
         'status': 'generated',
@@ -28,7 +28,31 @@ module Cerner
               'url': 'custom-attribute-name'
             },
             {
-              'valueDateTime': '2020-03-04T18:12:22.000Z',
+              'valueDateTime': '2019-12-26T15:41:52.000Z',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:2572582103',
+              'valueString': 'Driving Dx',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+                    'code': '13249728',
+                    'display': 'Primary stabbing headache',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Primary stabbing headache'
+              },
               'url': 'custom-attribute-value'
             }
           ],
