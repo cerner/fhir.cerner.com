@@ -234,6 +234,8 @@
 </li>
   <li>Encounter.hospitalization.dischargeDisposition codes are maintained in <a href="#code-set-19-discharge-disposition">Code Set 19 Discharge Disposition</a>
 </li>
+  <li>Custom Attribute extensions on Encounter may contain Custom Attribute Value codes when Custom Attribute Value is of type CodeableConcept. These codes may be from <a href="#list-of-code-sets">any Code Set</a>
+</li>
 </ul>
 
 <h3 id="entities">Entities</h3>
@@ -1007,6 +1009,18 @@
   'code': '2762111',
   'display': 'lidocaine topical',
   'userSelected': true
+}
+</code></pre>
+
+<h5 id="nomenclature">Nomenclature</h5>
+
+<p>This system contains all nomenclature values configured in the domain.</p>
+
+<pre><code>{
+  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+  'code': '13249579',
+  'display': 'Tension-type headache',
+  'userSelected': false
 }
 </code></pre>
 
