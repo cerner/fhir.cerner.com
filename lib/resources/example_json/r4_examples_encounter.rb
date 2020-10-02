@@ -7,8 +7,8 @@ module Cerner
       'resourceType': 'Encounter',
       'id': '97939518',
       'meta': {
-        'versionId': '0',
-        'lastUpdated': '2020-01-07T06:00:00.000Z'
+        'versionId': '1',
+        'lastUpdated': '2020-10-02T00:08:17.000Z'
       },
       'text': {
         'status': 'generated',
