@@ -23,12 +23,12 @@ module Cerner
         {
           'extension': [
             {
-              'id': 'ENCNTR:2572582111',
-              'valueString': 'Date Purchased',
+              'id': 'ENCNTR:17368048',
+              'valueString': 'Full Reg Date/Time',
               'url': 'custom-attribute-name'
             },
             {
-              'valueDateTime': '2020-04-25T05:00:00.000Z',
+              'valueDateTime': '2019-12-26T15:41:52.000Z',
               'url': 'custom-attribute-value'
             }
           ],
@@ -46,12 +46,12 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
-                    'code': '13249579',
-                    'display': 'Tension-type headache',
+                    'code': '13249728',
+                    'display': 'Primary stabbing headache',
                     'userSelected': false
                   }
                 ],
-                'text': 'Tension-type headache'
+                'text': 'Primary stabbing headache'
               },
               'url': 'custom-attribute-value'
             }
