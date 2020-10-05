@@ -15,7 +15,7 @@ module Cerner
         'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: new, testfa2&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Encounter-focused care team&lt&lt;/p&gt;&lt;p&gt;Encounter&lt;/b&gt;: 2076906&&lt;/p&gt;lt;p&gt;&lt;b&gt;Participant&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Name:, Parimi Vaishnavi; Role:Respiratory Therapy&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;' # rubocop:disable Layout/LineLength
       },
       'status': 'active',
-      "category": [
+      'category': [
         {
           "coding": [
             {
@@ -56,8 +56,7 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient='\
-                 '1316020&category=assess-team'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=1316020&category=assess-team'
         },
         {
           'relation': 'next',

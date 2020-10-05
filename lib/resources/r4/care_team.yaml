@@ -2,17 +2,50 @@
 name: CareTeam
 field_name_base_url: http://hl7.org/fhir/R4/careteam-definitions.html#CareTeam
 fields:
-- name: patient
+
+- name: status
+  binding:
+    description: >
+      Indicates whether the team is currently being acted upon, represents future intentions or is now a historical record.
+    terminology:
+    - display: Request Status
+      required: 'Yes'
+      system: http://hl7.org/fhir/request-status
+      info_link: http://hl7.org/fhir/ValueSet/care-team-status|4.0.1
+
+- name: category
+  required: 'Yes'
+  type: List of CodeableConcept
+  binding:
+    description: >
+      Identifies what "kind" of team this is to support differentiation between multiple co-existing teams; e.g. "Home health", "psychiatric", "asthma", "disease management", etc. Currently "assess-team" is the only category binding which is supported.
+    terminology:
+    - display: Request Category
+      system: http://hl7.org/fhir/us/core/CodeSystem/careteam-category
+      info_link: http://hl7.org/fhir/valueset-care-team-category.html
+
+- name: name
+  required: 'No'
+  type: String
+  description: Name of the team, such as crisis assessment team
+  example: |
+    "name": "Infectious Disease;Red Team"
+  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.name
+  note: Retrieved only for Encounter Category
+
+- name: subject
   required: 'Yes'
   type: Reference
-  description: Indicates the patient who the sensitivity is for.
+  description: Indicates the patient who the careteam record is associated with.
   example: |
     {
-      "patient": {
-        "reference": "Patient/631923"
+      "subject": {
+        "reference": "Patient/631923",
+        "display": "Nilsson, Christine"
       }
     }
-  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.patient
+  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.subject
+  note: subject must be a reference to a Patient.
 
 - name: encounter
   required: 'No'
@@ -25,24 +58,38 @@ fields:
       }
     }
   url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.encounter
+  note: Retrieved only for Encounter Category
 
-- name: category
-  required: 'No'
-  type: List of CodeableConcept
-  binding:
-    description: >
-      Identifies what "kind" of team this is to support differentiation between multiple co-existing teams; e.g. "Home health", "psychiatric", "asthma", "disease management", etc. Currently "assess-team" is the only category binding which is supported.
-    terminology:
-    - display: Request Category
-      system: http://hl7.org/fhir/us/core/CodeSystem/careteam-category
-      info_link: http://hl7.org/fhir/valueset-care-team-category.html 
-
-- name: status
+- name: participant
   required: 'Yes'
+  type: List of BackboneElement
+  description: The list of participants involved in Careteam.
+  example: |
+    {
+        'participant': [
+          {
+            'role': [
+                      {
+                          'coding': [
+                              {
+                                  'system': "http://snomed.info/sct",
+                                  'code': "5171000124108",
+                                  'display': "Father-in-law (person)"
+                              }
+                          ],
+                          "text": "Father-in-law (person)"
+                      }
+                  ],
+            'member': {
+              'reference': "Patient/4704007",
+              'display': "Smart, Barney R"
+            }
+          }
+        ]
+      }
   binding:
-    description: >
-      Indicates whether the team is currently being acted upon, represents future intentions or is now a historical record.
+    description: Role of participant in careteam.
     terminology:
-    - display: Request Status
-      system: http://hl7.org/fhir/request-status
-      info_link: http://hl7.org/fhir/ValueSet/care-team-status|4.0.1
+    - display: Participant Role
+      system: http://hl7.org/fhir/r4/valueset-participant-role.html
+      info_link: http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role
