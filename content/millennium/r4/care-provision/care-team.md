@@ -33,10 +33,6 @@ Search for CareTeams that meet supplied query parameters:
 
     GET /CareTeam?:parameters
 
-_Implementation Notes_
-
-* The description of the CareTeam is included in the [CareTeam.text.div] element as ASCII text.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, system: true) %>
@@ -74,15 +70,32 @@ Notes:
 
  <%= headers %>
 
-### Example retrieve care team
+### Example
+
+#### Request
+
+    GET https://fhir-open.sandboxcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=119078440&category=encounter
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_team_bundle) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
 List an individual CareTeam by its id:
 
+### Example
+
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/SA-1316020-2076906-7016273-0-0-0
+    GET https://fhir-open.sandboxcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/CT-119078440-34768489-17490349-4048128-0-22554767
 
 ### Authorization Types
 
@@ -110,22 +123,3 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: http://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-
-## Search by Parameter
-
-List an individual CareTeam by its search parameter:
-
-#### Request
-
-    GET https://fhir-open.sandboxcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=1316020&category=longitudinal
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_care_team_bundle) %>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.

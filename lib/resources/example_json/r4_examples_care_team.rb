@@ -4,50 +4,58 @@ module Cerner
   module Resources
 
     R4_CARE_TEAM_ENTRY ||= {
-      'resourceType': 'CareTeam',
-      'id': 'SA-1316020-2076906-7016273-0-0-0',
-      'meta': {
-        'versionId': '1',
-        'lastUpdated': '2016-03-10T13:43:45.000-06:00'
+      "resourceType": "CareTeam",
+      "id": "CT-119078440-34768489-17490349-4048128-0-22554767",
+      "meta": {
+          "versionId": 1584980008,
+          "lastUpdated": "2020-03-23T16:13:28Z"
       },
-      'text': {
-        'status': 'additional',
-        'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: new, testfa2&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Encounter-focused care team&lt&lt;/p&gt;&lt;p&gt;Encounter&lt;/b&gt;: 2076906&&lt;/p&gt;lt;p&gt;&lt;b&gt;Participant&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Name:, Parimi Vaishnavi; Role:Respiratory Therapy&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;' # rubocop:disable Layout/LineLength
+      "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Care Team</b></p><p><b>Patient</b>: FHIR, FIRE3</p><p><b>Care Team Name</b>: Psychology;Blue Team</p><p><b>Status</b>: Active</p><p><b>Category</b>: Encounter-focused care team</p><p><b>Encounter</b>: 34768489</p><p><b>Participant</b>:</p><ul><li>Name:Dickey, Bo; Role:Psychologist (occupation)</li></ul></div>"
       },
-      'status': 'active',
-      'category': [
-        {
-          "coding": [
-            {
-              "system": 'http://loinc.org',
-              "code": 'LA27976-2',
-              "display": 'Encounter-focused care team'
-            }
-          ],
-          "text": 'Encounter-focused care team'
-        }
+      "status": "active",
+      "category": [
+          {
+              "coding": [
+                  {
+                      "system": "http://loinc.org",
+                      "code": "LA27976-2",
+                      "display": "Encounter-focused care team"
+                  }
+              ],
+              "text": "Encounter-focused care team"
+          }
       ],
+      "name": "Psychology;Blue Team",
       "subject": {
-        "reference": 'Patient/1316020',
-        "display": 'new, testfa2'
+          "reference": "Patient/119078440",
+          "display": "FHIR, FIRE3"
       },
       "encounter": {
-        "reference": 'Encounter/2076906'
+          "reference": "Encounter/34768489"
       },
       "participant": [
-        {
-          "role": [
-            {
-              "text": 'Respiratory Therapy'
-            }
-          ],
-          "member": {
-            "reference": 'Practitioner/7016273',
-            "display": ', Parimi Vaishnavi'
+          {
+              "role": [
+                  {
+                      "coding": [
+                          {
+                              "system": "http://snomed.info/sct",
+                              "code": "59944000",
+                              "display": "Psychologist (occupation)"
+                          }
+                      ],
+                      "text": "Psychologist (occupation)"
+                  }
+              ],
+              "member": {
+                  "reference": "Practitioner/17490349",
+                  "display": "Dickey, Bo"
+              }
           }
-        }
       ]
-    }.freeze
+  }.freeze
 
     R4_CARE_TEAM_BUNDLE ||= {
       'resourceType': 'Bundle',
@@ -56,71 +64,17 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=1316020&category=assess-team'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=119078440&category=encounter'
         },
         {
           'relation': 'next',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=1316020'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=119078440'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/SA-1316020-2076906-7016273-0-0-0',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/CT-119078440-34768489-17490349-4048128-0-22554767',
           'resource': R4_CARE_TEAM_ENTRY
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/SA-1316020-2076906-7016273-0-0-0',
-          'resource': {
-            'resourceType': 'CareTeam',
-            'id': 'SA-1316020-2076906-7016273-0-0-0',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2015-10-23T10:28:03.000-05:00'
-            },
-            'text': {
-              'status': 'additional',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Care Team&lt;/b&gt;&lt;/p&gt;'\
-                     '&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;'\
-                     '/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Encounter-focused care '\
-                     'team&lt;/p&gt;&lt;p&gt;&lt;p&gt;Encounter&lt;/b&gt;: 2076906&&lt;/p&gt;lt;p&gt;&lt;b&gt;'\
-                     'Participant&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Name:, Parimi Vaishnavi; Role:Respiratory '\
-                     'Therapy&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;'
-            },
-            'status': 'active',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/careteam-category',
-                    'code': 'assess-team',
-                    'display': 'Encounter-focused care team'
-                  }
-                ],
-                'text': 'Encounter-focused care team'
-              }
-            ],
-            'title': 'Admission H & P',
-            'subject': {
-              'reference': 'Patient/1316020',
-              'display': 'Houde, Harry Potter'
-            },
-            'encounter': {
-              'reference': 'Encounter/1693915'
-            },
-            "participant": [
-              {
-                "role": [
-                  {
-                    "text": 'Respiratory Therapy'
-                  }
-                ],
-                "member": {
-                  "reference": 'Practitioner/7016273',
-                  "display": ', Parimi Vaishnavi'
-                }
-              }
-            ]
-          }
         }
       ]
     }.freeze
