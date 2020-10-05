@@ -53,22 +53,22 @@ _Implementation Notes_
 
 Notes:
 
-- The `_id` parameter
-  - This is required if `patient` or `encounter` are not provided.
+* The `_id` parameter
+  * This is required if `patient` or `encounter` are not provided.
 
-- The `patient` parameter
-  - This is required when `_id` or `encounter` is not provided.
-  - This can be combined with `status` as per US Core guidelines.
-  - This can be combined with the `category` parameter.
+* The `patient` parameter
+  * This is required when `_id` or `encounter` is not provided.
+  * This can be combined with `status` as per US Core guidelines.
+  * This can be combined with the `category` parameter.
 
-- The `encounter` parameter
-  - This is required when `_id` or `patient` is not provided.
-  - This cannot be combined with `category` or status.
+* The `encounter` parameter
+  * This is required when `_id` or `patient` is not provided.
+  * This cannot be combined with `category` or status.
 
-- The `category` parameter
-  - Only supports the codes longitudinal and encounter.
-  - Can only be used with the `patient` parameter.
-  - The longitudinal and encounter codes are defined by the CareTeam category system.
+* The `category` parameter
+  * Only supports the codes longitudinal and encounter.
+  * Can only be used with the `patient` parameter.
+  * The longitudinal and encounter codes are defined by the CareTeam category system.
 
 ### Headers
 
