@@ -14,8 +14,6 @@ fields:
       info_link: http://hl7.org/fhir/ValueSet/care-team-status|4.0.1
 
 - name: category
-  required: 'Yes'
-  type: List of CodeableConcept
   binding:
     description: >
       Identifies what kind of team. This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
@@ -23,42 +21,6 @@ fields:
     - display: Request Category
       system: http://hl7.org/fhir/us/core/CodeSystem/careteam-category
       info_link: http://hl7.org/fhir/valueset-care-team-category.html
-
-- name: name
-  required: 'No'
-  type: String
-  description: A label for human use intended to distinguish like teams. E.g. the "red" vs. "green" trauma teams.
-  example: |
-    "name": "Infectious Disease;Red Team"
-  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.name
-  note: Retrieved only for Encounter Category
-
-- name: subject
-  required: 'Yes'
-  type: Reference
-  description: Identifies the patient or group whose intended care is handled by the team.
-  example: |
-    {
-      "subject": {
-        "reference": "Patient/631923",
-        "display": "Nilsson, Christine"
-      }
-    }
-  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.subject
-  note: subject must be a reference to a Patient.
-
-- name: encounter
-  required: 'No'
-  type: Reference
-  description: The Encounter during which this CareTeam was created or to which the creation of this record is tightly associated.
-  example: |
-    {
-      "encounter": {
-        "reference":"Encounter/1693915"
-      }
-    }
-  url: https://hl7.org/fhir/r4/careteam-definitions.html#CareTeam.encounter
-  note: Retrieved only for Encounter Category
 
 - name: participant
   required: 'Yes'
