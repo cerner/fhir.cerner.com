@@ -70,8 +70,8 @@ _Implementation Notes_
  Name                  | Required?                                                                          | Type          | Description
 -----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
  `_id`                 | Yes, or one of `patient`, `practitioner`, or `location`.                           | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
- `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start instant or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
  `patient`             | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
  `practitioner`        | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
  `location`            | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Location references. Example: `633867`
@@ -85,7 +85,7 @@ Notes:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
 * The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
-* Search by `date` returns only non-proposed appointments whereas search by `-date-or-req-period` returns both proposed and non-proposed appointments.
+* Search by `date` returns appointments that starts on the date provided whereas search by `-date-or-req-period` returns appointments that start or are requested to start on the dates provided.
 
 ### Headers
 
