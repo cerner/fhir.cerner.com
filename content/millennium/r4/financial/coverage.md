@@ -53,6 +53,7 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
 _Implementation Notes_
   
 * Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan.
+* For Coverage search by -encounter, both Encounter.read and Coverage.read scopes are required
 
 ### Authorization Types
 
