@@ -12,7 +12,7 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Team</b></p><p><b>Patient</b>: FHIR, FIRE3</p><p><b>Care Team Name</b>: Psychology;Blue Team</p><p><b>Status</b>: Active</p><p><b>Category</b>: Encounter-focused care team</p><p><b>Encounter</b>: 34768489</p><p><b>Participant</b>:</p><ul><li>Name: Dickey, Bo; Role: Psychologist (occupation)</li></ul></div>'
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Team</b></p><p><b>Patient</b>: FHIR, FIRE3</p><p><b>Care Team Name</b>: Psychology;Blue Team</p><p><b>Status</b>: Active</p><p><b>Category</b>: Encounter-focused care team</p><p><b>Encounter</b>: 34768489</p><p><b>Participant</b>:</p><ul><li>Name: Dickey, Bo; Role: Psychologist (occupation)</li></ul></div>' # rubocop:disable Layout/LineLength
       },
       'status': 'active',
       'category': [
