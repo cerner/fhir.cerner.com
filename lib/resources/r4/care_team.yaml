@@ -1,0 +1,71 @@
+---
+name: CareTeam
+field_name_base_url: http://hl7.org/fhir/R4/careteam-definitions.html#CareTeam
+fields:
+
+- name: status
+  binding:
+    description: >
+      Indicates the current state of the care team.
+    terminology:
+    - display: Request Status
+      required: 'Yes'
+      system: http://hl7.org/fhir/request-status
+      info_link: http://hl7.org/fhir/ValueSet/care-team-status|4.0.1
+
+- name: category
+  binding:
+    description: >
+      Identifies what kind of team. This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
+    terminology:
+    - display: Request Category
+      system: http://hl7.org/fhir/us/core/CodeSystem/careteam-category
+      info_link: http://hl7.org/fhir/valueset-care-team-category.html
+
+- name: participant
+  required: 'Yes'
+  type: List of BackboneElement
+  description: Identifies all people and organizations who are expected to be involved in the care team.
+  example: |
+    {
+        'participant': [
+          {
+            'role': [
+                      {
+                        'coding': [
+                            {
+                                'system': "http://snomed.info/sct",
+                                'code': "5171000124108",
+                                'display': "Father-in-law (person)"
+                            }
+                        ],
+                        'text': "Father-in-law (person)"
+                      }
+                  ],
+            'member': {
+                'reference': "RelatedPerson/151863151-119078440",
+                'display': "FHIR, NonProviderTEST"
+            }
+          }
+        ]
+      }
+
+  children:
+
+  - name: role
+    required: 'Yes'
+    type: List of CodeableConcept
+    description: Indicates specific responsibility of an individual within the care team, such as "Primary care physician", "Trained social worker counselor", "Caregiver", etc.
+    note: Required if participant is given.
+    binding:
+      description: Role of participant in careteam.
+      terminology:
+      - display: Participant Role
+        system: http://hl7.org/fhir/r4/valueset-participant-role.html
+        info_link: http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role
+
+  - name: member
+    required: 'Yes'
+    type: Reference
+    description: The specific person or organization who is participating/expected to participate in the care team.
+    note: Required if participant is given.
