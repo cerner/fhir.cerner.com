@@ -58,6 +58,11 @@ The following fields are returned if valued:
 
 <%= terminology_table(:medication_request_contained_medication, :r4) %>
 
+## Custom Extensions
+
+* Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers.
+ URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
+
 ## Search
 
 Search for MedicationRequests that meet supplied query parameters:
