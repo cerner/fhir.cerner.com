@@ -63,3 +63,16 @@ fields:
     - display: Millennium Person Relationships
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
+
+- name: Relationship Level Extension
+  type: CodeableConcept
+  description: Reference to the Encounter associated to the encounter level RelatedPerson.
+  url: https://fhir.cerner.com/millennium/r4/individuals/related-person/#extensions
+  terminology_name: extension[x].valueCodeableConcept
+  action: terminology
+  binding:
+    description: Reference to the Encounter associated to the encounter level RelatedPerson. This binding is used in <code>relationship-level</code> extensions.
+    terminology:
+      - display: Relationship Level
+        system: http://hl7.org/fhir/resource-types
+        info_link: https://www.hl7.org/fhir/valueset-resource-types.html

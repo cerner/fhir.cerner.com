@@ -14,8 +14,24 @@ module Cerner
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: SMART, HAILEY'\
                '</p><p><b>DOB</b>: Dec  2, 2003</p><p><b>Gender</b>: female</p><p><b>Patient</b>: SMART, NANCY</p>'\
-               '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p></div>'
+               '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
+               '<p><b>Relationship Level</b>: Patient Level Relationship</p></div>'
       },
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Patient',
+                'display': 'Patient Level Relationship'
+              }
+            ],
+            'text': 'Patient Level Relationship'
+          }
+        }
+      ],
       'identifier': [
         {
           'use': 'usual',
@@ -171,8 +187,24 @@ module Cerner
               'status': 'generated',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: '\
                      'SMART, TIMMY</p><p><b>DOB</b>: Feb 19, 2012</p><p><b>Gender</b>: male</p><p><b>Patient</b>: '\
-                     'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p></div>'
+                     'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
+                     '<p><b>Relationship Level</b>: Patient Level Relationship</p></div>'
             },
+            'extension': [
+              {
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'http://hl7.org/fhir/resource-types',
+                      'code': 'Patient',
+                      'display': 'Patient Level Relationship'
+                    }
+                  ],
+                  'text': 'Patient Level Relationship'
+                }
+              }
+            ],
             'active': true,
             'patient': {
               'reference': 'Patient/12724066',

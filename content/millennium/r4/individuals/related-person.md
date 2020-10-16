@@ -31,6 +31,18 @@ The following fields are returned if valued:
 
 <%= terminology_table(:related_person, :r4) %>
 
+## Extensions
+
+* [Relationship Level]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                   | Value\[x] Type                                                             | Description
+----------------------|----------------------------------------------------------------------------|----------------------------------------------------------------
+ `relationship-level` | [`CodeableConcept`](http://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | The resource's relationship to either patient or encounter.
+
 ## Search
 
 Search for RelatedPersons that meet supplied query parameters:
@@ -105,3 +117,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Relationship Level]: #custom-extensions
