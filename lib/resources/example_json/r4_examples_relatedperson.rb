@@ -15,7 +15,7 @@ module Cerner
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: SMART, HAILEY'\
                '</p><p><b>DOB</b>: Dec  2, 2003</p><p><b>Gender</b>: female</p><p><b>Patient</b>: SMART, NANCY</p>'\
                '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
-               '<p><b>Relationship Level</b>: Patient Level Relationship</p></div>'
+               '<p><b>Relationship Level</b>: Patient</p></div>'
       },
       'extension': [
         {
@@ -25,10 +25,10 @@ module Cerner
               {
                 'system': 'http://hl7.org/fhir/resource-types',
                 'code': 'Patient',
-                'display': 'Patient Level Relationship'
+                'display': 'Patient'
               }
             ],
-            'text': 'Patient Level Relationship'
+            'text': 'Patient'
           }
         }
       ],
@@ -188,7 +188,7 @@ module Cerner
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: '\
                      'SMART, TIMMY</p><p><b>DOB</b>: Feb 19, 2012</p><p><b>Gender</b>: male</p><p><b>Patient</b>: '\
                      'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
-                     '<p><b>Relationship Level</b>: Patient Level Relationship</p></div>'
+                     '<p><b>Relationship Level</b>: Patient</p></div>'
             },
             'extension': [
               {
@@ -198,10 +198,10 @@ module Cerner
                     {
                       'system': 'http://hl7.org/fhir/resource-types',
                       'code': 'Patient',
-                      'display': 'Patient Level Relationship'
+                      'display': 'Patient'
                     }
                   ],
-                  'text': 'Patient Level Relationship'
+                  'text': 'Patient'
                 }
               }
             ],
