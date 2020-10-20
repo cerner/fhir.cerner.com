@@ -52,7 +52,7 @@ module Cerner
       },
       'relationship': [
         {
-          'id': 'CI-490017058-0',
+          'id': 'CI-490017058-0-0',
           'coding': [
             {
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
@@ -86,7 +86,7 @@ module Cerner
       ],
       'telecom': [
         {
-          'id': 'CI-29811922-0',
+          'id': 'CI-PH-29811922-0',
           'system': 'phone',
           'value': '8168888886',
           'use': 'home',
@@ -95,7 +95,7 @@ module Cerner
           }
         },
         {
-          'id': 'CI-29822897-0',
+          'id': 'CI-EM-29822897-0',
           'system': 'email',
           'value': 'haileysmart@yopmail.com',
           'use': 'home',
@@ -186,7 +186,7 @@ module Cerner
             },
             'relationship': [
               {
-                'id': 'CI-490068375-0',
+                'id': 'CI-490068375-0-0',
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
@@ -220,7 +220,7 @@ module Cerner
             ],
             'telecom': [
               {
-                'id': 'CI-29811924-0',
+                'id': 'CI-PH-29811924-0',
                 'system': 'phone',
                 'value': '8168888886',
                 'use': 'home',
@@ -229,7 +229,7 @@ module Cerner
                 }
               },
               {
-                'id': 'CI-29822901-0',
+                'id': 'CI-EM-29822901-0',
                 'system': 'email',
                 'value': 'timmysmart@yopmail.com',
                 'use': 'home',
