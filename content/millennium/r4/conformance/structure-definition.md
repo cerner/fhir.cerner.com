@@ -75,7 +75,7 @@ Authorization is not required.
  [`account-related-parts`]                                   | A reference to other related Accounts.
  [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
  [`client-organization`]                                     | The financially responsible organization.
- [`clinical-instruction`]                                    | The clinical instructions to display the medication order.
+ [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`estimated-financial-responsibility-amount`]               | The estimated amount to be collected for the encounter.
  [`estimated-financial-responsibility-not-collected-reason`] | The reason no estimated amount is collected for the encounter.
