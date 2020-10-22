@@ -86,6 +86,7 @@
       <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
     </ul>
   </li>
+  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -939,6 +940,13 @@
   </tbody>
 </table>
 
+<h2 id="custom-extensions">Custom Extensions</h2>
+
+<ul>
+  <li>Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers.
+ URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction</code>.</li>
+</ul>
+
 <h2 id="search">Search</h2>
 
 <p>Search for MedicationRequests that meet supplied query parameters:</p>
@@ -1127,6 +1135,12 @@
         },
         "dosageInstruction": [
           {
+            "extension": [
+              {
+                "valueString": "40 mcg = 1 mL, IM, Once, First Dose: 12/07/16 16:00:00 CST",
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction"
+              }
+            ],
             "text": "40 mcg = 1 mL, IM, Once",
             "patientInstruction": "1 Milliliters Intramuscular (in a muscle) once. Refills: 0.",
             "timing": {
@@ -1300,6 +1314,12 @@
     },
     "dosageInstruction": [
       {
+        "extension": [
+          {
+            "valueString": "40 mcg = 1 mL, IM, Once, First Dose: 12/07/16 16:00:00 CST",
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction"
+          }
+        ],
         "text": "40 mcg = 1 mL, IM, Once",
         "patientInstruction": "1 Milliliters Intramuscular (in a muscle) once. Refills: 0.",
         "timing": {
@@ -2878,6 +2898,7 @@ X-Runtime: 2.260092
 </h3>
         <ul class="js-guides">
           <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/care-team/">CareTeam</a></li>
           <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
           <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>

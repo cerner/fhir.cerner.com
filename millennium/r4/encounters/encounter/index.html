@@ -898,6 +898,72 @@
     <tr>
       <td>
       
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Encounter.extension[x].extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>custom-attribute</code> extensions.</li></ul>
+          
+          
+            <li><i>Note</i></li>
+            
+            <ul style="list-style-type: none"><li style="list-style-type: none">
+<ul>
+  <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
+  <li>The value of the custom attribute is not limited to a single Code Set or nomenclature.</li>
+</ul>
+</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes">Custom Attribute Code Value</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt; <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature">Custom Attribute Nomenclature Value</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
           <a target="_blank" href="https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions">Encounter.extension[x].valueMoney.currency</a>
       
       </td>
@@ -1178,8 +1244,8 @@
         "resourceType": "Encounter",
         "id": "97939518",
         "meta": {
-          "versionId": "0",
-          "lastUpdated": "2020-01-07T06:00:00.000Z"
+          "versionId": "1",
+          "lastUpdated": "2020-10-02T00:08:17.000Z"
         },
         "text": {
           "status": "generated",
@@ -1194,7 +1260,31 @@
                 "url": "custom-attribute-name"
               },
               {
-                "valueDateTime": "2020-03-04T18:12:22.000Z",
+                "valueDateTime": "2019-12-26T15:41:52.000Z",
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          },
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:2572582103",
+                "valueString": "Driving Dx",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                      "code": "13249728",
+                      "display": "Primary stabbing headache",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Primary stabbing headache"
+                },
                 "url": "custom-attribute-value"
               }
             ],
@@ -2206,8 +2296,8 @@
   "resourceType": "Encounter",
   "id": "97939518",
   "meta": {
-    "versionId": "0",
-    "lastUpdated": "2020-01-07T06:00:00.000Z"
+    "versionId": "1",
+    "lastUpdated": "2020-10-02T00:08:17.000Z"
   },
   "text": {
     "status": "generated",
@@ -2222,7 +2312,31 @@
           "url": "custom-attribute-name"
         },
         {
-          "valueDateTime": "2020-03-04T18:12:22.000Z",
+          "valueDateTime": "2019-12-26T15:41:52.000Z",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:2572582103",
+          "valueString": "Driving Dx",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                "code": "13249728",
+                "display": "Primary stabbing headache",
+                "userSelected": false
+              }
+            ],
+            "text": "Primary stabbing headache"
+          },
           "url": "custom-attribute-value"
         }
       ],
@@ -3867,7 +3981,20 @@ If-Match: W/"&lt;Current version of the Encounter resource&gt;"</code></pre>
         ],
         "text": "1st Attempt - Left Message"
       }
-    }
+    },
+    {
+      'op': 'replace',
+      'path': '/extension',
+      'value': [
+         {
+           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
+           'valueMoney': {
+             'value': 10.0,
+             'currency': 'USD'
+           }
+         }
+       ]
+     }
   ]
 }
 </pre></li></ul>
@@ -3877,6 +4004,8 @@ If-Match: W/"&lt;Current version of the Encounter resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>Supported extensions that can be replaced: <ul>
   <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a>
+</li>
+  <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json">Estimated Financial Responsibility Amount</a>
 </li>
 </ul>
 </li></ul>
@@ -3944,6 +4073,19 @@ If-Match: W/"&lt;Current version of the Encounter resource&gt;"</code></pre>
         }
       }
     ]
+  },
+  {
+    "op": "replace",
+    "path": "/extension",
+    "value": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount",
+        "valueMoney": {
+          "value": 10.0,
+          "currency": "USD"
+        }
+      }
+    ]
   }
 ]</code></pre>
 
@@ -4005,6 +4147,7 @@ X-Runtime: 2.260092
 </h3>
         <ul class="js-guides">
           <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/care-team/">CareTeam</a></li>
           <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
           <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
