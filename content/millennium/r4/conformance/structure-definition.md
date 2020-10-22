@@ -75,6 +75,7 @@ Authorization is not required.
  [`account-related-parts`]                                   | A reference to other related Accounts.
  [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
  [`client-organization`]                                     | The financially responsible organization.
+ [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`estimated-financial-responsibility-amount`]               | The estimated amount to be collected for the encounter.
  [`estimated-financial-responsibility-not-collected-reason`] | The reason no estimated amount is collected for the encounter.
@@ -94,6 +95,7 @@ Authorization is not required.
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
+[`clinical-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction?_format=json
 [`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`estimated-financial-responsibility-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json
 [`estimated-financial-responsibility-not-collected-reason`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason?_format=json
