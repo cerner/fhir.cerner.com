@@ -201,7 +201,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 May 2020 17:23:14 GMT
 Etag: W/"12793861"
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M-12793861
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-12793861
 Last-Modified: Wed, 14 May 2020 17:23:14 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created
