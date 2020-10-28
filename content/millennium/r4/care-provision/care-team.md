@@ -95,6 +95,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 List an individual CareTeam by its id:
 
+    GET /CareTeam/:id
+
 _Implementation Notes_
 
 * For CareTeam Search operations, both Careteam.read and Encounter.read scopes are required.
