@@ -99,7 +99,7 @@ List an individual CareTeam by its id:
 
 _Implementation Notes_
 
-* For CareTeam Search operations, both Careteam.read and Encounter.read scopes are required.
+* For CareTeam Read operations, both Careteam.read and Encounter.read scopes are required.
 
 ### Authorization Types
 
