@@ -10,6 +10,8 @@ title: Observation | R4 API
 ## Overview
 The Observation resource provides measurements or simple assertions about a patient that are useful for establishing baselines or trends, monitoring a patient's progress, and establishing diagnoses. Most observations are simple name/value pair assertions but some observations, such as blood pressure, group other observations together logically. Examples of common observations are: Laboratory results (blood sugar, hemoglobin), Vital signs (temperature, blood pressure), Personal characteristics (height, weight), and Social history (tobacco/alcohol use, employment status). Pathology reports, radiology reports, and other textual reports should be represented by the DiagnosticReport resource.
 
+[Vital Signs wiki reference](https://wiki.cerner.com/pages/releaseview.action?spaceKey=reference&title=Understand%20Supported%20Vital%20Signs%20in%20the%20FHIR%20Observation%20Resource)
+
 The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -161,7 +163,7 @@ Create a new Observation.
 _Implementation Notes_
 
 * Components are not currently supported when writing Blood Pressures.
-* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
   pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
@@ -182,7 +184,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation 
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation
 
 #### Vitals Body Example
 
