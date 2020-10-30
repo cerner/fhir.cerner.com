@@ -33,6 +33,10 @@ Search for CareTeams that meet supplied query parameters:
 
     GET /CareTeam?:parameters
 
+_Implementation Notes_
+
+* For CareTeam Search operations, both Careteam.read and Encounter.read scopes are required.
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, system: true) %>
@@ -90,6 +94,12 @@ The common [errors] and [OperationOutcomes] may be returned.
 ## Retrieve by id
 
 List an individual CareTeam by its id:
+
+    GET /CareTeam/:id
+
+_Implementation Notes_
+
+* For CareTeam Read operations, both Careteam.read and Encounter.read scopes are required.
 
 ### Authorization Types
 
