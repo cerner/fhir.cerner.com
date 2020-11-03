@@ -160,8 +160,9 @@ Create a new Observation.
 
 _Implementation Notes_
 
+* See [Understand Supported Vital Signs in the FHIR Observation Resource](https://wiki.cerner.com/pages/releaseview.action?spaceKey=reference&title=Understand%20Supported%20Vital%20Signs%20in%20the%20FHIR%20Observation%20Resource) for a list of vital signs that are supported for the create operation.
 * Components are not currently supported when writing Blood Pressures.
-* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
   pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
@@ -182,7 +183,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation 
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation
 
 #### Vitals Body Example
 
