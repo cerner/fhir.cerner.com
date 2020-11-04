@@ -15,16 +15,16 @@ The distinction between Practitioner and RelatedPerson is a practitioner cares f
 
 The following fields are returned if valued:
 
-* [RelatedPerson id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [RelatedPerson Identifier](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier){:target="_blank"}
+* [RelatedPerson id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [RelatedPerson Identifier](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier){:target="_blank"}
 * [Active](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active){:target="_blank"}
-* [Patient](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
-* [Relationship](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"}
-* [Related person's name](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
-* [Telecom information (may include phone and email)](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom){:target="_blank"}
-* [Gender (administrative)](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender){:target="_blank"}
-* [Date of birth](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
-* [Address](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
+* [Patient](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
+* [Relationship](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"}
+* [Related person's name](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
+* [Telecom information (may include phone and email)](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom){:target="_blank"}
+* [Gender (administrative)](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender){:target="_blank"}
+* [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
+* [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
 
 ## Terminology Bindings
@@ -39,9 +39,9 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                   | Value\[x] Type                                                             | Description
-----------------------|----------------------------------------------------------------------------|----------------------------------------------------------------
- `relationship-level` | [`CodeableConcept`](http://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | The resource's relationship to either patient or encounter.
+ ID                   | Value\[x] Type                                                              | Description
+----------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------
+ `relationship-level` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | The resource's relationship to either patient or encounter.
 
 ## Search
 
@@ -113,8 +113,8 @@ List an individual RelatedPerson by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
