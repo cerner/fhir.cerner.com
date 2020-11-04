@@ -39,9 +39,9 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                   | Value\[x] Type                                                              | Description
-----------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------
- `relationship-level` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | The resource's relationship to either patient or encounter.
+ ID                   | Value\[x] Type      | Description
+----------------------|---------------------|----------------------------------------------------------------
+ `relationship-level` | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
 
 ## Search
 
@@ -113,6 +113,7 @@ List an individual RelatedPerson by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
