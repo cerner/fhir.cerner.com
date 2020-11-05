@@ -11,6 +11,11 @@ title: MedicationAdministration | DSTU 2 API
 
 The Medication Administration resource provides information about medications and vaccines administered to a patient or consumed by a patient including injections, intravenous solutions, and self administered oral medications.
 <br/><br/>
+
+* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
+* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
+
+<br/><br/>
 The following fields are returned if valued:
 
 * [Medication Administration id](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier){:target="_blank"}
@@ -45,7 +50,8 @@ Search for MedicationAdministrations that meet supplied query parameters:
 _Implementation Notes_
 
 * [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be referenced independently.
-
+* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
+* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
 
 ### Authorization Types
 
@@ -86,6 +92,15 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_bundle) %>
 
+#### Request
+
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration?_id=197375293
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_medication_administration_multiple_ingredients_bundle) %>
+
 <%= disclaimer %>
 
 ### Errors
@@ -101,6 +116,8 @@ List an individual MedicationAdministration by its id:
 _Implementation Notes_
 
 * [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be be referenced independently.
+* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
+* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
 
 ### Authorization Types
 
@@ -120,6 +137,15 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_entry) %>
+
+#### Request
+
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationAdministration/197375293
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_medication_administration_multiple_ingredients_entry) %>
 
 <%= disclaimer %>
 
