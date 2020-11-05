@@ -265,6 +265,12 @@
 <pre><code>GET /CareTeam?:parameters
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>For CareTeam Search operations, both Careteam.read and Encounter.read scopes are required.</li>
+</ul>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -448,6 +454,15 @@
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <p>List an individual CareTeam by its id:</p>
+
+<pre><code>GET /CareTeam/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>For CareTeam Read operations, both Careteam.read and Encounter.read scopes are required.</li>
+</ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 

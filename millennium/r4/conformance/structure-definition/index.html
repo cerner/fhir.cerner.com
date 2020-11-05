@@ -343,12 +343,20 @@
       <td>Represents the account balance.</td>
     </tr>
     <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json"><code>account-presented-form</code></a></td>
+      <td>Link to the PDF statement image related to the statement account.</td>
+    </tr>
+    <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json"><code>account-related-parts</code></a></td>
       <td>A reference to other related Accounts.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json"><code>account-state</code></a></td>
       <td>The status of the Account within the billing or correspondence workflow.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json"><code>client-instruction</code></a></td>
+      <td>Represents instructions for an order that are intended for healthcare providers.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json"><code>client-organization</code></a></td>
@@ -359,8 +367,16 @@
       <td>The clinical instructions for an order that are intended for healthcare providers.</td>
     </tr>
     <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json"><code>coverage-encounter</code></a></td>
+      <td>Reference to the Encounter associated to the encounter level Coverage.</td>
+    </tr>
+    <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json"><code>custom-attribute</code></a></td>
       <td>A client defined custom attribute for the resource.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json"><code>email-status</code></a></td>
+      <td>The status of the electronic communication.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json"><code>estimated-financial-responsibility-amount</code></a></td>
@@ -411,8 +427,36 @@
       <td>The classification of the transaction.</td>
     </tr>
     <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json"><code>formatted-text</code></a></td>
+      <td>Link to the formatted text for a note. It is used in cases when the note is not a plain text.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json"><code>patient-friendly-display</code></a></td>
+      <td>An expression of the original string in terminology that patients should be able to understand.</td>
+    </tr>
+    <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json"><code>payment-collection-status</code></a></td>
       <td>The status of the payment collection for the encounter.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json"><code>related-person-encounter</code></a></td>
+      <td>Reference to the Encounter associated to the encounter level RelatedPerson.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json"><code>relationship-level</code></a></td>
+      <td>The resource’s relationship to either the patient or encounter level.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/replaced-by?_format=json"><code>replaced-by</code></a></td>
+      <td>The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to?_format=json"><code>reply-to</code></a></td>
+      <td>A link to a resource that the reply should be directed to.</td>
+    </tr>
+    <tr>
+      <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/transmitting-organization?_format=json"><code>transmitting-organization</code></a></td>
+      <td>An organization that transmitted or participated in the creation of a resource, but not the author.</td>
     </tr>
   </tbody>
 </table>

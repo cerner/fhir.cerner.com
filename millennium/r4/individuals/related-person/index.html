@@ -83,6 +83,11 @@
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -110,16 +115,16 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">RelatedPerson id</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier" target="_blank">RelatedPerson Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">RelatedPerson id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier" target="_blank">RelatedPerson Identifier</a></li>
   <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active" target="_blank">Active</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship" target="_blank">Relationship</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">Related person’s name</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom" target="_blank">Telecom information (may include phone and email)</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender" target="_blank">Gender (administrative)</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate" target="_blank">Date of birth</a></li>
-  <li><a href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address" target="_blank">Address</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship" target="_blank">Relationship</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">Related person’s name</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom" target="_blank">Telecom information (may include phone and email)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender" target="_blank">Gender (administrative)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate" target="_blank">Date of birth</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address" target="_blank">Address</a></li>
   <li><a href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication" target="_blank">Communication (preferred language)</a></li>
 </ul>
 
@@ -319,6 +324,74 @@
       </td>
     </tr>
     
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/individuals/related-person/#extensions">RelatedPerson.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The resource's relationship to either the patient or encounter level. This binding is used in <code>relationship-level</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/valueset-resource-types.html">Relationship Level</a><br>
+                      
+                        System: http://hl7.org/fhir/resource-types <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Relationship Level</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>relationship-level</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The resource’s relationship to either patient or encounter.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -351,21 +424,21 @@
       <td><code>_id</code></td>
       <td>This or <code>patient</code> or <code>identifier</code>
 </td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
       <td>This or <code>_id</code> or <code>patient</code>
 </td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>A RelatedPerson identifier.</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
       <td>This or <code>_id</code> or <code>identifier</code>
 </td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
       <td>A reference to a patient associated with the RelatedPerson. Example: <code>14067892</code>
 </td>
     </tr>
@@ -418,10 +491,26 @@
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            }
+          }
+        ],
         "identifier": [
           {
+            "id": "CI-490068357-1",
             "use": "usual",
             "type": {
               "coding": [
@@ -454,6 +543,7 @@
         },
         "relationship": [
           {
+            "id": "CI-490017058-0-0",
             "coding": [
               {
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
@@ -473,6 +563,7 @@
         ],
         "name": [
           {
+            "id": "CI-12724068-12724066-0",
             "use": "official",
             "text": "SMART, HAILEY",
             "family": "SMART",
@@ -486,6 +577,7 @@
         ],
         "telecom": [
           {
+            "id": "CI-PH-29811922-0",
             "system": "phone",
             "value": "8168888886",
             "use": "home",
@@ -494,6 +586,7 @@
             }
           },
           {
+            "id": "CI-EM-29822897-0",
             "system": "email",
             "value": "haileysmart@yopmail.com",
             "use": "home",
@@ -506,6 +599,7 @@
         "birthDate": "2003-12-02",
         "address": [
           {
+            "id": "CI-24313555-0",
             "use": "home",
             "text": "12345 Main St\\nKansas City, MO 64116\\nUS",
             "line": [
@@ -556,8 +650,23 @@
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 19, 2012&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Feb 19, 2012&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            }
+          }
+        ],
         "active": true,
         "patient": {
           "reference": "Patient/12724066",
@@ -565,6 +674,7 @@
         },
         "relationship": [
           {
+            "id": "CI-490068375-0-0",
             "coding": [
               {
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
@@ -584,6 +694,7 @@
         ],
         "name": [
           {
+            "id": "CI-12724069-12724066-0",
             "use": "official",
             "text": "SMART, TIMMY",
             "family": "SMART",
@@ -597,6 +708,7 @@
         ],
         "telecom": [
           {
+            "id": "CI-PH-29811924-0",
             "system": "phone",
             "value": "8168888886",
             "use": "home",
@@ -605,6 +717,7 @@
             }
           },
           {
+            "id": "CI-EM-29822901-0",
             "system": "email",
             "value": "timmysmart@yopmail.com",
             "use": "home",
@@ -617,6 +730,7 @@
         "birthDate": "2012-02-19",
         "address": [
           {
+            "id": "CI-24313557-0",
             "use": "home",
             "text": "12345 Main St\\nKansas City, MO 64116\\nUS",
             "line": [
@@ -701,10 +815,26 @@
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec  2, 2003&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Patient",
+            "display": "Patient"
+          }
+        ],
+        "text": "Patient"
+      }
+    }
+  ],
   "identifier": [
     {
+      "id": "CI-490068357-1",
       "use": "usual",
       "type": {
         "coding": [
@@ -737,6 +867,7 @@
   },
   "relationship": [
     {
+      "id": "CI-490017058-0-0",
       "coding": [
         {
           "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
@@ -756,6 +887,7 @@
   ],
   "name": [
     {
+      "id": "CI-12724068-12724066-0",
       "use": "official",
       "text": "SMART, HAILEY",
       "family": "SMART",
@@ -769,6 +901,7 @@
   ],
   "telecom": [
     {
+      "id": "CI-PH-29811922-0",
       "system": "phone",
       "value": "8168888886",
       "use": "home",
@@ -777,6 +910,7 @@
       }
     },
     {
+      "id": "CI-EM-29822897-0",
       "system": "email",
       "value": "haileysmart@yopmail.com",
       "use": "home",
@@ -789,6 +923,7 @@
   "birthDate": "2003-12-02",
   "address": [
     {
+      "id": "CI-24313555-0",
       "use": "home",
       "text": "12345 Main St\\nKansas City, MO 64116\\nUS",
       "line": [

@@ -1301,8 +1301,9 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <p><em>Implementation Notes</em></p>
 
 <ul>
+  <li>See <a href="https://wiki.cerner.com/pages/releaseview.action?spaceKey=reference&amp;title=Understand%20Supported%20Vital%20Signs%20in%20the%20FHIR%20Observation%20Resource">Understand Supported Vital Signs in the FHIR Observation Resource</a> for a list of vital signs that are supported for the create operation.</li>
   <li>Components are not currently supported when writing Blood Pressures.</li>
-  <li>Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+  <li>Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
 pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing">Configure Blood Pressure Event Set Pairing Hierarchy</a>.</li>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
@@ -2229,7 +2230,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation 
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation
 </code></pre>
 
 <h4 id="vitals-body-example">Vitals Body Example</h4>
