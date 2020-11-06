@@ -28,6 +28,8 @@ The following fields are returned if valued:
 * For Observations with `valueQuantity`
     * [Quantity comparator (<, <=, >, >=)](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
     * [Quantity units](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
+* For Observations with `valueCodeableConcept`
+    * [Codeable concept](https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept){:target="_blank"}   
 * [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation (abnormal flagging)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note (comments)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
@@ -123,7 +125,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 List an individual Observation by its id:
 
-    GET /Observation/M-id
+    GET /Observation/:id
 
 ### Authorization Types
 
@@ -131,18 +133,84 @@ List an individual Observation by its id:
 
 _Implementation Notes_
 
-* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented
+* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.
 
 ### Example
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-7167327
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_OBSERVATION_ENTRY) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Create
+
+Create a new Observation.
+
+    POST /Observation
+
+_Implementation Notes_
+
+* Components are not currently supported when writing Blood Pressures.
+* Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood 
+  pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Modifier fields should not be provided, and will cause the transaction to fail.
+
+### Authorization Types
+
+<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Laboratory only)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:observation, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation 
+
+#### Vitals Body Example
+
+<%= json(:R4_OBSERVATION_CREATE) %>
+
+#### Labs Body Example
+
+<%= json(:R4_OBSERVATION_LABS_CREATE) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 May 2020 17:23:14 GMT
+Etag: W/"12793861"
+Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Observation/M-12793861
+Last-Modified: Wed, 14 May 2020 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
 <%= disclaimer %>
 
@@ -160,3 +228,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
 [performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
+[Configure Blood Pressure Event Set Pairing Hierarchy]: https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing

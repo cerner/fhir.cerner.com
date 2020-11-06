@@ -43,8 +43,8 @@ all factors that you should consider when determining a page size that is
 right for your application.
 
 There are two ways we recommend that you test
-your logic once implemented.  First, you can set page size to a lower
-value using the `_count` parameter in the API calls.  Another way is to
+your logic once implemented.  First, you can set page size to a lower
+value using the `_count` parameter in the API calls.  Another way is to
 make calls for a patient with a lot of data in the Sandbox domain. You can read
 about our [available sandbox test patients](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ)
 to find a patient who has sufficient data for paging.
@@ -61,8 +61,8 @@ displayed as intended.
   because that is the current requirement for posting to the Cerner EMR.
   Since documents are being converted from one format type to another,
   there is potential for loss of fidelity.
-  - A common error we have seen is with the use of `<br>` tags.  In
-    XHTML, they need to be self-closed as follows: `<br />`. This
+  - A common error we have seen is with the use of `<br>` tags.  In
+    XHTML, they need to be self-closed as follows: `<br />`. This
     greatly enhances the accuracy our internal conversion tools.
   - Some sanitization is run on provided XHMTL. For example: `Applet`,
     `iframe`, `link`, `script`, and `style` tags will be removed
@@ -71,7 +71,7 @@ displayed as intended.
     but the text within will remain.
   - Table styling is not fully supported
 
-- **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
+- **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
   and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
   are not supported and will be rejected if present. In addition, each resource
   will call out modifier elements that are not supported. For example: [DocumentReference create](../../dstu2/infrastructure/document-reference/#create)
@@ -88,7 +88,7 @@ displayed as intended.
 - **Images:** If posting images within your documents or as the documents themselves, external image links will not function as intended. All images must be embedded Base64 encoded files using web-safe image formats due to file size. Examples are as follows:
 
   ```
-  <img alt="image" src='data:image/png;base64, <-ENCODED IMAGE-> ' /> 
+  <img alt="image" src='data:image/png;base64, <-ENCODED IMAGE-> ' />
   ```
 
 - **Testing:** There are several XHTML validators that can be used to
@@ -121,7 +121,7 @@ For example, lead can be performed on blood, capillary blood, or venous blood.
 
 If you are using a specific code to query for lead and use code
 `5671-3`, then your app would only return results when installed at
-**Hospital A**.  Your app would return nothing if installed at
+**Hospital A**.  Your app would return nothing if installed at
 **Hospital B**. You need to ensure that all codes are accounted for in
 order for the app to work at all sites.
 
@@ -143,7 +143,7 @@ any of these hospital-specific considerations.
 
 The above examples use lead, but similar considerations could exist for
 virtually any lab or measurement where concept mapping and specific
-LOINC codes are used.  If your app uses specific LOINC codes to query
+LOINC codes are used.  If your app uses specific LOINC codes to query
 for information,
 [contact us](https://groups.google.com/d/forum/cerner-fhir-developers)
 and we will help you work through any considerations that might exist.
@@ -177,7 +177,7 @@ or [ObservationStatus](https://www.hl7.org/fhir/dstu2/valueset-observation-statu
 value sets.
 
 Typically, for MedicationOrder, only medications in `Active`, `On-Hold`, or
-`Completed` statuses are displayed.  For Observation, only results in
+`Completed` statuses are displayed.  For Observation, only results in
 `Final` and `Amended` statuses are displayed.
 
 You can read about our [available sandbox test patients](https://groups.google.com/d/msg/cerner-fhir-developers/edPUbVPIag0/LgD4mGTXBAAJ)
@@ -290,17 +290,17 @@ and care of those patients.
 
 *Patient Chart View*
 
-The Patient Chart view in PowerChart displays information for a single
+The Patient Chart view in PowerChart displays information for a single
 patient. It is accessed by selecting a patient from one of the Organizer
 views or from Patient Search. Multiple patient charts can be open at the
 same time, and you can easily move between open charts by clicking the
-patient's name in the Patient Context toolbar. The Patient Chart view is
+patient's name in the Patient Context toolbar. The Patient Chart view is
 made up of two panes - the Table of Contents and the Workspace. The
 Table of Contents is displayed on the left side of the window and allows
 you to quickly navigate to any area of the patient's chart. Clicking a
 PowerChart component in the Table of Contents, such as a SMART app,
 opens that component's Workspace view. The Workspace view displays and
-changes based on which PowerChart component is selected from the Table
+changes based on which PowerChart component is selected from the Table
 of Contents. Each view can include multiple windows, that are accessed
 by clicking tabs or buttons in that view. If you open your SMART app
 from the Table of Contents, information for the patient is displayed in
@@ -325,7 +325,7 @@ When you are running a SMART app in multiple open charts in PowerChart,
 there is potential that the app instance will share patient context and
 show same patient’s data on two separate charts. In order to avoid this,
 please read our [SMART topic on sessionStorage](/smart/#html5-session-storage).
- 
+
 If your application uses the open source fhir-client.js library, please
 read the [section on minimum required version and additional code](/smart/#open-source-fhir-client-libraries)
 that must be added in order to fix a session bleed issue.

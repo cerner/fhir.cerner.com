@@ -35,7 +35,7 @@ operations:
       <ul>
         <li>This path should be used only to replace the policy group number.</li>
         <li>The `Coverage.class` at index 1 represents the group for the Coverage.</li>
-        <li>When no value is provided for this patch operation, `Coverage.class[1].value` will be unset.</li>
+        <li>When no value is provided for this patch operation, <code>Coverage.class[1].value</code> will be unset.</li>
       </ul>
 
   - name: replace-class-name
@@ -53,7 +53,7 @@ operations:
     note: >
       <ul>
         <li>The `Coverage.class` at index 1 represents the group for the Coverage.</li>
-        <li>When no value is provided for this patch operation, `Coverage.class[1].name` will be unset.</li>
+        <li>When no value is provided for this patch operation, <code>Coverage.class[1].name</code> will be unset.</li>
       </ul>
 
   - name: replace-dependent
