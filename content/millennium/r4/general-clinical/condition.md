@@ -121,6 +121,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
+* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
 
 ### Authorization Types
 
@@ -180,6 +181,7 @@ _Implementation Notes_
 
 * Currently `problem-list-item` and `encounter-diagnosis` are supported.
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
 
 ### Authorization Types
 
