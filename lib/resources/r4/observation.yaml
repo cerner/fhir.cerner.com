@@ -255,7 +255,7 @@ fields:
         }
   note: |
     <ul>
-       <li> Vital Signs supports only `LA` extensions. </li>
+       <li> Vital Signs supports only `LA` extension. </li>
        <li> Laboratory supports `LA` , `PPRF` and `OP` extensions. </li>
     </ul>
   url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
