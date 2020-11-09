@@ -794,6 +794,7 @@
 <ul>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1436,6 +1437,7 @@ X-Runtime: 2.011826
 <ul>
   <li>Currently <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported.</li>
   <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
+  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>

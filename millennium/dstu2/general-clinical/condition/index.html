@@ -920,6 +920,7 @@
       <li>Creating Conditions with a category code of <a href="https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes">health-concern</a> is not currently supported.</li>
     </ul>
   </li>
+  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1584,6 +1585,7 @@ OR
 <ul>
   <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
   <li>Currently, <code>health-concern</code> category code is not supported for updating conditions.</li>
+  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
