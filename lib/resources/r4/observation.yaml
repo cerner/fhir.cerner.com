@@ -257,7 +257,7 @@ fields:
                   "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
                 }
               ]
-            }
+          }
   note: |
     <ul>
        <li> Vital Signs supports only `LA` extension. </li>
