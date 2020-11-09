@@ -179,8 +179,12 @@ fields:
   description: Limited to "real" people rather than equipment.
   action: create
   example: |
-   {
-      "reference": 'Practitioner/12724064'
+    {
+    "performer": [
+        {
+            "reference": 'Practitioner/12724064'
+          }
+      ]
     }
   note: |
     <ul>
