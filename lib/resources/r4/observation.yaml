@@ -185,7 +185,7 @@ fields:
   note: |
     <ul>
       <li> Must be a reference to Practitioner. </li>
-      <li> Vital Signs require performer and supports up to two performers. </li>
+      <li> Vital Signs require performer. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
@@ -224,35 +224,37 @@ fields:
       ],
     }
   example2: |
-    {
-      "valueCodeableConcept": {
-                        "coding": [
-                          {
-                            "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                            "code": "OP",
-                            "display": "ordering provider"
-                          }
-                      ],
-                    "text": "ordering provider"
-                },
-                "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-              },
-              {
-                  "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                          "code": "PPRF",
-                          "display": "primary performer"
-                        }
-                        ],
-                "text": "primary performer"
-              },
-              "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+     {
+        "extension": [
+        {
+          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                                "code": "OP",
+                                "display": "ordering provider"
+                              }
+                          ],
+                        "text": "ordering provider"
+                    },
+                    "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+                  },
+                  {
+                      "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                              "code": "PPRF",
+                              "display": "primary performer"
+                            }
+                            ],
+                    "text": "primary performer"
+                  },
+                  "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+                }
+              ],
+              "reference": "Practitioner/2797943"
             }
-          ],
-          "reference": "Practitioner/2797943"
-        }
   note: |
     <ul>
        <li> Vital Signs supports only `LA` extension. </li>
