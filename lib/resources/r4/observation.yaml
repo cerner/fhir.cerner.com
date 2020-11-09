@@ -256,8 +256,7 @@ fields:
                   },
                   "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
                 }
-              ],
-              "reference": "Practitioner/2797943"
+              ]
             }
   note: |
     <ul>
