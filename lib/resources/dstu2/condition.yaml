@@ -152,8 +152,7 @@ fields:
   action: update
   note: |
     <ul>
-      <li> When the category is <code>encounter-diagnosis</code>, only the <code>active</code> code is supported. </li>
-      <li> When the category is <code>encounter-diagnosis</code>, a clinicalStatus must be provided, unless the verificationStatus is <code>entered-in-error</code>. </li>
+      <li> When the category is <code>encounter-diagnosis</code>, a clinicalStatus with the value of <code>active</code> must be provided, unless the verificationStatus is <code>entered-in-error</code>. </li>
       <li> When the category is <code>encounter-diagnosis</code> and the verificationStatus is <code>entered-in-error</code>, the clinicalStatus must not be provided. </li>
     </ul>  
   binding:  
