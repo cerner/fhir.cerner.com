@@ -237,6 +237,9 @@ module Cerner
           }
         ]
       },
+      'subject': {
+        'reference': 'Patient/53663272'
+      },
       'author': [
         {
           'reference': 'Practitioner/21500981'
@@ -260,6 +263,11 @@ module Cerner
         }
       ],
       'context': {
+        'encounter': [
+          {
+            "reference": "Encounter/4208053"
+          }
+        ],
         'period': {
           'start': '2020-01-01T00:00:00.000Z',
           'end': '2020-01-01T01:00:00.000Z'
