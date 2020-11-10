@@ -150,6 +150,26 @@ fields:
   description: The clinical status of the condition.
   example: '{"clinicalStatus": "resolved"}'
   binding:
+  action: update
+  note: |
+    <ul>
+      <li> When the category is <code>encounter-diagnosis</code>, only the <code>active</code> code is supported. </li>
+      <li> When the category is <code>encounter-diagnosis</code>, a clinicalStatus must be provided, unless the verificationStatus is <code>entered-in-error</code> </li>
+      <li> When the category is <code>encounter-diagnosis</code>, and the verificationStatus is <code>entered-in-error</code>, the clinicalStatus must not be provided. </li>
+    </ul>    
+    description: Preferred value set for Condition Clinical Status.
+    terminology:
+    - display: Clinical Status
+      system: http://hl7.org/fhir/condition-clinical
+      info_link: http://hl7.org/fhir/dstu2/valueset-condition-clinical.html
+
+- name: clinicalStatus
+  required: 'No'
+  type: code
+  description: The clinical status of the condition.
+  example: '{"clinicalStatus": "resolved"}'
+  action: create
+  binding:
     description: Preferred value set for Condition Clinical Status.
     terminology:
     - display: Clinical Status
