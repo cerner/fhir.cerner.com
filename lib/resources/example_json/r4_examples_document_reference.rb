@@ -265,7 +265,7 @@ module Cerner
       'context': {
         'encounter': [
           {
-            "reference": "Encounter/4208053"
+            'reference': 'Encounter/4208053'
           }
         ],
         'period': {
