@@ -59,7 +59,7 @@ fields:
   description: Specifies the particular kind of document referenced.
   note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
@@ -121,7 +121,6 @@ fields:
   type: Reference
   action:
     - create
-    - update
   description: Identifies who is responsible for adding the information to the document.
   note: Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
@@ -139,7 +138,6 @@ fields:
   type: Reference
   action:
     - create
-    - update
   description: Which person authenticates that this document is valid.
   note: If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
@@ -155,7 +153,6 @@ fields:
   type: BackboneElement
   action:
     - create
-    - update
   description: The document and format referenced.
   note: Must contain only one entry
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content
@@ -178,7 +175,6 @@ fields:
   type: Attachment
   action:
     - create
-    - update
   description: The document or URL of the document along with critical metadata to prove content has integrity.
   note: Data and content type must be provided.
   url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
@@ -197,7 +193,6 @@ fields:
   type: Code
   action:
     - create
-    - update
   description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
   note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
@@ -211,14 +206,13 @@ fields:
   type: base64Binary
   action:
     - create
-    - update
   description: The actual data of the attachment - a sequence of bytes, base64 encoded.
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
   example: |
    {
      "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
    }
-  note: >
+  note:
     If providing XHTML or HTML content, you can validate your document using any available strict XHTML 1.0 validator (eg: <a href="http://validator.w3.org/#validate_by_upload+with_options">w3 validator</a>
     or this <a href="https://html5.validator.nu/">html5 validator</a>).
     Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be
@@ -230,7 +224,6 @@ fields:
   type: Attachment
   action:
     - create
-    - update
   description: A label or set of text to display in place of the data.
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
   example: |
@@ -256,7 +249,6 @@ fields:
   type: BackboneElement
   action:
     - create
-    - update
   description: The clinical context in which the document was prepared.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
   example: |
@@ -294,7 +286,6 @@ fields:
   type: Period
   action:
     - create
-    - update
   description: The time period over which the service that is described by the document was provided.
   note: The period.end field is required; the period.start field is optional.  All dates require a time component.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
@@ -304,6 +295,19 @@ fields:
         "start": "2020-01-01T00:00:00.000Z",
         "end": "2020-01-01T01:00:00.000Z"
       }
+    }
+
+- name: status
+  required: 'Yes'
+  type: code
+  action:
+    - update
+  description: The status of this document reference.
+  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
+  example: |
+    {
+      "status": "entered-in-error"
     }
 
 - name: docStatus
@@ -327,7 +331,7 @@ fields:
   description: Specifies the particular kind of document referenced.
   note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is a Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   example: |
@@ -342,19 +346,6 @@ fields:
           }
         ]
       }
-    }
-
-- name: status
-  required: 'Yes'
-  type: code
-  action:
-    - update
-  description: The status of this document reference.
-  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
-  example: |
-    {
-      "status": "entered-in-error"
     }
 
 - name: subject
@@ -372,6 +363,121 @@ fields:
       }
     }
 
+- name: author
+  required: 'Yes'
+  type: Reference
+  action:
+    - update
+  description: Identifies who is responsible for adding the information to the document.
+  note: Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author
+  example: |
+    {
+      "author": [
+        {
+          "reference": "Practitioner/2150097"
+        }
+      ]
+    }
+
+- name: authenticator
+  required: 'No'
+  type: Reference
+  action:
+    - update
+  description: Which person authenticates that this document is valid.
+  note: If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator
+  example: |
+    {
+      "authenticator": {
+        "reference": "Practitioner/21500981"
+      }
+    }
+
+- name: content
+  required: 'Yes'
+  type: BackboneElement
+  action:
+    - update
+  description: The document and format referenced.
+  note: Must contain only one entry
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content
+  example: |
+   {
+      "content": [
+        {
+          "attachment": {
+            "contentType": "text/xml;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "title": "Summary Note",
+            "creation": "2020-07-29T21:02:04.000Z"
+          }
+        }
+      ]
+   }
+
+- name: content.attachment
+  required: 'Yes'
+  type: Attachment
+  action:
+    - update
+  description: The document or URL of the document along with critical metadata to prove content has integrity.
+  note: Data and content type must be provided.
+  url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
+  example: |
+   {
+     "attachment": {
+            "contentType": "application/xml;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "title": "Summary Note",
+            "creation": "2020-01-15T14:35:29.000Z"
+          }
+   }
+
+- name: content.attachment.contentType
+  required: 'Yes'
+  type: Code
+  action:
+    - update
+  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
+  example: |
+   {
+     "contentType": "application/xml;charset=utf-8"
+   }
+
+- name: content.attachment.data
+  required: 'Yes'
+  type: base64Binary
+  action:
+    - update
+  description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
+  example: |
+   {
+     "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+   }
+  note:
+    If providing XHTML or HTML content, you can validate your document using any available strict XHTML 1.0 validator (eg: <a href="http://validator.w3.org/#validate_by_upload+with_options">w3 validator</a>
+    or this <a href="https://html5.validator.nu/">html5 validator</a>).
+    Some sanitization is run on provided XHMTL. For example: Applet, iframe, link, script, and style tags will be
+    removed completely. Other tags (a, button, form, frame, frameset, input, object, option, select, textarea) may be
+    removed but the text within will remain. If a meta tag is provided, it must be self closed (example: &lt;meta charset=&#39;UTF-8&#39;/&gt;).
+
+- name: content.attachment.title
+  required: 'No'
+  type: Attachment
+  action:
+    - update
+  description: A label or set of text to display in place of the data.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
+  example: |
+   {
+     "title": "Summary Note"
+   }
+
 - name: content.attachment.creation
   required: 'No'
   type: dateTime
@@ -383,6 +489,26 @@ fields:
   example: |
    {
      "creation": "2020-08-15T14:35:29.000Z"
+   }
+
+- name: context
+  required: 'Yes'
+  type: BackboneElement
+  action:
+    - update
+  description: The clinical context in which the document was prepared.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context
+  example: |
+   {
+     "encounter": [
+        {
+          "reference": "Encounter/4208053"
+        }
+      ],
+     "period": {
+       "start": "2020-01-01T00:00:00.000Z",
+       "end": "2020-01-01T01:00:00.000Z"
+     }
    }
 
 - name: context.encounter
@@ -400,4 +526,20 @@ fields:
           "reference": "Encounter/4208053"
         }
       ]
+    }
+
+- name: context.period
+  required: 'Yes'
+  type: Period
+  action:
+    - update
+  description: The time period over which the service that is described by the document was provided.
+  note: The period.end field is required; the period.start field is optional.  All dates require a time component.
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period
+  example: |
+    {
+      "period": {
+        "start": "2020-01-01T00:00:00.000Z",
+        "end": "2020-01-01T01:00:00.000Z"
+      }
     }
