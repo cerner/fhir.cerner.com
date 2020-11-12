@@ -243,7 +243,6 @@ fields:
   type: dateTime
   action:
     - create
-    - update
   description: The date that the attachment was first created.
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
   note: A time component must be provided with the date.
@@ -372,6 +371,19 @@ fields:
         "reference": "Patient/53663272"
       }
     }
+
+- name: content.attachment.creation
+  required: 'No'
+  type: dateTime
+  action:
+    - update
+  description: The date that the attachment was first created.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  note: A time component must be provided with the date. The new date must not be earlier than the previous content.attachment.creation date.
+  example: |
+   {
+     "creation": "2020-08-15T14:35:29.000Z"
+   }
 
 - name: context.encounter
   required: 'No'
