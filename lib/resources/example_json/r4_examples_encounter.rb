@@ -338,6 +338,17 @@ module Cerner
           }
         }
       ],
+      'appointment': [
+        {
+          'reference': 'Appointment/16267757'
+        },
+        {
+          'reference': 'Appointment/16267758'
+        },
+        {
+          'reference': 'Appointment/16267759'
+        }
+      ],
       'period': {
         'start': '2019-12-26T15:38:02.000Z',
         'end': '2020-01-07T06:00:00.000Z'
