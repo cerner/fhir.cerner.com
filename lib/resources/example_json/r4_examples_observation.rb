@@ -542,5 +542,92 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_OBSERVATION_LABS_UPDATE ||= {
+      "resourceType": "Observation",
+      "id": "M-197391609",
+      "status": "corrected",
+      "meta": {
+        "source": "43ba6d6a-1006-4546-bf28-48d84a98dbb1"
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'laboratory',
+              "display": 'Laboratory'
+            }
+          ],
+          "text": 'Laboratory'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '718-7',
+            "display": 'Hemoglobin [Mass/volume] in Blood'
+          }
+        ],
+        "text": 'Hemoglobin'
+      },
+      "subject": {
+        "reference": 'Patient/2798003'
+      },
+      "encounter": {
+        "reference": 'Encounter/2673896'
+      },
+      "issued": '2020-07-30T20:42:00.000Z',
+      "effectiveDateTime": '2020-07-30T20:42:00.000Z',
+      "performer": [
+        {
+          "reference": 'Practitioner/1477926'
+        }
+      ],
+      "valueQuantity": {
+        "value": '13.2',
+        "unit": 'mg/dL',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mg/dL'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N',
+              "display": 'Normal'
+            }
+          ],
+          "text": 'Normal'
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 12.0,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          },
+          "high": {
+            "value": 15.5,
+            "unit": 'g/dL',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'g/dL'
+          }
+        }
+      ],
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/1477926'
+          },
+          "time": '2020-07-30T20:42:15.000Z',
+          "text": 'Specimen slightly hemolyzed.'
+        }
+      ]
+    }.freeze
   end
 end

@@ -219,6 +219,66 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Update
+
+Update an existing Observation.
+
+    PUT /Observation/:id
+
+_Implementation Notes_
+
+* Currently `laboratory` is supported.
+* Both read and write scopes are required.
+* Updates on patient and category are not supported. Updating a value to a different value type is not supported. 
+* See [FHIR<sup>®</sup> Update] for additional details about update operations.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the Observation resource>"'} %>
+
+### Body Fields
+
+<%= definition_table(:observation, :update, :r4) %>
+
+### Example
+
+#### Request
+
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197391609
+
+#### Labs Body Example
+
+<%= json(:R4_OBSERVATION_LABS_UPDATE) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 14 May 2020 17:23:14 GMT
+Etag: W/"2"
+Last-Modified: Wed, 14 May 2020 17:23:14 GMT
+Server-Response-Time: 296.405243
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`date`]: https://hl7.org/fhir/r4/search.html#date
@@ -226,6 +286,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
 [performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
