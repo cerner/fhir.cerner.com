@@ -340,13 +340,7 @@ module Cerner
       ],
       'appointment': [
         {
-          'reference': 'Appointment/16267757'
-        },
-        {
-          'reference': 'Appointment/16267758'
-        },
-        {
-          'reference': 'Appointment/16267759'
+          'reference': 'Appointment/4818609'
         }
       ],
       'period': {
