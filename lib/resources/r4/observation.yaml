@@ -821,7 +821,7 @@ fields:
   note: |
     <ul>
       <li> Only one referenceRange is supported </li>
-      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided. Only a referenceRange.type of `normal` is supported. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
 
@@ -929,7 +929,7 @@ fields:
   note: |
     <ul>
       <li> Only one referenceRange is supported </li>
-      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided. Only a referenceRange.type of `normal` is supported. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
 
