@@ -216,16 +216,6 @@ fields:
       "code": {
         "coding": [
           {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
-              "code": "21704910",
-              "display": "Potassium Level",
-              "userSelected": true
-          },
-          {
-              "system": "http://loinc.org",
-              "code": "2823-3"
-          },
-          {
               "system": "http://loinc.org",
               "code": "2823-3"
           }
@@ -498,32 +488,32 @@ fields:
   example2: |
      {
         "extension": [
-        {
-          "valueCodeableConcept": {
+          {
+            "valueCodeableConcept": {
+                              "coding": [
+                                {
+                                  "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                                  "code": "OP",
+                                  "display": "ordering provider"
+                                }
+                            ],
+                          "text": "ordering provider"
+                      },
+                      "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+                    },
+                    {
+                        "valueCodeableConcept": {
                             "coding": [
                               {
-                                "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                                "code": "OP",
-                                "display": "ordering provider"
+                                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                                "code": "PPRF",
+                                "display": "primary performer"
                               }
-                          ],
-                        "text": "ordering provider"
+                              ],
+                      "text": "primary performer"
                     },
                     "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-                  },
-                  {
-                      "valueCodeableConcept": {
-                          "coding": [
-                            {
-                              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                              "code": "PPRF",
-                              "display": "primary performer"
-                            }
-                            ],
-                    "text": "primary performer"
-                  },
-                  "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-                }
+                  }
               ]
           }
   note: |
