@@ -200,15 +200,15 @@ _Implementation Notes_
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
-Date: Wed, 14 May 2020 17:23:14 GMT
-Etag: W/"12793861"
-Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-12793861
-Last-Modified: Wed, 14 May 2020 17:23:14 GMT
-Server-Response-Time: 296.405243
+Date: Mon, 16 Nov 2020 22:05:40 GMT
+Etag: W/"1"
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197392513
+Last-Modified: Mon, 16 Nov 2020 22:05:40 GMT
+Server-Response-Time: 588.773291
 Status: 201 Created
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
-X-Runtime: 2.011826
+X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
+X-Runtime: 0.588654
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
