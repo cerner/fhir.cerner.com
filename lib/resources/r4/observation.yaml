@@ -125,12 +125,6 @@ fields:
     }
   note: |
     <ul>
-      <li>`Laboratory` category is supported. </li>
-    </ul>
-    <ul>
-      <li> Only one category may be supplied on update. </li>
-    </ul>
-    <ul>
       <li> Updating a category is not allowed. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category
