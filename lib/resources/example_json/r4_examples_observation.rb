@@ -565,12 +565,13 @@ module Cerner
       "code": {
         "coding": [
           {
-            "system": 'http://loinc.org',
-            "code": '718-7',
-            "display": 'Hemoglobin [Mass/volume] in Blood'
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '21704910',
+            "display": 'Potassium Level',
+            "userSelected": true
           }
         ],
-        "text": 'Hemoglobin'
+        "text": 'Potassium Level'
       },
       "subject": {
         "reference": 'Patient/2798003'

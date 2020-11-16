@@ -202,11 +202,13 @@ fields:
       "code": {
         "coding": [
           {
-            "system": 'http://loinc.org',
-            "code": '8331-1'
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "code": "21704910",
+            "display": "Potassium Level",
+            "userSelected": true
           }
         ],
-        "text": 'Temperature Oral'
+        "text": 'Potassium Level'
       }
     }
   example2: |
@@ -214,15 +216,21 @@ fields:
       "code": {
         "coding": [
           {
-            "system": 'http://loinc.org',
-            "code": '8302-2'
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "21704910",
+              "display": "Potassium Level",
+              "userSelected": true
           },
           {
-            "system": 'http://loinc.org',
-            "code": '3137-7'
+              "system": "http://loinc.org",
+              "code": "2823-3"
+          },
+          {
+              "system": "http://loinc.org",
+              "code": "2823-3"
           }
-        ],
-        "text": 'Height/Length Measured'
+      ],
+      "text": "Potassium Level"
       }
     }
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
@@ -894,26 +902,26 @@ fields:
       "referenceRange": [
         {
           "low": {
-            "value": 35.2,
-            "unit": 'degC',
-            "system": 'http://unitsofmeasure.org',
-            "code": 'Cel'
-          },
-          "high": {
-            "value": 36.7,
-            "unit": 'degC',
-            "system": 'http://unitsofmeasure.org',
-            "code": 'Cel'
-          },
-          "type": {
+            "value": 3.6,
+            "unit": "mmol/L",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+        },
+        "high": {
+            "value": 5.2,
+            "unit": "mmol/L",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+        },
+        "type": {
             "coding": [
-              {
-                "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
-                "code": 'normal',
-                "display": 'Normal Range'
-              }
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                    "code": "normal",
+                    "display": "Normal Range"
+                }
             ],
-            "text": 'Normal Range'
+            "text": "Normal Range"
           }
         }
       ]
