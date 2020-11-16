@@ -544,11 +544,11 @@ module Cerner
     }.freeze
 
     R4_OBSERVATION_LABS_UPDATE ||= {
-      "resourceType": "Observation",
-      "id": "M-197391609",
-      "status": "corrected",
+      "resourceType": 'Observation',
+      "id": 'M-197391609',
+      "status": 'corrected',
       "meta": {
-        "source": "43ba6d6a-1006-4546-bf28-48d84a98dbb1"
+        "source": '43ba6d6a-1006-4546-bf28-48d84a98dbb1'
       },
       "category": [
         {
