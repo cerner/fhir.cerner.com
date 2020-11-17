@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7'
+ruby '2.7.2'
 
 gem 'kramdown', '~> 2.3'
 gem 'nanoc', '~> 4.0'

@@ -22,7 +22,7 @@ jobs:
 
       # Installs version mentioned in .ruby-version file
     - name: Setup Ruby
-      uses: ruby/setup-ruby@v1.50.1
+      uses: ruby/setup-ruby@v1.51.1
 
     - name: Install Gems
       run: bundle install
