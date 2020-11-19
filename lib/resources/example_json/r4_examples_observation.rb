@@ -545,7 +545,7 @@ module Cerner
 
     R4_OBSERVATION_LABS_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'M-197391609',
+      "id": 'M-196186655',
       "status": 'corrected',
       "meta": {
         "source": '43ba6d6a-1006-4546-bf28-48d84a98dbb1'
@@ -574,7 +574,7 @@ module Cerner
         "text": 'Potassium Level'
       },
       "subject": {
-        "reference": 'Patient/2798003'
+        "reference": 'Patient/12457981'
       },
       "encounter": {
         "reference": 'Encounter/2673896'

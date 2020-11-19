@@ -248,7 +248,7 @@ _Implementation Notes_
 
 #### Request
 
-    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197391609
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196186655
 
 #### Labs Body Example
 
@@ -261,14 +261,14 @@ _Implementation Notes_
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
-Date: Wed, 14 May 2020 17:23:14 GMT
-Etag: W/"2"
-Last-Modified: Wed, 14 May 2020 17:23:14 GMT
+Date: Thu, 19 Nov 2020 17:39:58 GMT
+Etag: W/"3"
+Last-Modified: Thu, 19 Nov 2020 17:39:58 GMT
 Server-Response-Time: 296.405243
 Status: 200 OK
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
-X-Runtime: 2.011826
+X-Request-Id: f3c2b8d6-01d8-4dfc-b278-b67e76c7f834
+X-Runtime: 0.812593
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
