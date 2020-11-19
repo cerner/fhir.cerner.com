@@ -16,6 +16,18 @@ fields:
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
 
+- name: id
+  required: 'Yes'
+  type: id
+  description: The logical id of the resource to update.
+  action: update
+  example: |
+    {
+      "id": "M-197391609"
+    }
+  note: The id value must match the Observation/&lt;id> value.
+  url: https://hl7.org/fhir/resource-definitions.html#Resource.id
+
 - name: status
   required: 'Yes'
   type: code
@@ -28,6 +40,21 @@ fields:
   note: |
     <ul>
       <li> Status codes `final`, `amended` and `corrected` are supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.status
+
+- name: status
+  required: 'Yes'
+  type: code
+  description: Codes identifying the lifecycle stage of an event.
+  action: update
+  example: |
+    {
+      "status": "corrected"
+    }
+  note: |
+    <ul>
+      <li> Status codes `amended` and `corrected` are supported. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.status
 
@@ -65,6 +92,40 @@ fields:
     </ul>
     <ul>
       <li> Only one category may be supplied on create. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category
+
+- name: category
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - update
+  binding:
+    description: Codes for high level observation categories.
+    terminology:
+    - display: Observation Category Codes
+      system: http://terminology.hl7.org/CodeSystem/observation-category
+      info_link: https://hl7.org/fhir/R4/valueset-observation-category.html
+  example: |
+    {
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'laboratory',
+              "display": 'Laboratory'
+            }
+          ],
+          "text": 'Laboratory'
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Updating a category is not allowed. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.category
 
@@ -117,6 +178,53 @@ fields:
     }
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
 
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  description: Describes what was observed. Sometimes this is called the observation "name".
+  action:
+    - terminology
+    - update
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
+    - display: Millennium Clinical Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
+  example: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "code": "21704910",
+            "display": "Potassium Level",
+            "userSelected": true
+          }
+        ],
+        "text": 'Potassium Level'
+      }
+    }
+  example2: |
+    {
+      "code": {
+        "coding": [
+          {
+              "system": "http://loinc.org",
+              "code": "2823-3"
+          }
+      ],
+      "text": "Potassium Level"
+      }
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
+
 - name: subject
   required: 'Yes'
   type: Reference
@@ -134,11 +242,44 @@ fields:
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject
 
+- name: subject
+  required: 'Yes'
+  type: Reference
+  description: Indicates the patient who the observation record is associated with.
+  action: update
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/631923"
+      }
+    }
+  note: |
+    <ul>
+      <li> Must only include references to Patient. </li>
+    </ul>
+    <ul>
+      <li> Updates on Patient reference is not allowed. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject
+
 - name: encounter
   required: 'No'
   type: Reference
   description: Encounter during which the observation was first made.
   action: create
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/631923"
+      }
+    }
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.encounter
+
+- name: encounter
+  required: 'No'
+  type: Reference
+  description: Encounter during which the observation was first made.
+  action: update
   example: |
     {
       "encounter": {
@@ -162,11 +303,37 @@ fields:
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_
 
+- name: effective[x]
+  required: 'Yes'
+  type: dateTime
+  description: Date and time the observation was made.
+  action: update
+  example: |
+    {
+      "effectiveDateTime": "2020-07-07T20:37:00.000Z"
+    }
+  note: |
+    <ul>
+      <li> Only a type of dateTime is supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_
+
 - name: issued
   required: 'No'
   type: instant
   description: Instant the observation was made.
   action: create
+  example: |
+    {
+      "issued": "2020-07-06T21:02:47.000Z"
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued
+
+- name: issued
+  required: 'No'
+  type: instant
+  description: Instant the observation was made.
+  action: update
   example: |
     {
       "issued": "2020-07-06T21:02:47.000Z"
@@ -190,6 +357,25 @@ fields:
     <ul>
       <li> Must be a reference to Practitioner. </li>
       <li> Vital Signs require performer. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
+
+- name: performer
+  required: 'No'
+  type: List of Reference
+  description: Limited to "real" people rather than equipment.
+  action: update
+  example: |
+    {
+    "performer": [
+        {
+            "reference": 'Practitioner/12724064'
+          }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Must be a reference to Practitioner. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
@@ -228,39 +414,110 @@ fields:
       ],
     }
   example2: |
-     {
-        "extension": [
-        {
-          "valueCodeableConcept": {
-                            "coding": [
-                              {
-                                "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                                "code": "OP",
-                                "display": "ordering provider"
-                              }
-                          ],
-                        "text": "ordering provider"
-                    },
-                    "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-                  },
-                  {
-                      "valueCodeableConcept": {
-                          "coding": [
-                            {
-                              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                              "code": "PPRF",
-                              "display": "primary performer"
-                            }
-                            ],
-                    "text": "primary performer"
-                  },
-                  "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-                }
-              ]
+    {
+       "extension": [
+          {
+             "valueCodeableConcept": {
+                "coding": [
+                   {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                      "code": "OP",
+                      "display": "ordering provider"
+                   }
+                ],
+                "text": "ordering provider"
+             },
+             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+          },
+          {
+             "valueCodeableConcept": {
+                "coding": [
+                   {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code": "PPRF",
+                      "display": "primary performer"
+                   }
+                ],
+                "text": "primary performer"
+             },
+             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
           }
+       ]
+    }
   note: |
     <ul>
        <li> Vital Signs supports only `LA` extension. </li>
+       <li> Laboratory supports `LA` , `PPRF` and `OP` extensions. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
+
+- name: performer.extension
+  required: 'No'
+  type: performerFunction
+  description: Distinguishes the type of involvement of the performer in the event.
+  action:
+    - terminology
+    - update
+  binding:
+    description: Codes identifying the function of the performer.
+    terminology:
+    - display: Performer function codes
+      system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+      info_link: http://hl7.org/fhir/R4/valueset-performer-function.html
+    - display: Participation codes
+      system: http://terminology.hl7.org/CodeSystem/v2-0912
+      info_link: http://terminology.hl7.org/CodeSystem/v2-0912
+  example: |
+   {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                "code": 'LA',
+                "display": 'legal authenticator'
+              }
+            ],
+            "text": 'legal authenticator'
+          },
+          "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+        }
+      ],
+    }
+  example2: |
+    {
+       "extension": [
+          {
+             "valueCodeableConcept": {
+                "coding": [
+                   {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                      "code": "OP",
+                      "display": "ordering provider"
+                   }
+                ],
+                "text": "ordering provider"
+             },
+             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+          },
+          {
+             "valueCodeableConcept": {
+                "coding": [
+                   {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code": "PPRF",
+                      "display": "primary performer"
+                   }
+                ],
+                "text": "primary performer"
+             },
+             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+          }
+       ]
+    }
+  note: |
+    <ul>
        <li> Laboratory supports `LA` , `PPRF` and `OP` extensions. </li>
     </ul>
   url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
@@ -307,10 +564,52 @@ fields:
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
+- name: value[x]
+  required: 'Yes'
+  type: Quantity | CodeableConcept | string
+  description: Value of the observation.
+  action: update
+  example: |
+    {
+      "valueQuantity":
+      {
+        "value": 162,
+        "unit": 'cm',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'cm'
+      }
+    }
+  example2: |
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": 'http://snomed.info/sct',
+            "code": '373066001',
+            "display": 'Yes (qualifier value)'
+          }
+        ],
+        "text": 'Yes'
+      }
+    }
+  example3: |
+    {
+      "valueString": '2'
+    }
+  note: |
+    <ul>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept` and `valueString` </li>
+    </ul>
+    <ul>
+      <li> Updating value type to another is not supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
+
 - name: dataAbsentReason
   required: 'No'
   type: CodeableConcept
   description: Provides a reason why the expected value in the element Observation.value[x] is missing.
+  action: terminology
   binding:
     description: Codes for reasons data is absent.
     terminology:
@@ -325,9 +624,9 @@ fields:
   binding:
     description: Codes for value of the observation.
     terminology:
-      - display: SNOMED CT
-        system: http://snomed.info/sct
-        info_link: https://hl7.org/fhir/R4/snomedct.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
 
 - name: interpretation
   required: 'No'
@@ -336,6 +635,60 @@ fields:
   action:
     - terminology
     - create
+  binding:
+    description: Codes identifying interpretations of observations.
+    terminology:
+    - display: v3 Interpretation Codes
+      system: http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+      info_link: https://hl7.org/fhir/R4/valueset-observation-interpretation.html
+    - display: Interpretation Result
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/52
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-52-interpretation-result
+  example: |
+    {
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
+              "code": '211',
+              "display": 'LOW',
+              "userSelected": true
+            }
+          ],
+          "text": 'LOW'
+        }
+      ]
+    }
+  example2: |
+    {
+      "interpretation": [
+        {
+          "coding": [
+            {
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                "code": 'L',
+                "display": 'Low'
+              }
+            ],
+            "text": 'LOW'
+          }
+        ]
+      }
+  note: |
+    <ul>
+      <li> Only one interpretation may be supplied. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation
+
+- name: interpretation
+  required: 'No'
+  type: List of CodeableConcept
+  description: A categorical assessment of an observation value. For example, high, low, normal.
+  action:
+    - terminology
+    - update
   binding:
     description: Codes identifying interpretations of observations.
     terminology:
@@ -402,6 +755,25 @@ fields:
     }
   url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.note
 
+- name: note
+  required: 'No'
+  type: List of Annotation
+  description: Comments about the observation
+  action: update
+  example: |
+    {
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/62955753'
+          },
+          "time": '2018-08-17T09:55:42.000Z',
+          "text": 'Charted at Incorrect Time'
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/r4/observation-definitions.html#Observation.note
+
 - name: referenceRange
   required: 'No'
   type: List of BackboneElement
@@ -439,7 +811,7 @@ fields:
   note: |
     <ul>
       <li> Only one referenceRange is supported </li>
-      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided. Only a referenceRange.type of `normal` is supported. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
 
@@ -491,6 +863,114 @@ fields:
   type: CodeableConcept
   description: Codes to indicate the what part of the targeted reference population it applies to.
   action: create
+  example: |
+    {
+      "type": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+            "code": 'normal',
+            "display": 'Normal Range'
+          }
+        ],
+        "text": 'Normal Range'
+      }
+    }
+  note: |
+    <ul>
+      <li> Only a `ReferenceRange.type` of normal is supported </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.type
+
+- name: referenceRange
+  required: 'No'
+  type: List of BackboneElement
+  description: Provides guidance for interpretating the observation.
+  action: update
+  example: |
+    {
+      "referenceRange": [
+        {
+          "low": {
+            "value": 3.6,
+            "unit": "mmol/L",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+        },
+        "high": {
+            "value": 5.2,
+            "unit": "mmol/L",
+            "system": "http://unitsofmeasure.org",
+            "code": "mmol/L"
+        },
+        "type": {
+            "coding": [
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                    "code": "normal",
+                    "display": "Normal Range"
+                }
+            ],
+            "text": "Normal Range"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Only one referenceRange is supported </li>
+      <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided. Only a referenceRange.type of `normal` is supported. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange
+
+- name: referenceRange.low
+  required: 'No'
+  type: SimpleQuantity
+  description: Lower bound of the reference range.
+  action: update
+  example: |
+    {
+      "low": {
+        "value": 35.2,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      }
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.low
+
+- name: referenceRange.high
+  required: 'No'
+  type: SimpleQuantity
+  description: Upper bound of the reference range.
+  action: update
+  example: |
+    {
+      "low": {
+        "value": 36.7,
+        "unit": 'degC',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'Cel'
+      }
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.high
+
+- name: referenceRange.text
+  required: 'No'
+  type: string
+  description: Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.
+  action: update
+  example: |
+    {
+      "text": 'Negative'
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.referenceRange.text
+
+- name: referenceRange.type
+  required: 'No'
+  type: CodeableConcept
+  description: Codes to indicate the what part of the targeted reference population it applies to.
+  action: update
   example: |
     {
       "type": {
