@@ -150,6 +150,7 @@
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual" target="_blank">Name</a></li>
     </ul>
   </li>
+  <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.appointment" target="_blank">Appointment</a></li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period" target="_blank">Start/end time of the encounter</a></li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode" target="_blank">Reason for visit</a></li>
   <li>
@@ -1570,6 +1571,11 @@
             }
           }
         ],
+        "appointment": [
+          {
+            "reference": "Appointment/4818609"
+          }
+        ],
         "period": {
           "start": "2019-12-26T15:38:02.000Z",
           "end": "2020-01-07T06:00:00.000Z"
@@ -2620,6 +2626,11 @@
         "reference": "Practitioner/12724045",
         "display": "Graham, Joshua"
       }
+    }
+  ],
+  "appointment": [
+    {
+      "reference": "Appointment/4818609"
     }
   ],
   "period": {
