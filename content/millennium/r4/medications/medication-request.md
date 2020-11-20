@@ -20,6 +20,7 @@ The following fields are returned if valued:
 * [Status Reason](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason){:target="_blank"}
 * [Intent](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent){:target="_blank"}
   * Details in Implementation Notes sections for reads and searches.
+* [Identifier](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.identifier){:target="_blank"}
 * [Category](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
