@@ -68,7 +68,7 @@ _Implementation Notes_
 `status`        | N                  | [`token`]     | The status of the medication administration, may be a list separated by commas.  Example: `status=completed`
 `practitioner`  | N                  | [`reference`] | The performing clinician, may be a list separated by commas. Example: `practitioner=12345`
 `notgiven`      | N                  | [`token`]     | Administrations that were not made. A value of 'true' will search for these, and a value of 'false' will exclude them. Example: `true`
-`effectivetime` | N                  | [`date`]      | The date/time when the administration was performed. Must use both ge and le prefixes in order to search. Example: `effectivetime=ge2010-08-18&effectivetime=le2015-07-17`
+`effectivetime` | N                  | [`date`]      | The effectivetime search may be provided once with either the ge or le prefix or twice with the ge and le prefixes to indicate a specific range. Example: `effectivetime=ge2010-08-18` or `effectivetime=le2015-07-17` or `effectivetime=ge2010-08-18&effectivetime=le2015-07-17`
 [`_count`]      | N                  | [`number`]    | The maximum number of results to return.
 
 
