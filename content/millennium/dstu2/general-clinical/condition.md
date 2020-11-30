@@ -19,7 +19,6 @@ The following fields are returned if valued:
 * [Id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.patient){:target="_blank"}
 * [Patient encounter when first recorded (only applies to diagnoses)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter){:target="_blank"}
-* [Who recorded the condition](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter){:target="_blank"}
 * [Date recorded](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded){:target="_blank"}
 * [Condition code](﻿﻿http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus){:target="_blank"}
