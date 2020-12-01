@@ -35,7 +35,7 @@ Search for Provenances that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
@@ -52,7 +52,7 @@ Search for Provenances that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Provenance?_id=doc-881057
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057
 
 #### Response
 
@@ -73,7 +73,7 @@ List an individual Provenance by its id:
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -83,7 +83,7 @@ List an individual Provenance by its id:
 
 #### Request
 
-    GET https://fhir-open.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Provenance/doc-881057
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 
 #### Response
 
@@ -109,7 +109,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(practitioner: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Headers
 
@@ -123,7 +123,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Provenance
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance
 
 #### Body
 
@@ -138,7 +138,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Tue, 31 Mar 2020 15:37:25 GMT
 Etag: W/"881057"
-Location: https://fhir-ehr.sandboxcerner.com/r4/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/Provenance/doc-881057
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 Last-Modified: Tue, 31 Mar 2020 15:37:25 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created
