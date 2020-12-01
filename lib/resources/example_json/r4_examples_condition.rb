@@ -162,6 +162,78 @@ module Cerner
       }
     }.freeze
 
+    R4_CONDITION_HEALTH_CONCERN ||= {
+        'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/bed1c2ec-1f33-4097-8296-f6aa01824387',
+        'resource': {
+          'resourceType': 'Condition',
+          'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+          'meta': {
+            'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+            'lastUpdated': '2020-10-20T20:46:41.000Z'
+          },
+          'text': {
+            'status': 'generated',
+            'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Health Concern</b>: description, description</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Sep 20, 2020</p><p><b>Recorder</b>: DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48</p><p><b>Recorded Date</b>: Oct 13, 2020  3:46 P.M. CDT</p></div>'
+          },
+          'clinicalStatus': {
+              'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
+                'code': 'active',
+                'display': 'Active'
+              }
+            ],
+            'text': 'Active'
+          },
+          'verificationStatus': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+                'code': 'confirmed',
+                'display': 'Confirmed'
+              }
+            ],
+            'text': 'Confirmed'
+          },
+          'category': [
+            {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/condition-category',
+                  'code': 'health-concern',
+                  'display': 'Health Concern'
+                }
+              ],
+              'text': 'Health Concern'
+            }
+          ],
+          'code': {
+            'coding': [
+              {
+                'display': 'description'
+              }
+            ],
+            'text': 'description'
+          },
+          'subject': {
+              'reference': 'Patient/9279171'
+          },
+          'onsetDateTime': '2020-09-20',
+          'recordedDate': '2020-10-13T20:46:40.000Z',
+          'recorder': {
+            'reference': 'Practitioner/9279172',
+            'display': 'Cerner Test, Physician Health Cerner'
+          },
+          'note': [
+            {
+              'time': '2020-10-20T20:46:41.000Z',
+              'text': 'comments'
+            }
+          ]
+      }
+
+    }.freeze
+
     R4_CONDITION_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '9a115304-90d2-47d7-98c4-026f7fe1580e',
@@ -174,7 +246,7 @@ module Cerner
         }
       ],
       'entry': [
-        R4_CONDITION_PROBLEM, R4_CONDITION_DIAGNOSIS
+        R4_CONDITION_PROBLEM, R4_CONDITION_DIAGNOSIS, R4_CONDITION_HEALTH_CONCERN
       ]
     }.freeze
 

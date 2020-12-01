@@ -39,11 +39,11 @@ Search for Conditions that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Currently `problem-list-item` and `encounter-diagnosis` are supported.
+* Currently `problem-list-item` `encounter-diagnosis` and `health-concern` are supported.
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -53,7 +53,7 @@ _Implementation Notes_
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the condition is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`
+ `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
 
 Notes:
 
@@ -122,6 +122,7 @@ _Implementation Notes_
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 * The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
+* Currently `problem-list-item` and `encounter-diagnosis` are supported.
 
 ### Authorization Types
 
