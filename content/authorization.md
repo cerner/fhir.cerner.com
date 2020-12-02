@@ -1121,7 +1121,8 @@ preceding documentation.
   grant code for an access token?
 
 > No, Cerner currently does not have this capability.  It
-  is currently under consideration.
+  is currently under construction and will be available in 
+  the future.
 
 - How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
   application in another application, such as inside of a web
