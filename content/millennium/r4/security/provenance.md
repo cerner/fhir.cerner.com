@@ -42,7 +42,7 @@ Search for Provenances that meet supplied query parameters:
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | This or `target` | [`token`]     | The logical resource id associated with the resource. Example: `doc-7845`
- `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). Currently we only support AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure Reference(s). Example: `DocumentReference/66547`
+ `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure resources are supported. Example: `DocumentReference/66547`
 
 ### Headers
 
@@ -52,7 +52,7 @@ Search for Provenances that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057
 
 #### Response
 
@@ -83,7 +83,7 @@ List an individual Provenance by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 
 #### Response
 
@@ -106,7 +106,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
-* To create Provenance for Observation Measurement Reference, will need `Observation.read` scope along with `Provenance.write` scope.
+* The `Provenance.write` and `Observation.read` scopes must be provided in order to create a Provenance with an Observation Measurement target.
 
 ### Authorization Types
 
@@ -124,7 +124,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance
+    POST https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance
 
 #### Body
 
@@ -139,7 +139,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Tue, 31 Mar 2020 15:37:25 GMT
 Etag: W/"881057"
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
+Location: https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 Last-Modified: Tue, 31 Mar 2020 15:37:25 GMT
 Server-Response-Time: 296.405243
 Status: 201 Created

@@ -32,8 +32,8 @@ fields:
   note: |
     <ul>
       <li> Only one target may be provided.</li>
-      <li> Currently we only support AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization,
-        MedicationRequest, Observation and Procedure Reference(s).</li>
+      <li> The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest,
+        Observation and Procedure resources are supported.</li>
     </ul>
   url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
 
