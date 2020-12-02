@@ -42,7 +42,7 @@ Search for Provenances that meet supplied query parameters:
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | This or `target` | [`token`]     | The logical resource id associated with the resource. Example: `doc-7845`
- `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). Example: `DocumentReference/66547`
+ `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). Currently we only support AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure Reference(s). Example: `DocumentReference/66547`
 
 ### Headers
 
@@ -106,6 +106,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
+* To create Provenance for Observation Measurement Reference, will need `Observation.read` scope along with `Provenance.write` scope.
 
 ### Authorization Types
 
