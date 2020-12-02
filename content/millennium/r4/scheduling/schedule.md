@@ -9,18 +9,19 @@ title: Schedule | R4 API
 
 ## Overview
 
-The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an schedule. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual schedules.
+The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.
 
 The following fields are returned if valued:
 
 * [Schedule id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Active](http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.active){:target="_blank"}
-* [ServiceType](http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType){:target="_blank"}
+* [Service Type](http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType){:target="_blank"}
 * [Actor](http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.actor){:target="_blank"}
 
 ## Terminology Bindings
 
 <%= terminology_table(:schedule, :r4) %>
+
 
 ## Search
 
@@ -36,11 +37,11 @@ Search for Schedules that meet supplied query parameters:
 
  Name           | Required?                                                | Type          | Description
 ----------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`          | Yes                                                      | [`token`]     | The logical resource id associated with the Schedule. Example: `4062786-4062906-19875648-0`
+ `_id`          | Y                                                        | [`token`]     | The logical resource id associated with the resource. Example: `4062786-4062906-19875648-0`
 
 ### Headers
 
-<%= headers fhir_json: true %>
+<%= headers %>
 
 ### Example
 
@@ -90,3 +91,7 @@ List an individual Schedule by its id:
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[`token`]: http://hl7.org/fhir/r4/search.html#token
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
