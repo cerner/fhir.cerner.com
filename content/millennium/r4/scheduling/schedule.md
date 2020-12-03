@@ -47,7 +47,7 @@ Search for Schedules that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0%2C24477854-21304876-62852027-15
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0
 
 
 #### Response
