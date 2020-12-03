@@ -21,10 +21,6 @@ module Cerner
         'reference': 'Patient/12724066',
         'display': 'SMART, NANCY'
       },
-      'asserter': {
-        'reference': 'Practitioner/683925',
-        'display': "Cerner Test, Women's Health - Nurse Cerner"
-      },
       'dateRecorded': '2020-03-05',
       'code': {
         'coding': [
@@ -74,10 +70,6 @@ module Cerner
         },
         'encounter': {
           'reference': 'Encounter/97953477'
-        },
-        'asserter': {
-          'reference': 'Practitioner/4122630',
-          'display': "Cerner Test, Physician - Women's Health Cerner"
         },
         'dateRecorded': '2020-06-11',
         'code': {
@@ -131,10 +123,6 @@ module Cerner
                   'Resolved</b>: False</p></div>'
         },
         'patient': {
-          'reference': 'Patient/12724066',
-          'display': 'SMART, NANCY'
-        },
-        'asserter': {
           'reference': 'Patient/12724066',
           'display': 'SMART, NANCY'
         },
@@ -277,9 +265,6 @@ module Cerner
       },
       'encounter': {
         'reference': 'Encounter/97953477'
-      },
-      'asserter': {
-        'reference': 'Practitioner/4122630'
       },
       'dateRecorded': '2020-06-11',
       'code': {

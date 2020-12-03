@@ -49,19 +49,6 @@ fields:
     }
   note: Encounter is required for Conditions with a category code of diagnosis.
 
-- name: asserter
-  required: 'No'
-  type: Reference (Practitioner)
-  description: Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
-  note: Asserter must be a `Practitioner` reference.
-  example: |
-    {
-      "asserter": {
-        "reference": "Practitioner/2770007",
-        "display": "Song, River"
-      }
-    }
-
 - name: dateRecorded
   required: 'No'
   type: date
