@@ -414,7 +414,7 @@ The following fields are returned if valued:</p>
       <td><code>effectivetime</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The date/time when the administration was performed. Must use both ge and le prefixes in order to search. Example: <code>effectivetime=ge2010-08-18&amp;effectivetime=le2015-07-17</code>
+      <td>The effectivetime search may be provided once with either the ge or le prefix or twice with the ge and le prefixes to indicate a specific range. Example: <code>effectivetime=ge2010-08-18</code> or <code>effectivetime=le2015-07-17</code> or <code>effectivetime=ge2010-08-18&amp;effectivetime=le2015-07-17</code>
 </td>
     </tr>
     <tr>

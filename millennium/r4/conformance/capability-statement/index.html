@@ -88,6 +88,12 @@
       <li><a href="#closed-endpoint-example" id="markdown-toc-closed-endpoint-example">Closed Endpoint Example</a></li>
     </ul>
   </li>
+  <li>
+<a href="#well-known-smart-configuration" id="markdown-toc-well-known-smart-configuration">Well-Known SMART Configuration</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -125,20 +131,20 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="760638b8-460e-4e2f-ad64-9f07366c1428">
+  <ul id="6e2e0a57-8819-45b4-9c69-a90a2c619e3e">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '760638b8-460e-4e2f-ad64-9f07366c1428'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '6e2e0a57-8819-45b4-9c69-a90a2c619e3e'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '760638b8-460e-4e2f-ad64-9f07366c1428'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '6e2e0a57-8819-45b4-9c69-a90a2c619e3e'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="760638b8-460e-4e2f-ad64-9f07366c1428" class="example-tab-content">
+<div data-id="6e2e0a57-8819-45b4-9c69-a90a2c619e3e" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -630,20 +636,20 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="d6889845-abb8-4074-b330-975abc03be16">
+  <ul id="5043e3ad-1edb-48b0-9888-9989270c2d4c">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'd6889845-abb8-4074-b330-975abc03be16'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '5043e3ad-1edb-48b0-9888-9989270c2d4c'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'd6889845-abb8-4074-b330-975abc03be16'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '5043e3ad-1edb-48b0-9888-9989270c2d4c'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="d6889845-abb8-4074-b330-975abc03be16" class="example-tab-content">
+<div data-id="5043e3ad-1edb-48b0-9888-9989270c2d4c" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -1190,6 +1196,205 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </div>
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<h2 id="well-known-smart-configuration">Well-Known SMART Configuration</h2>
+
+<p>Get the SMART authorization endpoints and launch capabilities.</p>
+
+<pre><code>GET /.well-known/smart-configuration?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Authentication is not required to access the configuration information</li>
+  <li>No parameters other than the standard <code>_format</code> parameter are supported for reading</li>
+  <li>The configuration information is not accessible through the Open Endpoint</li>
+</ul>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<p>Authorization is not required.</p>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>curl -i -H "Accept: application/json" "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration"
+</code></pre>
+
+<div class="example-tabs">
+  <ul id="67a7c66a-e7e7-4c09-ae01-f8330c4baff4">
+    <li>
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '67a7c66a-e7e7-4c09-ae01-f8330c4baff4'); return false;">
+        Example Response
+      </a>
+    </li>
+    <li>
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '67a7c66a-e7e7-4c09-ae01-f8330c4baff4'); makeRequest(this); return false;">
+        Live Response
+      </a>
+    </li>
+  </ul>
+</div>
+<div data-id="67a7c66a-e7e7-4c09-ae01-f8330c4baff4" class="example-tab-content">
+  <div data-content="example-response-tab">
+    <pre class="headers"><code>Status: 200 OK</code></pre>
+<pre class="body-response"><code class="language-javascript">{
+  "authorization_endpoint": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/personas/provider/authorize",
+  "token_endpoint": "https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_basic"
+  ],
+  "scopes_supported": [
+    "launch",
+    "profile",
+    "fhirUser",
+    "openid",
+    "online_access",
+    "user/Account.read",
+    "patient/Account.read",
+    "system/Account.read",
+    "user/AllergyIntolerance.read",
+    "patient/AllergyIntolerance.read",
+    "system/AllergyIntolerance.read",
+    "user/AllergyIntolerance.write",
+    "patient/AllergyIntolerance.write",
+    "system/AllergyIntolerance.write",
+    "user/Appointment.read",
+    "patient/Appointment.read",
+    "system/Appointment.read",
+    "user/Appointment.write",
+    "patient/Appointment.write",
+    "system/Appointment.write",
+    "user/Basic.write",
+    "patient/Basic.write",
+    "system/Basic.write",
+    "user/Binary.read",
+    "patient/Binary.read",
+    "system/Binary.read",
+    "user/CarePlan.read",
+    "patient/CarePlan.read",
+    "system/CarePlan.read",
+    "user/CareTeam.read",
+    "patient/CareTeam.read",
+    "system/CareTeam.read",
+    "user/Condition.read",
+    "patient/Condition.read",
+    "system/Condition.read",
+    "user/Condition.write",
+    "patient/Condition.write",
+    "system/Condition.write",
+    "user/Coverage.read",
+    "patient/Coverage.read",
+    "system/Coverage.read",
+    "user/Coverage.write",
+    "patient/Coverage.write",
+    "system/Coverage.write",
+    "user/Device.read",
+    "patient/Device.read",
+    "system/Device.read",
+    "user/DocumentReference.read",
+    "patient/DocumentReference.read",
+    "system/DocumentReference.read",
+    "user/DocumentReference.write",
+    "patient/DocumentReference.write",
+    "system/DocumentReference.write",
+    "user/Encounter.read",
+    "patient/Encounter.read",
+    "system/Encounter.read",
+    "user/Encounter.write",
+    "patient/Encounter.write",
+    "system/Encounter.write",
+    "user/Immunization.read",
+    "patient/Immunization.read",
+    "system/Immunization.read",
+    "user/Immunization.write",
+    "patient/Immunization.write",
+    "system/Immunization.write",
+    "user/MedicationRequest.read",
+    "patient/MedicationRequest.read",
+    "system/MedicationRequest.read",
+    "user/MedicationRequest.write",
+    "patient/MedicationRequest.write",
+    "system/MedicationRequest.write",
+    "user/NutritionOrder.read",
+    "patient/NutritionOrder.read",
+    "system/NutritionOrder.read",
+    "user/Observation.read",
+    "patient/Observation.read",
+    "system/Observation.read",
+    "user/Observation.write",
+    "patient/Observation.write",
+    "system/Observation.write",
+    "user/Organization.read",
+    "system/Organization.read",
+    "user/Organization.write",
+    "system/Organization.write",
+    "user/Patient.read",
+    "patient/Patient.read",
+    "system/Patient.read",
+    "user/Patient.write",
+    "patient/Patient.write",
+    "system/Patient.write",
+    "user/Person.read",
+    "patient/Person.read",
+    "system/Person.read",
+    "user/Practitioner.read",
+    "system/Practitioner.read",
+    "user/Practitioner.write",
+    "system/Practitioner.write",
+    "user/Procedure.read",
+    "patient/Procedure.read",
+    "system/Procedure.read",
+    "user/Procedure.write",
+    "patient/Procedure.write",
+    "system/Procedure.write",
+    "user/Provenance.read",
+    "patient/Provenance.read",
+    "system/Provenance.read",
+    "user/Provenance.write",
+    "patient/Provenance.write",
+    "system/Provenance.write",
+    "user/RelatedPerson.read",
+    "patient/RelatedPerson.read",
+    "system/RelatedPerson.read",
+    "user/Schedule.read",
+    "patient/Schedule.read",
+    "system/Schedule.read",
+    "user/ServiceRequest.read",
+    "patient/ServiceRequest.read",
+    "system/ServiceRequest.read",
+    "system/FinancialTransaction.write"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "introspection_endpoint": "https://authorization.cerner.com/tokeninfo",
+  "capabilities": [
+    "launch-ehr",
+    "launch-standalone",
+    "client-public",
+    "client-confidential-symmetric",
+    "sso-openid-connect",
+    "context-banner",
+    "context-style",
+    "context-ehr-patient",
+    "context-ehr-encounter",
+    "permission-patient",
+    "permission-user"
+  ]
+}</code></pre>
+  </div>
+  <div data-content="live-response-tab" class="hide">
+    <pre class="headers"><code> </code></pre>
+    <pre class="body-response"><code class="language-javascript"></code></pre>
+  </div>
+</div>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
     </div>
 
@@ -1319,10 +1524,19 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
       </li>
       <li class="js-topic">
         <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../security/provenance/">Provenance</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
 </h3>
         <ul class="js-guides">
           <li><a href="../../scheduling/appointment/">Appointment</a></li>
+          <li><a href="../../scheduling/schedule/">Schedule</a></li>
         </ul>
       </li>
     </ul>

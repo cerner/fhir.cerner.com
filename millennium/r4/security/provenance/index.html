@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Procedure | R4 API</title>
+  <title>Provenance | R4 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -77,7 +77,7 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="procedure">Procedure</h1>
+      <h1 id="provenance">Provenance</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -112,22 +112,20 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.</p>
+<p>The Provenance resource tracks the source of external data and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter.  Entities are Continuity of Care DocumentReferences (CCDs).</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id">Id</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status">Status (completed, entered-in-error)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code">Code</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject">Subject</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter">Encounter</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_">Date performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder">Who recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer">Who performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location">Location</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference">Reason procedure performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note">Comment/Note</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Provenance id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target" target="_blank">Target</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded" target="_blank">Recorded</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type" target="_blank">Agent type (author or transmitter)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role" target="_blank">Agent role (source or informant)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who" target="_blank">Agent who (Practitioner, Device, or Organization)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf" target="_blank">Agent on behalf of</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role" target="_blank">Entity role</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what" target="_blank">Entity what (Continuity of Care DocumentReference id)</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -138,10 +136,17 @@
       
       
       
+      
+      
+      
+      
+      
+      
+      
     <tr>
       <td>
       
-          <a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status">Procedure.status</a>
+          <a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role">Provenance.entity.role</a>
       
       </td>
     </tr>
@@ -150,7 +155,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Codes identifying the lifecycle stage of an event.</li></ul>
+            <ul style="list-style-type: none"><li>How the entity was used during the activity.</li></ul>
           
           
 
@@ -159,9 +164,9 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-event-status.html">EventStatus</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/codesystem-provenance-entity-role.html">Provenance Entity Role</a><br>
                       
-                        System: http://hl7.org/fhir/event-status <br>
+                        System: http://hl7.org/fhir/provenance-entity-role <br>
                       
                       </p>
                     
@@ -177,151 +182,15 @@
       </td>
     </tr>
     
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code">Procedure.code</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A code to identify a specific procedure.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-procedure-code.html">Procedure Codes (SNOMED CT)</a><br>
-                      
-                        System: https://snomed.info/sct <br>
-                      
-                      </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/cpt.html">CPT</a><br>
-                      
-                        System: https://www.ama-assn.org/go/cpt <br>
-                      
-                      </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-                      <p>Details: <a target="_blank" href="https://www.icd10data.com/icd10pcs">ICD-10-PCS</a><br>
-                      
-                        System: https://www.icd10data.com/icd10pcs <br>
-                      
-                      </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
-      
-      
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.function">Procedure.performer.function</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A code that distinguishes the type of involvement of the performer in the procedure.</li></ul>
-          
-          
-
-          
-            
-              
-                  <li>
-                    
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-performer-role.html">Procedure Performer Role Codes (SNOMED CT)</a><br>
-                      
-                        System: https://snomed.info/sct <br>
-                      
-                      </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-              
-                  <li>
-                    
-                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-388-procedure-personnel-relation-type">Procedure Personnel Relation Type</a><br>
-                      
-                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388 <br>
-                      
-                      </p>
-                    
-                  </li>
-                  <ul style="list-style-type: none">
-                  
-                  
-                  </ul>
-              
-            
-          
-        </ul>
-      </td>
-    </tr>
-    
-      
-      
       
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for Procedures that meet supplied query parameters:</p>
+<p>Search for Provenances that meet supplied query parameters:</p>
 
-<pre><code>GET /Procedure?:parameters
+<pre><code>GET /Provenance?:parameters
 </code></pre>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -344,35 +213,22 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>patient</code> or <code>subject</code>
+      <td>This or <code>target</code>
 </td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
-    </tr>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This or <code>_id</code> or <code>subject</code>
-</td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Who the procedure is for. Example: <code>12345</code>
+      <td>The logical resource id associated with the resource. Example: <code>doc-7845</code>
 </td>
     </tr>
     <tr>
-      <td><code>subject</code></td>
-      <td>This or <code>_id</code> or <code>patient</code>
+      <td><code>target</code></td>
+      <td>This or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Who the procedure is for. Example: <code>Patient/12345</code>
+      <td>Target Reference(s) (usually version specific). The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure resources are supported. Example: <code>DocumentReference/66547</code>
 </td>
     </tr>
   </tbody>
 </table>
-
-<p>Notes:</p>
-
-<ul>
-  <li>If <code>_id</code> is provided, no other parameters may be provided.</li>
-</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -383,7 +239,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -392,91 +248,71 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "3b3b1ce0-3b6e-4a41-bbb4-9696e2f4b8ed",
+  "id": "160ad230-6a5c-4813-96e2-2b36be102145",
   "type": "searchset",
+  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572382193",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057",
       "resource": {
-        "resourceType": "Procedure",
-        "id": "2572382193",
+        "resourceType": "Provenance",
+        "id": "doc-881057",
         "meta": {
-          "versionId": "0",
-          "lastUpdated": "2020-06-11T04:02:54Z"
+          "versionId": "881057",
+          "lastUpdated": "2019-10-25T14:57:43Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;: Appendectomy;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2002&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recorder&lt;/b&gt;: Cerner Test, Physician - Women&amp;apos;s Health Cerner&lt;/p&gt;&lt;/div&gt;"
+          "div": "&amp;lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;p&gt;&amp;lt;b&gt;Provenance&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Target&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;ul&gt;&amp;lt;li&gt;DocumentReference/881049&amp;lt;/li&gt;&amp;lt;/ul&gt;&amp;lt;p&gt;&amp;lt;b&gt;Recorded&amp;lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Agents&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;dl&gt;&amp;lt;dt&gt;Baseline East Medical Center&amp;lt;/dt&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Type&amp;lt;/b&gt;: Author&amp;lt;/dd&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Role&amp;lt;/b&gt;: Source&amp;lt;/dd&gt;&amp;lt;/dl&gt;&amp;lt;p&gt;&amp;lt;b&gt;Entity Source&amp;lt;/b&gt;: DocumentReference/S-202&amp;lt;/p&gt;&amp;lt;/div&gt;"
         },
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://www.ama-assn.org/go/cpt",
-              "code": "44950",
-              "display": "Appendectomy;",
-              "userSelected": true
+        "target": [
+          {
+            "reference": "DocumentReference/881049"
+          }
+        ],
+        "recorded": "2019-10-25T14:57:43Z",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ],
+              "text": "Author"
+            },
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+                    "code": "SOURCE"
+                  }
+                ],
+                "text": "Source"
+              }
+            ],
+            "who": {
+              "reference": "Organization/619848",
+              "display": "Baseline East Medical Center"
             }
-          ],
-          "text": "Appendectomy;"
-        },
-        "subject": {
-          "reference": "Patient/12724066",
-          "display": "SMART, NANCY"
-        },
-        "encounter": {
-          "reference": "Encounter/97953477"
-        },
-        "performedDateTime": "2002",
-        "recorder": {
-          "reference": "Practitioner/4122630",
-          "display": "Cerner Test, Physician - Women's Health Cerner"
-        }
-      }
-    },
-    {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572383421",
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "2572383421",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2020-06-16T21:09:27Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;: Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2018&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recorder&lt;/b&gt;: Cerner Test, Physician - Oncology Cerner&lt;/p&gt;&lt;/div&gt;"
-        },
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://www.ama-assn.org/go/cpt",
-              "code": "33534",
-              "display": "Coronary artery bypass, using arterial graft(s); two coronary arterial grafts",
-              "userSelected": true
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "reference": "DocumentReference/S-202"
             }
-          ],
-          "text": "Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts"
-        },
-        "subject": {
-          "reference": "Patient/12724066",
-          "display": "SMART, NANCY"
-        },
-        "encounter": {
-          "reference": "Encounter/97953477"
-        },
-        "performedDateTime": "2018",
-        "recorder": {
-          "reference": "Practitioner/763923",
-          "display": "Cerner Test, Physician - Oncology Cerner"
-        }
+          }
+        ]
       }
     }
   ]
@@ -490,9 +326,9 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual Procedure by its id:</p>
+<p>List an individual Provenance by its id:</p>
 
-<pre><code>GET /Procedure/:id
+<pre><code>GET /Provenance/:id
 </code></pre>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -510,7 +346,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572382193
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -518,40 +354,58 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Procedure",
-  "id": "2572382193",
+  "resourceType": "Provenance",
+  "id": "doc-881057",
   "meta": {
-    "versionId": "0",
-    "lastUpdated": "2020-06-11T04:02:54Z"
+    "versionId": "881057",
+    "lastUpdated": "2019-10-25T14:57:43Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Procedure&lt;/b&gt;: Appendectomy;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: 2002&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recorder&lt;/b&gt;: Cerner Test, Physician - Women&amp;apos;s Health Cerner&lt;/p&gt;&lt;/div&gt;"
+    "div": "&amp;lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;p&gt;&amp;lt;b&gt;Provenance&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Target&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;ul&gt;&amp;lt;li&gt;DocumentReference/881049&amp;lt;/li&gt;&amp;lt;/ul&gt;&amp;lt;p&gt;&amp;lt;b&gt;Recorded&amp;lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Agents&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;dl&gt;&amp;lt;dt&gt;Baseline East Medical Center&amp;lt;/dt&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Type&amp;lt;/b&gt;: Author&amp;lt;/dd&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Role&amp;lt;/b&gt;: Source&amp;lt;/dd&gt;&amp;lt;/dl&gt;&amp;lt;p&gt;&amp;lt;b&gt;Entity Source&amp;lt;/b&gt;: DocumentReference/S-202&amp;lt;/p&gt;&amp;lt;/div&gt;"
   },
-  "status": "completed",
-  "code": {
-    "coding": [
-      {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "code": "44950",
-        "display": "Appendectomy;",
-        "userSelected": true
+  "target": [
+    {
+      "reference": "DocumentReference/881049"
+    }
+  ],
+  "recorded": "2019-10-25T14:57:43Z",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author"
+          }
+        ],
+        "text": "Author"
+      },
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ],
+          "text": "Source"
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848",
+        "display": "Baseline East Medical Center"
       }
-    ],
-    "text": "Appendectomy;"
-  },
-  "subject": {
-    "reference": "Patient/12724066",
-    "display": "SMART, NANCY"
-  },
-  "encounter": {
-    "reference": "Encounter/97953477"
-  },
-  "performedDateTime": "2002",
-  "recorder": {
-    "reference": "Practitioner/4122630",
-    "display": "Cerner Test, Physician - Women's Health Cerner"
-  }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-202"
+      }
+    }
+  ]
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -562,9 +416,9 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create a new Procedure.</p>
+<p>Create a new Provenance.</p>
 
-<pre><code>POST /Procedure
+<pre><code>POST /Provenance
 </code></pre>
 
 <p><em>Implementation Notes</em></p>
@@ -572,6 +426,7 @@
 <ul>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+  <li>The <code>Provenance.write</code> and <code>Observation.read</code> scopes must be provided in order to create a Provenance with an Observation Measurement target.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -583,6 +438,7 @@
 <h3 id="headers-2">Headers</h3>
 
 <pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
 
 <h3 id="body-fields">Body Fields</h3>
@@ -601,7 +457,7 @@
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -619,7 +475,48 @@
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "resourceType": "Procedure"
+  "resourceType": "Provenance"
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li><ul><li>resourceType must be Provenance.</li></ul></li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-target">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target"><code>target</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The Reference(s) that were generated or updated by the activity described in this resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "target": [
+    {
+      "reference": "DocumentReference/881049"
+    }
+  ]
 }
 </pre></li></ul>
       
@@ -629,7 +526,9 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> resourceType must be Procedure. </li>
+  <li> Only one target may be provided.</li>
+  <li> The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest,
+    Observation and Procedure resources are supported.</li>
 </ul>
 </li></ul>
       
@@ -640,9 +539,265 @@
     
     <tr>
       <td>
-        <a name="create-status">
+        <a name="create-recorded">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status"><code>status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded"><code>recorded</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#instant"><code>instant</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The instant of time at which the activity was recorded.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recorded": "2019-10-25T14:57:43Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent"><code>agent</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+            "code": "transmitter"
+          }
+        ]
+      },
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ]
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li><ul><li> Only one agent may be provided.</li></ul></li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.type">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.type"><code>agent.type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The participation the agent had with respect to the activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+        "code": "transmitter"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.role">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role"><code>agent.role</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The function of the agent with respect to the activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "role": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+          "code": "SOURCE"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.who">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who"><code>agent.who</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The individual, device or organization that participated in the event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "who": {
+    "reference": "Organization/619848"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-entity">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity"><code>entity</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An entity used in this activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-201"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-entity.role">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role"><code>entity.role</code></a>
         
         
       </td>
@@ -655,24 +810,17 @@
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Codes identifying the lifecycle stage of an event.</li></ul>
+        <ul style="list-style-type: none"><li>How the entity was used during the activity.</li></ul>
       
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "status": "completed"
+  "role": "source"
 }
 </pre></li></ul>
       
       
       
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Only status code <code>completed</code> is supported. </li>
-</ul>
-</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -681,58 +829,9 @@
     
     <tr>
       <td>
-        <a name="create-code">
+        <a name="create-entity.what">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code"><code>code</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>A code to identify a specific procedure.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "coding": [
-    {
-      "system": "http://snomed.info/sct",
-      "code": "119954001",
-      "display": "Adenoid excision (procedure)",
-      "userSelected": true
-    }
-  ],
-  "text": "Adenoid excision (text)"
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Must be provided. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-subject">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.subject"><code>subject</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what"><code>entity.what</code></a>
         
         
       </td>
@@ -745,349 +844,14 @@
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Indicates the patient who the procedure record is associated with.</li></ul>
+        <ul style="list-style-type: none"><li>Identity of the Entity used.</li></ul>
       
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "subject": {
-    "reference": "Patient/631923",
-    "display": "Nilsson, Christine"
+  "what": {
+    "reference": "DocumentReference/S-201"
   }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Must only include references to Patient. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-encounter">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.encounter"><code>encounter</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Indicates the encounter when the procedure was performed.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "encounter": {
-    "reference":"Encounter/26070829"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Must only include references to Encounter. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-performed%5Bx%5D">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performed_x_"><code>performed[x]</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Estimated or actual date or date-time when the procedure was performed.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "performedDateTime": "2015-10-14T13:13:20-06:00"
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Only a type of dateTime is supported. </li>
-  <li> The dateTime is converted to a GMT date. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-performer">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer"><code>performer</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Limited to "real" people rather than equipment.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "performer": [
-    {
-      "function": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "223366009",
-            "display": "Healthcare professional (occupation)",
-            "userSelected": true
-          }
-        ],
-        "text": "Healthcare professional (occupation)"
-      },
-      "actor": {
-        "reference": "Practitioner/2150097",
-        "display": "Strecker, Bradley"
-      }
-    }
-  ]
-}
-</pre></li></ul>
-      
-      
-      
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-performer.function">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.function"><code>performer.function</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Distinguishes the type of involvement of the performer in the procedure.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "function": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "223366009",
-        "display": "Healthcare professional (occupation)",
-        "userSelected": true
-      }
-    ],
-    "text": "Healthcare professional (occupation)"
-  }
-}
-</pre></li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "severity": {
-    "coding": [
-      {
-        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/388",
-        "code": "1207",
-        "display": "Anesthesiologist",
-        "userSelected": true
-      }
-    ],
-    "text": "Anesthesiologist"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-performer.actor">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performer.actor"><code>performer.actor</code></a>
-        
-        
-      </td>
-      <td>Yes </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The practitioner who was involved in the procedure.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "actor": {
-    "reference": "Practitioner/2150097",
-    "display": "Strecker, Bradley"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Must only include references to Practitioner. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-location">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.location"><code>location</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The location where the procedure actually happened.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "location": {
-    "reference":"Location/1693915",
-    "display": "Baseline East"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>
-<ul>
-  <li> Must only include references to Location. </li>
-</ul>
-</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-note">
-        
-          </a><a target="_blank" href="https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.note"><code>note</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Any other notes and comments about the procedure.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "note": [
-    {
-      "authorReference": {
-        "reference": "Practitioner/4594011",
-        "display": "Leroux, Erik"
-      },
-      "text": "Test Comment"
-    }
-  ]
 }
 </pre></li></ul>
       
@@ -1106,59 +870,49 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure
+<pre><code>POST https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance
 </code></pre>
 
 <h4 id="body">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Procedure",
-  "status": "completed",
-  "subject": {
-    "reference": "Patient/12724066"
-  },
-  "code": {
-    "coding": [
-      {
-        "system": "http://snomed.info/sct",
-        "code": "119954001",
-        "display": "Adenoid excision (procedure)",
-        "userSelected": true
-      }
-    ],
-    "text": "Adenoid excision (text)"
-  },
-  "encounter": {
-    "reference": "Encounter/97953477"
-  },
-  "location": {
-    "display": "Baseline East"
-  },
-  "performedDateTime": "2019-04-05T20:21:46Z",
-  "performer": [
+  "resourceType": "Provenance",
+  "target": [
     {
-      "function": {
+      "reference": "DocumentReference/881049"
+    }
+  ],
+  "recorded": "2019-10-25T14:57:43Z",
+  "agent": [
+    {
+      "type": {
         "coding": [
           {
-            "system": "http://snomed.info/sct",
-            "code": "223366009",
-            "display": "Healthcare professional (occupation)",
-            "userSelected": true
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+            "code": "transmitter"
           }
-        ],
-        "text": "Healthcare professional (occupation)"
+        ]
       },
-      "actor": {
-        "reference": "Practitioner/4122630"
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ]
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848"
       }
     }
   ],
-  "note": [
+  "entity": [
     {
-      "text": "Procedure comment",
-      "time": "2019-04-05T20:21:46Z",
-      "authorReference": {
-        "reference": "Practitioner/4122630"
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-201"
       }
     }
   ]
@@ -1169,21 +923,21 @@
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: text/html
-Date: Mon, 06 Apr 2020 19:00:43 GMT
-Etag: W/"1"
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/17228728
-Last-Modified: Mon, 06 Apr 2020 19:00:43 GMT
-Server-Response-Time: 296.405243
-Status: 201 Created
-Vary: Origin
-X-Request-Id: 2e11665d-618d-4017-9a90-c3c1afeeac00
-X-Runtime: 2.011826
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 31 Mar 2020 15:37:25 GMT
+Etag: W/"881057"
+Location: https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
+Last-Modified: Tue, 31 Mar 2020 15:37:25 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
 </pre>
 
-<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on a subsequent update.</p>
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
@@ -1282,12 +1036,12 @@ X-Runtime: 2.011826
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">General Clinical</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../allergy-intolerance/">AllergyIntolerance</a></li>
-          <li><a href="../condition/">Condition</a></li>
-          <li><a href="./">Procedure</a></li>
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -1320,10 +1074,10 @@ X-Runtime: 2.011826
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Security</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../security/provenance/">Provenance</a></li>
+          <li><a href="./">Provenance</a></li>
         </ul>
       </li>
       <li class="js-topic">

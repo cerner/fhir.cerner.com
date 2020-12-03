@@ -74,6 +74,7 @@
       <li><a href="#access-points" id="markdown-toc-access-points">Access Points</a></li>
       <li><a href="#smart-app-data-retrieval" id="markdown-toc-smart-app-data-retrieval">SMART App Data Retrieval</a></li>
       <li><a href="#smart-without-fhir" id="markdown-toc-smart-without-fhir">SMART Without FHIR</a></li>
+      <li><a href="#well-known-smart-configuration" id="markdown-toc-well-known-smart-configuration">Well-Known SMART Configuration</a></li>
     </ul>
   </li>
   <li>
@@ -145,6 +146,12 @@
 <h3 id="smart-without-fhir">SMART Without FHIR</h3>
 
 <p>Technically speaking, the SMART specification requires that a FHIR server exist so that a SMART app can communicate with the FHIR server when the app opens in order to determine the location of the authorization (OAuth 2) server. However, outside of this requirement, FHIR does not need to be leveraged otherwise by the SMART app.</p>
+
+<h3 id="well-known-smart-configuration">Well-Known SMART Configuration</h3>
+
+<p>It is also possible to view SMART authorization endpoints and launch capabilities using a <a href="http://hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html#using-well-known">Well-Known Uniform Resource Identifier</a>.</p>
+
+<p>See <a href="../millennium/r4/conformance/capability-statement/#well-known-smart-configuration">Cerner’s Well-Known SMART Configuration</a> for more information.</p>
 
 <h2 id="technical">Technical</h2>
 

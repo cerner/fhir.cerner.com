@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Device | R4 API</title>
+  <title>Schedule | R4 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -77,7 +77,7 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="device">Device</h1>
+      <h1 id="schedule">Schedule</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -86,6 +86,7 @@
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
@@ -93,6 +94,7 @@
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
@@ -101,38 +103,15 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.</p>
+<p>The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.id" target="_blank">Device id</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.identifier" target="_blank">Device identifier</a></li>
-  <li>
-<a href="https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier" target="_blank">Udi carrier</a>
-    <ul>
-      <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.deviceIdentifier" target="_blank">Device identifier</a></li>
-      <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.carrierHRF" target="_blank">CarrierHRF</a></li>
-    </ul>
-  </li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.status" target="_blank">Status</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.distinctIdentifier" target="_blank">Distinct identifier</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.manufacturer" target="_blank">Manufacturer</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.manufactureDate" target="_blank">Manufacture date</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.expirationDate" target="_blank">Expiration date</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.lotNumber" target="_blank">Lot number</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.serialNumber" target="_blank">Serial number</a></li>
-  <li>
-<a href="https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName" target="_blank">Device name</a>
-    <ul>
-      <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.name" target="_blank">Name</a></li>
-      <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.type" target="_blank">Type</a></li>
-    </ul>
-  </li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.modelNumber" target="_blank">Model number</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.type" target="_blank">Type</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.patient" target="_blank">Patient</a></li>
-  <li><a href="https://hl7.org/fhir/r4/device-definitions.html#Device.owner" target="_blank">Owner</a></li>
+  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Schedule id</a></li>
+  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.active" target="_blank">Active</a></li>
+  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType" target="_blank">Service Type</a></li>
+  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.actor" target="_blank">Actor</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -142,11 +121,10 @@
     
       
       
-      
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Device.identifier.type</a>
+          <a target="_blank" href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType">Schedule.serviceType</a>
       
       </td>
     </tr>
@@ -155,12 +133,8 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+            <ul style="list-style-type: none"><li>The specific service that is to be performed during this appointment.</li></ul>
           
-          
-            <li><i>Note</i></li>
-            
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently will return SNO code from the below system.</li></ul>
           
 
           
@@ -168,9 +142,9 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-service-type.html">Schedule Service Type</a><br>
                       
-                        System: http://terminology.hl7.org/CodeSystem/v2-0203 <br>
+                        System: http://hl7.org/fhir/r4/codesystem-service-type.html <br>
                       
                       </p>
                     
@@ -186,41 +160,14 @@
       </td>
     </tr>
     
-      
-      
-    <tr>
-      <td>
-      
-          <a target="_blank" href="https://www.hl7.org/fhir/device-definitions.html#Device.type">Device.type</a>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The type of device.</li></ul>
-          
-          
-            <li><i>Note</i></li>
-            
-            <ul style="list-style-type: none"><li style="list-style-type: none">Currently not bound to any terminology and only 'Device.type.text' will be returned.</li></ul>
-          
-
-          
-        </ul>
-      </td>
-    </tr>
-    
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for Devices that meet supplied query parameters:</p>
+<p>Search for Schedules that meet supplied query parameters:</p>
 
-<pre><code>GET /Device?:parameters
+<pre><code>GET /Schedule?:parameters
 </code></pre>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -243,125 +190,79 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>patient</code>
-</td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Device. Example: <code>7890</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>patient</code></td>
-      <td>This or <code>_id</code>
-</td>
-      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>The patient to whom the device is affixed. Example: <code>12345</code>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>4062786-4062906-19875648-0</code>
 </td>
     </tr>
   </tbody>
 </table>
 
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
 <h3 id="example">Example</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0
 </code></pre>
 
-<div class="example-tabs">
-  <ul id="55200ea3-fdd2-4962-a17c-5598df4b62ce">
-    <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '55200ea3-fdd2-4962-a17c-5598df4b62ce'); return false;">
-        Example Response
-      </a>
-    </li>
-    <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '55200ea3-fdd2-4962-a17c-5598df4b62ce'); makeRequest(this); return false;">
-        Live Response
-      </a>
-    </li>
-  </ul>
-</div>
-<div data-id="55200ea3-fdd2-4962-a17c-5598df4b62ce" class="example-tab-content">
-  <div data-content="example-response-tab">
-    <pre class="headers"><code>Status: 200 OK</code></pre>
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "082eb1ae-1a78-41ff-a551-cfc11ff7c812",
+  "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
   "type": "searchset",
-  "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0",
       "resource": {
-        "resourceType": "Device",
-        "id": "31539245",
+        "resourceType": "Schedule",
+        "id": "24477854-21304876-62852027-0",
         "meta": {
-          "versionId": "1",
-          "lastUpdated": "2020-07-06T23:58:35.000Z"
+          "versionId": "34229204v992283",
+          "lastUpdated": "2020-07-06T18:46:08.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: 1721123408&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Pacemaker Plus&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  9, 2017 12:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  2, 2040 10:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: 7723&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: 17642857292&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Pacemaker&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: T0765&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Model Clinic&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
         },
-        "identifier": [
+        "active": true,
+        "serviceType": [
           {
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SNO",
-                  "display": "Serial Number"
-                }
-              ],
-              "text": "Serial Number"
-            },
-            "value": "17642857292"
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "24477854",
+                "display": "Established Patient",
+                "userSelected": true
+              }
+            ],
+            "text": "Established Patient"
           }
         ],
-        "udiCarrier": [
+        "actor": [
           {
-            "carrierHRF": "1721123408"
+            "reference": "Practitioner/593923",
+            "display": "Cerner Test, Physician - Primary Care Cerner"
           }
-        ],
-        "status": "active",
-        "manufacturer": "Pacemaker Plus",
-        "manufactureDate": "2017-01-09T12:00:00.000Z",
-        "expirationDate": "2040-07-02T10:00:00.000Z",
-        "lotNumber": "7723",
-        "serialNumber": "17642857292",
-        "deviceName": [
-          {
-            "name": "Pacemaker",
-            "type": "user-friendly-name"
-          }
-        ],
-        "modelNumber": "T0765",
-        "type": {
-          "text": "Pacemaker"
-        },
-        "patient": {
-          "reference": "Patient/12724066",
-          "display": "SMART, NANCY"
-        },
-        "owner": {
-          "display": "Model Clinic"
-        }
+        ]
       }
     }
   ]
 }</code></pre>
-  </div>
-  <div data-content="live-response-tab" class="hide">
-    <pre class="headers"><code> </code></pre>
-    <pre class="body-response"><code class="language-javascript"></code></pre>
-  </div>
-</div>
+
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors">Errors</h3>
@@ -370,9 +271,9 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual Device by its id:</p>
+<p>List an individual Schedule by its id:</p>
 
-<pre><code>GET /Device/:id
+<pre><code>GET /Schedule/:id
 </code></pre>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -381,91 +282,55 @@
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
 <h3 id="example-1">Example</h3>
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>curl -i -H "Accept: application/fhir+json" "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245"
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0
 </code></pre>
 
-<div class="example-tabs">
-  <ul id="cdf6d661-8669-4336-a3f0-4c82bc58c6e4">
-    <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'cdf6d661-8669-4336-a3f0-4c82bc58c6e4'); return false;">
-        Example Response
-      </a>
-    </li>
-    <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'cdf6d661-8669-4336-a3f0-4c82bc58c6e4'); makeRequest(this); return false;">
-        Live Response
-      </a>
-    </li>
-  </ul>
-</div>
-<div data-id="cdf6d661-8669-4336-a3f0-4c82bc58c6e4" class="example-tab-content">
-  <div data-content="example-response-tab">
-    <pre class="headers"><code>Status: 200 OK</code></pre>
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Device",
-  "id": "31539245",
+  "resourceType": "Schedule",
+  "id": "24477854-21304876-62852027-0",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2020-07-06T23:58:35.000Z"
+    "versionId": "34229204v992283",
+    "lastUpdated": "2020-07-06T18:46:08.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Device&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Unique Device Identifier (UDI)&lt;/b&gt;: 1721123408&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacturer&lt;/b&gt;: Pacemaker Plus&lt;/p&gt;&lt;p&gt;&lt;b&gt;Manufacture Date&lt;/b&gt;: Jan  9, 2017 12:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expiration Date&lt;/b&gt;: Jul  2, 2040 10:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lot Number&lt;/b&gt;: 7723&lt;/p&gt;&lt;p&gt;&lt;b&gt;Serial Number&lt;/b&gt;: 17642857292&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Pacemaker&lt;/p&gt;&lt;p&gt;&lt;b&gt;Model Number&lt;/b&gt;: T0765&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owner&lt;/b&gt;: Model Clinic&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
   },
-  "identifier": [
+  "active": true,
+  "serviceType": [
     {
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "SNO",
-            "display": "Serial Number"
-          }
-        ],
-        "text": "Serial Number"
-      },
-      "value": "17642857292"
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+          "code": "24477854",
+          "display": "Established Patient",
+          "userSelected": true
+        }
+      ],
+      "text": "Established Patient"
     }
   ],
-  "udiCarrier": [
+  "actor": [
     {
-      "carrierHRF": "1721123408"
+      "reference": "Practitioner/593923",
+      "display": "Cerner Test, Physician - Primary Care Cerner"
     }
-  ],
-  "status": "active",
-  "manufacturer": "Pacemaker Plus",
-  "manufactureDate": "2017-01-09T12:00:00.000Z",
-  "expirationDate": "2040-07-02T10:00:00.000Z",
-  "lotNumber": "7723",
-  "serialNumber": "17642857292",
-  "deviceName": [
-    {
-      "name": "Pacemaker",
-      "type": "user-friendly-name"
-    }
-  ],
-  "modelNumber": "T0765",
-  "type": {
-    "text": "Pacemaker"
-  },
-  "patient": {
-    "reference": "Patient/12724066",
-    "display": "SMART, NANCY"
-  },
-  "owner": {
-    "display": "Model Clinic"
-  }
+  ]
 }</code></pre>
-  </div>
-  <div data-content="live-response-tab" class="hide">
-    <pre class="headers"><code> </code></pre>
-    <pre class="body-response"><code class="language-javascript"></code></pre>
-  </div>
-</div>
+
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
@@ -521,10 +386,10 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Devices</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="./">Device</a></li>
+          <li><a href="../../devices/device/">Device</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -609,11 +474,11 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Scheduling</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../scheduling/appointment/">Appointment</a></li>
-          <li><a href="../../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../appointment/">Appointment</a></li>
+          <li><a href="./">Schedule</a></li>
         </ul>
       </li>
     </ul>

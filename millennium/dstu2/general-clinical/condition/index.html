@@ -134,7 +134,6 @@
   <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.patient" target="_blank">Patient</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter" target="_blank">Patient encounter when first recorded (only applies to diagnoses)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter" target="_blank">Who recorded the condition</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded" target="_blank">Date recorded</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code" target="_blank">Condition code</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus" target="_blank">Status</a></li>
@@ -151,7 +150,6 @@
 <table style="display: table; white-space: normal">
   <tbody>
     
-      
       
       
       
@@ -535,10 +533,6 @@
           "encounter": {
             "reference": "Encounter/97953477"
           },
-          "asserter": {
-            "reference": "Practitioner/4122630",
-            "display": "Cerner Test, Physician - Women's Health Cerner"
-          },
           "dateRecorded": "2020-06-11",
           "code": {
             "coding": [
@@ -590,10 +584,6 @@
           "reference": "Patient/12724066",
           "display": "SMART, NANCY"
         },
-        "asserter": {
-          "reference": "Practitioner/683925",
-          "display": "Cerner Test, Women's Health - Nurse Cerner"
-        },
         "dateRecorded": "2020-03-05",
         "code": {
           "coding": [
@@ -638,10 +628,6 @@
             "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Afraid my community will not be as close with COVID19.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: False&lt;/p&gt;&lt;/div&gt;"
           },
           "patient": {
-            "reference": "Patient/12724066",
-            "display": "SMART, NANCY"
-          },
-          "asserter": {
             "reference": "Patient/12724066",
             "display": "SMART, NANCY"
           },
@@ -716,10 +702,6 @@
           "encounter": {
             "reference": "Encounter/97953477"
           },
-          "asserter": {
-            "reference": "Practitioner/4122630",
-            "display": "Cerner Test, Physician - Women's Health Cerner"
-          },
           "dateRecorded": "2020-06-11",
           "code": {
             "coding": [
@@ -771,10 +753,6 @@
           "reference": "Patient/12724066",
           "display": "SMART, NANCY"
         },
-        "asserter": {
-          "reference": "Practitioner/683925",
-          "display": "Cerner Test, Women's Health - Nurse Cerner"
-        },
         "dateRecorded": "2020-03-05",
         "code": {
           "coding": [
@@ -819,10 +797,6 @@
             "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Afraid my community will not be as close with COVID19.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: False&lt;/p&gt;&lt;/div&gt;"
           },
           "patient": {
-            "reference": "Patient/12724066",
-            "display": "SMART, NANCY"
-          },
-          "asserter": {
             "reference": "Patient/12724066",
             "display": "SMART, NANCY"
           },
@@ -899,10 +873,6 @@
       "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Health Concern&lt;/b&gt;: Afraid my community will not be as close with COVID19.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jul  6, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: False&lt;/p&gt;&lt;/div&gt;"
     },
     "patient": {
-      "reference": "Patient/12724066",
-      "display": "SMART, NANCY"
-    },
-    "asserter": {
       "reference": "Patient/12724066",
       "display": "SMART, NANCY"
     },
@@ -1095,46 +1065,6 @@
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Encounter is required for Conditions with a category code of diagnosis.</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
-        <a name="create-asserter">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter"><code>asserter</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Person who takes responsibility for asserting the existence of the condition as part of the electronic record.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "asserter": {
-    "reference": "Practitioner/2770007",
-    "display": "Song, River"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>Asserter must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1815,46 +1745,6 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
     
     <tr>
       <td>
-        <a name="update-asserter">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter"><code>asserter</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="http://hl7.org/fhir/DSTU2/references.html"><code>Reference</code></a> (<a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a>) </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Person who takes responsibility for asserting the existence of the condition as part of the electronic record.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "asserter": {
-    "reference": "Practitioner/2770007",
-    "display": "Song, River"
-  }
-}
-</pre></li></ul>
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>Asserter must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#update">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
         <a name="update-dateRecorded">
         
           </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded"><code>dateRecorded</code></a>
@@ -2263,9 +2153,6 @@ OR
   },
   "encounter": {
     "reference": "Encounter/97953477"
-  },
-  "asserter": {
-    "reference": "Practitioner/4122630"
   },
   "dateRecorded": "2020-06-11",
   "code": {
