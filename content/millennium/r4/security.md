@@ -3,5 +3,6 @@ title: Security | R4 API
 layout: api
 ---
 
-<%= render '/security.*' %>
+<%= render '/millennium/r4/security.*' %>
+
 * [Provenance](../security/provenance)

@@ -3,7 +3,8 @@ title: Individuals | R4 API
 layout: api
 ---
 
-<%= render '/individuals.*' %>
+<%= render '/millennium/r4/individuals.*' %>
+
 * [Patient](../individuals/patient)
 * [Person](../individuals/person)
 * [Practitioner](../individuals/practitioner)

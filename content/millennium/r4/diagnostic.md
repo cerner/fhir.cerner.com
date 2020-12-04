@@ -3,5 +3,6 @@ title: Diagnostic | R4 API
 layout: api
 ---
 
-<%= render '/diagnostic_r4.*' %>
+<%= render '/millennium/r4/diagnostic.*' %>
+
 * [Observation](../diagnostic/observation)

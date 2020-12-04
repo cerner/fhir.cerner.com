@@ -3,5 +3,6 @@ title: Devices | R4 API
 layout: api
 ---
 
-<%= render '/devices_r4.*' %>
+<%= render '/millennium/r4/devices.*' %>
+
 * [Device](../devices/device)

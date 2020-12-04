@@ -3,6 +3,7 @@ title: Medications | R4 API
 layout: api
 ---
 
-<%= render '/medications_r4.*' %>
+<%= render '/millennium/r4/medications.*' %>
+
 * [Immunization](../medications/immunization)
 * [MedicationRequest](../medications/medication-request)
