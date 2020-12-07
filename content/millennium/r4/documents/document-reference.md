@@ -23,10 +23,10 @@ The following fields are returned if valued:
 * [Authenticator/verifying provider](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Document description/title]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
 * [Document Attachment](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
-    * [Attachment ContentType](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
-    * [Created date/time](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
-    * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
-    * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
+  * [Attachment ContentType](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
+  * [Created date/time](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
+  * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
+  * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
 * [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 * [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
 
@@ -47,7 +47,7 @@ Search for DocumentReferences that meet supplied query parameters:
 ### Parameters
 
  Name                     | Required?          | Type          | Description
---------------------------|--------------------|---------------|----------------------------------------------------------------------------------------------------
+--------------------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
  `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id`     | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
  `encounter`              | N                  | [`reference`] | The Encounter in which the document was created. May be a list separated by commas. Example: `123,456`
@@ -58,8 +58,8 @@ Search for DocumentReferences that meet supplied query parameters:
 _Implementation Notes_
 
 * When searching with the `period` parameter:
-    * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-    * If one `period` parameter includes a time, both must include a time.
+  * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
+  * If one `period` parameter includes a time, both must include a time.
 
 ### Headers
 
@@ -197,17 +197,17 @@ Accept: 'application/json+fhir', 'Content-Type': 'application/fhir+json', 'If-Ma
 
 <%= headers status: 200 %>
 <pre class="terminal">
-    Cache-Control: no-cache
-    Content-Length: 0
-    Content-Type: text/html
-    Date: Tue, 20 Aug 2019 21:17:04 GMT
-    Etag: W/"12793861"
-    Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
-    Server-Response-Time: 777.661584
-    Status: 200 OK
-    Vary: Origin
-    X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-    X-Runtime: 0.777583
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 20 Aug 2019 21:17:04 GMT
+Etag: W/"12793861"
+Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+Server-Response-Time: 777.661584
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+X-Runtime: 0.777583
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.

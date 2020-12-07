@@ -61,8 +61,7 @@ The following fields are returned if valued:
 
 ## Custom Extensions
 
-* Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers.
- URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
+* Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
 ## Search
 
@@ -211,8 +210,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
-                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the MedicationRequest resource>"'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json', 'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the MedicationRequest resource>"'} %>
 
 ### Patch Operations
 
