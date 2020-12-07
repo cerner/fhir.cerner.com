@@ -172,7 +172,7 @@ Update an existing document reference:
 
 _Implementation Notes_
 
-* Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* Any field which is missing will be interpreted as nulling out or removing data from the resource. Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> [Update documentation] for additional details about update operations.
 
 ### Headers
 
@@ -224,3 +224,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: https://hl7.org/fhir/R4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Update documentation]: https://www.hl7.org/fhir/r4/http.html#update

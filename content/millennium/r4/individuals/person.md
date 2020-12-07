@@ -119,5 +119,6 @@ The ability to perform person combine or uncombine operations is not available t
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
