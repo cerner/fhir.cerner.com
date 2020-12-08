@@ -85,7 +85,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Patient Authorization Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization?patient=12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization?patient=12724066
 
 #### Response
 
@@ -127,7 +127,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Patient Authorization Request For Completed Status
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
 
 #### Response
 
@@ -138,7 +138,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Patient Authorization Request For Entered in Error Status
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M211860902
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M211860902
 
 #### Response
 
@@ -149,7 +149,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Patient Authorization Request For Not done Status
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
 
 #### Response
 

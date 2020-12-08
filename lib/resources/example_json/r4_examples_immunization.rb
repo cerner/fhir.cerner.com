@@ -510,4 +510,3 @@ module Cerner
     }.freeze
   end
 end
-  
