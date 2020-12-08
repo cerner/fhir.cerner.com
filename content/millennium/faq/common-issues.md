@@ -347,84 +347,25 @@ To recreate the issue:
 
 ## Security
 
-During application validation, we do a security review. We've gathered some common
-topics that are covered which should help you think through the security of your application.
-There are also examples of tools that can guide secure development of your application.
+As a part of your application's validation, we will perform a security
+review.  After joining the program but before validation begins, you will
+be provided with a security welcome packet that includes up-to-date and
+specific information on what we will look for during security validation.
+The items indicated in the packet should be fully completed as described
+to avoid delays in completing your application's validation in a timely
+manner.
 
-### Static Analysis
+While the packet will have a comprehensive list of required documentation
+to submit, you can expect to have items from the following topics requested.
 
-An automated security analysis of the app must be completed prior to
-the security review. There are many tools available for this including
-paid and free offerings. If available, producing a report from tools
-such as [HP Fortify](http://www.ndm.net/sast/hp-fortify), [IBM AppScan](https://www.ibm.com/security/application-security/appscan)
-and [Veracode](https://www.veracode.com/) are preferred.
+* Threat model of the application's architecture and interactions with
+systems or services external to the application.
+* Static analysis, dynamic analysis, dependency vulnerability check, and
+operating system level security scan reports.
+* Reports indicating use of secure TLS standards and web standards.
+* Patching polcies and privacy policies.
 
-[OpenVAS](http://www.openvas.org/), [BurpSuite](https://portswigger.net/burp),
-[FindSecBugs](http://find-sec-bugs.github.io/) and [ZAP](http://www.zaproxy.org/) can also be used to produce a
-report if the above analysis tools are not available to the development team.
+Our current recommended tooling will be documented in the packet. Please
+reach out to us if there are any concerns or questions regarding your
+application's security validation.
 
-The reports should produce results that are free of critical and high
-results. In the event that medium results are found, the submitter will
-be asked for a mitigation plan and timelines to resolve the found
-vulnerabilities.
-
-### TLS Configuration
-
-It is required that you test your app’s SSL/TLS status against
-[SSLLabs](https://www.ssllabs.com/ssltest/) during a security review.
-The app must at least score an A on SSLLabs to pass the security review.
-To assist in reaching this score, the items below should be taken into
-consideration:
-
--	Disable all SSL versions
--	Disable TLS version 1.0
--	Review the list of cipher suites and remove any insecure cipher suites
--	Ensure that the handshake simulation user agents that are relevant to the app are functional
--	Enable forward secrecy, if practical
--	Ensure that TLS_FALLBACK_SCSV is enabled
-
-### Data Flow Diagram
-
-Ensure that the data flow diagram displays the flow of data, including
-PHI (protected health information), during the course of normal usage.
- The data flow diagram should also display the authentication and
- authorization decisions that are being made.
-
-### Threat Model
-
-The threat model should make use of a tool like
-[Microsoft Threat Model 2016](https://www.microsoft.com/en-us/download/details.aspx?id=49168)
-or similar. The threat model must show the assets that the app uses during
-runtime as well as the other apps and systems that it connects to or
-accepts connections from.
-
-The threat model must also include the following:
-
-- Authentication interactions with external sources (for example, the Cerner OAuth service)
-- Information related to the hosting environment that the app is hosted in (for example, AWS, Azure, third-party, or a self-run data center)
-- Define the trust boundaries crossed during runtime
-
-If using the MS Threat Model 2016 tool, the found threats must be responded to in the Analysis view.
-
-### Third-Party Tools and Libraries
-
-The use of a tool like
-[OWASP’s Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check)
-greatly reduces the exposure to malicious dependencies prior to deploying your app.
-Dependency Check is a utility that identifies project dependencies
-and checks if there are any known, publicly disclosed, vulnerabilities.
-
-We recommend that you use this tool to reveal any issues with the
-libraries that are used by the app and assist with the manual review
-of the list of third party libraries that are requested during
-a security review. If using Dependency Check, you should submit
-a report during security review.
-
-### Patching Policy
-
-The patching policy must include how the app owner plans to patch
-its software in the event that a critical vulnerability is discovered.
-The patching policy must include timeframes for when a vulnerability
-will be patched (for example, within 48 hours of knowledge of
-a critical vulnerability, within seven days of a high vulnerability,
-and so on).
