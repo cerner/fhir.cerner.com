@@ -22,7 +22,7 @@ The following fields are returned if valued:
 * [Status](http://hl7.org/fhir/r4/slot-definitions.html#Slot.status){:target="_blank"}
 * [Start](http://hl7.org/fhir/r4/slot-definitions.html#Slot.start){:target="_blank"}
 * [End](http://hl7.org/fhir/r4/slot-definitions.html#Slot.end){:target="_blank"}
-* [Scheduling Location Extension](http://fhir.cerner.com/millennium/r4/scheduling/slot/#extensions){:target="_blank"}
+* [Scheduling Location Extension](#extensions)
 
 ## Terminology Bindings
 
@@ -30,7 +30,7 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Scheduling Location](http://fhir.cerner.com/millennium/r4/scheduling/slot/#extensions){:target="_blank"}
+* [Scheduling Location]
 
 ### Custom Extensions
 
