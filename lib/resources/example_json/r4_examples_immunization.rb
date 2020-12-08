@@ -149,17 +149,17 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\'><p><b>Immunization</b></p><p><b>Patient</b>: MARSTON, JACK</p><p><b>Status</b>: '\
-                'Entered in Error</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\'><p><b>Immunization</b></p>'\
+        '<p><b>Patient</b>:MARSTON, JACK</p><p><b>Status</b>: Entered in Error</p></div>'
       },
       'status': 'entered-in-error',
       'vaccineCode': {
         'coding': [
-            {
-                'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                'code': 'error',
-                'display': 'Error'
-            }
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            'code': 'error',
+            'display': 'Error'
+          }
         ],
         'text': 'Error'
       },
@@ -186,7 +186,10 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p><p><b>Vaccine</b>: Rotavirus</p><p><b>Occurrence</b>: Sep  9, 2020 12:55 P.M. CDT</p><p><b>Patient</b>: MARSTON, JACK</p><p><b>Status</b>: Not Done</p><p><b>Status Reason</b>: Patient Refuses</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p>'\
+        '<p><b>Vaccine</b>: Rotavirus</p><p><b>Occurrence</b>: Sep  9, 2020 12:55 P.M. CDT</p>'\
+        '<p><b>Patient</b>: MARSTON, JACK</p><p><b>Status</b>: Not Done</p>'\
+        '<p><b>Status Reason</b>: Patient Refuses</p></div>'
       },
       'status': 'not-done',
       'statusReason': {
@@ -215,7 +218,7 @@ module Cerner
       },
       'occurrenceDateTime': '2020-09-09T12:55:55-05:00',
       'primarySource': true
-    }
+    }.freeze
 
     R4_IMMUNIZATION_BUNDLE ||= {
       'resourceType': 'Bundle',
@@ -507,3 +510,4 @@ module Cerner
     }.freeze
   end
 end
+  
