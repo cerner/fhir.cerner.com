@@ -109,8 +109,7 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter_bundle) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -121,7 +120,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_ENCOUNTER_PATIENT_BUNDLE) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -156,7 +155,7 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -167,7 +166,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_ENCOUNTER_PATIENT_ENTRY) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
