@@ -379,6 +379,118 @@ module Cerner
       }
     }.freeze
 
+    R4_ENCOUNTER_PATIENT_ENTRY ||= {
+      "resourceType": 'Encounter',
+      "id": '97954225',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2020-08-04T12:37:34.000Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Behavioral Health Hospital</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+      },
+      "identifier": [
+        {
+          "use": 'usual',
+          "type": {
+            "coding": [
+              {
+                "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                "code": '1077',
+                "display": 'FIN NBR',
+                "userSelected": true
+              },
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                "code": 'AN',
+                "display": 'Account number',
+                "userSelected": false
+              }
+            ],
+            "text": 'FIN NBR'
+          },
+          "system": 'urn:oid:5.5.5.5.5.5.',
+          "value": '16131',
+          "period": {
+            "start": '2020-08-04T12:37:34.000Z'
+          }
+        }
+      ],
+      "status": 'in-progress',
+      "class": {
+        "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+        "code": 'O',
+        "display": 'Outpatient',
+        "userSelected": false
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+              "code": '309309',
+              "display": 'Outpatient',
+              "userSelected": true
+            },
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            }
+          ],
+          "text": 'Outpatient'
+        }
+      ],
+      "subject": {
+        "reference": 'Patient/12724066',
+        "display": 'SMART, NANCY'
+      },
+      "participant": [
+        {
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333',
+                  "code": '242348525',
+                  "display": 'Chart Review',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                  "code": 'PART',
+                  "display": 'Participation',
+                  "userSelected": false
+                }
+              ],
+              "text": 'Chart Review'
+            }
+          ],
+          "period": {
+            "start": '2020-11-24T18:16:18.000Z'
+          },
+          "individual": {
+            "reference": 'Practitioner/12746397',
+            "display": 'Pwuptodate, RN'
+          }
+        }
+      ],
+      "location": [
+        {
+          "location": {
+            "reference": 'Location/31098367',
+            "display": 'Model Behavioral Health Hospital'
+          },
+          "status": 'active'
+        }
+      ],
+      "serviceProvider": {
+        "reference": 'Organization/1054423'
+      }
+    }.freeze
+
     R4_ENCOUNTER_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '22bae7f5-5275-477a-aebf-8ba8cebbf0b8',
@@ -1042,6 +1154,448 @@ module Cerner
             ],
             'serviceProvider': {
               'reference': 'Organization/685844'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_ENCOUNTER_PATIENT_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": '8fbab4cb-bf96-46cd-8dd4-e9acf616e3ae',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066'
+        },
+        {
+          "relation": 'next',
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066&-pageContext=51709352-6ee2-4d09-be3b-23dcc3fcc1eb&-pageDirection=NEXT'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954225',
+          "resource": R4_ENCOUNTER_PATIENT_ENTRY
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954261',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '97954261',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-06T14:42:26.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Behavioral Health Hospital</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:5.5.5.5.5.5.',
+                "value": '16132',
+                "period": {
+                  "start": '2020-08-06T14:42:26.000Z'
+                }
+              }
+            ],
+            "status": 'in-progress',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '309309',
+                    "display": 'Outpatient',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Outpatient'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/31098367',
+                  "display": 'Model Behavioral Health Hospital'
+                },
+                "status": 'active'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/1054423'
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954262',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '97954262',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-06T15:21:28.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Behavioral Health Hospital</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:5.5.5.5.5.5.',
+                "value": '16133',
+                "period": {
+                  "start": '2020-08-06T15:21:28.000Z'
+                }
+              }
+            ],
+            "status": 'in-progress',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '309309',
+                    "display": 'Outpatient',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Outpatient'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/31098367',
+                  "display": 'Model Behavioral Health Hospital'
+                },
+                "status": 'active'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/1054423'
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954294',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '97954294',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-10T15:49:27.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Clinic 1</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:5.5.5.5.5.5.',
+                "value": '16135',
+                "period": {
+                  "start": '2020-08-10T15:49:27.000Z'
+                }
+              }
+            ],
+            "status": 'in-progress',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '309309',
+                    "display": 'Outpatient',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Outpatient'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/21304872',
+                  "display": 'Model Clinic 1'
+                },
+                "status": 'active'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/685844'
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954295',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '97954295',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-10T16:20:20.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Clinic 1</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:5.5.5.5.5.5.',
+                "value": '16136',
+                "period": {
+                  "start": '2020-08-10T16:20:20.000Z'
+                }
+              }
+            ],
+            "status": 'in-progress',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '309309',
+                    "display": 'Outpatient',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Outpatient'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/21304872',
+                  "display": 'Model Clinic 1'
+                },
+                "status": 'active'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/685844'
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954406',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '97954406',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-18T16:45:49.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Location</b>: Model Clinic 1</p><p><b>Type</b>: Outpatient</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: In Progress</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:5.5.5.5.5.5.',
+                "value": '16148',
+                "period": {
+                  "start": '2020-08-18T16:45:49.000Z'
+                }
+              }
+            ],
+            "status": 'in-progress',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '309309',
+                    "display": 'Outpatient',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Outpatient'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/21304872',
+                  "display": 'Model Clinic 1'
+                },
+                "status": 'active'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/685844'
             }
           }
         }

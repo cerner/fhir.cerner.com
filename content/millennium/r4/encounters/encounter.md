@@ -82,7 +82,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -109,6 +109,19 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter_bundle) %>
 
+Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_ENCOUNTER_PATIENT_BUNDLE) %>
+
+Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -126,7 +139,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
@@ -143,6 +156,18 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter) %>
 
+Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954225
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_ENCOUNTER_PATIENT_ENTRY) %>
+
+Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
