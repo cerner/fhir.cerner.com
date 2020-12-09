@@ -46,6 +46,68 @@ module Cerner
       }
     }.freeze
 
+    R4_CARE_PLAN_PATIENT_ENTRY ||= {
+      'resourceType': 'CarePlan',
+      'id': '197286315',
+      'meta': {
+        'versionId': '1',
+        'lastUpdated': '2020-04-05T04:00:46.000Z'
+      },
+      'text': {
+        'status': 'additional',
+        'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
+               'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
+               ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
+               '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
+               'Age: 39 Years&#9;MRN: 00000006930&#10;---------------------------------------------------'\
+               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)'\
+               '&#10;&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;EDD: --&#9;EDD/EGA'\
+               'Method: Date of Conception&#9;EGA: --&#10;&#10;-----------------------------------------------'\
+               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Antepartum Note&#10;&#10;&#9;'\
+               'No antepartum notes have been documented&#10;&#10;--------------------------------'\
+               '-&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
+               'Gestational diabetes mellitus, class A&gt;1&lt; (Related to Pregnant problem) (SNOMED CT: 124602011,'\
+               'Onset: 03/05/20)&#10;&#9;Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)'\
+               '&#10;&#10;Gestational hypertension (Related to Pregnant problem)'\
+               '(SNOMED CT: 495022012, Onset: 03/05/20)&#10;&#9;Comment:'\
+               'Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+               'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;--------------------------------------------'\
+               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;'\
+               'Risk Factors (Current Pregnancy)&#10;Risk Factors: Diabetes, gestational,'\
+               'type A1, Gestational hypertension&#10;Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
+               '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;'\
+               ': Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt&'\
+               'lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SYSTEM, SYSTEM Cerner&lt;/p&gt;'\
+               '&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;/div&gt;'
+      },
+      'status': 'active',
+      'intent': 'plan',
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+              'code': 'assess-plan',
+              'display': 'Assessment and Plan of Treatment'
+            }
+          ],
+          'text': 'Assessment and Plan of Treatment'
+        }
+      ],
+      'title': 'Pregnancy Summary Document',
+      'subject': {
+        'reference': 'Patient/12724066',
+        'display': 'SMART, NANCY'
+      },
+      'period': {
+        'start': '2020-04-05T04:00:45.000Z'
+      },
+      'author': {
+        'reference': 'Practitioner/1',
+        'display': 'SYSTEM, SYSTEM Cerner'
+      }
+    }.freeze
+
     R4_CARE_PLAN_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '8c34294c-ba46-492d-bb8e-9937db0ddd5b',
@@ -119,6 +181,136 @@ module Cerner
             'author': {
               'reference': 'Practitioner/1830030',
               'display': 'Koester, Oliver'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_CARE_PLAN_PATIENT_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '013ed260-cdd4-4ffc-947e-aeadb699d3d4',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?patient=12724066&category=assess-plan'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/197375407',
+          'resource': {
+            'resourceType': 'CarePlan',
+            'id': '197375407',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-09-24T21:07:34.000Z'
+            },
+            'text': {
+              'status': 'additional',
+              'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
+                     'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
+                     ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;'\
+                     ': Office Visit Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;'\
+                     '&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;'\
+                     ': Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b7gt;'\
+                     ': PWSUKI, MDCARDIO7lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;'\
+                     ': Sep 23, 2020 11:59 P.M. UTC&lt;/p&gt;&lt;/div&gt;'
+            },
+            'status': 'active',
+            'intent': 'plan',
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+                    'code': 'assess-plan',
+                    'display': 'Assessment and Plan of Treatment'
+                  }
+                ],
+                'text': 'Assessment and Plan of Treatment'
+              }
+            ],
+            'title': 'Office Visit Note',
+            'subject': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCY'
+            },
+            'encounter': {
+              'reference': 'Encounter/97954298'
+            },
+            'period': {
+              'start': '2020-09-23T23:59:11.000Z'
+            },
+            'author': {
+              'reference': 'Practitioner/https://fhir-ehr.cerner.comdisplay',
+              'display': 'PWSUKI, MDCARDIO'
+            }
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/197286315',
+          'resource': {
+            'resourceType': 'CarePlan',
+            'id': '197286315',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-04-05T04:00:46.000Z'
+            },
+            'text': {
+              'status': 'additional',
+              'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
+                     'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
+                     ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
+                     '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
+                     'Age: 39 Years&#9;MRN: 00000006930&#10;---------------------------------------------------'\
+                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)'\
+                     '&#10;&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;'\
+                     'EDD: --&#9;EDD/EGA Method: Date of Conception&#9;EGA: --&#10;&#10;---------------------------'\
+                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Antepartum Note&#10;&#10;&#9;'\
+                     'No antepartum notes have been documented&#10;&#10;--------------------------------'\
+                     '-&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
+                     'Gestational diabetes mellitus, class A&gt;1&lt; (Related to Pregnant problem)'\
+                     '(SNOMED CT: 124602011, Onset: 03/05/20)&#10;&#9;Comment'\
+                     ': Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)'\
+                     '&#10;&#10;Gestational hypertension (Related to Pregnant problem)'\
+                     '(SNOMED CT: 495022012, Onset: 03/05/20)&#10;&#9;Comment:'\
+                     'Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+                     'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;-------------------------------------'\
+                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;'\
+                     'Risk Factors (Current Pregnancy)&#10;Risk Factors: Diabetes, gestational,'\
+                     'type A1, Gestational hypertension&#10;Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
+                     '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;'\
+                     ': Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt&'\
+                     'lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SYSTEM, SYSTEM Cerner&lt;/p&gt;'\
+                     '&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;/div&gt;'
+            },
+            'status': 'active',
+            'intent': 'plan',
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+                    'code': 'assess-plan',
+                    'display': 'Assessment and Plan of Treatment'
+                  }
+                ],
+                'text': 'Assessment and Plan of Treatment'
+              }
+            ],
+            'title': 'Pregnancy Summary Document',
+            'subject': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCY'
+            },
+            'period': {
+              'start': '2020-04-05T04:00:45.000Z'
+            },
+            'author': {
+              'reference': 'Practitioner/1',
+              'display': 'SYSTEM, SYSTEM Cerner'
             }
           }
         }
