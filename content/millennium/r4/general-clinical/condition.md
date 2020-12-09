@@ -25,6 +25,7 @@ The following fields are returned if valued:
 * [Resolved date  (only applies to problems)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
 * [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
 * [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
+* [Asserter](http://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter)
 * [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note)
 
 ## Terminology Bindings
