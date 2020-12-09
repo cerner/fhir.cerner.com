@@ -18,6 +18,7 @@ We understand this is a bit cumbersome, but we are always evaluating community f
 The following fields are returned if valued:
 
 * [Slot id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [ServiceType](http://hl7.org/fhir/r4/slot-definitions.html#Slot.serviceType){:target="_blank"}
 * [Schedule](http://hl7.org/fhir/r4/slot-definitions.html#Slot.schedule){:target="_blank"}
 * [Status](http://hl7.org/fhir/r4/slot-definitions.html#Slot.status){:target="_blank"}
 * [Start](http://hl7.org/fhir/r4/slot-definitions.html#Slot.start){:target="_blank"}
@@ -62,7 +63,7 @@ _Implementation Notes_
  `_id`            | Yes or `service-type`      | [`token`]     | The logical resource id associated with the resource.
  `service-type`      | Yes or `_id`            | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `[http://snomed.info/sct\|394581000|http://snomed.info/sct]`
  `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/1234`
- `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `5678`
+ `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
  `start`          | See Notes                  | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
  [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
  [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
@@ -102,7 +103,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Slot?service-type=https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/14249|517975329&start=ge2020-07-22T20:04:19Z&start=lt2020-11-08T18:13:55Z&schedule.actor=Practitioner/2911963
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&-location=Location/32216049
 
 #### Response
 
@@ -115,7 +116,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Slot?service-type=https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/14249|521294209&start=ge2020-01-01T06:00:00Z&start=lt2022-01-22T06:00:00Z&_include=Slot:schedule&_count=5
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
 
 #### Response
 
@@ -146,7 +147,7 @@ List an individual Slot by its id:
 
 #### Request
 
-    GET https://fhir-open.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Slot/454030723-39997807-50069221-0
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
 
 #### Response
 
