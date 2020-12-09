@@ -39,7 +39,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -87,6 +87,17 @@ Notes:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?patient=4169494
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_team_patient_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -103,7 +114,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -119,6 +130,17 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_care_team_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/LP-4169494-0-3038500-0-0-0
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_team_patient_entry) %>
 
 <%= disclaimer %>
 
