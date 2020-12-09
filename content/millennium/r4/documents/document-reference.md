@@ -51,7 +51,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `_id`                    | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`                | This, or `_id`     | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
  `encounter`              | N                  | [`reference`] | The Encounter in which the document was created. May be a list separated by commas. Example: `123,456`
- `period`                 | N                  | [`date`]      | Time of service that is being documented. Must use the `ge` and `lt` prefixes. Example: `lt2017-01-5`
+ `period`                 | N                  | [`date`]      | Time of service that is being documented. Must use the `ge` and `lt` prefixes. Example: `lt2017-01-5T14:35:29.000Z`
  `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
@@ -59,7 +59,7 @@ _Implementation Notes_
 
 * When searching with the `period` parameter:
     * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-    * If one `period` parameter includes a time, both must include a time.
+    * Both period searches must include a time.
 
 ### Headers
 
