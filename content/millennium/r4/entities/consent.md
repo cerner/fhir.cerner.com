@@ -71,16 +71,68 @@ Notes:
 
  <%= headers %>
 
-### Example retrieve care plan
+### Example retrieve consent
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=166045489
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_consent_bundle) %>
+
+<%= disclaimer %>
+
+### Search by Id Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12724069-12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_consent_id_bundle) %>
+
+<%= disclaimer %>
+
+### Search by Actor Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12724069
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_consent_actor_bundle) %>
+
+<%= disclaimer %>
+
+### Search by Include Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397&_include=Consent:patient&_include=Consent:actor
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_consent_include_bundle) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_consent_patient_bundle) %>
 
 <%= disclaimer %>
 
@@ -106,7 +158,7 @@ List an individual Consent by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-166045489-166624790
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066
 
 #### Response
 
@@ -115,6 +167,18 @@ List an individual Consent by its id:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_consent_entry) %>
+
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
