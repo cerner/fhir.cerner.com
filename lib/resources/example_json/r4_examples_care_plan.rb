@@ -200,54 +200,7 @@ module Cerner
       'entry': [
         {
           'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/197375407',
-          'resource': {
-            'resourceType': 'CarePlan',
-            'id': '197375407',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2020-09-24T21:07:34.000Z'
-            },
-            'text': {
-              'status': 'additional',
-              'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
-                     'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
-                     ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;'\
-                     ': Office Visit Note&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;'\
-                     '&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;'\
-                     ': Assessment and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b7gt;'\
-                     ': PWSUKI, MDCARDIO7lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;'\
-                     ': Sep 23, 2020 11:59 P.M. UTC&lt;/p&gt;&lt;/div&gt;'
-            },
-            'status': 'active',
-            'intent': 'plan',
-            'category': [
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
-                    'code': 'assess-plan',
-                    'display': 'Assessment and Plan of Treatment'
-                  }
-                ],
-                'text': 'Assessment and Plan of Treatment'
-              }
-            ],
-            'title': 'Office Visit Note',
-            'subject': {
-              'reference': 'Patient/12724066',
-              'display': 'SMART, NANCY'
-            },
-            'encounter': {
-              'reference': 'Encounter/97954298'
-            },
-            'period': {
-              'start': '2020-09-23T23:59:11.000Z'
-            },
-            'author': {
-              'reference': 'Practitioner/https://fhir-ehr.cerner.comdisplay',
-              'display': 'PWSUKI, MDCARDIO'
-            }
-          }
+          'resource': R4_CARE_PLAN_PATIENT_ENTRY
         },
         {
           'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/197286315',
