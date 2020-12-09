@@ -105,16 +105,16 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent?patient=166045489'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=166045489'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent/AR-166045489-166624790',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-166045489-166624790',
           "resource": R4_CONSENT_ENTRY
         },
         {
-          "fullUrl": 'https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent/AR-166045489-170778458',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-166045489-170778458',
           "resource": {
             "resourceType": 'Consent',
             "id": 'AR-166045489-170778458',
@@ -214,7 +214,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent/AR-166045489-170788641',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-166045489-170788641',
           "resource": {
             "resourceType": 'Consent',
             "id": 'AR-166045489-170788641',
@@ -313,7 +313,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent/AR-166045489-170790813',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-166045489-170790813',
           "resource": {
             "resourceType": 'Consent',
             "id": 'AR-166045489-170790813',

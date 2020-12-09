@@ -54,7 +54,7 @@ Search for Consent that meet supplied query parameters:
  `actor.identifier`    | Yes, or _id                                     | [`token`]      | The Federated Person Principal identifier for the actor of the Consent. Example `actor.identifier=system|1234`
  `patient`             | Yes, or _id                                     | [`reference`]  | Who the consent applies to Example subject=Patient/1234 
  `patient.identifier`  | Yes, or _id                                     | [`token`]      | The identifier for the patient of the Consent. Example `patient.identifier=system|5678` (Federated Person Principal, Medical Record Number, Social Security Number, etc.)
-  `_include`           | No                                              | [`string`]     | Other resource entries to be returned as part of the bundle. Example _include=Consent:actor or _include=Consent:patient
+  [`_include`]         | No                                              | [`string`]     | Other resource entries to be returned as part of the bundle. Example _include=Consent:actor or _include=Consent:patient
 
 
 Notes:
@@ -75,7 +75,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Consent?patient=166045489
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=166045489
 
 #### Response
 
@@ -120,10 +120,8 @@ List an individual Consent by its id:
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
-[`date`]: http://hl7.org/fhir/r4/search.html#date
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
-[`_count`]: http://hl7.org/fhir/r4/search.html#count
-[`number`]: http://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [`string`]: http://hl7.org/fhir/r4/search.html#string
+[`_include`]: http://hl7.org/fhir/r4/search.html#include
