@@ -55,7 +55,7 @@ module Cerner
       },
       'text': {
         'status': 'additional',
-        'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
+        'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;'\
                'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
                ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
                '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
@@ -213,7 +213,7 @@ module Cerner
             },
             'text': {
               'status': 'additional',
-              'div': '&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;&lt;b&gt;'\
+              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;'\
                      'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
                      ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
                      '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
