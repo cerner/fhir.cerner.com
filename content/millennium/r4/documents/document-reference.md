@@ -59,7 +59,7 @@ _Implementation Notes_
 
 * When searching with the `period` parameter:
     * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-    * Both period searches must include a time.
+    * Both period parameters must include a time.
 
 ### Headers
 
