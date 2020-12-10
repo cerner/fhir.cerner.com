@@ -23,6 +23,6 @@ fields:
     binding:
       description: Codes for grouping and sorting goals.
       terminology:
-        - display: Goal Category Codes
+        - display: Category
           system: http://terminology.hl7.org/CodeSystem/goal-category
           info_link: http://hl7.org/fhir/r4/valueset-goal-category.html

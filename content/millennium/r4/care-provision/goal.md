@@ -42,15 +42,15 @@ Search for Goals that meet supplied query parameters:
 
 ### Parameters
 
- Name              | Required?                                | Type          | Description
--------------------|------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------
- `_id`             | This, or one of `patient`, or `subject`. | [`token`]     | The logical resource id associated with the Goal. Example: `_id=7891`
- `patient`         | This, or one of `_id`, or `subject`.     | [`reference`] | The patient who has the goal. Example: `patient=12345`
- `target-date`     | N                                        | [`date`]      | A date or date range from which to find Goals. Example: `target-date=ge2016-10-01&target-date=le2016-12-01`
+ Name              | Required?                  | Type          | Description
+-------------------|----------------------------|---------------|---------------------------------------------------------------------------------------------------------------
+ `_id`             | This, or patient.          | [`token`]     | The logical resource id associated with the Goal. Example: `_id=7891`
+ `patient`         | This, or _id.              | [`reference`] | The patient who has the goal. Example: `patient=12345`
+ `target-date`     | N                          | [`date`]      | A date or date range from which to find Goals. Example: `target-date=ge2016-10-01&target-date=le2016-12-01`
 
 Notes:
 
-  - The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `target-date` parameters.
+  - The `_id` parameter may not be provided at the same time as the `patient` or `target-date`
 
   - The `target-date` parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
 
