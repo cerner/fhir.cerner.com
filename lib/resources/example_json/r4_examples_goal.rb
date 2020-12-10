@@ -12,8 +12,9 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Goal</b></p><p><b>Subject</b>: SMART, TIMMY</p>'\
-'<p><b>Description</b>: Maintain a healthy weight</p><p><b>Expressed By</b>: SMART, TIMMY</p><p><p>'\
-'<b>Status</b>: Active</p><p><b>Start Date</b>: Dec  3, 2020</p><p><b>Target Date</b>: Dec 31, 2020</p></div>'
+               '<p><b>Description</b>: Maintain a healthy weight</p><p><b>Expressed By</b>: SMART, TIMMY</p><p><p>'\
+               '<b>Status</b>: Active</p><p><b>Start Date</b>: Dec  3, 2020</p>'\
+               '<p><b>Target Date</b>: Dec 31, 2020</p></div>'
       },
       'lifecycleStatus': 'active',
       'achievementStatus': {
@@ -73,7 +74,6 @@ module Cerner
           'text': 'Daily exercise'
         }
       ]
-
     }.freeze
 
     R4_GOAL_BUNDLE ||= {
@@ -158,7 +158,7 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Goal</b></p><p><b>Subject</b>: SMART, TIMMY</p>'\
-'<p><b>Description</b>: Error</p><p><b>Status</b>: Entered in Error</p></div>'
+                '<p><b>Description</b>: Error</p><p><b>Status</b>: Entered in Error</p></div>'
       },
       'lifecycleStatus': 'entered-in-error',
       'description': {
