@@ -45,10 +45,10 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../overview/" class="nav-dstu2-api">Millennium</a></li>
-        <li><a href="../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
-        <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
-        <li><a href="../../../smart" class="nav-dstu2-api">SMART</a></li>
+        <li><a href="../../overview/">Millennium</a></li>
+        <li><a href="../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../authorization">Authorization</a></li>
+        <li><a href="../../../smart">SMART</a></li>
       </ul>
 
     </div>
@@ -63,33 +63,28 @@
   <div class="sub-nav">
     
       <h2>Millennium</h2>
-    
-    <ul>
-      
+      <ul>
         <li><a href="../../overview/">Overview</a></li>
         <li><a href="../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../faq/" class="nav-faq">FAQ</a></li>
-      
-      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
-    </ul>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
   </div>
 
   <div id="wrapper">
     <div class="content">
       <h1 id="diagnostic">Diagnostic</h1>
 
-<p>The Diagnostic resources are concerned with the process of observing, testing, and diagnosing a patient. Note, once a
-  diagnosis is confirmed, it would be recorded in Condition so that it is part of the historical patient record.</p>
+<p>The Diagnostic resources are concerned with the process of observing, testing, and diagnosing a patient. Note, once a diagnosis is confirmed, it would be recorded as a Condition so that it is part of the historical patient record.</p>
 
-<p>The Observation resource is primarily concerned with recording discrete values, answers, and results such as clinical
-  laboratory data and vital signs while the DiagnosticReport resource typically provides a textual set of information and
-  interpretation after performing a diagnostic service such as a Radiology report or Pathology report.</p>
+<p>The Observation resource is primarily concerned with recording discrete values, answers, and results such as clinical laboratory data and vital signs while the DiagnosticReport resource typically provides a textual set of information and interpretation after performing a diagnostic service such as a Radiology report or Pathology report.</p>
 
-<p>Click <a href="https://hl7.org/fhir/r4/diagnostics-module.html">here</a> to see the detailed categorization and full set of
-  resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
+<p>Click <a href="https://hl7.org/fhir/r4/diagnostics-module.html">here</a> to see the detailed categorization and full set of resources that fall into this category in the HL7<sup>®</sup> FHIR<sup>®</sup> Standard.</p>
 
 <h2 id="implemented-resources">Implemented Resources</h2>
+
 <ul>
   <li><a href="../diagnostic/observation">Observation</a></li>
 </ul>
@@ -128,6 +123,7 @@
         <ul class="js-guides">
           <li><a href="../care-provision/care-plan/">CarePlan</a></li>
           <li><a href="../care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../care-provision/goal/">Goal</a></li>
           <li><a href="../care-provision/nutrition-order/">NutritionOrder</a></li>
           <li><a href="../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
@@ -170,6 +166,7 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../entities/organization/">Organization</a></li>
+          <li><a href="../entities/consent/">Consent</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -235,6 +232,7 @@
         <ul class="js-guides">
           <li><a href="../scheduling/appointment/">Appointment</a></li>
           <li><a href="../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../scheduling/slot/">Slot</a></li>
         </ul>
       </li>
     </ul>

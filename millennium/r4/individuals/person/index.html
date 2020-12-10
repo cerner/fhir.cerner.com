@@ -45,10 +45,10 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../../overview/" class="nav-dstu2-api">Millennium</a></li>
-        <li><a href="../../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
-        <li><a href="../../../../authorization" class="nav-dstu2-api">Authorization</a></li>
-        <li><a href="../../../../smart" class="nav-dstu2-api">SMART</a></li>
+        <li><a href="../../../overview/">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../smart">SMART</a></li>
       </ul>
 
     </div>
@@ -63,16 +63,14 @@
   <div class="sub-nav">
     
       <h2>Millennium</h2>
-    
-    <ul>
-      
+      <ul>
         <li><a href="../../../overview/">Overview</a></li>
         <li><a href="../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
         <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
         <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
-      
-      <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
-    </ul>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
   </div>
 
   <div id="wrapper">
@@ -214,14 +212,14 @@
     <tr>
       <td><code>_id</code></td>
       <td>This, or any other required search parameter</td>
-      <td>[<code>token</code>]</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
       <td>This or <code>_id</code>
 </td>
-      <td>[<code>token</code>]</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The person identifier.  Example: <code>urn:oid:2.16.840.1.113883.3.13.6|01022228</code>
 </td>
     </tr>
@@ -231,8 +229,7 @@
 <p>Notes:</p>
 
 <ul>
-  <li>
-<code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
+  <li>The value of the <code>identifier</code> parameter must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
 </li>
 </ul>
 
@@ -789,8 +786,7 @@
 
 <h3 id="person-combines-example">Person Combines Example</h3>
 
-<p>Cerner Millennium supports the ability to logically merge a person record into another person record when both records are describing the same person. This is known as a “person combine”. If necessary, this merging can later be undone by performing a “person uncombine”. When the requested person record has been combined into another record, an inactive Person entry will be returned which has a link to the current Person entry. Entries for combined patients will only be returned when retrieving the entries directly by id. They will not be returned when searching with other parameters.
-The ability to perform person combine or uncombine operations is not available through the Cerner Ignite platform.</p>
+<p>Cerner Millennium supports the ability to logically merge a person record into another person record when both records are describing the same person. This is known as a “person combine”. If necessary, this merging can later be undone by performing a “person uncombine”. When the requested person record has been combined into another record, an inactive Person entry will be returned which has a link to the current Person entry. Entries for combined patients will only be returned when retrieving the entries directly by id. They will not be returned when searching with other parameters. The ability to perform person combine or uncombine operations is not available through the Cerner Ignite platform.</p>
 
 <h4 id="request-2">Request</h4>
 
@@ -862,6 +858,7 @@ The ability to perform person combine or uncombine operations is not available t
         <ul class="js-guides">
           <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
           <li><a href="../../care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
           <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
           <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
         </ul>
@@ -904,6 +901,7 @@ The ability to perform person combine or uncombine operations is not available t
 </h3>
         <ul class="js-guides">
           <li><a href="../../entities/organization/">Organization</a></li>
+          <li><a href="../../entities/consent/">Consent</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -969,6 +967,7 @@ The ability to perform person combine or uncombine operations is not available t
         <ul class="js-guides">
           <li><a href="../../scheduling/appointment/">Appointment</a></li>
           <li><a href="../../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../../scheduling/slot/">Slot</a></li>
         </ul>
       </li>
     </ul>

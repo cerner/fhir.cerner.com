@@ -45,10 +45,10 @@
     <div class="header-wrapper">
 
       <ul class="pages">
-        <li><a href="../../overview/" class="nav-dstu2-api">Millennium</a></li>
-        <li><a href="../../../soarian/dstu2/" class="nav-dstu2-api">Soarian</a></li>
-        <li><a href="../../../authorization" class="nav-dstu2-api">Authorization</a></li>
-        <li><a href="../../../smart" class="nav-dstu2-api">SMART</a></li>
+        <li><a href="../../overview/">Millennium</a></li>
+        <li><a href="../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../authorization">Authorization</a></li>
+        <li><a href="../../../smart">SMART</a></li>
       </ul>
 
     </div>
@@ -101,16 +101,7 @@ each of these before submitting an app for validation.</p>
       <li><a href="#session-bleed-issue" id="markdown-toc-session-bleed-issue">Session Bleed Issue</a></li>
     </ul>
   </li>
-  <li>
-<a href="#security" id="markdown-toc-security">Security</a>    <ul>
-      <li><a href="#static-analysis" id="markdown-toc-static-analysis">Static Analysis</a></li>
-      <li><a href="#tls-configuration" id="markdown-toc-tls-configuration">TLS Configuration</a></li>
-      <li><a href="#data-flow-diagram" id="markdown-toc-data-flow-diagram">Data Flow Diagram</a></li>
-      <li><a href="#threat-model" id="markdown-toc-threat-model">Threat Model</a></li>
-      <li><a href="#third-party-tools-and-libraries" id="markdown-toc-third-party-tools-and-libraries">Third-Party Tools and Libraries</a></li>
-      <li><a href="#patching-policy" id="markdown-toc-patching-policy">Patching Policy</a></li>
-    </ul>
-  </li>
+  <li><a href="#security" id="markdown-toc-security">Security</a></li>
 </ul>
 
 <h2 id="api-usage">API Usage</h2>
@@ -470,91 +461,30 @@ need to implement the change mentioned above.</li>
 
 <h2 id="security">Security</h2>
 
-<p>During application validation, we do a security review. We’ve gathered some common
-topics that are covered which should help you think through the security of your application.
-There are also examples of tools that can guide secure development of your application.</p>
+<p>As a part of your application’s validation, we will perform a security
+review.  After joining the program but before validation begins, you will
+be provided with a security welcome packet that includes up-to-date and
+specific information on what we will look for during security validation.
+The items indicated in the packet should be fully completed as described
+to avoid delays in completing your application’s validation in a timely
+manner.</p>
 
-<h3 id="static-analysis">Static Analysis</h3>
-
-<p>An automated security analysis of the app must be completed prior to
-the security review. There are many tools available for this including
-paid and free offerings. If available, producing a report from tools
-such as <a href="http://www.ndm.net/sast/hp-fortify">HP Fortify</a>, <a href="https://www.ibm.com/security/application-security/appscan">IBM AppScan</a>
-and <a href="https://www.veracode.com/">Veracode</a> are preferred.</p>
-
-<p><a href="http://www.openvas.org/">OpenVAS</a>, <a href="https://portswigger.net/burp">BurpSuite</a>,
-<a href="http://find-sec-bugs.github.io/">FindSecBugs</a> and <a href="http://www.zaproxy.org/">ZAP</a> can also be used to produce a
-report if the above analysis tools are not available to the development team.</p>
-
-<p>The reports should produce results that are free of critical and high
-results. In the event that medium results are found, the submitter will
-be asked for a mitigation plan and timelines to resolve the found
-vulnerabilities.</p>
-
-<h3 id="tls-configuration">TLS Configuration</h3>
-
-<p>It is required that you test your app’s SSL/TLS status against
-<a href="https://www.ssllabs.com/ssltest/">SSLLabs</a> during a security review.
-The app must at least score an A on SSLLabs to pass the security review.
-To assist in reaching this score, the items below should be taken into
-consideration:</p>
+<p>While the packet will have a comprehensive list of required documentation
+to submit, you can expect to have items from the following topics requested.</p>
 
 <ul>
-  <li>Disable all SSL versions</li>
-  <li>Disable TLS version 1.0</li>
-  <li>Review the list of cipher suites and remove any insecure cipher suites</li>
-  <li>Ensure that the handshake simulation user agents that are relevant to the app are functional</li>
-  <li>Enable forward secrecy, if practical</li>
-  <li>Ensure that TLS_FALLBACK_SCSV is enabled</li>
+  <li>Threat model of the application’s architecture and interactions with
+systems or services external to the application.</li>
+  <li>Static analysis, dynamic analysis, dependency vulnerability check, and
+operating system level security scan reports.</li>
+  <li>Reports indicating use of secure TLS standards and web standards.</li>
+  <li>Patching polcies and privacy policies.</li>
 </ul>
 
-<h3 id="data-flow-diagram">Data Flow Diagram</h3>
+<p>Our current recommended tooling will be documented in the packet. Please
+reach out to us if there are any concerns or questions regarding your
+application’s security validation.</p>
 
-<p>Ensure that the data flow diagram displays the flow of data, including
-PHI (protected health information), during the course of normal usage.
- The data flow diagram should also display the authentication and
- authorization decisions that are being made.</p>
-
-<h3 id="threat-model">Threat Model</h3>
-
-<p>The threat model should make use of a tool like
-<a href="https://www.microsoft.com/en-us/download/details.aspx?id=49168">Microsoft Threat Model 2016</a>
-or similar. The threat model must show the assets that the app uses during
-runtime as well as the other apps and systems that it connects to or
-accepts connections from.</p>
-
-<p>The threat model must also include the following:</p>
-
-<ul>
-  <li>Authentication interactions with external sources (for example, the Cerner OAuth service)</li>
-  <li>Information related to the hosting environment that the app is hosted in (for example, AWS, Azure, third-party, or a self-run data center)</li>
-  <li>Define the trust boundaries crossed during runtime</li>
-</ul>
-
-<p>If using the MS Threat Model 2016 tool, the found threats must be responded to in the Analysis view.</p>
-
-<h3 id="third-party-tools-and-libraries">Third-Party Tools and Libraries</h3>
-
-<p>The use of a tool like
-<a href="https://www.owasp.org/index.php/OWASP_Dependency_Check">OWASP’s Dependency Check</a>
-greatly reduces the exposure to malicious dependencies prior to deploying your app.
-Dependency Check is a utility that identifies project dependencies
-and checks if there are any known, publicly disclosed, vulnerabilities.</p>
-
-<p>We recommend that you use this tool to reveal any issues with the
-libraries that are used by the app and assist with the manual review
-of the list of third party libraries that are requested during
-a security review. If using Dependency Check, you should submit
-a report during security review.</p>
-
-<h3 id="patching-policy">Patching Policy</h3>
-
-<p>The patching policy must include how the app owner plans to patch
-its software in the event that a critical vulnerability is discovered.
-The patching policy must include timeframes for when a vulnerability
-will be patched (for example, within 48 hours of knowledge of
-a critical vulnerability, within seven days of a high vulnerability,
-and so on).</p>
 
     </div>
 
