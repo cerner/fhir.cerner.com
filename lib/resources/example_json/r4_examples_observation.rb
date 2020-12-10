@@ -499,7 +499,7 @@ module Cerner
         }
       ],
       "valueQuantity": {
-        "value": '13.2',
+        "value": 13.2,
         "unit": 'mg/dL',
         "system": 'http://unitsofmeasure.org',
         "code": 'mg/dL'
@@ -587,7 +587,7 @@ module Cerner
         }
       ],
       "valueQuantity": {
-        "value": '13.2',
+        "value": 13.2,
         "unit": 'mg/dL',
         "system": 'http://unitsofmeasure.org',
         "code": 'mg/dL'
