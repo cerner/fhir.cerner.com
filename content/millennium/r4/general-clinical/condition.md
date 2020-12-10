@@ -22,9 +22,10 @@ The following fields are returned if valued:
 * [Subject](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
 * [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
 * [Onset (dateTime)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
-* [Resolved date  (only applies to problems)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
+* [Resolved date  (only applies to problems and health-concerns)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
 * [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
 * [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
+* [Asserter](http://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter)
 * [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note)
 
 ## Terminology Bindings
@@ -39,11 +40,11 @@ Search for Conditions that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Currently `problem-list-item` and `encounter-diagnosis` are supported.
+* Currently `problem-list-item`, `encounter-diagnosis` and `health-concern` are supported.
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -53,7 +54,7 @@ _Implementation Notes_
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the condition is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
- `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item and encounter-diagnosis are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`
+ `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
 
 Notes:
 
@@ -76,6 +77,17 @@ Notes:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12742400
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_condition_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -88,7 +100,7 @@ List an individual Condition by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -107,6 +119,39 @@ List an individual Condition by its id:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request For Resolved Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p109117485
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_condition_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Active Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/a077dc30-8eee-4bb7-ae7f-ced1273f5c68
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_active_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2266495305
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_entered_in_error_entry) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -122,6 +167,7 @@ _Implementation Notes_
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 * The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
+* Currently `problem-list-item` and `encounter-diagnosis` are supported.
 
 ### Authorization Types
 
