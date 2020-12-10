@@ -81,7 +81,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_BUNDLE) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -92,7 +92,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_PATIENT_BUNDLE) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 ### Errors
 
@@ -123,7 +123,7 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTRY) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 #### Patient Authorization Request For Completed Status
 
@@ -134,7 +134,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_PATIENT_ENTRY) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
 
@@ -145,7 +145,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTERED_IN_ERROR_STATUS) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 #### Patient Authorization Request For Not done Status
 
@@ -156,7 +156,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_NOT_DONE_STATUS) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+<%= disclaimer %>
 
 ### Errors
 
