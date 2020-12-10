@@ -214,7 +214,7 @@ module Cerner
             'text': {
               'status': 'additional',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
-                     '<p>;<b>Patient</b>: Houde, Harry Potter</p><p><b>Title</b>'\
+                     '<p><b>Patient</b>: Houde, Harry Potter</p><p><b>Title</b>'\
                      ': Admission H &amp;amp; P</p><p><b>Status</b>: Active</p><p>'\
                      '<b>Intent</b>: Plan</p><p><b>Category</b>: Assessment '\
                      'and Plan of Treatment</p><p><b>Author</b>: Koester, Oliver</p>'\
