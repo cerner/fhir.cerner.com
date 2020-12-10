@@ -234,7 +234,7 @@ module Cerner
                   'name': 'category',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Condition-category',
                   'type': 'token',
-                  'documentation': 'The category of the condition. Categories problem-list-item '\
+                  'documentation': 'The category of the condition. Categories problem-list-item, '\
                                    'encounter-diagnosis and health-concern are supported as of now.'
                 }
               ]
