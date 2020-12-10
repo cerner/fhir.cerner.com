@@ -3,7 +3,6 @@
 module Cerner
   module Resources
 
-    # TODO: Missing data
     R4_CONSENT_ENTRY ||= {
       "resourceType": 'Consent',
       "id": 'AR-12742397-12724066',
