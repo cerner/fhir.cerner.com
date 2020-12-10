@@ -147,6 +147,28 @@ List an individual CarePlan by its id:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/5814234
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_entered_in_error_status) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Unknown Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/5814234
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_unknown_status) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.

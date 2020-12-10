@@ -3,7 +3,6 @@
 module Cerner
   module Resources
 
-    # TODO: Missing data
     R4_CARE_PLAN_ENTRY ||= {
       'resourceType': 'CarePlan',
       'id': '17463459',
@@ -55,30 +54,28 @@ module Cerner
       },
       'text': {
         'status': 'additional',
-        'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;'\
-               'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
-               ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
-               '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
-               'Age: 39 Years&#9;MRN: 00000006930&#10;---------------------------------------------------'\
-               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)'\
-               '&#10;&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;EDD: --&#9;EDD/EGA'\
-               'Method: Date of Conception&#9;EGA: --&#10;&#10;-----------------------------------------------'\
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
+               '<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>'\
+               '<p><b>Description</b>: SMART, NANCY&#10;DOB: 08/11/1980&#9;Age: 39 Years&#9;'\
+               'MRN: 00000006930&#10;------------------------------------------------------&#10;'\
+               '&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)&#10;'\
+               '&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;EDD: --&#9;'\
+               'EDD/EGA Method: Date of Conception&#9;EGA: --&#10;&#10;-------------------------------'\
                '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Antepartum Note&#10;&#10;&#9;'\
-               'No antepartum notes have been documented&#10;&#10;--------------------------------'\
-               '-&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
-               'Gestational diabetes mellitus, class A&gt;1&lt; (Related to Pregnant problem) (SNOMED CT: 124602011,'\
-               'Onset: 03/05/20)&#10;&#9;Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)'\
-               '&#10;&#10;Gestational hypertension (Related to Pregnant problem)'\
-               '(SNOMED CT: 495022012, Onset: 03/05/20)&#10;&#9;Comment:'\
-               'Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
-               'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;--------------------------------------------'\
-               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;'\
-               'Risk Factors (Current Pregnancy)&#10;Risk Factors: Diabetes, gestational,'\
-               'type A1, Gestational hypertension&#10;Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
-               '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;'\
-               ': Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt&'\
-               'lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SYSTEM, SYSTEM Cerner&lt;/p&gt;'\
-               '&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;/div&gt;'
+               'No antepartum notes have been documented&#10;&#10;-------------------------------------'\
+               '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
+               'Gestational diabetes mellitus, class A&gt;1&lt;'\
+               ' (Related to Pregnant problem) (SNOMED CT: 124602011, Onset: 03/05/20)&#10;&#9;'\
+               'Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+               'Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)'\
+               '&#10;&#9;Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+               'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;-----------------------&#10;&#9;&#9;&#9;&#9;'\
+               'SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;Risk Factors (Current Pregnancy)'\
+               '&#10;Risk Factors: Diabetes, gestational, type A1, Gestational hypertension&#10;'\
+               'Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
+               '***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>'\
+               '<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>: SYSTEM, SYSTEM Cerner</p>'\
+               '<p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>'
       },
       'status': 'active',
       'intent': 'plan',
@@ -105,6 +102,76 @@ module Cerner
       'author': {
         'reference': 'Practitioner/1',
         'display': 'SYSTEM, SYSTEM Cerner'
+      }
+    }.freeze
+
+    R4_CARE_PLAN_ENTERED_IN_ERROR_STATUS ||= {
+      'resourceType': 'CarePlan',
+      'id': '5814234',
+      'meta': {
+        'versionId': '2',
+        'lastUpdated': '2014-03-18T20:34:50.000Z'
+      },
+      'text': {
+        'status': 'additional',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
+               '<p><b>Patient</b>: Houde, Harry Potter</p>'\
+               '<p><b>Description</b>: well, Addendum added</p>'\
+               '<p><b>Status</b>: Entered in Error</p><p><b>Intent</b>: Plan</p>'\
+               '<p><b>Category</b>: Assessment and Plan of Treatment</p></div>'
+      },
+      'status': 'entered-in-error',
+      'intent': 'plan',
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+              'code': 'assess-plan',
+              'display': 'Assessment and Plan of Treatment'
+            }
+          ],
+          'text': 'Assessment and Plan of Treatment'
+        }
+      ],
+      'subject': {
+        'reference': 'Patient/1316020',
+        'display': 'Houde, Harry Potter'
+      }
+    }.freeze
+
+    R4_CARE_PLAN_UNKNOWN_STATUS ||= {
+      'resourceType': 'CarePlan',
+      'id': '5814234',
+      'meta': {
+        'versionId': '2',
+        'lastUpdated': '2014-03-18T20:34:50.000Z'
+      },
+      'text': {
+        'status': 'additional',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
+               '<p><b>Patient</b>: Houde, Harry Potter</p>'\
+               '<p><b>Description</b>: well, Addendum added</p>'\
+               '<p><b>Status</b>: Unknown</p><p><b>Intent</b>: Plan</p>'\
+               '<p><b>Category</b>: Assessment and Plan of Treatment</p></div>'
+      },
+      'status': 'unknown',
+      'intent': 'plan',
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+              'code': 'assess-plan',
+              'display': 'Assessment and Plan of Treatment'
+            }
+          ],
+          'text': 'Assessment and Plan of Treatment'
+        }
+      ],
+      'subject': {
+        'reference': 'Patient/1316020',
+        'display': 'Houde, Harry Potter'
       }
     }.freeze
 
@@ -146,12 +213,12 @@ module Cerner
             },
             'text': {
               'status': 'additional',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Care Plan&lt;/b&gt;&lt;/p&gt;'\
-                     '&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Houde, Harry Potter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b'\
-                     '&gt;: Admission H &amp;amp; P&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p'\
-                     '&gt;&lt;b&gt;Intent&lt;/b&gt;: Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment '\
-                     'and Plan of Treatment&lt;/p&gt;&lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: Koester, Oliver&lt;/p&gt;&lt;'\
-                     'p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Oct 23, 2015  3:25 P.M. UTC&lt;/p&gt;&lt;/div&gt;'
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
+                     '<p>;<b>Patient</b>: Houde, Harry Potter</p><p><b>Title</b>'\
+                     ': Admission H &amp;amp; P</p><p><b>Status</b>: Active</p><p>'\
+                     '<b>Intent</b>: Plan</p><p><b>Category</b>: Assessment '\
+                     'and Plan of Treatment</p><p><b>Author</b>: Koester, Oliver</p>'\
+                     '<p><b>Effective Period</b>: Oct 23, 2015  3:25 P.M. UTC</p></div>'
             },
             'status': 'active',
             'intent': 'plan',
@@ -213,31 +280,28 @@ module Cerner
             },
             'text': {
               'status': 'additional',
-              'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;'\
-                     'Care Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;'\
-                     ': SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Title&lt;/b&gt;: Pregnancy Summary Document'\
-                     '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: SMART, NANCY&#10;DOB: 08/11/1980&#9;'\
-                     'Age: 39 Years&#9;MRN: 00000006930&#10;---------------------------------------------------'\
-                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)'\
-                     '&#10;&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;'\
-                     'EDD: --&#9;EDD/EGA Method: Date of Conception&#9;EGA: --&#10;&#10;---------------------------'\
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Care Plan</b></p>'\
+                     '<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>'\
+                     '<p><b>Description</b>: SMART, NANCY&#10;DOB: 08/11/1980&#9;Age: 39 Years&#9;'\
+                     'MRN: 00000006930&#10;------------------------------------------------------&#10;'\
+                     '&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Pregnancy Summary (Date of Report: 04/04/20)&#10;'\
+                     '&#10;G 1 P 0 (0,0,0,0)&#10;Gestation: --&#9;LMP (from pt. history): --&#10;EDD: --&#9;'\
+                     'EDD/EGA Method: Date of Conception&#9;EGA: --&#10;&#10;-------------------------------'\
                      '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Antepartum Note&#10;&#10;&#9;'\
-                     'No antepartum notes have been documented&#10;&#10;--------------------------------'\
-                     '-&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
-                     'Gestational diabetes mellitus, class A&gt;1&lt; (Related to Pregnant problem)'\
-                     '(SNOMED CT: 124602011, Onset: 03/05/20)&#10;&#9;Comment'\
-                     ': Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)'\
-                     '&#10;&#10;Gestational hypertension (Related to Pregnant problem)'\
-                     '(SNOMED CT: 495022012, Onset: 03/05/20)&#10;&#9;Comment:'\
-                     'Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
-                     'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;-------------------------------------'\
-                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;'\
-                     'Risk Factors (Current Pregnancy)&#10;Risk Factors: Diabetes, gestational,'\
-                     'type A1, Gestational hypertension&#10;Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
-                     '&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;'\
-                     ': Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Assessment and Plan of Treatment&lt;/p&gt&'\
-                     'lt;p&gt;&lt;b&gt;Author&lt;/b&gt;: SYSTEM, SYSTEM Cerner&lt;/p&gt;'\
-                     '&lt;p&gt;&lt;b&gt;Effective Period&lt;/b&gt;: Apr  5, 2020  4:00 A.M. UTC&lt;/p&gt;&lt;/div&gt;'
+                     'No antepartum notes have been documented&#10;&#10;-------------------------------------'\
+                     '&#10;&#9;&#9;&#9;&#9;SMART, NANCY DOB: 08/11/80&#10;Problems (Active Problems Only)&#10;'\
+                     'Gestational diabetes mellitus, class A&gt;1&lt;'\
+                     ' (Related to Pregnant problem) (SNOMED CT: 124602011, Onset: 03/05/20)&#10;&#9;'\
+                     'Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+                     'Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)'\
+                     '&#10;&#9;Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)&#10;&#10;'\
+                     'Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)&#10;&#10;-----------------&#10;&#9;&#9;&#9;&#9;'\
+                     'SMART, NANCY DOB: 08/11/80&#10;Risk Factors and Genetic Screening&#10;'\
+                     'Risk Factors (Current Pregnancy)&#10;Risk Factors: Diabetes, gestational, type A1'\
+                     ', Gestational hypertension&#10;Risk Factors Comments: --&#10;&#10;Ethnic Screening&#10;'\
+                     '***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>'\
+                     '<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>'\
+                     ': SYSTEM, SYSTEM Cerner</p><p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>'
             },
             'status': 'active',
             'intent': 'plan',
