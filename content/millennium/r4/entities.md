@@ -6,3 +6,4 @@ layout: api
 <%= render '/entities.*' %>
 
 * [Organization](../entities/organization)
+* [Consent](../entities/consent)
