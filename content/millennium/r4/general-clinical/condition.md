@@ -22,7 +22,7 @@ The following fields are returned if valued:
 * [Subject](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
 * [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
 * [Onset (dateTime)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
-* [Resolved date  (only applies to problems)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
+* [Resolved date  (only applies to problems and health-concerns)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
 * [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
 * [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
 * [Asserter](http://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter)
