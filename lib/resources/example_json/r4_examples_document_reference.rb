@@ -6,86 +6,86 @@ module Cerner
       'resourceType': 'DocumentReference',
       'id': '197411797',
       'meta': {
-          'versionId': '1',
-          'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'versionId': '1',
+        'lastUpdated': '2020-12-10T07:20:00.000Z'
       },
       'text': {
-          'status': 'generated',
-          'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'status': 'generated',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
       },
       'status': 'current',
       'docStatus': 'final',
       'type': {
-          'coding': [
-              {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820510',
-                  'display': 'Consultation Note Generic',
-                  'userSelected': true
-              },
-              {
-                  'system': 'http://loinc.org',
-                  'code': '11488-4',
-                  'userSelected': false
-              }
-          ],
-          'text': 'Consultation Note Generic'
-      },
-      'category': [
+        'coding': [
           {
-              'coding': [
-                  {
-                      'system': 'http://loinc.org',
-                      'code': '11488-4',
-                      'userSelected': false
-                  }
-              ]
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '2820510',
+            'display': 'Consultation Note Generic',
+            'userSelected': true
           },
           {
-              'coding': [
-                  {
-                      'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                      'code': 'clinical-note',
-                      'display': 'Clinical Note',
-                      'userSelected': false
-                  }
-              ],
-              'text': 'Clinical Note'
+            'system': 'http://loinc.org',
+            'code': '11488-4',
+            'userSelected': false
           }
+        ],
+        'text': 'Consultation Note Generic'
+      },
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://loinc.org',
+              'code': '11488-4',
+              'userSelected': false
+            }
+          ]
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+              'code': 'clinical-note',
+              'display': 'Clinical Note',
+              'userSelected': false
+            }
+          ],
+          'text': 'Clinical Note'
+        }
       ],
       'subject': {
-          'reference': 'Patient/12742400',
-          'display': 'PETERS, TIM A'
+        'reference': 'Patient/12742400',
+        'display': 'PETERS, TIM A'
       },
       'author': [
-          {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
-          }
-      ],
-      'authenticator': {
+        {
           'reference': 'Practitioner/12742069',
           'display': 'Portal, Portal'
+        }
+      ],
+      'authenticator': {
+        'reference': 'Practitioner/12742069',
+        'display': 'Portal, Portal'
       },
       'content': [
-          {
-              'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:54.000Z'
-              }
+        {
+          'attachment': {
+            'contentType': 'application/pdf',
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
+            'title': 'Auto TC Summary',
+            'creation': '2020-12-10T07:19:54.000Z'
           }
+        }
       ],
       'context': {
-          'encounter': [
-              {
-                  'reference': 'Encounter/97953530'
-              }
-          ],
-          'period': {
-              'end': '2020-12-10T07:19:54.000Z'
+        'encounter': [
+          {
+            'reference': 'Encounter/97953530'
           }
+        ],
+        'period': {
+          'end': '2020-12-10T07:19:54.000Z'
+        }
       }
     }.freeze
 
@@ -93,82 +93,82 @@ module Cerner
       'resourceType': 'DocumentReference',
       'id': '197411797',
       'meta': {
-          'versionId': '1',
-          'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'versionId': '1',
+        'lastUpdated': '2020-12-10T07:20:00.000Z'
       },
       'text': {
-          'status': 'generated',
-          'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'status': 'generated',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
       },
       'status': 'current',
       'docStatus': 'final',
       'type': {
-          'coding': [
-              {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820510',
-                  'display': 'Consultation Note Generic'
-              },
-              {
-                  'system': 'http://loinc.org',
-                  'code': '11488-4'
-              }
-          ],
-          'text': 'Consultation Note Generic'
-      },
-      'category': [
+        'coding': [
           {
-              'coding': [
-                  {
-                      'system': 'http://loinc.org',
-                      'code': '11488-4'
-                  }
-              ]
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '2820510',
+            'display': 'Consultation Note Generic'
           },
           {
-              'coding': [
-                  {
-                      'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                      'code': 'clinical-note',
-                      'display': 'Clinical Note'
-                  }
-              ],
-              'text': 'Clinical Note'
+            'system': 'http://loinc.org',
+            'code': '11488-4'
           }
+        ],
+        'text': 'Consultation Note Generic'
+      },
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://loinc.org',
+              'code': '11488-4'
+            }
+          ]
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+              'code': 'clinical-note',
+              'display': 'Clinical Note'
+            }
+          ],
+          'text': 'Clinical Note'
+        }
       ],
       'subject': {
-          'reference': 'Patient/12742400',
-          'display': 'PETERS, TIM A'
+        'reference': 'Patient/12742400',
+        'display': 'PETERS, TIM A'
       },
       'author': [
-          {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
-          }
-      ],
-      'authenticator': {
+        {
           'reference': 'Practitioner/12742069',
           'display': 'Portal, Portal'
+        }
+      ],
+      'authenticator': {
+        'reference': 'Practitioner/12742069',
+        'display': 'Portal, Portal'
       },
       'content': [
-          {
-              'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:54.000Z'
-              }
+        {
+          'attachment': {
+            'contentType': 'application/pdf',
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
+            'title': 'Auto TC Summary',
+            'creation': '2020-12-10T07:19:54.000Z'
           }
+        }
       ],
       'context': {
-          'encounter': [
-              {
-                  'reference': 'Encounter/97953530'
-              }
-          ],
-          'period': {
-              'end': '2020-12-10T07:19:54.000Z'
+        'encounter': [
+          {
+            'reference': 'Encounter/97953530'
           }
+        ],
+        'period': {
+          'end': '2020-12-10T07:19:54.000Z'
+        }
       }
     }.freeze
 
@@ -190,90 +190,90 @@ module Cerner
         {
           'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
           'resource': {
-              'resourceType': 'DocumentReference',
-              'id': '197411793',
-              'meta': {
-                  'versionId': '1',
-                  'lastUpdated': '2020-12-10T07:19:56.000Z'
-              },
-              'text': {
-                  'status': 'generated',
-                  'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
-              },
-              'status': 'current',
-              'docStatus': 'final',
-              'type': {
-                  'coding': [
-                      {
-                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                          'code': '2820555',
-                          'display': 'Progress Note Generic',
-                          'userSelected': true
-                      },
-                      {
-                          'system': 'http://loinc.org',
-                          'code': '11506-3',
-                          'userSelected': false
-                      }
-                  ],
-                  'text': 'Progress Note Generic'
-              },
-              'category': [
-                  {
-                      'coding': [
-                          {
-                              'system': 'http://loinc.org',
-                              'code': '11506-3',
-                              'userSelected': false
-                          }
-                      ]
-                  },
-                  {
-                      'coding': [
-                          {
-                              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                              'code': 'clinical-note',
-                              'display': 'Clinical Note',
-                              'userSelected': false
-                          }
-                      ],
-                      'text': 'Clinical Note'
-                  }
+            'resourceType': 'DocumentReference',
+            'id': '197411793',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-12-10T07:19:56.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+            },
+            'status': 'current',
+            'docStatus': 'final',
+            'type': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820555',
+                  'display': 'Progress Note Generic',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '11506-3',
+                  'userSelected': false
+                }
               ],
-              'subject': {
-                  'reference': 'Patient/12742400',
-                  'display': 'PETERS, TIM A'
-              },
-              'author': [
+              'text': 'Progress Note Generic'
+            },
+            'category': [
+              {
+                'coding': [
                   {
-                      'reference': 'Practitioner/12742069',
-                      'display': 'Portal, Portal'
+                    'system': 'http://loinc.org',
+                    'code': '11506-3',
+                    'userSelected': false
                   }
-              ],
-              'authenticator': {
-                  'reference': 'Practitioner/12742069',
-                  'display': 'Portal, Portal'
+                ]
               },
-              'content': [
+              {
+                'coding': [
                   {
-                      'attachment': {
-                          'contentType': 'application/pdf',
-                          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                          'title': 'Auto TC Summary',
-                          'creation': '2020-12-10T07:19:53.000Z'
-                      }
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                    'code': 'clinical-note',
+                    'display': 'Clinical Note',
+                    'userSelected': false
                   }
-              ],
-              'context': {
-                  'encounter': [
-                      {
-                          'reference': 'Encounter/97953530'
-                      }
-                  ],
-                  'period': {
-                      'end': '2020-12-10T07:19:53.000Z'
-                  }
+                ],
+                'text': 'Clinical Note'
               }
+            ],
+            'subject': {
+              'reference': 'Patient/12742400',
+              'display': 'PETERS, TIM A'
+            },
+            'author': [
+              {
+                'reference': 'Practitioner/12742069',
+                'display': 'Portal, Portal'
+              }
+            ],
+            'authenticator': {
+              'reference': 'Practitioner/12742069',
+              'display': 'Portal, Portal'
+            },
+            'content': [
+              {
+                'attachment': {
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
+                  'title': 'Auto TC Summary',
+                  'creation': '2020-12-10T07:19:53.000Z'
+                }
+              }
+            ],
+            'context': {
+              'encounter': [
+                {
+                  'reference': 'Encounter/97953530'
+                }
+              ],
+              'period': {
+                'end': '2020-12-10T07:19:53.000Z'
+              }
+            }
           }
         }
       ]
@@ -297,86 +297,86 @@ module Cerner
         {
           'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
           'resource': {
-              'resourceType': 'DocumentReference',
-              'id': '197411793',
-              'meta': {
-                  'versionId': '1',
-                  'lastUpdated': '2020-12-10T07:19:56.000Z'
-              },
-              'text': {
-                  'status': 'generated',
-                  'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
-              },
-              'status': 'current',
-              'docStatus': 'final',
-              'type': {
-                  'coding': [
-                      {
-                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                          'code': '2820555',
-                          'display': 'Progress Note Generic'
-                      },
-                      {
-                          'system': 'http://loinc.org',
-                          'code': '11506-3'
-                      }
-                  ],
-                  'text': 'Progress Note Generic'
-              },
-              'category': [
-                  {
-                      'coding': [
-                          {
-                              'system': 'http://loinc.org',
-                              'code': '11506-3'
-                          }
-                      ]
-                  },
-                  {
-                      'coding': [
-                          {
-                              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                              'code': 'clinical-note',
-                              'display': 'Clinical Note'
-                          }
-                      ],
-                      'text': 'Clinical Note'
-                  }
+            'resourceType': 'DocumentReference',
+            'id': '197411793',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-12-10T07:19:56.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+            },
+            'status': 'current',
+            'docStatus': 'final',
+            'type': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820555',
+                  'display': 'Progress Note Generic'
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '11506-3'
+                }
               ],
-              'subject': {
-                  'reference': 'Patient/12742400',
-                  'display': 'PETERS, TIM A'
-              },
-              'author': [
+              'text': 'Progress Note Generic'
+            },
+            'category': [
+              {
+                'coding': [
                   {
-                      'reference': 'Practitioner/12742069',
-                      'display': 'Portal, Portal'
+                    'system': 'http://loinc.org',
+                    'code': '11506-3'
                   }
-              ],
-              'authenticator': {
-                  'reference': 'Practitioner/12742069',
-                  'display': 'Portal, Portal'
+                ]
               },
-              'content': [
+              {
+                'coding': [
                   {
-                      'attachment': {
-                          'contentType': 'application/pdf',
-                          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                          'title': 'Auto TC Summary',
-                          'creation': '2020-12-10T07:19:53.000Z'
-                      }
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                    'code': 'clinical-note',
+                    'display': 'Clinical Note'
                   }
-              ],
-              'context': {
-                  'encounter': [
-                      {
-                          'reference': 'Encounter/97953530'
-                      }
-                  ],
-                  'period': {
-                      'end': '2020-12-10T07:19:53.000Z'
-                  }
+                ],
+                'text': 'Clinical Note'
               }
+            ],
+            'subject': {
+              'reference': 'Patient/12742400',
+              'display': 'PETERS, TIM A'
+            },
+            'author': [
+              {
+                'reference': 'Practitioner/12742069',
+                'display': 'Portal, Portal'
+              }
+            ],
+            'authenticator': {
+              'reference': 'Practitioner/12742069',
+              'display': 'Portal, Portal'
+            },
+            'content': [
+              {
+                'attachment': {
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
+                  'title': 'Auto TC Summary',
+                  'creation': '2020-12-10T07:19:53.000Z'
+                }
+              }
+            ],
+            'context': {
+              'encounter': [
+                {
+                  'reference': 'Encounter/97953530'
+                }
+              ],
+              'period': {
+                'end': '2020-12-10T07:19:53.000Z'
+              }
+            }
           }
         }
       ]
