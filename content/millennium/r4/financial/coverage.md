@@ -48,7 +48,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 Search for Patient-level or Encounter-level Coverages that meet supplied query parameters:
 
-    GET /Coverages?:parameters
+    GET /Coverage?:parameters
     
 _Implementation Notes_
   
