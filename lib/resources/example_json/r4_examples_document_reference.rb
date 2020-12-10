@@ -11,7 +11,10 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b>'\
+               '</p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
+               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
+               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
       },
       'status': 'current',
       'docStatus': 'final',
@@ -98,7 +101,10 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+               '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
+               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
+               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
       },
       'status': 'current',
       'docStatus': 'final',
@@ -198,7 +204,11 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
+                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
+                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p>'\
+                     '<b>Verifying Provider</b>: Portal, Portal</p></div>'
             },
             'status': 'current',
             'docStatus': 'final',
@@ -305,7 +315,11 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p><p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
+                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
+                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p>'\
+                     '<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
             },
             'status': 'current',
             'docStatus': 'final',
