@@ -317,12 +317,12 @@ module Cerner
       "link": [
           {
               "relation": "self",
-              "url": "http://localhost:3000/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12724066"
+              "url": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12724066"
           }
       ],
       "entry": [
           {
-              "fullUrl": "http://localhost:3000/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760051",
+              "fullUrl": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760051",
               "resource": {
                   "resourceType": "AllergyIntolerance",
                   "id": "12760051",
@@ -361,7 +361,7 @@ module Cerner
               }
           },
           {
-              "fullUrl": "http://localhost:3000/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12765895",
+              "fullUrl": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12765895",
               "resource": {
                   "resourceType": "AllergyIntolerance",
                   "id": "12765895",
@@ -409,7 +409,7 @@ module Cerner
               }
           },
           {
-              "fullUrl": "http://localhost:3000/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12766993",
+              "fullUrl": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12766993",
               "resource": {
                   "resourceType": "AllergyIntolerance",
                   "id": "12766993",
@@ -467,7 +467,7 @@ module Cerner
               }
           },
           {
-              "fullUrl": "http://localhost:3000/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12765967",
+              "fullUrl": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12765967",
               "resource": {
                   "resourceType": "AllergyIntolerance",
                   "id": "12765967",
