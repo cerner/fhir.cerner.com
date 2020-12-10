@@ -147,7 +147,7 @@ module Cerner
       'resourceType': 'Condition',
       'id': 'd2266495305',
       'meta': {
-        'versionId': '73080185'
+        'versionId': '2266495305'
       },
       'text': {
         'status': 'generated',
