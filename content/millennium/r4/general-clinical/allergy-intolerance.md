@@ -50,7 +50,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -76,6 +76,16 @@ Search for AllergyIntolerances that meet supplied query parameters:
 <%= json(:r4_allergy_intolerance_bundle) %>
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12742399
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_allergy_intolerance_patient_bundle) %>
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -88,7 +98,7 @@ List an individual AllergyIntolerance by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -104,6 +114,26 @@ List an individual AllergyIntolerance by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_allergy_intolerance_entry ) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request For Confirmed Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_allergy_intolerance_patient_entry ) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760051
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_allergy_intolerance_entered_in_error_status ) %>
 <%= disclaimer %>
 
 ### Errors

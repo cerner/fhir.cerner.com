@@ -84,6 +84,103 @@ module Cerner
       ]
     }.freeze
 
+    R4_ALLERGY_INTOLERANCE_PATIENT_ENTRY ||= {
+      "resourceType": 'AllergyIntolerance',
+      "id": '12766993',
+      "meta": {
+        "versionId": '12766993',
+        "lastUpdated": '2020-10-14T19:24:57Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Allergy Intolerance</b></p>'\
+               '<p><b>Patient</b>: SMART, NANCY</p><p><b>Allergy</b>: Penicillium brevicompactum (organism)</p>'\
+                '<p><b>Verification Status</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p>'\
+                '<p><b>Criticality</b>: High Risk</p><p><b>Category</b>: Medication</p></div>'
+      },
+      "clinicalStatus": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+            "code": 'active',
+            "display": 'Active'
+          }
+        ],
+        "text": 'Active'
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+            "code": 'confirmed',
+            "display": 'Confirmed'
+          }
+        ],
+        "text": 'Active'
+      },
+      "type": 'allergy',
+      "category": [
+        'medication'
+      ],
+      "criticality": 'high',
+      "code": {
+        "coding": [
+          {
+            "system": 'http://snomed.info/sct',
+            "code": '5711000146109',
+            "display": 'Penicillium brevicompactum (organism)'
+          }
+        ],
+        "text": 'Penicillium brevicompactum'
+      },
+      "patient": {
+        "reference": 'Patient/12724066',
+        "display": 'SMART, NANCY'
+      },
+      "encounter": {
+        "reference": 'Encounter/97955410'
+      },
+      "recordedDate": '2020-10-14T19:24:57Z'
+    }.freeze
+
+    R4_ALLERGY_INTOLERANCE_ENTERED_IN_ERROR_STATUS ||= {
+      "resourceType": 'AllergyIntolerance',
+      "id": '12760051',
+      "meta": {
+        "versionId": '12765897',
+        "lastUpdated": '2020-09-21T07:48:43Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Allergy Intolerance</b></p>'\
+              '<p><b>Patient</b>: SMART, NANCY</p><p><b>Verification Status</b>: Entered in Error</p></div>'
+      },
+      "verificationStatus": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+            "code": 'entered-in-error',
+            "display": 'Entered in Error'
+          }
+        ],
+        "text": 'Canceled'
+      },
+      "code": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'error',
+            "display": 'Error'
+          }
+        ],
+        "text": 'Error'
+      },
+      "patient": {
+        "reference": 'Patient/12724066',
+        "display": 'SMART, NANCY'
+      }
+    }.freeze
+
     R4_ALLERGY_INTOLERANCE_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '30e959ca-24f5-43a5-bf8d-46bbb1991b01',
@@ -213,6 +310,24 @@ module Cerner
               }
             ]
           }
+        }
+      ]
+    }.freeze
+
+    R4_ALLERGY_INTOLERANCE_PATIENT_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": '92a4b8d7-58dc-4b37-b387-bebeb68def51',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12724066'
+        }
+      ],
+      "entry": [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12766993',
+          'resource': R4_ALLERGY_INTOLERANCE_PATIENT_ENTRY
         }
       ]
     }.freeze
