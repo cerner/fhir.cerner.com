@@ -6,5 +6,6 @@ layout: api
 <%= render '/care-provision_r4.*' %>
 * [CarePlan](../care-provision/care-plan)
 * [CareTeam](../care-provision/care-team)
+* [Goal](../care-provision/goal)
 * [NutritionOrder](../care-provision/nutrition-order)
 * [ServiceRequest](../care-provision/service-request)
