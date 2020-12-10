@@ -103,7 +103,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&-location=Location/32216049
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&-location=Location/32216049
 
 #### Response
 
@@ -116,7 +116,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
 
 #### Response
 
