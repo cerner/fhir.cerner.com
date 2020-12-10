@@ -3,5 +3,6 @@ title: Other | R4 API
 layout: api
 ---
 
-<%= render '/other.*' %>
+<%= render '/millennium/r4/other.*' %>
+
 * [Binary](../other/binary)

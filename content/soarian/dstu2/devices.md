@@ -3,5 +3,6 @@ title: Devices
 layout: api
 ---
 
-<%= render '/devices.*' %>
+<%= render '/soarian/dstu2/devices.*' %>
+
 * [Device](../devices/device)

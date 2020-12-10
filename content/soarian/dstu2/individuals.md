@@ -3,5 +3,6 @@ title: Individuals
 layout: api
 ---
 
-<%= render '/individuals.*' %>
+<%= render '/soarian/dstu2/individuals.*' %>
+
 * [Patient](../individuals/patient)

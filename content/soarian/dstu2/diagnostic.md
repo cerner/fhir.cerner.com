@@ -3,6 +3,7 @@ title: Diagnostic
 layout: api
 ---
 
-<%= render '/diagnostic.*' %>
+<%= render '/soarian/dstu2/diagnostic.*' %>
+
 * [DiagnosticReport](../diagnostic/diagnostic-report)
 * [Observation](../diagnostic/observation)

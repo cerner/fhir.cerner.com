@@ -3,7 +3,8 @@ title: Financial | R4 API
 layout: api
 ---
 
-<%= render '/financial.*' %>
+<%= render '/millennium/r4/financial.*' %>
+
 * [Account](../financial/account)
 * [Coverage](../financial/coverage)
 * [FinancialTransaction](../financial/financial-transaction)

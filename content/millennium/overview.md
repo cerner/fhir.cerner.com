@@ -1,6 +1,6 @@
 ---
 title: Overview
-layout: millennium-overview
+layout: millennium/overview
 ---
 
 # Overview
@@ -38,4 +38,4 @@ CapabilityStatement (R4) endpoints for the list of supported resources and actio
 The table below gives a live view of what resources and actions are currently supported by our DSTU 2 and R4 
 implementations for system and provider access.
 
-<%= render '/millennium_diff_table.*' %>
+<%= render '/millennium/diff_table.*' %>

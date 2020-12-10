@@ -3,5 +3,6 @@ title: Documents | R4 API
 layout: api
 ---
 
-<%= render '/documents.*' %>
+<%= render '/millennium/r4/documents.*' %>
+
 * [DocumentReference](../documents/document-reference)

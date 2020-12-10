@@ -3,5 +3,6 @@ title: Care Provision
 layout: api
 ---
 
-<%= render '/care-provision.*' %>
+<%= render '/soarian/dstu2/care-provision.*' %>
+
 * [CarePlan](../care-provision/careplan)

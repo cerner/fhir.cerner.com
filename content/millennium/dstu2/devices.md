@@ -3,5 +3,6 @@ title: Devices | DSTU 2 API
 layout: api
 ---
 
-<%= render '/devices.*' %>
+<%= render '/millennium/dstu2/devices.*' %>
+
 * [Device](../devices/device)
