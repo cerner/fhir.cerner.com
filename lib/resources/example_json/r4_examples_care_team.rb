@@ -7,7 +7,7 @@ module Cerner
       'resourceType': 'CareTeam',
       'id': 'CT-119078440-34768489-17490349-4048128-0-22554767',
       'meta': {
-        'versionId': '1_584_980_008',
+        'versionId': '1584980008',
         'lastUpdated': '2020-03-23T16:13:28Z'
       },
       'text': {
