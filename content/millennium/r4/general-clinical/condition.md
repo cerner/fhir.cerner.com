@@ -77,6 +77,17 @@ Notes:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12742400
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_condition_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -89,7 +100,7 @@ List an individual Condition by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -105,6 +116,39 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Resolved Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p109117485
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_condition_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Active Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/a077dc30-8eee-4bb7-ae7f-ced1273f5c68
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_active_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2266495305
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_entered_in_error_entry) %>
 
 <%= disclaimer %>
 
