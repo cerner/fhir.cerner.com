@@ -1,0 +1,20 @@
+---
+name: Resource
+field_name_base_url: https://hl7.org/fhir/R4/resource-definitions.html#Resource
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "Resource"
+    }
+  note: resourceType must be Resource
+  url: https://hl7.org/fhir/r4/json.html#resources
+
+- name: field
+  required: 'Yes'
+  type: code
+  description: 'TODO-new-solution: Add other fields for creates or terminology bindings as appropriate. If applicable you may save this file in /dstu2 or /r4 instead of a new directory.'

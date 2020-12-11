@@ -8,6 +8,7 @@ module AttributesHelper
       elsif item.identifier.to_s.include? '/r4'
         item[:version] = 'r4'
       end
+      # TODO-new-solution: add an elsif to this block
     end
   end
 
@@ -18,6 +19,7 @@ module AttributesHelper
       elsif item.identifier.to_s.start_with? '/soarian'
         item[:solution] = 'soarian'
       end
+      # TODO-new-solution: add an elsif to this block
     end
   end
 
