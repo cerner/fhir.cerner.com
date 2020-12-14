@@ -24,10 +24,23 @@ The following fields are returned if valued:
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
 * [Part Of](http://hl7.org/fhir/R4/location-definitions.html#Location.partOf){:target="_blank"}
+* [Extensions including custom attribute](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
 <%= terminology_table(:location, :r4) %>
+
+## Extensions
+
+* [Custom Attribute]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                                                        | Value\[x] Type                                                   | Description
+-----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
+ `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], or [`CodeableConcept`].
 
 ## Search
 
@@ -97,6 +110,10 @@ List an individual Location by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
+[`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`token`]: http://hl7.org/fhir/r4/search.html#token
+[Custom Attribute]: #custom-extensions
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes

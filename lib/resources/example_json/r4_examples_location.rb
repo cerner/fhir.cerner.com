@@ -26,6 +26,32 @@ module Cerner
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Location</b></p><p><b>Name</b>: BE 1 North</p><p><b>Alias</b>: BE 1N</p><p><b>Managing Organization</b>: Baseline East Medical Center</p><p><b>Part Of</b>: 21250403</p><p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>"
                 },
+                "extension": [
+                    {
+                        "extension": [
+                            {
+                                "id": "20356268",
+                                "valueString": "Core Measure Locations",
+                                "url": "custom-attribute-name"
+                            },
+                            {
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/4678015",
+                                            "code": "20140683",
+                                            "display": "ED",
+                                            "userSelected": true
+                                        }
+                                    ],
+                                    "text": "ED"
+                                },
+                                "url": "custom-attribute-value"
+                            }
+                        ],
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+                    }
+                ],
                 "status": "active",
                 "name": "BE 1 North",
                 "alias": [
@@ -92,6 +118,32 @@ module Cerner
                     "status": "generated",
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Location</b></p><p><b>Name</b>: BE 1 North</p><p><b>Alias</b>: BE 1N</p><p><b>Managing Organization</b>: Baseline East Medical Center</p><p><b>Part Of</b>: 21250403</p><p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>"
                 },
+                "extension": [
+                    {
+                        "extension": [
+                            {
+                                "id": "20356268",
+                                "valueString": "Core Measure Locations",
+                                "url": "custom-attribute-name"
+                            },
+                            {
+                                "valueCodeableConcept": {
+                                    "coding": [
+                                        {
+                                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/4678015",
+                                            "code": "20140683",
+                                            "display": "ED",
+                                            "userSelected": true
+                                        }
+                                    ],
+                                    "text": "ED"
+                                },
+                                "url": "custom-attribute-value"
+                            }
+                        ],
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+                    }
+                ],
                 "status": "active",
                 "name": "BE 1 North",
                 "alias": [
