@@ -78,7 +78,7 @@ _Implementation Notes_
 
 #### Patient Authorization Request
 
-    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
 
 #### Response
 
@@ -116,7 +116,7 @@ List an individual DocumentReference by its id:
 
 #### Patient Authorization Request
 
-    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
 
 #### Response
 
