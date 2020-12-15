@@ -317,6 +317,9 @@ module Cerner
       ]
     }.freeze
 
+    # will update with response body once code is deployed
+    R4_RELATEDPERSON_ENCOUNTER_BUNDLE ||= { }
+
     R4_RELATEDPERSON_CREATE ||= {
 
       'resourceType': 'RelatedPerson',

@@ -55,11 +55,13 @@ Search for RelatedPersons that meet supplied query parameters:
 
 ### Parameters
 
- Name         | Required?                                         | Type          | Description
---------------|---------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------
- `_id`        | This or `patient` or `identifier` | [`token`]     | The logical resource id associated with the resource.
- `identifier` | This or `_id` or `patient`        | [`token`]     | A RelatedPerson identifier.
- `patient`    | This or `_id` or `identifier`     | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
+ Name                  | Required?                                            | Type          | Description
+-----------------------|------------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`                 | This or `patient` or `identifier` or `-encounter`    | [`token`]     | The logical resource id associated with the resource.
+ `identifier`          | This or `_id` or `patient` or `-encounter`           | [`token`]     | A RelatedPerson identifier.
+ `patient`             | This or `_id` or `identifier` or `-encounter`        | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
+ `-encounter`          | This or `_id` or `patient` or `identifier`           | [`reference`] | Will be needed for encounter level RelatedPersons
+ `-relationship-level` | This must be provided with `patient` or `identifier` | [`reference`] | Will be needed for patient and identifier
 
 Notes:
 
@@ -69,7 +71,7 @@ Notes:
 
 <%= headers %>
 
-### Example
+### Example - Patient-level RelatedPerson
 
 #### Request
 
@@ -79,6 +81,17 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_bundle) %>
+
+### Example - Encounter-level RelatedPerson
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=97697434
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_encounter_bundle) %>
 
 ### Errors
 
