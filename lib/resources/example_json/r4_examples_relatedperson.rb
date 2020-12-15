@@ -169,146 +169,146 @@ module Cerner
       'id': 'E-12457994-97697434',
       'meta': {
         'versionId': '21',
-      'lastUpdated': '2018-10-30T14:17:47.000Z'
-    },
-      'text': {
-      'status': 'extensions',
-      'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>'\
-             ': MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>: female</p><p><b>Patient</b>'\
-             ': NEWBORN, TESTTHREE</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Default Guarantor</p>'\
-             '<p><b>Relationship</b>: Child</p><p><b>Relationship Level</b>: Encounter</p><p><b>Encounter</b>: 97697434'\
-             '</p></div>'
-    },
-    'extension': [
-      {
-        'valueReference': {
-        'reference': 'Encounter/97697434'
-        },
-        'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter'
+        'lastUpdated': '2018-10-30T14:17:47.000Z'
       },
-      {
-        'valueCodeableConcept': {
+      'text': {
+        'status': 'extensions',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>'\
+               ': MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>: female</p><p><b>Patient</b>'\
+               ': NEWBORN, TESTTHREE</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Default Guarantor</p><p>'\
+               '<b>Relationship</b>: Child</p><p><b>Relationship Level</b>: Encounter</p><p><b>Encounter</b>: 97697434'\
+               '</p></div>'
+      },
+      'extension': [
+        {
+          'valueReference': {
+            'reference': 'Encounter/97697434'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter'
+        },
+        {
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Encounter',
+                'display': 'Encounter'
+              }
+            ],
+            'text': 'Encounter'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+        }
+      ],
+      'active': true,
+      'patient': {
+        'reference': 'Patient/12457995',
+        'display': 'NEWBORN, TESTTHREE'
+      },
+      'relationship': [
+        {
+          'id': 'CI-97982588-0-0',
           'coding': [
             {
-              'system': 'http://hl7.org/fhir/resource-types',
-              'code': 'Encounter',
-              'display': 'Encounter'
+              'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351',
+              'code': '1150',
+              'display': 'Default Guarantor',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'GT',
+              'display': 'Guarantor',
+              'userSelected': false
             }
           ],
-          'text': 'Encounter'
+          'text': 'Default Guarantor'
         },
-        'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
-      }
-    ],
-    'active': true,
-    'patient': {
-      'reference': 'Patient/12457995',
-      'display': 'NEWBORN, TESTTHREE'
-    },
-    "relationship": [
-      {
-        'id': 'CI-97982588-0-0',
-        'coding': [
-          {
-            'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351',
-            'code': '1150',
-            'display': 'Default Guarantor',
-            'userSelected': true
-          },
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-            'code': 'GT',
-            'display': 'Guarantor',
-            'userSelected': false
-          }
-        ],
-        'text': 'Default Guarantor'
-      },
-      {
-        'id': 'CI-97982588-1-0',
-        'coding': [
-          {
-            'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40',
-            'code': '670847',
-            'display': 'Child',
-            'userSelected': true
-          },
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-            'code': 'CHILD',
-            'display': 'child',
-            'userSelected': false
-          }
-        ],
-      'text': 'Child'
-      }
-    ],
-    'name': [
-      {
-        'use': 'official',
-        'text': 'MATERNITY, TESTTHREE',
-        'family': 'MATERNITY',
-        'given': [
-          'TESTTHREE'
-        ],
-        'period': {
-        'start': '2016-12-08T21:28:22.000Z'
+        {
+          'id': 'CI-97982588-1-0',
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40',
+              'code': '670847',
+              'display': 'Child',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'CHILD',
+              'display': 'child',
+              'userSelected': false
+            }
+          ],
+          'text': 'Child'
         }
-      }
-    ],
-    'telecom': [
-      {
-        'id': 'CI-PH-29583893-0',
-        'system': 'phone',
-        'value': '4264758753',
-        'use': 'home',
-        'period': {
-          'start': '2016-12-08T21:28:22.000Z'
-        }
-      }
-    ],
-    'gender': 'female',
-    'birthDate': '1987-06-20',
-    'address': [
-      {
-        'id': 'CI-24079465-0',
-        'use': 'home',
-        'text': "3343 Genessee St\nKansas City, MO 64111\nUS",
-        'line': [
-          '3343 Genessee St'
-        ],
-        'city': 'Kansas City',
-        'state': 'MO',
-        'postalCode': '64111',
-        'country': 'US',
-        'period': {
-          'start': '2016-12-08T21:05:59.000Z'
-        }
-      }
-    ],
-    'communication': [
-      {
-      'language': {
-        'coding': [
-          {
-            'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36',
-            'code': '151',
-            'display': 'English',
-            'userSelected': true
-          },
-          {
-            'system': 'urn:ietf:bcp:47',
-            'code': 'en',
-            'display': 'English',
-            'userSelected': false
+      ],
+      'name': [
+        {
+          'use': 'official',
+          'text': 'MATERNITY, TESTTHREE',
+          'family': 'MATERNITY',
+          'given': [
+            'TESTTHREE'
+          ],
+          'period': {
+            'start': '2016-12-08T21:28:22.000Z'
           }
-        ],
-        'text': 'English'
-      },
-      'preferred': 'true'
-      }
-    ]
-  }.freeze
+        }
+      ],
+      'telecom': [
+        {
+          'id': 'CI-PH-29583893-0',
+          'system': 'phone',
+          'value': '4264758753',
+          'use': 'home',
+          'period': {
+            'start': '2016-12-08T21:28:22.000Z'
+          }
+        }
+      ],
+      'gender': 'female',
+      'birthDate': '1987-06-20',
+      'address': [
+        {
+          'id': 'CI-24079465-0',
+          'use': 'home',
+          'text': "3343 Genessee St\nKansas City, MO 64111\nUS",
+          'line': [
+            '3343 Genessee St'
+          ],
+          'city': 'Kansas City',
+          'state': 'MO',
+          'postalCode': '64111',
+          'country': 'US',
+          'period': {
+            'start': '2016-12-08T21:05:59.000Z'
+          }
+        }
+      ],
+      'communication': [
+        {
+          'language': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36',
+                'code': '151',
+                'display': 'English',
+                'userSelected': true
+              },
+              {
+                'system': 'urn:ietf:bcp:47',
+                'code': 'en',
+                'display': 'English',
+                'userSelected': false
+              }
+            ],
+            'text': 'English'
+          },
+          'preferred': 'true'
+        }
+      ]
+    }.freeze
 
     R4_RELATEDPERSON_BUNDLE ||= {
       'resourceType': 'Bundle',

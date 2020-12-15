@@ -26,7 +26,7 @@ The following fields are returned if valued:
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
-* [Extensions including relationship level and encounter](#extensions){:target="_blank"}
+* [Extensions including related person encounter and relationship level](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -34,7 +34,7 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Encounter]
+* [Related Person Encounter]
 * [Relationship Level]
 
 ### Custom Extensions
@@ -43,8 +43,8 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                         | Value\[x] Type      | Description
 ----------------------------|---------------------|----------------------------------------------------------------------------
- `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
  `related-person-encounter` | [`Reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
+ `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
 
 ## Search
 
