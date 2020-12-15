@@ -102,6 +102,278 @@ module Cerner
       ]
     }.freeze
 
+    R4_PROCEDURE_PATIENT_ENTRY ||= {
+      "resourceType": 'Procedure',
+      "id": '2572581295',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2020-09-25T20:13:56Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date</b>: Apr  5, 2019</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p><p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&apos;s Health Cerner</li></ul></div>' # rubocop:disable Layout/LineLength
+      },
+      "status": 'completed',
+      "code": {
+        "coding": [
+          {
+            "system": 'http://snomed.info/sct',
+            "code": '119954001',
+            "display": 'Adenoid excision (procedure)',
+            "userSelected": true
+          }
+        ],
+        "text": 'Adenoid excision (text)'
+      },
+      "subject": {
+        "reference": 'Patient/12724066',
+        "display": 'SMART, NANCY'
+      },
+      "encounter": {
+        "reference": 'Encounter/97953477'
+      },
+      "performedDateTime": '2019-04-05',
+      "recorder": {
+        "reference": 'Practitioner/1',
+        "display": 'SYSTEM, SYSTEM Cerner'
+      },
+      "performer": [
+        {
+          "actor": {
+            "reference": 'Practitioner/4122630',
+            "display": "Cerner Test, Physician - Women's Health Cerner"
+          }
+        }
+      ],
+      "location": {
+        "display": 'Baseline East'
+      },
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/4122630',
+            "display": "Cerner Test, Physician - Women's Health Cerner"
+          },
+          "time": '2019-04-05T20:21:46Z',
+          "text": 'Procedure comment'
+        }
+      ]
+    }.freeze
+
+    R4_PROCEDURE_PATIENT_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": '53ac99d1-c76b-4a07-90f8-73d13a01459b',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572581295',
+          "resource": R4_PROCEDURE_PATIENT_ENTRY
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572476121',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572476121',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-24T08:42:34Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "status": 'completed',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '119954001',
+                  "display": 'Adenoid excision (procedure)',
+                  "userSelected": true
+                }
+              ],
+              "text": 'Adenoid excision (text)'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97953477'
+            },
+            "_performedDateTime": {
+              "extension": [
+                {
+                  "valueCode": 'unknown',
+                  "url": 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                }
+              ]
+            },
+            "recorder": {
+              "reference": 'Practitioner/1',
+              "display": 'SYSTEM, SYSTEM Cerner'
+            }
+          }
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572738987',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572738987',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-11-15T17:38:18Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Advance Care Planning; first 30 minutes</p><p><b>Date</b>: Oct 12, 2020</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: PWAffirmHealth, MDCardio</p><p><b>Performer</b>:</p><ul><li>Carter, Kristin Cerner</li></ul></div>' # rubocop:disable Layout/LineLength
+            },
+            "status": 'completed',
+            "code": {
+              "text": 'Advance Care Planning; first 30 minutes'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97954095'
+            },
+            "performedDateTime": '2020-10-12',
+            "recorder": {
+              "reference": 'Practitioner/12743411',
+              "display": 'PWAffirmHealth, MDCardio'
+            },
+            "performer": [
+              {
+                "actor": {
+                  "reference": 'Practitioner/11817978',
+                  "display": 'Carter, Kristin Cerner'
+                }
+              }
+            ],
+            "note": [
+              {
+                "authorReference": {
+                  "reference": 'Practitioner/12743411',
+                  "display": 'PWAffirmHealth, MDCardio'
+                },
+                "time": '2020-11-15T17:38:18Z',
+                "text": 'Patient voluntarily discussed advance care planning with MDCardio PWAffirmHealth (on behalf of Kristin Cerner Carter) on 10/12/2020 for 16 minutes for an annual discussion.' # rubocop:disable Layout/LineLength
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572382193',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572382193',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-06-11T04:02:54Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Appendectomy;</p><p><b>Date</b>: 2002</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: Cerner Test, Physician - Women&apos;s Health Cerner</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "status": 'completed',
+            "code": {
+              "text": 'Appendectomy;'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97953477'
+            },
+            "performedDateTime": '2002',
+            "recorder": {
+              "reference": 'Practitioner/4122630',
+              "display": "Cerner Test, Physician - Women's Health Cerner"
+            }
+          }
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572571307',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572571307',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-09-22T16:44:30Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Application of hip spica cast; 1 and one-half spica or both legs</p><p><b>Date</b>: Sep 19, 2019</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: PWJuxly, PhysicianHosp</p></div>' # rubocop:disable Layout/LineLength
+            },
+            "status": 'completed',
+            "code": {
+              "text": 'Application of hip spica cast; 1 and one-half spica or both legs'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97939539'
+            },
+            "performedDateTime": '2019-09-19',
+            "recorder": {
+              "reference": 'Practitioner/12742711',
+              "display": 'PWJuxly, PhysicianHosp'
+            }
+          }
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572383421',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572383421',
+            "meta": {
+              "versionId": '1',
+              "lastUpdated": '2020-09-17T22:10:16Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts</p><p><b>Date</b>: 2018</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: Cerner Test, Physician - Oncology Cerner</p><p><b>Performer</b>:</p><ul><li>PWJuxly, PhysicianHosp</li></ul></div>' # rubocop:disable Layout/LineLength
+            },
+            "status": 'completed',
+            "code": {
+              "text": 'Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97953477'
+            },
+            "performedDateTime": '2018',
+            "recorder": {
+              "reference": 'Practitioner/763923',
+              "display": 'Cerner Test, Physician - Oncology Cerner'
+            },
+            "performer": [
+              {
+                "actor": {
+                  "reference": 'Practitioner/12742711',
+                  "display": 'PWJuxly, PhysicianHosp'
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }.freeze
+
     R4_PROCEDURE_CREATE ||= {
       'resourceType': 'Procedure',
       'status': 'completed',
