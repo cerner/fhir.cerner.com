@@ -160,7 +160,7 @@ module Cerner
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
+            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
             'title': 'Auto TC Summary',
             'creation': '2020-12-10T07:19:54.000Z'
           }
@@ -375,7 +375,7 @@ module Cerner
               {
                 'attachment': {
                   'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
+                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
                   'title': 'Auto TC Summary',
                   'creation': '2020-12-10T07:19:53.000Z'
                 }
