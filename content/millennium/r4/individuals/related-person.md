@@ -64,11 +64,12 @@ Search for RelatedPersons that meet supplied query parameters:
  `identifier`          | This or `_id` or `patient` or `-encounter`               | [`token`]     | A RelatedPerson identifier.
  `patient`             | This or `_id` or `identifier` or `-encounter`            | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
  `-encounter`          | This or `_id` or `patient` or `identifier`               | [`reference`] | A reference to an encounter associated with the RelatedPerson. Example: `97697434`
- `-relationship-level` | This can only be provided with `patient` or `identifier` | [`token`]     | The resource’s relationship to patient. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`
+ `-relationship-level` | This can only be provided with `patient` or `identifier` | [`token`]     | The level of relationship for the RelatedPerson. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`
 
 Notes:
 
 - When provided, the `identifier` query parameter must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F`
+- `-relationship-level= http://hl7.org/fhir/resource-types|Patient` will be required with patient and identifier searches in the future.
 
 ### Headers
 
