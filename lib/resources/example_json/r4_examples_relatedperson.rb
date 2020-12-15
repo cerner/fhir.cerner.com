@@ -584,157 +584,161 @@ module Cerner
   }.freeze
 
     R4_RELATEDPERSON_ENCOUNTER_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "b0937853-58f1-44e6-be02-0fa5c4862af8",
-      "type": "searchset",
-      "total": 1,
-      "link": [
+      'resourceType': 'Bundle',
+      'id': 'b0937853-58f1-44e6-be02-0fa5c4862af8',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
         {
-          "relation": "self",
-          "url": "https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson?-encounter=97697434"
+          'relation': 'self',
+          'url': 'https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson?-encounter=97697434'
         }
       ],
-      "entry": [
+      'entry': [
         {
-          "fullUrl": "https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson/E-12457994-97697434",
-          "resource": {
-            "resourceType": "RelatedPerson",
-            "id": "E-12457994-97697434",
-            "meta": {
-              "versionId": "21",
-              "lastUpdated": "2018-10-30T14:17:47.000Z"
+          'fullUrl': 'https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson/E-12457994-97697434',
+          'resource': {
+            'resourceType': 'RelatedPerson',
+            'id': 'E-12457994-97697434',
+            'meta': {
+              'versionId': '21',
+              'lastUpdated': '2018-10-30T14:17:47.000Z'
             },
-            "text": {
-              "status": "extensions",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>: MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>: female</p><p><b>Patient</b>: NEWBORN, TESTTHREE</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Default Guarantor</p><p><b>Relationship</b>: Child</p><p><b>Relationship Level</b>: Encounter</p><p><b>Encounter</b>: 97697434</p></div>"
+            'text': {
+              'status': 'extensions',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>: '\
+                      'MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>: female</p><p><b>Patient</b>: '\
+                      'NEWBORN, TESTTHREE</p><p><b>Status</b>: Active</p><p><b>Relationship</b>:'\
+                      'Default Guarantor</p><p><b>Relationship</b>: Child</p><p><b>Relationship Level</b>: '\
+                      'Encounter</p><p><b>Encounter</b>: 97697434</p></div>'
             },
-            "extension": [
+            'extension': [
               {
-                "valueReference": {
-                "reference": "Encounter/97697434"
+                'valueReference': {
+                'reference': 'Encounter/97697434'
                 },
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter"
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter'
               },
               {
-                "valueCodeableConcept": {
-                  "coding": [
+                'valueCodeableConcept': {
+                  'coding': [
                     {
-                      "system": "http://hl7.org/fhir/resource-types",
-                      "code": "Encounter",
-                      "display": "Encounter"
+                      'system': 'http://hl7.org/fhir/resource-types',
+                      'code': 'Encounter',
+                      'display': 'Encounter'
                     }
                   ],
-                  "text": "Encounter"
+                  'text': 'Encounter'
                 },
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
               }
             ],
-            "active": true,
-            "patient": {
-              "reference": "Patient/12457995",
-              "display": "NEWBORN, TESTTHREE"
+            'active': true,
+            'patient': {
+              'reference': 'Patient/12457995',
+              'display': 'NEWBORN, TESTTHREE'
             },
-            "relationship": [
+            'relationship': [
               {
-                "id": "CI-97982588-0-0",
-                "coding": [
+                'id': 'CI-97982588-0-0',
+                'coding': [
                   {
-                    "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351",
-                    "code": "1150",
-                    "display": "Default Guarantor",
-                    "userSelected": true
+                    'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351',
+                    'code': '1150',
+                    'display': 'Default Guarantor',
+                    'userSelected': true
                   },
                   {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "GT",
-                    "display": "Guarantor",
-                    "userSelected": false
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'GT',
+                    'display': 'Guarantor',
+                    'userSelected': false
                   }
                 ],
-                "text": "Default Guarantor"
+                'text': 'Default Guarantor'
               },
               {
-                "id": "CI-97982588-1-0",
-                "coding": [
+                'id': 'CI-97982588-1-0',
+                'coding': [
                   {
-                    "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40",
-                    "code": "670847",
-                    "display": "Child",
-                    "userSelected": true
+                    'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40',
+                    'code': '670847',
+                    'display': 'Child',
+                    'userSelected': true
                   },
                   {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "CHILD",
-                    "display": "child",
-                    "userSelected": false
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'CHILD',
+                    'display': 'child',
+                    'userSelected': false
                   }
                 ],
-                "text": "Child"
+                'text': 'Child'
               }
             ],
-            "name": [
+            'name': [
               {
-                "use": "official",
-                "text": "MATERNITY, TESTTHREE",
-                "family": "MATERNITY",
-                "given": [
-                  "TESTTHREE"
+                'use': 'official',
+                'text': 'MATERNITY, TESTTHREE',
+                'family': 'MATERNITY',
+                'given': [
+                  'TESTTHREE'
                 ],
-                "period": {
-                  "start": "2016-12-08T21:28:22.000Z"
+                'period': {
+                  'start': '2016-12-08T21:28:22.000Z'
                 }
               }
             ],
-            "telecom": [
+            'telecom': [
               {
-                "id": "CI-PH-29583893-0",
-                "system": "phone",
-                "value": "4264758753",
-                "use": "home",
-                "period": {
-                  "start": "2016-12-08T21:28:22.000Z"
+                'id': 'CI-PH-29583893-0',
+                'system': 'phone',
+                'value': '4264758753',
+                'use': 'home',
+                'period': {
+                  'start': '2016-12-08T21:28:22.000Z'
                 }
               }
             ],
-            "gender": "female",
-            "birthDate": "1987-06-20",
-            "address": [
+            'gender': 'female',
+            'birthDate': '1987-06-20',
+            'address': [
               {
-                "id": "CI-24079465-0",
-                "use": "home",
-                "text": "3343 Genessee St\nKansas City, MO 64111\nUS",
-                "line": [
-                  "3343 Genessee St"
+                'id': 'CI-24079465-0',
+                'use': 'home',
+                'text': '3343 Genessee St\nKansas City, MO 64111\nUS',
+                'line': [
+                    '3343 Genessee St'
                 ],
-                "city": "Kansas City",
-                "state": "MO",
-                "postalCode": "64111",
-                "country": "US",
-                "period": {
-                  "start": "2016-12-08T21:05:59.000Z"
+                'city': 'Kansas City',
+                'state': 'MO',
+                'postalCode': '64111',
+                'country': 'US',
+                'period': {
+                'start': '2016-12-08T21:05:59.000Z'
                 }
               }
             ],
-            "communication": [
+            'communication': [
               {
-                "language": {
-                  "coding": [
+                'language': {
+                  'coding': [
                     {
-                      "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36",
-                      "code": "151",
-                      "display": "English",
-                      "userSelected": true
+                      'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36',
+                      'code': '151',
+                      'display': 'English',
+                      'userSelected': true
                     },
                     {
-                      "system": "urn:ietf:bcp:47",
-                      "code": "en",
-                      "display": "English",
-                      "userSelected": false
+                      'system': 'urn:ietf:bcp:47',
+                      'code': 'en',
+                      'display': 'English',
+                      'userSelected': false
                     }
                   ],
-                  "text": "English"
+                  'text': 'English'
                 },
-                "preferred": "true"
+                'preferred': 'true'
               }
             ]
           }

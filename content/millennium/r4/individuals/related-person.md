@@ -59,12 +59,12 @@ Search for RelatedPersons that meet supplied query parameters:
 ### Parameters
 
  Name                  | Required?                                                | Type          | Description
------------------------|----------------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------|----------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------
  `_id`                 | This or `patient` or `identifier` or `-encounter`        | [`token`]     | The logical resource id associated with the resource.
  `identifier`          | This or `_id` or `patient` or `-encounter`               | [`token`]     | A RelatedPerson identifier.
  `patient`             | This or `_id` or `identifier` or `-encounter`            | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
  `-encounter`          | This or `_id` or `patient` or `identifier`               | [`reference`] | A reference to an encounter associated with the RelatedPerson. Example: `97697434`
- `-relationship-level` | This can only be provided with `patient` or `identifier` | [`token`]     | The resource’s relationship to either patient or encounter. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`
+ `-relationship-level` | This can only be provided with `patient` or `identifier` | [`token`]     | The resource’s relationship to patient. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`
 
 Notes:
 
@@ -74,7 +74,7 @@ Notes:
 
 <%= headers %>
 
-### Example - Patient-level RelatedPerson
+### Example - Patient Level
 
 #### Request
 
@@ -85,7 +85,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_bundle) %>
 
-### Example - Encounter-level RelatedPerson
+### Example - Encounter Level
 
 #### Request
 
