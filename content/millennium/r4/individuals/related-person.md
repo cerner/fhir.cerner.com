@@ -129,12 +129,12 @@ List an individual RelatedPerson by its id:
 
 #### Request
 
-    GET https://fhir-ehr-latest.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/RelatedPerson/E-12457994-97697434
+    GET https://fhir-ehr-latest.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_relatedperson_entry) %>
+<%= json(:r4_relatedperson_encounter_entry) %>
 
 ### Errors
 
