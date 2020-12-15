@@ -48,6 +48,7 @@ fields:
   required: 'No'
   type: List of CodeableConcept
   description: The nature of the relationship
+  action: terminology
   url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship
   binding:
     description: The nature of the relationship between a patient and the related person.
@@ -76,3 +77,304 @@ fields:
       - display: Relationship Level
         system: http://hl7.org/fhir/resource-types
         info_link: https://www.hl7.org/fhir/valueset-resource-types.html
+
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  example: |
+    {
+      "resourceType": "RelatedPerson"
+    }
+  note: resourceType must be RelatedPerson.
+  url: https://hl7.org/fhir/R4/json.html#resources
+
+- name: relationship
+  required: 'Yes'
+  type: CodeableConcept
+  action: create
+  description: The nature of the relationship between a patient and the related person.
+  example: |
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+              "code": "1152",
+              "display": "Emergency Contact"
+            }
+          ]
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li>The <code>relationship.coding</code> must contain exactly one proprietary system.</li>
+      <li>The <code>relationship.coding</code> cannot contain a standard system.</li>
+    </ul>
+
+- name: patient
+  required: 'Yes'
+  type: Reference (Patient)
+  action: create
+  description: Patient that the individual is related to for the Encounter-level RelatedPerson.
+  example: |
+    {
+      "patient": {
+        "reference": "Patient/12724066"
+      }
+    }
+
+- name: name
+  required: 'Yes'
+  type: List of HumanName
+  description: The name associated with the individual.
+  action: create
+  example: |
+    {
+      "name": [
+        {
+          "use": "official",
+          "family": "Doe",
+          "given": [
+            "John",
+            "Smith"
+          ],
+          "period": {
+            "start": "2010-05-17T14:54:31.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+        <ul>
+          <li> Must have a `use` of 'official'. </li>
+          <li> Cannot contain the `text` field. </li>
+          <li> Must contain either the `given` or `family` fields. </li>
+          <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+          <li> Only one `prefix` and one `suffix` may be provided. </li>
+          <li> `period.end` is not supported. </li>
+          <li> When specifying a `period`, `period.start` must include a time component with a timezone. </li>
+        </ul>
+      </li>
+    </ul>
+  url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.name
+
+- name: Related Person Encounter
+  required: 'Yes'
+  type: Extension
+  description: A reference to an Encounter.
+  action: create
+  note: |
+    <ul>
+      <li>The <code>valueReference.reference</code> must be an Encounter reference.</li>
+    </ul>
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter",
+          "valueReference": {
+            "reference": "Encounter/97939518"
+          }
+        }
+      ]
+    }
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
+
+- name: Relationship Level
+  required: 'No'
+  type: Extension
+  description: The resource's relationship to either the patient or encounter level.
+  action: create
+  note: |
+    <ul>
+      <li>If provided, the <code>valueCodeableConcept.coding[0].code</code> must be `Encounter`.</li>
+    </ul>
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Encounter",
+              }
+            ]
+          }
+        }
+      ]
+    }
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
+
+- name: identifier
+  required: 'No'
+  type: List of Identifier
+  description: The identifiers for the related person.
+  action: create
+  example: |
+    {
+      "identifier": [
+        {
+          "type": {
+            "coding": [
+              {
+                "code": "MR",
+                "system": "http://hl7.org/fhir/v2/0203"
+              }
+            ]
+          },
+          "system": "urn:oid:5.5.5.5.5.5",
+          "value": "&lt;UNIQUE IDENTIFIER&gt;",
+          "period": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2020-01-02T00:00:00-05:00"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+        <li> Each identifier must not contain the `use` fields. </li>
+        <li> Each identifier must contain the `type`, `system`, and `value` fields. </li>
+        <li> When specifying a `period`, must include a time component with a timezone. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/datatypes.html#Identifier
+
+- name: address
+  required: 'No'
+  type: List of Address
+  description: Addresses for the individual.
+  action: create
+  example: |
+    {
+      "address": [
+        {
+          "use": "home",
+          "line": [
+             "1212 Faircastle Drive",
+             "Apartment 406"
+          ],
+          "city": "KC",
+          "district": "Jackson",
+          "state": "KS",
+          "postalCode": "64199",
+          "country": "United States of America",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Each address must contain the `use` field. </li>
+      <li> Each address must not contain the `text` field. </li>
+      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li> If `line` is provided, only the first four values are used. Additional values will be ignored. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address
+
+- name: telecom
+  required: 'No'
+  type: List of ContactPoint
+  description: A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+  action: create
+  example: |
+    {
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8168229121",
+          "use": "home",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        },
+        {
+          "system": "email",
+          "value": "testemail@example.com",
+          "use": "home",
+          "period": {
+            "start": "2008-01-10T15:33:18.000Z"
+          }
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Each telecom must contain the `system`, `use`, and `value` fields. </li>
+      <li> System must be a `phone` or an `email`. </li>
+      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+    </ul>
+  url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom
+
+- name: active
+  required: 'No'
+  type: boolean
+  description: Whether this related person record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, value must be true.
+  url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.active
+
+- name: gender
+  required: 'No'
+  type: code
+  description: 'Administrative Gender - the gender that the related person is considered to have for administration and record keeping purposes.'
+  action: create
+  example: |
+    {
+      "gender": "male"
+    }
+  url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender
+
+- name: birthDate
+  required: 'No'
+  type: date
+  description: The date of birth for the individual.
+  action: create
+  example: |
+    {
+      "birthDate": "1990-09-15"
+    }
+  url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate
+
+- name: communication
+  required: 'No'
+  type: List of BackboneElement
+  description: Language which may be used to communicate with the related person.
+  action: create
+  example: |
+    {
+      "communication": [
+        {
+          "language": {
+            "coding": [
+              {
+                "system": "urn:ietf:bcp:47",
+        	    "code": "en",
+                "display": "English"
+              }
+            ]
+          },
+          "preferred": true
+        }
+      ]
+    }
+  note: |
+    <ul>
+      <li> Only one communication may be provided. </li>
+      <li> `communication.prefered` if provided should be `true` </li>
+    </ul>
+
+  url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.communication

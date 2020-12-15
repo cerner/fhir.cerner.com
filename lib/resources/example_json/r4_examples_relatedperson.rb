@@ -316,5 +316,140 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_RELATEDPERSON_CREATE ||= {
+
+      'resourceType': 'RelatedPerson',
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter',
+          'valueReference': {
+            'reference': 'Encounter/97939518'
+          }
+        },
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Encounter'
+              }
+            ]
+          }
+        }
+      ],
+      'patient': {
+        'reference': 'Patient/12724066'
+      },
+      'relationship': [
+        {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+              'code': '1152',
+              'display': 'Emergency Contact'
+            }
+          ]
+        }
+      ],
+      'name': [
+        {
+          'use': 'official',
+          'family': 'Doe',
+          'given': [
+            'John',
+            'Smith'
+          ],
+          'period': {
+            'start': '2010-05-17T14:54:31.000Z'
+          }
+        }
+      ],
+      'communication': [
+        {
+          'language': {
+            'coding': [
+              {
+                'system': 'urn:ietf:bcp:47',
+                'code': 'en',
+                'display': 'English'
+              }
+            ]
+          },
+          'preferred': true
+        }
+      ],
+      'identifier': [
+        {
+          'type': {
+            'coding': [
+              {
+                'code': 'AN',
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203'
+              }
+            ]
+          },
+          'system': 'urn:oid:5.5.5.5.5.5',
+          'value': '<UNIQUE IDENTIFIER>',
+          'period': {
+            'start': '2016-01-02T00:00:00-05:00',
+            'end': '2020-01-02T00:00:00-05:00'
+          }
+        }
+      ],
+      'address': [
+        {
+          'use': 'home',
+          'line': [
+            '1212 Faircastle Drive',
+            'Apartment 406'
+          ],
+          'city': 'KC',
+          'district': 'Jackson',
+          'state': 'KS',
+          'postalCode': '64199',
+          'country': 'United States of America',
+          'period': {
+            'start': '2012-05-17T15:33:18.000Z'
+          }
+        }
+      ],
+      'gender': 'male',
+      'birthDate': '1990-09-15',
+      'telecom': [
+        {
+          'system': 'phone',
+          'value': '8168229121',
+          'use': 'home',
+          'period': {
+            'start': '2012-05-17T15:33:18.000Z'
+          }
+        },
+        {
+          'system': 'email',
+          'value': 'testemail@example.com',
+          'use': 'home',
+          'period': {
+            'start': '2008-01-10T15:33:18.000Z'
+          }
+        }
+      ]
+    }.freeze
+
+    R4_RELATEDPERSON_PATCH ||= [
+      {
+        'op': 'add',
+        'path': '/relationship/-',
+        'value': {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+              'code': '1152'
+            }
+          ]
+        }
+      }
+    ].freeze
   end
 end
