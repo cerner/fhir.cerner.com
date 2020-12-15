@@ -260,4 +260,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
-[Encounter]: #custom-extensions
+[Related Person Encounter]: #custom-extensions
