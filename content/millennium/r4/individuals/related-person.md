@@ -26,6 +26,7 @@ The following fields are returned if valued:
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
+* [Extensions including relationship level and encounter](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -33,15 +34,17 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Encounter]
 * [Relationship Level]
 
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                   | Value\[x] Type      | Description
-----------------------|---------------------|----------------------------------------------------------------
- `relationship-level` | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
+ ID                         | Value\[x] Type      | Description
+----------------------------|---------------------|----------------------------------------------------------------------------
+ `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
+ `related-person-encounter` | [`Reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
 
 ## Search
 
@@ -111,11 +114,22 @@ List an individual RelatedPerson by its id:
 
 <%= headers %>
 
-### Example
+### Example - Patient level
 
 #### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724068-12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_entry) %>
+
+### Example - Encounter level
+
+#### Request
+
+    GET https://fhir-ehr-latest.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/RelatedPerson/E-12457994-97697434
 
 #### Response
 
@@ -241,8 +255,9 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
-[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`Reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
+[Encounter]: #custom-extensions
