@@ -606,16 +606,16 @@ module Cerner
             },
             'text': {
               'status': 'extensions',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>: '\
-                      'MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>: female</p><p><b>Patient</b>: '\
-                      'NEWBORN, TESTTHREE</p><p><b>Status</b>: Active</p><p><b>Relationship</b>:'\
-                      'Default Guarantor</p><p><b>Relationship</b>: Child</p><p><b>Relationship Level</b>: '\
-                      'Encounter</p><p><b>Encounter</b>: 97697434</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>:'\
+                      'MATERNITY, TESTTHREE</p><p><b>DOB</b>: Jun 20, 1987</p><p><b>Gender</b>:'\
+                      'female</p><p><b>Patient</b>: NEWBORN, TESTTHREE</p><p><b>Status</b>:'\
+                      'Active</p><p><b>Relationship</b>: Default Guarantor</p><p><b>Relationship</b>:'\
+                      'Child</p><p><b>Relationship Level</b>: Encounter</p><p><b>Encounter</b>: 97697434</p></div>'
             },
             'extension': [
               {
                 'valueReference': {
-                'reference': 'Encounter/97697434'
+                  'reference': 'Encounter/97697434'
                 },
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter'
               },
@@ -708,14 +708,14 @@ module Cerner
                 'use': 'home',
                 'text': '3343 Genessee St\nKansas City, MO 64111\nUS',
                 'line': [
-                    '3343 Genessee St'
+                  '3343 Genessee St'
                 ],
                 'city': 'Kansas City',
                 'state': 'MO',
                 'postalCode': '64111',
                 'country': 'US',
                 'period': {
-                'start': '2016-12-08T21:05:59.000Z'
+                  'start': '2016-12-08T21:05:59.000Z'
                 }
               }
             ],
