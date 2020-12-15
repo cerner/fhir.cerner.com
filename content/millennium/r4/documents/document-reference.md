@@ -42,7 +42,7 @@ Search for DocumentReferences that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -69,12 +69,21 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_BUNDLE) %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_PATIENT_ACCESS_BUNDLE) %>
 
 ### Errors
 
@@ -88,7 +97,7 @@ List an individual DocumentReference by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -98,12 +107,21 @@ List an individual DocumentReference by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE) %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_PATIENT_ACCESS) %>
 
 ### Errors
 
