@@ -591,12 +591,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson?-encounter=97697434'
+          'url': 'https://fhir-open.cerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson?-encounter=97697434'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr-latest.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson/E-12457994-97697434',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson/E-12457994-97697434',
           'resource': {
             'resourceType': 'RelatedPerson',
             'id': 'E-12457994-97697434',
