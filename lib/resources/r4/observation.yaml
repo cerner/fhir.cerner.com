@@ -564,7 +564,7 @@ fields:
     </ul>
 
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime` </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
@@ -606,7 +606,7 @@ fields:
     }
   note: |
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime` </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
     </ul>
     <ul>
       <li> Updating value type to another is not supported. </li>
