@@ -43,7 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                         | Value\[x] Type      | Description
 ----------------------------|---------------------|----------------------------------------------------------------------------
- `related-person-encounter` | [`Reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
+ `related-person-encounter` | [`reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
  `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
 
 ## Search
@@ -256,7 +256,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
-[`Reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
