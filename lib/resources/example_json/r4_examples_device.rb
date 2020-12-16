@@ -196,7 +196,12 @@ module Cerner
                   },
                   "text": {
                       "status": "generated",
-                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Device</b></p><p><b>Device Identifier</b>: 234556</p><p><b>Unique Device Identifier (UDI)</b>: 1721123408</p><p><b>Status</b>: Active</p><p><b>Manufacturer</b>: Pacemaker Plus</p><p><b>Manufacture Date</b>: Jan  9, 2017 12:00 P.M. UTC</p><p><b>Expiration Date</b>: Jul  2, 2040 10:00 A.M. UTC</p><p><b>Lot Number</b>: 7723</p><p><b>Serial Number</b>: 17642857292</p><p><b>Type</b>: Pacemaker</p><p><b>Model Number</b>: T0765</p><p><b>Patient</b>: SMART, NANCY</p><p><b>Owner</b>: Model Clinic</p></div>"
+                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Device</b></p><p><b>Device Identifier</b>"\
+                      ": 234556</p><p><b>Unique Device Identifier (UDI)</b>: 1721123408</p><p><b>Status</b>: Active</p>"\
+                      "<p><b>Manufacturer</b>: Pacemaker Plus</p><p><b>Manufacture Date</b>: Jan  9, 2017 12:00 P.M. UTC</p>"\
+                      "<p><b>Expiration Date</b>: Jul  2, 2040 10:00 A.M. UTC</p><p><b>Lot Number</b>: 7723</p>"\
+                      "<p><b>Serial Number</b>: 17642857292</p><p><b>Type</b>: Pacemaker</p><p><b>Model Number</b>: T0765</p>"\
+                      "<p><b>Patient</b>: SMART, NANCY</p><p><b>Owner</b>: Model Clinic</p></div>"
                   },
                   "identifier": [
                       {
