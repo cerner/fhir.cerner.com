@@ -524,7 +524,7 @@ fields:
 
 - name: value[x]
   required: 'Yes'
-  type: Quantity | CodeableConcept | string
+  type: Quantity | CodeableConcept | string | dateTime
   description: Value of the observation.
   action: create
   example: |
@@ -554,19 +554,23 @@ fields:
     {
       "valueString": '2'
     }
+  example4: |
+    {
+      "valueDateTime": '2020-07-04T07:15:00Z'
+    }
   note: |
     <ul>
       <li> Vital Signs support writing observations with `valueQuantity` </li>
     </ul>
 
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept` and `valueString` </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
 - name: value[x]
   required: 'Yes'
-  type: Quantity | CodeableConcept | string
+  type: Quantity | CodeableConcept | string | dateTime
   description: Value of the observation.
   action: update
   example: |
@@ -596,9 +600,13 @@ fields:
     {
       "valueString": '2'
     }
+  example4: |
+    {
+      "valueDateTime": '2020-07-04T07:15:00Z'
+    }
   note: |
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept` and `valueString` </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
     </ul>
     <ul>
       <li> Updating value type to another is not supported. </li>
