@@ -75,7 +75,7 @@ Notes:
 
 <%= headers %>
 
-### Example - Patient Level
+### Example - Patient-level RelatedPerson
 
 #### Request
 
@@ -86,7 +86,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_bundle) %>
 
-### Example - Encounter Level
+### Example - Encounter-level RelatedPerson
 
 #### Request
 
@@ -115,7 +115,7 @@ List an individual RelatedPerson by its id:
 
 <%= headers %>
 
-### Example - Patient level
+### Example - Patient-level RelatedPerson
 
 #### Request
 
@@ -126,11 +126,11 @@ List an individual RelatedPerson by its id:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_entry) %>
 
-### Example - Encounter level
+### Example - Encounter-level RelatedPerson
 
 #### Request
 
-    GET https://fhir-ehr-latest.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
+    GET https://fhir-open-latest.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
 
 #### Response
 
