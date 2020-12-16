@@ -154,7 +154,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 #### Patient Authorization Request For Active Status	
 
-    GET https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/MedicationRequest/262448077 
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/314010287 
 
 #### Response
 
@@ -164,7 +164,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 #### Patient Authorization Request For Entered in Error Status	
 
-  GET https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/MedicationRequest/261542609
+  GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
 
 #### Response
 
