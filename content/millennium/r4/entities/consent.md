@@ -40,6 +40,10 @@ Search for Consent that meet supplied query parameters:
 
     GET /Consent?:parameters
 
+_Implementation Notes_
+
+* For Consent Search operations, both Consent.read and Patient.read scopes are required.
+
 
 ### Authorization Types
 
@@ -145,6 +149,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 List an individual Consent by its id:
 
     GET /Consent/:id
+
+_Implementation Notes_
+
+* For Consent Read operations, both Consent.read and Patient.read scopes are required.
 
 ### Authorization Types
 
