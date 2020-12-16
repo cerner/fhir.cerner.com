@@ -111,7 +111,10 @@ module Cerner
       },
       "text": {
         "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date</b>: Apr  5, 2019</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p><p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&apos;s Health Cerner</li></ul></div>' # rubocop:disable Layout/LineLength
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p>'\
+        '<p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date</b>: Apr  5, 2019</p><p><b>Status</b>: Completed'\
+        '</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p>'\
+        '<p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&apos;s Health Cerner</li></ul></div>'
       },
       "status": 'completed',
       "code": {
@@ -186,7 +189,9 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p></div>' # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+              '<p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p>'\
+              '<p><b>Status</b>: Completed</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p></div>'
             },
             "status": 'completed',
             "code": {
@@ -232,7 +237,11 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Advance Care Planning; first 30 minutes</p><p><b>Date</b>: Oct 12, 2020</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: PWAffirmHealth, MDCardio</p><p><b>Performer</b>:</p><ul><li>Carter, Kristin Cerner</li></ul></div>' # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+              '<p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Advance Care Planning; first 30 minutes</p>'\
+              '<p><b>Date</b>: Oct 12, 2020</p><p><b>Status</b>: Completed</p>'\
+              '<p><b>Recorder</b>: PWAffirmHealth, MDCardio</p><p><b>Performer</b>:</p><ul><li>Carter, Kristin Cerner'\
+              '</li></ul></div>'
             },
             "status": 'completed',
             "code": {
@@ -281,7 +290,9 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Appendectomy;</p><p><b>Date</b>: 2002</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: Cerner Test, Physician - Women&apos;s Health Cerner</p></div>' # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY'\
+              '</p><p><b>Procedure</b>: Appendectomy;</p><p><b>Date</b>: 2002</p><p><b>Status</b>: Completed</p>'\
+              '<p><b>Recorder</b>: Cerner Test, Physician - Women&apos;s Health Cerner</p></div>'
             },
             "status": 'completed',
             "code": {
@@ -312,7 +323,11 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Application of hip spica cast; 1 and one-half spica or both legs</p><p><b>Date</b>: Sep 19, 2019</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: PWJuxly, PhysicianHosp</p></div>' # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+              '<p><b>Patient</b>: SMART, NANCY</p>'\
+              '<p><b>Procedure</b>: Application of hip spica cast; 1 and one-half spica or both legs</p>'\
+              '<p><b>Date</b>: Sep 19, 2019</p><p><b>Status</b>: Completed</p>'\
+              '<p><b>Recorder</b>: PWJuxly, PhysicianHosp</p></div>'
             },
             "status": 'completed',
             "code": {
@@ -330,45 +345,6 @@ module Cerner
               "reference": 'Practitioner/12742711',
               "display": 'PWJuxly, PhysicianHosp'
             }
-          }
-        },
-        {
-          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572383421',
-          "resource": {
-            "resourceType": 'Procedure',
-            "id": '2572383421',
-            "meta": {
-              "versionId": '1',
-              "lastUpdated": '2020-09-17T22:10:16Z'
-            },
-            "text": {
-              "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts</p><p><b>Date</b>: 2018</p><p><b>Status</b>: Completed</p><p><b>Recorder</b>: Cerner Test, Physician - Oncology Cerner</p><p><b>Performer</b>:</p><ul><li>PWJuxly, PhysicianHosp</li></ul></div>' # rubocop:disable Layout/LineLength
-            },
-            "status": 'completed',
-            "code": {
-              "text": 'Coronary artery bypass, using arterial graft(s); 2 coronary arterial grafts'
-            },
-            "subject": {
-              "reference": 'Patient/12724066',
-              "display": 'SMART, NANCY'
-            },
-            "encounter": {
-              "reference": 'Encounter/97953477'
-            },
-            "performedDateTime": '2018',
-            "recorder": {
-              "reference": 'Practitioner/763923',
-              "display": 'Cerner Test, Physician - Oncology Cerner'
-            },
-            "performer": [
-              {
-                "actor": {
-                  "reference": 'Practitioner/12742711',
-                  "display": 'PWJuxly, PhysicianHosp'
-                }
-              }
-            ]
           }
         }
       ]
