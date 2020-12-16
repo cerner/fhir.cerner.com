@@ -130,7 +130,7 @@ List an individual RelatedPerson by its id:
 
 #### Request
 
-    GET https://fhir-open-latest.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
 
 #### Response
 
