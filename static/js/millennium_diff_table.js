@@ -235,38 +235,29 @@ function matchResources(conformanceData, capabilityStatementData) {
 }
 
 /**
- * Merges the two sorted arrays alphabetically.
+ * Merges the two sorted arrays alphabetically. Entries are ordered by their R4 name first, if no R4 resource
+ * exists then the DSTU2 is used.
  * @param {array} includesR4 - The array of resource objects that contain R4 resources.
  * @param {array} dstu2Only - The array of resource objects that only contain DSTU2 resources.
  * @returns {array} The resultant array after merging.
  */
 function mergeSortedArrays(includesR4, dstu2Only) {
   let result = [];
-  let i = 0;
-  let j = 0;
 
-  while (i < includesR4.length && j < dstu2Only.length) {
-    if (includesR4[i].hasOwnProperty('r4Resources') && !includesR4[i].hasOwnProperty('dstu2Resources')) {
-      if (includesR4[i].r4Resources[0].resourceName < dstu2Only[j].dstu2Resources[0].resourceName) {
-        result.push(includesR4[i]);
-        i += 1;
-      }
-      else {
-        result.push(dstu2Only[j]);
-        j += 1;
-      }
-    }
-    else {
-      if (includesR4[i].dstu2Resources[0].resourceName < dstu2Only[j].dstu2Resources[0].resourceName) {
-        result.push(includesR4[i]);
-        i += 1;
-      }
-      else {
-        result.push(dstu2Only[j]);
-        j += 1;
+  for(let x = 0; x < includesR4.length; x += 1) {
+    let r4Record = includesR4[x];
+
+    for (let y = 0; y < dstu2Only.length; y += 1) {
+      if (r4Record.r4Resources[0].resourceName > dstu2Only[y].dstu2Resources[0].resourceName) {
+        result.push(dstu2Only[y]);
+        dstu2Only.splice(y, 1);
+        y -= 1;
       }
     }
+
+    result.push(r4Record);
   }
+
   return result;
 }
 
