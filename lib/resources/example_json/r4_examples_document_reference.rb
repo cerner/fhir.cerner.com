@@ -497,5 +497,53 @@ module Cerner
         }
       }
     }.freeze
+
+    R4_DOCUMENT_REFERENCE_CCD ||= {
+      'resourceType': 'DocumentReference',
+      'status': 'current',
+      'type': {
+        'coding': [
+          {
+            'system': 'http://loinc.org',
+            'code': '34133-9',
+            'display': 'Summary of episode note'
+          }
+        ],
+        'text': 'Summary of episode note'
+      },
+      'subject': {
+        'reference': 'Patient/13160351'
+      },
+      'date': '2020-12-14T08:20:26Z',
+      'content': [
+        {
+          'attachment': {
+            'contentType': 'application/xml',
+            'url': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?'\
+                   'patient=13160351'
+          },
+          'format': {
+            'system': 'urn:oid:1.3.6.1.4.1.19376.1.2.3',
+            'code': 'urn:hl7-org:sdwg:ccda-structuredBody:2.1',
+            'display': 'For documents following C-CDA constraints using a structured body.'
+          }
+        }
+      ]
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_CCD_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '2cb9157f-0f05-4fe4-af14-95d5808a4070',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference'\
+                '/$docref?patient=13160351'
+        }
+      ],
+      'entry': [R4_DOCUMENT_REFERENCE_CCD]
+    }.freeze
+
   end
 end

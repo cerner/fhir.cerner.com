@@ -9,9 +9,9 @@ title: DocumentReference | R4 API
 
 ## Overview
 
-The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports returning a list of clinical documents, and a reference to retrieve a document as a PDF.
+The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF.
 
-The following fields are returned if valued:
+The following fields are returned if valued for clinical documents:
 
 * [DocumentReference id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
@@ -19,6 +19,7 @@ The following fields are returned if valued:
 * [Document type](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
 * [Document category](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.category){:target="_blank"}
 * [Subject (Patient)](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Created Date](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.date){:target="_blank"}
 * [Author](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
 * [Authenticator/verifying provider](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Document description/title]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
@@ -27,6 +28,7 @@ The following fields are returned if valued:
   * [Created date/time](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
   * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
   * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
+  * [Format](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
 * [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 * [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
 
@@ -243,3 +245,54 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
+
+## Operation: docref
+
+US Core operation for querying DocumentReferences for the supplied parameters:
+
+## Search
+
+Search for DocumentReferences that meet supplied query parameters:
+
+    GET /DocumentReference?:parameters
+
+### Terminology Bindings
+
+<%= terminology_table(:document_reference_docref, :r4) %>
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Parameters
+
+ Name                     | Required?   | Type          | Description
+--------------------------|-------------|---------------|--------------------------------------------------------------------------------------------------------
+ `patient`                | Y           | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
+ `type`                   | N           | [`token`]     | The document reference type, can be a list of comma separated values. Example: http://loinc.org\|34133-9
+ `start`                  | N           | [`number`]    | The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: 2014-09-24T12:00:00.000Z
+ `end`                    | N           | [`number`]    | The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: 2016-09-24T12:00:00.000Z
+
+_Implementation Notes_
+
+* The type parameter must include both a system and a code. (e.g. &type=http://loinc.org\|34133-9)
+* The start and end parameters must be valid dateTimes with a time component. They must have prefixes of eq or nothing.
+
+### Headers
+
+<%= headers %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReferenceDocumentReference/$docref?patient=13160351&type=http%3A%2F%2Floinc.org%7C34133-9
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_CCD_BUNDLE) %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
