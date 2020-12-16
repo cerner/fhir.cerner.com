@@ -58,7 +58,7 @@ Search for labs, vitals, and alcohol/tobacco use Observations that meet supplied
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 _Implementation Notes_
 
@@ -114,6 +114,28 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:R4_OBSERVATION_BUNDLE) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_OBSERVATION_PATIENT_BUNDLE) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_OBSERVATION_ENTERED_IN_ERROR_STATUS) %>
 
 <%= disclaimer %>
 
