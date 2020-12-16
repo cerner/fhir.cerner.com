@@ -38,7 +38,7 @@ The following fields are returned if valued:
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
-* [Extensions including client organization, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
+* [Extensions including client organization, custom attribute, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
 
 ### Contained Location Bindings
 
@@ -51,6 +51,7 @@ The following fields are returned if valued:
 ## Extensions
 
 * [Client Organization]
+* [Custom Attribute]
 * [Estimated Financial Responsibility Amount]
 * [Payment Collection Status]
 * [Estimated Financial Responsibility Not Collected Reason]
@@ -62,6 +63,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                                                        | Value\[x] Type                                                   | Description
 -----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
  `client-organization`                                     | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference) | The financially responsible organization.
+ `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`CodeableConcept`], or [`dateTime`].
  `estimated-financial-responsibility-amount`               | [`Money`]                                                        | The estimated amount to be collected for the encounter.
  `estimated-financial-responsibility-not-collected-reason` | [`CodeableConcept`]                                              | The reason no estimated amount is collected for the encounter.
  `payment-collection-status`                               | [`CodeableConcept`]                                              | The status of the payment collection for the encounter.
@@ -80,7 +82,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -107,6 +109,18 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter_bundle) %>
 
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?patient=12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_ENCOUNTER_PATIENT_BUNDLE) %>
+
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -124,7 +138,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
@@ -141,6 +155,18 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_encounter) %>
 
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97954225
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_ENCOUNTER_PATIENT_ENTRY) %>
+
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -255,12 +281,16 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
-[`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
-[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
+[`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
+[`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
+[`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`number`]: https://hl7.org/fhir/r4/search.html#number
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
+[`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [Client Organization]: #custom-extensions
+[Custom Attribute]: #custom-extensions
 [contained]: https://hl7.org/fhir/r4/references.html#contained
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location

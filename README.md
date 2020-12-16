@@ -1,20 +1,25 @@
 # fhir.cerner.com
 
-The public facing API documentation for Cerner's implementation of the FHIR<sup>®</sup> standard.
+The public facing API documentation for Cerner's implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard.
 
 ## Usage
 
 ### Layouts
-We've added attributes at the top of some md files to assign a layout. These are usually only needed for pages that aren't actual API documentation (our compilation rule uses that layout attribute before falling back to the api layout).
+
+We've added attributes at the top of some markdown files to assign a layout. These are usually only needed for pages that aren't actual API documentation (our compilation rule uses that layout attribute before falling back to the api layout).
+
+Layouts themselves are defined in the layouts directory. Some layouts (like the API or FAQ layouts) are used as page templates as mentioned above. Other layouts (like resource category layouts or header/footer layouts) are used to include content in other pages.
 
 ### Versions and Solutions
-There are preprocessing rules that use folder matching to add version and solution attributes to all md files for the API. The only thing you need to do to make this work is put resource documentation in /\[solution]/\[version]/ folder path.
 
-The version and solution attributes are currently used to flex the class, links, and navigation for the API documentation.
+There are preprocessing rules that use folder matching to add version and solution attributes to all markdown files for the API. The only thing you need to do to make this work is put resource documentation in /\[solution]/\[version]/ folder path.
+
+The version and solution attributes are currently used to flex CSS classes, page links, and navigation toolbars/sidebars for the API documentation.
 
 ### Generating a field table
 
 #### Definition Tables
+
 Create and Update operations typically require JSON bodies which can be tedious to document manually through markdown. To simplify this process and to improve consistency we have added the `definition_table` helper to generate a table from a yaml content file.
 
 The `definition_table` helper requires 3 parameters: content, action, and version.
@@ -50,6 +55,7 @@ In actuality, the `version` parameter references a subfolder in `lib/resources` 
   - action
 
 #### Terminology Tables
+
 The `terminolgy_table` helper is available to generate a terminology binding table from the same yaml content file as `definition_table`.
 
 The `terminolgy_table` helper requires 2 parameters: content and version

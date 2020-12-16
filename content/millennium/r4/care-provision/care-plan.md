@@ -44,7 +44,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -94,6 +94,17 @@ Notes:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?patient=12724066&category=assess-plan
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_patient_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -106,7 +117,7 @@ List an individual CarePlan by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -122,6 +133,39 @@ List an individual CarePlan by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_care_plan_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/197286315
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_patient_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/5814234
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_entered_in_error_status) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Unknown Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/5814234
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_plan_unknown_status) %>
 
 <%= disclaimer %>
 

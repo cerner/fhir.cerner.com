@@ -1,0 +1,18 @@
+---
+name: Slot
+field_name_base_url: http://hl7.org/fhir/r4/slot-definitions.html#Slot
+fields:
+- name: serviceType
+  required: 'No'
+  type: CodeableConcept
+  
+  binding:
+    description:  The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). 
+                  If provided, then this overrides the value provided on the availability resource.
+    terminology:
+    - display: ServiceType
+      system: http://terminology.hl7.org/CodeSystem/service-type
+      info_link: http://hl7.org/fhir/r4/valueset-service-type.html 
+    - display: Millennium Scheduling Appointment Synonyms or Types
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
+      info_link: millennium/r4/proprietary-codes-and-systems/#scheduling

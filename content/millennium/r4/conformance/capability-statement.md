@@ -46,3 +46,29 @@ Authorization is not required.
 <%= RequestButton.get('ehr-code', :r4, 'metadata', 200, :r4_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url
+
+## Well-Known SMART Configuration
+
+Get the SMART authorization endpoints and launch capabilities.
+
+    GET /.well-known/smart-configuration?:parameters
+
+_Implementation Notes_
+
+* Authentication is not required to access the configuration information
+* No parameters other than the standard `_format` parameter are supported for reading
+* The configuration information is not accessible through the Open Endpoint
+
+### Authorization Types
+
+Authorization is not required.
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+### Example
+
+#### Request
+
+    curl -i -H "Accept: application/json" "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration"
+
+<%= RequestButton.get('ehr-code', :r4, '.well-known/smart-configuration', 200, :r4_well_known) %>

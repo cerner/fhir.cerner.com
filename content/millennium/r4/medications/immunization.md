@@ -50,7 +50,7 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -81,6 +81,19 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_BUNDLE) %>
 
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization?patient=12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_IMMUNIZATION_PATIENT_BUNDLE) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -93,7 +106,7 @@ List an individual Immunization by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -109,6 +122,41 @@ List an individual Immunization by its id:
 
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTRY) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Completed Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_IMMUNIZATION_PATIENT_ENTRY) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M211860902
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_IMMUNIZATION_ENTERED_IN_ERROR_STATUS) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Not done Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_IMMUNIZATION_NOT_DONE_STATUS) %>
+
+<%= disclaimer %>
 
 ### Errors
 

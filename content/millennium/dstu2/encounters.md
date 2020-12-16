@@ -3,5 +3,6 @@ title: Encounters | DSTU 2 API
 layout: api
 ---
 
-<%= render '/encounters.*' %>
+<%= render '/millennium/dstu2/encounters.*' %>
+
 * [Encounter](../encounters/encounter)

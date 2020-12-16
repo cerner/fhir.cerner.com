@@ -1,0 +1,14 @@
+---
+name: Schedule
+field_name_base_url: http://hl7.org/fhir/r4/schedule-definitions.html#Schedule
+fields:
+- name: serviceType
+  required: 'No'
+  type: List of CodeableConcept
+  binding:
+    description: The specific service that is to be performed during this appointment. 
+    terminology:
+    - display: Schedule Service Type
+      system: http://hl7.org/fhir/r4/codesystem-service-type.html
+      info_link: http://hl7.org/fhir/r4/valueset-service-type.html
+  

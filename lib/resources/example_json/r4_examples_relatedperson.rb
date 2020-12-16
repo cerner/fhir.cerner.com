@@ -14,10 +14,27 @@ module Cerner
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: SMART, HAILEY'\
                '</p><p><b>DOB</b>: Dec  2, 2003</p><p><b>Gender</b>: female</p><p><b>Patient</b>: SMART, NANCY</p>'\
-               '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p></div>'
+               '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
+               '<p><b>Relationship Level</b>: Patient</p></div>'
       },
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Patient',
+                'display': 'Patient'
+              }
+            ],
+            'text': 'Patient'
+          }
+        }
+      ],
       'identifier': [
         {
+          'id': 'CI-490068357-1',
           'use': 'usual',
           'type': {
             'coding': [
@@ -51,6 +68,7 @@ module Cerner
       },
       'relationship': [
         {
+          'id': 'CI-490017058-0-0',
           'coding': [
             {
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
@@ -70,6 +88,7 @@ module Cerner
       ],
       'name': [
         {
+          'id': 'CI-12724068-12724066-0',
           'use': 'official',
           'text': 'SMART, HAILEY',
           'family': 'SMART',
@@ -83,6 +102,7 @@ module Cerner
       ],
       'telecom': [
         {
+          'id': 'CI-PH-29811922-0',
           'system': 'phone',
           'value': '8168888886',
           'use': 'home',
@@ -91,6 +111,7 @@ module Cerner
           }
         },
         {
+          'id': 'CI-EM-29822897-0',
           'system': 'email',
           'value': 'haileysmart@yopmail.com',
           'use': 'home',
@@ -103,6 +124,7 @@ module Cerner
       'birthDate': '2003-12-02',
       'address': [
         {
+          'id': 'CI-24313555-0',
           'use': 'home',
           'text': '12345 Main St\nKansas City, MO 64116\nUS',
           'line': [
@@ -171,8 +193,24 @@ module Cerner
               'status': 'generated',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: '\
                      'SMART, TIMMY</p><p><b>DOB</b>: Feb 19, 2012</p><p><b>Gender</b>: male</p><p><b>Patient</b>: '\
-                     'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p></div>'
+                     'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
+                     '<p><b>Relationship Level</b>: Patient</p></div>'
             },
+            'extension': [
+              {
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'http://hl7.org/fhir/resource-types',
+                      'code': 'Patient',
+                      'display': 'Patient'
+                    }
+                  ],
+                  'text': 'Patient'
+                }
+              }
+            ],
             'active': true,
             'patient': {
               'reference': 'Patient/12724066',
@@ -180,6 +218,7 @@ module Cerner
             },
             'relationship': [
               {
+                'id': 'CI-490068375-0-0',
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
@@ -199,6 +238,7 @@ module Cerner
             ],
             'name': [
               {
+                'id': 'CI-12724069-12724066-0',
                 'use': 'official',
                 'text': 'SMART, TIMMY',
                 'family': 'SMART',
@@ -212,6 +252,7 @@ module Cerner
             ],
             'telecom': [
               {
+                'id': 'CI-PH-29811924-0',
                 'system': 'phone',
                 'value': '8168888886',
                 'use': 'home',
@@ -220,6 +261,7 @@ module Cerner
                 }
               },
               {
+                'id': 'CI-EM-29822901-0',
                 'system': 'email',
                 'value': 'timmysmart@yopmail.com',
                 'use': 'home',
@@ -232,6 +274,7 @@ module Cerner
             'birthDate': '2012-02-19',
             'address': [
               {
+                'id': 'CI-24313557-0',
                 'use': 'home',
                 'text': '12345 Main St\nKansas City, MO 64116\nUS',
                 'line': [

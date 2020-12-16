@@ -37,7 +37,7 @@ module Cerner
             {
               'url': 'target',
               'valueReference': {
-                'reference': 'Encounter/31363178'
+                'reference': 'Encounter/97953536'
               }
             },
             {
@@ -117,7 +117,7 @@ module Cerner
             {
               'url': 'target',
               'valueReference': {
-                'reference': 'Encounter/31363178'
+                'reference': 'Encounter/97953536'
               }
             },
             {
@@ -131,11 +131,11 @@ module Cerner
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias',
-          'valueString': '1300'
+          'valueString': '0111'
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location',
-          'valueString': '201802160003'
+          'valueString': '98920358'
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount',
@@ -213,7 +213,7 @@ module Cerner
             {
               'url': 'target',
               'valueReference': {
-                'reference': 'Encounter/31363178'
+                'reference': 'Encounter/97953536'
               }
             },
             {
@@ -227,11 +227,11 @@ module Cerner
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias',
-          'valueString': '1300'
+          'valueString': '0111'
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location',
-          'valueString': '201802160003'
+          'valueString': '98920358'
         }
       ]
     }.freeze
@@ -291,7 +291,7 @@ module Cerner
             {
               'url': 'target',
               'valueReference': {
-                'reference': 'Encounter/31363178'
+                'reference': 'Encounter/97953536'
               }
             },
             {
@@ -305,11 +305,11 @@ module Cerner
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias',
-          'valueString': '1300'
+          'valueString': '0111'
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location',
-          'valueString': '201802160003'
+          'valueString': '98920358'
         },
         {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount',

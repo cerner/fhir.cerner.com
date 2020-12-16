@@ -37,12 +37,6 @@ fields:
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
-              "code": "667105",
-              "display": "Surgery",
-              "userSelected": true
-            },
-            {
               "system": "http://snomed.info/sct",
               "code": "394609007",
               "display": "Surgery-general",

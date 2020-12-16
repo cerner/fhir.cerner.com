@@ -194,7 +194,7 @@ fields:
   action:
     - create
   description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
-  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
   example: |
    {
@@ -543,3 +543,34 @@ fields:
         "end": "2020-01-01T01:00:00.000Z"
       }
     }
+- name: type
+  required: 'Yes'
+  type: CodeableConcept
+  action:
+    - docrefccd
+  description: Precise type of clinical document.
+  note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
+    <br/><br/>
+    When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+    <br/><br/>
+  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
+  binding:
+    description: Specifies the particular kind of document referenced.
+    terminology:
+      - display: US Core DocumentReference Type
+        system: http://loinc.org
+        info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+
+- name: type
+  required: 'Yes'
+  type: CodeableConcept
+  action:
+    - docrefccd
+  binding:
+    description: Precise type of clinical document.
+    terminology:
+      - display: LOINC
+        system: http://loinc.org
+        info_link: http://hl7.org/fhir/dstu2/loinc.html
+        values:
+          - 34133-9 - Summary of episode note

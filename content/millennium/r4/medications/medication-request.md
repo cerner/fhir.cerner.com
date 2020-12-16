@@ -20,6 +20,7 @@ The following fields are returned if valued:
 * [Status Reason](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason){:target="_blank"}
 * [Intent](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent){:target="_blank"}
   * Details in Implementation Notes sections for reads and searches.
+* [Identifier](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.identifier){:target="_blank"}
 * [Category](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
@@ -57,6 +58,10 @@ The following fields are returned if valued:
 ### Contained Medication Bindings
 
 <%= terminology_table(:medication_request_contained_medication, :r4) %>
+
+## Custom Extensions
+
+* Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
 ## Search
 
@@ -183,6 +188,62 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </pre>
 
 <%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+Patch an existing medication request.
+
+    PATCH /MedicationRequest/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json', 'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the MedicationRequest resource>"'} %>
+
+### Patch Operations
+
+<%= patch_definition_table(:medication_request_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/1621910
+
+#### Body
+
+<%= json(:r4_medication_request_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Server-Response-Time: 2260.237021
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ### Errors
 

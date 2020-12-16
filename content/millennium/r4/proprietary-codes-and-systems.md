@@ -100,6 +100,7 @@ The Encounter Resource supports proprietary codes for:
 * Encounter.hospitalization.dietPreference codes are maintained in [Code Set 18 Diet](#code-set-18-diet)
 * Encounter.hospitalization.specialCourtesy codes are maintained in [Code Set 67 VIP](#code-set-67-vip) and [Code Set 16 Courtesy](#code-set-16-courtesy)
 * Encounter.hospitalization.dischargeDisposition codes are maintained in [Code Set 19 Discharge Disposition](#code-set-19-discharge-disposition)
+* Custom Attribute extensions on Encounter may contain Custom Attribute Value codes when Custom Attribute Value is of type CodeableConcept. These codes may be from [any Code Set](#list-of-code-sets)
 
 ### Entities
 
@@ -737,7 +738,7 @@ The Account Resource supports proprietary systems for:
 The MedicationRequest Resource supports proprietary systems for:
 
 * MedicationRequest.category is [Medication Request Category](#medication-request-category) for medication requests.
-* MedicationRequest.medication[x] is [Medication Request Synonym](#medication-request-synonym) for medication requests.
+* MedicationRequest.medication\[x] is [Medication Request Synonym](#medication-request-synonym) for medication requests.
 
 ### List of Systems
 
@@ -770,4 +771,15 @@ This system is the synonym id for an order and the ingredients.
       'code': '2762111',
       'display': 'lidocaine topical',
       'userSelected': true
+    }
+
+##### Nomenclature
+
+This system contains all nomenclature values configured in the domain.
+
+    {
+      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+      'code': '13249579',
+      'display': 'Tension-type headache',
+      'userSelected': false
     }

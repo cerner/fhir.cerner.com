@@ -45,7 +45,7 @@ Search for Devices that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -63,6 +63,17 @@ Search for Devices that meet supplied query parameters:
 
 <%= RequestButton.get('open', :r4, 'Device?patient=12724066', 200, :R4_DEVICE_BUNDLE) %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_device_patient_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -75,8 +86,29 @@ List an individual Device by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_device_patient_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/22118346
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_device_entered_in_error_status) %>
+
+<%= disclaimer %>
 
 ### Example
 

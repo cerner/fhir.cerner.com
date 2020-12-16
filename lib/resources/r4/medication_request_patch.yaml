@@ -1,0 +1,34 @@
+---
+name: MedicationRequest
+field_name_base_url: http://hl7.org/fhir/R4/medicationrequest-definitions.html#MedicationRequest
+operations:
+  - name: replace-status
+    path: /status
+    operation: replace
+    cardinality: 1..1
+    type: code
+    url: http://hl7.org/fhir/datatypes-definitions.html#code
+    description: The status of the MedicationRequest
+    example: |
+      {
+        "op": "replace",
+        "path": "/status",
+        "value":  "stopped"
+      }
+    note: >
+      <ul>
+        <li>
+          Only the statuses of `stopped` and `cancelled` are supported.
+          <ul>
+            <li>The `stopped` status indicates the medication was stopped prior to all scheduled administrations occurring.</li>
+            <li>The `cancelled` status indicates that the first instance was never administered.</li>
+          </ul>
+        </li>
+        <li>
+          The `dosageInstruction.timing.repeat.boundsPeriod.start` field should be used to determine if the `stopped` or
+          `cancelled` status is most appropriate. If the field is in the past, then the `stopped` status should
+          be used, otherwise the `cancelled` status should be used.
+        </li>
+        <li>Using `stopped` when the `cancelled` status is most appropriate will result in the status being updated to `cancelled`.</li>
+        <li>Using `cancelled` when the `stopped` status is most appropriate will result in the status being updated to `stopped`.</li>
+      </ul>

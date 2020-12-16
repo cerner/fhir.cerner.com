@@ -19,7 +19,6 @@ The following fields are returned if valued:
 * [Id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.patient){:target="_blank"}
 * [Patient encounter when first recorded (only applies to diagnoses)](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.encounter){:target="_blank"}
-* [Who recorded the condition](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.asserter){:target="_blank"}
 * [Date recorded](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.dateRecorded){:target="_blank"}
 * [Condition code](﻿﻿http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.clinicalStatus){:target="_blank"}
@@ -134,6 +133,7 @@ _Implementation Notes_
   * For Conditions with a category code of [problem](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes):
     * If `Condition.dateRecorded` is set on the request body, its value will currently be ignored.
   * Creating Conditions with a category code of [health-concern](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes) is not currently supported.
+* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
 
 ### Authorization Types
 
@@ -235,6 +235,7 @@ _Implementation Notes_
 
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
 * Currently, `health-concern` category code is not supported for updating conditions.
+* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
 
 ### Authorization Types
 

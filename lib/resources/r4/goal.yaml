@@ -1,0 +1,28 @@
+---
+name: Goal
+field_name_base_url: http://hl7.org/fhir/R4/goal-definitions.html#Goal
+fields:
+  - name: lifecycleStatus
+    required: 'No'
+    binding:
+      description: Codes that reflect the current state of a goal and whether the goal is still being targeted.
+      terminology:
+        - display: Goal Lifecycle Status Codes
+          system: http://hl7.org/fhir/goal-status
+          info_link: http://hl7.org/fhir/r4/valueset-goal-status.html
+  - name: achievementStatus
+    required: 'No'
+    binding:
+      description: Indicates the progression, or lack thereof, towards the goal against the target.
+      terminology:
+        - display: Goal Achievement Status Codes
+          system: http://terminology.hl7.org/CodeSystem/goal-achievement
+          info_link: http://hl7.org/fhir/r4/valueset-goal-achievement.html
+  - name: category
+    required: 'No'
+    binding:
+      description: Codes for grouping and sorting goals.
+      terminology:
+        - display: Category
+          system: http://terminology.hl7.org/CodeSystem/goal-category
+          info_link: http://hl7.org/fhir/r4/valueset-goal-category.html

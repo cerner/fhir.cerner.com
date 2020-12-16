@@ -84,6 +84,12 @@ module Cerner
         },
         'dosageInstruction': [
           {
+            "extension": [
+              {
+                'valueString': '40 mcg = 1 mL, IM, Once, First Dose: 12/07/16 16:00:00 CST',
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction'
+              }
+            ],
             'text': '40 mcg = 1 mL, IM, Once',
             'patientInstruction': '1 Milliliters Intramuscular (in a muscle) once. Refills: 0.',
             'timing': {
@@ -254,5 +260,12 @@ module Cerner
         'allowedBoolean': true
       }
     }.freeze
+    R4_MEDICATION_REQUEST_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'stopped'
+      }
+    ].freeze
   end
 end

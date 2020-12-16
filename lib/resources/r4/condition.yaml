@@ -167,6 +167,7 @@ fields:
     }
   binding:
     description: A category assigned to the condition.
+    note: Category codes encounter-diagnosis, problem-list-item and health-concern are supported for search and retrieve functionality
     terminology:
       - display: Condition Category Codes
         system: http://terminology.hl7.org/CodeSystem/condition-category

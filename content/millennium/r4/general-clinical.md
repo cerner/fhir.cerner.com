@@ -3,7 +3,8 @@ title: General Clinical | R4 API
 layout: api
 ---
 
-<%= render '/general-clinical.*' %>
+<%= render '/millennium/r4/general-clinical.*' %>
+
 * [AllergyIntolerance](../general-clinical/allergy-intolerance)
 * [Condition](../general-clinical/condition)
 * [Procedure](../general-clinical/procedure)

@@ -82,9 +82,9 @@ fields:
   example: |
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
-      "valueString": "3100"
+      "valueString": "0111"
     }
-  note: A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. Is required to create a FinancialTransaction resource.
+  note: A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. The alias determines the credit or debit impact on the accounts receivable. A valid alias from the tenant is required to create a FinancialTransaction resource.
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias?_format=json
 
 - name: FinancialTransaction Location Extension
@@ -95,7 +95,7 @@ fields:
   example: |
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
-      "valueString": "201802160003"
+      "valueString": "98920358"
     }
   note: These are client configured location values.
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location?_format=json
@@ -227,7 +227,7 @@ fields:
         {
           "url": "target",
           "valueReference": {
-            "reference": "Encounter/31363178"
+            "reference": "Encounter/97953536"
           }
         },
         {
@@ -255,7 +255,7 @@ fields:
       {
         "url": "target",
         "valueReference": {
-          "reference": "Encounter/31363178"
+          "reference": "Encounter/97953536"
         }
       }
     url: '#custom-extensions'

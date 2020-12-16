@@ -9,7 +9,7 @@ title: Binary | R4 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to clinical documents and diagnostic reports. The diagnostic reports are currently limited to Anatomic Pathology and Radiology.
+The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents and diagnostic reports. The diagnostic reports are currently limited to Anatomic Pathology and Radiology.
 
 It is recommended to request Binary resources only after obtaining links to the resources via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow with Binary resources.
 
@@ -58,6 +58,47 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 
 <%= headers status: 200 %>
 <%= json(:r4_binary_entry) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## $autogen-ccd-if
+
+Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:
+ 
+  GET /Binary/$autogen-ccd-if?:parameters
+
+_Implementation Notes_
+
+* This is usually linked from DocumentReference, and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
+* See the [headers](#headers) section for concerns about the Accept header.
+* See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
+
+### Authorization Types
+
+Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Headers
+
+An `Accept` header of `application/xml` could be supplied instead, if the XML Binary resource is desired insetad of the JSON data.
+
+<%= headers fhir_json: true %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1694010
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_ccd_entry) %>
 
 <%= disclaimer %>
 
