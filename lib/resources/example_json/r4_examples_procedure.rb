@@ -102,6 +102,163 @@ module Cerner
       ]
     }.freeze
 
+    R4_PROCEDURE_PATIENT_ENTRY ||= {
+      "resourceType": 'Procedure',
+      "id": '2572581295',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2020-09-25T20:13:56Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p>'\
+        '<p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date</b>: Apr  5, 2019</p><p><b>Status</b>: Completed'\
+        '</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p>'\
+        '<p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&apos;s Health Cerner</li></ul></div>'
+      },
+      "status": 'completed',
+      "code": {
+        "coding": [
+          {
+            "system": 'http://snomed.info/sct',
+            "code": '119954001',
+            "display": 'Adenoid excision (procedure)',
+            "userSelected": true
+          }
+        ],
+        "text": 'Adenoid excision (text)'
+      },
+      "subject": {
+        "reference": 'Patient/12724066',
+        "display": 'SMART, NANCY'
+      },
+      "encounter": {
+        "reference": 'Encounter/97953477'
+      },
+      "performedDateTime": '2019-04-05',
+      "recorder": {
+        "reference": 'Practitioner/1',
+        "display": 'SYSTEM, SYSTEM Cerner'
+      },
+      "performer": [
+        {
+          "actor": {
+            "reference": 'Practitioner/4122630',
+            "display": "Cerner Test, Physician - Women's Health Cerner"
+          }
+        }
+      ],
+      "location": {
+        "display": 'Baseline East'
+      },
+      "note": [
+        {
+          "authorReference": {
+            "reference": 'Practitioner/4122630',
+            "display": "Cerner Test, Physician - Women's Health Cerner"
+          },
+          "time": '2019-04-05T20:21:46Z',
+          "text": 'Procedure comment'
+        }
+      ]
+    }.freeze
+
+    R4_PROCEDURE_PATIENT_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": '53ac99d1-c76b-4a07-90f8-73d13a01459b',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572581295',
+          "resource": R4_PROCEDURE_PATIENT_ENTRY
+        },
+        {
+          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/2572476121',
+          "resource": {
+            "resourceType": 'Procedure',
+            "id": '2572476121',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2020-08-24T08:42:34Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+              '<p><b>Patient</b>: SMART, NANCY</p><p><b>Procedure</b>: Adenoid excision (text)</p>'\
+              '<p><b>Status</b>: Completed</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p></div>'
+            },
+            "status": 'completed',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '119954001',
+                  "display": 'Adenoid excision (procedure)',
+                  "userSelected": true
+                }
+              ],
+              "text": 'Adenoid excision (text)'
+            },
+            "subject": {
+              "reference": 'Patient/12724066',
+              "display": 'SMART, NANCY'
+            },
+            "encounter": {
+              "reference": 'Encounter/97953477'
+            },
+            "_performedDateTime": {
+              "extension": [
+                {
+                  "valueCode": 'unknown',
+                  "url": 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                }
+              ]
+            },
+            "recorder": {
+              "reference": 'Practitioner/1',
+              "display": 'SYSTEM, SYSTEM Cerner'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_PROCEDURE_ENTERED_IN_ERROR_STATUS ||= {
+      "resourceType": 'Procedure',
+      "id": '1788134987',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2019-09-05T22:38:38Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+        '<p><b>Patient</b>: MARSTON, JACK</p><p><b>Procedure</b>: Error</p>'\
+        '<p><b>Status</b>: Entered in Error</p></div>'
+      },
+      "status": 'entered-in-error',
+      "code": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'error',
+            "display": 'Error'
+          }
+        ],
+        "text": 'Error'
+      },
+      "subject": {
+        "reference": 'Patient/166045489',
+        "display": 'MARSTON, JACK'
+      }
+    }.freeze
+
     R4_PROCEDURE_CREATE ||= {
       'resourceType': 'Procedure',
       'status': 'completed',
