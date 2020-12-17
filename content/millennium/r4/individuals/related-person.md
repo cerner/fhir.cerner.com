@@ -54,7 +54,7 @@ Search for RelatedPersons that meet supplied query parameters:
     
 _Implementation Notes_
 
-* Duplicate relationships will not be returned on a search.
+* Duplicate relationships will only be represented once.
 
 ### Authorization Types
 
@@ -79,7 +79,7 @@ Notes:
 
 <%= headers %>
 
-### Example - Patient-level RelatedPerson
+### Example - Search by Patient
 
 #### Request
 
@@ -90,7 +90,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_bundle) %>
 
-### Example - Encounter-level RelatedPerson
+### Example - Search by Encounter
 
 #### Request
 
@@ -113,7 +113,7 @@ List an individual RelatedPerson by its id:
     
 _Implementation Notes_
 
-* Duplicate relationships will not be returned on a search.
+* Duplicate relationships will only be represented once.
 
 ### Authorization Types
 
