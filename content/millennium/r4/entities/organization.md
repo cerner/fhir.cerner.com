@@ -36,10 +36,12 @@ Search for Organizations that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?           | Type      | Description
--------------|---------------------|-----------|----------------------------------------------------------
- `_id`       | This or 'identifier'| [`token`] | The logical resource id associated with the resource.
- `identifier`| This or '_id'       | [`token`] | NPI, OID or FederalTAXID identifier for the organization.
+ Name        | Required?                      | Type       | Description
+-------------|--------------------------------|------------|----------------------------------------------------------
+ `_id`       | This or `identifier` or `type` | [`token`]  | The logical resource id associated with the resource.
+ `identifier`| This or `type` or `_id`        | [`token`]  | NPI, OID or FederalTAXID identifier for the organization.
+ `type`      | This or `identifier` or `_id`  | [`token`]  | The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`
+ [`_count`]  | No                             | [`number`] | The maximum number of results to return. Defaults to `100`.
 
 ### Headers
 
@@ -151,6 +153,8 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`token`]: http://hl7.org/fhir/r4/search.html#token
+[`number`]: https://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
