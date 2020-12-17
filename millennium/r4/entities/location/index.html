@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Schedule | R4 API</title>
+  <title>Location | R4 API</title>
   
   <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -75,11 +75,16 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="schedule">Schedule</h1>
+      <h1 id="location">Location</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -101,15 +106,22 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.</p>
+<p>The Location resource describes physical places where healthcare services are provided.  In Millennium, facilities are the top level of the patient location hierarchy.  A facility is also an Organization resource at which patient locations are associated.  All facilities are organizations, but not all organizations are facilities.  A location can also be an ambulatory patient care area like a clinic or an emergency room.  The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Schedule id</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.active" target="_blank">Active</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType" target="_blank">Service Type</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.actor" target="_blank">Actor</a></li>
+  <li><a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Location id</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.name" target="_blank">Name</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.alias" target="_blank">Alias</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.mode" target="_blank">Mode</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.telecom" target="_blank">Telecom</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.address" target="_blank">Address</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType" target="_blank">Physical Type</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization" target="_blank">Managing Organization</a></li>
+  <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.partOf" target="_blank">Part Of</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including custom attribute</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -122,7 +134,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType">Schedule.serviceType</a>
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType">Location.physicalType</a>
       
       </td>
     </tr>
@@ -131,7 +143,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The specific service that is to be performed during this appointment.</li></ul>
+            <ul style="list-style-type: none"><li>Physical form of the location.</li></ul>
           
           
 
@@ -140,9 +152,91 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-service-type.html">Schedule Service Type</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-location-physical-type.html">Location physicalType</a><br>
                       
-                        System: http://hl7.org/fhir/r4/codesystem-service-type.html <br>
+                        System: http://terminology.hl7.org/CodeSystem/location-physical-type <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-type">Millennium Location Types</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/222 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Location.extension[x].extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The value of the client defined custom attribute. This binding is used for the <code>custom-attribute-value</code> extension nested under <code>custom-attribute</code> extensions.</li></ul>
+          
+          
+            <li><i>Note</i></li>
+            
+            <ul style="list-style-type: none"><li style="list-style-type: none">
+<ul>
+  <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
+  <li>The value of the custom attribute is not limited to a single Code Set or nomenclature.</li>
+</ul>
+</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#proprietary-codes">Custom Attribute Code Value</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt; <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature">Custom Attribute Nomenclature Value</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature <br>
                       
                       </p>
                     
@@ -161,17 +255,44 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Custom Attribute</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>custom-attribute</code></td>
+      <td>None (contains nested extensions)</td>
+      <td>A client defined custom attribute for the resource. Attribute values can be of type <a href="https://hl7.org/fhir/r4/datatypes.html#integer"><code>integer</code></a>, <a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a>, or <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
-<p>Search for Schedules that meet supplied query parameters:</p>
+<p>Search for Locations that meet supplied query parameters:</p>
 
-<pre><code>GET /Schedule?:parameters
+<pre><code>GET /Location?:parameters
 </code></pre>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -188,24 +309,23 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Y</td>
+      <td>Yes</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>4062786-4062906-19875648-0</code>
-</td>
+      <td>The logical resource id associated with the resource.</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="headers">Headers</h3>
 
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
 <h3 id="example">Example</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=4063034
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -214,48 +334,91 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
+  "id": "902e1b49-b9c4-4786-b90b-c9612d478f2a",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0"
+      "url": "https://fhir-open.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=21250409"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0",
+      "fullUrl": "https://fhir-open.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409",
       "resource": {
-        "resourceType": "Schedule",
-        "id": "24477854-21304876-62852027-0",
+        "resourceType": "Location",
+        "id": "21250409",
         "meta": {
-          "versionId": "34229204v992283",
-          "lastUpdated": "2020-07-06T18:46:08.000Z"
+          "versionId": "6",
+          "lastUpdated": "2018-06-12T18:45:00Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: BE 1 North&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: BE 1N&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Part Of&lt;/b&gt;: 21250403&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
-        "active": true,
-        "serviceType": [
+        "extension": [
           {
-            "coding": [
+            "extension": [
               {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
-                "code": "24477854",
-                "display": "Established Patient",
-                "userSelected": true
+                "id": "20356268",
+                "valueString": "Core Measure Locations",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4678015",
+                      "code": "20140683",
+                      "display": "ED",
+                      "userSelected": true
+                    }
+                  ],
+                  "text": "ED"
+                },
+                "url": "custom-attribute-value"
               }
             ],
-            "text": "Established Patient"
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
           }
         ],
-        "actor": [
-          {
-            "reference": "Practitioner/593923",
-            "display": "Cerner Test, Physician - Primary Care Cerner"
-          }
-        ]
+        "status": "active",
+        "name": "BE 1 North",
+        "alias": [
+          "BE 1N"
+        ],
+        "mode": "instance",
+        "address": {
+          "text": "Cerner H2 building\nLevel 4\nManyata embassy business park\nNagawara cicle\nBangalore, AA \nIreland",
+          "line": [
+            "Cerner H2 building",
+            "Level 4",
+            "Manyata embassy business park",
+            "Nagawara cicle"
+          ],
+          "city": "Bangalore",
+          "district": "Indian River",
+          "state": "AA",
+          "country": "Ireland"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/13971625",
+          "display": "Baseline East Medical Center"
+        },
+        "partOf": {
+          "reference": "Location/21250403"
+        }
       }
     }
   ]
@@ -269,15 +432,15 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<p>List an individual Schedule by its id:</p>
+<p>List an individual Location by its id:</p>
 
-<pre><code>GET /Schedule/:id
+<pre><code>GET /Location/:id
 </code></pre>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-1">Headers</h3>
@@ -289,7 +452,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/4063034
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -297,36 +460,79 @@
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Schedule",
-  "id": "24477854-21304876-62852027-0",
+  "resourceType": "Location",
+  "id": "21250409",
   "meta": {
-    "versionId": "34229204v992283",
-    "lastUpdated": "2020-07-06T18:46:08.000Z"
+    "versionId": "6",
+    "lastUpdated": "2018-06-12T18:45:00Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: BE 1 North&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: BE 1N&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Part Of&lt;/b&gt;: 21250403&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
-  "active": true,
-  "serviceType": [
+  "extension": [
     {
-      "coding": [
+      "extension": [
         {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
-          "code": "24477854",
-          "display": "Established Patient",
-          "userSelected": true
+          "id": "20356268",
+          "valueString": "Core Measure Locations",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4678015",
+                "code": "20140683",
+                "display": "ED",
+                "userSelected": true
+              }
+            ],
+            "text": "ED"
+          },
+          "url": "custom-attribute-value"
         }
       ],
-      "text": "Established Patient"
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
     }
   ],
-  "actor": [
-    {
-      "reference": "Practitioner/593923",
-      "display": "Cerner Test, Physician - Primary Care Cerner"
-    }
-  ]
+  "status": "active",
+  "name": "BE 1 North",
+  "alias": [
+    "BE 1N"
+  ],
+  "mode": "instance",
+  "address": {
+    "text": "Cerner H2 building\nLevel 4\nManyata embassy business park\nNagawara cicle\nBangalore, AA \nIreland",
+    "line": [
+      "Cerner H2 building",
+      "Level 4",
+      "Manyata embassy business park",
+      "Nagawara cicle"
+    ],
+    "city": "Bangalore",
+    "district": "Indian River",
+    "state": "AA",
+    "country": "Ireland"
+  },
+  "physicalType": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+        "code": "783",
+        "display": "Facility(s)",
+        "userSelected": true
+      }
+    ],
+    "text": "Facility(s)"
+  },
+  "managingOrganization": {
+    "reference": "Organization/13971625",
+    "display": "Baseline East Medical Center"
+  },
+  "partOf": {
+    "reference": "Location/21250403"
+  }
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -409,12 +615,12 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Entities</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../entities/location/">Location</a></li>
-          <li><a href="../../entities/organization/">Organization</a></li>
-          <li><a href="../../entities/consent/">Consent</a></li>
+          <li><a href="./">Location</a></li>
+          <li><a href="../organization/">Organization</a></li>
+          <li><a href="../consent/">Consent</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -475,12 +681,12 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Scheduling</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../appointment/">Appointment</a></li>
-          <li><a href="./">Schedule</a></li>
-          <li><a href="../slot/">Slot</a></li>
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+          <li><a href="../../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../../scheduling/slot/">Slot</a></li>
         </ul>
       </li>
     </ul>

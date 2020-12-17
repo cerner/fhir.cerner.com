@@ -278,15 +278,31 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or ‘identifier’</td>
+      <td>This or <code>identifier</code> or <code>type</code>
+</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
-      <td>This or ‘_id’</td>
+      <td>This or <code>type</code> or <code>_id</code>
+</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>NPI, OID or FederalTAXID identifier for the organization.</td>
+    </tr>
+    <tr>
+      <td><code>type</code></td>
+      <td>This or <code>identifier</code> or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The organization’s type. Example: <code>http://terminology.hl7.org/CodeSystem/organization-type|govt</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Defaults to <code>100</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -754,6 +770,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>resourceType must be Organization.</li></ul>
       
@@ -804,6 +821,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -850,6 +868,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>If set, value must be true.</li></ul>
       
@@ -883,6 +902,7 @@
   "name": "example-organization"
 }
 </pre></li></ul>
+      
       
       
       
@@ -933,6 +953,7 @@
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -1088,6 +1109,7 @@ X-Runtime: 2.011826
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Entities</a>
 </h3>
         <ul class="js-guides">
+          <li><a href="../location/">Location</a></li>
           <li><a href="./">Organization</a></li>
           <li><a href="../consent/">Consent</a></li>
         </ul>

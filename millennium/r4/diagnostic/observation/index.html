@@ -926,7 +926,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <p><em>Implementation Notes</em></p>
@@ -1388,6 +1388,217 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<h4 id="patient-authorization-request">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "4927bb8b-c8c9-43c4-8553-e21bac8ad557",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400&amp;-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD05YmVjN2M5My01ZmQyLTRjM2UtYjE2OS0yMTY0OTM0ZDFmODQmY29uY2VwdD1jaGFydGVkX29ic2VydmF0aW9u&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-81-73121985",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "SH-81-73121985",
+        "meta": {
+          "versionId": "73121985",
+          "lastUpdated": "2020-12-11T16:38:37.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742400&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Categories&lt;/b&gt;: Social History&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Substance Abuse&lt;/p&gt;&lt;p&gt;&lt;b&gt;Issued Date&lt;/b&gt;: Dec 11, 2020  4:38 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "social-history",
+                "display": "Social History"
+              }
+            ],
+            "text": "Social History"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "363908000",
+              "display": "Details of drug misuse behavior (observable entity)"
+            }
+          ],
+          "text": "Substance Abuse"
+        },
+        "subject": {
+          "reference": "Patient/12742400"
+        },
+        "issued": "2020-12-11T16:38:37.000Z",
+        "hasMember": [
+          {
+            "reference": "Observation/SH-73121985-q4625833"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "M-197412603",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742400&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Preliminary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Masked&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "preliminary",
+        "category": [
+          {
+            "extension": [
+              {
+                "valueCode": "unknown",
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "masked",
+              "display": "Masked"
+            }
+          ],
+          "text": "Masked"
+        },
+        "subject": {
+          "reference": "Patient/12742400"
+        },
+        "_effectiveDateTime": {
+          "extension": [
+            {
+              "valueCode": "unknown",
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+            }
+          ]
+        },
+        "dataAbsentReason": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "masked",
+              "display": "Masked"
+            }
+          ],
+          "text": "Masked"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request-for-entered-in-error-status">Patient Authorization Request For Entered in Error Status</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "4927bb8b-c8c9-43c4-8553-e21bac8ad557",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401&amp;-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD05YmVjN2M5My01ZmQyLTRjM2UtYjE2OS0yMTY0OTM0ZDFmODQmY29uY2VwdD1jaGFydGVkX29ic2VydmF0aW9u&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "M-197412603",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742401&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Error&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "entered-in-error ",
+        "category": [
+          {
+            "extension": [
+              {
+                "valueCode": "error",
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "error",
+              "display": "Error"
+            }
+          ],
+          "text": "Error"
+        },
+        "subject": {
+          "reference": "Patient/12742401"
+        },
+        "_effectiveDateTime": {
+          "extension": [
+            {
+              "valueCode": "error",
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+            }
+          ]
+        },
+        "dataAbsentReason": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "error",
+              "display": "Error"
+            }
+          ],
+          "text": "Error"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -1418,7 +1629,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1666,6 +1877,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -1703,6 +1915,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   "status": "final"
 }
 </pre></li></ul>
+      
       
       
       
@@ -1755,6 +1968,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -1829,6 +2043,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1861,6 +2076,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1908,6 +2124,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1938,6 +2155,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   "effectiveDateTime": "2020-07-07T20:37:00.000Z"
 }
 </pre></li></ul>
+      
       
       
       
@@ -1983,6 +2201,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -2017,6 +2236,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -2110,6 +2330,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -2133,7 +2354,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       </td>
       <td>Yes </td>
       <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -2179,6 +2400,13 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
 </pre></li></ul>
       
       
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "valueDateTime": '2020-07-04T07:15:00Z'
+}
+</pre></li></ul>
+      
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -2186,7 +2414,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
 </ul>
 
 <ul>
-  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code> and <code>valueString</code> </li>
+  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code>. </li>
 </ul>
 </li></ul>
       
@@ -2254,6 +2482,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -2299,6 +2528,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -2362,6 +2592,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -2409,6 +2640,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -2448,6 +2680,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -2478,6 +2711,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   "text": 'Negative'
 }
 </pre></li></ul>
+      
       
       
       
@@ -2521,6 +2755,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -2740,7 +2975,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
   ]
 }</code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2836,6 +3071,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -2877,6 +3113,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The id value must match the Observation/&lt;id&gt; value.</li></ul>
       
@@ -2910,6 +3147,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   "status": "corrected"
 }
 </pre></li></ul>
+      
       
       
       
@@ -2962,6 +3200,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -3031,6 +3270,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -3063,6 +3303,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -3113,6 +3354,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -3143,6 +3385,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   "effectiveDateTime": "2020-07-07T20:37:00.000Z"
 }
 </pre></li></ul>
+      
       
       
       
@@ -3188,6 +3431,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -3222,6 +3466,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -3314,6 +3559,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -3336,7 +3582,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       </td>
       <td>Yes </td>
       <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
@@ -3382,10 +3628,17 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
 </pre></li></ul>
       
       
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "valueDateTime": '2020-07-04T07:15:00Z'
+}
+</pre></li></ul>
+      
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code> and <code>valueString</code> </li>
+  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code>. </li>
 </ul>
 <ul>
   <li> Updating value type to another is not supported. </li>
@@ -3456,6 +3709,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -3501,6 +3755,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -3564,6 +3819,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
@@ -3611,6 +3867,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -3650,6 +3907,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -3680,6 +3938,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   "text": 'Negative'
 }
 </pre></li></ul>
+      
       
       
       
@@ -3723,6 +3982,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -3839,7 +4099,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   ]
 }</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3942,6 +4202,7 @@ X-Runtime: 0.812593
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
 </h3>
         <ul class="js-guides">
+          <li><a href="../../entities/location/">Location</a></li>
           <li><a href="../../entities/organization/">Organization</a></li>
           <li><a href="../../entities/consent/">Consent</a></li>
         </ul>

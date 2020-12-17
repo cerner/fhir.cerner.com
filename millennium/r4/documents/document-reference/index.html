@@ -116,13 +116,24 @@
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
+  <li><a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a></li>
+  <li>
+<a href="#search-1" id="markdown-toc-search-1">Search</a>    <ul>
+      <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
+      <li><a href="#authorization-types-4" id="markdown-toc-authorization-types-4">Authorization Types</a></li>
+      <li><a href="#parameters-1" id="markdown-toc-parameters-1">Parameters</a></li>
+      <li><a href="#headers-4" id="markdown-toc-headers-4">Headers</a></li>
+      <li><a href="#example-4" id="markdown-toc-example-4">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports returning a list of clinical documents, and a reference to retrieve a document as a PDF.</p>
+<p>The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF.</p>
 
-<p>The following fields are returned if valued:</p>
+<p>The following fields are returned if valued for clinical documents:</p>
 
 <ul>
   <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">DocumentReference id</a></li>
@@ -131,6 +142,7 @@
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type" target="_blank">Document type</a></li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.category" target="_blank">Document category</a></li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject" target="_blank">Subject (Patient)</a></li>
+  <li><a href="http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.date" target="_blank">Created Date</a></li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author" target="_blank">Author</a></li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator" target="_blank">Authenticator/verifying provider</a></li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description" target="_blank">Document description/title</a></li>
@@ -141,6 +153,7 @@
       <li><a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation" target="_blank">Created date/time</a></li>
       <li><a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title" target="_blank">Title</a></li>
       <li><a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url" target="_blank">URL (fully qualified link to the document)</a></li>
+      <li><a href="http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format" target="_blank">Format</a></li>
     </ul>
   </li>
   <li><a href="https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter" target="_blank">Patient encounter</a></li>
@@ -376,6 +389,95 @@
       
       
       
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Specifies the particular kind of document referenced.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type">US Core DocumentReference Type</a><br>
+                      
+                        System: http://loinc.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Precise type of clinical document.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/loinc.html">LOINC</a><br>
+                      
+                        System: http://loinc.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      
+                        <li>34133-9 - Summary of episode note</li>
+                      
+                      </ul>
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -389,7 +491,7 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -471,7 +573,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -480,27 +582,27 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "93314497-f3f1-46c4-93ca-ad058c1d4ba4",
+  "id": "941ab54e9-4501-446a-9cee-6cb14c37dab3",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12724066"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "197292845",
+        "id": "197411797",
         "meta": {
           "versionId": "1",
-          "lastUpdated": "2020-07-06T21:02:56.000Z"
+          "lastUpdated": "2020-12-10T07:20:00.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Height Weight Allergy Rule - Text&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Height Weight Allergy Rule&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Jul  6, 2020  9:02 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Spence, Open Platform IA, Stephen&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Consultation Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "current",
         "docStatus": "final",
@@ -508,72 +610,88 @@
           "coding": [
             {
               "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
-              "code": "20732501",
-              "display": "Height Weight Allergy Rule - Text",
+              "code": "2820510",
+              "display": "Consultation Note Generic",
               "userSelected": true
             },
             {
               "system": "http://loinc.org",
-              "_code": {
-                "extension": [
-                  {
-                    "valueCode": "unknown",
-                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-                  }
-                ]
-              }
+              "code": "11488-4",
+              "userSelected": false
             }
           ],
-          "text": "Height Weight Allergy Rule - Text"
+          "text": "Consultation Note Generic"
         },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11488-4",
+                "userSelected": false
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note",
+                "userSelected": false
+              }
+            ],
+            "text": "Clinical Note"
+          }
+        ],
         "subject": {
-          "reference": "Patient/12724066",
-          "display": "SMART, NANCY"
+          "reference": "Patient/12742400",
+          "display": "PETERS, TIM A"
         },
         "author": [
           {
-            "reference": "Practitioner/12724064",
-            "display": "Spence, Open Platform IA, Stephen"
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
           }
         ],
         "authenticator": {
-          "reference": "Practitioner/12724064",
-          "display": "Spence, Open Platform IA, Stephen"
+          "reference": "Practitioner/12742069",
+          "display": "Portal, Portal"
         },
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197292845",
-              "title": "Height Weight Allergy Rule",
-              "creation": "2020-07-06T21:02:47.000Z"
+              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797",
+              "title": "Auto TC Summary",
+              "creation": "2020-12-10T07:19:54.000Z"
             }
           }
         ],
         "context": {
           "encounter": [
             {
-              "reference": "Encounter/97939539"
+              "reference": "Encounter/97953530"
             }
           ],
           "period": {
-            "end": "2020-07-06T21:02:00.000Z"
+            "end": "2020-12-10T07:19:54.000Z"
           }
         }
       }
     },
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292833",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793",
       "resource": {
         "resourceType": "DocumentReference",
-        "id": "197292833",
+        "id": "197411793",
         "meta": {
           "versionId": "1",
-          "lastUpdated": "2020-07-06T20:39:24.000Z"
+          "lastUpdated": "2020-12-10T07:19:56.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Height Weight Allergy Rule - Text&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Height Weight Allergy Rule&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Jul  6, 2020  8:37 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Spence, Open Platform IA, Stephen&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Progress Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "current",
         "docStatus": "final",
@@ -581,56 +699,265 @@
           "coding": [
             {
               "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
-              "code": "20732501",
-              "display": "Height Weight Allergy Rule - Text",
+              "code": "2820555",
+              "display": "Progress Note Generic",
               "userSelected": true
             },
             {
               "system": "http://loinc.org",
-              "_code": {
-                "extension": [
-                  {
-                    "valueCode": "unknown",
-                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-                  }
-                ]
-              }
+              "code": "11506-3",
+              "userSelected": false
             }
           ],
-          "text": "Height Weight Allergy Rule - Text"
+          "text": "Progress Note Generic"
         },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11506-3",
+                "userSelected": false
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note",
+                "userSelected": false
+              }
+            ],
+            "text": "Clinical Note"
+          }
+        ],
         "subject": {
-          "reference": "Patient/12724066",
-          "display": "SMART, NANCY"
+          "reference": "Patient/12742400",
+          "display": "PETERS, TIM A"
         },
         "author": [
           {
-            "reference": "Practitioner/12724064",
-            "display": "Spence, Open Platform IA, Stephen"
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
           }
         ],
         "authenticator": {
-          "reference": "Practitioner/12724064",
-          "display": "Spence, Open Platform IA, Stephen"
+          "reference": "Practitioner/12742069",
+          "display": "Portal, Portal"
         },
         "content": [
           {
             "attachment": {
               "contentType": "application/pdf",
-              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197292833",
-              "title": "Height Weight Allergy Rule",
-              "creation": "2020-07-06T20:37:35.000Z"
+              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793",
+              "title": "Auto TC Summary",
+              "creation": "2020-12-10T07:19:53.000Z"
             }
           }
         ],
         "context": {
           "encounter": [
             {
-              "reference": "Encounter/97953477"
+              "reference": "Encounter/97953530"
             }
           ],
           "period": {
-            "end": "2020-07-06T20:37:00.000Z"
+            "end": "2020-12-10T07:19:53.000Z"
+          }
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="patient-authorization-request">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "941ab54e9-4501-446a-9cee-6cb14c37dab3",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "197411797",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-12-10T07:20:00.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Consultation Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "2820510",
+              "display": "Consultation Note Generic"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "11488-4"
+            }
+          ],
+          "text": "Consultation Note Generic"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11488-4"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ],
+            "text": "Clinical Note"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/12742400",
+          "display": "PETERS, TIM A"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
+          }
+        ],
+        "authenticator": {
+          "reference": "Practitioner/12742069",
+          "display": "Portal, Portal"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797",
+              "title": "Auto TC Summary",
+              "creation": "2020-12-10T07:19:54.000Z"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/97953530"
+            }
+          ],
+          "period": {
+            "end": "2020-12-10T07:19:54.000Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "197411793",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-12-10T07:19:56.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Progress Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "2820555",
+              "display": "Progress Note Generic"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3"
+            }
+          ],
+          "text": "Progress Note Generic"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "11506-3"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ],
+            "text": "Clinical Note"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/12742400",
+          "display": "PETERS, TIM A"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
+          }
+        ],
+        "authenticator": {
+          "reference": "Practitioner/12742069",
+          "display": "Portal, Portal"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793",
+              "title": "Auto TC Summary",
+              "creation": "2020-12-10T07:19:53.000Z"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/97953530"
+            }
+          ],
+          "period": {
+            "end": "2020-12-10T07:19:53.000Z"
           }
         }
       }
@@ -652,7 +979,7 @@
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-1">Headers</h3>
@@ -664,23 +991,23 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197292845
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "DocumentReference",
-  "id": "197292845",
+  "id": "197411797",
   "meta": {
     "versionId": "1",
-    "lastUpdated": "2020-07-06T21:02:56.000Z"
+    "lastUpdated": "2020-12-10T07:20:00.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Height Weight Allergy Rule - Text&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Height Weight Allergy Rule&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Jul  6, 2020  9:02 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Spence, Open Platform IA, Stephen&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Consultation Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
   },
   "status": "current",
   "docStatus": "final",
@@ -688,56 +1015,164 @@
     "coding": [
       {
         "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
-        "code": "20732501",
-        "display": "Height Weight Allergy Rule - Text",
+        "code": "2820510",
+        "display": "Consultation Note Generic",
         "userSelected": true
       },
       {
         "system": "http://loinc.org",
-        "_code": {
-          "extension": [
-            {
-              "valueCode": "unknown",
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-            }
-          ]
-        }
+        "code": "11488-4",
+        "userSelected": false
       }
     ],
-    "text": "Height Weight Allergy Rule - Text"
+    "text": "Consultation Note Generic"
   },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "11488-4",
+          "userSelected": false
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note",
+          "userSelected": false
+        }
+      ],
+      "text": "Clinical Note"
+    }
+  ],
   "subject": {
-    "reference": "Patient/12724066",
-    "display": "SMART, NANCY"
+    "reference": "Patient/12742400",
+    "display": "PETERS, TIM A"
   },
   "author": [
     {
-      "reference": "Practitioner/12724064",
-      "display": "Spence, Open Platform IA, Stephen"
+      "reference": "Practitioner/12742069",
+      "display": "Portal, Portal"
     }
   ],
   "authenticator": {
-    "reference": "Practitioner/12724064",
-    "display": "Spence, Open Platform IA, Stephen"
+    "reference": "Practitioner/12742069",
+    "display": "Portal, Portal"
   },
   "content": [
     {
       "attachment": {
         "contentType": "application/pdf",
-        "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197292845",
-        "title": "Height Weight Allergy Rule",
-        "creation": "2020-07-06T21:02:47.000Z"
+        "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797",
+        "title": "Auto TC Summary",
+        "creation": "2020-12-10T07:19:54.000Z"
       }
     }
   ],
   "context": {
     "encounter": [
       {
-        "reference": "Encounter/97939539"
+        "reference": "Encounter/97953530"
       }
     ],
     "period": {
-      "end": "2020-07-06T21:02:00.000Z"
+      "end": "2020-12-10T07:19:54.000Z"
+    }
+  }
+}</code></pre>
+
+<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "DocumentReference",
+  "id": "197411797",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-12-10T07:20:00.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: PETERS, TIM A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Consultation Note Generic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Auto TC Summary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec 10, 2020  7:19 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
+  },
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+        "code": "2820510",
+        "display": "Consultation Note Generic"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "11488-4"
+      }
+    ],
+    "text": "Consultation Note Generic"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "11488-4"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ],
+      "text": "Clinical Note"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/12742400",
+    "display": "PETERS, TIM A"
+  },
+  "author": [
+    {
+      "reference": "Practitioner/12742069",
+      "display": "Portal, Portal"
+    }
+  ],
+  "authenticator": {
+    "reference": "Practitioner/12742069",
+    "display": "Portal, Portal"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797",
+        "title": "Auto TC Summary",
+        "creation": "2020-12-10T07:19:54.000Z"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/97953530"
+      }
+    ],
+    "period": {
+      "end": "2020-12-10T07:19:54.000Z"
     }
   }
 }</code></pre>
@@ -813,6 +1248,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>resourceType must be DocumentReference.</li></ul>
       
@@ -850,6 +1286,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Only <code>current</code> is supported.</li></ul>
       
@@ -883,6 +1320,7 @@
   "docStatus": "final"
 }
 </pre></li></ul>
+      
       
       
       
@@ -934,6 +1372,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example: 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br><br>
 </li></ul>
@@ -970,6 +1409,7 @@
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1015,6 +1455,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.</li></ul>
       
@@ -1050,6 +1491,7 @@
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1100,6 +1542,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must contain only one entry</li></ul>
       
@@ -1142,6 +1585,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Data and content type must be provided.</li></ul>
       
@@ -1179,6 +1623,7 @@
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`</li></ul>
       
@@ -1212,6 +1657,7 @@
   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
 }
 </pre></li></ul>
+      
       
       
       
@@ -1254,6 +1700,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1284,6 +1731,7 @@
   "creation": "2020-01-15T14:35:29.000Z"
 }
 </pre></li></ul>
+      
       
       
       
@@ -1333,6 +1781,7 @@
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1367,6 +1816,7 @@
   ]
 }
 </pre></li></ul>
+      
       
       
       
@@ -1407,6 +1857,7 @@
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1480,7 +1931,7 @@
   }
 }</code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1514,7 +1965,8 @@ X-Runtime: 2.011826
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> <a href="https://www.hl7.org/fhir/r4/http.html#update">Update documentation</a> for additional details about update operations.</li>
+  <li>Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> <a href="https://www.hl7.org/fhir/r4/http.html#update">Update documentation</a> for additional details about update operations.</li>
+  <li>Both read and write scopes are required.</li>
 </ul>
 
 <h3 id="headers-3">Headers</h3>
@@ -1565,6 +2017,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>resourceType must be DocumentReference.</li></ul>
       
@@ -1602,6 +2055,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Both <code>final</code> and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.</li></ul>
       
@@ -1635,6 +2089,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   "docStatus": “amended”
 }
 </pre></li></ul>
+      
       
       
       
@@ -1685,6 +2140,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium code set 72). Example: 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br><br>
 </li></ul>
@@ -1721,6 +2177,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1766,6 +2223,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.</li></ul>
       
@@ -1801,6 +2259,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   }
 }
 </pre></li></ul>
+      
       
       
       
@@ -1851,6 +2310,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must contain only one entry</li></ul>
       
@@ -1893,6 +2353,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Data and content type must be provided.</li></ul>
       
@@ -1930,6 +2391,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`</li></ul>
       
@@ -1963,6 +2425,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
 }
 </pre></li></ul>
+      
       
       
       
@@ -2005,6 +2468,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -2035,6 +2499,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   "creation": "2020-08-15T14:35:29.000Z"
 }
 </pre></li></ul>
+      
       
       
       
@@ -2084,6 +2549,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -2122,6 +2588,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
       
       
       
+      
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>The encounter has to match the original document encounter.</li></ul>
       
@@ -2156,7 +2623,9 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
     "start": "2020-01-01T00:00:00.000Z",
     "end": "2020-01-01T01:00:00.000Z"
   }
-}</pre></li></ul>
+}
+</pre></li></ul>
+      
       
       
       
@@ -2236,22 +2705,22 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   }
 }</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: text/html
-Date: Tue, 20 Aug 2019 21:17:04 GMT
-Etag: W/"12793861"
-Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
-Server-Response-Time: 777.661584
-Status: 200 OK
-Vary: Origin
-X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-X-Runtime: 0.777583
+  Cache-Control: no-cache
+  Content-Length: 0
+  Content-Type: text/html
+  Date: Tue, 20 Aug 2019 21:17:04 GMT
+  Etag: W/"12793861"
+  Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+  Server-Response-Time: 777.661584
+  Status: 200 OK
+  Vary: Origin
+  X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+  X-Runtime: 0.777583
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent update.</p>
@@ -2262,6 +2731,232 @@ X-Runtime: 0.777583
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
+<h2 id="operation-docref">Operation: docref</h2>
+
+<p>US Core operation for querying DocumentReferences for the supplied parameters:</p>
+
+<h2 id="search-1">Search</h2>
+
+<p>Search for DocumentReferences that meet supplied query parameters:</p>
+
+<pre><code>GET /DocumentReference?:parameters
+</code></pre>
+
+<h3 id="terminology-bindings-1">Terminology Bindings</h3>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type">DocumentReference.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Precise type of clinical document.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/loinc.html">LOINC</a><br>
+                      
+                        System: http://loinc.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                      <li><i>Supported Values</i></li>
+                      <ul style="list-style-type: none">
+                      
+                        <li>34133-9 - Summary of episode note</li>
+                      
+                      </ul>
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format">DocumentReference.content.format</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Document format codes.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-formatcodes.html">DocumentReference Format Code Set</a><br>
+                      
+                        System: urn:oid:1.3.6.1.4.1.19376.1.2.3 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="authorization-types-4">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Y</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>The specific patient to return DocumentReferences for. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>type</code></td>
+      <td>N</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The document reference type, can be a list of comma separated values. Example: http://loinc.org|34133-9</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>N</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
+      <td>The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: 2014-09-24T12:00:00.000Z</td>
+    </tr>
+    <tr>
+      <td><code>end</code></td>
+      <td>N</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
+      <td>The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: 2016-09-24T12:00:00.000Z</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The type parameter must include both a system and a code. (e.g. &amp;type=http://loinc.org|34133-9)</li>
+  <li>The start and end parameters must be valid dateTimes with a time component. They must have prefixes of eq or nothing.</li>
+</ul>
+
+<h3 id="headers-4">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-4">Example</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReferenceDocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
+</code></pre>
+
+<h4 id="response-6">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "2cb9157f-0f05-4fe4-af14-95d5808a4070",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351"
+    }
+  ],
+  "entry": [
+    {
+      "resourceType": "DocumentReference",
+      "status": "current",
+      "type": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "34133-9",
+            "display": "Summary of episode note"
+          }
+        ],
+        "text": "Summary of episode note"
+      },
+      "subject": {
+        "reference": "Patient/13160351"
+      },
+      "date": "2020-12-14T08:20:26Z",
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/xml",
+            "url": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=13160351"
+          },
+          "format": {
+            "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+            "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1",
+            "display": "For documents following C-CDA constraints using a structured body."
+          }
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h3 id="errors-3">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
     </div>
 
@@ -2339,6 +3034,7 @@ X-Runtime: 0.777583
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
 </h3>
         <ul class="js-guides">
+          <li><a href="../../entities/location/">Location</a></li>
           <li><a href="../../entities/organization/">Organization</a></li>
           <li><a href="../../entities/consent/">Consent</a></li>
         </ul>

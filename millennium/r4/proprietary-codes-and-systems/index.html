@@ -318,6 +318,15 @@
 </li>
 </ul>
 
+<h4>Location</h4>
+
+<p>The Location Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>location.physicalType code is maintained in <a href="#code-set-222-location-type">Code Set 222 Location Type</a>
+</li>
+</ul>
+
 <h3 id="medications">Medications</h3>
 
 <!-- use html header to avoid showing up in toc -->
@@ -576,6 +585,18 @@
 }
 </code></pre>
 
+<h5 id="code-set-222-location-type">Code Set 222 Location Type</h5>
+
+<p>This code set maintains the location types, such as BUILDING, NURSEUNIT, BED etc.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/222",
+  "code": "794",
+  "display": "Nurse Unit(s)",
+  "userSelected": true
+}
+</code></pre>
+
 <h5 id="code-set-278-organization-type">Code Set 278 Organization Type</h5>
 
 <p>This code set maintains the classification of Organizations, such as GOVT or INSURANCE.</p>
@@ -585,7 +606,7 @@
   "code": "1077",
   "display": "govt",
   "userSelected": true
-}    
+}
 </code></pre>
 
 <h5 id="code-set-319-encounter-alias-type">Code Set 319 Encounter Alias Type</h5>
@@ -621,7 +642,7 @@
   "code": "2343451",
   "display": "OID",
   "userSelected": true
-}    
+}
 </code></pre>
 
 <h5 id="code-set-351-person-relationship-types">Code Set 351 Person Relationship Types</h5>
@@ -1098,6 +1119,7 @@
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../entities/">Entities</a>
 </h3>
         <ul class="js-guides">
+          <li><a href="../entities/location/">Location</a></li>
           <li><a href="../entities/organization/">Organization</a></li>
           <li><a href="../entities/consent/">Consent</a></li>
         </ul>
