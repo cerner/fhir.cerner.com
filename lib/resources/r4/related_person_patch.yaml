@@ -1,0 +1,32 @@
+---
+name: Related Person
+field_name_base_url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson
+operations:
+  - name: add-relationship
+    path: /relationship/-
+    operation: add
+    type: CodeableConcept
+    url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship
+    description: The nature of the relationship between a patient and the related person.
+    example: |
+      [
+        {
+          "op": "add",
+          "path": "/relationship/-",
+          "value":{
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1152"
+              }
+            ]
+          }
+        }
+      ]
+
+    note: >
+      <ul>
+        <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
+        <li>The <code>value.coding</code> cannot contain a standard system.</li>
+        <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
+      </ul>

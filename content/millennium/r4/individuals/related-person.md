@@ -111,6 +111,120 @@ List an individual RelatedPerson by its id:
 
 ### Errors
 
+## Create
+
+Create a new Encounter-level RelatedPerson.
+
+    POST /RelatedPerson
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Field
+
+<%= definition_table(:related_person, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson
+
+#### Body
+
+<%= json(:r4_relatedperson_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 27 Mar 2019 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12747484-97939518
+Last-Modified: Thu, 17 Dec 2020 16:37:42 GMT
+Server-Response-Time: 296.405243
+Status: 201 Created
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+X-Runtime: 2.011826
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+Patch an existing Encounter-level RelatedPerson.
+
+    PATCH /RelatedPerson/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+* Only Encounter-level RelatedPersons may be patched. Patches are not currently supported for Patient-level RelatedPersons.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Related Person resource>"'} %>
+
+
+### Patch Operations
+
+<%= patch_definition_table(:related_person_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12467982-97731398
+
+#### Body
+
+<%= json(:r4_relatedperson_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"7"
+Last-Modified: Tue, 21 Jan 2020 15:57:25 GMT
+Server-Response-Time: 2260.237021
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Runtime: 2.260092
+</pre>
+
+<%= disclaimer %>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
