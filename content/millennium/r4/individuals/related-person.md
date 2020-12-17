@@ -148,6 +148,8 @@ _Implementation Notes_
 
 ### Errors
 
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Create
 
 Create a new Encounter-level RelatedPerson.
