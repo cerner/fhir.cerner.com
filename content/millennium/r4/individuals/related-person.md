@@ -51,6 +51,10 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 Search for RelatedPersons that meet supplied query parameters:
 
     GET /RelatedPerson?:parameters
+    
+_Implementation Notes_
+
+* Duplicate [RelatedPerson.relationship] will not be returned.
 
 ### Authorization Types
 
@@ -106,6 +110,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 List an individual RelatedPerson by its id:
 
     GET /RelatedPerson/:id
+    
+_Implementation Notes_
+
+* Duplicate [RelatedPerson.relationship] will not be returned.
 
 ### Authorization Types
 
@@ -260,5 +268,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[RelatedPerson.relationship]: http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship
 [Relationship Level]: #custom-extensions
 [Related Person Encounter]: #custom-extensions
