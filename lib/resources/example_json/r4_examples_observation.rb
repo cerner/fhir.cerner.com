@@ -354,6 +354,202 @@ module Cerner
       ]
     }.freeze
 
+    R4_OBSERVATION_PATIENT_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '4927bb8b-c8c9-43c4-8553-e21bac8ad557',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400'
+        },
+        {
+          'relation': 'next',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742400&-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD05YmVjN2M5My01ZmQyLTRjM2UtYjE2OS0yMTY0OTM0ZDFmODQmY29uY2VwdD1jaGFydGVkX29ic2VydmF0aW9u&-pageDirection=NEXT'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/SH-81-73121985',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'SH-81-73121985',
+            'meta': {
+              'versionId': '73121985',
+              'lastUpdated': '2020-12-11T16:38:37.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12742400</p><p><b>Status</b>: Final</p>'\
+                     '<p><b>Categories</b>: Social History</p><p><b>Code</b>: Substance Abuse</p>'\
+                     '<p><b>Issued Date</b>: Dec 11, 2020  4:38 P.M. UTC</p></div>'
+            },
+            'status': 'final',
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    'code': 'social-history',
+                    'display': 'Social History'
+                  }
+                ],
+                'text': 'Social History'
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '363908000',
+                  'display': 'Details of drug misuse behavior (observable entity)'
+                }
+              ],
+              'text': 'Substance Abuse'
+            },
+            'subject': {
+              'reference': 'Patient/12742400'
+            },
+            'issued': '2020-12-11T16:38:37.000Z',
+            'hasMember': [
+              {
+                'reference': 'Observation/SH-73121985-q4625833'
+              }
+            ]
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'M-197412603',
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12742400</p><p><b>Status</b>: Preliminary</p>'\
+                     '<p><b>Code</b>: Masked</p></div>'
+            },
+            'status': 'preliminary',
+            'category': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  'code': 'masked',
+                  'display': 'Masked'
+                }
+              ],
+              'text': 'Masked'
+            },
+            'subject': {
+              'reference': 'Patient/12742400'
+            },
+            '_effectiveDateTime': {
+              'extension': [
+                {
+                  'valueCode': 'unknown',
+                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                }
+              ]
+            },
+            'dataAbsentReason': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  'code': 'masked',
+                  'display': 'Masked'
+                }
+              ],
+              'text': 'Masked'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_OBSERVATION_ENTERED_IN_ERROR_STATUS ||= {
+      'resourceType': 'Bundle',
+      'id': '4927bb8b-c8c9-43c4-8553-e21bac8ad557',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401'
+        },
+        {
+          'relation': 'next',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12742401&-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD05YmVjN2M5My01ZmQyLTRjM2UtYjE2OS0yMTY0OTM0ZDFmODQmY29uY2VwdD1jaGFydGVkX29ic2VydmF0aW9u&-pageDirection=NEXT'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'M-197412603',
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 12742401</p><p><b>Status</b>: Entered in Error</p>'\
+                     '<p><b>Code</b>: Error</p></div>'
+            },
+            'status': 'entered-in-error ',
+            'category': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'error',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  'code': 'error',
+                  'display': 'Error'
+                }
+              ],
+              'text': 'Error'
+            },
+            'subject': {
+              'reference': 'Patient/12742401'
+            },
+            '_effectiveDateTime': {
+              'extension': [
+                {
+                  'valueCode': 'error',
+                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                }
+              ]
+            },
+            'dataAbsentReason': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  'code': 'error',
+                  'display': 'Error'
+                }
+              ],
+              'text': 'Error'
+            }
+          }
+        }
+      ]
+    }.freeze
+
     R4_OBSERVATION_CREATE ||= {
       "resourceType": 'Observation',
       "status": 'final',
