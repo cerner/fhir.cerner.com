@@ -578,10 +578,10 @@ module Cerner
           'use': 'home',
           'period': {
             'start': '2008-01-10T15:33:18.000Z'
+          }
         }
-      }
-    ]
-  }.freeze
+      ]
+    }.freeze
 
     R4_RELATEDPERSON_ENCOUNTER_BUNDLE ||= {
       'resourceType': 'Bundle',
