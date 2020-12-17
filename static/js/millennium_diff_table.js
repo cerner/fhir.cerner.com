@@ -25,7 +25,12 @@ const resourceConfig = {
     {
       dstu2Resources: ["Contract"],
       r4Resources: ["Consent"],
-      notes: "Cerner's DSTU 2 implementation of Contract resource was shifted to Consent in R4."
+      notes: "The resource used to represent people who are authorized to view a patient's data shifted from DSTU2 Contract to R4 Consent."
+    },
+    {
+      dstu2Resources: ["CarePlan"],
+      r4Resources: ["CarePlan", "CareTeam"],
+      notes: "DSTU2 CarePlan was split into R4 CarePlan and CareTeam."
     }
   ],
   basicResources: [
