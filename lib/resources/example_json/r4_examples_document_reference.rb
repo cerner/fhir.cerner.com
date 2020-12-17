@@ -497,7 +497,6 @@ module Cerner
         }
       }
     }.freeze
-
     R4_DOCUMENT_REFERENCE_CCD ||= {
       'resourceType': 'DocumentReference',
       'status': 'current',
@@ -544,6 +543,5 @@ module Cerner
       ],
       'entry': [R4_DOCUMENT_REFERENCE_CCD]
     }.freeze
-
   end
 end

@@ -192,7 +192,9 @@ Update an existing document reference:
 
 _Implementation Notes_
 
-* Any field which is missing will be interpreted as nulling out or removing data from the resource. Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> [Update documentation] for additional details about update operations.
+* Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> [Update documentation] for additional details about update operations.
+* Both read and write scopes are required.
+
 
 ### Headers
 
@@ -217,17 +219,17 @@ Accept: 'application/json+fhir', 'Content-Type': 'application/fhir+json', 'If-Ma
 
 <%= headers status: 200 %>
 <pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: text/html
-Date: Tue, 20 Aug 2019 21:17:04 GMT
-Etag: W/"12793861"
-Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
-Server-Response-Time: 777.661584
-Status: 200 OK
-Vary: Origin
-X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-X-Runtime: 0.777583
+  Cache-Control: no-cache
+  Content-Length: 0
+  Content-Type: text/html
+  Date: Tue, 20 Aug 2019 21:17:04 GMT
+  Etag: W/"12793861"
+  Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+  Server-Response-Time: 777.661584
+  Status: 200 OK
+  Vary: Origin
+  X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+  X-Runtime: 0.777583
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
