@@ -229,6 +229,36 @@ module Cerner
       ]
     }.freeze
 
+    R4_PROCEDURE_ENTERED_IN_ERROR_STATUS ||= {
+      "resourceType": 'Procedure',
+      "id": '1788134987',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2019-09-05T22:38:38Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p>'\
+        '<p><b>Patient</b>: MARSTON, JACK</p><p><b>Procedure</b>: Error</p>'\
+        '<p><b>Status</b>: Entered in Error</p></div>'
+      },
+      "status": 'entered-in-error',
+      "code": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'error',
+            "display": 'Error'
+          }
+        ],
+        "text": 'Error'
+      },
+      "subject": {
+        "reference": 'Patient/166045489',
+        "display": 'MARSTON, JACK'
+      }
+    }.freeze
+
     R4_PROCEDURE_CREATE ||= {
       'resourceType': 'Procedure',
       'status': 'completed',

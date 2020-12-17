@@ -119,6 +119,15 @@ List an individual Procedure by its id:
 <%= json(:r4_procedure_patient_entry) %>
 <%= disclaimer %>
 
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/1788134987
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_procedure_entered_in_error_status ) %>
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
