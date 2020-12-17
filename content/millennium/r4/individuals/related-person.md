@@ -54,7 +54,7 @@ Search for RelatedPersons that meet supplied query parameters:
     
 _Implementation Notes_
 
-* Duplicate [RelatedPerson.relationship] will not be returned.
+* Duplicate relationships will not be returned on a search.
 
 ### Authorization Types
 
@@ -113,7 +113,7 @@ List an individual RelatedPerson by its id:
     
 _Implementation Notes_
 
-* Duplicate [RelatedPerson.relationship] will not be returned.
+* Duplicate relationships will not be returned on a search.
 
 ### Authorization Types
 
@@ -268,6 +268,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-[RelatedPerson.relationship]: http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship
 [Relationship Level]: #custom-extensions
 [Related Person Encounter]: #custom-extensions
