@@ -21,6 +21,11 @@ const resourceConfig = {
       dstu2Resources: ["ProcedureRequest"],
       r4Resources: ["ServiceRequest"],
       notes: "The DSTU 2 ProcedureRequest resource was renamed to ServiceRequest in R4."
+    },
+    {
+      dstu2Resources: ["Contract"],
+      r4Resources: ["Consent"],
+      notes: "Cerner's DSTU 2 implementation of Contract resource was shifted to Consent in R4."
     }
   ],
   basicResources: [
@@ -243,8 +248,9 @@ function matchResources(conformanceData, capabilityStatementData) {
  */
 function mergeSortedArrays(includesR4, dstu2Only) {
   let result = [];
+  let includesR4Length = includesR4.length;
 
-  for(let x = 0; x < includesR4.length; x += 1) {
+  for(let x = 0; x < includesR4Length; x += 1) {
     let r4Record = includesR4[x];
 
     for (let y = 0; y < dstu2Only.length; y += 1) {
