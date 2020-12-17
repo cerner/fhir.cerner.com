@@ -192,8 +192,9 @@ Update an existing document reference:
 
 _Implementation Notes_
 
-* See [FHIR<sup>®</sup> Update] for additional details about update operations.
+* Refer to the HL7<sup>®</sup> FHIR<sup>®</sup> [Update documentation] for additional details about update operations.
 * Both read and write scopes are required.
+
 
 ### Headers
 
