@@ -26,6 +26,7 @@ The following fields are returned if valued:
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
+* [Extensions including related person encounter and relationship level](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -33,21 +34,27 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Related Person Encounter]
 * [Relationship Level]
 
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                   | Value\[x] Type      | Description
-----------------------|---------------------|----------------------------------------------------------------
- `relationship-level` | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
+ ID                         | Value\[x] Type      | Description
+----------------------------|---------------------|----------------------------------------------------------------------------
+ `related-person-encounter` | [`reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
+ `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
 
 ## Search
 
 Search for RelatedPersons that meet supplied query parameters:
 
     GET /RelatedPerson?:parameters
+    
+_Implementation Notes_
+
+* Duplicate relationships will only be represented once.
 
 ### Authorization Types
 
@@ -55,21 +62,25 @@ Search for RelatedPersons that meet supplied query parameters:
 
 ### Parameters
 
- Name         | Required?                                         | Type          | Description
---------------|---------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------
- `_id`        | This or `patient` or `identifier` | [`token`]     | The logical resource id associated with the resource.
- `identifier` | This or `_id` or `patient`        | [`token`]     | A RelatedPerson identifier.
- `patient`    | This or `_id` or `identifier`     | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
+ Name                  | Required?                                                | Type          | Description
+-----------------------|----------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------
+ `_id`                 | This or `patient` or `identifier` or `-encounter`        | [`token`]     | The logical resource id associated with the resource.
+ `identifier`          | This or `_id` or `patient` or `-encounter`               | [`token`]     | A RelatedPerson identifier.
+ `patient`             | This or `_id` or `identifier` or `-encounter`            | [`reference`] | A reference to a patient associated with the RelatedPerson. Example: `14067892`
+ `-encounter`          | This or `_id` or `patient` or `identifier`               | [`reference`] | A reference to an encounter associated with the RelatedPerson. Example: `97697434`
+`-relationship-level`  | no                                                       | [`token`]     | The level of relationship for the RelatedPerson. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`
 
 Notes:
 
 - When provided, the `identifier` query parameter must include both a system and a code. Example: `identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F`
+- `-relationship-level` will be required with patient and identifier searches in the future.
+- `-relationship-level` can only be provided with `patient` or `identifier`
 
 ### Headers
 
 <%= headers %>
 
-### Example
+### Example - Search by Patient
 
 #### Request
 
@@ -80,6 +91,17 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_bundle) %>
 
+### Example - Search by Encounter
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=97697434
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_encounter_bundle) %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -89,6 +111,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 List an individual RelatedPerson by its id:
 
     GET /RelatedPerson/:id
+    
+_Implementation Notes_
+
+* Duplicate relationships will only be represented once.
 
 ### Authorization Types
 
@@ -98,7 +124,7 @@ List an individual RelatedPerson by its id:
 
 <%= headers %>
 
-### Example
+### Example - Patient-level RelatedPerson
 
 #### Request
 
@@ -109,7 +135,20 @@ List an individual RelatedPerson by its id:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_entry) %>
 
+### Example - Encounter-level RelatedPerson
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_encounter_entry) %>
+
 ### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -233,3 +272,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
+[Related Person Encounter]: #custom-extensions
