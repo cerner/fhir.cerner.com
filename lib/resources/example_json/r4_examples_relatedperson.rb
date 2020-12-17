@@ -210,7 +210,7 @@ module Cerner
           'id': 'CI-97982588-0-0',
           'coding': [
             {
-              'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351',
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
               'code': '1150',
               'display': 'Default Guarantor',
               'userSelected': true
@@ -228,7 +228,7 @@ module Cerner
           'id': 'CI-97982588-1-0',
           'coding': [
             {
-              'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40',
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
               'code': '670847',
               'display': 'Child',
               'userSelected': true
@@ -291,7 +291,7 @@ module Cerner
           'language': {
             'coding': [
               {
-                'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
                 'code': '151',
                 'display': 'English',
                 'userSelected': true
@@ -585,18 +585,18 @@ module Cerner
 
     R4_RELATEDPERSON_ENCOUNTER_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': 'b0937853-58f1-44e6-be02-0fa5c4862af8',
+      'id': '8de80541-8f9c-4168-a308-bce0c576e945',
       'type': 'searchset',
       'total': 1,
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson?-encounter=97697434'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=97697434'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/RelatedPerson/E-12457994-97697434',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434',
           'resource': {
             'resourceType': 'RelatedPerson',
             'id': 'E-12457994-97697434',
@@ -643,7 +643,7 @@ module Cerner
                 'id': 'CI-97982588-0-0',
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/351',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
                     'code': '1150',
                     'display': 'Default Guarantor',
                     'userSelected': true
@@ -661,7 +661,7 @@ module Cerner
                 'id': 'CI-97982588-1-0',
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/40',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
                     'code': '670847',
                     'display': 'Child',
                     'userSelected': true
@@ -724,7 +724,7 @@ module Cerner
                 'language': {
                   'coding': [
                     {
-                      'system': 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/36',
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
                       'code': '151',
                       'display': 'English',
                       'userSelected': true
