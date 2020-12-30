@@ -107,8 +107,99 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490059635',
-          'resource': DSTU2_CONTRACT_ENTRY
+          'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490068369',
+          'resource': {
+            'resourceType': 'Contract',
+            'id': '490068369',
+            'meta': {
+              'versionId': '94'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div><p><b>Contract</b></p><p><b>Actor Name</b>: SMART, NANCY</p>'\
+                     '<p><b>Subject Name</b>: SMART, TIMMY</p><p><b>Applies Begin</b>: Aug 10, 2020  4:37 P.M. UTC</p>'\
+                     '<p><b>Type</b>: Consent report (record artifact)</p>'\
+                     '<p><b>Subtype</b>: Consent status (finding)</p></div>'
+            },
+            'applies': {
+              'start': '2020-08-10T16:37:51.000Z'
+            },
+            'subject': [
+              {
+                'reference': 'Patient/12724069',
+                'display': 'SMART, TIMMY'
+              }
+            ],
+            'type': {
+              'coding': [
+                {
+                  'system': 'https://snomed.ct/sct',
+                  'code': '371537001',
+                  'display': 'Consent report (record artifact)'
+                }
+              ],
+              'text': 'Consent report (record artifact)'
+            },
+            'subtype': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '309370004',
+                    'display': 'Consent status (finding)'
+                  }
+                ],
+                'text': 'Consent status (finding)'
+              }
+            ],
+            'action': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '441898007',
+                    'display': 'Consented (qualifier value)'
+                  }
+                ],
+                'text': 'Consented (qualifier value)'
+              }
+            ],
+            'actionReason': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '425691002',
+                    'display': 'Consent given for electronic record sharing (finding)'
+                  }
+                ],
+                'text': 'Consent given for electronic record sharing (finding)'
+              }
+            ],
+            'actor': [
+              {
+                'entity': {
+                  'reference': 'RelatedPerson/490068369',
+                  'display': 'SMART, NANCY'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://snomed.info/sct',
+                        'code': '442681007',
+                        'display': 'Recipient consented (qualifier value)'
+                      }
+                    ],
+                    'text': 'Authorized Representative'
+                  }
+                ]
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
         }
       ]
     }.freeze
@@ -127,8 +218,99 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490059635',
-          'resource': DSTU2_CONTRACT_ENTRY
+          'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490068369',
+          'resource': {
+            'resourceType': 'Contract',
+            'id': '490068369',
+            'meta': {
+              'versionId': '94'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div><p><b>Contract</b></p><p><b>Actor Name</b>: SMART, NANCY</p>'\
+                     '<p><b>Subject Name</b>: SMART, TIMMY</p><p><b>Applies Begin</b>: Aug 10, 2020  4:37 P.M. UTC</p>'\
+                     '<p><b>Type</b>: Consent report (record artifact)</p>'\
+                     '<p><b>Subtype</b>: Consent status (finding)</p></div>'
+            },
+            'applies': {
+              'start': '2020-08-10T16:37:51.000Z'
+            },
+            'subject': [
+              {
+                'reference': 'Patient/12724069',
+                'display': 'SMART, TIMMY'
+              }
+            ],
+            'type': {
+              'coding': [
+                {
+                  'system': 'https://snomed.ct/sct',
+                  'code': '371537001',
+                  'display': 'Consent report (record artifact)'
+                }
+              ],
+              'text': 'Consent report (record artifact)'
+            },
+            'subtype': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '309370004',
+                    'display': 'Consent status (finding)'
+                  }
+                ],
+                'text': 'Consent status (finding)'
+              }
+            ],
+            'action': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '441898007',
+                    'display': 'Consented (qualifier value)'
+                  }
+                ],
+                'text': 'Consented (qualifier value)'
+              }
+            ],
+            'actionReason': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://snomed.ct/sct',
+                    'code': '425691002',
+                    'display': 'Consent given for electronic record sharing (finding)'
+                  }
+                ],
+                'text': 'Consent given for electronic record sharing (finding)'
+              }
+            ],
+            'actor': [
+              {
+                'entity': {
+                  'reference': 'RelatedPerson/490068369',
+                  'display': 'SMART, NANCY'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://snomed.info/sct',
+                        'code': '442681007',
+                        'display': 'Recipient consented (qualifier value)'
+                      }
+                    ],
+                    'text': 'Authorized Representative'
+                  }
+                ]
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
         },
         {
           'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson'\
@@ -176,6 +358,9 @@ module Cerner
             'period': {
               'start': '2020-06-30T20:41:33.000Z'
             }
+          },
+          "search": {
+            "mode": 'include'
           }
         }
       ]
