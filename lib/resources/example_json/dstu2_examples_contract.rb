@@ -108,7 +108,10 @@ module Cerner
       'entry': [
         {
           'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490059635',
-          'resource': DSTU2_CONTRACT_ENTRY
+          'resource': DSTU2_CONTRACT_ENTRY,
+          'search': {
+            'mode': 'match'
+          }
         }
       ]
     }.freeze
@@ -128,7 +131,10 @@ module Cerner
       'entry': [
         {
           'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Contract/490059635',
-          'resource': DSTU2_CONTRACT_ENTRY
+          'resource': DSTU2_CONTRACT_ENTRY,
+          'search': {
+            'mode': 'match'
+          }
         },
         {
           'fullUrl': 'https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson'\
@@ -176,6 +182,9 @@ module Cerner
             'period': {
               'start': '2020-06-30T20:41:33.000Z'
             }
+          },
+          'search': {
+            'mode': 'include'
           }
         }
       ]
