@@ -30,3 +30,37 @@ operations:
         <li>The <code>value.coding</code> cannot contain a standard system.</li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
       </ul>
+
+  - name: add-address
+    path: /address/-
+    operation: add
+    type: Address
+    url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.address
+    description: Add a new address for the related person.
+    example: |
+      {
+        "op": "add",
+        "path": "/address/-",
+        "value": {
+          "use": "home",
+          "line": [
+            "1212 Faircastle Drive",
+            "Apartment 406"
+          ],
+          "city": "KC",
+          "district": "Jackson",
+          "state": "KS",
+          "postalCode": "64199",
+          "country": "United States of America",
+          "period": {
+            "start": "2012-05-17T15:33:18.000Z"
+          }
+        }
+      }
+    note: >
+      <ul>
+        <li>Must not contain the `text` field.</li>
+        <li>Must contain the `use` field.</li>
+        <li>Must include a time component with a timezone when specifying a `period`.</li>
+        <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
+      </ul>

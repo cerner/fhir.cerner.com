@@ -758,6 +758,25 @@ module Cerner
             }
           ]
         }
+      },
+      {
+        'op': 'add',
+        'path': '/address/-',
+        'value': {
+          'use': 'home',
+          'line': [
+            '1212 Faircastle Drive',
+            'Apartment 406'
+          ],
+          'city': 'KC',
+          'district': 'Jackson',
+          'state': 'KS',
+          'postalCode': '64199',
+          'country': 'United States of America',
+          'period': {
+            'start': '2012-05-17T15:33:18.000Z'
+          }
+        }
       }
     ].freeze
   end
