@@ -252,11 +252,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 US Core operation for querying DocumentReferences for the supplied parameters:
 
-## Search
-
-Search for DocumentReferences that meet supplied query parameters:
-
-    GET /DocumentReference?:parameters
+    GET /DocumentReference/$docref?:parameters
 
 ### Terminology Bindings
 
@@ -288,7 +284,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReferenceDocumentReference/$docref?patient=13160351&type=http%3A%2F%2Floinc.org%7C34133-9
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&type=http%3A%2F%2Floinc.org%7C34133-9
 
 #### Response
 
