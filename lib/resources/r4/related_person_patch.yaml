@@ -60,6 +60,7 @@ operations:
     note: >
       <ul>
         <li>Must not contain the `text` field.</li>
-        <li>Must contain the `use` field, and must include a time component with a timezone when specifying a `period`.</li>
-        <li> If `line` is provided, only the first four values are used. Additional values will be ignored. </li>
+        <li>Must contain the `use` field.</li>
+        <li>Must include a time component with a timezone when specifying a `period`.</li>
+        <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
