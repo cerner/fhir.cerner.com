@@ -86,6 +86,7 @@ module Cerner
             'status': 'accepted'
           }
         ],
+        'patientInstruction': "Preparations:\n- boop\n- Arrive 15 minutes early\n- Can't be empty\n- comment\nDirections:\n- comment\n- Do not drive after appointment. \r\n\r\nConsider Bringing a Family Member or Friend to the Doctor's Office. If that is not possible, the Reception desk can call a cab for you.\nPost Appointment Instructions:\n- Post Appointment\n- Post Order\n- Be Safe while driving back after visit. Be aware of white walkers.\n- Post Order\n- comment\nPost Appointment Instructions.:\n- Comment",
         'requestedPeriod': [
           {
             'start': '2020-07-08T13:00:00.000Z',
