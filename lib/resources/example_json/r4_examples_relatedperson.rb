@@ -781,13 +781,13 @@ module Cerner
         }
       },
       {
-        'path': '/name/0/id',
         'op': 'test',
+        'path': '/name/0/id',
         'value': 'CI-12467982-0'
       },
       {
-        'path': '/name/0/family',
         'op': 'replace',
+        'path': '/name/0/family',
         'value': 'Potter'
       },
     ].freeze

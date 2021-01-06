@@ -75,7 +75,7 @@ operations:
       {
         "path": "/name/0/id",
         "op": "test",
-        "value": "CI-12467982-0"
+        "value": "CI-12724068-12724066-0"
       }
     note: >
       <ul>
