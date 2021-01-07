@@ -73,9 +73,9 @@ operations:
     description: Test the value of the `HumanName.id` of the name at the given <code>{index}</code> in the list of related person names.
     example: |
       {
-        "path": "/name/0/id",
         "op": "test",
-        "value": "CI-12724068-12724066-0"
+        "path": "/name/0/id",
+        "value": "CI-12782404-0"
       }
     note: >
       <ul>
@@ -84,7 +84,7 @@ operations:
   - name: replace-name-family
     path: /name/{index}/family
     operation: replace
-    type: String
+    type: string
     url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family
     description: Replace the `HumanName.family` of the name at the given <code>{index}</code> in the list of related person names.
     example: |

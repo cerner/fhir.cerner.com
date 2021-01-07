@@ -783,7 +783,7 @@ module Cerner
       {
         'op': 'test',
         'path': '/name/0/id',
-        'value': 'CI-12724068-12724066-0'
+        'value': 'CI-12782404-0'
       },
       {
         'op': 'replace',
