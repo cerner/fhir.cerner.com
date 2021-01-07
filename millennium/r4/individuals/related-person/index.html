@@ -2287,6 +2287,65 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="add-address">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.address"><code>/address/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new address for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/address/-",
+  "value": {
+    "use": "home",
+    "line": [
+      "1212 Faircastle Drive",
+      "Apartment 406"
+    ],
+    "city": "KC",
+    "district": "Jackson",
+    "state": "KS",
+    "postalCode": "64199",
+    "country": "United States of America",
+    "period": {
+      "start": "2012-05-17T15:33:18.000Z"
+    }
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Must not contain the <code>text</code> field.</li>
+  <li>Must contain the <code>use</code> field.</li>
+  <li>Must include a time component with a timezone when specifying a <code>period</code>.</li>
+  <li>If <code>line</code> is provided, only the first four values are used. Additional values will be ignored.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
@@ -2310,6 +2369,25 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
           "code": "1152"
         }
       ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/address/-",
+    "value": {
+      "use": "home",
+      "line": [
+        "1212 Faircastle Drive",
+        "Apartment 406"
+      ],
+      "city": "KC",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
     }
   }
 ]</code></pre>

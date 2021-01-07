@@ -116,9 +116,8 @@
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
-  <li><a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a></li>
   <li>
-<a href="#search-1" id="markdown-toc-search-1">Search</a>    <ul>
+<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
       <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
       <li><a href="#authorization-types-4" id="markdown-toc-authorization-types-4">Authorization Types</a></li>
       <li><a href="#parameters-1" id="markdown-toc-parameters-1">Parameters</a></li>
@@ -2735,11 +2734,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
 
 <p>US Core operation for querying DocumentReferences for the supplied parameters:</p>
 
-<h2 id="search-1">Search</h2>
-
-<p>Search for DocumentReferences that meet supplied query parameters:</p>
-
-<pre><code>GET /DocumentReference?:parameters
+<pre><code>GET /DocumentReference/$docref?:parameters
 </code></pre>
 
 <h3 id="terminology-bindings-1">Terminology Bindings</h3>
@@ -2902,7 +2897,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
 
 <h4 id="request-4">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReferenceDocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
 <h4 id="response-6">Response</h4>
