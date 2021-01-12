@@ -37,12 +37,12 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?                                     | Type       | Description
--------------|-----------------------------------------------|------------|---------------------------------------------------------------------------------
- `_id`       | This or `identifier` or `family`              | [`token`]  | The logical resource id associated with the resource.
- `identifier`| This or `_id` or `family`                     | [`token`]  | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
- `family`    | This and/or `given`, or `_id` or `identifier` | [`string`] | The start of the family name of the practitioner. Example: `Smith`
- `given`     | This and `family`, or `_id` or `identifier`   | [`string`] | The start of the given name of the practitioner. Example: `John`
+ Name        | Required?                                                  | Type       | Description
+-------------|------------------------------------------------------------|------------|------------------------------------------------------------------------
+ `_id`       | This or any other required search parameter                | [`token`]  | The logical resource id associated with the resource.
+ `identifier`| This or any other required search parameter                | [`token`]  | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+ `family`    | This or any other required search parameter                | [`string`] | The start of the family name of the practitioner. Example: `Smith`
+ `given`     | This and `family`, or any other required search parameter  | [`string`] | The start of the given name of the practitioner. Example: `John`
 
  Notes:
 
