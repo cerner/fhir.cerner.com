@@ -37,14 +37,17 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?            | Type      | Description
--------------|----------------------|-----------|-------------------------------------------------------
- `_id`       | This or `identifier` | [`token`] | The logical resource id associated with the resource.
- `identifier`| This or `_id`        | [`token`] | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+ Name        | Required?                                                  | Type       | Description
+-------------|------------------------------------------------------------|------------|------------------------------------------------------------------------
+ `_id`       | This or any other required search parameter                | [`token`]  | The logical resource id associated with the resource.
+ `identifier`| This or any other required search parameter                | [`token`]  | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+ `family`    | This or any other required search parameter                | [`string`] | The start of the family name of the practitioner. Example: `Smith`
+ `given`     | This and `family`, or any other required search parameter  | [`string`] | The start of the given name of the practitioner. Example: `John`
 
  Notes:
 
 * When provided, the `identifier` query parameter must include both a system and a code.
+* The `given` parameter may only be provided if `family` parameter is provided.
 
 ### Headers
 
@@ -163,5 +166,6 @@ X-Runtime: 0.724450
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
+[`string`]: https://hl7.org/fhir/R4/search.html#string
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
