@@ -207,3 +207,25 @@ operations:
         <li>If no prefix value is provided, the prefix on the name will be unset.</li>
         <li>Only one prefix value may be provided.</li>
       </ul>
+
+  - name: replace-name-given
+    path: /name/{index}/given
+    operation: replace
+    type: String
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given
+    description: Replace the `HumanName.given` of the name at the given <code>{index}</code> in the list of related person names.
+    example: |
+      {
+        "path": "/name/0/given",
+        "op": "replace",
+        "value": [
+          "Harry",
+          "James"
+        ]
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced.</li>
+        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+        <li>If fewer values for given are provided in the list than previously set, the additional older values will be unset.</li>
+      </ul>
