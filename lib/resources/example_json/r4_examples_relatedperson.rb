@@ -88,7 +88,7 @@ module Cerner
       ],
       'name': [
         {
-          'id': 'CI-12724068-0',
+          'id': 'CI-12724068-12724066-0',
           'use': 'official',
           'text': 'SMART, HAILEY',
           'family': 'SMART',
@@ -385,7 +385,7 @@ module Cerner
             ],
             'name': [
               {
-                'id': 'CI-12724069-0',
+                'id': 'CI-12724069-12724066-0',
                 'use': 'official',
                 'text': 'SMART, TIMMY',
                 'family': 'SMART',
@@ -502,7 +502,6 @@ module Cerner
       ],
       'name': [
         {
-          'id': 'CI-12724066-0',
           'use': 'official',
           'family': 'Doe',
           'given': [
