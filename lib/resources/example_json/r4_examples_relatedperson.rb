@@ -502,6 +502,7 @@ module Cerner
       ],
       'name': [
         {
+          'id': 'CI-12724066-0',
           'use': 'official',
           'family': 'Doe',
           'given': [
