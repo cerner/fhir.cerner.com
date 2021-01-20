@@ -789,7 +789,7 @@ module Cerner
         'op': 'replace',
         'path': '/name/0/family',
         'value': 'Potter'
-      },
+      }
     ].freeze
   end
 end
