@@ -779,6 +779,16 @@ module Cerner
             'start': '2012-05-17T15:33:18.000Z'
           }
         }
+      },
+      {
+        'op': 'test',
+        'path': '/name/0/id',
+        'value': 'CI-12467982-0'
+      },
+      {
+        'op': 'replace',
+        'path': '/name/0/family',
+        'value': 'Potter'
       }
     ].freeze
   end
