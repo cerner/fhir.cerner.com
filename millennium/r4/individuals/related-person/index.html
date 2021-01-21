@@ -627,7 +627,7 @@
         ],
         "name": [
           {
-            "id": "CI-12724068-12724066-0",
+            "id": "CI-12724068-0",
             "use": "official",
             "text": "SMART, HAILEY",
             "family": "SMART",
@@ -758,7 +758,7 @@
         ],
         "name": [
           {
-            "id": "CI-12724069-12724066-0",
+            "id": "CI-12724069-0",
             "use": "official",
             "text": "SMART, TIMMY",
             "family": "SMART",
@@ -939,6 +939,7 @@
         ],
         "name": [
           {
+            "id": "CI-12457994-0",
             "use": "official",
             "text": "MATERNITY, TESTTHREE",
             "family": "MATERNITY",
@@ -1127,7 +1128,7 @@
   ],
   "name": [
     {
-      "id": "CI-12724068-12724066-0",
+      "id": "CI-12724068-0",
       "use": "official",
       "text": "SMART, HAILEY",
       "family": "SMART",
@@ -1291,6 +1292,7 @@
   ],
   "name": [
     {
+      "id": "CI-12457994-0",
       "use": "official",
       "text": "MATERNITY, TESTTHREE",
       "family": "MATERNITY",
@@ -2346,6 +2348,91 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="test-name-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/name/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/name/0/id",
+  "value": "CI-12467982-0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-family">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family"><code>/name/{index}/family</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/name/0/family",
+  "op": "replace",
+  "value": "Potter"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced.</li>
+  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
@@ -2389,6 +2476,16 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
         "start": "2012-05-17T15:33:18.000Z"
       }
     }
+  },
+  {
+    "op": "test",
+    "path": "/name/0/id",
+    "value": "CI-12467982-0"
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/family",
+    "value": "Potter"
   }
 ]</code></pre>
 
