@@ -170,6 +170,7 @@ operations:
       <ul>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
       </ul>
+      
   - name: replace-name-family
     path: /name/{index}/family
     operation: replace
