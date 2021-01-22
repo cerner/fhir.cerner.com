@@ -85,12 +85,12 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=21250409'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=21250409'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409',
           "resource": R4_LOCATION_ENTRY
         }
       ]
