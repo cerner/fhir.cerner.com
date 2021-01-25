@@ -9,7 +9,7 @@ title: MedicationRequest | R4 API
 
 ## Overview
 
-The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.   
+The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.
 
 If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.
 
@@ -59,6 +59,20 @@ The following fields are returned if valued:
 
 <%= terminology_table(:medication_request_contained_medication, :r4) %>
 
+## Extensions
+
+* [NLLPrescriptionFormat](http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat)
+* [NLLRegistrationBasis](http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis)
+* [NLLDosePackaging](http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging)
+
+All URLs for hardcoded extensions are defined as `http://electronichealth.se/fhir/StructureDefinition/{id}`
+
+ ID                      | Value\[x] Type | Description
+-----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
+ `NLLPrescriptionFormat` | Coding         | Current prescription format
+ `NLLRegistrationBasis`  | Coding         | Format for prescription registration
+ `NLLDosePackaging`      | valueBoolean   | Dose dispensed prescription
+
 ## Custom Extensions
 
 * Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
@@ -106,7 +120,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_BUNDLE) %>
-<%= disclaimer %>	
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -116,7 +130,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_PATIENT_BUNDLE) %>
-<%= disclaimer %>	
+<%= disclaimer %>
 
 ### Errors
 
@@ -144,25 +158,25 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/56770371 
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/56770371
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_ENTRY) %>
-<%= disclaimer %>	
+<%= disclaimer %>
 
-#### Patient Authorization Request For Active Status	
+#### Patient Authorization Request For Active Status
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/314010287 
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/314010287
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_PATIENT_ENTRY) %>
-<%= disclaimer %>	
+<%= disclaimer %>
 
-#### Patient Authorization Request For Entered in Error Status	
+#### Patient Authorization Request For Entered in Error Status
 
   GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
 
@@ -170,7 +184,7 @@ We are currently always returning a value of "Order" in the intent field. We rec
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_ENTERED_IN_ERROR) %>
-<%= disclaimer %>	
+<%= disclaimer %>
 
 ### Errors
 
