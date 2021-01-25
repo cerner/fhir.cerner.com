@@ -22,22 +22,22 @@ module Cerner
           <p><b>Patient</b>: PETERS, TIM A</p><p><b>Authored On</b>: Nov 21, 2020  8:59 P.M. UTC</p></div>'
         },
         'extension': [
-            {
-                'valueCoding': {
-                    'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
-                    'code': 'ELECTRONIC',
-                    'display': 'Electronic'
-                },
-                'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+          {
+            'valueCoding': {
+              'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+              'code': 'ELECTRONIC',
+              'display': 'Electronic'
             },
-            {
-                'valueCoding': {
-                    'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
-                    'code': 'ELECTRONIC',
-                    'display': 'Electronic'
-                },
-                'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
-            }
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+          },
+          {
+            'valueCoding': {
+              'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+              'code': 'ELECTRONIC',
+              'display': 'Electronic'
+            },
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+          }
         ],
         'status': 'active',
         'intent': 'order',
@@ -159,15 +159,15 @@ module Cerner
           }
         ],
         'dispenseRequest': {
-            'extension': [
-                {
-                    'valueBoolean': false,
-                    'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
-                }
-            ],
-            'validityPeriod': {
-                'start': '2020-07-06T15:37:13.000-05:00'
+          'extension': [
+            {
+              'valueBoolean': false,
+              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
             }
+          ],
+          'validityPeriod': {
+            'start': '2020-07-06T15:37:13.000-05:00'
+          }
         }
       }
     }.freeze
@@ -189,22 +189,22 @@ module Cerner
         <p><b>Patient</b>: SMART, WILMA</p><p><b>Authored On</b>: Jul 14, 2020  2:45 P.M. UTC</p></div>'
       },
       'extension': [
-          {
-              'valueCoding': {
-                  'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
-                  'code': 'ELECTRONIC',
-                  'display': 'Electronic'
-              },
-              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        {
+          'valueCoding': {
+            'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
           },
-          {
-              'valueCoding': {
-                  'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
-                  'code': 'ELECTRONIC',
-                  'display': 'Electronic'
-              },
-              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
-          }
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        },
+        {
+          'valueCoding': {
+            'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+        }
       ],
       'status': 'active',
       'intent': 'order',
@@ -338,15 +338,15 @@ module Cerner
         }
       ],
       'dispenseRequest': {
-            'extension': [
-                {
-                    'valueBoolean': false,
-                    'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
-                }
-            ],
-            'validityPeriod': {
-                'start': '2020-07-14T09:45:15.000-05:00'
-            },
+        'extension': [
+          {
+            'valueBoolean': false,
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
+          }
+        ],
+        'validityPeriod': {
+          'start': '2020-07-14T09:45:15.000-05:00'
+        },
         'numberOfRepeatsAllowed': 0,
         'quantity': {
           'value': 90,
@@ -374,22 +374,22 @@ module Cerner
         <p><b>Medication</b>: Error</p><p><b>Patient</b>: MARSTON, JACK</p></div>'
       },
       'extension': [
-          {
-              'valueCoding': {
-                  'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
-                  'code': 'ELECTRONIC',
-                  'display': 'Electronic'
-              },
-              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        {
+          'valueCoding': {
+            'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
           },
-          {
-              'valueCoding': {
-                  'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
-                  'code': 'ELECTRONIC',
-                  'display': 'Electronic'
-              },
-              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
-          }
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        },
+        {
+          'valueCoding': {
+            'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+        }
       ],
       'status': 'entered-in-error',
       'intent': 'order',
