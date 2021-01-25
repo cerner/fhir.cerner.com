@@ -9,8 +9,7 @@ title: Location | R4 API
 
 ## Overview
 
-The Location resource describes physical places where healthcare services are provided.  In Millennium, facilities are the top level of the patient location hierarchy.  A facility is also an Organization resource at which patient locations are associated.  All facilities are organizations, but not all organizations are facilities.  A location can also be an ambulatory patient care area like a clinic or an emergency room.  The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
-
+The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
 The following fields are returned if valued:
 
@@ -38,9 +37,9 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                                                        | Value\[x] Type                                                   | Description
------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
- `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], or [`CodeableConcept`].
+ ID                 | Value\[x] Type                    | Description
+--------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------
+ `custom-attribute` | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], or [`CodeableConcept`].
 
 ## Search
 
@@ -54,9 +53,9 @@ Search for Locations that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?           | Type      | Description
--------------|---------------------|-----------|----------------------------------------------------------
- `_id`       | Yes                 | [`token`] | The logical resource id associated with the resource.
+ Name  | Required? | Type      | Description
+-------|-----------|-----------|-------------------------------------------------------
+ `_id` | Yes       | [`token`] | The logical resource id associated with the resource.
 
 ### Headers
 
@@ -66,7 +65,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=4063034
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=21250409
 
 #### Response
 
@@ -97,7 +96,7 @@ List an individual Location by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/4063034
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409
 
 #### Response
 
