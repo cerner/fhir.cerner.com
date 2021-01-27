@@ -197,7 +197,7 @@ operations:
       {
         "path": "/name/0/prefix",
         "op": "replace",
-        "value": "Mr."
+        "value": ["Mr."]
       }
     note: >
       <ul>
