@@ -187,3 +187,21 @@ operations:
         <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced.</li>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
       </ul>
+  - name: replace-name-prefix
+    path: /name/{index}/prefix
+    operation: replace
+    type: String
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix
+    description: Replace the `HumanName.prefix` of the name at the given <code>{index}</code> in the list of related person names.
+    example: |
+      {
+        "path": "/name/0/prefix",
+        "op": "replace",
+        "value": "Mr."
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced.</li>
+        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+        <li>If no prefix value is provided the prefix on the name will be unset.</li>
+      </ul>

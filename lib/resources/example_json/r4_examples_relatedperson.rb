@@ -1389,6 +1389,11 @@ module Cerner
         'op': 'replace',
         'path': '/name/0/family',
         'value': 'Potter'
+      },
+      {
+        'path': '/name/0/prefix',
+        'op': 'replace',
+        'value': ["Mr."]
       }
     ].freeze
   end
