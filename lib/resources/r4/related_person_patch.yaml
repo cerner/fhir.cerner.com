@@ -187,6 +187,7 @@ operations:
         <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced.</li>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
       </ul>
+
   - name: replace-name-prefix
     path: /name/{index}/prefix
     operation: replace
