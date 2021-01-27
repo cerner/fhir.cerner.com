@@ -61,11 +61,11 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [NLLPrescriptionFormat](http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat)
-* [NLLRegistrationBasis](http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis)
-* [NLLDosePackaging](http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging)
+* [NLLPrescriptionFormat](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
+* [NLLRegistrationBasis](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
+* [NLLDosePackaging](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 
-All URLs for hardcoded extensions are defined as `http://electronichealth.se/fhir/StructureDefinition/{id}`
+All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/StructureDefinition/{id}`
 
  ID                      | Value\[x] Type | Description
 -----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
