@@ -173,11 +173,8 @@ Content-Type: text/html
 Date: Fri, 14 Feb 2020 22:05:40 GMT
 Etag: W/"12793861"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/16885181
-Server-Response-Time: 296.405243
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-X-Runtime: 2.011826
 </pre>
 
 ## Update
@@ -219,17 +216,14 @@ Accept: 'application/json+fhir', 'Content-Type': 'application/fhir+json', 'If-Ma
 
 <%= headers status: 200 %>
 <pre class="terminal">
-  Cache-Control: no-cache
-  Content-Length: 0
-  Content-Type: text/html
-  Date: Tue, 20 Aug 2019 21:17:04 GMT
-  Etag: W/"12793861"
-  Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
-  Server-Response-Time: 777.661584
-  Status: 200 OK
-  Vary: Origin
-  X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
-  X-Runtime: 0.777583
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 20 Aug 2019 21:17:04 GMT
+Etag: W/"12793861"
+Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+Vary: Origin
+X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
@@ -239,14 +233,6 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
-
-[`token`]: https://hl7.org/fhir/R4/search.html#token
-[`reference`]: https://hl7.org/fhir/R4/search.html#reference
-[`date`]: https://hl7.org/fhir/R4/search.html#date
-[`number`]: https://hl7.org/fhir/R4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
-[Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
 
 ## Operation: docref
 
@@ -294,3 +280,11 @@ _Implementation Notes_
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`number`]: https://hl7.org/fhir/R4/search.html#number
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
+[Update documentation]: https://www.hl7.org/fhir/r4/http.html#update

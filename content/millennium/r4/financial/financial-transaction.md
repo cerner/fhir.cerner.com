@@ -91,11 +91,8 @@ Date: Mon, 04 Nov 2019 16:23:57 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:57 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-14266754
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>
@@ -121,11 +118,8 @@ Date: Mon, 04 Nov 2019 16:23:59 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:59 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-74389581
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea69
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>
@@ -151,11 +145,8 @@ Date: Mon, 04 Nov 2019 16:23:58 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-3335800133
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>
@@ -181,11 +172,8 @@ Date: Mon, 04 Nov 2019 16:23:58 GMT
 Etag: W/"0"
 Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-AL-3335800133
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>

@@ -149,10 +149,8 @@ Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
-Server-Response-Time: 3890.363996
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>
@@ -178,10 +176,8 @@ Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
-Server-Response-Time: 3890.363996
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
-X-Runtime: 3.890282
 </pre>
 
 <%= disclaimer %>
@@ -235,10 +231,8 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 <%= disclaimer %>
@@ -279,10 +273,8 @@ _Implementation Notes_
 <pre class="terminal">
 Cache-Control: no-cache
 Date: Wed, 20 May 2020 18:55:23 GMT
-Server-Response-Time: 2260.237021
 Vary: Origin
 X-Request-Id: 160d603d256dce10d510f7da2ca1780e
-X-Runtime: 2.60092
 </pre>
 
 <%= disclaimer %>

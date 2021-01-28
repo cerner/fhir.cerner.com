@@ -201,11 +201,8 @@ Date: Sun, 30 Jun 2019 10:35:00 GMT
 Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
-Server-Response-Time: 3890.363996
-Status: 201 Created
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
-X-Runtime: 3.890282
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -253,11 +250,8 @@ Content-Type: application/fhir+json
 Date: Sun, 30 Jun 2019 10:40:00 GMT
 Etag: W/"2"
 Last-Modified: Sun, 30 Jun 2019 10:40:00 GMT
-Server-Response-Time: 3890.363247
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
-X-Runtime: 3.890014
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

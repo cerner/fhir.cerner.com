@@ -268,11 +268,8 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
-Server-Response-Time: 2260.237021
-Status: 200 OK
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
-X-Runtime: 2.260092
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
