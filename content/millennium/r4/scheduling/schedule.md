@@ -31,7 +31,7 @@ Search for Schedules that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -57,6 +57,16 @@ Search for Schedules that meet supplied query parameters:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=4062786-4062906-19875648-0
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_schedule_patient_bundle) %>
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -69,7 +79,7 @@ List an individual Schedule by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -86,6 +96,16 @@ List an individual Schedule by its id:
 <%= headers status: 200 %>
 <%= json(:r4_schedule_entry) %>
 
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4062786-4062906-19875648-0
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_schedule_patient_entry) %>
 <%= disclaimer %>
 
 ### Errors
