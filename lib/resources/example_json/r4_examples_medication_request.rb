@@ -21,6 +21,24 @@ module Cerner
           <p><b>Dosage Instructions</b>: 1 tab, Oral, Daily</p>\
           <p><b>Patient</b>: PETERS, TIM A</p><p><b>Authored On</b>: Nov 21, 2020  8:59 P.M. UTC</p></div>'
         },
+        'extension': [
+          {
+            'valueCoding': {
+              'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+              'code': 'ELECTRONIC',
+              'display': 'Electronic'
+            },
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+          },
+          {
+            'valueCoding': {
+              'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+              'code': 'ELECTRONIC',
+              'display': 'Electronic'
+            },
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+          }
+        ],
         'status': 'active',
         'intent': 'order',
         'category': [
@@ -141,6 +159,12 @@ module Cerner
           }
         ],
         'dispenseRequest': {
+          'extension': [
+            {
+              'valueBoolean': false,
+              'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
+            }
+          ],
           'validityPeriod': {
             'start': '2020-07-06T15:37:13.000-05:00'
           }
@@ -164,6 +188,24 @@ module Cerner
          PRN: as needed for pain, 90 cap, 0 Refill(s)</p>\
         <p><b>Patient</b>: SMART, WILMA</p><p><b>Authored On</b>: Jul 14, 2020  2:45 P.M. UTC</p></div>'
       },
+      'extension': [
+        {
+          'valueCoding': {
+            'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        },
+        {
+          'valueCoding': {
+            'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+        }
+      ],
       'status': 'active',
       'intent': 'order',
       'category': [
@@ -296,6 +338,12 @@ module Cerner
         }
       ],
       'dispenseRequest': {
+        'extension': [
+          {
+            'valueBoolean': false,
+            'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
+          }
+        ],
         'validityPeriod': {
           'start': '2020-07-14T09:45:15.000-05:00'
         },
@@ -325,6 +373,24 @@ module Cerner
         <p><b>Status</b>: Entered in Error</p><p><b>Intent</b>: Order</p>/
         <p><b>Medication</b>: Error</p><p><b>Patient</b>: MARSTON, JACK</p></div>'
       },
+      'extension': [
+        {
+          'valueCoding': {
+            'system': 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+        },
+        {
+          'valueCoding': {
+            'system': 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+            'code': 'ELECTRONIC',
+            'display': 'Electronic'
+          },
+          'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+        }
+      ],
       'status': 'entered-in-error',
       'intent': 'order',
       'medicationCodeableConcept': {
