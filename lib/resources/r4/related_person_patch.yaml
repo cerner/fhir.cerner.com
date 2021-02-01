@@ -170,7 +170,7 @@ operations:
       <ul>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
       </ul>
-      
+
   - name: replace-name-family
     path: /name/{index}/family
     operation: replace
@@ -230,4 +230,23 @@ operations:
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
         <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed.</li>
         <li>Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+      </ul>
+
+  - name: replace-name-suffix
+    path: /name/{index}/suffix
+    operation: replace
+    type: String
+    url: https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix
+    description: Replace the `HumanName.suffix` of the name at the given <code>{index}</code> in the list of related person names.
+    example: |
+      {
+        "path": "/name/0/suffix",
+        "op": "replace",
+        "value": ["Jr."]
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `suffix` is intended to be replaced.</li>
+        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+        <li>If no suffix value is provided the suffix on the name will be unset.</li>
       </ul>

@@ -1399,6 +1399,11 @@ module Cerner
         'op': 'replace',
         'path': '/name/0/given',
         'value': ['Harry', 'James']
+      },
+      {
+        'path': '/name/0/suffix',
+        'op': 'replace',
+        'value': ["Jr."]
       }
     ].freeze
   end
