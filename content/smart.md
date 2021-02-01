@@ -124,8 +124,8 @@ To start development quickly, there is an open source [fhir-client JavaScript li
 
 Other additional FHIR clients are available:
 
-- Java: [http://hapifhir.io/doc_rest_client.html](http://hapifhir.io/doc_rest_client.html)
-- .NET: [https://github.com/ewoutkramer/fhir-net-api](https://github.com/ewoutkramer/fhir-net-api)
+- Java: [https://github.com/hapifhir/hapi-fhir](https://github.com/hapifhir/hapi-fhir)
+- .NET: [https://github.com/FirelyTeam/firely-net-sdk](https://github.com/FirelyTeam/firely-net-sdk)
 - Python: [https://github.com/smart-on-fhir/client-py](https://github.com/smart-on-fhir/client-py)
 - iOS: [https://github.com/smart-on-fhir/Swift-FHIR](https://github.com/smart-on-fhir/Swift-FHIR)
 
