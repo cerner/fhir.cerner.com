@@ -10,9 +10,9 @@ operations:
     description: Test the value of the `Identifier.id` of the identifier at the given <code>{index}</code> in the list of related person identifiers.
     example: |
       {
-        "path": "/identifier/0/id",
+        "path": "/identifier/1/id",
         "op": "test",
-        "value": "CI-490050200-0"
+        "value": "CI-490151266-1"
       }
   - name: remove-identifier
     path: /identifier/{index}
@@ -22,7 +22,7 @@ operations:
     description: Remove the identifier at the given <code>{index}</code> in the list of related person identifiers.
     example: |
       {
-        "path": "/identifier/0",
+        "path": "/identifier/1",
         "op": "remove"
       }
     note: >
