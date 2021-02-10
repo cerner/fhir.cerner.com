@@ -54,7 +54,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -112,6 +112,17 @@ Notes:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&-location=Location/32216049
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_slot_patient_access_bundle) %>
+
+<%= disclaimer %>
+
 ### Example with Include
 
 #### Request
@@ -122,6 +133,17 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_slot_bundle_include_schedule) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_slot_patient_access_bundle_include_schedule) %>
 
 <%= disclaimer %>
 
@@ -137,7 +159,7 @@ List an individual Slot by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -153,6 +175,17 @@ List an individual Slot by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_slot_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_slot_patient_access_entry) %>
 
 <%= disclaimer %>
 
