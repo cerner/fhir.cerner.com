@@ -287,10 +287,10 @@ module Cerner
           'resource': R4_SLOT_ENTRY
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-25442717-61519334-45',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0',
           'resource': {
             'resourceType': 'Schedule',
-            'id': '4047611-25442717-61519334-45',
+            'id': '4047611-32216049-61518614-0',
             'meta': {
               'versionId': '3423v4vv168v283',
               'lastUpdated': '2020-08-11T15:48:54Z'
@@ -358,10 +358,10 @@ module Cerner
           'resource': R4_SLOT_PATIENT_ACCESS_ENTRY
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-25442717-61519334-45',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0',
           'resource': {
             'resourceType': 'Schedule',
-            'id': '4047611-25442717-61519334-45',
+            'id': '4047611-32216049-61518614-0',
             'meta': {
               'versionId': '3423v4vv168v283',
               'lastUpdated': '2020-08-11T15:48:54Z'
