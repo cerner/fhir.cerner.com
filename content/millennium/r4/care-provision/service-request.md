@@ -14,6 +14,7 @@ The ServiceRequest resource returns the requests or orders for procedures, diagn
 The following fields are returned if valued:
 
 * [ServiceRequest id]( https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [BasedOn](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.basedOn){:target="_blank"}
 * [Status](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.status){:target="_blank"}
 * [Intent](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.intent){:target="_blank"}
 * [Category](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.category){:target="_blank"}
