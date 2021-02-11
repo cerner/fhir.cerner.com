@@ -246,7 +246,7 @@ US Core operation for querying DocumentReferences for the supplied parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -277,6 +277,16 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_CCD_BUNDLE) %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&type=http%3A%2F%2Floinc.org%7C34133-9
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_CCD_PATIENT_BUNDLE) %>
+
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.

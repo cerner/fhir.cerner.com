@@ -543,5 +543,19 @@ module Cerner
       ],
       'entry': [R4_DOCUMENT_REFERENCE_CCD]
     }.freeze
+
+    R4_DOCUMENT_REFERENCE_CCD_PATIENT_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '2cb9157f-0f05-4fe4-af14-95d5808a4070',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference'\
+                '/$docref?patient=13160351'
+        }
+      ],
+      'entry': [R4_DOCUMENT_REFERENCE_CCD]
+    }.freeze
   end
 end
