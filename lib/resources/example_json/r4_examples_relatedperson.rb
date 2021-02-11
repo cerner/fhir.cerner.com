@@ -1373,6 +1373,15 @@ module Cerner
       },
       {
         'op': 'test',
+        'path': '/address/0/id',
+        'value': 'CI-24079465-0'
+      },
+      {
+        'op': 'remove',
+        'path': '/address/0'
+      },
+      {
+        'op': 'test',
         'path': '/name/0/id',
         'value': 'CI-12467982-0'
       },

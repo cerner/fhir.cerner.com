@@ -92,6 +92,33 @@ operations:
         <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
 
+  - name: test-address-id
+    path: /address/{index}/id
+    operation: test
+    type: string
+    url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+    description: Test the value of the `Address.id` of the address at the given <code>{index}</code> in the list of related person addresses.
+    example: |
+      {
+        "op": "test",
+        "path": "/address/0/id",
+        "value": "CI-24079465-0"
+      }
+  - name: remove-address
+    path: /address/{index}
+    operation: remove
+    type: N/A
+    url: https://hl7.org/fhir/R4/patient-definitions.html#RelatedPerson.address
+    description: Remove the address at the given <code>{index}</code> in the list of related person addresses.
+    example: |
+      {
+        "op": "remove",
+        "path": "/address/0"
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address intended to be removed.</li>
+
   - name: add-identifier
     path: /identifier/-
     operation: add
