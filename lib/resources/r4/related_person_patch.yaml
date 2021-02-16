@@ -69,7 +69,7 @@ operations:
     path: /identifier/-
     operation: add
     type: Identifier
-    url: https://hl7.org/fhir/R4/patient-definitions.html#RelatedPerson.identifier
+    url: https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier
     description: Add a new identifier for the related person.
     example: |
       {
@@ -84,7 +84,7 @@ operations:
               }
             ]
           },
-          "system": "urn:oid:1.1.1.1.1.1",
+          "system": "2.16.840.1.113883.6.1000",
           "value": "&lt;unique identifier&gt;",
           "period": {
             "start": "2016-01-02T00:00:00-05:00",
@@ -94,9 +94,9 @@ operations:
       }
     note: >
       <ul>
-        <li>Must not contain the `use` fields.</li>
+        <li>Must not contain the `use` field.</li>
         <li>Must contain the `type`, `system` and `value` fields.</li>
-        <li>If a  time component is included specify timezone when specifying a `period`.</li>
+        <li>When specifying a period, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-name-id
