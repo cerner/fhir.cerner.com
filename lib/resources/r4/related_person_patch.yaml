@@ -65,6 +65,40 @@ operations:
         <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
 
+  - name: add-identifier
+    path: /identifier/-
+    operation: add
+    type: Identifier
+    url: https://hl7.org/fhir/R4/patient-definitions.html#RelatedPerson.identifier
+    description: Add a new identifier for the related person.
+    example: |
+      {
+        "path": "/identifier/-",
+        "op": "add",
+        "value": {
+          "type": {
+            "coding": [
+              {
+                "code": "MR",
+                "system": "http://hl7.org/fhir/v2/0203"
+              }
+            ]
+          },
+          "system": "urn:oid:1.1.1.1.1.1",
+          "value": "&lt;unique identifier&gt;",
+          "period": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2020-01-02T00:00:00-05:00"
+          }
+        }
+      }
+    note: >
+      <ul>
+        <li>Must not contain the `use` fields.</li>
+        <li>Must contain the `type`, `system` and `value` fields.</li>
+        <li>If a  time component is included specify timezone when specifying a `period`.</li>
+      </ul>
+
   - name: test-name-id
     path: /name/{index}/id
     operation: test
