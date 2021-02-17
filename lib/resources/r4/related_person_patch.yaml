@@ -96,7 +96,7 @@ operations:
       <ul>
         <li>Must not contain the `use` field.</li>
         <li>Must contain the `type`, `system`, and `value` fields.</li>
-        <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-name-id
