@@ -126,6 +126,7 @@ operations:
         <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
 
+
   - name: test-address-id
     path: /address/{index}/id
     operation: test
@@ -158,39 +159,39 @@ operations:
   - name: add-telecom
     path: /telecom/-
     operation: add
-    type: ContactPoint
-    url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom
-    description: Add a new contact detail for the related person.
-    example: |
-      {
-        "op": "add",
-        "path": "/telecom/-",
-        "value": {
-          "use": "home",
-          "system": "email",
-          "value": "test@test.com",
-          "period": {
-            "start": "2018-01-05T22:24:32.000Z"
+      type: ContactPoint
+      url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom
+      description: Add a new contact detail for the related person.
+      example: |
+        {
+          "op": "add",
+          "path": "/telecom/-",
+          "value": {
+            "use": "home",
+            "system": "email",
+            "value": "test@test.com",
+            "period": {
+              "start": "2018-01-05T22:24:32.000Z"
+            }
+          }
+        },
+        {
+          "op": "add",
+          "path": "/telecom/-",
+          "value": {
+            "use": "home",
+            "system": "phone",
+            "value": "913-444-8881",
+            "period": {
+              "start": "2018-01-05T22:24:32.000Z"
+            }
           }
         }
-      },
-      {
-        "op": "add",
-        "path": "/telecom/-",
-        "value": {
-          "use": "home",
-          "system": "phone",
-          "value": "913-444-8881",
-          "period": {
-            "start": "2018-01-05T22:24:32.000Z"
-          }
-        }
-      }
-    note: >
-      <ul>
-        <li>Must contain the `system`, `use`, and `value` fields.</li>
-        <li>When specifying a `period`, the `start` and `end` fields must include a time component with a timezone.</li>
-      </ul>
+      note: >
+        <ul>
+          <li>Must contain the `system`, `use`, and `value` fields.</li>
+          <li>When specifying a `period`, the `start` and `end` fields must include a time component with a timezone.</li>
+        </ul>
 
   - name: test-name-id
     path: /name/{index}/id
@@ -289,3 +290,16 @@ operations:
         <li>If no suffix value is provided, the suffix on the name will be unset.</li>
         <li>Only one suffix value may be provided.</li>
       </ul>
+
+  - name: test-telecom-id
+    path: /telecom/{index}/id
+    operation: test
+    type: string
+    url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+    description: Test the value of the `ContactPoint.id` of the telecom at the given <code>{index}</code> in the list of related person telecoms.
+    example: |
+      {
+        "path": "/telecom/0/id",
+        "op": "test",
+        "value": "CI-PH-2807950-0"
+      }

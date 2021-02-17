@@ -1415,6 +1415,11 @@ module Cerner
         'value': 'Potter'
       },
       {
+        'op': 'test',
+        'path': '/telecom/0/id',
+        'value': 'CI-PH-29811920-0'
+      },
+      {
         'op': 'replace',
         'path': '/name/0/prefix',
         'value': ['Mr.']
