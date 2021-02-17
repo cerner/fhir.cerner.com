@@ -2,6 +2,33 @@
 name: Related Person
 field_name_base_url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson
 operations:
+  - name: test-identifier-id
+    path: /identifier/{index}/id
+    operation: test
+    type: string
+    url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+    description: Test the value of the `Identifier.id` of the identifier at the given <code>{index}</code> in the list of related person identifiers.
+    example: |
+      {
+        "path": "/identifier/1/id",
+        "op": "test",
+        "value": "CI-490151266-1"
+      }
+  - name: remove-identifier
+    path: /identifier/{index}
+    operation: remove
+    type: N/A
+    url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier
+    description: Remove the identifier at the given <code>{index}</code> in the list of related person identifiers.
+    example: |
+      {
+        "path": "/identifier/1",
+        "op": "remove"
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier intended to be removed.</li>
+      </ul>
   - name: add-relationship
     path: /relationship/-
     operation: add
