@@ -309,6 +309,12 @@ module Cerner
       'telecom': [
         {
           'id': 'CI-PH-29811920-0',
+          "extension": [
+            {
+              "valueUrl": '(816) 888 8886',
+              "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
           'system': 'phone',
           'value': '8168888886',
           'use': 'home',
