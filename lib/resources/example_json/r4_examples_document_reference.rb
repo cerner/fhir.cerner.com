@@ -499,6 +499,7 @@ module Cerner
     }.freeze
     R4_DOCUMENT_REFERENCE_CCD ||= {
       'resourceType': 'DocumentReference',
+      'id': 'b79484c9-1170-44cd-9910-f9013ff2ea1f',
       'status': 'current',
       'type': {
         'coding': [
@@ -541,7 +542,33 @@ module Cerner
                 '/$docref?patient=13160351'
         }
       ],
-      'entry': [R4_DOCUMENT_REFERENCE_CCD]
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'\
+          '/DocumentReference/b79484c9-1170-44cd-9910-f9013ff2ea1f',
+          'resource': R4_DOCUMENT_REFERENCE_CCD
+        }
+      ]
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_CCD_PATIENT_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '2cb9157f-0f05-4fe4-af14-95d5808a4070',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference'\
+                '/$docref?patient=13160351'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'\
+          '/DocumentReference/b79484c9-1170-44cd-9910-f9013ff2ea1f',
+          'resource': R4_DOCUMENT_REFERENCE_CCD
+        }
+      ]
     }.freeze
   end
 end
