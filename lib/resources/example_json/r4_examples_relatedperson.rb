@@ -763,6 +763,26 @@ module Cerner
       },
       {
         'op': 'add',
+        'path': '/identifier/-',
+        'value': {
+          'type': {
+            'coding': [
+              {
+                'code': 'MR',
+                'system': 'http://hl7.org/fhir/v2/0203'
+              }
+            ]
+          },
+          'system': '2.16.840.1.113883.6.1000',
+          'value': 'THIS:IS:A:UNIQUE:IDENTIFIER',
+          'period': {
+            'start': '2016-01-02T00:00:00-05:00',
+            'end': '2020-01-02T00:00:00-05:00'
+          }
+        }
+      },
+      {
+        'op': 'add',
         'path': '/address/-',
         'value': {
           'use': 'home',
