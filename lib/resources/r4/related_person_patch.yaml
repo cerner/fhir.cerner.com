@@ -240,8 +240,8 @@ operations:
     description: Replace the `HumanName.suffix` of the name at the given <code>{index}</code> in the list of related person names.
     example: |
       {
-        "path": "/name/0/suffix",
         "op": "replace",
+        "path": "/name/0/suffix",
         "value": ["Jr."]
       }
     note: >
