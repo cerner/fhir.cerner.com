@@ -2832,7 +2832,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 <h3 id="authorization-types-4">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters-1">Parameters</h3>
@@ -2910,38 +2910,104 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
   ],
   "entry": [
     {
-      "resourceType": "DocumentReference",
-      "status": "current",
-      "type": {
-        "coding": [
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/b79484c9-1170-44cd-9910-f9013ff2ea1f",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "b79484c9-1170-44cd-9910-f9013ff2ea1f",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of episode note"
+            }
+          ],
+          "text": "Summary of episode note"
+        },
+        "subject": {
+          "reference": "Patient/13160351"
+        },
+        "date": "2020-12-14T08:20:26Z",
+        "content": [
           {
-            "system": "http://loinc.org",
-            "code": "34133-9",
-            "display": "Summary of episode note"
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=13160351"
+            },
+            "format": {
+              "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+              "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1",
+              "display": "For documents following C-CDA constraints using a structured body."
+            }
           }
-        ],
-        "text": "Summary of episode note"
-      },
-      "subject": {
-        "reference": "Patient/13160351"
-      },
-      "date": "2020-12-14T08:20:26Z",
-      "content": [
-        {
-          "attachment": {
-            "contentType": "application/xml",
-            "url": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=13160351"
-          },
-          "format": {
-            "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
-            "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1",
-            "display": "For documents following C-CDA constraints using a structured body."
-          }
-        }
-      ]
+        ]
+      }
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request-2">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
+</code></pre>
+
+<h4 id="response-7">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "2cb9157f-0f05-4fe4-af14-95d5808a4070",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/b79484c9-1170-44cd-9910-f9013ff2ea1f",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "b79484c9-1170-44cd-9910-f9013ff2ea1f",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of episode note"
+            }
+          ],
+          "text": "Summary of episode note"
+        },
+        "subject": {
+          "reference": "Patient/13160351"
+        },
+        "date": "2020-12-14T08:20:26Z",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=13160351"
+            },
+            "format": {
+              "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+              "code": "urn:hl7-org:sdwg:ccda-structuredBody:2.1",
+              "display": "For documents following C-CDA constraints using a structured body."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-3">Errors</h3>
 

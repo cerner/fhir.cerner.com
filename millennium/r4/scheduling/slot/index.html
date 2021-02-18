@@ -234,7 +234,7 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -365,7 +365,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;-location=32216049&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_count=50"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;-location=32216049&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_count=50"
     },
     {
       "relation": "next",
@@ -379,12 +379,12 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
         "resourceType": "Slot",
         "id": "4047611-32216049-61518614-0",
         "meta": {
-          "versionId": "3423v2289979283",
-          "lastUpdated": "2020-07-22T20:02:03Z"
+          "versionId": "3423957v2380283",
+          "lastUpdated": "2020-05-08T18:13:55Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: May  8, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: May  8, 2020  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 23, 2017  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 23, 2017  7:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -398,16 +398,16 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           {
             "coding": [
               {
-                "system": "http://snomed.info/sct",
-                "code": "394576009",
-                "display": "Accident &amp; emergency (qualifier value)",
-                "userSelected": false
-              },
-              {
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
                 "code": "4047611",
                 "display": "Surgery Rapid",
                 "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
               }
             ],
             "text": "Surgery Rapid"
@@ -417,8 +417,8 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           "reference": "Schedule/4047611-32216049-61518614-0"
         },
         "status": "free",
-        "start": "2020-07-22T21:00:00Z",
-        "end": "2020-07-22T22:00:00Z"
+        "start": "2017-01-23T06:00:00Z",
+        "end": "2017-01-23T07:00:00Z"
       },
       "search": {
         "mode": "match"
@@ -435,7 +435,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: SK DOT apt 2&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: May  8, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: May  8, 2020  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: May  8, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: May  8, 2020  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -449,19 +449,150 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           {
             "coding": [
               {
-                "system": "http://snomed.info/sct",
-                "code": "394576009",
-                "display": "Accident &amp; emergency (qualifier value)",
-                "userSelected": false
-              },
-              {
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
                 "code": "4047611",
                 "display": "Surgery Rapid",
                 "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
               }
             ],
             "text": "Surgery Rapid"
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/4047611-32216049-61518614-5"
+        },
+        "status": "free",
+        "start": "2020-07-22T22:00:00Z",
+        "end": "2020-07-22T23:00:00Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&amp;start=ge2016-01-23T22:05:47Z&amp;start=lt2020-06-08T18:13:55Z&amp;-location=Location/32216049
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "bf750997-bfdd-4ac3-bcc2-34776d05b46e",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;-location=32216049&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_count=50"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?-pageContext=5cafd537-be28-45ad-80ed-c5bc2a266678&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "4047611-32216049-61518614-0",
+        "meta": {
+          "versionId": "3423957v2380283",
+          "lastUpdated": "2020-05-08T18:13:55Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Patient Friendly Display - Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 23, 2017  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 23, 2017  7:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Location/32216049"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/scheduling-location"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Patient Friendly Display - Surgery Rapid",
+                "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Patient Friendly Display - Surgery Rapid"
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/4047611-32216049-61518614-0"
+        },
+        "status": "free",
+        "start": "2017-01-23T06:00:00Z",
+        "end": "2017-01-23T07:00:00Z"
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-5",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "4047611-32216049-61518614-5",
+        "meta": {
+          "versionId": "3423v2289979283",
+          "lastUpdated": "2020-07-22T20:02:03Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Patient Friendly Display - Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: May  8, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: May  8, 2020  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-5&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Location/39997807"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/scheduling-location"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Patient Friendly Display - Surgery Rapid",
+                "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Patient Friendly Display - Surgery Rapid"
           }
         ],
         "schedule": {
@@ -487,7 +618,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&amp;start=ge2016-01-23T22:05:47Z&amp;start=lt2020-06-08T18:13:55Z&amp;_include=Slot:schedule&amp;_count=5
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -498,7 +629,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?slot-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_include=Slot%3Aschedule&amp;_count=50"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_include=Slot%3Aschedule&amp;_count=50"
     },
     {
       "relation": "next",
@@ -531,16 +662,16 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           {
             "coding": [
               {
-                "system": "http://snomed.info/sct",
-                "code": "394576009",
-                "display": "Accident &amp; emergency (qualifier value)",
-                "userSelected": false
-              },
-              {
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
                 "code": "4047611",
                 "display": "Surgery Rapid",
                 "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp;amp; emergency (qualifier value)",
+                "userSelected": false
               }
             ],
             "text": "Surgery Rapid"
@@ -550,15 +681,15 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           "reference": "Schedule/4047611-32216049-61518614-0"
         },
         "status": "free",
-        "start": "2017-01-23T06:00:00.000Z",
-        "end": "2017-01-23T07:00:00.000Z"
+        "start": "2017-01-23T06:00:00Z",
+        "end": "2017-01-23T07:00:00Z"
       }
     },
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-25442717-61519334-45",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0",
       "resource": {
         "resourceType": "Schedule",
-        "id": "4047611-25442717-61519334-45",
+        "id": "4047611-32216049-61518614-0",
         "meta": {
           "versionId": "3423v4vv168v283",
           "lastUpdated": "2020-08-11T15:48:54Z"
@@ -572,12 +703,139 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
           {
             "coding": [
               {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Surgery Rapid",
+                "userSelected": true
+              },
+              {
                 "system": "http://snomed.info/sct",
                 "code": "394576009",
-                "display": "Accident &amp; emergency (qualifier value)"
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
               }
             ],
             "text": "Surgery Rapid"
+          }
+        ],
+        "actor": [
+          {
+            "display": "OR Add-On 02"
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&amp;start=ge2016-01-23T22:05:47Z&amp;start=lt2020-06-08T18:13:55Z&amp;_include=Slot:schedule&amp;_count=5
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "f8dd806e-62bb-4657-8912-9c2705864d40",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https%3A%2F%2Ffhir.cerner.com%2Fec2458f2-1e24-41c8-b71b-0e701af7583d%2FcodeSet%2F14249%7C4047611&amp;start=ge2016-01-23T22%3A05%3A47Z&amp;start=lt2020-06-08T18%3A13%3A55Z&amp;_include=Slot%3Aschedule&amp;_count=50"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?_include=Slot%3Aschedule&amp;-pageContext=2d46d307-9a4c-4dc7-a1c2-88f1282d5aec&amp;-pageDirection=NEXT"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0",
+      "resource": {
+        "resourceType": "Slot",
+        "id": "4047611-32216049-61518614-0",
+        "meta": {
+          "versionId": "3423957v2380283",
+          "lastUpdated": "2020-05-08T18:13:55Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Patient Friendly Display - Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 23, 2017  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 23, 2017  7:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Location/32216049"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/scheduling-location"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Patient Friendly Display - Surgery Rapid",
+                "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp;amp; emergency (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Patient Friendly Display - Surgery Rapid"
+          }
+        ],
+        "schedule": {
+          "reference": "Schedule/4047611-32216049-61518614-0"
+        },
+        "status": "free",
+        "start": "2017-01-23T06:00:00Z",
+        "end": "2017-01-23T07:00:00Z"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "4047611-32216049-61518614-0",
+        "meta": {
+          "versionId": "3423v4vv168v283",
+          "lastUpdated": "2020-08-11T15:48:54Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Patient Friendly Display - Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: May  8, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: May  8, 2020  3:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+        },
+        "active": true,
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Patient Friendly Display - Surgery Rapid",
+                "userSelected": true
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident &amp; emergency (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Patient Friendly Display - Surgery Rapid"
           }
         ],
         "actor": [
@@ -609,7 +867,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-1">Headers</h3>
@@ -624,7 +882,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -651,16 +909,16 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
     {
       "coding": [
         {
-          "system": "http://snomed.info/sct",
-          "code": "394576009",
-          "display": "Accident &amp;amp; emergency (qualifier value)",
-          "userSelected": false
-        },
-        {
           "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
           "code": "4047611",
           "display": "Surgery Rapid",
           "userSelected": true
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394576009",
+          "display": "Accident &amp;amp;amp; emergency (qualifier value)",
+          "userSelected": false
         }
       ],
       "text": "Surgery Rapid"
@@ -670,8 +928,65 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
     "reference": "Schedule/4047611-32216049-61518614-0"
   },
   "status": "free",
-  "start": "2017-01-23T06:00:00.000Z",
-  "end": "2017-01-23T07:00:00.000Z"
+  "start": "2017-01-23T06:00:00Z",
+  "end": "2017-01-23T07:00:00Z"
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request-2">Patient Authorization Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+</code></pre>
+
+<h4 id="response-5">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Slot",
+  "id": "4047611-32216049-61518614-0",
+  "meta": {
+    "versionId": "3423957v2380283",
+    "lastUpdated": "2020-05-08T18:13:55Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Slot&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Patient Friendly Display - Surgery Rapid&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jan 23, 2017  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jan 23, 2017  7:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Schedule Reference&lt;/b&gt;: 4047611-32216049-61518614-0&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Free&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueReference": {
+        "reference": "Location/32216049"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/scheduling-location"
+    }
+  ],
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+          "code": "4047611",
+          "display": "Patient Friendly Display - Surgery Rapid",
+          "userSelected": true
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394576009",
+          "display": "Accident &amp;amp;amp; emergency (qualifier value)",
+          "userSelected": false
+        }
+      ],
+      "text": "Patient Friendly Display - Surgery Rapid"
+    }
+  ],
+  "schedule": {
+    "reference": "Schedule/4047611-32216049-61518614-0"
+  },
+  "status": "free",
+  "start": "2017-01-23T06:00:00Z",
+  "end": "2017-01-23T07:00:00Z"
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
