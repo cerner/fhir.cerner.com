@@ -112,9 +112,9 @@ The `version` parameter processing is handled the same as `definition_table`.
 
 The content is defined in YAML files and most fields are optional. If they are not provided, the resulting table cell will just be empty.
 
-- field_name_base_url: `definition_table` will generate nested links for each field prepended with this url
-- fields: The list of defined fields
-  - name: The name of the field. This will be generated as a link based on `field_name_base_url`
+- field_name_base_url: `definition_table` will generate nested links for each field prepended with this url.
+- fields: The list of defined fields.
+  - name: The name of the field. This will be generated as a link based on `field_name_base_url`.
   - required: Whether or not the field is required. This is not necessarily whether the field is required by the FHIR<sup>®</sup> standard, but rather whether it is required by our server implementation.
   - type: The type of the field. If found in `lib/resources/<version>/types.yaml`, this field will be linked to the specified resource.
   - description: The description of the field.
@@ -124,7 +124,7 @@ The content is defined in YAML files and most fields are optional. If they are n
   - url: Overrides the `field_name_base_url` generated URL if defined.
   - binding: A list of terminology bindings supported for the field.
     - description: Describes the purpose / intent of the binding.
-    - terminology: The list of terminologies supported by the field
+    - terminology: The list of terminologies supported by the field.
       - display: The terminology's display value.
       - notes: Additional notes about the binding implementation.
       - system: The actual system URI from which values may be returned.
