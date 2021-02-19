@@ -164,6 +164,161 @@ module Cerner
       ]
     }.freeze
 
+    R4_RELATEDPERSON_ENTRY_PATIENT_ACCESS ||= {
+      'resourceType': 'RelatedPerson',
+      'id': '170778458-166045489',
+      'meta': {
+        'versionId': 31,
+        'lastUpdated': '2020-10-09T07:29:32.000Z'
+      },
+      'text': {
+        'status': 'extensions',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p>'\
+        '<b>Name</b>: MARSTON, Dutch</p><p><b>DOB</b>: Apr 13, 1990</p><p><b>Gender</b>: male</p>'\
+        '<p><b>Patient</b>: MARSTON, JACK</p><p><b>Status</b>: Active</p>'\
+        '<p><b>Relationship Level</b>: Patient</p></div>'
+      },
+      'extension': [
+        {
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Patient',
+                'display': 'Patient'
+              }
+            ],
+            'text': 'Patient'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+        }
+      ],
+      'identifier': [
+        {
+          'id': 'CI-60184890-0',
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/4',
+                'code': '80979357',
+                'display': 'Federated Person Principal',
+                'userSelected': true
+              },
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'AN',
+                'display': 'Account number',
+                'userSelected': false
+              }
+            ],
+            'text': 'Federated Person Principal'
+          },
+          'system': 'urn:oid:2.16.840.1.113883.3.13.6',
+          'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL'\
+          ':BS9PK8RX6RS9CY5Y',
+          'period': {
+            'start': '2020-08-26T14:56:41.000Z'
+          }
+        }
+      ],
+      'active': true,
+      'patient': {
+        'reference': 'Patient/166045489',
+        'display': 'MARSTON, JACK'
+      },
+      'name': [
+        {
+          'id': 'CI-170778458-0',
+          'use': 'official',
+          'text': 'MARSTON, Dutch',
+          'family': 'MARSTON',
+          'given': [
+            'Dutch'
+          ],
+          'period': {
+            'start': '2020-08-26T14:44:08.000Z'
+          }
+        }
+      ],
+      'telecom': [
+        {
+          'id': 'CI-EM-43565450-0',
+          'system': 'email',
+          'value': 'kaishwaryaramesh@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-10-09T07:29:32.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42203920-1',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-26T14:45:59.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42213451-2',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-26T16:47:31.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42261446-3',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-27T20:27:31.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42287446-4',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-28T15:24:19.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42351584-5',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-31T15:16:18.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42848090-6',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-09-10T20:41:05.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-42871299-7',
+          'system': 'email',
+          'value': 'abigail.testpatient@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-09-11T15:52:04.000Z'
+          }
+        }
+      ],
+      'gender': 'male',
+      'birthDate': '1990-04-13'
+    }.freeze
+
     R4_RELATEDPERSON_ENCOUNTER_ENTRY ||= {
       'resourceType': 'RelatedPerson',
       'id': 'E-12457994-97697434',
@@ -309,6 +464,109 @@ module Cerner
           'preferred': 'true'
         }
       ]
+    }.freeze
+
+    R4_RELATEDPERSON_ENCOUNTER_ENTRY_PATIENT_ACCESS ||= {
+      'resourceType': 'RelatedPerson',
+      'id': 'E-173417344-51678301',
+      'meta': {
+        'versionId': '0',
+        'lastUpdated': '2020-09-17T14:10:03.000Z'
+      },
+      'text': {
+        'status': 'extensions',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p>'\
+        '<p><b>Name</b>: Li, Mike</p><p><b>DOB</b>: Dec 10, 1994</p>\'
+        <p><b>Gender</b>: male</p><p><b>Patient</b>: MARSTON, JACK</p>'\
+        '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Guardian</p>'\
+        '<p><b>Relationship</b>: Unknown</p><p><b>Relationship Level</b>: Encounter</p>'\
+        '<p><b>Encounter</b>: 51678301</p></div>'
+      },
+      'extension': [
+        {
+          'valueReference': {
+            'reference': 'Encounter/51678301'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter'
+        },
+        {
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Encounter',
+                'display': 'Encounter'
+              }
+            ],
+            'text': 'Encounter'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+        }
+      ],
+      'active': true,
+      'patient': {
+        'reference': 'Patient/166045489',
+        'display': 'MARSTON, JACK'
+      },
+      'relationship': [
+        {
+          'id': 'CI-58863376-0-0',
+          'coding': [
+            {
+              'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+              'code': '1156',
+              'display': 'Guardian',
+              'userSelected': true
+            }
+          ],
+          'text': 'Guardian'
+        },
+        {
+          'id': 'CI-58863376-1-0',
+          'coding': [
+            {
+              'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+              'code': '670861',
+              'display': 'Unknown',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v2-0131',
+              'code': 'U',
+              'display': 'Unknown',
+              'userSelected': false
+            }
+          ],
+          'text': 'Unknown'
+        }
+      ],
+      'name': [
+        {
+          'id': 'CI-173417344-0',
+          'use': 'official',
+          'text': 'Li, Mike',
+          'family': 'Li',
+          'given': [
+            'Mike'
+          ],
+          'period': {
+            'start': '2020-09-17T14:10:03.000Z'
+          }
+        }
+      ],
+      'telecom': [
+        {
+          'id': 'CI-EM-42995448-0',
+          'system': 'email',
+          'value': 'zonglin.li@cerner.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-08-25T17:44:43.000Z'
+          }
+        }
+      ],
+      'gender': 'male',
+      'birthDate': '1994-12-10'
     }.freeze
 
     R4_RELATEDPERSON_BUNDLE ||= {
@@ -459,6 +717,300 @@ module Cerner
                 }
               }
             ]
+          }
+        }
+      ]
+    }.freeze
+
+    R4_RELATEDPERSON_BUNDLE_PATIENT_ACCESS ||= {
+      'resourceType': 'Bundle',
+      'id': 'f43050ff-10b5-4b41-83f1-305cf07b9d1f',
+      'type': 'searchset',
+      'total': 10,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson?patient=166045489'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/166624790-166045489',
+          'resource': {
+            'resourceType': 'RelatedPerson',
+            'id': '166624790-166045489',
+            'meta': {
+              'versionId': 3,
+              'lastUpdated': '2020-07-21T13:50:47.000Z'
+            },
+            'text': {
+              'status': 'extensions',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p>'\
+              '<p><b>Name</b>: Marston, Joe</p><p><b>DOB</b>: Jun 17, 1950</p><p>'\
+              '<b>Gender</b>: male</p><p><b>Patient</b>: MARSTON, JACK</p><p>'\
+              '<b>Status</b>: Active</p><p><b>Relationship</b>: Authorized Representative</p>'\
+              '<p><b>Relationship</b>: Father</p><p><b>Relationship</b>: Family Member</p>'\
+              '<p><b>Relationship Level</b>: Patient</p></div>'
+            },
+            'extension': [
+              {
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'http://hl7.org/fhir/resource-types',
+                      'code': 'Patient',
+                      'display': 'Patient'
+                    }
+                  ],
+                  'text': 'Patient'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+              }
+            ],
+            'identifier': [
+              {
+                'id': 'CI-59302419-0',
+                'use': 'usual',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/4',
+                      'code': '80979357',
+                      'display': 'Federated Person Principal',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      'code': 'AN',
+                      'display': 'Account number',
+                      'userSelected': false
+                    }
+                  ],
+                  'text': 'Federated Person Principal'
+                },
+                'system': 'urn:oid:2.16.840.1.113883.3.13.6',
+                'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:'\
+                'PRINCIPAL:DP4JS8KI7JQ2MQ5W',
+                'period': {
+                  'start': '2020-07-21T13:50:43.000Z'
+                }
+              }
+            ],
+            'active': true,
+            'patient': {
+              'reference': 'Patient/166045489',
+              'display': 'MARSTON, JACK'
+            },
+            'relationship': [
+              {
+                'id': 'CI-59302320-0-0',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+                    'code': '83266815',
+                    'display': 'Authorized Representative',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Authorized Representative'
+              },
+              {
+                'id': 'CI-59302320-1-0',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '155',
+                    'display': 'Father',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'FTH',
+                    'display': 'father',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Father'
+              },
+              {
+                'id': 'CI-59302323-0-1',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+                    'code': '1153',
+                    'display': 'Family Member',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'FAMMEMB',
+                    'display': 'family member',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Family Member'
+              }
+            ],
+            'name': [
+              {
+                'id': 'CI-166624790-0',
+                'use': 'official',
+                'text': 'Marston, Joe',
+                'family': 'Marston',
+                'given': [
+                  'Joe'
+                ],
+                'period': {
+                  'start': '2020-07-21T13:47:07.000Z'
+                }
+              }
+            ],
+            'telecom': [
+              {
+                'id': 'CI-EM-41245834-0',
+                'system': 'email',
+                'value': 'justbrittany@gmail.com',
+                'use': 'home',
+                'period': {
+                  'start': '2020-07-21T13:35:28.000Z'
+                }
+              }
+            ],
+            'gender': 'male',
+            'birthDate': '1950-06-17'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/170778458-166045489',
+          'resource': R4_RELATEDPERSON_ENTRY_PATIENT_ACCESS
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/170788641-166045489',
+          'resource': {
+            'resourceType': 'RelatedPerson',
+            'id': '170788641-166045489',
+            'meta': {
+              'versionId': 0,
+              'lastUpdated': '2020-08-26T15:37:04.000Z'
+            },
+            'text': {
+              'status': 'extensions',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p>'\
+              '<p><b>Name</b>: Li, Mike</p><p><b>DOB</b>: Dec 10, 1994</p>'\
+              '<p><b>Gender</b>: male</p><p><b>Patient</b>: MARSTON, JACK</p>'\
+              '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Authorized Representative</p>'\
+              '<p><b>Relationship</b>: Family Member</p><p><b>Relationship</b>: Guardian</p>'\
+              '<p><b>Relationship</b>: Unknown</p><p><b>Relationship Level</b>: Patient</p></div>'
+            },
+            'extension': [
+              {
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'http://hl7.org/fhir/resource-types',
+                      'code': 'Patient',
+                      'display': 'Patient'
+                    }
+                  ],
+                  'text': 'Patient'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+              }
+            ],
+            'active': true,
+            'patient': {
+              'reference': 'Patient/166045489',
+              'display': 'MARSTON, JACK'
+            },
+            'relationship': [
+              {
+                'id': 'CI-60188027-0-0',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+                    'code': '83266815',
+                    'display': 'Authorized Representative',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Authorized Representative'
+              },
+              {
+                'id': 'CI-60187332-0-1',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+                    'code': '1153',
+                    'display': 'Family Member',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'FAMMEMB',
+                    'display': 'family member',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Family Member'
+              },
+              {
+                'id': 'CI-60187327-0-2',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/351',
+                    'code': '1156',
+                    'display': 'Guardian',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Guardian'
+              },
+              {
+                'id': 'CI-60187327-1-2',
+                'coding': [
+                  {
+                    'system': 'https://fhir-ehr.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '670861',
+                    'display': 'Unknown',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v2-0131',
+                    'code': 'U',
+                    'display': 'Unknown',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Unknown'
+              }
+            ],
+            'name': [
+              {
+                'id': 'CI-170788641-0',
+                'use': 'official',
+                'text': 'Li, Mike',
+                'family': 'Li',
+                'given': [
+                  'Mike'
+                ],
+                'period': {
+                  'start': '2020-08-26T15:37:05.000Z'
+                }
+              }
+            ],
+            'telecom': [
+              {
+                'id': 'CI-EM-42207446-0',
+                'system': 'email',
+                'value': 'zonglin.li@cerner.com',
+                'use': 'home',
+                'period': {
+                  'start': '2020-08-25T17:44:43.000Z'
+                }
+              }
+            ],
+            'gender': 'male',
+            'birthDate': '1994-12-10'
           }
         }
       ]
@@ -744,6 +1296,25 @@ module Cerner
               }
             ]
           }
+        }
+      ]
+    }.freeze
+
+    R4_RELATEDPERSON_ENCOUNTER_BUNDLE_PATIENT_ACCESS ||= {
+      'resourceType': 'Bundle',
+      'id': '7f8ccaa8-1666-4752-98ba-27e1290672d1',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson?-encounter=51678301'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/RelatedPerson/E-173417344-51678301',
+          'resource': R4_RELATEDPERSON_ENCOUNTER_ENTRY_PATIENT_ACCESS
         }
       ]
     }.freeze
