@@ -130,7 +130,7 @@ The content is defined in YAML files and most fields are optional. If they are n
       - system: The actual system URI from which values may be returned.
       - values: A list of individually supported values from the system.
 
-Standard YAML formatting rules apply
+Standard YAML formatting rules apply.
 
 ##### Action
 
@@ -162,7 +162,7 @@ Similarly, field values can be flexed per action as well:
           "id": "123412"
         }
       note:
-      - update: The id value must match the AllergyIntolerance/&lt;id&gt; value.
+      - update: The id value must match the AllergyIntolerance/<id> value.
       - create: The id field must not be set when performing an update operation.
 
 The name of the action isn't limited to create and update, but only one action can be used at a time when generating a field table.
