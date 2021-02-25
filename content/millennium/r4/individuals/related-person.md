@@ -58,7 +58,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -102,6 +102,32 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_encounter_bundle) %>
 
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+### Example - Search by Patient
+
+#### Request
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=166045489
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_bundle_patient_access) %>
+<%= disclaimer %>
+
+### Example - Search by Encounter
+
+#### Request
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=51678301
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_encounter_bundle_patient_access) %>
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -118,7 +144,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -145,6 +171,34 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_encounter_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+### Example - Patient-level RelatedPerson
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/166624790-166045489
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_entry_patient_access) %>
+
+### Example - Encounter-level RelatedPerson
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-173417344-51678301
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_relatedperson_encounter_entry_patient_access) %>
+
+<%= disclaimer %>
 
 ### Errors
 
