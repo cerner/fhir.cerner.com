@@ -299,7 +299,7 @@ operations:
     description: Test the value of the `ContactPoint.id` of the telecom at the given <code>{index}</code> in the list of related person telecoms.
     example: |
       {
-        "path": "/telecom/0/id",
         "op": "test",
+        "path": "/telecom/0/id",
         "value": "CI-PH-2807950-0"
       }
