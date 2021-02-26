@@ -284,7 +284,10 @@ module Cerner
       'entry': [
         {
           'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0',
-          'resource': R4_SLOT_ENTRY
+          'resource': R4_SLOT_ENTRY,
+          'search': {
+            'mode': 'match'
+          }
         },
         {
           'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0',
@@ -355,7 +358,10 @@ module Cerner
       'entry': [
         {
           'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0',
-          'resource': R4_SLOT_PATIENT_ACCESS_ENTRY
+          'resource': R4_SLOT_PATIENT_ACCESS_ENTRY,
+          'search': {
+            'mode': 'match'
+          }
         },
         {
           'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4047611-32216049-61518614-0',
