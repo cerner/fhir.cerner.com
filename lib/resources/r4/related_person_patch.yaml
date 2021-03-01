@@ -205,5 +205,5 @@ operations:
         <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced.</li>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
         <li>If no prefix value is provided, the prefix on the name will be unset.</li>
-        <li>Only one prefix value should be provided.</li>
+        <li>Only one prefix value may be provided.</li>
       </ul>
