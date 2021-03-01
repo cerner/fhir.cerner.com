@@ -162,7 +162,7 @@ operations:
     note: >
       <ul>
       <li>Must contain the `system`, `use` and `value` fields.</li>
-      <li>Must include a time component with a timezone when specifying a `period`.</li>
+      <li>When specifying a `period`, the `start` and `end` fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-name-id
