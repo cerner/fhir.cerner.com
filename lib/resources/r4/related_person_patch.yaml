@@ -228,6 +228,6 @@ operations:
       <ul>
         <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced.</li>
         <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-        <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed</li>
-        <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+        <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed.</li>
+        <li>Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
       </ul>
