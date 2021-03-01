@@ -1420,6 +1420,10 @@ module Cerner
         'value': 'Potter'
       },
       {
+        'op': 'remove',
+        'path': '/telecom/0'
+      },
+      {
         'op': 'replace',
         'path': '/name/0/prefix',
         'value': ['Mr.']
