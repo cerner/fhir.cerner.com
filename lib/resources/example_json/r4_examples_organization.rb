@@ -213,5 +213,153 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_ORGANIZATION_CAREGIVER_SEARCH_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '9cdc9b0a-1f7f-4a33-8c57-76514a7c7cdb',
+      'type': 'searchset',
+      'total': 2,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'http://localhost:3000/r4/5a12b3e8-5941-4076-8592-1fb463441c68/Organization/$get-cg-for-mrcu?_id=3172822'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'http://localhost:3000/r4/5a12b3e8-5941-4076-8592-1fb463441c68/Organization/3172821',
+          'resource': {
+            'resourceType': 'Organization',
+            'id': '3172821',
+            'meta': {
+              'versionId': '4',
+              'lastUpdated': '2020-02-20T06:44:22Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: '\
+                     'CH Caregiver</p><p><b>Status</b>: Active</p></div>'
+            },
+            'identifier': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'active': true,
+            'type': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/5a12b3e8-5941-4076-8592-1fb463441c68/codeSet/278',
+                    'code': 'CAREGIVER',
+                    'display': 'Caregiver',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Caregiver'
+              }
+            ],
+            'name': 'CH Caregiver',
+            'telecom': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'address': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          'fullUrl': 'http://localhost:3000/r4/5a12b3e8-5941-4076-8592-1fb463441c68/Organization/3282939',
+          'resource': {
+            'resourceType': 'Organization',
+            'id': '3282939',
+            'meta': {
+              'versionId': '0',
+              'lastUpdated': '2020-05-11T08:53:29Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: '\
+                     'skn test caregiver</p><p><b>Status</b>: Active</p></div>'
+            },
+            'identifier': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'active': true,
+            'type': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/5a12b3e8-5941-4076-8592-1fb463441c68/codeSet/278',
+                    'code': 'BBCLIENT',
+                    'display': 'BB Client',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'BB Client'
+              },
+              {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/5a12b3e8-5941-4076-8592-1fb463441c68/codeSet/278',
+                    'code': 'CAREGIVER',
+                    'display': 'Caregiver',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Caregiver'
+              }
+            ],
+            'name': 'skn test caregiver',
+            'telecom': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'address': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }.freeze
   end
 end

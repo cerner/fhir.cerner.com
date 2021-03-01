@@ -149,6 +149,39 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 
 <%= disclaimer %>
 
+## $get-cg-for-mrcu
+
+Search for Caregiver Organizations that meet supplied query parameters:
+ 
+    GET /Organization/$get-cg-for-mrcu?:parameters
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+### Parameters
+
+ Name        | Required?                      | Type       | Description
+-------------|--------------------------------|------------|----------------------------------------------------------
+ `_id`       | Yes                            | [`token`]  | The id of the care unit organization.
+
+### Headers
+
+<%= headers fhir_json: true %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/$get-cg-for-mrcu?_id=3172822
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_organization_caregiver_search_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
