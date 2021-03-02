@@ -109,7 +109,7 @@ operations:
     path: /address/{index}
     operation: remove
     type: N/A
-    url: https://hl7.org/fhir/R4/patient-definitions.html#RelatedPerson.address
+    url: http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address
     description: Remove the address at the given <code>{index}</code> in the list of related person addresses.
     example: |
       {
@@ -118,7 +118,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` of the address to be removed.</li>
+        <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` field of the address to be removed.</li>
 
   - name: add-identifier
     path: /identifier/-
