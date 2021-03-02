@@ -307,7 +307,7 @@ operations:
     path: /telecom/{index}
     operation: remove
     type: N/A
-    url: https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.telecom
+    url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom
     description: Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.
     example: |
       {
