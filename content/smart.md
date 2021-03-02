@@ -46,6 +46,13 @@ SMART apps can leverage Cerner's implementation of the FHIR standard server to r
 
 Technically speaking, the SMART specification requires that a FHIR server exist so that a SMART app can communicate with the FHIR server when the app opens in order to determine the location of the authorization (OAuth 2) server. However, outside of this requirement, FHIR does not need to be leveraged otherwise by the SMART app.
 
+At a minimum, a SMART app that does not require FHIR must include at least one of the following scopes in its access token requests:
+
+- launch
+- launch/patient
+- openid fhirUser
+- openid profile (deprecated)
+
 ### Well-Known SMART Configuration
 
 It is also possible to view SMART authorization endpoints and launch capabilities using a [Well-Known Uniform Resource Identifier](http://hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html#using-well-known).
