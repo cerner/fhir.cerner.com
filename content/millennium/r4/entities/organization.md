@@ -36,12 +36,13 @@ Search for Organizations that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?                      | Type       | Description
--------------|--------------------------------|------------|----------------------------------------------------------
- `_id`       | This or `identifier` or `type` | [`token`]  | The logical resource id associated with the resource.
- `identifier`| This or `type` or `_id`        | [`token`]  | NPI, OID or FederalTAXID identifier for the organization.
- `type`      | This or `identifier` or `_id`  | [`token`]  | The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`
- [`_count`]  | No                             | [`number`] | The maximum number of results to return. Defaults to `100`.
+ Name        | Required?                               | Type       | Description
+-------------|-----------------------------------------|------------|----------------------------------------------------------
+ `_id`       | This or `identifier` or `type`          | [`token`]  | The logical resource id associated with the resource.
+ `identifier`| This or `type` or `_id`                 | [`token`]  | NPI, OID or FederalTAXID identifier for the organization.
+ `type`      | This or `identifier` or `_id`           | [`token`]  | The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`
+ [`_count`]  | No                                      | [`number`] | The maximum number of results to return. Defaults to `100`.
+ `name`      | This or `_id` or `identifier` or `type` | [`string`] | Name used for the organization.
 
 ### Headers
 
@@ -63,6 +64,8 @@ Search for Organizations that meet supplied query parameters:
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[`string`]: https://hl7.org/fhir/R4/search.html#string
 
 ## Retrieve by id
 
