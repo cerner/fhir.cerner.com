@@ -130,7 +130,7 @@ operations:
     path: /telecom/-
     operation: add
     type: ContactPoint
-    url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
+    url: https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.telecom
     description: Add a new contact detail for the related person.
     example: |
       [
