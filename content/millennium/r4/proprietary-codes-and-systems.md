@@ -208,6 +208,9 @@ The Appointment Resource supports proprietary codes for:
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
 
+* Appointment.cancelationReason codes are maintained in [Code Set 14229 Appointment Cancelation Reason](#code-set-14229-appointment-cancelation-reason)
+
+
 ### List of Code Sets
 
 ##### Code Set 2 Admission Source
@@ -481,6 +484,17 @@ This code set contains the various reasons why an order was cancelled/discontinu
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/1309",
       "code": "633908",
       "display": "Duplicate Order",
+      "userSelected": true
+    }
+    
+##### Code Set 14229 Appointment Cancelation Reason
+
+This code set contains the various reasons why an appointment was cancelled.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14229",
+      "code": "2191414701",
+      "display": "Scheduled by mistake",
       "userSelected": true
     }
 

@@ -63,6 +63,32 @@ operations:
         <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
         <li>When the value array is empty, reasonCode will be removed</li>
       </ul>
+  - name: add-cancelationReason
+    path: /cancelationReason
+    operation: add
+    type: CodeableConcept
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason
+    description: The coded reason for the appointment being cancelled.
+    example: |
+      {
+        "op": "add",
+        "path": "/cancelationReason",
+        "value": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+              "code": "oth-err"
+            }
+          ]
+        }
+      }
+    note: >
+      <ul>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "cancelled"</li>
+        <li>Only one coding may be provided in the value</li>
+        <li>CodeableConcept.coding is required and CodeableConcept.text, if present, will be ignored</li>
+        <li>The cancelation reason can be either from the standard or proprietary code set, but not both</li>
+      </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
     operation: add
