@@ -149,21 +149,23 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 
 <%= disclaimer %>
 
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## $get-cg-for-mrcu
 
-Search for Caregiver Organizations that meet supplied query parameters:
+Retrieve Caregiver Organizations that match the supplied care unit organization id:
  
-    GET /Organization/$get-cg-for-mrcu?:parameters
+    GET /Organization/$get-cg-for-mrcu?_id=:id
+
+_Implementation Note_
+
+* Only a single care unit organization id can be provided.
 
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
-
-### Parameters
-
- Name        | Required?                      | Type       | Description
--------------|--------------------------------|------------|----------------------------------------------------------
- `_id`       | Yes                            | [`token`]  | The id of the care unit organization. Only a single id can be provided.
 
 ### Headers
 
