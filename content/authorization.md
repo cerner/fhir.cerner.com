@@ -344,6 +344,7 @@ access tokens in perpetuity on behalf of the user until:
   authorization grant.
 - The user's access to the resource(s) from the original authorization
   grant is terminated.
+- Your application's access goes unused for more than three months.
 - Your application's access is terminated by the given
   organization.
 
