@@ -38,7 +38,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 _Implementation Note_
 
@@ -53,6 +53,21 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 #### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+  ### Example
+
+  #### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
 
 #### Response
 
@@ -81,7 +96,7 @@ _Implementation Notes_
 
 Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -94,6 +109,21 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 #### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1694010
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_ccd_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+  ### Example
+
+  #### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1694010
 
 #### Response
 
