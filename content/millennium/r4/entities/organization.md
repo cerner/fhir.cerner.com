@@ -134,6 +134,7 @@ List an individual Organization by its id:
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
 ## Create
 
 Create new Organization.
