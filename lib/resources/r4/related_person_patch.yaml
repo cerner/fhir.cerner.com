@@ -153,6 +153,7 @@ operations:
     note: >
       <ul>
         <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` field of the address to be removed.</li>
+      </ul>
 
   - name: add-telecom
     path: /telecom/-
