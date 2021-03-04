@@ -73,13 +73,15 @@ Search for Caregiver Organizations that meet supplied query parameters:
  
     GET /Organization/$get-cg-for-mrcu?:parameters
 
-_Implementation Note_
-
-* Only a single care unit organization id can be provided.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
+
+### Parameters
+
+ Name        | Required?                      | Type       | Description
+-------------|--------------------------------|------------|----------------------------------------------------------
+ `_id`       | Yes                            | [`token`]  | The id of the care unit organization. Only a single id can be provided.
 
 ### Headers
 
