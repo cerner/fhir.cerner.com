@@ -71,12 +71,14 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_BUNDLE) %>
+
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -86,6 +88,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_PATIENT_ACCESS_BUNDLE) %>
+
+<%= disclaimer %>
 
 ### Errors
 
@@ -109,12 +113,14 @@ List an individual DocumentReference by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/214938095
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE) %>
+
+<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -124,6 +130,8 @@ List an individual DocumentReference by its id:
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_PATIENT_ACCESS) %>
+
+<%= disclaimer %>
 
 ### Errors
 

@@ -40,9 +40,10 @@ _Implementation Notes_
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
 
-_Implementation Note_
+_Implementation Notes_
 
-The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
+* For attachments with the `application/pdf` contentType, the `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
+* For attachments with the `text/html` contentType, the `Binary.read` scope and the `DocumentReference.read` scope are required.
 
 ### Headers
 
@@ -58,6 +59,34 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 
 <%= headers status: 200 %>
 <%= json(:r4_binary_entry) %>
+
+<%= disclaimer %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-149995151
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_tr_json_entry) %>
+
+<%= disclaimer %>
+
+### Example
+
+#### Request
+
+<%= headers head: {'Accept': 'text/html'} %>
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-149995151
+
+#### Response
+
+<%= headers status: 200 %>
+<%= html(:r4_binary_tr_html_entry) %>
 
 <%= disclaimer %>
 

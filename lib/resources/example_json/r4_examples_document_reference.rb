@@ -4,42 +4,49 @@ module Cerner
   module Resources
     R4_DOCUMENT_REFERENCE ||= {
       'resourceType': 'DocumentReference',
-      'id': '197411797',
+      'id': '214938095',
       'meta': {
         'versionId': '1',
-        'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'lastUpdated': '2020-10-29T09:40:27.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b>'\
-               '</p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
-               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
-               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+                '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Type</b>: '\
+                'Rheumatology Consultation</p><p><b>Document Title</b>: TEST TIMEZONE A17</p>'\
+                '<p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p><p><b>Document Status</b>: Final</p>'\
+                '<p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
       },
+      'identifier': [
+        {
+          'system': 'https://fhir.cerner.com/ceuuid',
+          'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-214938095-2020102909402700'
+        }
+      ],
       'status': 'current',
       'docStatus': 'final',
       'type': {
         'coding': [
           {
-            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820510',
-            'display': 'Consultation Note Generic',
+            'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
+            'code': '2820583',
+            'display': 'Rheumatology Consultation',
             'userSelected': true
           },
           {
             'system': 'http://loinc.org',
-            'code': '11488-4',
+            'code': '34839-1',
             'userSelected': false
           }
         ],
-        'text': 'Consultation Note Generic'
+        'text': 'Rheumatology Consultation'
       },
       'category': [
         {
           'coding': [
             {
               'system': 'http://loinc.org',
-              'code': '11488-4',
+              'code': '34839-1',
               'userSelected': false
             }
           ]
@@ -57,37 +64,45 @@ module Cerner
         }
       ],
       'subject': {
-        'reference': 'Patient/12742400',
-        'display': 'PETERS, TIM A'
+        'reference': 'Patient/1316024',
+        'display': 'PETERS, TIMOTHY CCCC'
       },
       'author': [
         {
-          'reference': 'Practitioner/12742069',
-          'display': 'Portal, Portal'
+          'reference': 'Practitioner/159105544',
+          'display': 'M, SANGEETHA'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/12742069',
-        'display': 'Portal, Portal'
+        'reference': 'Practitioner/159105544',
+        'display': 'M, SANGEETHA'
       },
       'content': [
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-            'title': 'Auto TC Summary',
-            'creation': '2020-12-10T07:19:54.000Z'
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-214938095',
+            'title': 'TEST TIMEZONE A17',
+            'creation': '2020-07-30T11:20:00.000Z'
+          }
+        },
+        {
+          'attachment': {
+            'contentType': 'text/html',
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-214938095',
+            'title': 'TEST TIMEZONE A17',
+            'creation': '2020-07-30T11:20:00.000Z'
           }
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/97953530'
+            'reference': 'Encounter/32487567'
           }
         ],
         'period': {
-          'end': '2020-12-10T07:19:54.000Z'
+          'end': '2020-07-30T11:20:00.000Z'
         }
       }
     }.freeze
@@ -180,60 +195,65 @@ module Cerner
 
     R4_DOCUMENT_REFERENCE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
+      'id': 'a811b104-d0e8-41bb-aacd-c1beb5b51409',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/214938095',
           'resource': R4_DOCUMENT_REFERENCE
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/208979313',
           'resource': {
             'resourceType': 'DocumentReference',
-            'id': '197411793',
+            'id': '208979313',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2020-12-10T07:19:56.000Z'
+              'lastUpdated': '2020-07-30T11:37:56.000Z'
             },
             'text': {
               'status': 'generated',
               'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
-                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
-                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p>'\
-                     '<b>Verifying Provider</b>: Portal, Portal</p></div>'
+              '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Type</b>: Rheumatology Consultation</p>'\
+              '<p><b>Document Title</b>: TEST TIMEZONE A17</p><p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT'\
+              '</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
             },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-208979313-2020073011245500'
+              }
+            ],
             'status': 'current',
             'docStatus': 'final',
             'type': {
               'coding': [
                 {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820555',
-                  'display': 'Progress Note Generic',
+                  'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
+                  'code': '2820583',
+                  'display': 'Rheumatology Consultation',
                   'userSelected': true
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '11506-3',
+                  'code': '34839-1',
                   'userSelected': false
                 }
               ],
-              'text': 'Progress Note Generic'
+              'text': 'Rheumatology Consultation'
             },
             'category': [
               {
                 'coding': [
                   {
                     'system': 'http://loinc.org',
-                    'code': '11506-3',
+                    'code': '34839-1',
                     'userSelected': false
                   }
                 ]
@@ -251,37 +271,39 @@ module Cerner
               }
             ],
             'subject': {
-              'reference': 'Patient/12742400',
-              'display': 'PETERS, TIM A'
+              'reference': 'Patient/1316024',
+              'display': 'PETERS, TIMOTHY CCCC'
             },
             'author': [
               {
-                'reference': 'Practitioner/12742069',
-                'display': 'Portal, Portal'
+                'reference': 'Practitioner/159105544',
+                'display': 'M, SANGEETHA'
               }
             ],
             'authenticator': {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
+              'reference': 'Practitioner/159105544',
+              'display': 'M, SANGEETHA'
             },
             'content': [
               {
                 'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:53.000Z'
+                  'extension': [
+                    {
+                      'valueCode': 'unsupported',
+                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                    }
+                  ]
                 }
               }
             ],
             'context': {
               'encounter': [
                 {
-                  'reference': 'Encounter/97953530'
+                  'reference': 'Encounter/32487567'
                 }
               ],
               'period': {
-                'end': '2020-12-10T07:19:53.000Z'
+                'end': '2020-07-30T11:20:00.000Z'
               }
             }
           }
