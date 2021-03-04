@@ -1371,32 +1371,30 @@ module Cerner
           }
         }
       },
-      [
-        {
-          "op": 'add',
-          "path": '/telecom/-',
-          "value": {
-            "use": 'home',
-            "system": 'email',
-            "value": 'test@test.com',
-            "period": {
-              "start": '2018-01-05T22:24:32.000Z'
-            }
-          }
-        },
-        {
-          "op": 'add',
-          "path": '/telecom/-',
-          "value": {
-            "use": 'home',
-            "system": 'phone',
-            "value": '913-444-8881',
-            "period": {
-              "start": '2018-01-05T22:24:32.000Z'
-            }
+      {
+        "op": 'add',
+        "path": '/telecom/-',
+        "value": {
+          "use": 'home',
+          "system": 'email',
+          "value": 'test@test.com',
+          "period": {
+            "start": '2018-01-05T22:24:32.000Z'
           }
         }
-      ],
+      },
+      {
+        "op": 'add',
+        "path": '/telecom/-',
+        "value": {
+          "use": 'home',
+          "system": 'phone',
+          "value": '913-444-8881',
+          "period": {
+            "start": '2018-01-05T22:24:32.000Z'
+          }
+        }
+      },
       {
         'op': 'test',
         'path': '/name/0/id',
