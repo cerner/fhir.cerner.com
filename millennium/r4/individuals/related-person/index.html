@@ -92,6 +92,8 @@
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example---search-by-patient" id="markdown-toc-example---search-by-patient">Example - Search by Patient</a></li>
       <li><a href="#example---search-by-encounter" id="markdown-toc-example---search-by-encounter">Example - Search by Encounter</a></li>
+      <li><a href="#example---search-by-patient-1" id="markdown-toc-example---search-by-patient-1">Example - Search by Patient</a></li>
+      <li><a href="#example---search-by-encounter-1" id="markdown-toc-example---search-by-encounter-1">Example - Search by Encounter</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -101,6 +103,8 @@
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example---patient-level-relatedperson" id="markdown-toc-example---patient-level-relatedperson">Example - Patient-level RelatedPerson</a></li>
       <li><a href="#example---encounter-level-relatedperson" id="markdown-toc-example---encounter-level-relatedperson">Example - Encounter-level RelatedPerson</a></li>
+      <li><a href="#example---patient-level-relatedperson-1" id="markdown-toc-example---patient-level-relatedperson-1">Example - Patient-level RelatedPerson</a></li>
+      <li><a href="#example---encounter-level-relatedperson-1" id="markdown-toc-example---encounter-level-relatedperson-1">Example - Encounter-level RelatedPerson</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
@@ -449,7 +453,7 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -1008,6 +1012,579 @@
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request">Patient Authorization Request</h4>
+
+<h3 id="example---search-by-patient-1">Example - Search by Patient</h3>
+
+<h4 id="request-2">Request</h4>
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=166045489
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "f43050ff-10b5-4b41-83f1-305cf07b9d1f",
+  "type": "searchset",
+  "total": 10,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=166045489"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/166624790-166045489",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "166624790-166045489",
+        "meta": {
+          "versionId": 3,
+          "lastUpdated": "2020-07-21T13:50:47.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Marston, Joe&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Jun 17, 1950&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Father&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "identifier": [
+          {
+            "id": "CI-59302419-0",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "80979357",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:DP4JS8KI7JQ2MQ5W",
+            "period": {
+              "start": "2020-07-21T13:50:43.000Z"
+            }
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/166045489",
+          "display": "MARSTON, JACK"
+        },
+        "relationship": [
+          {
+            "id": "CI-59302320-0-0",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "83266815",
+                "display": "Authorized Representative",
+                "userSelected": true
+              }
+            ],
+            "text": "Authorized Representative"
+          },
+          {
+            "id": "CI-59302320-1-0",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40",
+                "code": "155",
+                "display": "Father",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FTH",
+                "display": "father",
+                "userSelected": false
+              }
+            ],
+            "text": "Father"
+          },
+          {
+            "id": "CI-59302323-0-1",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1153",
+                "display": "Family Member",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FAMMEMB",
+                "display": "family member",
+                "userSelected": false
+              }
+            ],
+            "text": "Family Member"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-166624790-0",
+            "use": "official",
+            "text": "Marston, Joe",
+            "family": "Marston",
+            "given": [
+              "Joe"
+            ],
+            "period": {
+              "start": "2020-07-21T13:47:07.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-EM-41245834-0",
+            "system": "email",
+            "value": "justbrittany@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-07-21T13:35:28.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1950-06-17"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/170778458-166045489",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "170778458-166045489",
+        "meta": {
+          "versionId": 31,
+          "lastUpdated": "2020-10-09T07:29:32.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: MARSTON, Dutch&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 13, 1990&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "identifier": [
+          {
+            "id": "CI-60184890-0",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "80979357",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:BS9PK8RX6RS9CY5Y",
+            "period": {
+              "start": "2020-08-26T14:56:41.000Z"
+            }
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/166045489",
+          "display": "MARSTON, JACK"
+        },
+        "name": [
+          {
+            "id": "CI-170778458-0",
+            "use": "official",
+            "text": "MARSTON, Dutch",
+            "family": "MARSTON",
+            "given": [
+              "Dutch"
+            ],
+            "period": {
+              "start": "2020-08-26T14:44:08.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-EM-43565450-0",
+            "system": "email",
+            "value": "kaishwaryaramesh@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-10-09T07:29:32.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42203920-1",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-26T14:45:59.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42213451-2",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-26T16:47:31.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42261446-3",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-27T20:27:31.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42287446-4",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-28T15:24:19.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42351584-5",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-31T15:16:18.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42848090-6",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-09-10T20:41:05.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-42871299-7",
+            "system": "email",
+            "value": "abigail.testpatient@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-09-11T15:52:04.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1990-04-13"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/170788641-166045489",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "170788641-166045489",
+        "meta": {
+          "versionId": 0,
+          "lastUpdated": "2020-08-26T15:37:04.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Li, Mike&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec 10, 1994&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Guardian&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/166045489",
+          "display": "MARSTON, JACK"
+        },
+        "relationship": [
+          {
+            "id": "CI-60188027-0-0",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "83266815",
+                "display": "Authorized Representative",
+                "userSelected": true
+              }
+            ],
+            "text": "Authorized Representative"
+          },
+          {
+            "id": "CI-60187332-0-1",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1153",
+                "display": "Family Member",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FAMMEMB",
+                "display": "family member",
+                "userSelected": false
+              }
+            ],
+            "text": "Family Member"
+          },
+          {
+            "id": "CI-60187327-0-2",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1156",
+                "display": "Guardian",
+                "userSelected": true
+              }
+            ],
+            "text": "Guardian"
+          },
+          {
+            "id": "CI-60187327-1-2",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40",
+                "code": "670861",
+                "display": "Unknown",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                "code": "U",
+                "display": "Unknown",
+                "userSelected": false
+              }
+            ],
+            "text": "Unknown"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-170788641-0",
+            "use": "official",
+            "text": "Li, Mike",
+            "family": "Li",
+            "given": [
+              "Mike"
+            ],
+            "period": {
+              "start": "2020-08-26T15:37:05.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-EM-42207446-0",
+            "system": "email",
+            "value": "zonglin.li@cerner.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-25T17:44:43.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1994-12-10"
+      }
+    }
+  ]
+}</code></pre>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---search-by-encounter-1">Example - Search by Encounter</h3>
+
+<h4 id="request-3">Request</h4>
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=51678301
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "7f8ccaa8-1666-4752-98ba-27e1290672d1",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=51678301"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-173417344-51678301",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "E-173417344-51678301",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-09-17T14:10:03.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Li, Mike&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec 10, 1994&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Guardian&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 51678301&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Encounter/51678301"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Encounter",
+                  "display": "Encounter"
+                }
+              ],
+              "text": "Encounter"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/166045489",
+          "display": "MARSTON, JACK"
+        },
+        "relationship": [
+          {
+            "id": "CI-58863376-0-0",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1156",
+                "display": "Guardian",
+                "userSelected": true
+              }
+            ],
+            "text": "Guardian"
+          },
+          {
+            "id": "CI-58863376-1-0",
+            "coding": [
+              {
+                "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40",
+                "code": "670861",
+                "display": "Unknown",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                "code": "U",
+                "display": "Unknown",
+                "userSelected": false
+              }
+            ],
+            "text": "Unknown"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-173417344-0",
+            "use": "official",
+            "text": "Li, Mike",
+            "family": "Li",
+            "given": [
+              "Mike"
+            ],
+            "period": {
+              "start": "2020-09-17T14:10:03.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-EM-42995448-0",
+            "system": "email",
+            "value": "zonglin.li@cerner.com",
+            "use": "home",
+            "period": {
+              "start": "2020-08-25T17:44:43.000Z"
+            }
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1994-12-10"
+      }
+    }
+  ]
+}</code></pre>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -1028,7 +1605,7 @@
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="headers-1">Headers</h3>
@@ -1038,12 +1615,12 @@
 
 <h3 id="example---patient-level-relatedperson">Example - Patient-level RelatedPerson</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724068-12724066
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1206,12 +1783,12 @@
 
 <h3 id="example---encounter-level-relatedperson">Example - Encounter-level RelatedPerson</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1357,6 +1934,283 @@
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
+
+<h3 id="example---patient-level-relatedperson-1">Example - Patient-level RelatedPerson</h3>
+
+<h4 id="request-6">Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/166624790-166045489
+</code></pre>
+
+<h4 id="response-6">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "170778458-166045489",
+  "meta": {
+    "versionId": 31,
+    "lastUpdated": "2020-10-09T07:29:32.000Z"
+  },
+  "text": {
+    "status": "extensions",
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: MARSTON, Dutch&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 13, 1990&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Patient",
+            "display": "Patient"
+          }
+        ],
+        "text": "Patient"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+    }
+  ],
+  "identifier": [
+    {
+      "id": "CI-60184890-0",
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+            "code": "80979357",
+            "display": "Federated Person Principal",
+            "userSelected": true
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:AC193C1A-9763-45E1-9FA2-C1C3AA4BA16D:PRINCIPAL:BS9PK8RX6RS9CY5Y",
+      "period": {
+        "start": "2020-08-26T14:56:41.000Z"
+      }
+    }
+  ],
+  "active": true,
+  "patient": {
+    "reference": "Patient/166045489",
+    "display": "MARSTON, JACK"
+  },
+  "name": [
+    {
+      "id": "CI-170778458-0",
+      "use": "official",
+      "text": "MARSTON, Dutch",
+      "family": "MARSTON",
+      "given": [
+        "Dutch"
+      ],
+      "period": {
+        "start": "2020-08-26T14:44:08.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "id": "CI-EM-43565450-0",
+      "system": "email",
+      "value": "kaishwaryaramesh@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-10-09T07:29:32.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42203920-1",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-26T14:45:59.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42213451-2",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-26T16:47:31.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42261446-3",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-27T20:27:31.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42287446-4",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-28T15:24:19.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42351584-5",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-31T15:16:18.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42848090-6",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-09-10T20:41:05.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-42871299-7",
+      "system": "email",
+      "value": "abigail.testpatient@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-09-11T15:52:04.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1990-04-13"
+}</code></pre>
+
+<h3 id="example---encounter-level-relatedperson-1">Example - Encounter-level RelatedPerson</h3>
+
+<h4 id="request-7">Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-173417344-51678301
+</code></pre>
+
+<h4 id="response-7">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "E-173417344-51678301",
+  "meta": {
+    "versionId": "0",
+    "lastUpdated": "2020-09-17T14:10:03.000Z"
+  },
+  "text": {
+    "status": "extensions",
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Li, Mike&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Dec 10, 1994&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: MARSTON, JACK&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Guardian&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 51678301&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueReference": {
+        "reference": "Encounter/51678301"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter"
+    },
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Encounter",
+            "display": "Encounter"
+          }
+        ],
+        "text": "Encounter"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+    }
+  ],
+  "active": true,
+  "patient": {
+    "reference": "Patient/166045489",
+    "display": "MARSTON, JACK"
+  },
+  "relationship": [
+    {
+      "id": "CI-58863376-0-0",
+      "coding": [
+        {
+          "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+          "code": "1156",
+          "display": "Guardian",
+          "userSelected": true
+        }
+      ],
+      "text": "Guardian"
+    },
+    {
+      "id": "CI-58863376-1-0",
+      "coding": [
+        {
+          "system": "https://fhir-ehr.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40",
+          "code": "670861",
+          "display": "Unknown",
+          "userSelected": true
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+          "code": "U",
+          "display": "Unknown",
+          "userSelected": false
+        }
+      ],
+      "text": "Unknown"
+    }
+  ],
+  "name": [
+    {
+      "id": "CI-173417344-0",
+      "use": "official",
+      "text": "Li, Mike",
+      "family": "Li",
+      "given": [
+        "Mike"
+      ],
+      "period": {
+        "start": "2020-09-17T14:10:03.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "id": "CI-EM-42995448-0",
+      "system": "email",
+      "value": "zonglin.li@cerner.com",
+      "use": "home",
+      "period": {
+        "start": "2020-08-25T17:44:43.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1994-12-10"
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
 
@@ -2045,7 +2899,7 @@
 
 <h3 id="example">Example</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson
 </code></pre>
@@ -2171,7 +3025,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2232,6 +3086,65 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
   </tr>
   </thead>
   <tbody>
+  
+    <tr>
+      <td>
+        <a name="add-identifier">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier"><code>/identifier/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new identifier for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/identifier/-",
+  "op": "add",
+  "value": {
+    "type": {
+      "coding": [
+        {
+          "code": "MR",
+          "system": "http://hl7.org/fhir/v2/0203"
+        }
+      ]
+    },
+    "system": "2.16.840.1.113883.6.1000",
+    "value": "&lt;unique identifier&gt;",
+    "period": {
+      "start": "2016-01-02T00:00:00-05:00",
+      "end": "2020-01-02T00:00:00-05:00"
+    }
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Must not contain the <code>use</code> field.</li>
+  <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
+  <li>When specifying a <code>period</code>, the <code>start</code> and <code>end</code> fields must include a time component with a timezone.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
   
     <tr>
       <td>
@@ -2423,42 +3336,122 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
   
     <tr>
       <td>
-        <a name="add-identifier">
+        <a name="test-address-id">
           
-            </a><a target="_blank" href="https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier"><code>/identifier/-</code></a>
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/address/{index}/id</code></a>
           
         
       </td>
-      <td>add</td>
+      <td>test</td>
       <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">
         <ul style="list-style-type: none; margin: 1.2em">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Add a new identifier for the related person.</li></ul>
+            <ul style="list-style-type: none"><li>Test the <code>Address.id</code> value of the address at the given <code>{index}</code> in the list of related person addresses.</li></ul>
           
           
             <li><i>Example</i></li>
             <ul style="list-style-type: none"><li><pre>{
-  "path": "/identifier/-",
+  "op": "test",
+  "path": "/address/0/id",
+  "value": "CI-24079465-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-address">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address"><code>/address/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the address at the given <code>{index}</code> in the list of related person addresses.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove",
+  "path": "/address/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-telecom">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom"><code>/telecom/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new contact detail for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
   "op": "add",
+  "path": "/telecom/-",
   "value": {
-    "type": {
-      "coding": [
-        {
-          "code": "MR",
-          "system": "http://hl7.org/fhir/v2/0203"
-        }
-      ]
-    },
-    "system": "2.16.840.1.113883.6.1000",
-    "value": "&lt;unique identifier&gt;",
+    "use": "home",
+    "system": "email",
+    "value": "test@test.com",
     "period": {
-      "start": "2016-01-02T00:00:00-05:00",
-      "end": "2020-01-02T00:00:00-05:00"
+      "start": "2018-01-05T22:24:32.000Z"
+    }
+  }
+},
+{
+  "op": "add",
+  "path": "/telecom/-",
+  "value": {
+    "use": "home",
+    "system": "phone",
+    "value": "913-444-8881",
+    "period": {
+      "start": "2018-01-05T22:24:32.000Z"
     }
   }
 }
@@ -2469,8 +3462,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Must not contain the <code>use</code> field.</li>
-  <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
+  <li>Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li>
   <li>When specifying a <code>period</code>, the <code>start</code> and <code>end</code> fields must include a time component with a timezone.</li>
 </ul>
 </li></ul>
@@ -2565,12 +3557,150 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="replace-name-prefix">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix"><code>/name/{index}/prefix</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/name/0/prefix",
+  "value": ["Mr."]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced.</li>
+  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+  <li>If no prefix value is provided, the prefix on the name will be unset.</li>
+  <li>Only one prefix value may be provided.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-given">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given"><code>/name/{index}/given</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/name/0/given",
+  "op": "replace",
+  "value": [
+    "Harry",
+    "James"
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced.</li>
+  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+  <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed.</li>
+  <li>Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-suffix">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix"><code>/name/{index}/suffix</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/name/0/suffix",
+  "value": ["Jr."]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced.</li>
+  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+  <li>If no suffix value is provided, the suffix on the name will be unset.</li>
+  <li>Only one suffix value may be provided.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12467982-97731398
 </code></pre>
@@ -2630,6 +3760,39 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
     }
   },
   {
+    "op": "add",
+    "path": "/telecom/-",
+    "value": {
+      "use": "home",
+      "system": "email",
+      "value": "test@test.com",
+      "period": {
+        "start": "2018-01-05T22:24:32.000Z"
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/telecom/-",
+    "value": {
+      "use": "home",
+      "system": "phone",
+      "value": "913-444-8881",
+      "period": {
+        "start": "2018-01-05T22:24:32.000Z"
+      }
+    }
+  },
+  {
+    "op": "test",
+    "path": "/address/0/id",
+    "value": "CI-24079465-0"
+  },
+  {
+    "op": "remove",
+    "path": "/address/0"
+  },
+  {
     "op": "test",
     "path": "/name/0/id",
     "value": "CI-12467982-0"
@@ -2638,10 +3801,32 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
     "op": "replace",
     "path": "/name/0/family",
     "value": "Potter"
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/prefix",
+    "value": [
+      "Mr."
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/given",
+    "value": [
+      "Harry",
+      "James"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/suffix",
+    "value": [
+      "Jr."
+    ]
   }
 ]</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
