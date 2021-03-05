@@ -476,8 +476,8 @@ module Cerner
       'text': {
         'status': 'extensions',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p>'\
-        '<p><b>Name</b>: Li, Mike</p><p><b>DOB</b>: Dec 10, 1994</p>\'
-        <p><b>Gender</b>: male</p><p><b>Patient</b>: MARSTON, JACK</p>'\
+        '<p><b>Name</b>: Li, Mike</p><p><b>DOB</b>: Dec 10, 1994</p>'\
+        '<p><b>Gender</b>: male</p><p><b>Patient</b>: MARSTON, JACK</p>'\
         '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Guardian</p>'\
         '<p><b>Relationship</b>: Unknown</p><p><b>Relationship Level</b>: Encounter</p>'\
         '<p><b>Encounter</b>: 51678301</p></div>'
