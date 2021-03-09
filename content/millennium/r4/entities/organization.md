@@ -81,7 +81,11 @@ Search for Caregiver Organizations that meet supplied query parameters:
 
  Name        | Required?                      | Type       | Description
 -------------|--------------------------------|------------|----------------------------------------------------------
- `_id`       | Yes                            | [`token`]  | The id of the care unit organization. Only a single id can be provided.
+ `_id`       | Yes                            | [`token`]  | The id of the care unit organization.
+
+Notes:
+
+* Only a single `_id` parameter can be provided.
 
 ### Headers
 
