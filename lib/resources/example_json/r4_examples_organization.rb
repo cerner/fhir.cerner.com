@@ -216,38 +216,57 @@ module Cerner
 
     R4_ORGANIZATION_CAREGIVER_SEARCH_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '9cdc9b0a-1f7f-4a33-8c57-76514a7c7cdb',
+      'id': '02116a06-1bef-4397-9347-8d9ae1e98173',
       'type': 'searchset',
-      'total': 2,
+      'total': 1,
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/$get-cg-for-mrcu?_id=3172822'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/$get-cg-for-mrcu?_id=3304067'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/3172821',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/3304066',
           'resource': {
             'resourceType': 'Organization',
-            'id': '3172821',
+            'id': '3304066',
             'meta': {
-              'versionId': '4',
-              'lastUpdated': '2020-02-20T06:44:22Z'
+              'versionId': '1',
+              'lastUpdated': '2020-12-11T21:05:24Z'
             },
             'text': {
               'status': 'generated',
               'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: '\
-                     'CH Caregiver</p><p><b>Status</b>: Active</p></div>'
+                     's5gcq4ZbcYMSVC CORE test organization1ZybNk7kCr0</p><p><b>Status</b>: Active</p><p><b>TAXID'\
+                     '</b>: zYuYtCHkmh</p><p><b>OID</b>: urn:oid:2.4.8.6.1.6</p></div>'
             },
             'identifier': [
               {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
+                'use': 'official',
+                'system': 'urn:oid:2.16.840.1.113883.4.4',
+                'value': 'zYuYtCHkmh'
+              },
+              {
+                'use': 'official',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/334',
+                      'code': 'OID',
+                      'display': 'OID',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'urn:ietf:rfc:3986',
+                      'code': 'urn:oid',
+                      'display': 'OID'
+                    }
+                  ],
+                  'text': 'OID'
+                },
+                'system': 'urn:ietf:rfc:3986',
+                'value': 'urn:oid:2.4.8.6.1.6'
               }
             ],
             'active': true,
@@ -256,105 +275,85 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278',
-                    'code': 'CAREGIVER',
-                    'display': 'Caregiver',
+                    'code': 'HOSPITAL',
+                    'display': 'Hospital',
                     'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/organization-type',
+                    'code': 'prov',
+                    'display': 'Healthcare Provider'
                   }
                 ],
-                'text': 'Caregiver'
-              }
-            ],
-            'name': 'CH Caregiver',
-            'telecom': [
-              {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
-              }
-            ],
-            'address': [
-              {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/3282939',
-          'resource': {
-            'resourceType': 'Organization',
-            'id': '3282939',
-            'meta': {
-              'versionId': '0',
-              'lastUpdated': '2020-05-11T08:53:29Z'
-            },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: '\
-                     'skn test caregiver</p><p><b>Status</b>: Active</p></div>'
-            },
-            'identifier': [
-              {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
-              }
-            ],
-            'active': true,
-            'type': [
-              {
-                'coding': [
-                  {
-                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278',
-                    'code': 'BBCLIENT',
-                    'display': 'BB Client',
-                    'userSelected': true
-                  }
-                ],
-                'text': 'BB Client'
+                'text': 'Hospital'
               },
               {
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278',
-                    'code': 'CAREGIVER',
-                    'display': 'Caregiver',
+                    'code': 'CHARTACCESS',
+                    'display': 'Chart Access',
                     'userSelected': true
                   }
                 ],
-                'text': 'Caregiver'
+                'text': 'Chart Access'
+              },
+              {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278',
+                    'code': 'PHARMACY',
+                    'display': 'Pharmacy',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/organization-type',
+                    'code': 'dept',
+                    'display': 'Hospital Department'
+                  }
+                ],
+                'text': 'Pharmacy'
               }
             ],
-            'name': 'skn test caregiver',
+            'name': 's5gcq4ZbcYMSVC CORE test organization1ZybNk7kCr0',
             'telecom': [
               {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
+                'system': 'sms',
+                'value': '88793851',
+                'use': 'mobile'
+              },
+              {
+                'system': 'phone',
+                'value': '13294723851',
+                'use': 'work'
+              },
+              {
+                'system': 'email',
+                'value': 'external@cerner.com'
               }
             ],
             'address': [
               {
-                'extension': [
-                  {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
+                'use': 'work',
+                'text': '6276 Rockriver Drive\\nKansas City, MO 64117\\nUS',
+                'line': [
+                  '6276 Rockriver Drive'
+                ],
+                'city': 'Kansas City',
+                'state': 'MO',
+                'postalCode': '64117',
+                'country': 'US'
+              },
+              {
+                'use': 'billing',
+                'text': '6276 Rockriver Drive\nKansas City, MO 64117\nUS',
+                'line': [
+                  '6276 Rockriver Drive'
+                ],
+                'city': 'Kansas City',
+                'state': 'MO',
+                'postalCode': '64117',
+                'country': 'US'
               }
             ]
           }
