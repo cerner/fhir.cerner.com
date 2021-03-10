@@ -85,7 +85,7 @@ Search for MedicationRequests that meet supplied query parameters:
 
 _Implementation Notes_
 
-In the intent field, we support "Plan" and "Order" accordance with the US Core Profile pending changes.
+We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" accordance with the US Core Profile changes.
 
 ### Authorization Types
 
@@ -145,7 +145,7 @@ List an individual MedicationRequest by its id:
 
 _Implementation Notes_
 
-In the intent field, we support "Plan" and "Order" accordance with the US Core Profile pending changes.
+We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" accordance with the US Core Profile changes.
 
 ### Authorization Types
 
