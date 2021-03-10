@@ -63,9 +63,9 @@ The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentR
 
 #### Patient Authorization Request
 
-  ### Example
+### Example
 
-  #### Request
+#### Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
 
@@ -119,9 +119,9 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 
 #### Patient Authorization Request
 
-  ### Example
+### Example
 
-  #### Request
+#### Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=1694010
 
