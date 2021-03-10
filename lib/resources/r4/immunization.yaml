@@ -166,6 +166,7 @@ fields:
         "text": "Primary Care Provider"
       }
     }
+  note: Should not be supplied when primarySource is set to true
   binding:
     description: The source of an immunization record when not reported by the person who administered the vaccine.
     terminology:
@@ -387,7 +388,9 @@ fields:
   description: An indication that the content of the record is based on information from the person who administered the vaccine.
   action:
     - create
+    - update
   example: |
     {
       "primarySource": true
     }
+  note: should not be set to true when reportOrigin is populated
