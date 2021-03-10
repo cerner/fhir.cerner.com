@@ -78,7 +78,7 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
-* A populated Encounter response bundle will be sorted from newest to oldest based on the start of the [Encounter.period].
+* Results are sorted by start of the [Encounter.period] in descending order by page. That is, all Encounters on any given page of results are newer than all Encounters on the next page of results. Sort order within pages is not guaranteed..
 
 ### Authorization Types
 
