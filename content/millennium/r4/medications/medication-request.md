@@ -83,6 +83,10 @@ Search for MedicationRequests that meet supplied query parameters:
 
     GET /MedicationRequest?:parameters
 
+_Implementation Notes_
+
+In the intent field, we support "Plan" and "Order" accordance with the US Core Profile pending changes.
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
