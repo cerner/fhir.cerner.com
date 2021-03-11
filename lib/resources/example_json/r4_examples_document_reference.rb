@@ -4,23 +4,22 @@ module Cerner
   module Resources
     R4_DOCUMENT_REFERENCE ||= {
       'resourceType': 'DocumentReference',
-      'id': '214938095',
+      'id': '207993296',
       'meta': {
         'versionId': '1',
-        'lastUpdated': '2020-10-29T09:40:27.000Z'
+        'lastUpdated': '2020-07-15T20:46:06.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-                '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Type</b>: '\
-                'Rheumatology Consultation</p><p><b>Document Title</b>: TEST TIMEZONE A17</p>'\
-                '<p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p><p><b>Document Status</b>: Final</p>'\
-                '<p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+               'PETERS, TIMOTHY CCCC</p><p><b>Document Title</b>: Test Prescription Calendar - DEVENG</p><p>'\
+               '<b>Service End Date</b>: Mar 20, 2020  4:10 A.M. CDT</p><p><b>Document Status</b>: Final</p><p>'\
+               '<b>Verifying Provider</b>: SYSTEM, SYSTEM</p></div>'
       },
       'identifier': [
         {
           'system': 'https://fhir.cerner.com/ceuuid',
-          'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-214938095-2020102909402700'
+          'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-207993296-2020071520460600'
         }
       ],
       'status': 'current',
@@ -28,25 +27,23 @@ module Cerner
       'type': {
         'coding': [
           {
-            'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
-            'code': '2820583',
-            'display': 'Rheumatology Consultation',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            'code': '2820507',
             'userSelected': true
           },
           {
             'system': 'http://loinc.org',
-            'code': '34839-1',
+            'code': '83805-2',
             'userSelected': false
           }
-        ],
-        'text': 'Rheumatology Consultation'
+        ]
       },
       'category': [
         {
           'coding': [
             {
               'system': 'http://loinc.org',
-              'code': '34839-1',
+              'code': '83805-2',
               'userSelected': false
             }
           ]
@@ -69,80 +66,84 @@ module Cerner
       },
       'author': [
         {
-          'reference': 'Practitioner/159105544',
-          'display': 'M, SANGEETHA'
+          'reference': 'Practitioner/1',
+          'display': 'SYSTEM, SYSTEM'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/159105544',
-        'display': 'M, SANGEETHA'
+        'reference': 'Practitioner/1',
+        'display': 'SYSTEM, SYSTEM'
       },
       'content': [
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-214938095',
-            'title': 'TEST TIMEZONE A17',
-            'creation': '2020-07-30T11:20:00.000Z'
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-207993296',
+            'title': 'Test Prescription Calendar - DEVENG',
+            'creation': '2020-03-18T18:00:00.000Z'
           }
         },
         {
           'attachment': {
             'contentType': 'text/html',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-214938095',
-            'title': 'TEST TIMEZONE A17',
-            'creation': '2020-07-30T11:20:00.000Z'
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-207993296',
+            'title': 'Test Prescription Calendar - DEVENG',
+            'creation': '2020-03-18T18:00:00.000Z'
           }
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/32487567'
+            'reference': 'Encounter/49681814'
           }
         ],
         'period': {
-          'end': '2020-07-30T11:20:00.000Z'
+          'end': '2020-03-20T09:10:14.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS ||= {
       'resourceType': 'DocumentReference',
-      'id': '197411797',
+      'id': '207993296',
       'meta': {
         'versionId': '1',
-        'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'lastUpdated': '2020-07-15T20:46:06.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-               '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
-               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
-               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+               'PETERS, TIMOTHY CCCC</p><p><b>Document Title</b>: Test Prescription Calendar - DEVENG</p><p>'\
+               '<b>Service End Date</b>: Mar 20, 2020  4:10 A.M. CDT</p><p><b>Document Status</b>: Final</p><p>'\
+               '<b>Verifying Provider</b>: SYSTEM, SYSTEM</p></div>'
       },
+      'identifier': [
+        {
+          'system': 'https://fhir.cerner.com/ceuuid',
+          'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-207993296-2020071520460600'
+        }
+      ],
       'status': 'current',
       'docStatus': 'final',
       'type': {
         'coding': [
           {
             'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820510',
-            'display': 'Consultation Note Generic'
+            'code': '2820507'
           },
           {
             'system': 'http://loinc.org',
-            'code': '11488-4'
+            'code': '83805-2'
           }
-        ],
-        'text': 'Consultation Note Generic'
+        ]
       },
       'category': [
         {
           'coding': [
             {
               'system': 'http://loinc.org',
-              'code': '11488-4'
+              'code': '83805-2'
             }
           ]
         },
@@ -158,76 +159,89 @@ module Cerner
         }
       ],
       'subject': {
-        'reference': 'Patient/12742400',
-        'display': 'PETERS, TIM A'
+        'reference': 'Patient/1316024',
+        'display': 'PETERS, TIMOTHY CCCC'
       },
       'author': [
         {
-          'reference': 'Practitioner/12742069',
-          'display': 'Portal, Portal'
+          'reference': 'Practitioner/1',
+          'display': 'SYSTEM, SYSTEM'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/12742069',
-        'display': 'Portal, Portal'
+        'reference': 'Practitioner/1',
+        'display': 'SYSTEM, SYSTEM'
       },
       'content': [
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-            'title': 'Auto TC Summary',
-            'creation': '2020-12-10T07:19:54.000Z'
+            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-207993296',
+            'title': 'Test Prescription Calendar - DEVENG',
+            'creation': '2020-03-18T18:00:00.000Z'
+          }
+        },
+        {
+          'attachment': {
+            'contentType': 'text/html',
+            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-207993296',
+            'title': 'Test Prescription Calendar - DEVENG',
+            'creation': '2020-03-18T18:00:00.000Z'
           }
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/97953530'
+            'reference': 'Encounter/49681814'
           }
         ],
         'period': {
-          'end': '2020-12-10T07:19:54.000Z'
+          'end': '2020-03-20T09:10:14.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': 'a811b104-d0e8-41bb-aacd-c1beb5b51409',
+      'id': '2a7086d5-fc22-4314-af1e-a14903ab2884',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
           'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024'
+        },
+        {
+          'relation': 'next',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024&-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD1lTnA5ajFGcmd6QVVoWDlMY1ktYUpsRmo4akRvcGpMNm9rWGJzYmR4amRFSkdvdW1aUnY5OFl2ZEJtT0RQVjBPOXh6T2QtUTRJS2ttclNZMHpHZUpaTl9wVGtLdnprb2JCQU84anhvZG9lMTBpLTZ1YWdldGlrZHQxS3R4TnF1YTE2SWh3TDJLWS1FRkNpcXZJb3g1akFCdEpGWVlnRmxia3BaeG1pWGI3TUVLLVc5blBjclQ4S084VUdicTdPdi1MVjMtcFRMNVVVMWd1bEhmZkJMOWRTeU1xNDFqcHROeXN2UnBfeHdmaWpJdnJLS2M0cEJnbDBRaGp3SWhtRXZDU0JEcUU1OWpqRjFzUFEzMDg1TGNGZW5qTmotVXY5STRjaW1PaFBEcE5jMERKc0tBQk45cE9fSGlYUEI2X1FKemFTeEtuWHh0dWwySVBnQ2Znblc5JmNvbmNlcHQ9Y2hhcnRlZA%3D%3D&-pageDirection=NEXT'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/214938095',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/207993296',
           'resource': R4_DOCUMENT_REFERENCE
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/208979313',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/182338606',
           'resource': {
             'resourceType': 'DocumentReference',
-            'id': '208979313',
+            'id': '182338606',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2020-07-30T11:37:56.000Z'
+              'lastUpdated': '2020-02-21T17:23:54.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-              '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Type</b>: Rheumatology Consultation</p>'\
-              '<p><b>Document Title</b>: TEST TIMEZONE A17</p><p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT'\
-              '</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>'\
+                     'Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Category</b>: Unknown</p><p>'\
+                     '<b>Document Title</b>: Cardiology APSO Note- For Unscripted Testing</p><p><b>Service End Date'\
+                     '</b>: Feb 24, 2020  5:19 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>'\
+                     'Verifying Provider</b>: Snyder, Chris</p></div>'
             },
             'identifier': [
               {
                 'system': 'https://fhir.cerner.com/ceuuid',
-                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-208979313-2020073011245500'
+                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-182338606-2020022117235500'
               }
             ],
             'status': 'current',
@@ -235,39 +249,33 @@ module Cerner
             'type': {
               'coding': [
                 {
-                  'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
-                  'code': '2820583',
-                  'display': 'Rheumatology Consultation',
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820643',
                   'userSelected': true
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '34839-1',
-                  'userSelected': false
+                  '_code': {
+                    'extension': [
+                      {
+                        'valueCode': 'unknown',
+                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                      }
+                    ]
+                  }
                 }
-              ],
-              'text': 'Rheumatology Consultation'
+              ]
             },
             'category': [
               {
                 'coding': [
                   {
-                    'system': 'http://loinc.org',
-                    'code': '34839-1',
-                    'userSelected': false
-                  }
-                ]
-              },
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                    'code': 'clinical-note',
-                    'display': 'Clinical Note',
-                    'userSelected': false
+                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    'code': 'unknown',
+                    'display': 'Unknown'
                   }
                 ],
-                'text': 'Clinical Note'
+                'text': 'Unknown'
               }
             ],
             'subject': {
@@ -276,34 +284,40 @@ module Cerner
             },
             'author': [
               {
-                'reference': 'Practitioner/159105544',
-                'display': 'M, SANGEETHA'
+                'reference': 'Practitioner/1956011',
+                'display': 'Snyder, Chris'
               }
             ],
             'authenticator': {
-              'reference': 'Practitioner/159105544',
-              'display': 'M, SANGEETHA'
+              'reference': 'Practitioner/1956011',
+              'display': 'Snyder, Chris'
             },
             'content': [
               {
                 'attachment': {
-                  'extension': [
-                    {
-                      'valueCode': 'unsupported',
-                      'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                    }
-                  ]
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-182338606',
+                  'title': 'Cardiology APSO Note- For Unscripted Testing',
+                  'creation': '2020-02-21T17:23:53.000Z'
+                }
+              },
+              {
+                'attachment': {
+                  'contentType': 'text/html',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-182338606',
+                  'title': 'Cardiology APSO Note- For Unscripted Testing',
+                  'creation': '2020-02-21T17:23:53.000Z'
                 }
               }
             ],
             'context': {
               'encounter': [
                 {
-                  'reference': 'Encounter/32487567'
+                  'reference': 'Encounter/11137261'
                 }
               ],
               'period': {
-                'end': '2020-07-30T11:20:00.000Z'
+                'end': '2020-02-24T23:19:00.000Z'
               }
             }
           }
@@ -313,104 +327,119 @@ module Cerner
 
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
+      'id': '740ced36-ecac-43b4-802c-4fef55bfb625',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024'
+        },
+        {
+          'relation': 'next',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=1316024&-pageContext=T3BlblBsYXRmb3JtRmhpckNvbnRleHQ9dHJ1ZSZwYWdlQ29udGV4dD1lTnA5ajFGUGd6QVVoWF9MZ29fQWJrdWg3WVBKRklqWkN5emdqRy1tbElva1VCYm9Galg3OGJaVEU2T0pUemNuOTN3NTU4aHBES1dhdFpyRGNUbkpVQTY5N3FVWTFFbHBFNHBSdkU4NlBJaXUxMTE0YzFFNzBhbDAwa2E5R20temtnbmxMVkFXa0FhYWdHQWlBODRTQ0FSVFJMWUNXdGtrMXBibGRab1gyYmE0Yzh5X21lMGtqLU9QOEVxWnViZXYyN2ZjX1d0bHlvT2FoZWtuZmZYWjZLX0RkVnh0UERNZjNTbnl4X3VuZEZfVlpXVVZaaGhpQkQ2aU1hT0U4OFJITWVVSVJ5aGlBT0NEOVR5TFlYSGtyc29mdHVXLV9rVUQ5VEZRemlOOG9SbEplRXdRLWFidHhMTjNodlg2UlN5MXNWWGE3R3ZUdFd2MEFUVTlkV2M9JmNvbmNlcHQ9Y2hhcnRlZA%3D%3D&-pageDirection=NEXT'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/207993296',
           'resource': R4_DOCUMENT_REFERENCE_PATIENT_ACCESS
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/182338606',
           'resource': {
             'resourceType': 'DocumentReference',
-            'id': '197411793',
+            'id': '182338606',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2020-12-10T07:19:56.000Z'
+              'lastUpdated': '2020-02-21T17:23:54.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
-                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
-                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p>'\
-                     '<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name'\
+                     '</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Category</b>: Unknown</p><p><b>Document Title</b>: '\
+                     'Cardiology APSO Note- For Unscripted Testing</p><p><b>Service End Date</b>: '\
+                     'Feb 24, 2020  5:19 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider'\
+                     '</b>: Snyder, Chris</p></div>'
             },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-182338606-2020022117235500'
+              }
+            ],
             'status': 'current',
             'docStatus': 'final',
             'type': {
               'coding': [
                 {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820555',
-                  'display': 'Progress Note Generic'
+                  'code': '2820643'
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '11506-3'
+                  '_code': {
+                    'extension': [
+                      {
+                        'valueCode': 'unknown',
+                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                      }
+                    ]
+                  }
                 }
-              ],
-              'text': 'Progress Note Generic'
+              ]
             },
             'category': [
               {
                 'coding': [
                   {
-                    'system': 'http://loinc.org',
-                    'code': '11506-3'
-                  }
-                ]
-              },
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                    'code': 'clinical-note',
-                    'display': 'Clinical Note'
+                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    'code': 'unknown',
+                    'display': 'Unknown'
                   }
                 ],
-                'text': 'Clinical Note'
+                'text': 'Unknown'
               }
             ],
             'subject': {
-              'reference': 'Patient/12742400',
-              'display': 'PETERS, TIM A'
+              'reference': 'Patient/1316024',
+              'display': 'PETERS, TIMOTHY CCCC'
             },
             'author': [
               {
-                'reference': 'Practitioner/12742069',
-                'display': 'Portal, Portal'
+                'reference': 'Practitioner/1956011',
+                'display': 'Snyder, Chris'
               }
             ],
             'authenticator': {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
+              'reference': 'Practitioner/1956011',
+              'display': 'Snyder, Chris'
             },
             'content': [
               {
                 'attachment': {
                   'contentType': 'application/pdf',
-                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:53.000Z'
+                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-182338606',
+                  'title': 'Cardiology APSO Note- For Unscripted Testing',
+                  'creation': '2020-02-21T17:23:53.000Z'
+                }
+              },
+              {
+                'attachment': {
+                  'contentType': 'text/html',
+                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-182338606',
+                  'title': 'Cardiology APSO Note- For Unscripted Testing',
+                  'creation': '2020-02-21T17:23:53.000Z'
                 }
               }
             ],
             'context': {
               'encounter': [
                 {
-                  'reference': 'Encounter/97953530'
+                  'reference': 'Encounter/11137261'
                 }
               ],
               'period': {
-                'end': '2020-12-10T07:19:53.000Z'
+                'end': '2020-02-24T23:19:00.000Z'
               }
             }
           }
