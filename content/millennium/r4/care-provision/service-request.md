@@ -46,7 +46,7 @@ Search for ServiceRequests that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -75,12 +75,22 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest?patient=12724066
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest?patient=12457977
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_SERVICE_REQUEST_BUNDLE) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest?patient=12457977
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_SERVICE_REQUEST_PATIENT_ACCESS_BUNDLE) %>
 <%= disclaimer %>
 
 ### Errors
@@ -95,7 +105,7 @@ List an individual ServiceRequest by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -105,12 +115,32 @@ List an individual ServiceRequest by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/309771111
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/294672281
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_SERVICE_REQUEST) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/294672281
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_SERVICE_REQUEST_PATIENT_ACCESS) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ServiceRequest/294664205
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_SERVICE_REQUEST_PATIENT_ACCESS_ENTERED_IN_ERROR) %>
 <%= disclaimer %>
 
 ### Errors
