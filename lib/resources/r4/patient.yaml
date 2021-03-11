@@ -226,6 +226,12 @@ fields:
           "system": "phone",
           "value": "8168229121",
           "use": "home",
+          "extension": [
+            {
+              "valueString": "12345",
+              "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+            }
+          ],  
           "period": {
             "start": "2012-05-17T15:33:18.000Z"
           }
@@ -236,7 +242,9 @@ fields:
     <ul>
       <li>Each telecom must contain the `system`, `use`, and `value` fields.</li>
       <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
-      <li>The `value` field has a character limit of 100.</li>
+      <li>The `value` and `extension.valueString` fields have a character limit of 100.</li>
+      <li>When specifying an `extension`, the `system` field must be 'phone'.</li>
+      <li>When specifying an `extension`, the `extension.url` field must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
 
