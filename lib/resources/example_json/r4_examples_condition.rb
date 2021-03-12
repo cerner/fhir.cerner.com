@@ -75,6 +75,72 @@ module Cerner
       }
     }.freeze
 
+    R4_CONDITION_HEALTH_CONCERNS_ENTRY ||= {
+      'resourceType': 'Condition',
+      'id': '11eb6f9378da739688c749b03f4a6e42',
+      'meta': {
+        'versionId': '0',
+        'lastUpdated': '2021-02-15T13:41:14.339Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p>'\
+        '<p><b>Patient</b>: MARSTON, JACK </p><p><b>Health Concern</b>: Unknown, Unknown</p>'\
+        '<p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p>'\
+        '<p><b>Recorder</b>: oneplan oneplan</p><p><b>Recorded Date</b>: Feb 15, 2021 7:41 A.M. CST</p></div>'
+      },
+      'clinicalStatus': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
+            'code': 'active',
+            'display': 'Active',
+            'userSelected': false
+          }
+        ]
+      },
+      'verificationStatus': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+            'code': 'confirmed',
+            'display': 'Confirmed',
+            'userSelected': false
+          }
+        ]
+      },
+      'category': [
+        {
+          'coding': [
+            {
+              'system': 'http://www.hl7.org/fhir/us/core/ValueSet-us-core-condition-category',
+              'code': 'health-concern',
+              'display': 'Health Concern'
+            }
+          ],
+          'text': 'Health Concern'
+        }
+      ],
+      'code': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            'code': 'unknown',
+            'display': 'Unknown'
+          }
+        ],
+        'text': 'Unknown'
+      },
+      'subject': {
+        'reference': 'Patient/166045489',
+        'display': 'MARSTON, JACK '
+      },
+      'recordedDate': '2021-02-15T13:41:14.339Z',
+      'recorder': {
+        'display': 'oneplan oneplan'
+      }
+    }.freeze
+
     R4_PATIENT_CONDITION_ENTRY ||= {
       'resourceType': 'Condition',
       'id': 'p109117485',
@@ -430,6 +496,22 @@ module Cerner
       ],
       'entry': [
         R4_CONDITION_PROBLEM, R4_CONDITION_DIAGNOSIS, R4_CONDITION_HEALTH_CONCERN
+      ]
+    }.freeze
+
+    R4_CONDITION_HEALTH_CONCERNS_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '9a115304-90d2-47d7-98c4-026f7fe1580e',
+      'type': 'searchset',
+      'total': 2,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12724066'
+        }
+      ],
+      'entry': [
+        R4_CONDITION_HEALTH_CONCERNS_ENTRY
       ]
     }.freeze
 
