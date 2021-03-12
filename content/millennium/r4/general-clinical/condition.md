@@ -77,19 +77,6 @@ Notes:
 
 <%= disclaimer %>
 
-### Health Concerns
-
-#### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12724066
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_condition_health_concerns_bundle) %>
-
-<%= disclaimer %>
-
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12742400
@@ -129,19 +116,6 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_entry) %>
-
-<%= disclaimer %>
-
-### Health Concerns
-
-#### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/11eb6f9378da739688c749b03f4a6e42
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_condition_health_concerns_entry) %>
 
 <%= disclaimer %>
 
