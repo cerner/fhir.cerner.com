@@ -47,8 +47,8 @@ Search for Organizations that meet supplied query parameters:
  Notes:
 
 - The `identifier` parameter
-  - May not be provided with any system information, only code details are provided. Search is performed across system's 
-    supported by Organization resource.
+  - Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
+    Organization resource.
   - When valid system is provided, search is performed against the specific system.
   - When invalid system is provided, 400 bad request is returned.
 
