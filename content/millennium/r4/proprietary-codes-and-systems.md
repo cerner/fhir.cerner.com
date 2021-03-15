@@ -623,6 +623,17 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "display": "Radiology Exam Room",
     }
 
+##### Code Set 16127 Scheduling Processing Options
+
+This code set contains the various scheduling processing options such as diagnostic/followup/primary.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/16127",
+      "code": "22721463",
+      "display": "DIAGNOSTIC"
+      "userSelected": true
+    } 
+
 ##### Code Set 18736 Account Types
 
 This code set includes Account Types such as A/R and CASH.
