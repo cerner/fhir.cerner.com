@@ -24,12 +24,12 @@ module Cerner
 
     R4_BINARY_TR_JSON_ENTRY ||= {
       'resourceType': 'Binary',
-      'id': 'TR-149995151',
+      'id': 'TR-21961261',
       'meta': {
-        'lastUpdated': '2019-06-26T20:59:24.000Z'
+        'lastUpdated': '2021-03-12T22:35:03.000Z'
       },
       'contentType': 'text/html',
-      'data': 'PCFET0NUWVBFIGh0bWwKICBTWVNURU0gImFib3V0OmxlZ2FjeS1jb21wYXQiPgo8aHRtbD48aGVhZD48bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1VVEYtOCI+PHRpdGxlPkZyZWUgVGV4dCBOb3RlIC0gVGVzdCBMb2dnZXI8L3RpdGxlPjwvaGVhZD48Ym9keSBtYXJnaW53aWR0aD0iNiIgbWFyZ2luaGVpZ2h0PSI2IiBsZWZ0bWFyZ2luPSI2IiB0b3BtYXJnaW49IjYiPjxkaXYgdmFsaWduPSJ0b3AiPgo8ZGl2IGNsYXNzPSJzdGF0dXNfYmFubmVyIiBzdHlsZT0idGV4dC1hbGlnbjogY2VudGVyOyBmb250LXNpemU6IDE0cHQ7IGZvbnQtd2VpZ2h0OiBib2xkOyBmb250LWZhbWlseTogdGFob21hLGFyaWFsOyB3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij4qIFNsdXRyYXBwb3J0ICoKPGRpdiBzdHlsZT0id2hpdGUtc3BhY2U6IHByZS13cmFwOyI+IAo8L2Rpdj48L2Rpdj4KPGRpdiBjbGFzcz0ic2VjdGlvbiIgZGF0YS1kb2Mtc3RhdHVzPSJBVVRIIiBkYXRhLXNlcnZpY2UtZGF0ZS10aW1lPSIyMDE5LTA2LTI2VDIwOjU3OjM2LjAwMFoiIGRhdGEtaXMtYWRkZW5kdW09ImZhbHNlIiBkYXRhLWV2ZW50LWlkPSIxNDk5OTUxNTMiIGRhdGEtZXZlbnQtY2Q9IjI4MjA1MDciIGRhdGEtc2VjdGlvbi1zZXF1ZW5jZT0iMSI+CjxkaXYgY2xhc3M9ImNvbnRlbnQiIHN0eWxlPSJmb250LWZhbWlseTogVGltZXMsc2VyaWYsTHVjaWRhIFNhbnMgVW5pY29kZTsgZm9udC1zaXplOiAxMnB0OyBmb250LXdlaWdodDogbm9ybWFsOyBmb250LXN0eWxlOiBub3JtYWw7IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IHJnYigwLDAsMCk7IG1hcmdpbi10b3A6IDBwdDsgbWFyZ2luLWJvdHRvbTogMHB0OyB0ZXh0LWluZGVudDogMC4waW47IG1hcmdpbi1sZWZ0OiAwLjBpbjsgbWFyZ2luLXJpZ2h0OiAwLjBpbjsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyLXN0eWxlOiBub25lOyBib3JkZXItd2lkdGg6IDBwdDsgYm9yZGVyLWNvbG9yOiByZ2IoMCwwLDApOyBwYWRkaW5nOiAwcHQ7Ij48ZGl2PjxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiB0YWhvbWEsSGVsdmV0aWNhLHNhbnMtc2VyaWYsTHVjaWRhIFNhbnMgVW5pY29kZTsgZm9udC1zaXplOiA5cHQ7Ij4KPGEgbmFtZT0iX2FjNWNmMGI1LWEwMjQtNDE0Ni05NWNlLTQ5YjU3NDFlZGI4OCI+PC9hPjxkaXYgc3R5bGU9InBhZGRpbmc6IDRweDsiPgo8YSBuYW1lPSJfNWE4Yzc5OWItYjMwNS00ZjA0LWFlMzAtYzA4YTA2OWI1MDVjIj48L2E+PGRpdj5UZXN0IG9uIFNhdmU8L2Rpdj4KPC9kaXY+IDxhIG5hbWU9Il83MWRlOTM1Yi04OTRjLTQzYTYtOWUzMS0xZmNiYWMwZjEwZWIiPjwvYT48ZGl2PjwvZGl2Pgo8L2Rpdj4gPC9kaXY+CjxkaXYgc3R5bGU9IndoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPiAKPC9kaXY+PC9kaXY+PC9kaXY+CjxkaXYgY2xhc3M9ImhlYWRpbmciPgo8ZGl2IGNsYXNzPSJjb250ZW50IiBzdHlsZT0iZm9udC1mYW1pbHk6IFRpbWVzLHNlcmlmLEx1Y2lkYSBTYW5zIFVuaWNvZGU7IGZvbnQtc2l6ZTogMTJwdDsgZm9udC13ZWlnaHQ6IG5vcm1hbDsgZm9udC1zdHlsZTogbm9ybWFsOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiByZ2IoMCwwLDApOyBtYXJnaW4tdG9wOiAwcHQ7IG1hcmdpbi1ib3R0b206IDBwdDsgdGV4dC1pbmRlbnQ6IDAuMGluOyBtYXJnaW4tbGVmdDogMC4waW47IG1hcmdpbi1yaWdodDogMC4waW47IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlci1zdHlsZTogbm9uZTsgYm9yZGVyLXdpZHRoOiAwcHQ7IGJvcmRlci1jb2xvcjogcmdiKDAsMCwwKTsgcGFkZGluZzogMHB0OyI+PGRpdj48dGFibGUgc3R5bGU9ImJvcmRlcjogMXB0OyB0YWJsZS1sYXlvdXQ6IGZpeGVkOyBmb250LWZhbWlseTogdGFob21hLEhlbHZldGljYSxzYW5zLXNlcmlmLEx1Y2lkYSBTYW5zIFVuaWNvZGU7IGZvbnQtc2l6ZTogMTBwdDsgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsiIHZhbGlnbj0idG9wIj48dGJvZHkgc3R5bGU9Im1hcmdpbi1sZWZ0OiAwcHQ7IG1hcmdpbi1yaWdodDogMHB0OyB0ZXh0LWluZGVudDogMHB0OyB0ZXh0LWFsaWduOiBsZWZ0OyI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlJlc3VsdCB0eXBlOjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+Q1QgUGVsdmlzIHcvICsgdy9vIENvbnRyYXN0PC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5SZXN1bHQgZGF0ZTo8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PjI3IGp1bmkgMjAxOSAwMTo0NSBHTVQ8L2Rpdj48L3RkPjwvdHI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlJlc3VsdCBzdGF0dXM6PC9kaXY+PC90ZD48dGQgc3R5bGU9ImJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5BdXRoIChWZXJpZmllZCk8L2Rpdj48L3RkPjwvdHI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlJlc3VsdCB0aXRsZTo8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PkZyZWUgVGV4dCBOb3RlIC0gVGVzdCBMb2dnZXI8L2Rpdj48L3RkPjwvdHI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlBlcmZvcm1lZCBieTo8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2Pk5ndXllbiwgVGhvbmcgZGVuIDI2IGp1bmkgMjAxOSAyMDo1NyBVVEM8L2Rpdj48L3RkPjwvdHI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlZlcmlmaWVkIGJ5OjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+Tmd1eWVuLCBUaG9uZyBkZW4gMjYganVuaSAyMDE5IDIwOjU5IFVUQzwvZGl2PjwvdGQ+PC90cj48dHI+PHRkIHN0eWxlPSJmb250LXdlaWdodDogbm9ybWFsOyB0ZXh0LWFsaWduOiBsZWZ0OyBib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+RW5jb3VudGVyIGluZm86PC9kaXY+PC90ZD48dGQgc3R5bGU9ImJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj4yMDAwMzYzOCwgQmFzZWxpbmUgRWFzdCBNZWRpY2FsIENlbnRlciBmb3IgTVBhZ2VzLCBPdXRwYXRpZW50LCAyMDE3LTAxLTE3IC0gPC9kaXY+PC90ZD48L3RyPjwvdGJvZHk+PC90YWJsZT48L2Rpdj4KPGRpdiBzdHlsZT0id2hpdGUtc3BhY2U6IHByZS13cmFwOyI+IAo8L2Rpdj48L2Rpdj48L2Rpdj4KICA8L2Rpdj48L2JvZHk+PC9odG1sPg==' # rubocop:disable Layout/LineLength
+      'data': 'PCFET0NUWVBFIGh0bWwKICBTWVNURU0gImFib3V0OmxlZ2FjeS1jb21wYXQiPgo8aHRtbD48aGVhZD48bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD1VVEYtOCI+PHRpdGxlPkFkbWlzc2lvbiBIICZhbXA7IFA8L3RpdGxlPjwvaGVhZD48Ym9keSBtYXJnaW53aWR0aD0iNiIgbWFyZ2luaGVpZ2h0PSI2IiBsZWZ0bWFyZ2luPSI2IiB0b3BtYXJnaW49IjYiPjxkaXYgdmFsaWduPSJ0b3AiPgo8ZGl2IGNsYXNzPSJzdGF0dXNfYmFubmVyIiBzdHlsZT0idGV4dC1hbGlnbjogY2VudGVyOyBmb250LXNpemU6IDE0cHQ7IGZvbnQtd2VpZ2h0OiBib2xkOyBmb250LWZhbWlseTogdGFob21hLGFyaWFsOyB3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij4qIEZpbmFsIFJlcG9ydCAqCjxkaXYgc3R5bGU9IndoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPiAKPC9kaXY+PC9kaXY+CjxkaXYgY2xhc3M9InNlY3Rpb24iIGRhdGEtZG9jLXN0YXR1cz0iQVVUSCIgZGF0YS1zZXJ2aWNlLWRhdGUtdGltZT0iMjAyMS0wMy0xMlQyMjozNTowMy4wMDBaIiBkYXRhLWlzLWFkZGVuZHVtPSJmYWxzZSIgZGF0YS1ldmVudC1pZD0iMjE5NjEyNjMiIGRhdGEtZXZlbnQtY2Q9IjI4MjA1MDciIGRhdGEtc2VjdGlvbi1zZXF1ZW5jZT0iMSI+CjxkaXYgY2xhc3M9ImNvbnRlbnQiIHN0eWxlPSJmb250LWZhbWlseTogVGltZXMsc2VyaWYsTHVjaWRhIFNhbnMgVW5pY29kZTsgZm9udC1zaXplOiAxMnB0OyBmb250LXdlaWdodDogbm9ybWFsOyBmb250LXN0eWxlOiBub3JtYWw7IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgY29sb3I6IHJnYigwLDAsMCk7IG1hcmdpbi10b3A6IDBwdDsgbWFyZ2luLWJvdHRvbTogMHB0OyB0ZXh0LWluZGVudDogMC4waW47IG1hcmdpbi1sZWZ0OiAwLjBpbjsgbWFyZ2luLXJpZ2h0OiAwLjBpbjsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyLXN0eWxlOiBub25lOyBib3JkZXItd2lkdGg6IDBwdDsgYm9yZGVyLWNvbG9yOiByZ2IoMCwwLDApOyBwYWRkaW5nOiAwcHQ7Ij48ZGl2PjxkaXYgc3R5bGU9ImZvbnQtZmFtaWx5OiB0YWhvbWEsSGVsdmV0aWNhLHNhbnMtc2VyaWYsTHVjaWRhIFNhbnMgVW5pY29kZTsgZm9udC1zaXplOiA5cHQ7Ij4KPHRhYmxlIHN0eWxlPSJib3JkZXI6IDFwdDsgdGFibGUtbGF5b3V0OiBmaXhlZDsgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsiIHZhbGlnbj0idG9wIiB3aWR0aD0iMTAwJSI+PGNvbCB3aWR0aD0iNjYlIj48Y29sIHdpZHRoPSIzNCUiPjx0Ym9keSBzdHlsZT0ibWFyZ2luLWxlZnQ6IDBwdDsgbWFyZ2luLXJpZ2h0OiAwcHQ7IHRleHQtaW5kZW50OiAwcHQ7IHRleHQtYWxpZ246IGxlZnQ7Ij48dHI+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMXB0OyBmb250LXNpemU6IDlwdDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PiA8YSBuYW1lPSJfOWM2YTdkYjMtZGMxYy00MzQ2LWIyOTYtNmYwMWZlMDZiNThlIj48L2E+PGRpdiBzdHlsZT0icGFkZGluZzogNHB4OyI+PHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPkNoaWVmIENvbXBsYWludDwvc3Bhbj4gPGEgbmFtZT0iXzI3ZTI0NGFhLTg4MGMtNGVhNS1iYzZkLTMxNGQzOWU1NjMxNSI+PC9hPjxkaXY+IDxhIG5hbWU9Il9kYzNmZmRjOS00NGE4LTQxMjItYTU2Yi03YWUwMWU3NDNlZDQiPjwvYT48ZGl2PmZhdGlndXJlLCBhbmQgY29uZnVzaW9uPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPGEgbmFtZT0iXzRkNmNlNTE1LTUwZjEtNDRhNy04ODZlLTkxYTAwNzA1NzBlNiI+PC9hPjxkaXYgc3R5bGU9InBhZGRpbmc6IDRweDsiPjxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5IaXN0b3J5IG9mIFByZXNlbnQgSWxsbmVzczwvc3Bhbj4gPGEgbmFtZT0iXzNmZDRhOTY0LWNkZDctNDIyMy04MmE3LTQ0MzY0ZWMwOTFkMyI+PC9hPjxkaXY+IDxhIG5hbWU9Il85NWZiY2Y4YS02ODc2LTRkNGEtYjgzZC1iOGU4Y2E4YjZmNTkiPjwvYT48ZGl2PiA8YSBuYW1lPSJfOTQyZTE2OTQtNDdjNC00ODIzLWE2MGEtOGU3OTU1NGMyYmNlIj48L2E+PGRpdj4gPGEgbmFtZT0iXzlhODkyZTlhLThjZmUtNDdkZC05ZWFmLWZmOWQ2ZDBmNjlhNCI+PC9hPjxkaXY+UGF0aWVudCBwcmVzZW50cyB3aXRoIGluY3JlYXNlZCBmYXRpZ3VlIGFuZCBjb25mdXNpb24gYW5kIGVsZXZhdGVkIGJsb29kIGdsdWNvc2UgbGV2ZWwuPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPC9kaXY+IDwvZGl2PiAgIDxhIG5hbWU9Il8zY2NhMThlMS0xOWNhLTRkNTgtOTNjMy03YjQ1ODdkYWViMzkiPjwvYT48ZGl2IHN0eWxlPSJwYWRkaW5nOiA0cHg7Ij48c3BhbiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyI+QXNzZXNzbWVudC9QbGFuPC9zcGFuPiA8YSBuYW1lPSJfMDRmZTQ5Y2ItZTM0NS00NzRiLWJlMzAtZGZmYTM1ZDBkZDU4Ij48L2E+PGRpdj4gPGEgbmFtZT0iXzdiMTcxNzI2LTBjMzEtNDdjMC1hMzA1LTczYWNhYmIyZWM3ZCI+PC9hPjxkaXY+IDxhIG5hbWU9Il9lZmExNmMzZC00YjIxLTQ5MjctOGIyZS04MzE5NDg2YTQ4OGYiPjwvYT48ZGl2PiA8YSBuYW1lPSJfNjc4YWNjZmMtYmY0Ni00Njk2LTg1ODgtZDM5YTlmYjYwOWVhIj48L2E+PGRpdj4gPGEgbmFtZT0iXzEwYWUxZTAwLTJhZjMtNDA0My1iMjU1LWE2Nzc1ZDYwNTNhNSI+PC9hPjxkaXYgc3R5bGU9ImNsZWFyOiBib3RoOyI+T3JkZXJzOiA8ZGl2IHN0eWxlPSJwYWRkaW5nLWxlZnQ6IDhweDsiPiA8YSBuYW1lPSJfNzM5NzFiMDAtMDc3Ny00NDBiLWE5ZmYtZDQwNzUxM2RlNDhjIj48L2E+PGRpdj5nbHlCVVJJREUtbWV0Rk9STUlOLCBPcmFsLCBUYWIsIEJJRCwgRmlyc3QgRG9zZTogMDMvMTIvMjEgMTY6Mjg6MDAsIDEgdGFiczwvZGl2PiA8L2Rpdj4gPC9kaXY+IDwvZGl2PiA8YSBuYW1lPSJfZjRkMGI1ZjEtODM4Zi00NGRhLWI0NWYtYTU2M2EyOTYyOWE1Ij48L2E+PGRpdj48ZGl2PsKgPC9kaXY+IEFkbWl0IHBhdGllbnQgdG8gbW9uaXRvciBibG9vZCBnbHVjb3NlIGxldmVscyBhbmQgdXBkYXRlIG1lZGljYXRpb24gcmVnaW1lbi48L2Rpdj4gPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPC9kaXY+IDwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMXB0OyBmb250LXNpemU6IDlwdDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PiA8YSBuYW1lPSJfODVjMTcyZmItY2U2Yy00MzFkLTkyNTEtZTQ5N2FhZTg0ODIwIj48L2E+PGRpdiBzdHlsZT0icGFkZGluZzogNHB4OyI+PHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPlByb2JsZW0gTGlzdC9QYXN0IE1lZGljYWwgSGlzdG9yeTwvc3Bhbj4gPGEgbmFtZT0iX2YwZTg4ZGU4LTM4MjMtNGI2Mi05ZmM2LWQ3YzZjYzQ5ZjIzOSI+PC9hPjxkaXY+IDxhIG5hbWU9Il8wMTVhYTA1OS04YjQ4LTQyM2YtYTlkOS1lZTU2NDRlZmM1OGYiPjwvYT48ZGl2PjxzcGFuIHN0eWxlPSJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPk9uZ29pbmc8L3NwYW4+IDxhIG5hbWU9Il83OTNlOTU3Ni0wMDQzLTQxMGItYWU0MC02Y2FkZTQxZjM3MzUiPjwvYT48ZGl2IHN0eWxlPSJtYXJnaW4tbGVmdDogMWVtOyI+RGlhYmV0ZXMgbWVsbGl0dXMgdHlwZSBJSTwvZGl2PiA8L2Rpdj4gPGEgbmFtZT0iX2QwODhiNTI3LTExYjEtNDEwMy1iNjRiLTcwOWVkNDk1MDhkMCI+PC9hPjxkaXY+PHNwYW4gc3R5bGU9InRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyI+SGlzdG9yaWNhbDwvc3Bhbj4gPGRpdiBzdHlsZT0idGV4dC1pbmRlbnQ6IC0xZW07IHBhZGRpbmctbGVmdDogMWVtOyBtYXJnaW4tbGVmdDogMWVtOyI+Tm8gcXVhbGlmeWluZyBkYXRhPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPC9kaXY+IDxhIG5hbWU9Il8wYzMyYTdkOC0wYWI1LTRmODMtOGQzNC0zYTM2MDAxYWRlMmUiPjwvYT48ZGl2IHN0eWxlPSJwYWRkaW5nOiA0cHg7Ij48c3BhbiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyI+UHJvY2VkdXJlL1N1cmdpY2FsIEhpc3Rvcnk8L3NwYW4+IDxhIG5hbWU9Il81YzRkYzhjMC04MGMxLTRlMTctOWY5Ni1kY2Y0MWJlY2NkNzMiPjwvYT48ZGl2PiA8dGFibGUgc3R5bGU9ImJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IiB2YWxpZ249InRvcCI+PHRib2R5Pjx0cj48dGQgdmFsaWduPSJ0b3AiPjxkaXYgc3R5bGU9Im1hcmdpbi10b3A6IDFlbTsgbWFyZ2luLWJvdHRvbTogMWVtOyBtYXJnaW46IDBweDsgcGFkZGluZy1sZWZ0OiAxNXB4OyI+PHRhYmxlIHdpZHRoPSIxMDAlIj48dHI+PHRkIHZhbGlnbj0idG9wIiBzdHlsZT0idGV4dC1hbGlnbjogcmlnaHQ7IHdoaXRlLXNwYWNlOiBub3dyYXA7IiB3aWR0aD0iMjQiPjxkaXY+PHNwYW4gc3R5bGU9ImZvbnQ6IDFlbSBzZXJpZjsiPuKAojwvc3Bhbj48L2Rpdj48L3RkPjx0ZCB3aWR0aD0iOCI+wqA8L3RkPjx0ZCB2YWxpZ249InRvcCI+PGRpdj5QZXJpLXByb2NlZHVyYWwgZGV2aWNlIGV2YWx1YXRpb24gKGluIHBlcnNvbikgYW5kIHByb2dyYW1taW5nIG9mIGRldmljZSBzeXN0ZW0gcGFyYW1ldGVycyBiZWZvcmUgb3IgYWZ0ZXIgYSBzdXJnZXJ5LCBwcm9jZWR1cmUsIG9yIHRlc3Qgd2l0aCBhbmFseXNpcywgcmV2aWV3IGFuZCByZXBvcnQgYnkgYSBwaHlzaWNpYW4gb3Igb3RoZXIgcXVhbGlmaWVkIGhlYWx0aCBjYXJlIHByb2Zlc3Npb25hbDsgc2luZ2xlLCBkdWFsLCBvciBtdWx0aXBsZSAoMTk4Nyk8L2Rpdj48L3RkPjwvdHI+PC90YWJsZT48L2Rpdj48L3RkPjwvdHI+PC90Ym9keT48L3RhYmxlPiA8L2Rpdj4gPC9kaXY+IDxhIG5hbWU9Il9iZGJmYjA3MC1kYWM3LTQ3NmQtYjczMy03OTY1N2VmYTkzMzciPjwvYT48ZGl2IHN0eWxlPSJwYWRkaW5nOiA0cHg7Ij48c3BhbiBzdHlsZT0iZm9udC13ZWlnaHQ6IGJvbGQ7IHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyI+TWVkaWNhdGlvbnM8L3NwYW4+IDxhIG5hbWU9Il8wNGZmZjBiYS05ZjNlLTQ4NTMtOGIyNi0xM2I0N2Q5ZTAyNGIiPjwvYT48ZGl2PiA8YSBuYW1lPSJfM2JlNDI4MzktYzM3OC00MTBmLWEwYjktMDc4NTBlNmQzZTFmIj48L2E+PGRpdj48c3BhbiBzdHlsZT0idGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5Ib21lPC9zcGFuPiA8YSBuYW1lPSJfZDVjYTg4ODQtY2Y0MS00MmJjLTg1NjgtOWU3YmE2NmMyMWIzIj48L2E+PGRpdiBzdHlsZT0idGV4dC1pbmRlbnQ6IC0xZW07IHBhZGRpbmctbGVmdDogMWVtOyBtYXJnaW4tbGVmdDogMWVtOyI+Q291Z2ggJmFtcDsgU29yZSBUaHJvYXQgTmlnaHR0aW1lIG9yYWwgbGlxdWlkLCAzMCBtTCwgcTZocjwvZGl2PiA8L2Rpdj4gPC9kaXY+IDwvZGl2PiA8YSBuYW1lPSJfYmMwNzFmZGUtZGE4NC00NzM4LWIyNjMtMDA5Njc4NDUxMmIxIj48L2E+PGRpdiBzdHlsZT0icGFkZGluZzogNHB4OyI+PHNwYW4gc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPkFsbGVyZ2llczwvc3Bhbj4gPGEgbmFtZT0iXzI1YzgyNzAyLTYwYTItNDM4ZS1iMzRjLTM5M2M2ZWFhMGZmZCI+PC9hPjxkaXY+IDxhIG5hbWU9Il84NGFiYzgyYi00OWRkLTQ1N2UtODc2Ny1iNDc2ZjM0M2IyOWQiPjwvYT48ZGl2PnN1bGZhIGRydWdzPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPGEgbmFtZT0iXzdhNzA0NzFlLTg1ZDctNDY3NS04MWY1LWZmMDM5NTM1ZWFjZCI+PC9hPjxkaXYgc3R5bGU9InBhZGRpbmc6IDRweDsiPjxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5Tb2NpYWwgSGlzdG9yeTwvc3Bhbj4gPGEgbmFtZT0iXzE3MjgzZDZjLWE2MDItNGExZi1hZDRlLTZiMTkzYzg2MjgwMiI+PC9hPjxkaXY+IDxhIG5hbWU9Il8zNGNlMGYxZS0wOTJhLTQzZjYtYjFhZS1lNDE0MzI0MGZiNjciPjwvYT48ZGl2PiA8ZGl2PjxzcGFuIHN0eWxlPSJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPkFsY29ob2w8L3NwYW4+IC0gTWVkaXVtIFJpc2s8L2Rpdj4gPGEgbmFtZT0iXzA2YWM0MzIxLTczN2QtNDgzMi1hMTI3LTcyZjViZTY1ZTAxMiI+PC9hPjxkaXYgc3R5bGU9Im1hcmdpbi1sZWZ0OiAxZW07Ij4gPGRpdiBzdHlsZT0ibWFyZ2luLWxlZnQ6IDBlbTsiPkN1cnJlbnQsIEJlZXIsIFdpbmUsIDEtMiB0aW1lcyBwZXIgd2VlaywgU3RhcnRlZCBhZ2UgMTIgWS4gQWxjb2hvbCB1c2UgaW50ZXJmZXJlcyB3aXRoIHdvcmsgb3IgaG9tZTogWWVzLjwvZGl2PiA8L2Rpdj4gPC9kaXY+IDxhIG5hbWU9Il83YmU5YjQ4OC1kMGMyLTQzNTMtYjQ4OC1iNjdlMmEwZDFmZWUiPjwvYT48ZGl2PiA8ZGl2PjxzcGFuIHN0eWxlPSJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsiPkV4ZXJjaXNlPC9zcGFuPiAtIE9jY2FzaW9uYWwgZXhlcmNpc2U8L2Rpdj4gPGEgbmFtZT0iX2ZlOGYxMTYwLTM4ZGUtNDQ1Zi05M2NiLWU5NTQzN2UzM2Y1YSI+PC9hPjxkaXYgc3R5bGU9Im1hcmdpbi1sZWZ0OiAxZW07Ij4gPGRpdiBzdHlsZT0ibWFyZ2luLWxlZnQ6IDBlbTsiPkV4ZXJjaXNlIGR1cmF0aW9uOiAyMC4gRXhlcmNpc2UgZnJlcXVlbmN5OiAxLTIgdGltZXMvd2Vlay4gRXhlcmNpc2UgdHlwZTogV2Fsa2luZy48L2Rpdj4gPC9kaXY+IDwvZGl2PiA8YSBuYW1lPSJfMDMzZDYxZTUtMDkwMy00ZGVkLWI1YTAtNmFkYjNjYWI2NTAxIj48L2E+PGRpdj4gPGRpdj48c3BhbiBzdHlsZT0idGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5Ub2JhY2NvPC9zcGFuPjwvZGl2PiA8YSBuYW1lPSJfMjA4MDQ0YjctNzY3Ny00ZDAwLWFkM2EtMDU4OWZkYTkxNTljIj48L2E+PGRpdiBzdHlsZT0ibWFyZ2luLWxlZnQ6IDFlbTsiPiA8ZGl2IHN0eWxlPSJtYXJnaW4tbGVmdDogMGVtOyI+Q3VycmVudCBldmVyeSBkYXkgc21va2VyLCBDaWdhcmV0dGVzLCBUb3RhbCBwYWNrIHllYXJzOiAxMi4gUHJldmlvdXMgdHJlYXRtZW50OiBDb3Vuc2VsaW5nLjwvZGl2PiA8L2Rpdj4gPC9kaXY+IDwvZGl2PiA8L2Rpdj4gPGEgbmFtZT0iX2U1MGNlYWQ4LTM0MDMtNGNlNy04YTc2LTVkYjU5OTRiZTVjMSI+PC9hPjxkaXYgc3R5bGU9InBhZGRpbmc6IDRweDsiPjxzcGFuIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7Ij5JbW11bml6YXRpb25zPC9zcGFuPiA8YSBuYW1lPSJfNzhkOTI4YWEtMGVjZi00ZWE0LThjNTEtOWY2N2VmZDE1YWExIj48L2E+PGRpdj4gPHRhYmxlIHN0eWxlPSJib3JkZXI6IDFweCBzb2xpZCByZ2IoMCwgMCwgMCk7IHRhYmxlLWxheW91dDogZml4ZWQ7IGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IiB2YWxpZ249InRvcCI+PGNvbD48Y29sPjxjb2w+PHRoZWFkIHN0eWxlPSJtYXJnaW4tbGVmdDogMHB0OyBtYXJnaW4tcmlnaHQ6IDBwdDsgdGV4dC1pbmRlbnQ6IDBwdDsgdGV4dC1hbGlnbjogbGVmdDsiPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBib2xkOyB0ZXh0LWFsaWduOiBjZW50ZXI7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggNXB4IDBweCA2cHg7IGJvcmRlci1ib3R0b20tY29sb3I6IHJnYigwLCAwLCAwKTsgYm9yZGVyLWJvdHRvbS13aWR0aDogMXB4OyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NCwgMjQ0LCAyNDQpOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+VmFjY2luZTwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbGlnbjogY2VudGVyOyBib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDVweCAwcHggNnB4OyBib3JkZXItYm90dG9tLWNvbG9yOiByZ2IoMCwgMCwgMCk7IGJvcmRlci1sZWZ0LWNvbG9yOiByZ2IoMCwgMCwgMCk7IGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsgYm9yZGVyLWxlZnQtd2lkdGg6IDFweDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7IGJvcmRlci1sZWZ0LXN0eWxlOiBzb2xpZDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NCwgMjQ0LCAyNDQpOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+RGF0ZTwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJmb250LXdlaWdodDogYm9sZDsgdGV4dC1hbGlnbjogY2VudGVyOyBib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDVweCAwcHggNnB4OyBib3JkZXItYm90dG9tLWNvbG9yOiByZ2IoMCwgMCwgMCk7IGJvcmRlci1sZWZ0LWNvbG9yOiByZ2IoMCwgMCwgMCk7IGJvcmRlci1ib3R0b20td2lkdGg6IDFweDsgYm9yZGVyLWxlZnQtd2lkdGg6IDFweDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7IGJvcmRlci1sZWZ0LXN0eWxlOiBzb2xpZDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI0NCwgMjQ0LCAyNDQpOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+U3RhdHVzPC9kaXY+PC90ZD48L3RyPjwvdGhlYWQ+PHRib2R5IHN0eWxlPSJtYXJnaW4tbGVmdDogMHB0OyBtYXJnaW4tcmlnaHQ6IDBwdDsgdGV4dC1pbmRlbnQ6IDBwdDsgdGV4dC1hbGlnbjogbGVmdDsiPjx0ciBzdHlsZT0iYm9yZGVyLXRvcC1jb2xvcjogcmdiKDAsIDAsIDApOyBib3JkZXItdG9wLXdpZHRoOiAxcHg7IGJvcmRlci10b3Atc3R5bGU6IHNvbGlkOyI+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMXB0OyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjMiIHJvd3NwYW49IjEiPjxkaXY+IDx0YWJsZSBzdHlsZT0iYm9yZGVyOiAxcHQ7IHRhYmxlLWxheW91dDogZml4ZWQ7IHdpZHRoOiAxMDAlOyBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyIgdmFsaWduPSJ0b3AiPjxjb2wgd2lkdGg9IjM0JSI+PGNvbCB3aWR0aD0iMzMlIj48Y29sIHdpZHRoPSIzMyUiPjx0Ym9keSBzdHlsZT0ibWFyZ2luLWxlZnQ6IDBwdDsgbWFyZ2luLXJpZ2h0OiAwcHQ7IHRleHQtaW5kZW50OiAwcHQ7IHRleHQtYWxpZ246IGxlZnQ7Ij48dHI+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMXB0OyBwYWRkaW5nLWxlZnQ6IDZweDsgYm9yZGVyLXJpZ2h0LWNvbG9yOiByZ2IoMCwgMCwgMCk7IGJvcmRlci1yaWdodC13aWR0aDogMXB4OyBib3JkZXItcmlnaHQtc3R5bGU6IHNvbGlkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+bWVhc2xlcy9tdW1wcy9ydWJlbGxhIHZpcnVzIHZhY2NpbmU8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDFwdDsgcGFkZGluZy1sZWZ0OiA2cHg7IGJvcmRlci1yaWdodC1jb2xvcjogcmdiKDAsIDAsIDApOyBib3JkZXItcmlnaHQtd2lkdGg6IDFweDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBzb2xpZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PjEwLzIyLzIwMjA8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDFwdDsgcGFkZGluZy1sZWZ0OiA2cHg7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5HaXZlbjwvZGl2PjwvdGQ+PC90cj48L3Rib2R5PjwvdGFibGU+IDwvZGl2PjwvdGQ+PC90cj48L3Rib2R5PjwvdGFibGU+IDwvZGl2PiA8L2Rpdj4gPC9kaXY+PC90ZD48L3RyPjwvdGJvZHk+PC90YWJsZT4KPC9kaXY+PGRpdiBzdHlsZT0iZm9udC1mYW1pbHk6IHRhaG9tYSxIZWx2ZXRpY2Esc2Fucy1zZXJpZixMdWNpZGEgU2FucyBVbmljb2RlOyBmb250LXNpemU6IDlwdDsgbWFyZ2luLXRvcDogMWVtOyI+PC9kaXY+PC9kaXY+CjxkaXYgc3R5bGU9IndoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPiAKPC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0ic2lnbi1saW5lLWhlYWRlciIgc3R5bGU9ImZvbnQtZmFtaWx5OiB0YWhvbWEsYXJpYWw7IGZvbnQtc2l6ZTogMTBwdDsgZm9udC13ZWlnaHQ6IGJvbGQ7IHdoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPlNpZ25hdHVyZSBMaW5lPGRpdiBjbGFzcz0ic2lnbi1saW5lIiBzdHlsZT0iZm9udC1mYW1pbHk6IHRhaG9tYSxhcmlhbDsgZm9udC13ZWlnaHQ6IG5vcm1hbDsgZm9udC1zaXplOiAxMHB0OyB3aGl0ZS1zcGFjZTogcHJlLXdyYXA7Ij5FbGVjdHJvbmljYWxseSBzaWduZWQgYnkgCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KUGl2b25rYSwgRnJhbiAwMy4xMi4yMDIxIDE2OjM1PC9kaXY+CjxkaXYgc3R5bGU9IndoaXRlLXNwYWNlOiBwcmUtd3JhcDsiPiAKPC9kaXY+PC9kaXY+PC9kaXY+CjxkaXYgY2xhc3M9ImhlYWRpbmciPgo8ZGl2IGNsYXNzPSJjb250ZW50IiBzdHlsZT0iZm9udC1mYW1pbHk6IFRpbWVzLHNlcmlmLEx1Y2lkYSBTYW5zIFVuaWNvZGU7IGZvbnQtc2l6ZTogMTJwdDsgZm9udC13ZWlnaHQ6IG5vcm1hbDsgZm9udC1zdHlsZTogbm9ybWFsOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IGNvbG9yOiByZ2IoMCwwLDApOyBtYXJnaW4tdG9wOiAwcHQ7IG1hcmdpbi1ib3R0b206IDBwdDsgdGV4dC1pbmRlbnQ6IDAuMGluOyBtYXJnaW4tbGVmdDogMC4waW47IG1hcmdpbi1yaWdodDogMC4waW47IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlci1zdHlsZTogbm9uZTsgYm9yZGVyLXdpZHRoOiAwcHQ7IGJvcmRlci1jb2xvcjogcmdiKDAsMCwwKTsgcGFkZGluZzogMHB0OyI+PGRpdj48dGFibGUgc3R5bGU9ImJvcmRlcjogMXB0OyB0YWJsZS1sYXlvdXQ6IGZpeGVkOyBmb250LWZhbWlseTogdGFob21hLEhlbHZldGljYSxzYW5zLXNlcmlmLEx1Y2lkYSBTYW5zIFVuaWNvZGU7IGZvbnQtc2l6ZTogMTBwdDsgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsiIHZhbGlnbj0idG9wIj48dGJvZHkgc3R5bGU9Im1hcmdpbi1sZWZ0OiAwcHQ7IG1hcmdpbi1yaWdodDogMHB0OyB0ZXh0LWluZGVudDogMHB0OyB0ZXh0LWFsaWduOiBsZWZ0OyI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlJlc3VsdCB0eXBlOjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+QWRtaXNzaW9uIE5vdGUtUGh5c2ljaWFuPC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5SZXN1bHQgZGF0ZTo8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2Pk1hcmNoIDEyLCAyMDIxIDE2OjMxPC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5SZXN1bHQgc3RhdHVzOjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+QXV0aCAoVmVyaWZpZWQpPC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5SZXN1bHQgdGl0bGU6PC9kaXY+PC90ZD48dGQgc3R5bGU9ImJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5BZG1pc3Npb24gSCAmYW1wOyBQPC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5QZXJmb3JtZWQgYnk6PC9kaXY+PC90ZD48dGQgc3R5bGU9ImJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5QaXZvbmthLCBGcmFuIG9uIE1hcmNoIDEyLCAyMDIxIDE2OjM1PC9kaXY+PC90ZD48L3RyPjx0cj48dGQgc3R5bGU9ImZvbnQtd2VpZ2h0OiBub3JtYWw7IHRleHQtYWxpZ246IGxlZnQ7IGJvcmRlcjogMXB0OyBwYWRkaW5nOiAwcHggMjVweCAwcHggMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMSIgcm93c3Bhbj0iMSI+PGRpdj5WZXJpZmllZCBieTo8L2Rpdj48L3RkPjx0ZCBzdHlsZT0iYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PlBpdm9ua2EsIEZyYW4gb24gTWFyY2ggMTIsIDIwMjEgMTY6MzU8L2Rpdj48L3RkPjwvdHI+PHRyPjx0ZCBzdHlsZT0iZm9udC13ZWlnaHQ6IG5vcm1hbDsgdGV4dC1hbGlnbjogbGVmdDsgYm9yZGVyOiAxcHQ7IHBhZGRpbmc6IDBweCAyNXB4IDBweCAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsiIHZhbGlnbj0idG9wIiBjb2xzcGFuPSIxIiByb3dzcGFuPSIxIj48ZGl2PkVuY291bnRlciBpbmZvOjwvZGl2PjwvdGQ+PHRkIHN0eWxlPSJib3JkZXI6IDFwdDsgcGFkZGluZzogMHB4IDI1cHggMHB4IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjEiIHJvd3NwYW49IjEiPjxkaXY+Rk46MDAwLTAzLTEyMCwgQmFzZWxpbmUgV2VzdCwgSW5wYXRpZW50LCAxMi8zMS8yMDE0IC0gPC9kaXY+PC90ZD48L3RyPjwvdGJvZHk+PC90YWJsZT48L2Rpdj4KPGRpdiBzdHlsZT0id2hpdGUtc3BhY2U6IHByZS13cmFwOyI+IAo8L2Rpdj48L2Rpdj48L2Rpdj4KICA8L2Rpdj48L2JvZHk+PC9odG1sPg==' # rubocop:disable Layout/LineLength
     }.freeze
 
     # rubocop:disable Layout/LineLength
@@ -39,33 +39,285 @@ module Cerner
 
     &lt;head&gt;
       &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-      &lt;title&gt;Free Text Note - Test Logger&lt;/title&gt;
+      &lt;title&gt;Admission H &amp; P&lt;/title&gt;
     &lt;/head&gt;
 
     &lt;body marginwidth=&quot;6&quot; marginheight=&quot;6&quot; leftmargin=&quot;6&quot; topmargin=&quot;6&quot;&gt;
       &lt;div valign=&quot;top&quot;&gt;
         &lt;div class=&quot;status_banner&quot;
           style=&quot;text-align: center; font-size: 14pt; font-weight: bold; font-family: tahoma,arial; white-space: pre-wrap;&quot;&gt;
-          * Slutrapport *
+          * Final Report *
           &lt;div style=&quot;white-space: pre-wrap;&quot;&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class=&quot;section&quot; data-doc-status=&quot;AUTH&quot; data-service-date-time=&quot;2019-06-26T20:57:36.000Z&quot;
-          data-is-addendum=&quot;false&quot; data-event-id=&quot;149995153&quot; data-event-cd=&quot;2820507&quot; data-section-sequence=&quot;1&quot;&gt;
+        &lt;div class=&quot;section&quot; data-doc-status=&quot;AUTH&quot; data-service-date-time=&quot;2021-03-12T22:35:03.000Z&quot;
+          data-is-addendum=&quot;false&quot; data-event-id=&quot;21961263&quot; data-event-cd=&quot;2820507&quot; data-section-sequence=&quot;1&quot;&gt;
           &lt;div class=&quot;content&quot;
             style=&quot;font-family: Times,serif,Lucida Sans Unicode; font-size: 12pt; font-weight: normal; font-style: normal; text-decoration: none; color: rgb(0,0,0); margin-top: 0pt; margin-bottom: 0pt; text-indent: 0.0in; margin-left: 0.0in; margin-right: 0.0in; text-align: left; border-style: none; border-width: 0pt; border-color: rgb(0,0,0); padding: 0pt;&quot;&gt;
             &lt;div&gt;
               &lt;div style=&quot;font-family: tahoma,Helvetica,sans-serif,Lucida Sans Unicode; font-size: 9pt;&quot;&gt;
-                &lt;a name=&quot;_ac5cf0b5-a024-4146-95ce-49b5741edb88&quot;&gt;&lt;/a&gt;
-                &lt;div style=&quot;padding: 4px;&quot;&gt;
-                  &lt;a name=&quot;_5a8c799b-b305-4f04-ae30-c08a069b505c&quot;&gt;&lt;/a&gt;
-                  &lt;div&gt;Test on Save&lt;/div&gt;
-                &lt;/div&gt; &lt;a name=&quot;_71de935b-894c-43a6-9e31-1fcbac0f10eb&quot;&gt;&lt;/a&gt;
-                &lt;div&gt;&lt;/div&gt;
-              &lt;/div&gt;
+                &lt;table style=&quot;border: 1pt; table-layout: fixed; border-collapse: collapse;&quot; valign=&quot;top&quot;
+                  width=&quot;100%&quot;&gt;
+                  &lt;col width=&quot;66%&quot;&gt;
+                  &lt;col width=&quot;34%&quot;&gt;
+                  &lt;tbody style=&quot;margin-left: 0pt; margin-right: 0pt; text-indent: 0pt; text-align: left;&quot;&gt;
+                    &lt;tr&gt;
+                      &lt;td style=&quot;border: 1pt; padding: 1pt; font-size: 9pt;&quot; valign=&quot;top&quot; colspan=&quot;1&quot;
+                        rowspan=&quot;1&quot;&gt;
+                        &lt;div&gt; &lt;a name=&quot;_9c6a7db3-dc1c-4346-b296-6f01fe06b58e&quot;&gt;&lt;/a&gt;
+                          &lt;div style=&quot;padding: 4px;&quot;&gt;
+                            &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Chief Complaint&lt;/span&gt;
+                            &lt;a name=&quot;_27e244aa-880c-4ea5-bc6d-314d39e56315&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt; &lt;a name=&quot;_dc3ffdc9-44a8-4122-a56b-7ae01e743ed4&quot;&gt;&lt;/a&gt;
+                              &lt;div&gt;fatigure, and confusion&lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt; &lt;a name=&quot;_4d6ce515-50f1-44a7-886e-91a0070570e6&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;History of Present Illness&lt;/span&gt;
+                          &lt;a name=&quot;_3fd4a964-cdd7-4223-82a7-44364ec091d3&quot;&gt
+                          lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_95fbcf8a-6876-4d4a-b83d-b8e8ca8b6f59&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt; &lt;a name=&quot;_942e1694-47c4-4823-a60a-8e79554c2bce&quot;&gt;&lt;/a&gt;
+                              &lt;div&gt; &lt;a name=&quot;_9a892e9a-8cfe-47dd-9eaf-ff9d6d0f69a4&quot;&gt;&lt;/a&gt;
+                                &lt;div&gt;Patient presents with increased fatigue and confusion
+                                  and elevated blood glucose level.&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_3cca18e1-19ca-4d58-93c3-7b4587daeb39&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Assessment/Plan&lt;/span&gt;
+                          &lt;a name=&quot;_04fe49cb-e345-474b-be30-dffa35d0dd58&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_7b171726-0c31-47c0-a305-73acabb2ec7d&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt; &lt;a name=&quot;_efa16c3d-4b21-4927-8b2e-8319486a488f&quot;&gt;&lt;/a&gt;
+                              &lt;div&gt; &lt;a name=&quot;_678accfc-bf46-4696-8588-d39a9fb609ea&quot;&gt;&lt;/a&gt;
+                                &lt;div&gt; &lt;a name=&quot;_10ae1e00-2af3-4043-b255-a6775d6053a5&quot;&gt;&lt;/a&gt;
+                                  &lt;div style=&quot;clear: both;&quot;&gt;Orders: &lt;div
+                                      style=&quot;padding-left: 8px;&quot;&gt; &lt;a
+                                        name=&quot;_73971b00-0777-440b-a9ff-d407513de48c&quot;&gt;&lt;/a&gt;
+                                      &lt;div&gt;glyBURIDE-metFORMIN, Oral, Tab, BID, First
+                                        Dose: 03/12/21 16:28:00, 1 tabs&lt;/div&gt;
+                                    &lt;/div&gt;
+                                  &lt;/div&gt;
+                                &lt;/div&gt; &lt;a name=&quot;_f4d0b5f1-838f-44da-b45f-a563a29629a5&quot;&gt;&lt;/a&gt;
+                                &lt;div&gt;
+                                  &lt;div&gt; &lt;/div&gt; Admit patient to monitor blood glucose
+                                  levels and update medication regimen.
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td style=&quot;border: 1pt; padding: 1pt; font-size: 9pt;&quot; valign=&quot;top&quot; colspan=&quot;1&quot;
+                      rowspan=&quot;1&quot;&gt;
+                      &lt;div&gt; &lt;a name=&quot;_85c172fb-ce6c-431d-9251-e497aae84820&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Problem List/Past Medical History&lt;/span&gt;
+                          &lt;a name=&quot;_f0e88de8-3823-4b62-9fc6-d7c6cc49f239&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_015aa059-8b48-423f-a9d9-ee5644efc58f&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Ongoing&lt;/span&gt; &lt;a
+                                name=&quot;_793e9576-0043-410b-ae40-6cade41f3735&quot;&gt;&lt;/a&gt;
+                              &lt;div style=&quot;margin-left: 1em;&quot;&gt;Diabetes mellitus type II&lt;/div&gt;
+                            &lt;/div&gt; &lt;a name=&quot;_d088b527-11b1-4103-b64b-709ed49508d0&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Historical&lt;/span&gt;
+                              &lt;div
+                                style=&quot;text-indent: -1em; padding-left: 1em; margin-left: 1em;&quot;&gt;
+                                No qualifying data&lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_0c32a7d8-0ab5-4f83-8d34-3a36001ade2e&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Procedure/Surgical History&lt;/span&gt;
+                          &lt;a name=&quot;_5c4dc8c0-80c1-4e17-9f96-dcf41beccd73&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt;
+                            &lt;table style=&quot;border-collapse: collapse;&quot; valign=&quot;top&quot;&gt;
+                              &lt;tbody&gt;
+                                &lt;tr&gt;
+                                  &lt;td valign=&quot;top&quot;&gt;
+                                    &lt;div
+                                      style=&quot;margin-top: 1em; margin-bottom: 1em; margin: 0px; padding-left: 15px;&quot;&gt;
+                                      &lt;table width=&quot;100%&quot;&gt;
+                                        &lt;tr&gt;
+                                          &lt;td valign=&quot;top&quot;
+                                            style=&quot;text-align: right; white-space: nowrap;&quot;
+                                            width=&quot;24&quot;&gt;
+                                            &lt;div&gt;
+                                              &lt;span style=&quot;font: 1em serif;&quot;&gt;•&lt;/span&gt;
+                                            &lt;/div&gt;
+                                          &lt;/td&gt;
+                                          &lt;td width=&quot;8&quot;&gt; &lt;/td&gt;
+                                          &lt;td valign=&quot;top&quot;&gt;
+                                            &lt;div&gt;Peri-procedural device
+                                              evaluation (in person) and
+                                              programming of device system
+                                              parameters before or after a
+                                              surgery, procedure, or test with
+                                              analysis, review and report by a
+                                              physician or other qualified
+                                              health care professional;
+                                              single, dual, or multiple (1987)
+                                            &lt;/div&gt;
+                                          &lt;/td&gt;
+                                        &lt;/tr&gt;
+                                      &lt;/table&gt;
+                                    &lt;/div&gt;
+                                  &lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/tbody&gt;
+                            &lt;/table&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_bdbfb070-dac7-476d-b733-79657efa9337&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Medications&lt;/span&gt;
+                          &lt;a name=&quot;_04fff0ba-9f3e-4853-8b26-13b47d9e024b&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_3be42839-c378-410f-a0b9-07850e6d3e1f&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Home&lt;/span&gt; &lt;a
+                                name=&quot;_d5ca8884-cf41-42bc-8568-9e7ba66c21b3&quot;&gt;&lt;/a&gt;
+                              &lt;div
+                                style=&quot;text-indent: -1em; padding-left: 1em; margin-left: 1em;&quot;&gt;
+                                Cough &amp; Sore Throat Nighttime oral liquid, 30 mL, q6hr
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_bc071fde-da84-4738-b263-0096784512b1&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Allergies&lt;/span&gt;
+                          &lt;a name=&quot;_25c82702-60a2-438e-b34c-393c6eaa0ffd&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_84abc82b-49dd-457e-8767-b476f343b29d&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;sulfa drugs&lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_7a70471e-85d7-4675-81f5-ff039535eacd&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Social History&lt;/span&gt;
+                          &lt;a name=&quot;_17283d6c-a602-4a1f-ad4e-6b193c862802&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt; &lt;a name=&quot;_34ce0f1e-092a-43f6-b1ae-e4143240fb67&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;
+                              &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Alcohol&lt;/span&gt; -
+                                Medium Risk&lt;/div&gt; &lt;a
+                                name=&quot;_06ac4321-737d-4832-a127-72f5be65e012&quot;&gt;&lt;/a&gt;
+                              &lt;div style=&quot;margin-left: 1em;&quot;&gt;
+                                &lt;div style=&quot;margin-left: 0em;&quot;&gt;Current, Beer, Wine, 1-2
+                                  times per week, Started age 12 Y. Alcohol use interferes
+                                  with work or home: Yes.&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt; &lt;a name=&quot;_7be9b488-d0c2-4353-b488-b67e2a0d1fee&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;
+                              &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Exercise&lt;/span&gt; -
+                                Occasional exercise&lt;/div&gt; &lt;a
+                                name=&quot;_fe8f1160-38de-445f-93cb-e95437e33f5a&quot;&gt;&lt;/a&gt;
+                              &lt;div style=&quot;margin-left: 1em;&quot;&gt;
+                                &lt;div style=&quot;margin-left: 0em;&quot;&gt;Exercise duration: 20.
+                                  Exercise frequency: 1-2 times/week. Exercise type:
+                                  Walking.&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt; &lt;a name=&quot;_033d61e5-0903-4ded-b5a0-6adb3cab6501&quot;&gt;&lt;/a&gt;
+                            &lt;div&gt;
+                              &lt;div&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Tobacco&lt;/span&gt;
+                              &lt;/div&gt; &lt;a name=&quot;_208044b7-7677-4d00-ad3a-0589fda9159c&quot;&gt;&lt;/a&gt;
+                              &lt;div style=&quot;margin-left: 1em;&quot;&gt;
+                                &lt;div style=&quot;margin-left: 0em;&quot;&gt;Current every day smoker,
+                                  Cigarettes, Total pack years: 12. Previous treatment:
+                                  Counseling.&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt; &lt;a name=&quot;_e50cead8-3403-4ce7-8a76-5db5994be5c1&quot;&gt;&lt;/a&gt;
+                        &lt;div style=&quot;padding: 4px;&quot;&gt;
+                          &lt;span style=&quot;font-weight: bold; text-decoration: underline;&quot;&gt;Immunizations&lt;/span&gt;
+                          &lt;a name=&quot;_78d928aa-0ecf-4ea4-8c51-9f67efd15aa1&quot;&gt;&lt;/a&gt;
+                          &lt;div&gt;
+                            &lt;table
+                              style=&quot;border: 1px solid rgb(0, 0, 0); table-layout: fixed; border-collapse: collapse;&quot;
+                              valign=&quot;top&quot;&gt;
+                              &lt;col&gt;
+                              &lt;col&gt;
+                              &lt;col&gt;
+                              &lt;thead
+                                style=&quot;margin-left: 0pt; margin-right: 0pt; text-indent: 0pt; text-align: left;&quot;&gt;
+                                &lt;tr&gt;
+                                  &lt;td style=&quot;font-weight: bold; text-align: center; border: 1pt; padding: 0px 5px 0px 6px; border-bottom-color: rgb(0, 0, 0)
+                                    border-bottom-width: 1px; border-bottom-style: solid; background-color: rgb(244, 244, 244);&quot;
+                                    valign=&quot;top&quot; colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
+                                    &lt;div&gt;Vaccine&lt;/div&gt;
+                                  &lt;/td&gt;
+                                  &lt;td style=&quot;font-weight: bold; text-align: center; border: 1pt; padding: 0px 5px 0px 6px; border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid; background-color: rgb(244, 244, 244);&quot;
+                                    valign=&quot;top&quot; colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
+                                    &lt;div&gt;Date&lt;/div&gt;
+                                  &lt;/td&gt;
+                                  &lt;td style=&quot;font-weight: bold; text-align: center; border: 1pt; padding: 0px 5px 0px 6px; border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-bottom-width: 1px; border-left-width: 1px; border-bottom-style: solid; border-left-style: solid; background-color: rgb(244, 244, 244);&quot;
+                                  valign=&quot;top&quot; colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
+                                    &lt;div&gt;Status&lt;/div&gt;
+                                  &lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/thead&gt;
+                              &lt;tbody
+                                style=&quot;margin-left: 0pt; margin-right: 0pt; text-indent: 0pt; text-align: left;&quot;&gt;
+                                &lt;tr
+                                  style=&quot;border-top-color: rgb(0, 0, 0); border-top-width: 1px; border-top-style: solid;&quot;&gt;
+                                  &lt;td style=&quot;border: 1pt; padding: 1pt;&quot; valign=&quot;top&quot;
+                                    colspan=&quot;3&quot; rowspan=&quot;1&quot;&gt;
+                                    &lt;div&gt;
+                                      &lt;table
+                                        style=&quot;border: 1pt; table-layout: fixed; width: 100%; border-collapse: collapse;&quot;
+                                        valign=&quot;top&quot;&gt;
+                                        &lt;col width=&quot;34%&quot;&gt;
+                                        &lt;col width=&quot;33%&quot;&gt;
+                                        &lt;col width=&quot;33%&quot;&gt;
+                                        &lt;tbody
+                                          style=&quot;margin-left: 0pt; margin-right: 0pt; text-indent: 0pt; text-align: left;&quot;&gt;
+                                          &lt;tr&gt;
+                                            &lt;td style=&quot;border: 1pt; padding: 1pt; padding-left: 6px; border-right-color: rgb(0, 0, 0); border-right-width: 1px
+                                              border-right-style: solid;&quot;
+                                              valign=&quot;top&quot; colspan=&quot;1&quot;
+                                              rowspan=&quot;1&quot;&gt;
+                                              &lt;div&gt;measles/mumps/rubella virus
+                                                vaccine&lt;/div&gt;
+                                            &lt;/td&gt;
+                                            &lt;td style=&quot;border: 1pt; padding: 1pt; padding-left: 6px; border-right-color: rgb(0, 0, 0); border-right-width: 1px
+                                              border-right-style: solid;&quot;
+                                              valign=&quot;top&quot; colspan=&quot;1&quot;
+                                              rowspan=&quot;1&quot;&gt;
+                                              &lt;div&gt;10/22/2020&lt;/div&gt;
+                                            &lt;/td&gt;
+                                            &lt;td style=&quot;border: 1pt; padding: 1pt; padding-left: 6px;&quot;
+                                              valign=&quot;top&quot; colspan=&quot;1&quot;
+                                              rowspan=&quot;1&quot;&gt;
+                                              &lt;div&gt;Given&lt;/div&gt;
+                                            &lt;/td&gt;
+                                          &lt;/tr&gt;
+                                        &lt;/tbody&gt;
+                                      &lt;/table&gt;
+                                    &lt;/div&gt;
+                                  &lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/tbody&gt;
+                            &lt;/table&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/tbody&gt;
+              &lt;/table&gt;
             &lt;/div&gt;
-            &lt;div style=&quot;white-space: pre-wrap;&quot;&gt;
+            &lt;div
+              style=&quot;font-family: tahoma,Helvetica,sans-serif,Lucida Sans Unicode; font-size: 9pt; margin-top: 1em;&quot;&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div style=&quot;white-space: pre-wrap;&quot;&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;sign-line-header&quot;
+          style=&quot;font-family: tahoma,arial; font-size: 10pt; font-weight: bold; white-space: pre-wrap;&quot;&gt;Signature
+          Line&lt;div class=&quot;sign-line&quot;
+            style=&quot;font-family: tahoma,arial; font-weight: normal; font-size: 10pt; white-space: pre-wrap;&quot;&gt;
+            Electronically signed by
+            _________________________________________________
+            Braus, Sasha 03.12.2021 16:35&lt;/div&gt;
+          &lt;div style=&quot;white-space: pre-wrap;&quot;&gt;
+          &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;heading&quot;&gt;
@@ -83,7 +335,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;CT Pelvis w/ + w/o Contrast&lt;/div&gt;
+                      &lt;div&gt;Admission Note-Physician&lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
@@ -93,7 +345,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;27 juni 2019 01:45 GMT&lt;/div&gt;
+                      &lt;div&gt;March 12, 2021 16:31&lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
@@ -113,7 +365,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;Free Text Note - Test Logger&lt;/div&gt;
+                      &lt;div&gt;Admission H &amp; P&lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
@@ -123,7 +375,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;Nguyen, Thong den 26 juni 2019 20:57 UTC&lt;/div&gt;
+                      &lt;div&gt;Braus, Sasha on March 12, 2021 16:35&lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
@@ -133,7 +385,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;Nguyen, Thong den 26 juni 2019 20:59 UTC&lt;/div&gt;
+                      &lt;div&gt;Braus, Sasha on March 12, 2021 16:35&lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                   &lt;tr&gt;
@@ -143,8 +395,7 @@ module Cerner
                     &lt;/td&gt;
                     &lt;td style=&quot;border: 1pt; padding: 0px 25px 0px 0px; word-wrap: break-word;&quot; valign=&quot;top&quot;
                       colspan=&quot;1&quot; rowspan=&quot;1&quot;&gt;
-                      &lt;div&gt;20003638, Baseline East Medical Center for MPages, Outpatient, 2017-01-17 -
-                      &lt;/div&gt;
+                      &lt;div&gt;FN:000-03-120, Baseline West, Inpatient, 12/31/2014 - &lt;/div&gt;
                     &lt;/td&gt;
                   &lt;/tr&gt;
                 &lt;/tbody&gt;
