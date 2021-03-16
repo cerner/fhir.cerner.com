@@ -625,7 +625,7 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
 
 ##### Code Set 16127 Scheduling Processing Options
 
-This code set contains the various scheduling processing options such as diagnostic/followup/primary.
+This code set contains the various scheduling processing options such as diagnostic, followup or primary.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/16127",

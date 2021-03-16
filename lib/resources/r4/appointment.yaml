@@ -38,9 +38,9 @@ fields:
     - display: appointmentReason
       system: http://terminology.hl7.org/CodeSystem/v2-0276
       info_link: https://terminology.hl7.org/2.1.0/CodeSystem-v2-0276.html
-    - display: Millennium Scheduling Process Options
+    - display: Millennium Scheduling Processing Options
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16127
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-16127-scheduling-process-options
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-16127-scheduling-processing-options
 
 - name: serviceType
   required: 'No'
