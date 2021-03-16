@@ -71,7 +71,7 @@ _Implementation Notes_
 -----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
  `_id`                 | Yes, or one of `patient`, `practitioner`, or `location`.                           | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
  `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start instant or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The appointment start date time with offset or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
  `patient`             | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
  `practitioner`        | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
  `location`            | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Location references. Example: `633867`
