@@ -85,8 +85,9 @@ Notes:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
 * The `_count` parameter must be a number between 5 and 100 inclusive when provided.
+* Search by `date` returns appointments with a status other than `proposed` that start and end within the date range provided.
+* Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or are requested to end between the dates provided.
 * The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
-* Search by `date` returns appointments that start on the date provided whereas search by `-date-or-req-period` returns appointments that start or are requested to start on the dates provided.
 
 ### Headers
 
