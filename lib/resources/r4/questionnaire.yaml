@@ -1,0 +1,17 @@
+---
+name: Questionnaire
+field_name_base_url: http://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire
+fields:
+
+  - name: Answer Option
+    url: https://hl7.org/fhir/r4/questionnaire-definitions.html#Questionnaire.item.answerOption
+    terminology_name: item.item.answerOption.valueCoding
+    type: Coding
+    description: One of the permitted answers for a "choice" or "open-choice" question.
+    action: terminology
+    binding:
+      description: The value of one of the permitted answers for a "choice" or "open-choice" question.
+      terminology:
+        - display: Nomenclature Value
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature
