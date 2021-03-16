@@ -315,10 +315,10 @@ module Cerner
               "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
             },
             {
-              "valueString": "12345",
-              "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+              "valueString": '12345',
+              "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
             }
-          ],  
+          ],
           'system': 'phone',
           'value': '8168888886',
           'use': 'home',
@@ -504,10 +504,10 @@ module Cerner
           'id': 'CI-PH-29811920-0',
           "extension": [
             {
-              "valueString": "1234",
-              "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+              "valueString": '12345',
+              "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
             }
-          ],  
+          ],
           'period': {
             'start': '2012-05-17T15:33:18.000Z'
           }
