@@ -19,6 +19,25 @@ module Cerner
                  'Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1</p></div>'
         },
         'status': 'booked',
+        'serviceCategory': [
+          {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127',
+                'code': '22721463',
+                'display': 'DIAGNOSTIC',
+                'userSelected': true
+              },
+              {
+                'system': 'http://snomed.info/sct',
+                'code': '261004008',
+                'display': 'Diagnostic intent (qualifier value)',
+                'userSelected': false
+              }
+            ],
+            'text': 'DIAGNOSTIC'
+          }
+        ],
         'serviceType': [
           {
             'coding': [
@@ -150,6 +169,25 @@ module Cerner
         }
       ],
       'status': 'noshow',
+      'serviceCategory': [
+        {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127',
+              'code': '22721463',
+              'display': 'DIAGNOSTIC',
+              'userSelected': true
+            },
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '261004008',
+              'display': 'Diagnostic intent (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'DIAGNOSTIC'
+        }
+      ],
       'serviceType': [
         {
           'coding': [
