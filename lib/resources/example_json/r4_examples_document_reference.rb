@@ -186,14 +186,6 @@ module Cerner
             'title': 'Admission H & P',
             'creation': '2021-03-12T22:35:03.000Z'
           }
-        },
-        {
-          'attachment': {
-            'contentType': 'text/html',
-            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261',
-            'title': 'Admission H & P',
-            'creation': '2021-03-12T22:35:03.000Z'
-          }
         }
       ],
       'context': {
@@ -413,14 +405,6 @@ module Cerner
                 'attachment': {
                   'contentType': 'application/pdf',
                   'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-20801159',
-                  'title': 'Admission H & P',
-                  'creation': '2021-02-10T23:27:20.000Z'
-                }
-              },
-              {
-                'attachment': {
-                  'contentType': 'text/html',
-                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-20801159',
                   'title': 'Admission H & P',
                   'creation': '2021-02-10T23:27:20.000Z'
                 }
