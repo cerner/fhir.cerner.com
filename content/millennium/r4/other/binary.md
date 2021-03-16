@@ -47,24 +47,19 @@ _Implementation Notes_
 
 ### Headers
 
+Either `DocumentReference.content.attachment.contentType` or `DiagnosticReport.presentedForm.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
+
+This resource will not accept the `application/json` mime type unless the underlying binary data is json.
+
 <%= headers fhir_json: true %>
 
-### Example
-
-#### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_binary_entry) %>
-
-<%= disclaimer %>
+#### FHIR Accept Type
 
 ### Example
 
 #### Request
+
+<%= headers head: {'Accept': 'application/fhir+json'} %>
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261
 
@@ -74,6 +69,8 @@ _Implementation Notes_
 <%= json(:r4_binary_tr_json_entry) %>
 
 <%= disclaimer %>
+
+#### Native Accept Type
 
 ### Example
 
