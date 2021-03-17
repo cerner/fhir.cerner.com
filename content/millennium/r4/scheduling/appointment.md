@@ -67,22 +67,26 @@ _Implementation Notes_
 
 ### Parameters
 
- Name           | Required?                                                | Type          | Description
-----------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `7890`
- `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `1234`
- `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `4567`
- `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `6789`
- `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
- [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
+ Name                  | Required?                                                                          | Type          | Description
+-----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
+ `_id`                 | Yes, or one of `patient`, `practitioner`, or `location`.                           | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
+ `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start date time with offset or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `patient`             | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+ `practitioner`        | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+ `location`            | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `status`              | No                                                                                 | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+ [`_count`]            | No                                                                                 | [`number`]    | The maximum number of results to return.
 
 Notes:
 
 * The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination. For example, `patient=1234,5678` is supported but `patient=1234&patient=5678` and `patient=1234&location=5678` are not.
-* The `date` parameter may be provided:
+* Either `date` or `-date-or-req-period` parameter may be provided:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
+* Search by `date` returns appointments with a status other than `proposed` that start and end within the date range provided.
+* Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or are requested to end between the dates provided.
+* The `_count` parameter must be a number between 5 and 100 inclusive when provided.
 * The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
 ### Headers
