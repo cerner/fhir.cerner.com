@@ -43,7 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-Search for Schedules that meet supplied query parameters:
+Search for Slots that meet supplied query parameters:
 
     GET /Slot?:parameters
 
