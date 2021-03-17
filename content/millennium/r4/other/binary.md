@@ -53,9 +53,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= headers fhir_json: true %>
 
-#### FHIR Accept Type
-
-### Example
+### FHIR Accept Example
 
 #### Request
 
@@ -70,9 +68,7 @@ This resource will not accept the `application/json` mime type unless the underl
 
 <%= disclaimer %>
 
-#### Native Accept Type
-
-### Example
+### Native Accept Example
 
 #### Request
 
