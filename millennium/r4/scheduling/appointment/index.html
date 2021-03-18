@@ -151,7 +151,10 @@
 <ul>
   <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Appointment id</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status" target="_blank">Status</a></li>
+  <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason" target="_blank">Cancellation Reason</a></li>
+  <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory" target="_blank">ServiceCategory</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType" target="_blank">ServiceType</a></li>
+  <li><a href="https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot" target="_blank">Slot</a></li>
   <li>
 <a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant" target="_blank">Participant</a>
     <ul>
@@ -167,6 +170,7 @@
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end" target="_blank">End date time</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.minutesDuration" target="_blank">Duration in minutes</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
+  <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction" target="_blank">Patient Instruction</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod" target="_blank">Requested period</a></li>
 </ul>
 
@@ -177,6 +181,136 @@
     
       
       
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason">Appointment.cancelationReason</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The coded reason for the appointment being cancelled.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason">Appointment cancellation reason</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14229-scheduling-appointment-cancellation-reason">Millennium Scheduling Appointment Cancellation Reason</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14229 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory">Appointment.serviceCategory</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Additional details about the categorization of the service.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/2.1.0/CodeSystem-v2-0276.html">appointmentReason</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0276 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-16127-scheduling-processing-options">Millennium Scheduling Processing Options</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16127 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
       
       
     <tr>
@@ -346,14 +480,21 @@
       <td><code>_id</code></td>
       <td>Yes, or one of <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Appointment. Example: <code>7890</code>
+      <td>The logical resource id associated with the Appointment. Example: <code>3005759</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
-      <td>Yes when using <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
+      <td>Yes, or <code>-date-or-req-period</code> when using <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#date"><code>date</code></a></td>
-      <td>The Appointment date time with offset. Example: <code>2019-06-07T22:22:16.270Z</code>
+      <td>The Appointment start date time with offset. Example: <code>2019-06-07T22:22:16.270Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-date-or-req-period</code></td>
+      <td>Yes, or <code>date</code> when using <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#date"><code>date</code></a></td>
+      <td>The Appointment start date time with offset or the Appointment requested period date time with offset. Example: <code>2019-06-07T22:22:16.270Z</code>
 </td>
     </tr>
     <tr>
@@ -361,7 +502,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Patient references. Example: <code>1234</code>
+      <td>A single or comma separated list of Patient references. Example: <code>4704007</code>
 </td>
     </tr>
     <tr>
@@ -369,7 +510,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>4567</code>
+      <td>A single or comma separated list of Practitioner references. Example: <code>2578010</code>
 </td>
     </tr>
     <tr>
@@ -377,7 +518,7 @@
       <td>Yes, or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Location references. Example: <code>6789</code>
+      <td>A single or comma separated list of Location references. Example: <code>633867</code>
 </td>
     </tr>
     <tr>
@@ -400,12 +541,15 @@
 
 <ul>
   <li>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination. For example, <code>patient=1234,5678</code> is supported but <code>patient=1234&amp;patient=5678</code> and <code>patient=1234&amp;location=5678</code> are not.</li>
-  <li>The <code>date</code> parameter may be provided:
+  <li>Either <code>date</code> or <code>-date-or-req-period</code> parameter may be provided:
     <ul>
       <li>once with a prefix and time component to indicate a specific date/time. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z</code>, <code>&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
       <li>twice with the prefixes <code>ge</code> and <code>lt</code> to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. <code>&amp;date=ge2019-12-07T22:22:16.270Z&amp;date=lt2019-12-14T22:22:16.270Z</code>)</li>
     </ul>
   </li>
+  <li>Search by <code>date</code> returns appointments with a status other than <code>proposed</code> that start and end within the date range provided.</li>
+  <li>Search by <code>-date-or-req-period</code> returns the same appointments as the <code>date</code> parameter, but also returns appointments with a status of <code>proposed</code> that either are requested to start or are requested to end between the dates provided.</li>
+  <li>The <code>_count</code> parameter must be a number between 5 and 100 inclusive when provided.</li>
   <li>The retrieved appointments are sorted first by <code>start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>start</code> time ascending (earliest first).</li>
 </ul>
 
@@ -449,9 +593,45 @@
           },
           "text": {
             "status": "generated",
-            "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
+            "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slot Id&lt;/b&gt;: 21265426-633867-6828001-60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART,NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
           },
           "status": "booked",
+          "cancelationReason": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229",
+                "code": "2191414701",
+                "display": "Scheduled by mistake",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+                "code": "oth-err",
+                "display": "Other: Error",
+                "userSelected": false
+              }
+            ],
+            "text": "Scheduled by mistake"
+          },
+          "serviceCategory": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127",
+                  "code": "22721463",
+                  "display": "DIAGNOSTIC",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "261004008",
+                  "display": "Diagnostic intent (qualifier value)",
+                  "userSelected": false
+                }
+              ],
+              "text": "DIAGNOSTIC"
+            }
+          ],
           "serviceType": [
             {
               "coding": [
@@ -469,6 +649,11 @@
           "start": "2020-07-08T13:00:00.000Z",
           "end": "2020-07-08T13:15:00.000Z",
           "minutesDuration": 15,
+          "slot": [
+            {
+              "reference": "Slot/21265426-633867-6828001-60"
+            }
+          ],
           "participant": [
             {
               "type": [
@@ -519,6 +704,7 @@
               "status": "accepted"
             }
           ],
+          "patientInstruction": "Preparations:\n- Please arrive 30 minutes prior to your scheduled appointment\nPost Appointment Instructions:\n- Be sure to return to the Front Desk prior to departing after your appointment",
           "requestedPeriod": [
             {
               "start": "2020-07-08T13:00:00.000Z",
@@ -577,9 +763,45 @@
     },
     "text": {
       "status": "generated",
-      "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
+      "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slot Id&lt;/b&gt;: 21265426-633867-6828001-60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART,NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
     },
     "status": "booked",
+    "cancelationReason": {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229",
+          "code": "2191414701",
+          "display": "Scheduled by mistake",
+          "userSelected": true
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+          "code": "oth-err",
+          "display": "Other: Error",
+          "userSelected": false
+        }
+      ],
+      "text": "Scheduled by mistake"
+    },
+    "serviceCategory": [
+      {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127",
+            "code": "22721463",
+            "display": "DIAGNOSTIC",
+            "userSelected": true
+          },
+          {
+            "system": "http://snomed.info/sct",
+            "code": "261004008",
+            "display": "Diagnostic intent (qualifier value)",
+            "userSelected": false
+          }
+        ],
+        "text": "DIAGNOSTIC"
+      }
+    ],
     "serviceType": [
       {
         "coding": [
@@ -597,6 +819,11 @@
     "start": "2020-07-08T13:00:00.000Z",
     "end": "2020-07-08T13:15:00.000Z",
     "minutesDuration": 15,
+    "slot": [
+      {
+        "reference": "Slot/21265426-633867-6828001-60"
+      }
+    ],
     "participant": [
       {
         "type": [
@@ -647,6 +874,7 @@
         "status": "accepted"
       }
     ],
+    "patientInstruction": "Preparations:\n- Please arrive 30 minutes prior to your scheduled appointment\nPost Appointment Instructions:\n- Be sure to return to the Front Desk prior to departing after your appointment",
     "requestedPeriod": [
       {
         "start": "2020-07-08T13:00:00.000Z",
@@ -678,7 +906,7 @@
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: noshow&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Video Visit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul 10, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul 10, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Patient: SMART, NANCY, Practitioner: Applegate MD, Christina, Location: MX Clinic 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: No Show&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Video Visit&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul 10, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul 10, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slot Id&lt;/b&gt;: 21265426-633867-6828001-60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Patient: SMART, NANCY, Practitioner: Applegate MD, Christina, Location: MX Clinic 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Video Visit&lt;/b&gt;: Yes&lt;/p&gt;&lt;/div&gt;"
   },
   "contained": [
     {
@@ -721,6 +949,42 @@
     }
   ],
   "status": "noshow",
+  "cancelationReason": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229",
+        "code": "2191414701",
+        "display": "Scheduled by mistake",
+        "userSelected": true
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code": "oth-err",
+        "display": "Other: Error",
+        "userSelected": false
+      }
+    ],
+    "text": "Scheduled by mistake"
+  },
+  "serviceCategory": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127",
+          "code": "22721463",
+          "display": "DIAGNOSTIC",
+          "userSelected": true
+        },
+        {
+          "system": "http://snomed.info/sct",
+          "code": "261004008",
+          "display": "Diagnostic intent (qualifier value)",
+          "userSelected": false
+        }
+      ],
+      "text": "DIAGNOSTIC"
+    }
+  ],
   "serviceType": [
     {
       "coding": [
@@ -743,6 +1007,11 @@
   "start": "2020-07-10T13:00:00.000Z",
   "end": "2020-07-10T13:15:00.000Z",
   "minutesDuration": 15,
+  "slot": [
+    {
+      "reference": "Slot/21265426-633867-6828001-60"
+    }
+  ],
   "participant": [
     {
       "type": [
@@ -1775,6 +2044,35 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
     
     <tr>
       <td>
+        <a name="create-serviceCategory">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory"><code>serviceCategory</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A broad categorization of the service that is to be performed during this appointment.</li></ul>
+      
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="create-serviceType">
         
           </a><a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType"><code>serviceType</code></a>
@@ -2265,6 +2563,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 </h3>
         <ul class="js-guides">
           <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../../conformance/operation-definition/">OperationDefinition</a></li>
           <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>

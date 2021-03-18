@@ -169,7 +169,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="millennium/r4/proprietary-codes-and-systems/#scheduling">Millennium Scheduling Appointment Synonyms or Types</a><br>
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms">Millennium Scheduling Appointment Synonyms or Types</a><br>
                       
                         System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249 <br>
                       
@@ -219,7 +219,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Schedules that meet supplied query parameters:</p>
+<p>Search for Slots that meet supplied query parameters:</p>
 
 <pre><code>GET /Slot?:parameters
 </code></pre>
@@ -261,14 +261,14 @@
       <td>Yes or <code>_id</code>
 </td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>A single or comma separated list of appointment types that can be booked into the slot. Example: <code>[http://snomed.info/sct\|394581000|http://snomed.info/sct]</code>
+      <td>A single or comma separated list of appointment types that can be booked into the slot. Example: <code>service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611</code>
 </td>
     </tr>
     <tr>
       <td><code>schedule.actor</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>Practitioner/1234</code>
+      <td>A single or comma separated list of Practitioner references. Example: <code>schedule.actor=Practitioner/1234</code>
 </td>
     </tr>
     <tr>
@@ -319,7 +319,7 @@ For example, <code>-location=123,456</code> is supported but <code>-location=123
     </ul>
   </li>
   <li>
-    <p>The start parameter must be provided when <code>service-type</code>, <code>-location</code>, or <code>actor</code> is provided.</p>
+    <p>The start parameter must be provided when <code>service-type</code>, <code>-location</code>, or <code>schedule.actor</code> is provided.</p>
   </li>
   <li>When the <code>start</code> parameter is provided:
     <ul>
@@ -683,6 +683,9 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
         "status": "free",
         "start": "2017-01-23T06:00:00Z",
         "end": "2017-01-23T07:00:00Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
@@ -803,6 +806,9 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
         "status": "free",
         "start": "2017-01-23T06:00:00Z",
         "end": "2017-01-23T07:00:00Z"
+      },
+      "search": {
+        "mode": "match"
       }
     },
     {
@@ -1020,6 +1026,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
 </h3>
         <ul class="js-guides">
           <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../../conformance/operation-definition/">OperationDefinition</a></li>
           <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>

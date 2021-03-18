@@ -385,6 +385,9 @@
 
 <ul>
   <li>
+    <p>Appointment.cancelationReason codes are maintained in <a href="#code-set-14229-scheduling-appointment-cancellation-reason">Code Set 14229 Scheduling Appointment Cancellation Reason</a></p>
+  </li>
+  <li>
     <p>Appointment.serviceType codes are maintained in <a href="#code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</a></p>
   </li>
   <li>
@@ -824,6 +827,18 @@
 }
 </code></pre>
 
+<h5 id="code-set-14229-scheduling-appointment-cancellation-reason">Code Set 14229 Scheduling Appointment Cancellation Reason</h5>
+
+<p>This code set defines a set of reasons for the cancellation of an appointment.</p>
+
+<pre><code> {
+   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14229",
+   "code": "2191414701",
+   "display": "Scheduled by mistake",
+   "userSelected": true
+ }
+</code></pre>
+
 <h5 id="code-set-14249-scheduling-appointment-type-synonyms">Code Set 14249 Scheduling Appointment Type Synonyms</h5>
 
 <p>This code set is highly customized by clients and may include appointment types such as Office Visit, Office Visit - New, or Office Visit - Follow Up.</p>
@@ -845,6 +860,18 @@
   "code": "4573",
   "display": "Radiology Exam Room",
 }
+</code></pre>
+
+<h5 id="code-set-16127-scheduling-processing-options">Code Set 16127 Scheduling Processing Options</h5>
+
+<p>This code set contains the various scheduling processing options such as diagnostic, followup or primary.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/16127",
+  "code": "22721463",
+  "display": "DIAGNOSTIC"
+  "userSelected": true
+} 
 </code></pre>
 
 <h5 id="code-set-18736-account-types">Code Set 18736 Account Types</h5>
@@ -1067,6 +1094,7 @@
 </h3>
         <ul class="js-guides">
           <li><a href="../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../conformance/operation-definition/">OperationDefinition</a></li>
           <li><a href="../conformance/structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>

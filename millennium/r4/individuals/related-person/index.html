@@ -514,9 +514,12 @@
   <li>When provided, the <code>identifier</code> query parameter must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F</code>
 </li>
   <li>
-<code>-relationship-level</code> will be required with patient and identifier searches in the future.</li>
+<code>-relationship-level</code> is required for <code>patient</code> and <code>identifier</code> searches</li>
   <li>
 <code>-relationship-level</code> can only be provided with <code>patient</code> or <code>identifier</code>
+</li>
+  <li>
+<code>-relationship-level</code> can only be set to <code>Patient</code>
 </li>
 </ul>
 
@@ -3474,6 +3477,82 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
   
     <tr>
       <td>
+        <a name="test-telecom-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/telecom/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of related person telecoms.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/telecom/0/id",
+  "value": "CI-PH-2807950-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-telecom">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom"><code>/telecom/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove"
+  "path": "/telecom/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
         <a name="test-name-id">
           
             </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/name/{index}/id</code></a>
@@ -3785,6 +3864,15 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
   },
   {
     "op": "test",
+    "path": "/telecom/0/id",
+    "value": "CI-PH-29811920-0"
+  },
+  {
+    "op": "remove",
+    "path": "/telecom/0"
+  },
+  {
+    "op": "test",
     "path": "/address/0/id",
     "value": "CI-24079465-0"
   },
@@ -3874,6 +3962,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </h3>
         <ul class="js-guides">
           <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../../conformance/operation-definition/">OperationDefinition</a></li>
           <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
         </ul>
       </li>
