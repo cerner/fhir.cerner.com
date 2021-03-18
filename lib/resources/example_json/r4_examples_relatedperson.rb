@@ -1397,6 +1397,11 @@ module Cerner
       },
       {
         'op': 'test',
+        'path': '/telecom/0/id',
+        'value': 'CI-PH-29811920-0'
+      },
+      {
+        'op': 'test',
         'path': '/address/0/id',
         'value': 'CI-24079465-0'
       },
