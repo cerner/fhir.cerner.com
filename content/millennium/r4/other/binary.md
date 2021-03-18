@@ -42,12 +42,11 @@ _Implementation Notes_
 
 _Implementation Notes_
 
-* For attachments with the `application/pdf` contentType, the `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
-* For attachments with the `text/html` contentType, the `Binary.read` scope and the `DocumentReference.read` scope are required.
+* The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
 
 ### Headers
 
-Either `DocumentReference.content.attachment.contentType` or `DiagnosticReport.presentedForm.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
+`DocumentReference.content.attachment.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
 
 This resource will not accept the `application/json` mime type unless the underlying binary data is json.
 
@@ -105,7 +104,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 ## $autogen-ccd-if
 
 Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:
- 
+
   GET /Binary/$autogen-ccd-if?:parameters
 
 _Implementation Notes_
