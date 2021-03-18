@@ -1396,13 +1396,13 @@ module Cerner
         }
       },
       {
-        'op': 'remove',
-        'path': '/telecom/0'
-      },
-      {
         'op': 'test',
         'path': '/telecom/0/id',
         'value': 'CI-PH-29811920-0'
+      },
+      {
+        'op': 'remove',
+        'path': '/telecom/0'
       },
       {
         'op': 'test',
