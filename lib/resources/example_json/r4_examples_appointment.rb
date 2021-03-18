@@ -20,6 +20,23 @@ module Cerner
                  'Patient: SMART,NANCY, Location: MX Clinic 1</p></div>'
         },
         'status': 'booked',
+        'cancelationReason': {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229',
+              'code': '2191414701',
+              'display': 'Scheduled by mistake',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
+              'code': 'oth-err',
+              'display': 'Other: Error',
+              'userSelected': false
+            }
+          ],
+          'text': 'Scheduled by mistake'
+        },
         'serviceCategory': [
           {
             'coding': [
@@ -176,6 +193,23 @@ module Cerner
         }
       ],
       'status': 'noshow',
+      'cancelationReason': {
+        'coding': [
+          {
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229',
+            'code': '2191414701',
+            'display': 'Scheduled by mistake',
+            'userSelected': true
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
+            'code': 'oth-err',
+            'display': 'Other: Error',
+            'userSelected': false
+          }
+        ],
+        'text': 'Scheduled by mistake'
+      },
       'serviceCategory': [
         {
           'coding': [

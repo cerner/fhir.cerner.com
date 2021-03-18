@@ -25,6 +25,36 @@ fields:
     }
   note: When creating a new appointment, the status must be `booked` or `proposed`.
 
+- name: cancelationReason
+  required: 'No'
+  type: CodeableConcept
+  description: The coded reason for the appointment being cancelled.
+  action: read
+  example: |
+    {
+      'cancelationReason': {
+        'coding': [
+          {
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229',
+            'code': '2191414701',
+            'display': 'Scheduled by mistake',
+            'userSelected': true
+          }
+        ],
+        'text': 'Scheduled by mistake'
+      }
+    }
+  url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason
+  binding:
+    description:  The coded reason for the appointment being cancelled.
+    terminology:
+      - display: Appointment cancellation reason
+        system: http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason
+        info_link: http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason
+      - display: Millennium Scheduling Appointment Cancellation Reason
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14229
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14229-scheduling-appointment-cancellation-reason
+
 - name: serviceCategory
   required: 'No'
   type: CodeableConcept

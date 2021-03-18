@@ -202,6 +202,8 @@ The contained Medication Resource supports proprietary codes for:
 
 The Appointment Resource supports proprietary codes for:
 
+* Appointment.cancelationReason codes are maintained in [Code Set 14229 Scheduling Appointment Cancellation Reason](#code-set-14229-scheduling-appointment-cancellation-reason)
+
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
@@ -601,6 +603,17 @@ This code set contains the area of the body the surgery procedure is being execu
       "display": "Left",
       "userSelected": true
     }
+    
+##### Code Set 14229 Scheduling Appointment Cancellation Reason 
+
+This code set defines a set of reasons for the cancellation of an appointment.
+  
+     {
+       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14229",
+       "code": "2191414701",
+       "display": "Scheduled by mistake",
+       "userSelected": true
+     }
 
 ##### Code Set 14249 Scheduling Appointment Type Synonyms
 
