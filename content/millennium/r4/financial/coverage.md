@@ -82,6 +82,19 @@ _Implementation Notes_
 
 <%= disclaimer %>
 
+#### Example - Patient-level Public Healthcare Coverage
+
+#### Request
+
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_patient_social_healthcare_bundle) %>
+
+<%= disclaimer %>
+
 ### Example - Encounter-level Coverage
 
 #### Request
@@ -92,6 +105,8 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_bundle) %>
+
+<%= disclaimer %>
 
 #### Example - Encounter-level Public Healthcare Coverage
 
@@ -196,7 +211,8 @@ _Implementation Notes_
 
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
-* Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.
+* For Private Coverages, only Encounter-level Coverages may be patched. For Public Coverages,
+both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
 
 ### Authorization Types
 
