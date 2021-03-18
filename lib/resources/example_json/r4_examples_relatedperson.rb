@@ -1396,6 +1396,10 @@ module Cerner
         }
       },
       {
+        'op': 'remove',
+        'path': '/telecom/0'
+      },
+      {
         'op': 'test',
         'path': '/telecom/0/id',
         'value': 'CI-PH-29811920-0'
@@ -1418,10 +1422,6 @@ module Cerner
         'op': 'replace',
         'path': '/name/0/family',
         'value': 'Potter'
-      },
-      {
-        'op': 'remove',
-        'path': '/telecom/0'
       },
       {
         'op': 'replace',
