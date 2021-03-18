@@ -49,7 +49,7 @@ fields:
     description:  The coded reason for the appointment being cancelled.
     terminology:
       - display: Appointment cancellation reason
-        system: http://snomed.info/sct
+        system: http://hl7.org/fhir/ValueSet/appointment-cancellation-reason
         info_link: https://www.hl7.org/fhir/r4/valueset-appointment-cancellation-reason.html
       - display: Millennium Scheduling Appointment Cancellation Reason
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14229
