@@ -15,8 +15,9 @@ module Cerner
           'status': 'generated',
           'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: Booked</p>'\
                  '<p><b>Service Type</b>: Established Patient</p><p><b>Start</b>: Jul  8, 2020  1:00 P.M. UTC</p>'\
-                 '<p><b>End</b>: Jul  8, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Practitioner: Cerner Test, '\
-                 'Physician - Primary Care Cerner, Patient: SMART, NANCY, Location: MX Clinic 1</p></div>'
+                 '<p><b>End</b>: Jul  8, 2020  1:15 P.M. UTC</p><p><b>Slot Id</b>: 21265426-633867-6828001-60</p>'\
+                 '<p><b>Participants</b>: Practitioner: Cerner Test, Physician - Primary Care Cerner, '\
+                 'Patient: SMART,NANCY, Location: MX Clinic 1</p></div>'
         },
         'status': 'booked',
         'serviceCategory': [
@@ -55,6 +56,11 @@ module Cerner
         'start': '2020-07-08T13:00:00.000Z',
         'end': '2020-07-08T13:15:00.000Z',
         'minutesDuration': 15,
+        'slot': [
+          {
+            'reference': 'Slot/21265426-633867-6828001-60'
+          }
+        ],
         'participant': [
           {
             'type': [
@@ -125,8 +131,9 @@ module Cerner
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: No Show</p>'\
                '<p><b>Service Type</b>: Video Visit</p><p><b>Start</b>: Jul 10, 2020  1:00 P.M. UTC</p><p><b>End</b>: '\
-               'Jul 10, 2020  1:15 P.M. UTC</p><p><b>Participants</b>: Patient: SMART, NANCY, Practitioner: Applegate '\
-               'MD, Christina, Location: MX Clinic 1</p><p><b>Video Visit</b>: Yes</p></div>'
+               'Jul 10, 2020  1:15 P.M. UTC</p><p><b>Slot Id</b>: 21265426-633867-6828001-60</p>'\
+               '<p><b>Participants</b>: Patient: SMART, NANCY, Practitioner: Applegate MD, Christina, '\
+               'Location: MX Clinic 1</p><p><b>Video Visit</b>: Yes</p></div>'
       },
       'contained': [
         {
@@ -210,6 +217,11 @@ module Cerner
       'start': '2020-07-10T13:00:00.000Z',
       'end': '2020-07-10T13:15:00.000Z',
       'minutesDuration': 15,
+      'slot': [
+        {
+          'reference': 'Slot/21265426-633867-6828001-60'
+        }
+      ],
       'participant': [
         {
           'type': [
