@@ -43,7 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-Search for Schedules that meet supplied query parameters:
+Search for Slots that meet supplied query parameters:
 
     GET /Slot?:parameters
 
@@ -58,15 +58,15 @@ _Implementation Notes_
 
 ### Parameters
 
- Name             | Required?                  | Type          | Description
-------------------|----------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------
- `_id`            | Yes or `service-type`      | [`token`]     | The logical resource id associated with the resource.
- `service-type`      | Yes or `_id`            | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `[http://snomed.info/sct\|394581000|http://snomed.info/sct]`
- `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/1234`
- `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
- `start`          | See Notes                  | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
- [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
- [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
+ Name             | Required?             | Type          | Description
+------------------|-----------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`            | Yes or `service-type` | [`token`]     | The logical resource id associated with the resource.
+ `service-type`   | Yes or `_id`          | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611`
+ `schedule.actor` | No                    | [`reference`] | A single or comma separated list of Practitioner references. Example: `schedule.actor=Practitioner/1234`
+ `-location`      | No                    | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
+ `start`          | See Notes             | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
+ [`_count`]       | No                    | [`number`]    | The maximum number of results to be returned per page.
+ [`_include`]     | No                    | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
 
 Notes:
 
@@ -79,7 +79,7 @@ Notes:
   * When using standard codes, choose codes bound to Slot.serviceType as noted in the [Terminology Bindings](#terminology-bindings) table above.
   * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854`
 
-* The start parameter must be provided when `service-type`, `-location`, or `actor` is provided.
+* The start parameter must be provided when `service-type`, `-location`, or `schedule.actor` is provided.
 
 * When the `start` parameter is provided:
   * both the prefixes `ge` and `lt` must be used to indicate a specific range.The date and prefix pairs must define 
