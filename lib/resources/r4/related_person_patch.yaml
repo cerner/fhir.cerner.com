@@ -205,6 +205,22 @@ operations:
         "value": "CI-PH-2807950-0"
       }
 
+  - name: remove-telecom
+    path: /telecom/{index}
+    operation: remove
+    type: N/A
+    url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom
+    description: Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.
+    example: |
+      {
+        "op": "remove"
+        "path": "/telecom/0"
+      }
+    note: >
+      <ul>
+        <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom intended to be removed.</li>
+      </ul>
+
   - name: test-name-id
     path: /name/{index}/id
     operation: test

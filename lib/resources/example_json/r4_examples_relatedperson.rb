@@ -1401,6 +1401,10 @@ module Cerner
         'value': 'CI-PH-29811920-0'
       },
       {
+        'op': 'remove',
+        'path': '/telecom/0'
+      },
+      {
         'op': 'test',
         'path': '/address/0/id',
         'value': 'CI-24079465-0'
