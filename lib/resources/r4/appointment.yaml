@@ -85,12 +85,12 @@ fields:
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "394609007",
-              "display": "Surgery-general",
+              "code": "408443003",
+              "display": "General medical practice",
               "userSelected": false
             }
           ],
-          "text": "Surgery"
+          "text": "General medical practice"
         }
       ]
     }

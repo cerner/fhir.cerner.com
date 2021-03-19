@@ -494,7 +494,7 @@ module Cerner
         {
           'coding': [
             {
-              'code': '394586005',
+              'code': '408443003',
               'system': 'http://snomed.info/sct'
             }
           ]
