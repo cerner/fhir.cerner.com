@@ -40,24 +40,45 @@ _Implementation Notes_
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
 
-_Implementation Note_
+_Implementation Notes_
 
-The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
+* The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
 
 ### Headers
 
+`DocumentReference.content.attachment.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
+
+This resource will not accept the `application/json` mime type unless the underlying binary data is json.
+
 <%= headers fhir_json: true %>
 
-### Example
+### FHIR Accept Example
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197198634
+<%= headers head: {'Accept': 'application/fhir+json'} %>
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_binary_entry) %>
+<%= json(:r4_binary_tr_json_entry) %>
+
+<%= disclaimer %>
+
+### Native Accept Example
+
+#### Request
+
+<%= headers head: {'Accept': 'text/html'} %>
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261
+
+#### Response
+
+<%= headers status: 200 %>
+<%= html(:r4_binary_tr_html_entry) %>
 
 <%= disclaimer %>
 
@@ -83,7 +104,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 ## $autogen-ccd-if
 
 Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:
- 
+
   GET /Binary/$autogen-ccd-if?:parameters
 
 _Implementation Notes_
