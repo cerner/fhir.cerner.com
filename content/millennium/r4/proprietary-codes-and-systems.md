@@ -483,7 +483,7 @@ This code set contains the various reasons why an order was cancelled/discontinu
       "display": "Duplicate Order",
       "userSelected": true
     }
-    
+
 ##### Code Set 4001 Medication Administration Route
 
 This code set maintains medication administration routes such as ID or IM.
