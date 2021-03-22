@@ -373,18 +373,6 @@ module Cerner
         'path': '/status',
         'value': 'cancelled'
       },
-      {
-        'op': 'add',
-        'path': '/cancelationReason',
-        'value': {
-          'coding': [
-            {
-              'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
-              'code': 'oth-err'
-            }
-          ]
-        }
-      }
     ].freeze
 
     R4_APPOINTMENT_BOOKED_PATCH ||= [
@@ -427,6 +415,26 @@ module Cerner
             'text': 'I have a headache'
           }
         ]
+      }
+    ].freeze
+
+    R4_APPOINTMENT_CANCELATIONREASON_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'cancelled'
+      },
+      {
+        'op': 'add',
+        'path': '/cancelationReason',
+        'value': {
+          'coding': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
+              'code': 'oth-err'
+            }
+          ]
+        }
       }
     ].freeze
 
