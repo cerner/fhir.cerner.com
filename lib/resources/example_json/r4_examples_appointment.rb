@@ -372,7 +372,7 @@ module Cerner
         'op': 'replace',
         'path': '/status',
         'value': 'cancelled'
-      },
+      }
     ].freeze
 
     R4_APPOINTMENT_BOOKED_PATCH ||= [
