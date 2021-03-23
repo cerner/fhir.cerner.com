@@ -1,6 +1,6 @@
 ---
 name: Questionnaire
-field_name_base_url: http://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire
+field_name_base_url: https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire
 fields:
 
   - name: Answer Option
