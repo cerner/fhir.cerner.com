@@ -86,8 +86,8 @@ operations:
       <ul>
         <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "cancelled"</li>
         <li>Only one coding may be provided in the value</li>
+        <li>The cancelation reason `value.coding` can be either from the standard or proprietary system, but not both</li>
         <li>CodeableConcept.coding is required and CodeableConcept.text, if present, will be ignored</li>
-        <li>The cancelation reason `value.coding` can be either from the standard or proprietary code set, but not both</li>
       </ul>
   - name: add-provider-vmr
     path: /contained/0/telecom/0/value
