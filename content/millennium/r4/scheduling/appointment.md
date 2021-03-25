@@ -26,7 +26,7 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Fulfilled, or Cancelled
 
-Video Visit functionality is available for supported vendors only, and requires additional configuration and application support.
+Video Visit functionality requires additional configuration and application support.
 
 The following fields are returned if valued:
 
