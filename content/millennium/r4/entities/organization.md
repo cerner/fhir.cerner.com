@@ -44,6 +44,14 @@ Search for Organizations that meet supplied query parameters:
  [`_count`]  | No                                      | [`number`] | The maximum number of results to return. Defaults to `100`.
  `name`      | This or `_id` or `identifier` or `type` | [`string`] | Name used for the organization.
 
+ Notes:
+
+- The `identifier` parameter
+  - Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
+    Organization resource.
+  - When valid system is provided, search is performed against the specific system.
+  - When invalid system is provided, 400 bad request is returned.
+
 ### Headers
 
 <%= headers fhir_json: true %>
