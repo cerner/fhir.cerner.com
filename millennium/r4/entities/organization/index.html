@@ -323,6 +323,19 @@
   </tbody>
 </table>
 
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>identifier</code> parameter
+    <ul>
+      <li>Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
+Organization resource.</li>
+      <li>When valid system is provided, search is performed against the specific system.</li>
+      <li>When invalid system is provided, 400 bad request is returned.</li>
+    </ul>
+  </li>
+</ul>
+
 <h3 id="headers">Headers</h3>
 
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
