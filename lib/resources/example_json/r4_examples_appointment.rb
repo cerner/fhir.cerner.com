@@ -418,6 +418,26 @@ module Cerner
       }
     ].freeze
 
+    R4_APPOINTMENT_CANCELATIONREASON_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'cancelled'
+      },
+      {
+        'op': 'add',
+        'path': '/cancelationReason',
+        'value': {
+          'coding': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
+              'code': 'oth-err'
+            }
+          ]
+        }
+      }
+    ].freeze
+
     R4_APPOINTMENT_VIDEO_VISIT_ADD_PATCH ||= [
       {
         'op': 'add',
