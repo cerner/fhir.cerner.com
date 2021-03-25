@@ -268,7 +268,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 <%= disclaimer %>
 
-### Example - Update cancelationReason
+### Example - Add cancelationReason
 
 #### Request
 

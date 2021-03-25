@@ -67,7 +67,7 @@ operations:
     path: /cancelationReason
     operation: add
     type: CodeableConcept
-    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason
+    url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason
     description: The coded reason for the appointment being cancelled
     example: |
       {
