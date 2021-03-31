@@ -62,7 +62,7 @@ Search for Locations that meet supplied query parameters:
  Notes:
 
 - The `-physicalType` parameter
-  - For now we are only supporting standard systems.
+  - Searching by Millennium proprietary codes is not supported.
 
 ### Headers
 
