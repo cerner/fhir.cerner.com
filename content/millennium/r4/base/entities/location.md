@@ -53,9 +53,16 @@ Search for Locations that meet supplied query parameters:
 
 ### Parameters
 
- Name  | Required? | Type      | Description
--------|-----------|-----------|-------------------------------------------------------
- `_id` | Yes       | [`token`] | The logical resource id associated with the resource.
+ Name            | Required?             | Type      | Description
+-----------------|-----------------------|-----------|-------------------------------------------------------
+ `_id`           | This or -physicalType | [`token`] | The logical resource id associated with the resource.
+ `-physicalType` | This or _id           | [`token`] | The location’s physical type. Example: http://terminology.hl7.org/CodeSystem/location-physical-type|ro
+ `_count`        | no                    |  number   | The maximum number of results to return. Defaults to 100.
+
+ Notes:
+
+- The `-physicalType` parameter
+  - For now we are only supporting standard systems.
 
 ### Headers
 
