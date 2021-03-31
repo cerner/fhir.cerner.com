@@ -53,9 +53,16 @@ Search for Locations that meet supplied query parameters:
 
 ### Parameters
 
- Name  | Required? | Type      | Description
--------|-----------|-----------|-------------------------------------------------------
- `_id` | Yes       | [`token`] | The logical resource id associated with the resource.
+ Name            | Required?               | Type       | Description
+-----------------|-------------------------|------------|-------------------------------------------------------
+ `_id`           | This or `-physicalType` | [`token`]  | The logical resource id associated with the resource.
+ `-physicalType` | This or `_id`           | [`token`]  | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
+ [`_count`]      | no                      | [`number`] | The maximum number of results to return. Defaults to `100`.
+
+ Notes:
+
+- The `-physicalType` parameter
+  - Searching by Millennium proprietary codes is not supported.
 
 ### Headers
 
@@ -109,8 +116,10 @@ List an individual Location by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
+[`number`]: https://hl7.org/fhir/r4/search.html#number
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [Custom Attribute]: #custom-extensions

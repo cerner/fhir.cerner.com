@@ -94,6 +94,7 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
+ [`note-type`]                                               | Describes the type of note represented. This can be useful when there are multiple notes.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
@@ -125,6 +126,7 @@ Authorization is not required.
 [`financial-transaction-tendered-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
+[`note-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-type?_format=json
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
