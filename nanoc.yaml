@@ -193,6 +193,106 @@ redirects:
   /millennium/dstu2/structure-definition:
     url: /millennium/dstu2/conformance/structure-definition
   /millennium/r4/capability-statement:
-    url: /millennium/r4/conformance/capability-statement
+    url: /millennium/r4/foundation/conformance/capability-statement
   /millennium/r4/proprietary-codes:
     url: /millennium/r4/proprietary-codes-and-systems
+  /millennium/r4/conformance:
+    url: /millennium/r4/foundation/conformance
+  /millennium/r4/conformance/capability-statement:
+    url: /millennium/r4/foundation/conformance/capability-statement
+  /millennium/r4/conformance/operation-definition:
+    url: /millennium/r4/foundation/conformance/operation-definition
+  /millennium/r4/conformance/structure-definition:
+    url: /millennium/r4/foundation/conformance/structure-definition
+  /millennium/r4/care-provision:
+    url: /millennium/r4/clinical/care-provision
+  /millennium/r4/care-provision/care-plan:
+    url: /millennium/r4/clinical/care-provision/care-plan
+  /millennium/r4/care-provision/care-team:
+    url: /millennium/r4/clinical/care-provision/care-team
+  /millennium/r4/care-provision/goal:
+    url: /millennium/r4/clinical/care-provision/goal
+  /millennium/r4/care-provision/nutrition-order:
+    url: /millennium/r4/clinical/care-provision/nutrition-order
+  /millennium/r4/care-provision/service-request:
+    url: /millennium/r4/clinical/care-provision/service-request
+  /millennium/r4/definitional-artifacts:
+    url: /millennium/r4/specialized/definitional-artifacts
+  /millennium/r4/definitional-artifacts/questionnaire:
+    url: /millennium/r4/specialized/definitional-artifacts/questionnaire
+  /millennium/r4/devices:
+    url: /millennium/r4/base/entities
+  /millennium/r4/devices/device:
+    url: /millennium/r4/base/entities/device
+  /millennium/r4/diagnostic:
+    url: /millennium/r4/clinical/diagnostics
+  /millennium/r4/diagnostic/observation:
+    url: /millennium/r4/clinical/diagnostics/observation
+  /millennium/r4/documents:
+    url: /millennium/r4/foundation/documents/
+  /millennium/r4/documents/document-reference:
+    url: /millennium/r4/foundation/documents/document-reference
+  /millennium/r4/encounters:
+    url: /millennium/r4/base/management
+  /millennium/r4/encounters/encounter:
+    url: /millennium/r4/base/management/encounter
+  /millennium/r4/entities:
+    url: /millennium/r4/base/entities
+  /millennium/r4/entities/location:
+    url: /millennium/r4/base/entities/location
+  /millennium/r4/entities/organization:
+    url: /millennium/r4/base/entities/organization
+  /millennium/r4/entities/consent:
+    url: /millennium/r4/foundation/security/consent
+  /millennium/r4/financial/account:
+    url: /millennium/r4/financial/general/account
+  /millennium/r4/financial/charge-item:
+    url: /millennium/r4/financial/general/charge-item
+  /millennium/r4/financial/coverage:
+    url: /millennium/r4/financial/support/coverage
+  /millennium/r4/financial/financial-transaction:
+    url: /millennium/r4/financial/general/financial-transaction
+  /millennium/r4/general-clinical:
+    url: /millennium/r4/clinical
+  /millennium/r4/general-clinical/allergy-intolerance:
+    url: /millennium/r4/clinical/summary/allergy-intolerance
+  /millennium/r4/general-clinical/condition:
+    url: /millennium/r4/clinical/summary/condition
+  /millennium/r4/general-clinical/procedure:
+    url: /millennium/r4/clinical/summary/procedure
+  /millennium/r4/individuals:
+    url: /millennium/r4/base/individuals
+  /millennium/r4/individuals/patient:
+    url: /millennium/r4/base/individuals/patient
+  /millennium/r4/individuals/person:
+    url: /millennium/r4/base/individuals/person
+  /millennium/r4/individuals/practitioner:
+    url: /millennium/r4/base/individuals/practitioner
+  /millennium/r4/individuals/related-person:
+    url: /millennium/r4/base/individuals/related-person
+  /millennium/r4/medications:
+    url: /millennium/r4/clinical/medications
+  /millennium/r4/medications/immunization:
+    url: /millennium/r4/clinical/medications/immunization
+  /millennium/r4/medications/medication-request:
+    url: /millennium/r4/clinical/medications/medication-request
+  /millennium/r4/other:
+    url: /millennium/r4/foundation/other
+  /millennium/r4/other/binary:
+    url: /millennium/r4/foundation/other/binary
+  /millennium/r4/request-and-response:
+    url: /millennium/r4/clinical/request-and-response
+  /millennium/r4/request-and-response/communication:
+    url: /millennium/r4/clinical/request-and-response/communication
+  /millennium/r4/scheduling:
+    url: /millennium/r4/base/workflow
+  /millennium/r4/scheduling/appointment:
+    url: /millennium/r4/base/workflow/appointment
+  /millennium/r4/scheduling/schedule:
+    url: /millennium/r4/base/workflow/schedule
+  /millennium/r4/scheduling/slot:
+    url: /millennium/r4/base/workflow/slot
+  /millennium/r4/security:
+    url: /millennium/r4/foundation/security
+  /millennium/r4/security/provenance:
+    url: /millennium/r4/foundation/security/provenance

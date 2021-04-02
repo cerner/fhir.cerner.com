@@ -1,51 +1,3 @@
-const conformanceURL = 'https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata';
-const conformanceHeaders = { Accept: 'application/json+fhir' };
-
-const capabilityStatementURL = 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata';
-const capabilityStatementHeaders = { Accept: 'application/fhir+json' };
-
-// Configuration for resources that have been altered from DSTU2 to R4, or extended from Basic
-const resourceConfig = {
-  combinedResources: [
-    {
-      dstu2Resources: ["Conformance"],
-      r4Resources: ["CapabilityStatement"],
-      notes: "The DSTU 2 Conformance resource was renamed to CapabilityStatement in R4."
-    },
-    {
-      dstu2Resources: ["MedicationOrder", "MedicationStatement"],
-      r4Resources: ["MedicationRequest"],
-      notes: "Cerner's DSTU 2 implementations of MedicationOrder and MedicationStatement were shifted to MedicationRequest in R4."
-    },
-    {
-      dstu2Resources: ["ProcedureRequest"],
-      r4Resources: ["ServiceRequest"],
-      notes: "The DSTU 2 ProcedureRequest resource was renamed to ServiceRequest in R4."
-    },
-    {
-      dstu2Resources: ["Contract"],
-      r4Resources: ["Consent"],
-      notes: "The resource used to represent people who are authorized to view a patient's data shifted from DSTU2 Contract to R4 Consent."
-    },
-    {
-      dstu2Resources: ["CarePlan"],
-      r4Resources: ["CarePlan", "CareTeam"],
-      notes: "DSTU2 CarePlan was split into R4 CarePlan and CareTeam."
-    }
-  ],
-  basicResources: [
-    {
-      type: "FinancialTransaction",
-      interaction: [
-        {
-          code: "create"
-        }
-    ],
-    notes: "FinancialTransaction is a custom resource implemented via extensions on the Basic resource."
-    }
-  ]
-};
-
 /**
  * Retreives the configuration for a specific resource by its name.
  * @param {string} resourceName - The name of the resource to find.
@@ -55,10 +7,10 @@ const resourceConfig = {
  */
 function getConfiguration(resourceName) {
   if (resourceName === "Basic") {
-    return resourceConfig.basicResources;
+    return config.resourceConfig.basicResources;
   }
   else {
-    let combinedResources = resourceConfig.combinedResources;
+    let combinedResources = config.resourceConfig.combinedResources;
     for (let i = 0; i < combinedResources.length; i++) {
       if (combinedResources[i].dstu2Resources.includes(resourceName)) {
         return combinedResources[i];
@@ -119,7 +71,7 @@ function buildMatch(resource, resourceArray) {
 
 /**
  * Creates an object of matching DSTU2 and R4 resources that require special configuration.
- * @param {object} config - The configuration object from resourceConfig.
+ * @param {object} config - The configuration object from config.resourceConfig.
  * @param {array} dstu2Resources - The array of DSTU2 resource objects.
  * @param {array} r4Resources - The array of R4 resource objects.
  * @returns {object} Contains arrays of DSTU2 and R4 resources that match.
@@ -377,8 +329,21 @@ function getSupportedActions(resource, version) {
  * @returns {array} The resource's td elements.
  */
 function createResourceRow(resource, version, rowSpan = 1, notes = null) {
+  let versionKey = version.toLowerCase().replace(' ', '');
+  let resourceUrl = config[versionKey]['documentationUrls'][resource.resourceName];
+  let resourceLink;
+
+  if (resourceUrl == null) {
+    resourceLink = document.createTextNode(resource.resourceName);
+  }
+  else {
+    resourceLink = document.createElement('a');
+    resourceLink.appendChild(document.createTextNode(resource.resourceName));
+    resourceLink.href = resourceUrl;
+  }
+
   let tableData = document.createElement('td');
-  tableData.appendChild(document.createTextNode(resource.resourceName));
+  tableData.appendChild(resourceLink);
   tableData.className = 'resource-name';
   tableData.rowSpan = rowSpan;
 
@@ -582,8 +547,8 @@ function displayOverviewTable() {
   document.getElementById('millennium-table-div').classList.toggle('hide');
   document.getElementsByClassName('failure-message')[0].classList.toggle('hide');
 
-  fetchData(conformanceURL, conformanceHeaders, true, function(dstu2Response) {
-    fetchData(capabilityStatementURL, capabilityStatementHeaders, true, function(r4Response) {
+  fetchData(config.dstu2.metadataUrl, config.dstu2.metadataHeaders, true, function(dstu2Response) {
+    fetchData(config.r4.metadataUrl, config.r4.metadataHeaders, true, function(r4Response) {
       let tableResources = sortMatchedResources(matchResources(dstu2Response, r4Response));
 
       generateTable(tableResources);
