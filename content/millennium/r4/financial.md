@@ -7,4 +7,5 @@ layout: api
 
 * [Account](../financial/account)
 * [Coverage](../financial/coverage)
+* [ChargeItem](../financial/charge-item)
 * [FinancialTransaction](../financial/financial-transaction)

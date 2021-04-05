@@ -772,6 +772,12 @@ The Account Resource supports proprietary systems for:
 
 * Account.identifier.system is [Account Number](#account-number) for financial accounts.
 
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary systems for:
+
+* ChargeItem.code, ChargeItem.reason, Modifier, Procedure, and Revenue Code extension codes are [Bill Codes Types](#bill-codes-types) for charge items.
+
 ### Medications
 
 <h4>MedicationRequest</h4>
@@ -791,6 +797,15 @@ This system is the account number of a financial account.
       "use": "usual",
       "system": "https://fhir.cerner.com/accountnumber",
       "value": "5646"
+    }
+
+##### Bill Codes Types
+
+This system is the bill code type for a charge item.`Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, or `REVENUE`.
+
+    {
+      'system': 'https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>',
+      "code": "0310"
     }
 
 ##### Medication Request Category

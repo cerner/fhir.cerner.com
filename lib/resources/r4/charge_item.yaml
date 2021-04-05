@@ -1,0 +1,69 @@
+---
+name: Chargeitem
+field_name_base_url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem
+fields:
+
+  - name: code
+    required: 'Yes'
+    type: CodeableConcept
+    description: A code that identifies the charge, like a billing code.
+    action: terminology
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
+    binding:
+      description: A code that identifies the charge, like a billing code.
+      terminology:
+      - display: Bill Codes Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
+
+  - name: reason
+    required: 'No'
+    type: CodeableConcept
+    description: Describes why the event occurred in coded or textual form.
+    action: terminology
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
+    binding:
+      description: Describes why the event occurred in coded or textual form.
+      terminology:
+      - display: Bill Codes Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-ICD
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
+
+  - name: Modifier Extension
+    terminology_name: extension[x].valueCodeableConcept
+    required: 'No'
+    type: Extension
+    description: A code providing additional detail about a product or service.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
+    binding:
+      description: The status of the Account within a specific workflow. This binding is used in <code>modifier</code> extensions.
+      terminology:
+      - display: Bill Codes Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-MODIFIER
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
+
+  - name: Procedure Extension
+    terminology_name: extension[x].valueCodeableConcept
+    required: 'No'
+    type: Extension
+    description: Procedure performed on the patient associated to the resource.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
+    binding:
+      description: The status of the Account within a specific workflow. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code> or <code>HCPCS</code>.
+      terminology:
+      - display: Bill Codes Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
+
+  - name: Revenue Code Extension
+    terminology_name: extension[x].valueCodeableConcept
+    required: 'No'
+    type: Extension
+    description: The type of revenue or cost center providing the product and/or service.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
+    binding:
+      description: The status of the Account within a specific workflow. This binding is used in <code>revenue-code</code> extensions.
+      terminology:
+      - display: Bill Codes Types
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-REVENUE
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
