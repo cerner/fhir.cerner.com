@@ -52,7 +52,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                     | Value\[x] Type                    | Description
 ------------------------|-----------------------------------|--------------------------------------------------------------------------
  `custom-attribute`     | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
- `discription`          | [`string`]                        | A description providing additional details of the resource.
+ `description`          | [`string`]                        | A description providing additional details of the resource.
  `modifier`             | None (contains nested extensions) | A code providing additional detail about a product or service.
  `net-price`            | [`Money`]                         | The quantity times the unit price for a resource (total price).
  `offset-by`            | [`Reference`]                     | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
@@ -92,14 +92,12 @@ List an individual ChargeItem by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`date`]: https://hl7.org/fhir/r4/datatypes.html#date
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
 [`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
 [`Reference`]: http://hl7.org/fhir/r4/references.html#Reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
-[`token`]: http://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Procedure]: #custom-extensions

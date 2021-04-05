@@ -804,7 +804,7 @@ This system is the account number of a financial account.
 This system is the bill code type for a charge item.`Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, or `REVENUE`.
 
     {
-      'system': 'https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>',
+      "system": "https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>",
       "code": "0310"
     }
 
