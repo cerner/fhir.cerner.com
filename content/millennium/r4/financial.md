@@ -6,6 +6,6 @@ layout: api
 <%= render '/millennium/r4/financial.*' %>
 
 * [Account](../financial/account)
-* [Coverage](../financial/coverage)
 * [ChargeItem](../financial/charge-item)
+* [Coverage](../financial/coverage)
 * [FinancialTransaction](../financial/financial-transaction)

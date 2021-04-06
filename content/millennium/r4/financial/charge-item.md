@@ -9,8 +9,8 @@ title: ChargeItem | R4 API
 
 ## Overview
 
-The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons.
-Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
+The ChargeItem resource describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons.
+The main usage of the ChargeItem is to enable the billing process and internal cost allocation.
 
 The following fields are returned if valued:
 
@@ -19,7 +19,7 @@ The following fields are returned if valued:
 * [Code](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code){:target="_blank"}
 * [Subject](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject){:target="_blank"}
 * [Context](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context){:target="_blank"}
-* [occurrenceDateTime](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrence_x_){:target="_blank"}
+* [Occurrence](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrence_x_){:target="_blank"}
 * [Performer](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer){:target="_blank"}
 * [Requesting Organization](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.requestingOrganization){:target="_blank"}
 * [Quantity](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity){:target="_blank"}
