@@ -47,7 +47,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/CodeSystem/BillCodes-HCPCS',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-HCPCS',
                     'code': '43'
                   }
                 ]
@@ -67,7 +67,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/CodeSystem/BillCodes-MODIFIER',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
                     'code': '22'
                   }
                 ]
@@ -87,7 +87,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/CodeSystem/BillCodes-MODIFIER',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
                     'code': '22'
                   }
                 ]
@@ -105,7 +105,7 @@ module Cerner
           'valueCodeableConcept': {
             'coding': [
               {
-                'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/CodeSystem/BillCodes-REVENUE',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE',
                 'code': '0127'
               }
             ]
@@ -117,7 +117,7 @@ module Cerner
       'code': {
         'coding': [
           {
-            'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/CodeSystem/BillCodes-CDM_SCHED',
+            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CDM_SCHED',
             'code': '34523'
           }
         ]
