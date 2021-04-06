@@ -53,12 +53,12 @@ fields:
   action: create
   note: >
     <ul>
-      <li>When creating a MedicationRequest, the intent must be `order` or `plan`.</li>
+      <li>When creating a MedicationRequest, the intent must be `plan`.</li>
       <li>When read back, the created MedicationRequest will always have an intent of `order`. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. In the future, MedicationRequests with intents of `order` and `plan` will be supported in accordance with pending changes to the US Core Profile.</li>
     </ul>
   example: |
     {
-      "intent": "order"
+      "intent": "plan"
     }
 - name: category
   required: 'No'
