@@ -776,7 +776,7 @@ The Account Resource supports proprietary systems for:
 
 The ChargeItem Resource supports proprietary systems for:
 
-* ChargeItem.code, ChargeItem.reason, Modifier, Procedure, and Revenue Code extension codes are [Bill Codes Types](#bill-codes-types) for charge items.
+* ChargeItem.code, ChargeItem.reason, Modifier extension, Procedure extension, and Revenue Code extension codes are [Bill Codes Types](#bill-codes-types) for charge items.
 
 ### Medications
 
