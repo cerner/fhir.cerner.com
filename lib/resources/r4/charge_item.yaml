@@ -2,7 +2,6 @@
 name: Chargeitem
 field_name_base_url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem
 fields:
-
   - name: code
     required: 'Yes'
     type: CodeableConcept
@@ -10,10 +9,10 @@ fields:
     action: terminology
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
     binding:
-      description: A code that identifies the charge, like a billing code.
+      description: A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, or <code>HCPCS</code>.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: reason
@@ -36,7 +35,7 @@ fields:
     description: A code providing additional detail about a product or service.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
     binding:
-      description: The status of the Account within a specific workflow. This binding is used in <code>modifier</code> extensions.
+      description: A code providing additional detail about a product or service. This binding is used in <code>modifier</code> extensions.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-MODIFIER
@@ -49,7 +48,7 @@ fields:
     description: Procedure performed on the patient associated to the resource.
     url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
     binding:
-      description: The status of the Account within a specific workflow. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code> or <code>HCPCS</code>.
+      description: Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, or <code>HCPCS</code>.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
@@ -62,7 +61,7 @@ fields:
     description: The type of revenue or cost center providing the product and/or service.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
     binding:
-      description: The status of the Account within a specific workflow. This binding is used in <code>revenue-code</code> extensions.
+      description: The type of revenue or cost center providing the product and/or service. This binding is used in <code>revenue-code</code> extensions.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-REVENUE

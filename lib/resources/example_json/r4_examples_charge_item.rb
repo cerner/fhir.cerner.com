@@ -12,7 +12,7 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Charge Item</b></p><p><b>Status</b>: Billable</p>'\
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Charge Item</b></p><p><b>Status</b>: Billable</p>' \
                '<p><b>Patient</b>: 13393174</p><p><b>Encounter</b>: 11945114</p><p><b>Code</b>: 34523</p>' \
                '<p><b>Occurrence</b>: Aug  4, 2019  4:38 A.M. CDT</p></div>'
       },
