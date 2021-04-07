@@ -71,7 +71,9 @@ _Implementation Notes_
  Notes:
 
  * The `recipient` parameter must represent a Practitioner or a Group.
- * The `received` parameter may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have a `ge` prefix and the higher value must have a `le` prefix. The `ge` prefix is only supported on one.
+ * The `received` parameter may be provided:
+   * once with the `ge` prefix.
+   * twice with the lower value prefixed by `ge` and the higher value prefixed by `le`.
 
 ### Headers
 

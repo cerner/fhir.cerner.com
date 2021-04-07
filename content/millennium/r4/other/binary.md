@@ -42,7 +42,7 @@ _Implementation Notes_
 
 _Implementation Notes_
 
-* The `Binary.read` scope and `Communication.read` scope or either the `DiagnosticReport.read` or the `DocumentReference.read` is required.
+* The required scopes are the `Binary.read` scope, as well as one of the following scopes: `Communication.read`, `DiagnosticReport.read`, or `DocumentReference.read`.
 
 ### Headers
 
