@@ -101,6 +101,7 @@ Authorization is not required.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
+ [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
@@ -140,6 +141,7 @@ Authorization is not required.
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
+[`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
