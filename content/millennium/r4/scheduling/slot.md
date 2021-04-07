@@ -193,6 +193,63 @@ List an individual Slot by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Patch
+
+Patch an existing Slot.
+
+    PATCH /Slot/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Slot resource>"'} %>
+
+
+### Patch Operations
+
+<%= patch_definition_table(:slot_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+
+#### Body
+
+<%= json(:r4_slot_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 20
+Content-Type: text/html
+Date: Tue, 06 Apr 2021 15:36:47 GMT
+Etag: W/"410v795030969834"
+Last-Modified: Tue, 06 Apr 2021 15:36:47 GMT
+Vary: Origin
+X-Request-Id: 6801a2c5-bf2d-414b-9f6a-7bcf39cc69d9
+</pre>
+
+<%= disclaimer %>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`date`]: http://hl7.org/fhir/r4/search.html#date

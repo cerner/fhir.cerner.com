@@ -1,0 +1,15 @@
+---
+name: Related Person
+field_name_base_url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson
+operations:
+  - name: status
+    path: /status
+    operation: replace
+    type: code
+    url: https://hl7.org/fhir/R4/slot-definitions.html#Slot.status
+    description: Replace the slot status.
+    example: |
+      {
+        "status": "free"
+      }
+    note: Currently supports only `free` and `busy tentative`.

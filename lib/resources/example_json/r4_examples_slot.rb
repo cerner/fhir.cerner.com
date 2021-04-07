@@ -411,5 +411,13 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_SLOT_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'busy-tentative'
+      }
+    ].freeze
   end
 end
