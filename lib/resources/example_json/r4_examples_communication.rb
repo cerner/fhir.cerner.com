@@ -29,6 +29,11 @@ module Cerner
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status'
         }
       ],
+      'inResponseTo': [
+        {
+          'reference': 'Communication/512657279.0.-4.prsnl'
+        }
+      ],
       'status': 'completed',
       'category': [
         {

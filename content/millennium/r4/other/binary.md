@@ -9,7 +9,7 @@ title: Binary | R4 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to clinical documents, diagnostic reports, and communication message content. Diagnostic reports currently supports Anatomic Pathology, Cardiology, Microbiology, and Radiology.
+The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, diagnostic reports, and communication message content. The supported diagnostic reports are Anatomic Pathology, Cardiology, Microbiology, and Radiology.
 
 It is recommended to request Binary resources only after obtaining links to the resources via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow with Binary resources.
 

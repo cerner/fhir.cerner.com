@@ -13,18 +13,19 @@ The Communication resource is a conveyance of information from one entity, a sen
 
 The following fields are returned if valued:
 
-* [Communication Id](https://hl7.org/FHIR/communication-definitions.html#Communication.identifier)
-* [Status (Completed)](https://hl7.org/FHIR/communication-definitions.html#Communication.status)
-* [Category](https://hl7.org/FHIR/communication-definitions.html#Communication.category)
-* [Priority](https://hl7.org/FHIR/communication-definitions.html#Communication.priority)
-* [Subject](https://hl7.org/FHIR/communication-definitions.html#Communication.subject)
-* [Topic](https://hl7.org/FHIR/communication-definitions.html#Communication.topic)
-* [Encounter](https://hl7.org/FHIR/communication-definitions.html#Communication.encounter)
-* [Sent DateTime](https://hl7.org/FHIR/communication-definitions.html#Communication.sent)
-* [Received DateTime](https://hl7.org/FHIR/communication-definitions.html#Communication.received)
-* [Recipient](https://hl7.org/FHIR/communication-definitions.html#Communication.recipient)
-* [Sender](https://hl7.org/FHIR/communication-definitions.html#Communication.sender)
-* [Payload](https://hl7.org/FHIR/communication-definitions.html#Communication.payload)
+* [Communication Id](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier)
+* [In Response To](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.inResponseTo)
+* [Status (Completed)](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status)
+* [Category](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.category)
+* [Priority](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.priority)
+* [Subject](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.subject)
+* [Topic](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.topic)
+* [Encounter](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.encounter)
+* [Sent DateTime](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sent)
+* [Received DateTime](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.received)
+* [Recipient](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.recipient)
+* [Sender](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sender)
+* [Payload](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.payload)
 
 ## Terminology Bindings
 
@@ -69,7 +70,7 @@ _Implementation Notes_
 
  Notes:
 
- * The `recipient` parameter must represent a Practitioner or a Group. Use the `:Group` modifier to search by Group.
+ * The `recipient` parameter must represent a Practitioner or a Group.
  * The `received` parameter may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have a `ge` prefix and the higher value must have a `le` prefix. The `ge` prefix is only supported on one.
 
 ### Headers
