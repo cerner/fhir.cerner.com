@@ -139,7 +139,7 @@ Authorization is not required.
 [`offset-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
-[`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/perfoming-location?_format=json
+[`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json

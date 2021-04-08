@@ -4,6 +4,8 @@ title: ChargeItem | R4 API
 
 # ChargeItem
 
+<%= beta_tag %>
+
 * TOC
 {:toc}
 
@@ -62,6 +64,8 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `unit-price`           | [`Money`]                         | The price of a single unit for the resource.
 
 ## Retrieve by id
+
+<%= beta_tag(action: true) %>
 
 List an individual ChargeItem by its id:
 
