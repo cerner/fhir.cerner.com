@@ -9,7 +9,7 @@ title: Binary | R4 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents and diagnostic reports. The diagnostic reports are currently limited to Anatomic Pathology and Radiology.
+The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, diagnostic reports, and communication message content. The supported diagnostic reports are Anatomic Pathology, Cardiology, Microbiology, and Radiology.
 
 It is recommended to request Binary resources only after obtaining links to the resources via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow with Binary resources.
 
@@ -31,7 +31,7 @@ List an individual Binary by its id:
 
 _Implementation Notes_
 
-* This is usually linked from DocumentReference or DiagnosticReport and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
+* This is usually linked from DocumentReference, DiagnosticReport, or Communication and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
 * Documents containing URL sections are unsupported with contentType of `application/pdf`
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
@@ -42,7 +42,7 @@ _Implementation Notes_
 
 _Implementation Notes_
 
-* The `Binary.read` scope and either the `DiagnosticReport.read` or the `DocumentReference.read` scope is required.
+* The required scopes are the `Binary.read` scope, as well as one of the following scopes: `Communication.read`, `DiagnosticReport.read`, or `DocumentReference.read`.
 
 ### Headers
 
@@ -95,6 +95,18 @@ This resource will not accept the `application/json` mime type unless the underl
 <%= headers status: 200 %>
 <%= json(:r4_binary_entry) %>
 
+### Binary Communication Example
+
+The Binary Communication resource is used to retrieve the message content of a Communication resource. The supported accept types of the Binary Communication resource are `application/fhir+json` and `text/html`. If the Accept header is `application/fhir+json`, a Binary Communication resource is returned with the raw data populated in `Binary.data`. If the Accept header is `text/html`, the decoded data will be returned in an HTML format instead of as a Binary Communication resource JSON.
+
+#### Request
+
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/489580643.0.-4.prsnl
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_binary_communication_entry) %>
 <%= disclaimer %>
 
 ### Errors
