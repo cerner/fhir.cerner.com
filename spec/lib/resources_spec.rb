@@ -662,7 +662,7 @@ describe Cerner::Resources::Helpers do
       context 'when action is true' do
         let(:action) { true }
 
-        it 'returns the beta_tag div for a Resource' do
+        it 'returns the beta_tag div for a Resource Action' do
           expect(beta_tag_parameters).to eq(beta_tag_action_div)
         end
       end
