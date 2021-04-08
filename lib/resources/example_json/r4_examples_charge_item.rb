@@ -55,7 +55,7 @@ module Cerner
               'url': 'code'
             },
             {
-              'valueUnsignedInteger': 1,
+              'valueUnsignedInt': 1,
               'url': 'priority'
             }
           ],
@@ -75,7 +75,7 @@ module Cerner
               'url': 'code'
             },
             {
-              'valueUnsignedInteger': 1,
+              'valueUnsignedInt': 1,
               'url': 'priority'
             }
           ],
@@ -95,7 +95,7 @@ module Cerner
               'url': 'code'
             },
             {
-              'valueUnsignedInteger': 2,
+              'valueUnsignedInt': 2,
               'url': 'priority'
             }
           ],
