@@ -632,4 +632,40 @@ describe Cerner::Resources::Helpers do
       expect(disclaimer).to eq(blurb)
     end
   end
+
+  describe '#beta_tag' do
+    subject(:beta_tag) { Cerner::Resources::Helpers.beta_tag }
+    let(:beta_tag_div) do
+      '<div class="beta-tag"></div>This Resource is still under development.'
+    end
+    let(:beta_tag_action_div) do
+      '<div class="beta-tag"></div>This Resource Action is still under development.'
+    end
+
+    context 'when no parameters are passed in' do
+      it 'returns the beta_tag div for a Resource' do
+        expect(beta_tag).to eq(beta_tag_div)
+      end
+    end
+
+    context 'when parameters are passed in' do
+      subject(:beta_tag_parameters) { Cerner::Resources::Helpers.beta_tag(action: action) }
+
+      context 'when action is false' do
+        let(:action) { false }
+
+        it 'returns the beta_tag div for a Resource' do
+          expect(beta_tag_parameters).to eq(beta_tag_div)
+        end
+      end
+
+      context 'when action is true' do
+        let(:action) { true }
+
+        it 'returns the beta_tag div for a Resource Action' do
+          expect(beta_tag_parameters).to eq(beta_tag_action_div)
+        end
+      end
+    end
+  end
 end

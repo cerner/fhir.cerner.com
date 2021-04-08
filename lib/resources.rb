@@ -143,6 +143,10 @@ module Cerner
         "guaranteed to yield the results shown on the site.</p>\n"
       end
 
+      def beta_tag(action: false)
+        "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development."
+      end
+
       def deep_transform_values(value)
         return CGI.escape_html(value) if value.is_a?(String)
         return value unless value.is_a?(Hash)
