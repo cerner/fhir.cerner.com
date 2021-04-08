@@ -144,7 +144,7 @@ module Cerner
       end
 
       def beta_tag(action: false)
-        "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still being developed"
+        "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development."
       end
 
       def deep_transform_values(value)

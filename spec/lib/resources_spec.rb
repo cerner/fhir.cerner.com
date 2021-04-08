@@ -636,10 +636,10 @@ describe Cerner::Resources::Helpers do
   describe '#beta_tag' do
     subject(:beta_tag) { Cerner::Resources::Helpers.beta_tag }
     let(:beta_tag_div) do
-      '<div class="beta-tag"></div>This Resource is still being developed'
+      '<div class="beta-tag"></div>This Resource is still under development.'
     end
     let(:beta_tag_action_div) do
-      '<div class="beta-tag"></div>This Resource Action is still being developed'
+      '<div class="beta-tag"></div>This Resource Action is still under development.'
     end
 
     context 'when no parameters are passed in' do
