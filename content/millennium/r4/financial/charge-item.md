@@ -99,8 +99,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: https://hl7.org/fhir/r4/datatypes.html#date
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
-[`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
-[`Reference`]: http://hl7.org/fhir/r4/references.html#Reference
+[`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
+[`Reference`]: https://hl7.org/fhir/r4/references.html#Reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
