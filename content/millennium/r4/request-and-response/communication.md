@@ -242,7 +242,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[`date`]: http://hl7.org/fhir/R4/search.html#date
-[`CodeableConcept`]: http://hl7.org/fhir/R4/datatypes.html#codeableconcept
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`CodeableConcept`]: https://hl7.org/fhir/R4/datatypes.html#codeableconcept
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html

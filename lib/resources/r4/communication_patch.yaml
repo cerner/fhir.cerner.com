@@ -1,6 +1,6 @@
 ---
 name: Communication
-field_name_base_url: http://hl7.org/fhir/R4/communication-definitions.html#Communication
+field_name_base_url: https://hl7.org/fhir/R4/communication-definitions.html#Communication
 operations:
   - name: replace-extension
     path: /extension
