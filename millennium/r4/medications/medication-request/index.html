@@ -992,7 +992,7 @@
 
 <p><em>Implementation Notes</em></p>
 
-<p>We are currently always returning a value of “Order” in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support “Plan” and “Order” in accordance with the US Core Profile pending changes.</p>
+<p>We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support “Plan” and “Order” in accordance with the US Core Profile changes.</p>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -1033,6 +1033,13 @@
       <td>N</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The <a href="https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html">status</a> of the medication, may be a list separated by commas. Example: <code>active,completed</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>intent</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>Whether the medication is an authorization or a medication reported by a patient. Example: <code>order,plan</code>
 </td>
     </tr>
     <tr>
@@ -1487,7 +1494,7 @@
 
 <p><em>Implementation Notes</em></p>
 
-<p>We are currently always returning a value of “Order” in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support “Plan” and “Order” in accordance with the US Core Profile pending changes.</p>
+<p>We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support “Plan” and “Order” in accordance with the US Core Profile changes.</p>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -2069,7 +2076,7 @@
         <ul style="list-style-type: none"><li>
 <ul>
   <li>When creating a MedicationRequest, the intent must be <code>order</code> or <code>plan</code>.</li>
-  <li>When read back, the created MedicationRequest will always have an intent of <code>order</code>. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. In the future, MedicationRequests with intents of <code>order</code> and <code>plan</code> will be supported in accordance with pending changes to the US Core Profile.</li>
+  <li>When read back, the created MedicationRequest will always have an intent of <code>order</code> or <code>plan</code>. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. MedicationRequests with intents of <code>order</code> and <code>plan</code> is supported in accordance with the changes to the US Core Profile.</li>
 </ul>
 </li></ul>
       
@@ -3479,10 +3486,10 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../definitional-artifacts/">Definitional Artifacts</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../diagnostic/observation/">Observation</a></li>
+          <li><a href="../../definitional-artifacts/questionnaire/">Questionnaire</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -3491,6 +3498,14 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </h3>
         <ul class="js-guides">
           <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -3525,6 +3540,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </h3>
         <ul class="js-guides">
           <li><a href="../../financial/account/">Account</a></li>
+          <li><a href="../../financial/charge-item/">ChargeItem</a></li>
           <li><a href="../../financial/coverage/">Coverage</a></li>
           <li><a href="../../financial/financial-transaction/">FinancialTransaction</a></li>
         </ul>
@@ -3569,12 +3585,12 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../request-and-response/">Request &amp; Response</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../security/provenance/">Provenance</a></li>
-        </ul>
-      </li>
+          <li><a href="../../request-and-response/communication/">Communication</a></li>
+      </ul>
+</li>
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
@@ -3583,6 +3599,14 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
           <li><a href="../../scheduling/appointment/">Appointment</a></li>
           <li><a href="../../scheduling/schedule/">Schedule</a></li>
           <li><a href="../../scheduling/slot/">Slot</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../security/provenance/">Provenance</a></li>
         </ul>
       </li>
     </ul>

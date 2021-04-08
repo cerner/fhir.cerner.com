@@ -1729,6 +1729,29 @@ pre span.comment {color: #aaa;}
 /* @end */
 
 /* -----------------------------
+Beta tag
+-------------------------------*/
+
+.beta-tag+p {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #ffa500;
+    border-color: #582400;
+    font-size: 20px;
+}
+
+.beta-tag+p:before {
+    content: "⚠ BETA";
+    font-weight: bold;
+    display: block;
+    font-size: 24px;
+}
+
+/* @end */
+
+/* -----------------------------
 Super script style
 -------------------------------*/
 

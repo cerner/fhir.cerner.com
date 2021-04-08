@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Communication | R4 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../overview/">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../../../overview/">Overview</a></li>
+        <li><a href="../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="communication">Communication</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
+      <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
+      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Communication resource is a conveyance of information from one entity, a sender, to another entity, a receiver. The information includes encoded data and optionally a related Patient and a related Encounter.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier">Communication Id</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.inResponseTo">In Response To</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status">Status (Completed)</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.category">Category</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.priority">Priority</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.subject">Subject</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.topic">Topic</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.encounter">Encounter</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sent">Sent DateTime</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.received">Received DateTime</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.recipient">Recipient</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sender">Sender</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.payload">Payload</a></li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.category">Communication.category</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The category of the communication.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-communication-category.html">Communication Category</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/communication-category <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Communication.email-status</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The status of the email. May be received, in-progress or completed.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/r4/valueset-task-status.html">Communication Email Status Extension</a><br>
+                      
+                        System: http://hl7.org/fhir/task-status <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>reply-to</code></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>Reference</code></a></td>
+      <td>Used to direct where replies to the communication should be sent. Must be a Group.</td>
+    </tr>
+    <tr>
+      <td><code>email-status</code></td>
+      <td><a href="https://hl7.org/fhir/R4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Status of the electronic communication (in-progress, completed, received).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for communications that meet supplied query parameters:</p>
+
+<pre><code>GET /Communication?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The Content of a communication will be returned through the binary resource. A reference to the payload will be provided in the Payload section.</li>
+  <li>Only 1000 elements max will be returned based on the date range.</li>
+</ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or (<code>category</code>, <code>-email-status</code>, <code>recipient</code> and <code>received</code>)</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>489580643.0.-4.prsnl</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>category</code></td>
+      <td>(This, <code>recipient</code>, <code>received</code> and <code>-email-status</code>) or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>A token for a <a href="https://hl7.org/fhir/R4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a> that points to the CodeableConcept used for Communication.category. Example: <code>http://terminology.hl7.org/CodeSystem/communication-category|notification</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>recipient</code></td>
+      <td>(This, <code>category</code>, <code>received</code> and <code>-email-status</code>) or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>The recipient of the communication. Example: <code>Practitioner/3456783</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>received</code></td>
+      <td>(This, <code>category</code>, <code>recipient</code> and <code>-email-status</code>) or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range into which the communication falls. Example: <code>le2017-02-01T10:30:00Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-email-status</code></td>
+      <td>(This, <code>category</code>, <code>recipient</code> and <code>received</code>) or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The status of the email. Example: <code>http://hl7.org/fhir/task-status|in-progress</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>recipient</code> parameter must represent a Practitioner or a Group.</li>
+  <li>The <code>received</code> parameter may be provided:
+    <ul>
+      <li>once with the <code>ge</code> prefix.</li>
+      <li>twice with the lower value prefixed by <code>ge</code> and the higher value prefixed by <code>le</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication?_id=489580643.0.-4.prsnl
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "e989e20d-5cfc-4b11-ab43-95ba1a684063",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication?_id=489580643.0.-4.prsnl"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication/489580643.0.-4.prsnl",
+      "resource": {
+        "resourceType": "Communication",
+        "id": "489580643.0.-4.prsnl",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-07-16T21:31:35.457Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&amp;lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&amp;lt;p&gt;&amp;lt;b&gt;Communication&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/task-status",
+                  "code": "completed",
+                  "display": "Completed"
+                }
+              ],
+              "text": "Completed"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+          }
+        ],
+        "inResponseTo": [
+          {
+            "reference": "Communication/512657279.0.-4.prsnl"
+          }
+        ],
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+                "code": "notification",
+                "display": "Notification"
+              }
+            ],
+            "text": "Notification"
+          }
+        ],
+        "priority": "urgent",
+        "subject": {
+          "reference": "Patient/12505984",
+          "display": "JOHNSON, MARIE"
+        },
+        "topic": {
+          "text": "CDI Query"
+        },
+        "encounter": {
+          "reference": "Encounter/97739401"
+        },
+        "sent": "2020-07-16T21:31:35.457Z",
+        "received": "2020-07-16T21:31:35.457Z",
+        "recipient": [
+          {
+            "reference": "Practitioner/12093978",
+            "display": "Stone, RN, Sally Cerner"
+          },
+          {
+            "reference": "Group/1568",
+            "display": "HEALTHE Receiver Group"
+          }
+        ],
+        "sender": {
+          "reference": "Practitioner/11875977",
+          "display": "Stratford, Angela Cerner"
+        },
+        "payload": [
+          {
+            "contentReference": {
+              "reference": "Binary/489580643.0.-4.prsnl"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual communication by its id:</p>
+
+<pre><code>GET /Communication/:id
+</code></pre>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication/489580643.0.-4.prsnl
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Communication",
+  "id": "489580643.0.-4.prsnl",
+  "meta": {
+    "versionId": "0",
+    "lastUpdated": "2020-07-16T21:31:35.457Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&amp;lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&amp;lt;p&gt;&amp;lt;b&gt;Communication&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/task-status",
+            "code": "completed",
+            "display": "Completed"
+          }
+        ],
+        "text": "Completed"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+    }
+  ],
+  "inResponseTo": [
+    {
+      "reference": "Communication/512657279.0.-4.prsnl"
+    }
+  ],
+  "status": "completed",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+          "code": "notification",
+          "display": "Notification"
+        }
+      ],
+      "text": "Notification"
+    }
+  ],
+  "priority": "urgent",
+  "subject": {
+    "reference": "Patient/12505984",
+    "display": "JOHNSON, MARIE"
+  },
+  "topic": {
+    "text": "CDI Query"
+  },
+  "encounter": {
+    "reference": "Encounter/97739401"
+  },
+  "sent": "2020-07-16T21:31:35.457Z",
+  "received": "2020-07-16T21:31:35.457Z",
+  "recipient": [
+    {
+      "reference": "Practitioner/12093978",
+      "display": "Stone, RN, Sally Cerner"
+    },
+    {
+      "reference": "Group/1568",
+      "display": "HEALTHE Receiver Group"
+    }
+  ],
+  "sender": {
+    "reference": "Practitioner/11875977",
+    "display": "Stratford, Angela Cerner"
+  },
+  "payload": [
+    {
+      "contentReference": {
+        "reference": "Binary/489580643.0.-4.prsnl"
+      }
+    }
+  ]
+}</code></pre>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create a new communication.</p>
+
+<pre><code>POST /Communication
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/Communication-definitions.html#Communication"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Communication"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The resourceType must be 'Communication'.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The status of the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "completed"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>All communications must be in 'completed' status.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Codeable definition of the communication type.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+          "code": "notification"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-priority">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.priority"><code>priority</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The priority of the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "priority": "routine"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only 'routine' and 'urgent' priorities are supported.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-subject">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The patient that is the focus of the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/9836548"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only Patient is supported as subject.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-topic">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.topic"><code>topic</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The topic of the communication, similar to the subject field of an email.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "topic" : {
+     "text": "Patient Consult Request"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Currently only free-text topics are supported.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/encounter.html"><code>Encounter</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The encounter associated to the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter" : {
+    "reference" : "Encounter/89363836"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Subject is required when writing an encounter.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-recipient">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.recipient"><code>recipient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/practitioner.html"><code>Practitioner</code></a>, <a target="_blank" href="https://hl7.org/fhir/R4/group.html"><code>Group</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The entity receiving the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recipient": [
+    {
+      "reference" : "Practitioner/6373634"
+    },
+    {
+      "reference" : "Group/44466678"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Each recipient must be a Practitioner or Group.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-sender">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.sender"><code>sender</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/practitioner.html"><code>Practitioner</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The entity sending the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "sender": {
+    "reference": "Practitioner/631923"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The sender must be a Practitioner.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-payload">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/communication-definitions.html#Communication.payload"><code>payload</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The text of the communication.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "payload" : [
+    {
+      "contentAttachment" : {
+        "contentType" : "application/xhtml+xml",
+        "data" : "PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIKImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPjxodG1sPjxib2R5PjwvYm9keT48L2h0bWw+"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>content must be supplied as a contentAttachment with contentType and data defined</li>
+  <li>contentType can be set to:
+    <ul>
+      <li>application/xhtml+xml</li>
+      <li>text/plain</li>
+    </ul>
+  </li>
+  <li>contentType can contain a charset set to:
+    <ul>
+      <li>utf-8</li>
+      <li>us-ascii</li>
+    </ul>
+  </li>
+  <li>data should be base64 encoded</li>
+  <li>If the contentType is "application/xhtml+xml", then the data (when decoded) should at least contain the
+      following:
+      <pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</pre>
+  </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-reply-to">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to?_format=json"><code>reply-to</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/group.html"><code>Group</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The entity replies will be directed to.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to",
+  "valueReference": {
+    "reference": "Group/123"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The reply-to must be a Group.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Communication",
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to",
+      "valueReference": {
+        "reference": "Group/6345478364"
+      }
+    }
+  ],
+  "status": "completed",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+          "code": "reminder"
+        }
+      ]
+    }
+  ],
+  "priority": "urgent",
+  "subject": {
+    "reference": "Patient/12457978"
+  },
+  "topic": {
+    "text": "CDI Query"
+  },
+  "encounter": {
+    "reference": "Encounter/97697401"
+  },
+  "recipient": [
+    {
+      "reference": "Practitioner/744113"
+    },
+    {
+      "reference": "Group/6345478364"
+    }
+  ],
+  "sender": {
+    "reference": "Practitioner/593923"
+  },
+  "payload": [
+    {
+      "contentAttachment": {
+        "contentType": "text/plain",
+        "data": "Q29tbXVuaWNhdGlvbg=="
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/json
+Date: Tue, 04 Aug 2020 17:59:03 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication/472894781.0.-4.0
+Last-Modified: Tue, 04 Aug 2020 17:59:03 GMT
+Server-Response-Time: 22.810143
+Status: 201 Created
+Vary: Origin
+X-Request-Id: b89310ef-51ef-4b76-b92e-d070496c999c
+X-Runtime: 0.022706
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="patch">Patch</h2>
+
+<p>Patch an existing communication.</p>
+
+<pre><code>PATCH /Communication/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
+  <li>Only operations on the paths listed below are supported.</li>
+</ul>
+
+<h3 id="authorization-types-3">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/json-patch+json
+If-Match: W/"&lt;Current version of the Communication resource&gt;"</code></pre>
+
+<h3 id="patch-operations">Patch Operations</h3>
+
+<table style="white-space: normal">
+  <thead>
+  <tr>
+    <th>Path</th>
+    <th>Operation</th>
+    <th>Value Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>
+        <a name="replace-extension">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension"><code>/extension</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the value of an extension.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/extension",
+  "op": "replace",
+  "value": [
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/task-status",
+            "code": "completed"
+          }
+        ]
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>Supported extensions that can be replaced: <ul>
+  <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Email Status</a>
+</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<h3 id="example-3">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication/123
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "path": "/extension",
+    "op": "replace",
+    "value": [
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/task-status",
+              "code": "completed"
+            }
+          ]
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+      }
+    ]
+  }
+]</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/json
+Date: Wed, 11 Nov 2020 18:42:40 GMT
+Etag: W/"2"
+Last-Modified: Wed, 11 Nov 2020 18:42:40 GMT
+Server-Response-Time: 826.746885
+Status: 200 OK
+Vary: Origin
+X-Request-Id: 1594889a-8278-43f2-9c83-d84d6d2b3c72
+X-Runtime: 0.826616
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">R4 Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../conformance/">Conformance</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../conformance/capability-statement/">Capability Statement</a></li>
+          <li><a href="../../conformance/operation-definition/">OperationDefinition</a></li>
+          <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../care-provision/">Care Provision</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../../care-provision/goal/">Goal</a></li>
+          <li><a href="../../care-provision/nutrition-order/">NutritionOrder</a></li>
+          <li><a href="../../care-provision/service-request/">ServiceRequest</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../definitional-artifacts/">Definitional Artifacts</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../devices/">Devices</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../documents/">Documents</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../documents/document-reference/">DocumentReference</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../encounters/">Encounters</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../encounters/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../entities/">Entities</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../entities/location/">Location</a></li>
+          <li><a href="../../entities/organization/">Organization</a></li>
+          <li><a href="../../entities/consent/">Consent</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../financial/">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../financial/account/">Account</a></li>
+          <li><a href="../../financial/charge-item/">ChargeItem</a></li>
+          <li><a href="../../financial/coverage/">Coverage</a></li>
+          <li><a href="../../financial/financial-transaction/">FinancialTransaction</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../general-clinical/">General Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/procedure/">Procedure</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../individuals/">Individuals</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../individuals/patient/">Patient</a></li>
+          <li><a href="../../individuals/person/">Person</a></li>
+          <li><a href="../../individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../medications/">Medications</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../medications/immunization/">Immunization</a></li>
+          <li><a href="../../medications/medication-request/">MedicationRequest</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Request &amp; Response</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="./">Communication</a></li>
+      </ul>
+</li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../scheduling/appointment/">Appointment</a></li>
+          <li><a href="../../scheduling/schedule/">Schedule</a></li>
+          <li><a href="../../scheduling/slot/">Slot</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../security/provenance/">Provenance</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

@@ -1268,10 +1268,16 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>The Condition Create API supports only the API fields mentioned below. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
-  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
-  <li>Currently <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported.</li>
+  <li>The code.coding field can have at most 2 codings.
+    <ul>
+      <li>One of the codings must have userSelected: true</li>
+      <li>The other coding must have userSelected: false</li>
+    </ul>
+  </li>
+  <li>The Condition Create API currently supports only Conditions with a category of <code>problem-list-item</code> or <code>encounter-diagnosis</code>.</li>
+  <li>An <code>encounter-diagnosis</code> Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -2628,10 +2634,10 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../definitional-artifacts/">Definitional Artifacts</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../diagnostic/observation/">Observation</a></li>
+          <li><a href="../../definitional-artifacts/questionnaire/">Questionnaire</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -2640,6 +2646,14 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 </h3>
         <ul class="js-guides">
           <li><a href="../../devices/device/">Device</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../diagnostic/">Diagnostic</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../diagnostic/observation/">Observation</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -2674,6 +2688,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 </h3>
         <ul class="js-guides">
           <li><a href="../../financial/account/">Account</a></li>
+          <li><a href="../../financial/charge-item/">ChargeItem</a></li>
           <li><a href="../../financial/coverage/">Coverage</a></li>
           <li><a href="../../financial/financial-transaction/">FinancialTransaction</a></li>
         </ul>
@@ -2718,12 +2733,12 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../request-and-response/">Request &amp; Response</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../../security/provenance/">Provenance</a></li>
-        </ul>
-      </li>
+          <li><a href="../../request-and-response/communication/">Communication</a></li>
+      </ul>
+</li>
       <li class="js-topic">
         <h3>
 <a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../scheduling/">Scheduling</a>
@@ -2732,6 +2747,14 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
           <li><a href="../../scheduling/appointment/">Appointment</a></li>
           <li><a href="../../scheduling/schedule/">Schedule</a></li>
           <li><a href="../../scheduling/slot/">Slot</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../security/">Security</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../security/provenance/">Provenance</a></li>
         </ul>
       </li>
     </ul>

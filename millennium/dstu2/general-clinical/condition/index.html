@@ -929,7 +929,13 @@
       <li>Creating Conditions with a category code of <a href="https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes">health-concern</a> is not currently supported.</li>
     </ul>
   </li>
-  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
+  <li>The code.coding field can have at most 2 codings.
+    <ul>
+      <li>One of the codings must have userSelected: true</li>
+      <li>The other coding must have userSelected: false</li>
+    </ul>
+  </li>
+  <li>A Condition with a category code of diagnosis will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
