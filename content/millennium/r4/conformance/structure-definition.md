@@ -101,7 +101,7 @@ Authorization is not required.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
- [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
+ [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
