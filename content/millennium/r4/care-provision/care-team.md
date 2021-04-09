@@ -35,7 +35,7 @@ Search for CareTeams that meet supplied query parameters:
 
 _Implementation Notes_
 
-* For CareTeam Read operations, only Careteam.read is required.
+* For CareTeam Search operations, only Careteam.read is required.
 
 ### Authorization Types
 
@@ -110,7 +110,7 @@ List an individual CareTeam by its id:
 
 _Implementation Notes_
 
-* For CareTeam Read operations, only Careteam.read is required.
+* For CareTeam Search operations, only Careteam.read is required.
 
 ### Authorization Types
 
