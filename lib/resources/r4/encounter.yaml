@@ -360,7 +360,7 @@ fields:
         }
       ]
     }
-  note: Only the text field is supported for reasonCode.
+  note: Can include miltiple reasons. Supports reasonForVisit, incidentCd, admittingDiagnoses and administrativeProblemCd.
 
 - name: hospitalization
   required: 'No'
