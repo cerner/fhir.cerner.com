@@ -356,11 +356,20 @@ fields:
     {
       "reasonCode": [
         {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "208388003",
+              "display": "Fracture At Wrist And/Or Hand Level",
+              "userSelected": true
+            }
+          ]
+        }, {
           "text": "Neck pain"
         }
       ]
     }
-  note: Only the text field is supported for reasonCode.
+  note: Only SNOMED codes and text fields are supported for reasonCode.
 
 - name: hospitalization
   required: 'No'
