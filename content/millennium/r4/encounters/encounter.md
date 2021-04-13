@@ -98,7 +98,7 @@ _Implementation Notes_
   Notes:
 
 * `_count` and `status` must be provided with patient
-* `status` valid parameters are `planned`, `in-proggres`, `onleave`, `finished`, `cancelled`
+* `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
 
 ### Headers
 
