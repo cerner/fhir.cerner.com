@@ -369,7 +369,7 @@ fields:
         }
       ]
     }
-  note: Only SNOMED codes and text fields are supported for reasonCode.
+  note: ICD-10 and SNOMED codes along with text fields are supported for reasonCode.
 
 - name: hospitalization
   required: 'No'
