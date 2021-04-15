@@ -2,7 +2,6 @@
 
 require 'cgi'
 require 'yajl/json_gem'
-require 'pry'
 
 module Cerner
   module Resources
