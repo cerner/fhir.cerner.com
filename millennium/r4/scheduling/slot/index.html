@@ -103,6 +103,15 @@
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -998,6 +1007,136 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="patch">Patch</h2>
+
+<div class="beta-tag">
+<p>This Resource Action is still under development.</p>
+<p>Known Issues:</p>
+<ul><li>A 500 Internal Server Error is thrown when an invalid version id is used in the If-Match Header</li></ul>
+</div>
+
+<p>Patch an existing Slot.</p>
+
+<pre><code>PATCH /Slot/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
+  <li>Only operations on the paths listed below are supported.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/json-patch+json
+If-Match: W/"&lt;Current version of the Slot resource&gt;"</code></pre>
+
+<h3 id="patch-operations">Patch Operations</h3>
+
+<table style="white-space: normal">
+  <thead>
+  <tr>
+    <th>Path</th>
+    <th>Operation</th>
+    <th>Value Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>
+        <a name="replace-status">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/slot-definitions.html#Slot.status"><code>/status</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The status of the slot.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/status"
+  "status": "free"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Only <code>free</code> and `busy-tentative` are supported.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/status",
+    "value": "busy-tentative"
+  }
+]</code></pre>
+
+<h4 id="response-6">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 20
+Content-Type: text/html
+Date: Tue, 06 Apr 2021 15:36:47 GMT
+Etag: W/"410v795030969834"
+Last-Modified: Tue, 06 Apr 2021 15:36:47 GMT
+Vary: Origin
+X-Request-Id: 6801a2c5-bf2d-414b-9f6a-7bcf39cc69d9
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 

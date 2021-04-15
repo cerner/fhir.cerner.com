@@ -397,14 +397,89 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---encounter-level-coverage">Example - Encounter-level Coverage</h3>
+<h4 id="example---patient-level-public-healthcare-coverage">Example - Patient-level Public Healthcare Coverage</h4>
 
 <h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "8ff4481d-ce55-4b3f-ac2c-4d4fd3cad4c0",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-490218084-12724066",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "PHP-490218084-12724066",
+        "meta": {
+          "versionId": "134-0",
+          "lastUpdated": "2021-03-16T20:04:11.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Coverage&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Beneficiary&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Coverage Start Date&lt;/b&gt;: Mar 16, 2021  8:04 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Payor&lt;/b&gt;: Government&lt;/p&gt;&lt;p&gt;&lt;b&gt;Class&lt;/b&gt;:&lt;/p&gt;&lt;dl&gt;&lt;dt&gt;Charging Category&lt;/dt&gt;&lt;dd&gt;&lt;b&gt;Value&lt;/b&gt;:2572940471&lt;/dd&gt;&lt;dd&gt;&lt;b&gt;Name&lt;/b&gt;: 10-OPC, Class II&lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: public healthcare&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PUBLICPOL",
+              "display": "public healthcare"
+            }
+          ],
+          "text": "public healthcare"
+        },
+        "beneficiary": {
+          "reference": "Patient/12462008",
+          "display": "TRAUMA SURGERY, TESTONE"
+        },
+        "period": {
+          "start": "2021-03-16T20:04:11.000Z"
+        },
+        "payor": [
+          {
+            "display": "Government"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "text": "Charging Category"
+            },
+            "value": "2572940471",
+            "name": "10-OPC, Class II"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---encounter-level-coverage">Example - Encounter-level Coverage</h3>
+
+<h4 id="request-2">Request</h4>
 
 <pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -492,14 +567,16 @@
   ]
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h4 id="example---encounter-level-public-healthcare-coverage">Example - Encounter-level Public Healthcare Coverage</h4>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -521,7 +598,7 @@
         "resourceType": "Coverage",
         "id": "PH-98371617-97701467",
         "meta": {
-          "versionId": "2",
+          "versionId": "2-0",
           "lastUpdated": "2020-09-24T17:11:10.000Z"
         },
         "text": {
@@ -1203,7 +1280,7 @@
 
 <h3 id="example---patient-level-coverage-1">Example - Patient-level Coverage</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
@@ -1268,7 +1345,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1288,7 +1365,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 <h3 id="example---encounter-level-coverage-1">Example - Encounter-level Coverage</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 </code></pre>
@@ -1365,7 +1442,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
   ]
 }</code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1389,7 +1466,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 <h2 id="patch">Patch</h2>
 
-<p>Patch an existing Encounter-level Coverage.</p>
+<p>Patch an existing Encounter-level or Patient-level Coverage.</p>
 
 <pre><code>PATCH /Coverage/:id
 </code></pre>
@@ -1399,7 +1476,8 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 <ul>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
-  <li>Only Encounter-level Coverages may be patched. Patches are not currently supported for Patient-level Coverages.</li>
+  <li>For Private Coverages, only Encounter-level Coverages may be patched. For Public Coverages,
+both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the <code>/period</code> and <code>/class/0/value</code> operations.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1460,7 +1538,8 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>The <code>Coverage.class</code> at index 0 represents the plan for the Coverage.</li>
+  <li>For Private Coverages, the <code>Coverage.class</code> at index 0 represents the plan for the Coverage.</li>
+  <li>For Public Coverages, the <code>Coverage.class</code> at index 0 represents the charging category for the Coverage.</li>
 </ul>
 </li></ul>
           
@@ -1786,7 +1865,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h3 id="example">Example</h3>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
@@ -1848,7 +1927,7 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
   }
 ]</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1897,12 +1976,12 @@ If-Match: W/"&lt;Current version of the Coverage resource&gt;"</code></pre>
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-6">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <pre><code>DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 </code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 204 No Content</code></pre>
 
