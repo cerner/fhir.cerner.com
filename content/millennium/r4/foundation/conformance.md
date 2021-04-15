@@ -9,3 +9,4 @@ layout: api
 
 * [Capability Statement](../foundation/conformance/capability-statement)
 * [Structure Definition](../foundation/conformance/structure-definition)
+* [Operation Definition](../foundation/conformance/operation-definition)
