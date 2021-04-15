@@ -2,7 +2,7 @@
 name: Slot
 field_name_base_url: https://hl7.org/fhir/r4/slot-definitions.html#Slot
 operations:
-  - name: replace-status
+  - name: status
     path: /status
     operation: replace
     type: code

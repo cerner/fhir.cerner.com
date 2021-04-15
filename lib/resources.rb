@@ -2,6 +2,7 @@
 
 require 'cgi'
 require 'yajl/json_gem'
+require 'pry'
 
 module Cerner
   module Resources
@@ -143,14 +144,21 @@ module Cerner
         "guaranteed to yield the results shown on the site.</p>\n"
       end
 
-      def beta_tag(action: false)
-        "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development."
+      def beta_tag(action: false, known_issues: nil)
+        beta = "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development.\n"\
+        "- test1\n\n - test2"
+
+
+        # if known_issues
+        #   beta += "<br /> Known Issues:<br /> <ul> <li> #{known_issues} </li> </ul>"
+        # end
+
+        beta
       end
 
       def deep_transform_values(value)
         return CGI.escape_html(value) if value.is_a?(String)
         return value unless value.is_a?(Hash)
-
         value.transform_values do |val|
           if val.is_a?(Array)
             val.map! { |array_value| deep_transform_values(array_value) }
