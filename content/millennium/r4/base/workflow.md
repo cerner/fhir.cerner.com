@@ -3,7 +3,7 @@ title: Workflow | R4 API
 layout: api
 ---
 
-# Individuals
+# Workflow
 
 <%= render '/millennium/r4/base/workflow.*' %>
 

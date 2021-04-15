@@ -9,3 +9,4 @@ layout: api
 
 * [Organization](../base/entities/organization)
 * [Location](../base/entities/location)
+* [Device](../base/entities/device)
