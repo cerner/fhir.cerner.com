@@ -777,11 +777,11 @@ a .mega-octicon {
 .sidebar-module .disable > a {
   color: #333;
   border-left: 2px solid #d8d8d8;
-  padding-left: 29px;
+  padding-left: 37px;
 }
 
 .sidebar-module ul ul li a {
-  padding: 6px 0px 6px 31px;
+  padding: 6px 0px 6px 40px;
   display: block;
   text-decoration: none;
   font-weight: normal;
@@ -792,6 +792,12 @@ a .mega-octicon {
   color: #327fc7;
 }
 
+.sidebar-module .subtopic a {
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  padding-left: 31px;
+}
 
 /*****************************************************************************/
 /*

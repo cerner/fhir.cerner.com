@@ -1,17 +1,9 @@
 ---
-title: Financial | R4 API
+title: General | R4 API
 layout: api
 ---
 
-<%= render '/millennium/r4/financial.*' %>
-
-## Support
-
-<%= render '/millennium/r4/financial/support.*' %>
-
-* [Coverage](../financial/support/coverage)
-
-## General
+# General
 
 <%= render '/millennium/r4/financial/general.*' %>
 
