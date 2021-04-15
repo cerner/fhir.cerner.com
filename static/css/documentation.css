@@ -1749,6 +1749,17 @@ Beta tag
     font-size: 24px;
 }
 
+/* Known Issues Heading */
+.beta-tag p:nth-child(2) {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Known Issues List */
+.beta-tag ul {
+  margin-top: 0px;
+  font-size: 14px;
+}
 /* @end */
 
 /* -----------------------------
