@@ -676,7 +676,7 @@ describe Cerner::Resources::Helpers do
             '<li>hi</li><li>hello</li></ul></div>'
           end
 
-          it 'returns the beta_tag div for a Resource' do
+          it 'returns the beta_tag div for a Resource with known issues' do
             expect(beta_tag_parameters).to eq(beta_tag_div)
           end
         end
@@ -699,7 +699,7 @@ describe Cerner::Resources::Helpers do
             '<li>hi</li><li>hello</li></ul></div>'
           end
 
-          it 'returns the beta_tag div for a Resource Action' do
+          it 'returns the beta_tag div for a Resource Action with known issues' do
             expect(beta_tag_parameters).to eq(beta_tag_action_div)
           end
         end
