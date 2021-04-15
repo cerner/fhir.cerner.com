@@ -145,18 +145,23 @@ module Cerner
       end
 
       def beta_tag(action: false, known_issues: nil)
-        beta = "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development.\n"\
-        
+        beta = "<div class=\"beta-tag\"><p>This Resource#{' Action' if action} is still under development.</p>"
+
         if known_issues
-          beta += "<br /> Known Issues:<br /> <ul> <li> #{known_issues} </li> </ul>"
+          beta += '<p>Known Issues:</p><ul>'
+          known_issues.each do |issue|
+            beta += "<li>#{issue}</li>"
+          end
+          beta += '</ul>'
         end
 
-        beta
+        beta + '</div>'
       end
 
       def deep_transform_values(value)
         return CGI.escape_html(value) if value.is_a?(String)
         return value unless value.is_a?(Hash)
+
         value.transform_values do |val|
           if val.is_a?(Array)
             val.map! { |array_value| deep_transform_values(array_value) }

@@ -1732,7 +1732,7 @@ pre span.comment {color: #aaa;}
 Beta tag
 -------------------------------*/
 
-.beta-tag+p {
+.beta-tag {
     padding: 8px 35px 8px 14px;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -1742,7 +1742,7 @@ Beta tag
     font-size: 20px;
 }
 
-.beta-tag+p:before {
+.beta-tag:before {
     content: "⚠ BETA";
     font-weight: bold;
     display: block;
