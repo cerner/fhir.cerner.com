@@ -146,12 +146,10 @@ module Cerner
 
       def beta_tag(action: false, known_issues: nil)
         beta = "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development.\n"\
-        "- test1\n\n - test2"
-
-
-        # if known_issues
-        #   beta += "<br /> Known Issues:<br /> <ul> <li> #{known_issues} </li> </ul>"
-        # end
+        
+        if known_issues
+          beta += "<br /> Known Issues:<br /> <ul> <li> #{known_issues} </li> </ul>"
+        end
 
         beta
       end
