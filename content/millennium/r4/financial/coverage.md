@@ -203,7 +203,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
-Patch an existing Encounter-level Coverage.
+Patch an existing Encounter-level or Patient-level Coverage.
 
     PATCH /Coverage/:id
 
