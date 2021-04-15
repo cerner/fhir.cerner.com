@@ -195,6 +195,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
+<%= beta_tag(action: true) %>
+
 Patch an existing Slot.
 
     PATCH /Slot/:id

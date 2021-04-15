@@ -1,6 +1,6 @@
 ---
-name: Related Person
-field_name_base_url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson
+name: Slot
+field_name_base_url: https://hl7.org/fhir/r4/slot-definitions.html#Slot
 operations:
   - name: status
     path: /status
@@ -13,4 +13,3 @@ operations:
         "status": "free"
       }
     note: Currently supports only `free` and `busy tentative`.
-    
