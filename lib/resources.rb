@@ -143,8 +143,24 @@ module Cerner
         "guaranteed to yield the results shown on the site.</p>\n"
       end
 
-      def beta_tag(action: false)
-        "<div class=\"beta-tag\"></div>This Resource#{' Action' if action} is still under development."
+      # Public: Helper method to create a tag to denote if a resource/action is still under development.
+      #
+      # @param action [boolean] flag to denote if a resource action is under development. Defaults to false.
+      # @param known_issues [Array<String>] an array of known issues for the resource/action.
+      #
+      # @return [String] an HTML div for beta tag.
+      def beta_tag(action: false, known_issues: nil)
+        beta = "<div class=\"beta-tag\"><p>This Resource#{' Action' if action} is still under development.</p>"
+
+        if known_issues
+          beta += '<p>Known Issues:</p><ul>'
+          known_issues.each do |issue|
+            beta += "<li>#{issue}</li>"
+          end
+          beta += '</ul>'
+        end
+
+        beta + '</div>'
       end
 
       def deep_transform_values(value)
