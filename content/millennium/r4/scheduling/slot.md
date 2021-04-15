@@ -197,6 +197,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 <%= beta_tag(action: true) %>
 
+Known Issues:
+
+* A 500 Internal Server Error is thrown when an invalid version id is used in the If-Match Header
+
 Patch an existing Slot.
 
     PATCH /Slot/:id
@@ -215,7 +219,6 @@ _Implementation Notes_
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
                    'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Slot resource>"'} %>
 
-
 ### Patch Operations
 
 <%= patch_definition_table(:slot_patch, :r4) %>
@@ -224,7 +227,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
 
 #### Body
 
