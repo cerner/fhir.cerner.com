@@ -77,6 +77,9 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
 
 * Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
+* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+  URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status`.
+
 ## Search
 
 Search for MedicationRequests that meet supplied query parameters:
