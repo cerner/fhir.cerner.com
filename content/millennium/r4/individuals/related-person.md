@@ -105,30 +105,6 @@ Notes:
 
 <%= disclaimer %>
 
-#### Patient Authorization Request
-
-### Example - Search by Patient
-
-#### Request
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=166045489
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_bundle_patient_access) %>
-<%= disclaimer %>
-
-### Example - Search by Encounter
-
-#### Request
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=51678301
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_encounter_bundle_patient_access) %>
-<%= disclaimer %>
-
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.

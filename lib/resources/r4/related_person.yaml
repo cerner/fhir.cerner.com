@@ -61,9 +61,19 @@ fields:
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
-    - display: Millennium Person Relationships
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
+
+- name: relationship relation extension
+  type: CodeableConcept
+  description: The nature of the relationship between a patient and the related person.
+  url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship
+  terminology_name: relationship.extension[x].valueCodeableConcept
+  action: terminology
+  binding:
+    description: The nature of the relationship between a patient and the related person. This binding is used in <code>relationship-relation</code> extensions.
+    terminology:
+      - display: Millennium Person Relationships
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
 
 - name: Relationship Level Extension
   type: CodeableConcept
@@ -104,6 +114,31 @@ fields:
               "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
               "code": "1152",
               "display": "Emergency Contact"
+            }
+          ]
+        }
+        {
+          "extension": [
+            {
+              "valueCodeableconcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "SIS",
+                    "display": "sister",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Sister"
+              },
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+            },
+            {
+              "valuePeriod": {
+                "start": "2016-12-19T16:44:25.000Z",
+                "end": "2022-05-01T16:56:56.000Z"
+              },
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
             }
           ]
         }
