@@ -605,7 +605,7 @@ module Cerner
                 ],
                 'text': 'Sister'
               },
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             },
             {
               'valuePeriod': {
@@ -1045,7 +1045,7 @@ module Cerner
                           'code': 'SIS',
                           'display': 'sister',
                           'userSelected': false
-                      }
+                        }
                       ],
                       'text': 'Sister'
                     },
