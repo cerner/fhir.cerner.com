@@ -69,7 +69,7 @@ fields:
   terminology_name: relationship.extension[x].valueCodeableConcept
   action: terminology
   binding:
-    description: The nature of the relationship between a patient and the related person. This binding is used in <code>relationship-relation</code> extensions.
+    description: The nature of the relationship between a patient and the related person. This binding is used in <code>relation</code> extensions.
     terminology:
       - display: Millennium Person Relationships
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
