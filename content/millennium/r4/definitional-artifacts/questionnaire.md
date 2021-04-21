@@ -22,6 +22,7 @@ The following fields are returned if valued:
 * [Patient Subject Type](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.subjectType){:target="_blank"}
 * [Item](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item){:target="_blank"}
     * [Link id](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.linkId){:target="_blank"}
+    * [Extension](#extensions)
     * [Text](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.text){:target="_blank"}
     * [Type](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.type){:target="_blank"}
     * [Item](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item){:target="_blank"}
@@ -31,7 +32,7 @@ The following fields are returned if valued:
         * [Required](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.required){:target="_blank"}
         * [Repeats](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.repeats){:target="_blank"}
         * [Max Length](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.maxLength){:target="_blank"}
-        * [Extension](https://hl7.org/fhir/R4/extension-maxdecimalplaces.html){:target="_blank"}
+        * [Extension](#extensions)
         * [Answer Option](https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.answerOption){:target="_blank"}
     
 ## Terminology Bindings
@@ -41,6 +42,15 @@ The following fields are returned if valued:
 ## Extensions
 
 * [Max Decimal Places]
+* [Note Allowed]
+
+### Custom Extensions
+
+URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID             | Value\[x] Type                                              | Description                   
+----------------|-------------------------------------------------------------|-------------------------------
+ `note-allowed` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Whether a comment is allowed.
 
 ## Search
 
@@ -115,6 +125,7 @@ List an individual Questionnaire by its id:
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: https://hl7.org/fhir/R4/search.html#token
+[Note Allowed]: #custom-extensions
 [Max Decimal Places]: https://hl7.org/fhir/R4/extension-maxdecimalplaces.html
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes

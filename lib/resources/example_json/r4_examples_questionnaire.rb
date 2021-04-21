@@ -14,6 +14,12 @@ module Cerner
       'item': [
         {
           'linkId': '93',
+          'extension': [
+            {
+              'valueBoolean': true,
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed'
+            }
+          ],
           'text': 'Tobacco',
           'type': 'group',
           'item': [
@@ -113,13 +119,6 @@ module Cerner
               'required': false,
               'repeats': false,
               'maxLength': 6
-            },
-            {
-              'linkId': '93-comment',
-              'text': 'Comment:',
-              'type': 'text',
-              'required': false,
-              'repeats': false
             }
           ]
         }
