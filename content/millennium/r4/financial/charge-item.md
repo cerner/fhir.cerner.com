@@ -29,7 +29,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
-* [Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, revenue code, and unit price](#extensions){:target="_blank"}
+* [Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
