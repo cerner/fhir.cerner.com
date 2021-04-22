@@ -44,8 +44,8 @@ The following fields are returned if valued:
 * [Offset By]
 * [Performing Location]
 * [Procedure]
-* [Revenue Code]
 * [Replacing]
+* [Revenue Code]
 * [Unit Price]
 
 ### Custom Extensions
@@ -61,7 +61,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `offset-by`            | [`Reference`]                     | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  `performing-location`  | [`Reference`]                     | A location where the resource was performed.
  `procedure`            | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
-  `replacing`           | [`Reference`]                     | A reference to a resource that this resource is replacing.
+ `replacing`            | [`Reference`]                     | A reference to a resource that this resource is replacing.
  `revenue-code`         | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
  `unit-price`           | [`Money`]                         | The price of a single unit for the resource.
 
