@@ -97,6 +97,8 @@ Authorization is not required.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
  [`modifier`]                                                | A code providing additional detail about a product or service.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
+ [`note`]                                                    | Additional details related to an element within the resource along with author and date/time information.
+ [`note-allowed`]                                            | Indication of whether an additional comment is permitted.
  [`offset-by`]                                               | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
@@ -138,6 +140,8 @@ Authorization is not required.
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
 [`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
+[`note`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json
+[`note-allowed`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json
 [`offset-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
