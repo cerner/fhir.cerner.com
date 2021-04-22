@@ -106,6 +106,7 @@ Authorization is not required.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
  [`replaced-by`]                                             | The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.
+ [`replacing`]                                                | A reference to a resource that this resource is replacing.
  [`reply-to`]                                                | A link to a resource that the reply should be directed to.
  [`revenue-code`]                                            | The type of revenue or cost center providing the product and/or service.
  [`transmitting-organization`]                               | An organization that transmitted or participated in the creation of a resource, but not the author.
@@ -146,6 +147,7 @@ Authorization is not required.
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
 [`replaced-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replaced-by?_format=json
+[`replacing`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing?_format=json
 [`reply-to`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to?_format=json
 [`revenue-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
 [`transmitting-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/transmitting-organization?_format=json
