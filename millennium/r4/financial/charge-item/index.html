@@ -118,7 +118,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate" target="_blank">Entered Date</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason" target="_blank">Reason</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account" target="_blank">Account</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, revenue code, and unit price</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -344,6 +344,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="#custom-extensions">Offset By</a></li>
   <li><a href="#custom-extensions">Performing Location</a></li>
   <li><a href="#custom-extensions">Procedure</a></li>
+  <li><a href="#custom-extensions">Replacing</a></li>
   <li><a href="#custom-extensions">Revenue Code</a></li>
   <li><a href="#custom-extensions">Unit Price</a></li>
 </ul>
@@ -395,6 +396,11 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td><code>procedure</code></td>
       <td>None (contains nested extensions)</td>
       <td>Procedure performed on the patient associated to the resource.</td>
+    </tr>
+    <tr>
+      <td><code>replacing</code></td>
+      <td><a href="https://hl7.org/fhir/r4/references.html#Reference"><code>Reference</code></a></td>
+      <td>A reference to a resource that this resource is replacing.</td>
     </tr>
     <tr>
       <td><code>revenue-code</code></td>

@@ -980,7 +980,13 @@
 <h2 id="custom-extensions">Custom Extensions</h2>
 
 <ul>
-  <li>Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction</code>.</li>
+  <li>
+    <p>Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction</code>.</p>
+  </li>
+  <li>
+    <p>Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status</code>.</p>
+  </li>
 </ul>
 
 <h2 id="search">Search</h2>
@@ -1131,6 +1137,12 @@
               "display": "Electronic"
             },
             "url": "http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis"
+          },
+          {
+            "valueCodeableConcept": {
+              "text": "Does not need pharmacy verification"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status"
           }
         ],
         "status": "active",
@@ -1547,6 +1559,12 @@
           "display": "Electronic"
         },
         "url": "http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis"
+      },
+      {
+        "valueCodeableConcept": {
+          "text": "Does not need pharmacy verification"
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status"
       }
     ],
     "status": "active",

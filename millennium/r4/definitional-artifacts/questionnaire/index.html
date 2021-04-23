@@ -82,7 +82,11 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -118,6 +122,7 @@
 <a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item" target="_blank">Item</a>
     <ul>
       <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.linkId" target="_blank">Link id</a></li>
+      <li><a href="#extensions">Extension</a></li>
       <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.text" target="_blank">Text</a></li>
       <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.type" target="_blank">Type</a></li>
       <li>
@@ -129,7 +134,7 @@
           <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.required" target="_blank">Required</a></li>
           <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.repeats" target="_blank">Repeats</a></li>
           <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.maxLength" target="_blank">Max Length</a></li>
-          <li><a href="https://hl7.org/fhir/R4/extension-maxdecimalplaces.html" target="_blank">Extension</a></li>
+          <li><a href="#extensions">Extension</a></li>
           <li><a href="https://hl7.org/fhir/R4/questionnaire-definitions.html#Questionnaire.item.answerOption" target="_blank">Answer Option</a></li>
         </ul>
       </li>
@@ -190,7 +195,29 @@
 
 <ul>
   <li><a href="https://hl7.org/fhir/R4/extension-maxdecimalplaces.html">Max Decimal Places</a></li>
+  <li><a href="#custom-extensions">Note Allowed</a></li>
 </ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>note-allowed</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
+      <td>Whether a comment is allowed.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -269,6 +296,12 @@
         "item": [
           {
             "linkId": "93",
+            "extension": [
+              {
+                "valueBoolean": true,
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed"
+              }
+            ],
             "text": "Tobacco",
             "type": "group",
             "item": [
@@ -368,13 +401,6 @@
                 "required": false,
                 "repeats": false,
                 "maxLength": 6
-              },
-              {
-                "linkId": "93-comment",
-                "text": "Comment:",
-                "type": "text",
-                "required": false,
-                "repeats": false
               }
             ]
           }
@@ -433,6 +459,12 @@
   "item": [
     {
       "linkId": "93",
+      "extension": [
+        {
+          "valueBoolean": true,
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed"
+        }
+      ],
       "text": "Tobacco",
       "type": "group",
       "item": [
@@ -532,13 +564,6 @@
           "required": false,
           "repeats": false,
           "maxLength": 6
-        },
-        {
-          "linkId": "93-comment",
-          "text": "Comment:",
-          "type": "text",
-          "required": false,
-          "repeats": false
         }
       ]
     }
