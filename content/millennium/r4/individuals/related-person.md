@@ -20,15 +20,13 @@ The following fields are returned if valued:
 * [Active](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active){:target="_blank"}
 * [Patient](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
 * [Relationship](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"}
-* [Relation](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"}
-* [Period](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"}
 * [Related person's name](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
 * [Telecom information (may include phone and email)](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom){:target="_blank"}
 * [Gender (administrative)](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender){:target="_blank"}
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
-* [Extensions including related person encounter and relationship level](#extensions){:target="_blank"}
+* [Extensions including related person encounter,relationship level and period](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -38,6 +36,7 @@ The following fields are returned if valued:
 
 * [Related Person Encounter]
 * [Relationship Level]
+* [Period]
 
 ### Custom Extensions
 
@@ -48,7 +47,6 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `related-person-encounter` | [`reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
  `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
  `period`                   | [`Period`]          | A time period defined by a start and end date/time.
- `relation`                 | [`CodeableConcept`] | The related person's familial relationship to the patient.
 
 ## Search
 
@@ -304,3 +302,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
 [Related Person Encounter]: #custom-extensions
+[Period]: #custom-extensions
