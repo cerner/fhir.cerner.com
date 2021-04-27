@@ -29,15 +29,9 @@ module Cerner
             'userSelected': true
           },
           {
-            'system': 'http://loinc.org',
-            '_code': {
-              'extension': [
-                {
-                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
-                  'valueCode': 'unknown'
-                }
-              ]
-            }
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+            'code': 'UNK',
+            'display': 'unknown'
           }
         ],
         'text': 'Pregnancy Summary Document'
