@@ -75,6 +75,7 @@ Authorization is not required.
  [`account-presented-form`]                                  | Link to the PDF statement image related to the statement account.
  [`account-related-parts`]                                   | A reference to other related Accounts.
  [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
+ [`bill-code-schedule`]                                      | A defined group of bill codes that drives billing behavior.
  [`client-instruction`]                                      | Represents instructions for an order that are intended for healthcare providers.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
@@ -118,6 +119,7 @@ Authorization is not required.
 [`account-presented-form`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
+[`bill-code-schedule`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
 [`clinical-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction?_format=json

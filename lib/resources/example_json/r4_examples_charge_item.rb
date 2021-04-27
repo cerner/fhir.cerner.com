@@ -47,6 +47,15 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
+                    'extension': [
+                      {
+                        'valueCoding': {
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                          'code': '615215'
+                        },
+                        'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+                      }
+                    ],
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-HCPCS',
                     'code': '43'
                   }
@@ -67,6 +76,15 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
+                    'extension': [
+                      {
+                        'valueCoding': {
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                          'code': '3692'
+                        },
+                        'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+                      }
+                    ],
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
                     'code': '22'
                   }
@@ -87,6 +105,15 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
+                    'extension': [
+                      {
+                        'valueCoding': {
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                          'code': '3692'
+                        },
+                        'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+                      }
+                    ],
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
                     'code': '22'
                   }
@@ -105,6 +132,15 @@ module Cerner
           'valueCodeableConcept': {
             'coding': [
               {
+                'extension': [
+                  {
+                    'valueCoding': {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                      'code': '615217'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+                  }
+                ],
                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE',
                 'code': '0127'
               }
@@ -117,6 +153,15 @@ module Cerner
       'code': {
         'coding': [
           {
+            'extension': [
+              {
+                'valueCoding': {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                  'code': '615214'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+              }
+            ],
             'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CDM_SCHED',
             'code': '34523'
           }
@@ -139,6 +184,25 @@ module Cerner
         'reference': 'Practitioner/13237051'
       },
       'enteredDate': '2019-08-15T14:00:01Z',
+      'reason': [
+        {
+          'coding': [
+            {
+              'extension': [
+                {
+                  'valueCoding': {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
+                    'code': '3693'
+                  },
+                  'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
+                }
+              ],
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD',
+              'code': '100.0'
+            }
+          ]
+        }
+      ],
       'account': [
         {
           'reference': 'Account/F9494243'

@@ -29,7 +29,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
-* [Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price](#extensions){:target="_blank"}
+* [Extensions including bill code schedule, custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -37,6 +37,7 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Bill Code Schedule]
 * [Custom Attribute]
 * [Description]
 * [Modifier]
@@ -54,6 +55,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                     | Value\[x] Type                    | Description
 ------------------------|-----------------------------------|--------------------------------------------------------------------------
+ `bill-code-schedule`   | [`coding`]                        | A defined group of bill codes that drives billing behavior.
  `custom-attribute`     | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
  `description`          | [`string`]                        | A description providing additional details of the resource.
  `modifier`             | None (contains nested extensions) | A code providing additional detail about a product or service.
@@ -104,6 +106,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`Reference`]: https://hl7.org/fhir/r4/references.html#Reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
+[`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Procedure]: #custom-extensions
@@ -116,3 +119,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Description]: #custom-extensions
 [Performing Location]: #custom-extensions
 [Replacing]: #custom-extensions
+[Bill Code Schedule]: #custom-extensions
