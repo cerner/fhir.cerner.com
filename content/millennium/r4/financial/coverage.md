@@ -211,8 +211,8 @@ _Implementation Notes_
 
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
-* For Private Coverages, only Encounter-level Coverages may be patched. For Public Coverages,
-both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
+* For Private Coverages, only Encounter-level Coverages may be patched.
+* For Public Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
 
 ### Authorization Types
 
@@ -267,7 +267,8 @@ Delete an existing Encounter-level Coverage.
 
 _Implementation Notes_
 
-* Only Encounter-level Coverages may be deleted. Deletes are not currently supported for Patient-level Coverages.
+* For Private Coverages, only Encounter-level Coverages may be deleted.
+* For Public Coverages, both Encounter-level and Patient-level Coverages may be deleted.
 
 ### Authorization Types
 
