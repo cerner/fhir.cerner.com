@@ -605,7 +605,7 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
 
 ##### Code Set 14002 Bill Code Schedule
 
-This code set contains group of bill codes that drives billing behavior.
+This code set contains bill code schedules that drive billing behavior.
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14002",

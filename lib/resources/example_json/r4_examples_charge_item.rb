@@ -157,7 +157,7 @@ module Cerner
               {
                 'valueCoding': {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
-                  'code': '615214'
+                  'code': '667687'
                 },
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
               }
