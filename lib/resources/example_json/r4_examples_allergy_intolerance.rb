@@ -85,308 +85,327 @@ module Cerner
     }.freeze
 
     R4_ALLERGY_INTOLERANCE_REVINCLUDE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "65ee4c79-3514-4eab-b606-10ad56fb0d5d",
-      "type": "searchset",
-      "link": [
-          {
-              "relation": "self",
-              "url": "https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance?_id=74771957%2CS-75479691&_revinclude=Provenance%3Atarget"
-          }
+      'resourceType': 'Bundle',
+      'id': '65ee4c79-3514-4eab-b606-10ad56fb0d5d',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance?_id=74771957%2CS-75479691&_revinclude=Provenance%3Atarget'
+        }
       ],
-      "entry": [
-          {
-              "fullUrl": "https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/74771957",
-              "resource": {
-                  "resourceType": "AllergyIntolerance",
-                  "id": "74771957",
-                  "meta": {
-                      "versionId": "74771957",
-                      "lastUpdated": "2019-05-15T13:15:25Z"
-                  },
-                  "text": {
-                      "status": "generated",
-                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: John, Smith</p><p><b>Allergy</b>: Peanut - dietary (substance)</p><p><b>Verification Status</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>Category</b>: Medication</p><p><b>Onset</b>: May 15, 2019  1:15 P.M. UTC</p></div>"
-                  },
-                  "clinicalStatus": {
-                      "coding": [
-                          {
-                              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-                              "code": "active",
-                              "display": "Active"
-                          }
-                      ],
-                      "text": "Active"
-                  },
-                  "verificationStatus": {
-                      "coding": [
-                          {
-                              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-                              "code": "confirmed",
-                              "display": "Confirmed"
-                          }
-                      ],
-                      "text": "Active"
-                  },
-                  "type": "allergy",
-                  "category": [
-                      "medication"
-                  ],
-                  "criticality": "high",
-                  "code": {
-                      "coding": [
-                          {
-                              "system": "http://snomed.info/sct",
-                              "code": "256349002",
-                              "display": "Peanut - dietary (substance)"
-                          }
-                      ],
-                      "text": "Peanuts"
-                  },
-                  "patient": {
-                      "reference": "Patient/150915497",
-                      "display": "John, Smith"
-                  },
-                  "encounter": {
-                      "reference": "Encounter/44324934"
-                  },
-                  "onsetDateTime": "2019-05-15T13:15:25Z",
-                  "recordedDate": "2019-05-15T13:15:25Z",
-                  "recorder": {
-                      "reference": "Practitioner/8176589",
-                      "display": "DIRECTORYSERVICEUSER, DIRECTORYSERVICEUSER"
-                  },
-                  "asserter": {
-                      "reference": "Patient/150915497",
-                      "display": "John, Smith"
-                  }
-              },
-              "search": {
-                  "mode": "match"
-              }
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/74771957',
+          'resource': {
+            'resourceType': 'AllergyIntolerance',
+            'id': '74771957',
+            'meta': {
+              'versionId': '74771957',
+              'lastUpdated': '2019-05-15T13:15:25Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Allergy Intolerance</b></p>
+              <p><b>Patient</b>: John, Smith</p><p><b>Allergy</b>: Peanut - dietary (substance)</p>
+              <p><b>Verification Status</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p>
+              <p><b>Criticality</b>: High Risk</p><p><b>Category</b>: Medication</p>
+              <p><b>Onset</b>: May 15, 2019  1:15 P.M. UTC</p></div>'
+            },
+            'clinicalStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+                  'code': 'active',
+                  'display': 'Active'
+                }
+              ],
+              'text': 'Active'
+            },
+            'verificationStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+                  'code': 'confirmed',
+                  'display': 'Confirmed'
+                }
+              ],
+              'text': 'Active'
+            },
+            'type': 'allergy',
+            'category': [
+              'medication'
+            ],
+            'criticality': 'high',
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '256349002',
+                  'display': 'Peanut - dietary (substance)'
+                }
+              ],
+              'text': 'Peanuts'
+            },
+            'patient': {
+              'reference': 'Patient/150915497',
+              'display': 'John, Smith'
+            },
+            'encounter': {
+              'reference': 'Encounter/44324934'
+            },
+            'onsetDateTime': '2019-05-15T13:15:25Z',
+            'recordedDate': '2019-05-15T13:15:25Z',
+            'recorder': {
+              'reference': 'Practitioner/8176589',
+              'display': 'DIRECTORYSERVICEUSER, DIRECTORYSERVICEUSER'
+            },
+            'asserter': {
+              'reference': 'Patient/150915497',
+              'display': 'John, Smith'
+            }
           },
-          {
-              "fullUrl": "https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/S-75479691",
-              "resource": {
-                  "resourceType": "AllergyIntolerance",
-                  "id": "S-75479691",
-                  "meta": {
-                      "versionId": "1",
-                      "lastUpdated": "2020-03-19T20:47:44Z",
-                      "security": [
-                          {
-                              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
-                              "code": "UNCERTREL",
-                              "display": "Uncertain Reliability"
-                          }
-                      ]
-                  },
-                  "text": {
-                      "status": "generated",
-                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: MARSTON, JACK</p><p><b>Meta Security</b>: Uncertain Reliability</p><p><b>Allergy</b>: Strawberry (substance)</p><p><b>Verification Status</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p><p><b>Category</b>: Medication</p><p><b>Onset</b>: Sep 11, 2019 12:00 A.M. CDT</p><p><b>Note</b>: Allergy reported by patient.</p></div>"
-                  },
-                  "contained": [
-                      {
-                          "resourceType": "PractitionerRole",
-                          "id": "638995",
-                          "code": [
-                              {
-                                  "coding": [
-                                      {
-                                          "system": "http://snomed.info/sct",
-                                          "code": "106292003",
-                                          "display": "Professional nurse (occupation)"
-                                      }
-                                  ],
-                                  "text": "Professional nurse (occupation)"
-                              }
-                          ]
-                      }
-                  ],
-                  "clinicalStatus": {
-                      "coding": [
-                          {
-                              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
-                              "code": "active",
-                              "display": "Active"
-                          }
-                      ],
-                      "text": "Active"
-                  },
-                  "verificationStatus": {
-                      "coding": [
-                          {
-                              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
-                              "code": "confirmed",
-                              "display": "Confirmed"
-                          }
-                      ],
-                      "text": "Active"
-                  },
-                  "type": "allergy",
-                  "category": [
-                      "medication"
-                  ],
-                  "criticality": "high",
-                  "code": {
-                      "coding": [
-                          {
-                              "system": "http://snomed.info/sct",
-                              "code": "102261002",
-                              "display": "Strawberry (substance)"
-                          }
-                      ],
-                      "text": "Strawberry"
-                  },
-                  "patient": {
-                      "reference": "Patient/166045489",
-                      "display": "MARSTON, JACK"
-                  },
-                  "onsetDateTime": "2019-09-11T05:00:00Z",
-                  "recorder": {
-                      "reference": "Practitioner/1",
-                      "display": "SYSTEM, SYSTEM"
-                  },
-                  "asserter": {
-                      "reference": "#638995"
-                  },
-                  "note": [
-                      {
-                          "authorReference": {
-                              "reference": "Practitioner/2578010"
-                          },
-                          "text": "Allergy reported by patient."
-                      }
-                  ]
-              },
-              "search": {
-                  "mode": "match"
-              }
-          },
-          {
-              "fullUrl": "https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-4957069",
-              "resource": {
-                  "resourceType": "Provenance",
-                  "id": "all-4957069",
-                  "meta": {
-                      "versionId": "4957069",
-                      "lastUpdated": "2020-03-16T21:45:09Z"
-                  },
-                  "text": {
-                      "status": "generated",
-                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>AllergyIntolerance/74771957</li></ul><p><b>Recorded</b>: Mar 16, 2020  4:45 P.M. CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/S-200</p></div>"
-                  },
-                  "target": [
-                      {
-                          "reference": "AllergyIntolerance/74771957"
-                      }
-                  ],
-                  "recorded": "2020-03-16T21:45:09Z",
-                  "agent": [
-                      {
-                          "type": {
-                              "coding": [
-                                  {
-                                      "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
-                                      "code": "author"
-                                  }
-                              ],
-                              "text": "Author"
-                          },
-                          "role": [
-                              {
-                                  "coding": [
-                                      {
-                                          "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
-                                          "code": "SOURCE"
-                                      }
-                                  ],
-                                  "text": "Source"
-                              }
-                          ],
-                          "who": {
-                              "reference": "Organization/40475456",
-                              "display": "Unknown"
-                          }
-                      }
-                  ],
-                  "entity": [
-                      {
-                          "role": "source",
-                          "what": {
-                              "reference": "DocumentReference/S-200"
-                          }
-                      }
-                  ]
-              },
-              "search": {
-                  "mode": "include"
-              }
-          },
-          {
-              "fullUrl": "https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-16897171",
-              "resource": {
-                  "resourceType": "Provenance",
-                  "id": "all-16897171",
-                  "meta": {
-                      "versionId": "16897171",
-                      "lastUpdated": "2021-03-26T08:03:53Z"
-                  },
-                  "text": {
-                      "status": "generated",
-                      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>AllergyIntolerance/S-75479691</li></ul><p><b>Recorded</b>: Mar 25, 2021  9:57 A.M. CDT</p><p><b>Agents</b>:</p><dl><dt>Baseline East Medical Center</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/S-201</p></div>"
-                  },
-                  "target": [
-                      {
-                          "reference": "AllergyIntolerance/S-75479691"
-                      }
-                  ],
-                  "recorded": "2021-03-25T14:57:43Z",
-                  "agent": [
-                      {
-                          "type": {
-                              "coding": [
-                                  {
-                                      "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
-                                      "code": "author"
-                                  }
-                              ],
-                              "text": "Author"
-                          },
-                          "role": [
-                              {
-                                  "coding": [
-                                      {
-                                          "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
-                                          "code": "SOURCE"
-                                      }
-                                  ],
-                                  "text": "Source"
-                              }
-                          ],
-                          "who": {
-                              "reference": "Organization/619848",
-                              "display": "Baseline East Medical Center"
-                          }
-                      }
-                  ],
-                  "entity": [
-                      {
-                          "role": "source",
-                          "what": {
-                              "reference": "DocumentReference/S-201"
-                          }
-                      }
-                  ]
-              },
-              "search": {
-                  "mode": "include"
-              }
+          'search': {
+            'mode': 'match'
           }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/S-75479691',
+          'resource': {
+            'resourceType': 'AllergyIntolerance',
+            'id': 'S-75479691',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-03-19T20:47:44Z',
+              'security': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ObservationValue',
+                  'code': 'UNCERTREL',
+                  'display': 'Uncertain Reliability'
+                }
+              ]
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Allergy Intolerance</b></p>
+              <p><b>Patient</b>: MARSTON, JACK</p><p><b>Meta Security</b>: Uncertain Reliability</p>
+              <p><b>Allergy</b>: Strawberry (substance)</p><p><b>Verification Status</b>: Confirmed</p>
+              <p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p>
+              <p><b>Category</b>: Medication</p><p><b>Onset</b>: Sep 11, 2019 12:00 A.M. CDT</p>
+              <p><b>Note</b>: Allergy reported by patient.</p></div>'
+            },
+            'contained': [
+              {
+                'resourceType': 'PractitionerRole',
+                'id': '638995',
+                'code': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://snomed.info/sct',
+                        'code': '106292003',
+                        'display': 'Professional nurse (occupation)'
+                      }
+                    ],
+                    'text': 'Professional nurse (occupation)'
+                  }
+                ]
+              }
+            ],
+            'clinicalStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical',
+                  'code': 'active',
+                  'display': 'Active'
+                }
+              ],
+              'text': 'Active'
+            },
+            'verificationStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification',
+                  'code': 'confirmed',
+                  'display': 'Confirmed'
+                }
+              ],
+              'text': 'Active'
+            },
+            'type': 'allergy',
+            'category': [
+              'medication'
+            ],
+            'criticality': 'high',
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '102261002',
+                  'display': 'Strawberry (substance)'
+                }
+              ],
+              'text': 'Strawberry'
+            },
+            'patient': {
+              'reference': 'Patient/166045489',
+              'display': 'MARSTON, JACK'
+            },
+            'onsetDateTime': '2019-09-11T05:00:00Z',
+            'recorder': {
+              'reference': 'Practitioner/1',
+              'display': 'SYSTEM, SYSTEM'
+            },
+            'asserter': {
+              'reference': '#638995'
+            },
+            'note': [
+              {
+                'authorReference': {
+                  'reference': 'Practitioner/2578010'
+                },
+                'text': 'Allergy reported by patient.'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-4957069',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'all-4957069',
+            'meta': {
+              'versionId': '4957069',
+              'lastUpdated': '2020-03-16T21:45:09Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Provenance</b></p>
+              <p><b>Target</b>:</p><ul><li>AllergyIntolerance/74771957</li></ul>
+              <p><b>Recorded</b>: Mar 16, 2020  4:45 P.M. CDT</p>
+              <p><b>Agents</b>:</p>
+              <dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl>
+              <p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
+            },
+            'target': [
+              {
+                'reference': 'AllergyIntolerance/74771957'
+              }
+            ],
+            'recorded': '2020-03-16T21:45:09Z',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/40475456',
+                  'display': 'Unknown'
+                }
+              }
+            ],
+            'entity': [
+              {
+                'role': 'source',
+                'what': {
+                  'reference': 'DocumentReference/S-200'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-16897171',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'all-16897171',
+            'meta': {
+              'versionId': '16897171',
+              'lastUpdated': '2021-03-26T08:03:53Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Provenance</b></p>
+              <p><b>Target</b>:</p><ul><li>AllergyIntolerance/S-75479691</li></ul>
+              <p><b>Recorded</b>: Mar 25, 2021  9:57 A.M. CDT</p>
+              <p><b>Agents</b>:</p>
+              <dl><dt>Baseline East Medical Center</dt><dd><b>Agent Type</b>: Author</dd>
+              <dd><b>Agent Role</b>: Source</dd></dl>
+              <p><b>Entity Source</b>: DocumentReference/S-201</p></div>'
+            },
+            'target': [
+              {
+                'reference': 'AllergyIntolerance/S-75479691'
+              }
+            ],
+            'recorded': '2021-03-25T14:57:43Z',
+            'agent': [
+              {
+                'type':
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                        'code': 'author'
+                      }
+                    ],
+                    'text': 'Author'
+                  },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/619848',
+                  'display': 'Baseline East Medical Center'
+                }
+              }
+            ],
+            'entity': [
+              {
+                'role': 'source',
+                'what': {
+                  'reference': 'DocumentReference/S-201'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        }
       ]
-  }
-
-    
+    }.freeze
 
     R4_ALLERGY_INTOLERANCE_PATIENT_ENTRY ||= {
       "resourceType": 'AllergyIntolerance',
