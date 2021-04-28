@@ -124,6 +124,16 @@ The Account Resource supports proprietary codes for:
 * Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
 * Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
 
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary codes for:
+
+* ChargeItem.code codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+* ChargeItem.reason codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+* ChargeItem.procedure codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+* ChargeItem.modifier codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+* ChargeItem.revenue-code codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+
 ### General Clinical
 
 <!-- use html header to avoid showing up in toc -->
@@ -593,6 +603,15 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "display": "Moderate",
     }
 
+##### Code Set 14002 Bill Code Schedule
+
+This code set contains group of bill codes that drives billing behavior.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14002",
+      "code": "3693"
+    }
+    
 ##### Code Set 14045 Surgical Procedure Modifiers
 
 This code set contains the area of the body the surgery procedure is being executed.

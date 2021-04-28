@@ -198,7 +198,7 @@ module Cerner
                 }
               ],
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD',
-              'code': '100.0'
+              'code': 'R51'
             }
           ]
         }

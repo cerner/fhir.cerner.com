@@ -66,3 +66,42 @@ fields:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-REVENUE
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
+
+  - name: Bill Code Schedule Extension
+    terminology_name: code.coding.extension[x].valueCoding
+    required: 'No'
+    type: Extension
+    description: A defined group of bill codes that drives billing behavior.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    binding:
+      description: A defined group of bill codes that drives billing behavior.
+      terminology:
+        - display: Bill Code Schedule
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
+
+  - name: Bill Code Schedule Extension
+    terminology_name: reason.coding.extension[x].valueCoding
+    required: 'No'
+    type: Extension
+    description: A defined group of bill codes that drives billing behavior.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    binding:
+      description: A defined group of bill codes that drives billing behavior.
+      terminology:
+        - display: Bill Code Schedule
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
+
+  - name: Bill Code Schedule Extension
+    terminology_name: extension[x].valueCodeableConcept.coding.extension[x].valueCoding
+    required: 'No'
+    type: Extension
+    description: A defined group of bill codes that drives billing behavior.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    binding:
+      description: A defined group of bill codes that drives billing behavior.
+      terminology:
+        - display: Bill Code Schedule
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
