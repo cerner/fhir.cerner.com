@@ -128,11 +128,7 @@ The Account Resource supports proprietary codes for:
 
 The ChargeItem Resource supports proprietary codes for:
 
-* ChargeItem.code codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
-* ChargeItem.reason codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
-* ChargeItem.procedure codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
-* ChargeItem.modifier codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
-* ChargeItem.revenue-code codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
+* ChargeItem.bill-code-schedule extensions codes are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
 
 ### General Clinical
 
