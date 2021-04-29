@@ -91,12 +91,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance?_id=74771957%2CS-75479691&_revinclude=Provenance%3Atarget'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957%2CS-75479691&_revinclude=Provenance%3Atarget'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/74771957',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/74771957',
           'resource': {
             'resourceType': 'AllergyIntolerance',
             'id': '74771957',
@@ -170,7 +170,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance/S-75479691',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/S-75479691',
           'resource': {
             'resourceType': 'AllergyIntolerance',
             'id': 'S-75479691',
@@ -273,7 +273,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-4957069',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-4957069',
           'resource': {
             'resourceType': 'Provenance',
             'id': 'all-4957069',
@@ -338,7 +338,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/all-16897171',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-16897171',
           'resource': {
             'resourceType': 'Provenance',
             'id': 'all-16897171',

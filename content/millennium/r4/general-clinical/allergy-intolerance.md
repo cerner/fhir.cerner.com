@@ -65,7 +65,7 @@ Notes:
 
 The _revinclude parameter may be provided once with the value Provenance:target. Example: _revinclude=Provenance:target
 
-The _revinclude parameter may be provided with the _id parameter. Example: _id=74771957,S-75479691&_revinclude=Provenance:target
+The _revinclude parameter may be provided with the _id/patient parameter. Example: _id=74771957,S-75479691&_revinclude=Provenance:target
 
 When _revinclude is provided in a request to the closed endpoint, the OAuth2 token must include the user/Provenance.read scope.
 Currently patient/Provenance.read is not supported and hence _revinclude cannot be utilised for patient persona.
@@ -94,7 +94,7 @@ Currently patient/Provenance.read is not supported and hence _revinclude cannot 
 
 #### Request
 
-    GET https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/AllergyIntolerance?_id=74771957,S-75479691&_revinclude=Provenance:target
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957,S-75479691&_revinclude=Provenance:target
 #### Response
 
 <%= headers status: 200 %>
