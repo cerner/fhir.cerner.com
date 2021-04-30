@@ -34,21 +34,21 @@ module Cerner
             {
               'linkId': '6930316',
               'text': 'Number of years:',
-              'type': 'integer',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
             {
               'linkId': '6930360',
               'text': 'Started at age:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
             {
               'linkId': '6930364',
               'text': 'Stopped at age:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
@@ -102,7 +102,7 @@ module Cerner
             {
               'linkId': '6930380',
               'text': 'Total pack years:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
@@ -115,7 +115,7 @@ module Cerner
               ],
               'linkId': '4356884',
               'text': 'Weight',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false,
               'maxLength': 6
