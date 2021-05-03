@@ -120,8 +120,8 @@ The Organization Resource supports proprietary codes for:
 The Account Resource supports proprietary codes for:
 
 * Account.type.text codes are maintained in [Code Set 18736 Account Types](#code-set-18736-account-types)
-* The Balance extensions on Account are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
-* The State extensions on Account are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
+* The Account Balance extensions on Account are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
+* The Account State extensions on Account are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
 * Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
 
 <h4>ChargeItem</h4>
