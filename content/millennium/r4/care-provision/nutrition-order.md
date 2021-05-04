@@ -44,7 +44,7 @@ Search for NutritionOrders that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -92,7 +92,7 @@ List an individual NutritionOrder by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -111,6 +111,25 @@ List an individual NutritionOrder by its id:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/328575687
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_nutrition_order_patient_access) %>
+<%= disclaimer %>
+
+#### Patient Authorization Request For Entered in Error Status
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/328575703
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_nutrition_order_patient_access_entered_in_error) %>
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
