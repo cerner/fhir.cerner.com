@@ -242,9 +242,7 @@ module Cerner
         }
       ],
       'entry': [
-        R4_NUTRITION_ORDER_ENTRY,
-        R4_NUTRITION_ORDER_PATIENT_ACCESS,
-        R4_NUTRITION_ORDER_PATIENT_ACCESS_ENTERED_IN_ERROR
+        R4_NUTRITION_ORDER_ENTRY
       ]
     }.freeze
 
