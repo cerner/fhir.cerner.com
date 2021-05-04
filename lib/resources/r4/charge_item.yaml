@@ -74,7 +74,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -87,7 +87,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -100,7 +100,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
