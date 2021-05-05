@@ -103,6 +103,12 @@ module Cerner
       'telecom': [
         {
           'id': 'CI-PH-29811922-0',
+          'extension': [
+            {
+              'valueUrl': '816-888-8886',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
           'system': 'phone',
           'value': '8168888886',
           'use': 'home',
@@ -415,6 +421,12 @@ module Cerner
       'telecom': [
         {
           'id': 'CI-PH-29583893-0',
+          'extension': [
+            {
+              'valueUrl': '426-475-8753',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
           'system': 'phone',
           'value': '4264758753',
           'use': 'home',
@@ -658,6 +670,12 @@ module Cerner
             'telecom': [
               {
                 'id': 'CI-PH-29811924-0',
+                'extension': [
+                  {
+                    'valueUrl': '816-888-8886',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
                 'system': 'phone',
                 'value': '8168888886',
                 'use': 'home',
@@ -1246,6 +1264,12 @@ module Cerner
             'telecom': [
               {
                 'id': 'CI-PH-29583893-0',
+                'extension': [
+                  {
+                    'valueUrl': '816-888-8886',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
                 'system': 'phone',
                 'value': '4264758753',
                 'use': 'home',
