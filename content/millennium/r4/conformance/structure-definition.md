@@ -103,6 +103,7 @@ Authorization is not required.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
+ [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
@@ -113,7 +114,6 @@ Authorization is not required.
  [`revenue-code`]                                            | The type of revenue or cost center providing the product and/or service.
  [`transmitting-organization`]                               | An organization that transmitted or participated in the creation of a resource, but not the author.
  [`unit-price`]                                              | The price of a single unit for the resource.
- [`period`]                                                  | A time period defined by a start and end date/time.
 
 [`account-balance`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance?_format=json
 [`account-presented-form`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json
@@ -147,6 +147,7 @@ Authorization is not required.
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
+[`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
@@ -157,4 +158,3 @@ Authorization is not required.
 [`revenue-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
 [`transmitting-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/transmitting-organization?_format=json
 [`unit-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/unit-price?_format=json
-[`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
