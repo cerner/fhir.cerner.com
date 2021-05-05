@@ -72,8 +72,7 @@ module Cerner
           'extension': [
             {
               'valuePeriod': {
-                'start': '2016-12-19T16:44:25.000Z',
-                'end': '2022-05-01T16:56:56.000Z'
+                'start': '2019-12-26T16:06:26.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
             }
@@ -381,8 +380,7 @@ module Cerner
           'extension': [
             {
               'valuePeriod': {
-                'start': '2016-12-19T16:44:25.000Z',
-                'end': '2022-05-01T16:56:56.000Z'
+                'start': '2016-12-08T21:53:53.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
             }
@@ -526,8 +524,7 @@ module Cerner
           'extension': [
             {
               'valuePeriod': {
-                'start': '2016-12-19T16:44:25.000Z',
-                'end': '2022-05-01T16:56:56.000Z'
+                'start': '2019-12-26T16:06:26.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
             }
@@ -630,8 +627,7 @@ module Cerner
                 'extension': [
                   {
                     'valuePeriod': {
-                      'start': '2016-12-19T16:44:25.000Z',
-                      'end': '2022-05-01T16:56:56.000Z'
+                      'start': '2019-12-26T16:06:26.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
                   }
@@ -778,8 +774,7 @@ module Cerner
           'extension': [
             {
               'valuePeriod': {
-                'start': '2016-12-19T16:44:25.000Z',
-                'end': '2022-05-01T16:56:56.000Z'
+                'start': '2019-12-26T16:06:26.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
             }
@@ -931,8 +926,7 @@ module Cerner
                 'extension': [
                   {
                     'valuePeriod': {
-                      'start': '2016-12-19T16:44:25.000Z',
-                      'end': '2022-05-01T16:56:56.000Z'
+                      'start': '2016-12-08T21:53:53.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
                   }

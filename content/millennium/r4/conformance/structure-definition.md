@@ -113,6 +113,7 @@ Authorization is not required.
  [`revenue-code`]                                            | The type of revenue or cost center providing the product and/or service.
  [`transmitting-organization`]                               | An organization that transmitted or participated in the creation of a resource, but not the author.
  [`unit-price`]                                              | The price of a single unit for the resource.
+ [`period`]                                                  | A time period defined by a start and end date/time.
 
 [`account-balance`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance?_format=json
 [`account-presented-form`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json
@@ -156,3 +157,4 @@ Authorization is not required.
 [`revenue-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
 [`transmitting-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/transmitting-organization?_format=json
 [`unit-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/unit-price?_format=json
+[`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
