@@ -153,32 +153,6 @@ _Implementation Notes_
 
 <%= disclaimer %>
 
-#### Patient Authorization Request
-
-### Example - Patient-level RelatedPerson
-
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/166624790-166045489
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_entry_patient_access) %>
-
-### Example - Encounter-level RelatedPerson
-
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-173417344-51678301
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_encounter_entry_patient_access) %>
-
-<%= disclaimer %>
-
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
