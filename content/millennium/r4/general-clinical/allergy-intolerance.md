@@ -59,6 +59,15 @@ Search for AllergyIntolerances that meet supplied query parameters:
  `_id`              | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`          | This or `_id`                                                        | [`reference`] | Who the sensitivity is for. Example: `12345`
  `clinical-status`  | No                                                                   | [`token`]     | The clinical status of the allergy or intolerance. Example: `active`, `inactive`, `resolved`
+ `_revinclude`      | No                                                                   | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+
+Notes:
+
+The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=74771957,S-75479691&_revinclude=Provenance:target`
+
+When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 ### Headers
 
@@ -74,6 +83,21 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:r4_allergy_intolerance_bundle) %>
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957,S-75479691&_revinclude=Provenance:target
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_allergy_intolerance_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request

@@ -1,0 +1,223 @@
+---
+name: Communication
+field_name_base_url: https://hl7.org/fhir/r4/communication-definitions.html#Communication
+fields:
+- name: resourceType
+  required: 'Yes'
+  cardinality: 1..1
+  type: string
+  description: The type of the FHIR resource.
+  url: https://hl7.org/fhir/r4/Communication-definitions.html#Communication
+  note: The resourceType must be 'Communication'.
+  action: create
+  example: |
+    {
+      "resourceType": "Communication"
+    }
+
+- name: status
+  required: 'Yes'
+  cardinality: 1..1
+  type: code
+  description: The status of the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.status
+  action: create
+  note: All communications must be in 'completed' status.
+  example: |
+    {
+      "status": "completed"
+    }
+
+- name: category
+  required: 'Yes'
+  cardinality: 0..1
+  type: CodeableConcept
+  description: Codeable definition of the communication type.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.category
+  example: |
+    {
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+              "code": "notification"
+            }
+          ]
+        }
+      ]
+    }
+  action:
+    - terminology
+    - create
+  binding:
+    description: The category of the communication.
+    terminology:
+      - display: Communication Category
+        system: http://terminology.hl7.org/CodeSystem/communication-category
+        info_link: https://hl7.org/fhir/R4/valueset-communication-category.html
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+
+- name: priority
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: The priority of the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.priority
+  action: create
+  note: Only 'routine' and 'urgent' priorities are supported.
+  example: |
+    {
+      "priority": "routine"
+    }
+
+- name: subject
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Patient)
+  description: The patient that is the focus of the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.subject
+  action: create
+  note: Only Patient is supported as subject.
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/9836548"
+      }
+    }
+
+- name: topic
+  required: 'No'
+  cardinality: 0..1
+  type: code
+  description: The topic of the communication, similar to the subject field of an email.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.topic
+  note: Currently only free-text topics are supported.
+  example: |
+    {
+      "topic" : {
+         "text": "Patient Consult Request"
+      }
+    }
+  action: create
+
+- name: encounter
+  required: 'No'
+  cardinality: 0..1
+  type: Reference (Encounter)
+  note: Subject is required when writing an encounter.
+  description: The encounter associated to the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.encounter
+  example: |
+    {
+      "encounter" : {
+        "reference" : "Encounter/89363836"
+      }
+    }
+  action: create
+
+- name: recipient
+  required: 'Yes'
+  cardinality: 1..*
+  type: Reference (Practitioner, Group)
+  description: The entity receiving the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.recipient
+  note: Each recipient must be a Practitioner or Group.
+  example: |
+    {
+      "recipient": [
+        {
+          "reference" : "Practitioner/6373634"
+        },
+        {
+          "reference" : "Group/44466678"
+        }
+      ]
+    }
+  action: create
+
+- name: sender
+  required: 'Yes'
+  cardinality: 1..1
+  type: Reference (Practitioner)
+  description: The entity sending the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.sender
+  note: The sender must be a Practitioner.
+  example: |
+    {
+      "sender": {
+        "reference": "Practitioner/631923"
+      }
+    }
+  action: create
+
+- name: payload
+  required: 'Yes'
+  cardinality: 1..1
+  type: BackboneElement
+  description: The text of the communication.
+  url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.payload
+  note: |
+    <ul>
+      <li>content must be supplied as a contentAttachment with contentType and data defined</li>
+      <li>contentType can be set to:
+        <ul>
+          <li>application/xhtml+xml</li>
+          <li>text/plain</li>
+        </ul>
+      </li>
+      <li>contentType can contain a charset set to:
+        <ul>
+          <li>utf-8</li>
+          <li>us-ascii</li>
+        </ul>
+      </li>
+      <li>data should be base64 encoded</li>
+      <li>If the contentType is "application/xhtml+xml", then the data (when decoded) should at least contain the
+          following:
+          <pre><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body></body></html></pre>
+      </li>
+    </ul>
+  example: |
+    {
+      "payload" : [
+        {
+          "contentAttachment" : {
+            "contentType" : "application/xhtml+xml",
+            "data" : "PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIKImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPjxodG1sPjxib2R5PjwvYm9keT48L2h0bWw+"
+          }
+        }
+      ]
+    }
+  action:
+    - create
+
+- name: email-status
+  description: The status of the email. May be received, in-progress or completed.
+  action: terminology
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json
+  binding:
+    description: The status of the email. May be received, in-progress or completed.
+    terminology:
+    - display: Communication Email Status Extension
+      system: http://hl7.org/fhir/task-status
+      info_link: https://www.hl7.org/fhir/r4/valueset-task-status.html
+
+- name: reply-to
+  terminology_name: extension[x].valueReference
+  required: 'No'
+  type: Reference (Group)
+  description: The entity replies will be directed to.
+  note: The reply-to must be a Group.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to",
+      "valueReference": {
+        "reference": "Group/123"
+      }
+    }
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to?_format=json
