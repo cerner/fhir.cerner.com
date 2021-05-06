@@ -120,9 +120,15 @@ The Organization Resource supports proprietary codes for:
 The Account Resource supports proprietary codes for:
 
 * Account.type.text codes are maintained in [Code Set 18736 Account Types](#code-set-18736-account-types)
-* Account.balance.currency codes are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
-* Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
+* The Account Balance extensions on Account are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
+* The Account State extensions on Account are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
 * Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
+
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary codes for:
+
+* The Bill Code Schedule extensions on ChargeItem are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
 
 ### General Clinical
 
@@ -593,6 +599,15 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "display": "Moderate",
     }
 
+##### Code Set 14002 Bill Code Schedule
+
+This code set contains bill code schedules that drive billing behavior.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14002",
+      "code": "3693"
+    }
+    
 ##### Code Set 14045 Surgical Procedure Modifiers
 
 This code set contains the area of the body the surgery procedure is being executed.
