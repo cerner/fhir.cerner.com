@@ -107,6 +107,17 @@ fields:
             }
           ]
         }
+        {
+          "extension": [
+            {
+              "valuePeriod": {
+                "start": "2016-12-19T16:44:25.000Z",
+                "end": "2022-05-01T16:56:56.000Z"
+              },
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+            }
+          ]
+        }
       ]
     }
   note: |
