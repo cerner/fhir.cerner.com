@@ -15,7 +15,7 @@ The QuestionnaireResponse resource is a collection of answers to a given questio
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 
 ## Search
 
