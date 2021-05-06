@@ -26,7 +26,7 @@ The following fields are returned if valued:
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
-* [Extensions including related person encounter, relationship level and period](#extensions){:target="_blank"}
+* [Extensions including related person encounter, relationship level, and period](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
