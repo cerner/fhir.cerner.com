@@ -82,7 +82,7 @@ Notes:
 
 #### Patient Authorization Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder?patient=12724066
+    GET  https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder?patient=12724066
 
 #### Response
 
@@ -114,7 +114,7 @@ List an individual NutritionOrder by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
 
 #### Response
 
@@ -125,12 +125,12 @@ List an individual NutritionOrder by its id:
 
 #### Patient Authorization Request
 
-    GET https://fhir-ehr.cerner.com/4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/328575687
+    GET https://fhir-ehr.cerner.com/4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
 
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_nutrition_order_patient_access) %>
+<%= json(:r4_nutrition_order_patient_access_entry) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
