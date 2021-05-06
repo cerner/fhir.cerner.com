@@ -202,6 +202,8 @@ The contained Medication Resource supports proprietary codes for:
 
 The Appointment Resource supports proprietary codes for:
 
+* Appointment.cancelationReason codes are maintained in [Code Set 14229 Scheduling Appointment Cancellation Reason](#code-set-14229-scheduling-appointment-cancellation-reason)
+
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
 
 * Appointment.participant.type codes are maintained in [Code Set 14250 Scheduling Resource Roles](#code-set-14250-scheduling-resource-roles)
@@ -601,6 +603,17 @@ This code set contains the area of the body the surgery procedure is being execu
       "display": "Left",
       "userSelected": true
     }
+    
+##### Code Set 14229 Scheduling Appointment Cancellation Reason 
+
+This code set defines a set of reasons for the cancellation of an appointment.
+  
+     {
+       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14229",
+       "code": "2191414701",
+       "display": "Scheduled by mistake",
+       "userSelected": true
+     }
 
 ##### Code Set 14249 Scheduling Appointment Type Synonyms
 
@@ -622,6 +635,17 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "code": "4573",
       "display": "Radiology Exam Room",
     }
+
+##### Code Set 16127 Scheduling Processing Options
+
+This code set contains the various scheduling processing options such as diagnostic, followup or primary.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/16127",
+      "code": "22721463",
+      "display": "DIAGNOSTIC"
+      "userSelected": true
+    } 
 
 ##### Code Set 18736 Account Types
 
@@ -748,6 +772,12 @@ The Account Resource supports proprietary systems for:
 
 * Account.identifier.system is [Account Number](#account-number) for financial accounts.
 
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary systems for:
+
+* ChargeItem.code, ChargeItem.reason, Modifier extension, Procedure extension, and Revenue Code extension codes are [Bill Codes Types](#bill-codes-types) for charge items.
+
 ### Medications
 
 <h4>MedicationRequest</h4>
@@ -767,6 +797,15 @@ This system is the account number of a financial account.
       "use": "usual",
       "system": "https://fhir.cerner.com/accountnumber",
       "value": "5646"
+    }
+
+##### Bill Codes Types
+
+This system is the bill code type for a charge item. `Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, `ICD`, `MODIFIER`, or `REVENUE`.
+
+    {
+      "system": "https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>",
+      "code": "0310"
     }
 
 ##### Medication Request Category

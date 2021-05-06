@@ -4,46 +4,44 @@ module Cerner
   module Resources
     R4_DOCUMENT_REFERENCE ||= {
       'resourceType': 'DocumentReference',
-      'id': '197411797',
+      'id': '21961261',
       'meta': {
         'versionId': '1',
-        'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'lastUpdated': '2021-03-12T22:35:03.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b>'\
-               '</p><p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
-               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
-               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+               'Parnell, Stephen M</p><p><b>Document Type</b>: Admission Note-Physician</p><p><b>Document Category'\
+               '</b>: Clinical Note</p><p><b>Document Title</b>: Admission H &amp; P</p><p><b>Service End Date</b>: '\
+               'Mar 12, 2021  4:31 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: '\
+               'Braus, Sasha</p></div>'
       },
+      'identifier': [
+        {
+          'system': 'https://fhir.cerner.com/ceuuid',
+          'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21961261-2021031216350400'
+        }
+      ],
       'status': 'current',
       'docStatus': 'final',
       'type': {
         'coding': [
           {
             'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820510',
-            'display': 'Consultation Note Generic',
+            'code': '2820507',
+            'display': 'Admission Note-Physician',
             'userSelected': true
           },
           {
             'system': 'http://loinc.org',
-            'code': '11488-4',
+            'code': '83805-2',
             'userSelected': false
           }
         ],
-        'text': 'Consultation Note Generic'
+        'text': 'Admission Note-Physician'
       },
       'category': [
-        {
-          'coding': [
-            {
-              'system': 'http://loinc.org',
-              'code': '11488-4',
-              'userSelected': false
-            }
-          ]
-        },
         {
           'coding': [
             {
@@ -54,83 +52,99 @@ module Cerner
             }
           ],
           'text': 'Clinical Note'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://loinc.org',
+              'code': '83805-2',
+              'userSelected': false
+            }
+          ]
         }
       ],
       'subject': {
-        'reference': 'Patient/12742400',
-        'display': 'PETERS, TIM A'
+        'reference': 'Patient/2798003',
+        'display': 'Parnell, Stephen M'
       },
       'author': [
         {
-          'reference': 'Practitioner/12742069',
-          'display': 'Portal, Portal'
+          'reference': 'Practitioner/2797943',
+          'display': 'Braus, Sasha'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/12742069',
-        'display': 'Portal, Portal'
+        'reference': 'Practitioner/2797943',
+        'display': 'Braus, Sasha'
       },
       'content': [
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-            'title': 'Auto TC Summary',
-            'creation': '2020-12-10T07:19:54.000Z'
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-21961261',
+            'title': 'Admission H & P',
+            'creation': '2021-03-12T22:35:03.000Z'
+          }
+        },
+        {
+          'attachment': {
+            'contentType': 'text/html',
+            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261',
+            'title': 'Admission H & P',
+            'creation': '2021-03-12T22:35:03.000Z'
           }
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/97953530'
+            'reference': 'Encounter/2673908'
           }
         ],
         'period': {
-          'end': '2020-12-10T07:19:54.000Z'
+          'end': '2021-03-12T22:31:38.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS ||= {
       'resourceType': 'DocumentReference',
-      'id': '197411797',
+      'id': '21961261',
       'meta': {
         'versionId': '1',
-        'lastUpdated': '2020-12-10T07:20:00.000Z'
+        'lastUpdated': '2021-03-12T22:35:03.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-               '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Consultation Note Generic</p><p>'\
-               '<b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>: Dec 10, 2020  7:19 A.M. UTC</p>'\
-               '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+               'Parnell, Stephen M</p><p><b>Document Type</b>: Admission Note-Physician</p><p><b>Document Category'\
+               '</b>: Clinical Note</p><p><b>Document Title</b>: Admission H &amp; P</p><p><b>Service End Date</b>: '\
+               'Mar 12, 2021  4:31 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: '\
+               'Braus, Sasha</p></div>'
       },
+      'identifier': [
+        {
+          'system': 'https://fhir.cerner.com/ceuuid',
+          'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21961261-2021031216350400'
+        }
+      ],
       'status': 'current',
       'docStatus': 'final',
       'type': {
         'coding': [
           {
             'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820510',
-            'display': 'Consultation Note Generic'
+            'code': '2820507',
+            'display': 'Admission Note-Physician'
           },
           {
             'system': 'http://loinc.org',
-            'code': '11488-4'
+            'code': '83805-2'
           }
         ],
-        'text': 'Consultation Note Generic'
+        'text': 'Admission Note-Physician'
       },
       'category': [
-        {
-          'coding': [
-            {
-              'system': 'http://loinc.org',
-              'code': '11488-4'
-            }
-          ]
-        },
         {
           'coding': [
             {
@@ -140,148 +154,162 @@ module Cerner
             }
           ],
           'text': 'Clinical Note'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://loinc.org',
+              'code': '83805-2'
+            }
+          ]
         }
       ],
       'subject': {
-        'reference': 'Patient/12742400',
-        'display': 'PETERS, TIM A'
+        'reference': 'Patient/2798003',
+        'display': 'Parnell, Stephen M'
       },
       'author': [
         {
-          'reference': 'Practitioner/12742069',
-          'display': 'Portal, Portal'
+          'reference': 'Practitioner/2797943',
+          'display': 'Braus, Sasha'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/12742069',
-        'display': 'Portal, Portal'
+        'reference': 'Practitioner/2797943',
+        'display': 'Braus, Sasha'
       },
       'content': [
         {
           'attachment': {
             'contentType': 'application/pdf',
-            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411797',
-            'title': 'Auto TC Summary',
-            'creation': '2020-12-10T07:19:54.000Z'
+            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-21961261',
+            'title': 'Admission H & P',
+            'creation': '2021-03-12T22:35:03.000Z'
           }
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/97953530'
+            'reference': 'Encounter/2673908'
           }
         ],
         'period': {
-          'end': '2020-12-10T07:19:54.000Z'
+          'end': '2021-03-12T22:31:38.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
+      'id': '271fc608-6a12-48f3-a9f8-2d1bfe395328',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261',
           'resource': R4_DOCUMENT_REFERENCE
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21674656',
           'resource': {
             'resourceType': 'DocumentReference',
-            'id': '197411793',
+            'id': '21674656',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2020-12-10T07:19:56.000Z'
+              'lastUpdated': '2021-03-05T16:48:42.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
-                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
-                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p><p>'\
-                     '<b>Verifying Provider</b>: Portal, Portal</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name'\
+                     '</b>: Parnell, Stephen M</p><p><b>Document Type</b>: Abdominal Ultrasound</p><p><b>'\
+                     'Document Category</b>: Unknown</p><p><b>Document Title</b>: test images</p><p><b>'\
+                     'Service End Date</b>: Mar  5, 2021 10:47 A.M. CST</p><p><b>Document Status</b>: Preliminary</p>'\
+                     '</div>'
             },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21674656-2021030510484300'
+              }
+            ],
             'status': 'current',
-            'docStatus': 'final',
+            'docStatus': 'preliminary',
             'type': {
               'coding': [
                 {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820555',
-                  'display': 'Progress Note Generic',
+                  'code': '2820643',
+                  'display': 'Abdominal Ultrasound',
                   'userSelected': true
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '11506-3',
-                  'userSelected': false
+                  '_code': {
+                    'extension': [
+                      {
+                        'valueCode': 'unknown',
+                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                      }
+                    ]
+                  }
                 }
               ],
-              'text': 'Progress Note Generic'
+              'text': 'Abdominal Ultrasound'
             },
             'category': [
               {
                 'coding': [
                   {
-                    'system': 'http://loinc.org',
-                    'code': '11506-3',
-                    'userSelected': false
-                  }
-                ]
-              },
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                    'code': 'clinical-note',
-                    'display': 'Clinical Note',
-                    'userSelected': false
+                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    'code': 'unknown',
+                    'display': 'Unknown'
                   }
                 ],
-                'text': 'Clinical Note'
+                'text': 'Unknown'
               }
             ],
             'subject': {
-              'reference': 'Patient/12742400',
-              'display': 'PETERS, TIM A'
+              'reference': 'Patient/2798003',
+              'display': 'Parnell, Stephen M'
             },
             'author': [
               {
-                'reference': 'Practitioner/12742069',
-                'display': 'Portal, Portal'
+                'reference': 'Practitioner/2797943',
+                'display': 'Braus, Sasha'
               }
             ],
-            'authenticator': {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
-            },
             'content': [
               {
                 'attachment': {
                   'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:53.000Z'
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-20801159',
+                  'title': 'Admission H & P',
+                  'creation': '2021-02-10T23:27:20.000Z'
+                }
+              },
+              {
+                'attachment': {
+                  'contentType': 'text/html',
+                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-20801159',
+                  'title': 'Admission H & P',
+                  'creation': '2021-02-10T23:27:20.000Z'
                 }
               }
             ],
             'context': {
               'encounter': [
                 {
-                  'reference': 'Encounter/97953530'
+                  'reference': 'Encounter/2673908'
                 }
               ],
               'period': {
-                'end': '2020-12-10T07:19:53.000Z'
+                'end': '2021-03-05T16:47:00.000Z'
               }
             }
           }
@@ -291,104 +319,105 @@ module Cerner
 
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': '941ab54e9-4501-446a-9cee-6cb14c37dab3',
+      'id': '74e2c51e-96af-4f95-abd1-bbbe566e386b',
       'type': 'searchset',
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12742400'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411797',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261',
           'resource': R4_DOCUMENT_REFERENCE_PATIENT_ACCESS
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/197411793',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21674656',
           'resource': {
             'resourceType': 'DocumentReference',
-            'id': '197411793',
+            'id': '21674656',
             'meta': {
               'versionId': '1',
-              'lastUpdated': '2020-12-10T07:19:56.000Z'
+              'lastUpdated': '2021-03-05T16:48:42.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
-                     '<p><b>Patient Name</b>: PETERS, TIM A</p><p><b>Document Type</b>: Progress Note Generic</p>'\
-                     '<p><b>Document Title</b>: Auto TC Summary</p><p><b>Service End Date</b>'\
-                     ': Dec 10, 2020  7:19 A.M. UTC</p><p><b>Document Status</b>: Final</p>'\
-                     '<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name'\
+                     '</b>: Parnell, Stephen M</p><p><b>Document Type</b>: Abdominal Ultrasound</p><p><b>'\
+                     'Document Category</b>: Unknown</p><p><b>Document Title</b>: test images</p><p><b>'\
+                     'Service End Date</b>: Mar  5, 2021 10:47 A.M. CST</p><p><b>Document Status</b>: Preliminary</p>'\
+                     '</div>'
             },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21674656-2021030510484300'
+              }
+            ],
             'status': 'current',
-            'docStatus': 'final',
+            'docStatus': 'preliminary',
             'type': {
               'coding': [
                 {
                   'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820555',
-                  'display': 'Progress Note Generic'
+                  'code': '2820643',
+                  'display': 'Abdominal Ultrasound'
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '11506-3'
+                  '_code': {
+                    'extension': [
+                      {
+                        'valueCode': 'unknown',
+                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                      }
+                    ]
+                  }
                 }
               ],
-              'text': 'Progress Note Generic'
+              'text': 'Abdominal Ultrasound'
             },
             'category': [
               {
                 'coding': [
                   {
-                    'system': 'http://loinc.org',
-                    'code': '11506-3'
-                  }
-                ]
-              },
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                    'code': 'clinical-note',
-                    'display': 'Clinical Note'
+                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    'code': 'unknown',
+                    'display': 'Unknown'
                   }
                 ],
-                'text': 'Clinical Note'
+                'text': 'Unknown'
               }
             ],
             'subject': {
-              'reference': 'Patient/12742400',
-              'display': 'PETERS, TIM A'
+              'reference': 'Patient/2798003',
+              'display': 'Parnell, Stephen M'
             },
             'author': [
               {
-                'reference': 'Practitioner/12742069',
-                'display': 'Portal, Portal'
+                'reference': 'Practitioner/2797943',
+                'display': 'Braus, Sasha'
               }
             ],
-            'authenticator': {
-              'reference': 'Practitioner/12742069',
-              'display': 'Portal, Portal'
-            },
             'content': [
               {
                 'attachment': {
                   'contentType': 'application/pdf',
-                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197411793',
-                  'title': 'Auto TC Summary',
-                  'creation': '2020-12-10T07:19:53.000Z'
+                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-20801159',
+                  'title': 'Admission H & P',
+                  'creation': '2021-02-10T23:27:20.000Z'
                 }
               }
             ],
             'context': {
               'encounter': [
                 {
-                  'reference': 'Encounter/97953530'
+                  'reference': 'Encounter/2673908'
                 }
               ],
               'period': {
-                'end': '2020-12-10T07:19:53.000Z'
+                'end': '2021-03-05T16:47:00.000Z'
               }
             }
           }

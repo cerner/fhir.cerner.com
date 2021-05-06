@@ -164,10 +164,13 @@ Create a new Condition.
 
 _Implementation Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* The Condition Create API supports only the API fields mentioned below. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
-* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
-* Currently `problem-list-item` and `encounter-diagnosis` are supported.
+* The code.coding field can have at most 2 codings.
+  * One of the codings must have userSelected: true
+  * The other coding must have userSelected: false
+* The Condition Create API currently supports only Conditions with a category of `problem-list-item` or `encounter-diagnosis`.
+* An `encounter-diagnosis` Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
 
 ### Authorization Types
 

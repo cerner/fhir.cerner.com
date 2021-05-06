@@ -133,7 +133,10 @@ _Implementation Notes_
   * For Conditions with a category code of [problem](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes):
     * If `Condition.dateRecorded` is set on the request body, its value will currently be ignored.
   * Creating Conditions with a category code of [health-concern](https://argonautwiki.hl7.org/Argonaut_Condition_Category_Codes) is not currently supported.
-* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
+* The code.coding field can have at most 2 codings.
+  * One of the codings must have userSelected: true
+  * The other coding must have userSelected: false
+* A Condition with a category code of diagnosis will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
 
 ### Authorization Types
 

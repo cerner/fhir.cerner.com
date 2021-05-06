@@ -44,6 +44,14 @@ Search for Organizations that meet supplied query parameters:
  [`_count`]  | No                                      | [`number`] | The maximum number of results to return. Defaults to `100`.
  `name`      | This or `_id` or `identifier` or `type` | [`string`] | Name used for the organization.
 
+ Notes:
+
+- The `identifier` parameter
+  - Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
+    Organization resource.
+  - When valid system is provided, search is performed against the specific system.
+  - When invalid system is provided, 400 bad request is returned.
+
 ### Headers
 
 <%= headers fhir_json: true %>
@@ -66,6 +74,47 @@ Search for Organizations that meet supplied query parameters:
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`string`]: https://hl7.org/fhir/R4/search.html#string
+
+## $get-cg-for-mrcu
+
+Search for Caregiver Organizations that meet supplied query parameters:
+ 
+    GET /Organization/$get-cg-for-mrcu?:parameters
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+### Parameters
+
+ Name        | Required?                      | Type       | Description
+-------------|--------------------------------|------------|----------------------------------------------------------
+ `_id`       | Yes                            | [`token`]  | The id of the care unit organization.
+
+Notes:
+
+* Only a single `_id` parameter can be provided.
+
+### Headers
+
+<%= headers fhir_json: true %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/$get-cg-for-mrcu?_id=3304067
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_organization_caregiver_search_bundle) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
