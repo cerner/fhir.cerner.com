@@ -111,6 +111,7 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 <ul>
   <li>Authentication is not required to access the Conformance resource</li>
   <li>No parameters other than the standard <code>_format</code> parameter are supported for reading CapabilityStatement</li>
+  <li>Resource actions that are sill under development will be returned in the CapabilityStatement with documentation on the interaction explaining that the resource action is still under development and should not be used in production. These resource actions are listed as ‘beta’ on fhir.cerner.com.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -129,20 +130,20 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="e926649e-91b2-4797-b5b8-9e5d332b94b3">
+  <ul id="b2e7e6ea-5938-4fac-a80f-6038197f925f">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'e926649e-91b2-4797-b5b8-9e5d332b94b3'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'b2e7e6ea-5938-4fac-a80f-6038197f925f'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'e926649e-91b2-4797-b5b8-9e5d332b94b3'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'b2e7e6ea-5938-4fac-a80f-6038197f925f'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="e926649e-91b2-4797-b5b8-9e5d332b94b3" class="example-tab-content">
+<div data-id="b2e7e6ea-5938-4fac-a80f-6038197f925f" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -634,20 +635,20 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="8b8db99d-6a72-4294-bb12-bd519e4b5bfd">
+  <ul id="b7213b52-55ff-4ba4-a598-12a889f23c64">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '8b8db99d-6a72-4294-bb12-bd519e4b5bfd'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'b7213b52-55ff-4ba4-a598-12a889f23c64'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '8b8db99d-6a72-4294-bb12-bd519e4b5bfd'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'b7213b52-55ff-4ba4-a598-12a889f23c64'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="8b8db99d-6a72-4294-bb12-bd519e4b5bfd" class="example-tab-content">
+<div data-id="b7213b52-55ff-4ba4-a598-12a889f23c64" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -1225,20 +1226,20 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="4f470747-2d80-4baa-a6a9-b4cd5aab703e">
+  <ul id="72d5649f-c5fa-4912-8cab-9ed52c9e2fd3">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '4f470747-2d80-4baa-a6a9-b4cd5aab703e'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '72d5649f-c5fa-4912-8cab-9ed52c9e2fd3'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '4f470747-2d80-4baa-a6a9-b4cd5aab703e'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '72d5649f-c5fa-4912-8cab-9ed52c9e2fd3'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="4f470747-2d80-4baa-a6a9-b4cd5aab703e" class="example-tab-content">
+<div data-id="72d5649f-c5fa-4912-8cab-9ed52c9e2fd3" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -1456,6 +1457,7 @@ this resource is found at <a href="../../#service-root-url"><code>:serviceRootUR
 </h3>
         <ul class="js-guides">
           <li><a href="../../diagnostic/observation/">Observation</a></li>
+          <li><a href="../../diagnostic/questionnaire-response/">QuestionnaireResponse</a></li>
         </ul>
       </li>
       <li class="js-topic">

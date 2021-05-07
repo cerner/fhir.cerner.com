@@ -1206,8 +1206,25 @@
       <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return.</td>
     </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The status of the encounter. Example: <code>planned</code>
+</td>
+    </tr>
   </tbody>
 </table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>
+<code>_count</code> and <code>status</code> must be provided with patient</li>
+  <li>
+<code>status</code> valid parameters are <code>planned</code>, <code>in-proggres</code>, <code>finished</code>, <code>cancelled</code>
+</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -4890,6 +4907,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </h3>
         <ul class="js-guides">
           <li><a href="../../diagnostic/observation/">Observation</a></li>
+          <li><a href="../../diagnostic/questionnaire-response/">QuestionnaireResponse</a></li>
         </ul>
       </li>
       <li class="js-topic">
