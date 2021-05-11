@@ -106,7 +106,7 @@ Authorization is not required.
  [`performing-location`]                                     | A location where the resource was performed.
  [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
- [`priority`]                                                | The priority of the field or element that is a list.
+ [`priority`]                                                | The priority of the element within a list.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
