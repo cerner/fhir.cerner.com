@@ -52,7 +52,7 @@ Search for Patient-level or Encounter-level Coverages that meet supplied query p
     
 _Implementation Notes_
   
-* Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public healthcare coverages, they will return with an id prefixed with 'PH' or 'PHP' and will be returned in the payload with the rest of the coverages (private coverages).
+* Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public coverages, they will return with an id prefixed with 'PH' or 'PHP' and will be returned in the payload with the rest of the coverages (private coverages).
 
 ### Authorization Types
 
@@ -82,7 +82,7 @@ _Implementation Notes_
 
 <%= disclaimer %>
 
-### Example - Patient-level Public Healthcare Coverage
+### Example - Patient-level Public Coverage
 
 #### Request
 
@@ -108,7 +108,7 @@ _Implementation Notes_
 
 <%= disclaimer %>
 
-### Example - Encounter-level Public Healthcare Coverage
+### Example - Encounter-level Public Coverage
 
 #### Request
 
@@ -212,7 +212,7 @@ _Implementation Notes_
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * For Private Coverages, only Encounter-level Coverages may be patched.
-* For Public healthcare Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
+* For Public Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
 
 ### Authorization Types
 
@@ -268,7 +268,7 @@ Delete an existing Encounter-level Coverage.
 _Implementation Notes_
 
 * For Private Coverages, only Encounter-level Coverages may be deleted.
-* For Public healthcare Coverages, both Encounter-level and Patient-level Coverages may be deleted.
+* For Public Coverages, both Encounter-level and Patient-level Coverages may be deleted.
 
 ### Authorization Types
 
