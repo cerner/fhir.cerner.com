@@ -108,6 +108,7 @@ Authorization is not required.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
+ [`relation`]                                                | The related person's familial relationship to the patient.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
  [`replaced-by`]                                             | The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.
  [`replacing`]                                               | A reference to a resource that this resource is replacing.
@@ -153,6 +154,7 @@ Authorization is not required.
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
+[`relation`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relation?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
 [`replaced-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replaced-by?_format=json
 [`replacing`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing?_format=json

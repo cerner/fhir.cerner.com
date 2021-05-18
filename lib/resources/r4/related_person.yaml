@@ -61,9 +61,18 @@ fields:
     - display: Millennium Person Relationship Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types
-    - display: Millennium Person Relationships
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
-      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
+
+- name: relationship relation extension
+  type: Extension
+  description: The nature of the relationship between a patient and the related person.
+  terminology_name: relationship.extension[x].valueCodeableConcept
+  action: terminology
+  binding:
+    description: The nature of the relationship between a patient and the related person. This binding is used in <code>relation</code> extensions.
+    terminology:
+      - display: Millennium Person Relationships
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
 
 - name: Relationship Level Extension
   type: CodeableConcept

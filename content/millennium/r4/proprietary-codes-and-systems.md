@@ -162,7 +162,8 @@ The Patient Resource supports proprietary codes for:
 The RelatedPerson Resource supports proprietary codes for:
 
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
-* RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
+* RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
+* RelatedPerson.relationship.relation codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships)
 
 <h4>Location</h4>
 
@@ -317,12 +318,12 @@ This code set may include Marital Statuses such as Divorced and Married.
 
 ##### Code Set 40 Person Relationships
 
-This code set is used to describe the patient's relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.
+This code set is used to describe the related person's relationship to the patient
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
-      "code": "153",
-      "display": "DAUGHTER",
+      "code": "156",
+      "display": "MOTHER",
       "userSelected": true
     }
 

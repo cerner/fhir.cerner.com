@@ -75,6 +75,20 @@ module Cerner
                 'start': '2019-12-26T16:06:26.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'cod': '152',
+                    'display': 'Brother',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Brother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ],
           'coding': [
@@ -228,6 +242,20 @@ module Cerner
                 'start': '2016-12-08T21:53:53.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'cod': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ],
           'coding': [
@@ -400,6 +428,20 @@ module Cerner
                       'start': '2019-12-26T16:06:26.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'cod': '152',
+                          'display': 'Brother',
+                          'userSelected': true
+                        }
+                      ],
+                      'text': 'Brother'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
                 ],
                 'coding': [
@@ -537,6 +579,22 @@ module Cerner
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
               'code': '1152',
               'display': 'Emergency Contact'
+            }
+          ],
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'cod': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
@@ -689,6 +747,20 @@ module Cerner
                       'start': '2016-12-08T21:53:53.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'cod': '156',
+                          'display': 'Mother',
+                          'userSelected': true
+                        }
+                      ],
+                      'text': 'Mother'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
                 ],
                 'coding': [
