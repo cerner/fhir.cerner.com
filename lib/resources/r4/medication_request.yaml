@@ -246,7 +246,6 @@ fields:
         type: Period
         description: The outer bounds for start and/or end limits of the timing schedule.
         url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_
-        note: If provided, must be of type `Period`. If an `end` is given a `start` must be provided.
         example: |
           {
             "dosageInstruction": [
