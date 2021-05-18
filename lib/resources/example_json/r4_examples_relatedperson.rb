@@ -778,24 +778,6 @@ module Cerner
                   }
                 ],
                 'text': 'Default Guarantor'
-              },
-              {
-                'id': 'CI-97982588-1-0',
-                'coding': [
-                  {
-                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
-                    'code': '670847',
-                    'display': 'Child',
-                    'userSelected': true
-                  },
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-                    'code': 'CHILD',
-                    'display': 'child',
-                    'userSelected': false
-                  }
-                ],
-                'text': 'Child'
               }
             ],
             'name': [

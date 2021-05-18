@@ -124,6 +124,20 @@ fields:
                 "end": "2022-05-01T16:56:56.000Z"
               },
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'cod': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
