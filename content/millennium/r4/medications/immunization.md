@@ -54,17 +54,22 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required?          | Type          | Description
------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`     | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
- `patient` | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`    | N                  | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
+ Name          | Required?          | Type          | Description
+---------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`         | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `patient`     | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
+ `date`        | No                 | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
+ `_revinclude` | No                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
 * The `date` parameter may be provided:
   * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
   * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=M17255835,M17255827&_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
+* **Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.**
 
 ### Headers
 
@@ -81,6 +86,22 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_BUNDLE) %>
 
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization?_id=M17255835,M17255827&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_immunization_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request
