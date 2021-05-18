@@ -89,17 +89,21 @@ _Implementation Notes_
 
 ### Parameters
 
- Name       | Required?                                   | Type          | Description
-------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
- `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
- `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
- [`_count`] | No                                          | [`number`]    | The maximum number of results to return.
- `status`   | No                                          | [`token`]     | The status of the encounter. Example: `planned`
+ Name         | Required?                                   | Type          | Description
+--------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
+ `_id`        | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `patient`    | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `subject`    | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
+ `account`    | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
+ [`_count`]   | No                                          | [`number`]    | The maximum number of results to return.
+ `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
+`_revinclude` | No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+  
+Notes:
 
-  Notes:
-
+* `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 * `_count` and `status` must be provided with patient
 * `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
 
@@ -119,6 +123,21 @@ _Implementation Notes_
 <%= json(:r4_encounter_bundle) %>
 
 <%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?_id=1361920&_revinclude=Provenance:target
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_encounter_revinclude_bundle) %>
+
 
 #### Patient Authorization Request
 
