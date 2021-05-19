@@ -189,6 +189,12 @@ module Cerner
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
                     'code': '152'
+                  },
+                  {
+                      'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                      'code': 'BRO',
+                      'display': 'Brother',
+                      'userSelected': false
                   }
                 ]
               },
