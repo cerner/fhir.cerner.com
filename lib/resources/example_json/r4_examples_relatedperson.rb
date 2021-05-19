@@ -198,7 +198,7 @@ module Cerner
                   {
                     'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                     'code': 'MTH',
-                    'display': 'Mother',
+                    'display': 'mother',
                     'userSelected': false
                   },
                   'text': 'Mother'
