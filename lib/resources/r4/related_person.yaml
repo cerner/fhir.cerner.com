@@ -135,7 +135,7 @@ fields:
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'cod': '155'
+                    'code': '155'
                   }
                 ]
               },
