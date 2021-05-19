@@ -163,7 +163,7 @@ The RelatedPerson Resource supports proprietary codes for:
 
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
 * RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
-* RelatedPerson.relationship.relation codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships)
+* The Relation extensions on RelatedPerson.relationship are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships)
 
 <h4>Location</h4>
 

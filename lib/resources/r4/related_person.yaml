@@ -64,15 +64,20 @@ fields:
 
 - name: relationship relation extension
   type: Extension
-  description: The nature of the relationship between a patient and the related person.
+  description: The related person's familial relationship to the patient.
   terminology_name: relationship.extension[x].valueCodeableConcept
   action: terminology
   binding:
-    description: The nature of the relationship between a patient and the related person. This binding is used in <code>relation</code> extensions.
+    description: The related person's familial relationship to the patient. This binding is used in <code>relation</code> extensions.
     terminology:
       - display: Millennium Person Relationships
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships
+      - display: PatientRelationshipType
+        system:
+          - http://terminology.hl7.org/CodeSystem/v2-0131
+          - http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        info_link: http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html
 
 - name: Relationship Level Extension
   type: CodeableConcept
@@ -130,12 +135,15 @@ fields:
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'cod': '156',
+                    'cod': '156'
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH',
                     'display': 'Mother',
-                    'userSelected': true
+                    'userSelected': false
                   }
-                ],
-                'text': 'Mother'
+                ]
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
