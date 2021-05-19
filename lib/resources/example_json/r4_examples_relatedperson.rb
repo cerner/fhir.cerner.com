@@ -145,15 +145,18 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '156'
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
                   },
                   {
                     'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                     'code': 'MTH',
-                    'display': 'Mother',
+                    'display': 'mother',
                     'userSelected': false
                   }
-                ]
+                ],
+                'text': 'Mother'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
@@ -188,14 +191,17 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '152'
+                    'code': '152',
+                    'display': 'Brother',
+                    'userSelected': true
                   },
                   {
-                      'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-                      'code': 'BRO',
-                      'display': 'Brother',
-                      'userSelected': false
-                  }
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'BRO',
+                    'display': 'brother',
+                    'userSelected': false
+                  },
+                  'text': 'Brother'
                 ]
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
@@ -448,15 +454,18 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '156'
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
                   },
                   {
                     'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                     'code': 'MTH',
-                    'display': 'Mother',
+                    'display': 'mother',
                     'userSelected': false
                   }
-                ]
+                ],
+                'text': 'Mother'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
@@ -713,15 +722,18 @@ module Cerner
                       'coding': [
                         {
                           'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                          'code': '156'
+                          'code': '156',
+                          'display': 'Mother',
+                          'userSelected': true
                         },
                         {
                           'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                           'code': 'MTH',
-                          'display': 'Mother',
+                          'display': 'mother',
                           'userSelected': false
                         }
-                      ]
+                      ],
+                      'text': 'Mother'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
@@ -755,7 +767,7 @@ module Cerner
                         {
                           'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                           'code': 'MTH',
-                          'display': 'Mother',
+                          'display': 'mother',
                           'userSelected': false
                         }
                       ]
@@ -1033,13 +1045,7 @@ module Cerner
                 'coding': [
                   {
                     'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '156'
-                  },
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-                    'code': 'MTH',
-                    'display': 'Mother',
-                    'userSelected': false
+                    'code': '155'
                   }
                 ]
               },
@@ -1202,15 +1208,18 @@ module Cerner
                       'coding': [
                         {
                           'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                          'code': '156'
+                          'code': '156',
+                          'display': 'Mother',
+                          'userSelected': true
                         },
                         {
                           'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                           'code': 'MTH',
-                          'display': 'Mother',
+                          'display': 'mother',
                           'userSelected': false
                         }
-                      ]
+                      ],
+                      'text': 'Mother'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
