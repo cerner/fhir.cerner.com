@@ -65,7 +65,7 @@ module Cerner
             },
             {
               'valueUnsignedInt': 1,
-              'url': 'priority'
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
@@ -94,7 +94,7 @@ module Cerner
             },
             {
               'valueUnsignedInt': 1,
-              'url': 'priority'
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
@@ -123,7 +123,7 @@ module Cerner
             },
             {
               'valueUnsignedInt': 1,
-              'url': 'priority'
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier'

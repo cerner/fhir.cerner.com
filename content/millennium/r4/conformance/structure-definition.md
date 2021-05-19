@@ -106,6 +106,7 @@ Authorization is not required.
  [`performing-location`]                                     | A location where the resource was performed.
  [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
+ [`priority`]                                                | The priority of the element within a list.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
@@ -151,6 +152,7 @@ Authorization is not required.
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 [`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
+[`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json

@@ -44,6 +44,7 @@ The following fields are returned if valued:
 * [Net Price]
 * [Offset By]
 * [Performing Location]
+* [Priority]
 * [Procedure]
 * [Replacing]
 * [Revenue Code]
@@ -62,6 +63,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `net-price`            | [`Money`]                         | The quantity times the unit price for a resource (total price).
  `offset-by`            | [`Reference`]                     | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  `performing-location`  | [`Reference`]                     | A location where the resource was performed.
+ `priority`             | [`unsignedInt`]                   | The priority of the element within a list.
  `procedure`            | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
  `replacing`            | [`Reference`]                     | A reference to a resource that this resource is replacing.
  `revenue-code`         | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
@@ -107,8 +109,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Reference`]: https://hl7.org/fhir/r4/references.html#Reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
+[`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Priority]: #custom-extensions
 [Procedure]: #custom-extensions
 [Modifier]: #custom-extensions
 [Unit Price]: #custom-extensions
