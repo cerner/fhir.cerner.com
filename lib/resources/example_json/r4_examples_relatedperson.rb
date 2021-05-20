@@ -5,21 +5,21 @@ module Cerner
 
     R4_RELATEDPERSON_ENTRY ||= {
       'resourceType': 'RelatedPerson',
-      'id': '12724068-12724066',
+      'id': '12724066-12724068',
       'meta': {
-        'versionId': 6,
-        'lastUpdated': '2020-06-30T20:26:39.000Z'
+        'versionId': 145,
+        'lastUpdated': '2021-03-22T14:12:37.000Z'
       },
       'text': {
-        'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: SMART, HAILEY'\
-               '</p><p><b>DOB</b>: Dec  2, 2003</p><p><b>Gender</b>: female</p><p><b>Patient</b>: SMART, NANCY</p>'\
-               '<p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
-               '<p><b>Relationship Level</b>: Patient</p></div>'
+        'status': 'extensions',
+        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>:'\
+               ' SMART, NANCY</p><p><b>DOB</b>: Aug 11, 1980</p><p><b>Gender</b>: female</p><p><b>Patient</b>:'\
+               ' SMART, HAILEY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Default Guarantor</p><p>'\
+               '<b>Relationship</b>: Child</p><p><b>Relationship</b>: Family Member</p><p><b>Relationship Level</b>:'\
+               ' Patient</p></div>'
       },
       'extension': [
         {
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
           'valueCodeableConcept': {
             'coding': [
               {
@@ -29,12 +29,57 @@ module Cerner
               }
             ],
             'text': 'Patient'
-          }
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
         }
       ],
       'identifier': [
         {
-          'id': 'CI-490068357-1',
+          'id': 'CI-490060520-1',
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                'code': '22',
+                'display': 'Military Id',
+                'userSelected': true
+              }
+            ],
+            'text': 'Military Id'
+          },
+          'system': 'urn:oid:2.16.840.1.113883.3.42.10001.100001.12',
+          'value': '1000000105'
+        },
+        {
+          'id': 'CI-490068325-2',
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                'code': '2553236771',
+                'display': 'Federated Person Principal',
+                'userSelected': true
+              },
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'AN',
+                'display': 'Account number',
+                'userSelected': false
+              }
+            ],
+            'text': 'Federated Person Principal'
+          },
+          'system': 'urn:oid:2.16.840.1.113883.3.13.6',
+          'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:EC2458F2-1E24-41C8-B71B-0E701AF7583D-CH:PRINCIPAL:'\
+                   'RS7MH9WX3XB8VY63',
+          'period': {
+            'start': '2020-08-10T14:29:20.000Z'
+          }
+        },
+        {
+          'id': 'CI-490059563-3',
           'use': 'usual',
           'type': {
             'coding': [
@@ -55,26 +100,111 @@ module Cerner
           },
           'system': 'urn:oid:2.16.840.1.113883.3.13.6',
           'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:'\
-                   '332TE8FP7VD3RT4C',
+                   'RS7MH9WX3XB8VY63',
           'period': {
-            'start': '2020-06-30T20:26:38.000Z'
+            'start': '2020-06-30T20:06:42.000Z'
+          }
+        },
+        {
+          'id': 'CI-490153231-4',
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                'code': '2553236785',
+                'display': 'MIllennium Person Identifier',
+                'userSelected': true
+              }
+            ],
+            'text': 'MIllennium Person Identifier'
+          },
+          'value': '12868',
+          'period': {
+            'start': '2020-12-18T19:15:06.000Z'
           }
         }
       ],
       'active': true,
       'patient': {
-        'reference': 'Patient/12724066',
-        'display': 'SMART, NANCY'
+        'reference': 'Patient/12724068',
+        'display': 'SMART, HAILEY'
       },
       'relationship': [
         {
-          'id': 'CI-490017058-0-0',
+          'id': 'CI-490017041-0',
           'extension': [
             {
               'valuePeriod': {
                 'start': '2019-12-26T16:06:26.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH',
+                    'display': 'mother',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+            }
+          ],
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+              'code': '1150',
+              'display': 'Default Guarantor',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'GT',
+              'display': 'Guarantor',
+              'userSelected': false
+            }
+          ],
+          'text': 'Default Guarantor'
+        },
+        {
+          'id': 'CI-490017055-1',
+          'extension': [
+            {
+              'valuePeriod': {
+                'start': '2019-12-26T16:06:26.000Z'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH',
+                    'display': 'mother',
+                    'userSelected': false
+                  },
+                  'text': 'Mother'
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ],
           'coding': [
@@ -96,67 +226,156 @@ module Cerner
       ],
       'name': [
         {
-          'id': 'CI-12724068-0',
+          'id': 'CI-12724066-0',
           'use': 'official',
-          'text': 'SMART, HAILEY',
+          'text': 'SMART, NANCY',
           'family': 'SMART',
           'given': [
-            'HAILEY'
+            'NANCY'
           ],
           'period': {
-            'start': '2019-12-26T15:15:35.000Z'
+            'start': '2019-12-26T15:12:34.000Z'
           }
         }
       ],
       'telecom': [
         {
-          'id': 'CI-PH-29811922-0',
+          'id': 'CI-PH-29852801-0',
           'extension': [
             {
-              'valueUrl': '816-888-8886',
+              'valueUrl': '13215555555',
               'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
             }
           ],
           'system': 'phone',
-          'value': '8168888886',
-          'use': 'home',
+          'value': '13215555555',
+          'use': 'work',
           'period': {
-            'start': '2019-12-26T15:15:35.000Z'
+            'start': '2021-03-22T14:12:37.000Z'
           }
         },
         {
-          'id': 'CI-EM-29822897-0',
-          'system': 'email',
-          'value': 'haileysmart@yopmail.com',
+          'id': 'CI-PH-29811918-1',
+          'extension': [
+            {
+              'valueUrl': '(987)654-3210',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '9876543210',
           'use': 'home',
           'period': {
-            'start': '2020-06-30T19:56:19.000Z'
+            'start': '2019-12-26T15:12:34.000Z'
+          }
+        },
+        {
+          'id': 'CI-PH-29844706-2',
+          'extension': [
+            {
+              'valueUrl': '(503)400-8675',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '5034008675',
+          'use': 'mobile',
+          'period': {
+            'start': '2021-01-25T05:00:00.000Z'
+          }
+        },
+        {
+          'id': 'CI-PH-29844710-3',
+          'extension': [
+            {
+              'valueUrl': '5034008675',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '5034008675',
+          'use': 'mobile',
+          'period': {
+            'start': '2021-01-25T05:00:00.000Z'
+          }
+        },
+        {
+          'id': 'CI-PH-29844690-4',
+          'extension': [
+            {
+              'valueUrl': '5034008675',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '5034008675',
+          'use': 'mobile',
+          'period': {
+            'start': '2021-01-25T05:00:00.000Z'
+          }
+        },
+        {
+          'id': 'CI-PH-29844708-5',
+          'extension': [
+            {
+              'valueUrl': '5034008675',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '5034008675',
+          'use': 'mobile',
+          'period': {
+            'start': '2021-01-25T05:00:00.000Z'
+          }
+        },
+        {
+          'id': 'CI-PH-29844688-6',
+          'extension': [
+            {
+              'valueUrl': '5034008675',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '5034008675',
+          'use': 'mobile',
+          'period': {
+            'start': '2021-01-25T00:33:18.000Z'
+          }
+        },
+        {
+          'id': 'CI-EM-29822894-0',
+          'system': 'email',
+          'value': 'workemail@gmail.com',
+          'use': 'home',
+          'period': {
+            'start': '2020-06-30T19:47:10.000Z'
           }
         }
       ],
       'gender': 'female',
-      'birthDate': '2003-12-02',
+      'birthDate': '1980-08-11',
       'address': [
         {
-          'id': 'CI-24313555-0',
+          'id': 'CI-24313551-0',
           'use': 'home',
-          'text': '12345 Main St\nKansas City, MO 64116\nUS',
+          'text': '3P\nKANSAS CITY, MO 641510001\nUS',
           'line': [
-            '12345 Main St'
+            '3P'
           ],
-          'city': 'Kansas City',
+          'city': 'KANSAS CITY',
           'district': 'Jackson',
           'state': 'MO',
-          'postalCode': '64116',
+          'postalCode': '641510001',
           'country': 'US',
           'period': {
-            'start': '2019-12-26T15:15:03.000Z'
+            'start': '2020-12-08T15:05:44.000Z'
           }
         }
       ],
       'communication': [
         {
-          'preferred': 'true',
           'language': {
             'coding': [
               {
@@ -173,7 +392,8 @@ module Cerner
               }
             ],
             'text': 'English'
-          }
+          },
+          'preferred': 'true'
         }
       ]
     }.freeze
@@ -221,13 +441,33 @@ module Cerner
       },
       'relationship': [
         {
-          'id': 'CI-97982588-0-0',
+          'id': 'CI-97982588-0',
           'extension': [
             {
               'valuePeriod': {
                 'start': '2016-12-08T21:53:53.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH',
+                    'display': 'mother',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ],
           'coding': [
@@ -245,24 +485,6 @@ module Cerner
             }
           ],
           'text': 'Default Guarantor'
-        },
-        {
-          'id': 'CI-97982588-1-0',
-          'coding': [
-            {
-              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
-              'code': '670847',
-              'display': 'Child',
-              'userSelected': true
-            },
-            {
-              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-              'code': 'CHILD',
-              'display': 'child',
-              'userSelected': false
-            }
-          ],
-          'text': 'Child'
         }
       ],
       'name': [
@@ -352,28 +574,29 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724068-12724066',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12724068',
           'resource': R4_RELATEDPERSON_ENTRY
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724069-12724066',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12724069',
           'resource': {
             'resourceType': 'RelatedPerson',
-            'id': '12724069-12724066',
+            'id': '12724066-12724069',
             'meta': {
-              'versionId': 8,
-              'lastUpdated': '2020-07-06T17:03:43.000Z'
+              'versionId': 145,
+              'lastUpdated': '2021-03-22T14:12:37.000Z'
             },
             'text': {
-              'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Related Person</b></p><p><b>Name</b>: '\
-                     'SMART, TIMMY</p><p><b>DOB</b>: Feb 19, 2012</p><p><b>Gender</b>: male</p><p><b>Patient</b>: '\
-                     'SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>: Family Member</p>'\
-                     '<p><b>Relationship Level</b>: Patient</p></div>'
+              'status': 'extensions',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Related Person</b></p><p><b>Name</b>'\
+                     ': SMART, NANCY</p><p><b>DOB</b>: Aug 11, 1980</p><p><b>Gender</b>: female</p><p>'\
+                     '<b>Patient</b>: SMART, TIMMY</p><p><b>Status</b>: Active</p><p><b>Relationship</b>'\
+                     ': Authorized Representative</p><p><b>Relationship</b>: Default Guarantor</p><p>'\
+                     '<b>Relationship</b>: Child</p><p><b>Relationship</b>: Family Member</p><p>'\
+                     '<b>Relationship Level</b>: Patient</p></div>'
             },
             'extension': [
               {
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level',
                 'valueCodeableConcept': {
                   'coding': [
                     {
@@ -383,23 +606,213 @@ module Cerner
                     }
                   ],
                   'text': 'Patient'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+              }
+            ],
+            'identifier': [
+              {
+                'id': 'CI-490060520-1',
+                'use': 'usual',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                      'code': '22',
+                      'display': 'Military Id',
+                      'userSelected': true
+                    }
+                  ],
+                  'text': 'Military Id'
+                },
+                'system': 'urn:oid:2.16.840.1.113883.3.42.10001.100001.12',
+                'value': '1000000105'
+              },
+              {
+                'id': 'CI-490068325-2',
+                'use': 'usual',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                      'code': '2553236771',
+                      'display': 'Federated Person Principal',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      'code': 'AN',
+                      'display': 'Account number',
+                      'userSelected': false
+                    }
+                  ],
+                  'text': 'Federated Person Principal'
+                },
+                'system': 'urn:oid:2.16.840.1.113883.3.13.6',
+                'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:EC2458F2-1E24-41C8-B71B-0E701AF7583D-CH:PRINCIPAL'\
+                         ':RS7MH9WX3XB8VY63',
+                'period': {
+                  'start': '2020-08-10T14:29:20.000Z'
+                }
+              },
+              {
+                'id': 'CI-490059563-3',
+                'use': 'usual',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                      'code': '2553236771',
+                      'display': 'Federated Person Principal',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      'code': 'AN',
+                      'display': 'Account number',
+                      'userSelected': false
+                    }
+                  ],
+                  'text': 'Federated Person Principal'
+                },
+                'system': 'urn:oid:2.16.840.1.113883.3.13.6',
+                'value': 'URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:'\
+                         'RS7MH9WX3XB8VY63',
+                'period': {
+                  'start': '2020-06-30T20:06:42.000Z'
+                }
+              },
+              {
+                'id': 'CI-490153231-4',
+                'use': 'usual',
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                      'code': '2553236785',
+                      'display': 'MIllennium Person Identifier',
+                      'userSelected': true
+                    }
+                  ],
+                  'text': 'MIllennium Person Identifier'
+                },
+                'value': '12868',
+                'period': {
+                  'start': '2020-12-18T19:15:06.000Z'
                 }
               }
             ],
             'active': true,
             'patient': {
-              'reference': 'Patient/12724066',
-              'display': 'SMART, NANCY'
+              'reference': 'Patient/12724069',
+              'display': 'SMART, TIMMY'
             },
             'relationship': [
               {
-                'id': 'CI-490068375-0-0',
+                'id': 'CI-490068369-0',
                 'extension': [
                   {
                     'valuePeriod': {
-                      'start': '2019-12-26T16:06:26.000Z'
+                      'start': '2020-08-10T16:37:51.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'code': '156',
+                          'display': 'Mother',
+                          'userSelected': true
+                        },
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                          'code': 'MTH',
+                          'display': 'mother',
+                          'userSelected': false
+                        }
+                      ],
+                      'text': 'Mother'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+                  }
+                ],
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+                    'code': '2553243305',
+                    'display': 'Authorized Representative',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Authorized Representative'
+              },
+              {
+                'id': 'CI-490017075-1',
+                'extension': [
+                  {
+                    'valuePeriod': {
+                      'start': '2019-12-26T16:09:36.000Z'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'code': '156',
+                          'display': 'Mother',
+                          'userSelected': true
+                        },
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                          'code': 'MTH',
+                          'display': 'mother',
+                          'userSelected': false
+                        }
+                      ],
+                      'text': 'Mother'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+                  }
+                ],
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+                    'code': '1150',
+                    'display': 'Default Guarantor',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'GT',
+                    'display': 'Guarantor',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Default Guarantor'
+              },
+              {
+                'id': 'CI-490068372-2',
+                'extension': [
+                  {
+                    'valuePeriod': {
+                      'start': '2020-08-10T16:37:51.000Z'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'code': '152'
+                        }
+                      ]
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
                 ],
                 'coding': [
@@ -421,67 +834,156 @@ module Cerner
             ],
             'name': [
               {
-                'id': 'CI-12724069-0',
+                'id': 'CI-12724066-0',
                 'use': 'official',
-                'text': 'SMART, TIMMY',
+                'text': 'SMART, NANCY',
                 'family': 'SMART',
                 'given': [
-                  'TIMMY'
+                  'NANCY'
                 ],
                 'period': {
-                  'start': '2019-12-26T15:17:05.000Z'
+                  'start': '2019-12-26T15:12:34.000Z'
                 }
               }
             ],
             'telecom': [
               {
-                'id': 'CI-PH-29811924-0',
+                'id': 'CI-PH-29852801-0',
                 'extension': [
                   {
-                    'valueUrl': '816-888-8886',
+                    'valueUrl': '13215555555',
                     'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
                   }
                 ],
                 'system': 'phone',
-                'value': '8168888886',
-                'use': 'home',
+                'value': '13215555555',
+                'use': 'work',
                 'period': {
-                  'start': '2019-12-26T15:17:05.000Z'
+                  'start': '2021-03-22T14:12:37.000Z'
                 }
               },
               {
-                'id': 'CI-EM-29822901-0',
-                'system': 'email',
-                'value': 'timmysmart@yopmail.com',
+                'id': 'CI-PH-29811918-1',
+                'extension': [
+                  {
+                    'valueUrl': '(987)654-3210',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '9876543210',
                 'use': 'home',
                 'period': {
-                  'start': '2020-06-30T20:41:33.000Z'
+                  'start': '2019-12-26T15:12:34.000Z'
+                }
+              },
+              {
+                'id': 'CI-PH-29844706-2',
+                'extension': [
+                  {
+                    'valueUrl': '(503)400-8675',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '5034008675',
+                'use': 'mobile',
+                'period': {
+                  'start': '2021-01-25T05:00:00.000Z'
+                }
+              },
+              {
+                'id': 'CI-PH-29844710-3',
+                'extension': [
+                  {
+                    'valueUrl': '5034008675',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '5034008675',
+                'use': 'mobile',
+                'period': {
+                  'start': '2021-01-25T05:00:00.000Z'
+                }
+              },
+              {
+                'id': 'CI-PH-29844690-4',
+                'extension': [
+                  {
+                    'valueUrl': '5034008675',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '5034008675',
+                'use': 'mobile',
+                'period': {
+                  'start': '2021-01-25T05:00:00.000Z'
+                }
+              },
+              {
+                'id': 'CI-PH-29844708-5',
+                'extension': [
+                  {
+                    'valueUrl': '5034008675',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '5034008675',
+                'use': 'mobile',
+                'period': {
+                  'start': '2021-01-25T05:00:00.000Z'
+                }
+              },
+              {
+                'id': 'CI-PH-29844688-6',
+                'extension': [
+                  {
+                    'valueUrl': '5034008675',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                'system': 'phone',
+                'value': '5034008675',
+                'use': 'mobile',
+                'period': {
+                  'start': '2021-01-25T00:33:18.000Z'
+                }
+              },
+              {
+                'id': 'CI-EM-29822894-0',
+                'system': 'email',
+                'value': 'workemail@gmail.com',
+                'use': 'home',
+                'period': {
+                  'start': '2020-06-30T19:47:10.000Z'
                 }
               }
             ],
-            'gender': 'male',
-            'birthDate': '2012-02-19',
+            'gender': 'female',
+            'birthDate': '1980-08-11',
             'address': [
               {
-                'id': 'CI-24313557-0',
+                'id': 'CI-24313551-0',
                 'use': 'home',
-                'text': '12345 Main St\nKansas City, MO 64116\nUS',
+                'text': '3P\nKANSAS CITY, MO 641510001\nUS',
                 'line': [
-                  '12345 Main St'
+                  '3P'
                 ],
-                'city': 'Kansas City',
+                'city': 'KANSAS CITY',
                 'district': 'Jackson',
                 'state': 'MO',
-                'postalCode': '64116',
+                'postalCode': '641510001',
                 'country': 'US',
                 'period': {
-                  'start': '2019-12-26T15:16:36.000Z'
+                  'start': '2020-12-08T15:05:44.000Z'
                 }
               }
             ],
             'communication': [
               {
-                'preferred': 'true',
                 'language': {
                   'coding': [
                     {
@@ -498,7 +1000,8 @@ module Cerner
                     }
                   ],
                   'text': 'English'
-                }
+                },
+                'preferred': 'true'
               }
             ]
           }
@@ -537,6 +1040,19 @@ module Cerner
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
               'code': '1152',
               'display': 'Emergency Contact'
+            }
+          ],
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '155'
+                  }
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
@@ -682,13 +1198,33 @@ module Cerner
             },
             'relationship': [
               {
-                'id': 'CI-97982588-0-0',
+                'id': 'CI-97982588-0',
                 'extension': [
                   {
                     'valuePeriod': {
                       'start': '2016-12-08T21:53:53.000Z'
                     },
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                          'code': '156',
+                          'display': 'Mother',
+                          'userSelected': true
+                        },
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                          'code': 'MTH',
+                          'display': 'mother',
+                          'userSelected': false
+                        }
+                      ],
+                      'text': 'Mother'
+                    },
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
                   }
                 ],
                 'coding': [
@@ -706,24 +1242,6 @@ module Cerner
                   }
                 ],
                 'text': 'Default Guarantor'
-              },
-              {
-                'id': 'CI-97982588-1-0',
-                'coding': [
-                  {
-                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
-                    'code': '670847',
-                    'display': 'Child',
-                    'userSelected': true
-                  },
-                  {
-                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-                    'code': 'CHILD',
-                    'display': 'child',
-                    'userSelected': false
-                  }
-                ],
-                'text': 'Child'
               }
             ],
             'name': [
