@@ -11,10 +11,12 @@ title: Health Cards | R4 API
 
 Health Cards are TBD
 
+Cerner's support 
+
 ## Terminology Bindings
 
 TBD
-<%= terminology_table(:verifiable_credentials_health_cards, :r4) %>
+<%= terminology_table(:health_cards, :r4) %>
 
 ## $health-cards-issue 
 
@@ -46,7 +48,7 @@ TBD
 
 #### Request
 
-    POST https://fhir-open.stagingcerner.com/beta/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724065/$health-cards-issue
+    POST https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724065/$health-cards-issue
 
 #### Body
 
