@@ -467,6 +467,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="#custom-extensions">Net Price</a></li>
   <li><a href="#custom-extensions">Offset By</a></li>
   <li><a href="#custom-extensions">Performing Location</a></li>
+  <li><a href="#custom-extensions">Priority</a></li>
   <li><a href="#custom-extensions">Procedure</a></li>
   <li><a href="#custom-extensions">Replacing</a></li>
   <li><a href="#custom-extensions">Revenue Code</a></li>
@@ -520,6 +521,11 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td><code>performing-location</code></td>
       <td><a href="https://hl7.org/fhir/r4/references.html#Reference"><code>Reference</code></a></td>
       <td>A location where the resource was performed.</td>
+    </tr>
+    <tr>
+      <td><code>priority</code></td>
+      <td><a href="https://hl7.org/fhir/R4/datatypes.html#unsignedInt"><code>unsignedInt</code></a></td>
+      <td>The priority of the element within a list.</td>
     </tr>
     <tr>
       <td><code>procedure</code></td>
@@ -635,7 +641,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         },
         {
           "valueUnsignedInt": 1,
-          "url": "priority"
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
@@ -664,7 +670,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         },
         {
           "valueUnsignedInt": 1,
-          "url": "priority"
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
@@ -693,7 +699,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         },
         {
           "valueUnsignedInt": 1,
-          "url": "priority"
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier"

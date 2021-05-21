@@ -90,8 +90,10 @@
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#example---patient-level-coverage" id="markdown-toc-example---patient-level-coverage">Example - Patient-level Coverage</a></li>
-      <li><a href="#example---encounter-level-coverage" id="markdown-toc-example---encounter-level-coverage">Example - Encounter-level Coverage</a></li>
+      <li><a href="#example---patient-level-private-coverage" id="markdown-toc-example---patient-level-private-coverage">Example - Patient-level Private Coverage</a></li>
+      <li><a href="#example---patient-level-public-coverage" id="markdown-toc-example---patient-level-public-coverage">Example - Patient-level Public Coverage</a></li>
+      <li><a href="#example---encounter-level-private-coverage" id="markdown-toc-example---encounter-level-private-coverage">Example - Encounter-level Private Coverage</a></li>
+      <li><a href="#example---encounter-level-public-coverage" id="markdown-toc-example---encounter-level-public-coverage">Example - Encounter-level Public Coverage</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -100,8 +102,8 @@
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
-      <li><a href="#example---patient-level-coverage-1" id="markdown-toc-example---patient-level-coverage-1">Example - Patient-level Coverage</a></li>
-      <li><a href="#example---encounter-level-coverage-1" id="markdown-toc-example---encounter-level-coverage-1">Example - Encounter-level Coverage</a></li>
+      <li><a href="#example---patient-level-private-coverage-1" id="markdown-toc-example---patient-level-private-coverage-1">Example - Patient-level Private Coverage</a></li>
+      <li><a href="#example---encounter-level-private-coverage-1" id="markdown-toc-example---encounter-level-private-coverage-1">Example - Encounter-level Private Coverage</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
@@ -266,7 +268,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan.</li>
+  <li>Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public coverages, they will return with an id prefixed with ‘PH’ or ‘PHP’ and will be returned in the payload with the rest of the coverages (private coverages).</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -311,7 +313,7 @@
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example---patient-level-coverage">Example - Patient-level Coverage</h3>
+<h3 id="example---patient-level-private-coverage">Example - Patient-level Private Coverage</h3>
 
 <h4 id="request">Request</h4>
 
@@ -397,7 +399,7 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h4 id="example---patient-level-public-healthcare-coverage">Example - Patient-level Public Healthcare Coverage</h4>
+<h3 id="example---patient-level-public-coverage">Example - Patient-level Public Coverage</h3>
 
 <h4 id="request-1">Request</h4>
 
@@ -472,7 +474,7 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---encounter-level-coverage">Example - Encounter-level Coverage</h3>
+<h3 id="example---encounter-level-private-coverage">Example - Encounter-level Private Coverage</h3>
 
 <h4 id="request-2">Request</h4>
 
@@ -569,7 +571,7 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h4 id="example---encounter-level-public-healthcare-coverage">Example - Encounter-level Public Healthcare Coverage</h4>
+<h3 id="example---encounter-level-public-coverage">Example - Encounter-level Public Coverage</h3>
 
 <h4 id="request-3">Request</h4>
 
@@ -1278,7 +1280,7 @@
   </tbody>
 </table>
 
-<h3 id="example---patient-level-coverage-1">Example - Patient-level Coverage</h3>
+<h3 id="example---patient-level-private-coverage-1">Example - Patient-level Private Coverage</h3>
 
 <h4 id="request-4">Request</h4>
 
@@ -1363,7 +1365,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---encounter-level-coverage-1">Example - Encounter-level Coverage</h3>
+<h3 id="example---encounter-level-private-coverage-1">Example - Encounter-level Private Coverage</h3>
 
 <h4 id="request-5">Request</h4>
 
@@ -1476,8 +1478,8 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 <ul>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
-  <li>For Private Coverages, only Encounter-level Coverages may be patched. For Public Coverages,
-both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the <code>/period</code> and <code>/class/0/value</code> operations.</li>
+  <li>For Private Coverages, only Encounter-level Coverages may be patched.</li>
+  <li>For Public Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the <code>/period</code> and <code>/class/0/value</code> operations.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1960,7 +1962,8 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Only Encounter-level Coverages may be deleted. Deletes are not currently supported for Patient-level Coverages.</li>
+  <li>For Private Coverages, only Encounter-level Coverages may be deleted.</li>
+  <li>For Public Coverages, both Encounter-level and Patient-level Coverages may be deleted.</li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
