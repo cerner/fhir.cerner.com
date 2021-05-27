@@ -4,8 +4,6 @@ title: Questionnaire | R4 API
 
 # Questionnaire
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
@@ -54,8 +52,6 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 
 ## Search
 
-<%= beta_tag(action: true) %>
-
 Search for Questionnaires that meet supplied query parameters:
 
     GET /Questionnaire?:parameters
@@ -92,8 +88,6 @@ Search for Questionnaires that meet supplied query parameters:
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
-
-<%= beta_tag(action: true) %>
 
 List an individual Questionnaire by its id:
 
