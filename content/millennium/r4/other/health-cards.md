@@ -9,9 +9,11 @@ title: Health Cards | R4 API
 
 ## Overview
 
-Health Cards are TBD
+A Health Card is a verifiable, digital artifact that represents a limited set of information about an individual, relevant to a specific health status. The card can be presented in digital and physical form. A QR code representing the card can be shared from a device or a piece of paper. Information in the health card can be used to determine the authenticity of the artifact and its issuer. The goal is to provide individuals with the choice to share limited health information in a portable and secure manner. 
 
-Cerner's support 
+Health cards are designed in conformance with the emerging [SMART Health Card framework](https://smarthealth.cards) and [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
+
+The FHIR payloads encompassed in the Health Card adhere to the Data Minimization profiles defined by [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
 ## Terminology Bindings
 
