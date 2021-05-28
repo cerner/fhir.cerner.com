@@ -20,6 +20,7 @@ The following fields are returned if valued:
 * [Telecom Information (secure email and phone)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
 * [Address (Provider and System Authorization Only)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
 * [Gender](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
+* [Qualification](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -64,6 +65,7 @@ Search for Practitioners that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_bundle) %>
 
+<%= disclaimer %>
 #### Patient Authorization Request
 
     GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
@@ -73,6 +75,7 @@ Search for Practitioners that meet supplied query parameters:
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_patient_access_bundle) %>
 
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -102,6 +105,7 @@ List an individual Practitioner by its id:
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_entry) %>
 
+<%= disclaimer %>
 #### Patient Authorization Request
 
     GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936
@@ -111,6 +115,7 @@ List an individual Practitioner by its id:
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_patient_access_entry) %>
 
+<%= disclaimer %>
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
