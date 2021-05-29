@@ -313,7 +313,7 @@ fields:
     <ul>
       <li> Each address must contain the `use` field. </li>
       <li> Each address must not contain the `text` field. </li>
-       <li> When specifying a period, the fields must include a time component with a timezone. </li>
+      <li> When specifying a period, the fields must include a time component with a timezone. </li>
       <li> If `line` is provided, only the first four values are used. Additional values will be ignored. </li>
     </ul>
   url: https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address

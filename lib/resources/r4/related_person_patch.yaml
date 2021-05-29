@@ -228,7 +228,7 @@ operations:
     note: >
       <ul>
         <li>Must contain the `system`, `use`, and `value` fields.</li>
-       <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a period, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-telecom-id
