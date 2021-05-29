@@ -33,7 +33,7 @@ operations:
       <ul>
         <li>Must not contain the `use` field.</li>
         <li>Must contain the `type`, `system`, and `value` fields.</li>
-        <li>When specifying a `period`, the `start` and `end` fields must include a time component with a timezone.</li>
+        <li>When specifying a period, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-identifier-id
@@ -80,7 +80,16 @@ operations:
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
                 "code": "1152"
               }
-            ]
+            ],
+             "extension": [
+               {
+                 "valuePeriod": {
+                   "start": "2016-12-19T16:44:25.000Z",
+                   "end": "2022-05-01T16:56:56.000Z"
+                 },
+                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+               }
+             ]
           }
         }
       ]
@@ -89,7 +98,37 @@ operations:
       <ul>
         <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
         <li>The <code>value.coding</code> cannot contain a standard system.</li>
+        <li> When specifying a period, the fields must include a time component with a timezone. </li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
+      </ul>
+
+  - name: test-relationship-id
+    path: /relationship/{index}/id
+    operation: test
+    type: string
+    url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+    description: Test the `Relationship.id` value of the relationship at the given <code>{index}</code> in the list of related person relationships.
+    example: |
+      {
+        "op": "test",
+        "path": "/relationship/0/id",
+        "value": "CI-98278577-0"
+      }
+
+  - name: remove-relationship
+    path: /relationship/{index}
+    operation: remove
+    type: N/A
+    url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship
+    description: Remove the relationship at the given <code>{index}</code> in the list of related person relationships.
+    example: |
+      {
+        "op": "remove",
+        "path": "/relationship/0"
+      }
+    note: >
+      <ul>
+        <li>Requires a test operation to be provided for the Relationship.id field of the relationship to be removed.</li>
       </ul>
 
   - name: add-address
@@ -122,7 +161,7 @@ operations:
       <ul>
         <li>Must not contain the `text` field.</li>
         <li>Must contain the `use` field.</li>
-        <li>Must include a time component with a timezone when specifying a `period`.</li>
+        <li>When specifying a period, the fields must include a time component with a timezone.</li>
         <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
 
@@ -189,7 +228,7 @@ operations:
     note: >
       <ul>
         <li>Must contain the `system`, `use`, and `value` fields.</li>
-        <li>When specifying a `period`, the `start` and `end` fields must include a time component with a timezone.</li>
+       <li>When specifying a period, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-telecom-id
