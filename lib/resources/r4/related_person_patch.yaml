@@ -81,15 +81,15 @@ operations:
                 "code": "1152"
               }
             ],
-             "extension": [
-               {
-                 "valuePeriod": {
-                   "start": "2016-12-19T16:44:25.000Z",
-                   "end": "2022-05-01T16:56:56.000Z"
-                 },
-                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
-               }
-             ]
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2016-12-19T16:44:25.000Z",
+                  "end": "2022-05-01T16:56:56.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              }
+            ]
           }
         }
       ]
@@ -98,7 +98,7 @@ operations:
       <ul>
         <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
         <li>The <code>value.coding</code> cannot contain a standard system.</li>
-        <li> When specifying a period, the fields must include a time component with a timezone. </li>
+        <li>When specifying a period, the fields must include a time component with a timezone.</li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
       </ul>
 
