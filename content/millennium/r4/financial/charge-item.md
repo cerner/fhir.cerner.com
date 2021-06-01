@@ -79,13 +79,13 @@ Search for ChargeItems that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true, system: true) %>
+<%= authorization_types(provider: true, patient: false, system: true) %>
 
 ### Parameters
 
  Name                  | Required?  | Type          | Description
 -----------------------|------------|---------------|-------------------------------------------------------
- `_id`                 | Yes        | [`token`]     | The logical resource id associated with the resource.
+ `_id`                 | Yes        | [`token`]     | The logical resource id associated with the ChargeItem.
 
 ### Headers
 
