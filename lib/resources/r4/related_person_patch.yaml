@@ -33,7 +33,7 @@ operations:
       <ul>
         <li>Must not contain the `use` field.</li>
         <li>Must contain the `type`, `system`, and `value` fields.</li>
-        <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-identifier-id
@@ -98,7 +98,7 @@ operations:
       <ul>
         <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
         <li>The <code>value.coding</code> cannot contain a standard system.</li>
-        <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
       </ul>
 
@@ -161,7 +161,7 @@ operations:
       <ul>
         <li>Must not contain the `text` field.</li>
         <li>Must contain the `use` field.</li>
-        <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
       </ul>
 
@@ -228,7 +228,7 @@ operations:
     note: >
       <ul>
         <li>Must contain the `system`, `use`, and `value` fields.</li>
-        <li>When specifying a period, the fields must include a time component with a timezone.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
       </ul>
 
   - name: test-telecom-id
