@@ -11,6 +11,8 @@ title: Practitioner | R4 API
 
 The Practitioner Resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
 
+Not all practitioners have access the EHR but can be referenced by other resources to indicate they are in some way involved in a patient's care.
+
 The following fields are returned if valued:
 
 * [Practitioner id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -117,7 +119,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create an individual Practitioner.
+Create an individual Practitioner that can be referenced by other resources. This API is not used for user provisioning.
 
     POST /Practitioner
 
