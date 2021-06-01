@@ -11,7 +11,7 @@ title: Practitioner | R4 API
 
 The Practitioner Resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
 
-Not all practitioners have access the EHR but can be referenced by other resources to indicate they are in some way involved in a patient's care.
+Not all practitioners have access to the EHR but can be referenced by other resources to indicate they are in some way involved in a patient's care.
 
 The following fields are returned if valued:
 
