@@ -988,8 +988,26 @@ for more information on how to register these applications.
 A client performs this request utilizing the "client
 credentials" flow of OAuth2 to request an access token,
 using the [Basic authentication scheme][RFC2617] for
-passing credentials.  The following is a non-normative
-example of such a request:
+passing credentials. The credentials to use to perform this
+request will be based on the system account.
+
+The access token should be created using the system account's id and secret, 
+and encoded using the Base64 encoding scheme. Then, it can be used as the Basic Authorization for a request. 
+The following is an example of an access token using the Basic authentication scheme:
+
+<pre class="terminal">
+System account id / Client id: bb318a62-fa61-49ae-b692-7d99214f0ec7
+Secret: secret
+
+Base64 encode "clientid:secret":
+"bb318a62-fa61-49ae-b692-7d99214f0ec7:secret" => YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
+
+Use this value in Authorization header:
+Authorization: Basic YmIzMThhNjItZmE2MS00OWFlLWI2OTItN2Q5OTIxNGYwZWM3OnNlY3JldA==
+</pre>
+
+The following is a non-normative
+example of a request made using the system account credentials:
 
 Request:
 <pre class="terminal">
@@ -1005,6 +1023,9 @@ grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient
 
 As an example, here is how the token may be requested via cURL:
 <pre class="terminal">
+export SYSTEM_ACCOUNT_CLIENT_ID="bb318a62-fa61-49ae-b692-7d99214f0ec7"
+export SYSTEM_ACCOUNT_CLIENT_SECRET="secret"
+
 curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/protocols/oauth2/profiles/smart-v1/token' \
   -H 'Accept: application/json' \
   -H "Authorization: Basic $(echo -n $SYSTEM_ACCOUNT_CLIENT_ID:$SYSTEM_ACCOUNT_CLIENT_SECRET | base64)" \
