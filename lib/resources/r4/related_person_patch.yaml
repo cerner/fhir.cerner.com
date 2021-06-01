@@ -128,7 +128,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a test operation to be provided for the Relationship.id field of the relationship to be removed.</li>
+        <li>Requires a test operation to be provided for the `Relationship.id` field of the relationship to be removed.</li>
       </ul>
 
   - name: add-address
