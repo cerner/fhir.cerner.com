@@ -87,6 +87,10 @@ Search for ChargeItems that meet supplied query parameters:
 -----------------------|------------|---------------|-------------------------------------------------------
  `_id`                 | Yes        | [`token`]     | The logical resource id associated with the ChargeItem.
 
+Notes:
+
+- When searching by `_id`, only a single ChargeItem id can be passed.
+
 ### Headers
 
 <%= headers %>
