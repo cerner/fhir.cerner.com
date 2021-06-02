@@ -219,12 +219,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/ChargeItem?_id=292870306'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/ChargeItem/292870306',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292870306',
           'resource': {
             'resourceType': 'ChargeItem',
             'id': '292870306',

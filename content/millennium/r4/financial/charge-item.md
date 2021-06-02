@@ -89,7 +89,7 @@ Search for ChargeItems that meet supplied query parameters:
 
 Notes:
 
-- When searching by `_id`, only a single ChargeItem id can be passed.
+- When searching by `_id`, only a single ChargeItem id can be provided.
 
 ### Headers
 
@@ -165,3 +165,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Performing Location]: #custom-extensions
 [Replacing]: #custom-extensions
 [Bill Code Schedule]: #custom-extensions
+[`token`]: https://hl7.org/fhir/R4/search.html#token
