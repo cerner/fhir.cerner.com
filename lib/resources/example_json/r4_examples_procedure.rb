@@ -311,5 +311,149 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_PROCEDURE_REVINCLUDE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': 'e448772d-7265-48b2-a942-99002b44337d',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Procedure?patient=744104&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Procedure/570007845',
+          'resource': {
+            'resourceType': 'Procedure',
+            'id': '570007845',
+            'meta': {
+              'versionId': '0',
+              'lastUpdated': '2021-05-28T15:02:50Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient'\
+                     '</b>: HEATHERJSMITH</p><p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date'\
+                     '</b>: Apr  5, 2019</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East'\
+                     '</p><p><b>Recorder</b>: Powerchart, User</p><p><b>Performer</b>:</p><ul><li>Smith MD, John'\
+                     '</li></ul></div>'
+            },
+            'status': 'completed',
+            'code': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '119954001',
+                  'display': 'Adenoid excision (procedure)',
+                  'userSelected': true
+                }
+              ],
+              'text': 'Adenoid excision (text)'
+            },
+            'subject': {
+              'reference': 'Patient/744104',
+              'display': 'HEATHERJSMITH'
+            },
+            'encounter': {
+              'reference': 'Encounter/18245662'
+            },
+            'performedDateTime': '2019-04-05',
+            'recorder': {
+              'reference': 'Practitioner/1255969',
+              'display': 'Powerchart, User'
+            },
+            'performer': [
+              {
+                'actor': {
+                  'reference': 'Practitioner/2523932',
+                  'display': 'Smith MD, John'
+                }
+              }
+            ],
+            'location': {
+              'display': 'Baseline East'
+            },
+            'note': [
+              {
+                'authorReference': {
+                  'reference': 'Practitioner/2523932',
+                  'display': 'Smith MD, John'
+                },
+                'time': '2019-04-05T20:21:46Z',
+                'text': 'Procedure comment'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Provenance/proc-13511261',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'proc-13511261',
+            'meta': {
+              'versionId': '13511261',
+              'lastUpdated': '2021-05-28T10:09:59-05:00'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul>'\
+              '<li>Procedure/570007845</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p><p><b>Agents</b>'\
+              ':</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role</b>: Source</dd></dl>'\
+              '<p><b>Entity Source</b>: DocumentReference/S-201</p></div>'
+            },
+            'target': [
+              {
+                'reference': 'Procedure/570007845'
+              }
+            ],
+            'recorded': '2019-10-25T09:57:43-05:00',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type',
+                      'code': 'transmitter'
+                    }
+                  ],
+                  'text': 'Transmitter'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/619848',
+                  'display': 'Unknown'
+                }
+              }
+            ],
+            'entity': [
+              {
+                'role': 'source',
+                'what': {
+                  'reference': 'DocumentReference/S-201'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        }
+      ]
+    }.freeze
   end
 end
