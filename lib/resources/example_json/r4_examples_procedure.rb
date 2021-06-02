@@ -319,12 +319,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Procedure?patient=744104&_revinclude=Provenance%3Atarget'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=744104&_revinclude=Provenance%3Atarget'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Procedure/570007845',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/570007845',
           'resource': {
             'resourceType': 'Procedure',
             'id': '570007845',
@@ -391,7 +391,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Provenance/proc-13511261',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/proc-13511261',
           'resource': {
             'resourceType': 'Provenance',
             'id': 'proc-13511261',
