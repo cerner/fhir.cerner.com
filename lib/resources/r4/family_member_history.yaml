@@ -1,0 +1,28 @@
+---
+name: FamilyMemberHistory
+field_name_base_url: https://hl7.org/implement/standards/fhir/R4/questionnaireresponse-definitions.html#QuestionnaireResponse
+fields:
+  - name: resourceType
+    required: 'Yes'
+    type: string
+    url: https://hl7.org/fhir/r4/json.html#resources
+    description: The type of the FHIR resource.
+    action:
+      create
+      update
+    example: |
+      {
+        "resourceType": "FamilyMemberHistory"
+      }
+    note: resourceType must be FamilyMemberHistory
+
+  - name: id
+    required: 'Yes'
+    type: id
+    url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
+    description: The logical id of the resource.
+    action: update
+    example: |
+      {
+        "id": "123-456"
+      }
