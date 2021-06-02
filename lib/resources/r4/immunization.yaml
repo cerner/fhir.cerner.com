@@ -120,7 +120,7 @@ fields:
     }
 
 - name: encounter
-  required: 'No'
+  required: 'Yes'
   type: Reference
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
   description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
@@ -133,6 +133,7 @@ fields:
         "reference": "Encounter/36209678"
       }
     }
+  note: encounter is mandatory for charted data and not mandatory for staged data.
 
 - name: occurrenceDateTime
   required: 'Yes'
