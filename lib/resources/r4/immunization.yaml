@@ -133,7 +133,11 @@ fields:
         "reference": "Encounter/36209678"
       }
     }
-  note: encounter is mandatory for charted data and not mandatory for staged data.
+  note: |
+    <ul>
+      <li> encounter is required field to create charted immunizations </li>
+      <li> encounter is not a required field to create staged immunizations. </li>
+    </ul> 
 
 - name: occurrenceDateTime
   required: 'Yes'
