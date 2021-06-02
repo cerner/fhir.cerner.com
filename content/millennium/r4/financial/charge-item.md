@@ -69,6 +69,49 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `revenue-code`         | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
  `unit-price`           | [`Money`]                         | The price of a single unit for the resource.
 
+## Search
+
+<%= beta_tag(action: true) %>
+
+Search for ChargeItems that meet supplied query parameters:
+
+    GET /ChargeItem?:parameters
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Parameters
+
+ Name                  | Required?  | Type          | Description
+-----------------------|------------|---------------|-------------------------------------------------------
+ `_id`                 | Yes        | [`token`]     | The logical resource id associated with the ChargeItem.
+
+Notes:
+
+- When searching by `_id`, only a single ChargeItem id can be provided.
+
+### Headers
+
+<%= headers %>
+
+### Example - Search by Id
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_chargeitem_bundle) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Retrieve by id
 
 <%= beta_tag(action: true) %>
@@ -124,3 +167,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Performing Location]: #custom-extensions
 [Replacing]: #custom-extensions
 [Bill Code Schedule]: #custom-extensions
+[`token`]: https://hl7.org/fhir/R4/search.html#token
