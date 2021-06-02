@@ -80,7 +80,10 @@ fields:
     description: Specifies the particular kind of document referenced.
     terminology:
     - display: US Core DocumentReference Type
-      system: http://loinc.org, http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+    - display: US Core DocumentReference Type
+      system: http://terminology.hl7.org/CodeSystem/v3-NullFlavor (when type doesn't have a LOINC code)
       info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
     - display: Millennium Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
