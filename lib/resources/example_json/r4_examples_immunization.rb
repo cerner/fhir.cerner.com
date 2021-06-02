@@ -532,7 +532,10 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p><p><b>Vaccine</b>: cholera vaccine</p><p><b>Occurrence</b>: Apr  5, 2020</p><p><b>Patient</b>: HEATHERJSMITH</p><p><b>Status</b>: Completed</p><p><b>Organization</b>: Baseline West Medical Center</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p>'\
+                     '<p><b>Vaccine</b>: cholera vaccine</p><p><b>Occurrence</b>: Apr  5, 2020</p>'\
+                     '<p><b>Patient</b>: HEATHERJSMITH</p><p><b>Status</b>: Completed</p><p>'\
+                     '<b>Organization</b>: Baseline West Medical Center</p></div>'
             },
             'identifier': [
               {
@@ -618,7 +621,11 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p><p><b>Vaccine</b>: diphtheria/pertussis, acel/tetanus ped</p><p><b>Occurrence</b>: Apr  7, 2020</p><p><b>Patient</b>: HEATHERJSMITH</p><p><b>Status</b>: Not Done</p><p><b>Status Reason</b>: Patient Refuses</p><p><b>Organization</b>: Baseline West Medical Center</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Immunization</b></p>'\
+                     '<p><b>Vaccine</b>: diphtheria/pertussis, acel/tetanus ped</p><p>'\
+                     '<b>Occurrence</b>: Apr  7, 2020</p><p><b>Patient</b>: HEATHERJSMITH</p><p>'\
+                     '<b>Status</b>: Not Done</p><p><b>Status Reason</b>: Patient Refuses</p><p>'\
+                     '<b>Organization</b>: Baseline West Medical Center</p></div>'
             },
             'identifier': [
               {
@@ -691,7 +698,11 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>Immunization/M17255835</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p>'\
+                     '<b>Target</b>:</p><ul><li>Immunization/M17255835</li></ul><p><b>Recorded</b>'\
+                     ': Oct 25, 2019  9:57 A.M. CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd>'\
+                     '<b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role</b>: Source</dd></dl>'\
+                     '<p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
             },
             'target': [
               {
@@ -751,7 +762,10 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>Immunization/M17255835</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p>'\
+                     '<ul><li>Immunization/M17255835</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p>'\
+                     '<p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd>'\
+                     '<b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
             },
             'target': [
               {
