@@ -37,7 +37,7 @@ The following [FHIR Immunization](http://build.fhir.org/ig/dvci/vaccine-credenti
 
 Issue a  Health Card for a patient that meet the supplied request:
 
-    POST /Patient/{Patient.id}/$health-cards-issue
+    POST /Patient/:id/$health-cards-issue
 
 _Implementation Notes_
 
