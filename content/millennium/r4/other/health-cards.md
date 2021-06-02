@@ -9,16 +9,29 @@ title: Health Cards | R4 API
 
 ## Overview
 
-A Health Card is a verifiable, digital artifact that represents a limited set of information about an individual, relevant to a specific health status. The card can be presented in digital and physical form. A QR code representing the card can be shared from a device or a piece of paper. Information in the health card can be used to determine the authenticity of the artifact and its issuer. The goal is to provide individuals with the choice to share limited health information in a portable and secure manner. 
+A Health Card is a verifiable, digital artifact that represents a limited set of information about an individual, relevant to a specific health status. The card can be presented in digital and physical form. A QR code representing the card can be shared from a device or a piece of paper. Information in the health card can be used to determine the authenticity of the artifact and its issuer. The goal is to provide individuals with the choice to share limited health information in a portable and secure manner.
 
 Health cards are designed in conformance with the emerging [SMART Health Card framework](https://smarthealth.cards) and [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
+The returned FHIR Parameter resource adhere to the [FHIR $health-cards-issue Operation Specification](https://spec.smarthealth.cards/#via-fhir-health-cards-issue-operation).
+
 The FHIR payloads encompassed in the Health Card adhere to the Data Minimization profiles defined by [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
-## Terminology Bindings
+The following [FHIR Patient](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-dm.html#tab-ms) payload fields in the Health Card are returned if valued:
 
-TBD
-<%= terminology_table(:health_cards, :r4) %>
+* name (Only one name is returned)
+  * family
+  * given
+* birthDate
+
+The following [FHIR Immunization](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-dm.html) payload fields in the Health Card are returned if valued:
+
+* status
+* vaccineCode (Only supported codes for the credentialType are returned)
+* patient
+* occurrenceDateTime
+* lotNumber
+* performer (Only one Organization Reference is returned)
 
 ## $health-cards-issue 
 
@@ -34,17 +47,13 @@ _Implementation Notes_
 
 <%= authorization_types(provider: false, patient: true, system: false) %>
 
-### Supported Credential Types
-
-TBD - May need to be put in the [Body Fields](#Body-Fields)
-
 ### Headers
 
 <%= headers fhir_json: true %>
 
 ### Body Fields
 
-TBD
+<%= definition_table(:health_cards, :issue, :r4) %>
 
 ### Example
 
@@ -58,7 +67,6 @@ TBD
 
 #### Response
 
-TBD
 <%= headers status: 200 %>
 <%= json(:r4_health_cards_response) %>
 
@@ -67,3 +75,6 @@ TBD
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes

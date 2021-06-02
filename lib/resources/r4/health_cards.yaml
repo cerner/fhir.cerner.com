@@ -3,13 +3,48 @@ name: Health Cards
 field_name_base_url: https://smarthealth.cards/
 fields:
 
-  - name: TBD
-    type: TBD
-    description: PTBD
-    action: terminology
-    binding:
-      description: TBD
-      terminology:
-        - display: TBD
-          system: TBD
-          info_link: TBD
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: issue
+  example: |
+    {
+      "resourceType": "Parameters"
+    }
+  note: resourceType must be Parameters
+  url: https://hl7.org/fhir/r4/json.html#resources
+- name: parameter
+  required: 'No'
+  type: BackboneElement
+  description: Operation parameter.
+  action: issue
+  children:
+  - name: name
+    required: 'Yes'
+    type: string
+    description: Name from the definition.
+    note: Only credentialType is supported
+    url: https://www.hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter.name
+    example: |
+      {
+        "parameter": {
+          "name": "credentialType"
+        }
+      }
+  - name: value[x]
+    required: 'No'
+    type: uri
+    description: Value of the parameter.
+    note: |
+      <p>Only the following valueUri value is supported:</p>
+      <ul>
+        <li>https://smarthealth.cards#covid19</li>
+      </ul>
+    url: https://www.hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter.value_x_
+    example: |
+      {
+        "parameter": {
+          "valueUri": "https://smarthealth.cards#covid19"
+        }
+      }
