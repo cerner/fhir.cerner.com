@@ -39,6 +39,8 @@ fields:
     note: |
       <p>Only the following valueUri value is supported:</p>
       <ul>
+        <li>https://smarthealth.cards#health-card</li>
+        <li>https://smarthealth.cards#immunization</li>
         <li>https://smarthealth.cards#covid19</li>
       </ul>
     url: https://www.hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter.value_x_

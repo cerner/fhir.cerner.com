@@ -11,9 +11,9 @@ title: Health Cards | R4 API
 
 A Health Card is a verifiable, digital artifact that represents a limited set of information about an individual, relevant to a specific health status. The card can be presented in digital and physical form. A QR code representing the card can be shared from a device or a piece of paper. Information in the health card can be used to determine the authenticity of the artifact and its issuer. The goal is to provide individuals with the choice to share limited health information in a portable and secure manner.
 
-Health cards are designed in conformance with the emerging [SMART Health Card framework](https://smarthealth.cards) and [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
+Health cards are designed in conformance with the emerging [SMART Health Card framework](https://smarthealth.cards) (for technical specification, refer to the [SMART Health Card specification](https://spec.smarthealth.cards/)) and [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
-The returned FHIR Parameter resource adhere to the [FHIR $health-cards-issue Operation Specification](https://spec.smarthealth.cards/#via-fhir-health-cards-issue-operation).
+This FHIR $health-cards-issue Operation returns the Health Card as JWS in a FHIR Parameter resource that adheres to the [FHIR $health-cards-issue Operation Specification](https://spec.smarthealth.cards/#via-fhir-health-cards-issue-operation).
 
 The FHIR payloads encompassed in the Health Card adhere to the Data Minimization profiles defined by [HL7 FHIR Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
