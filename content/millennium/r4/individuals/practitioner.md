@@ -46,11 +46,13 @@ Search for Practitioners that meet supplied query parameters:
  `identifier`| This or any other required search parameter                | [`token`]  | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
  `family`    | This or any other required search parameter                | [`string`] | The start of the family name of the practitioner. Example: `Smith`
  `given`     | This and `family`, or any other required search parameter  | [`string`] | The start of the given name of the practitioner. Example: `John`
+ `name`      | This or any other required search parameter                | [`string`] | The start of the first, middle or last name of the practitioner. Example: `John` or `Smith`
 
  Notes:
 
 * When provided, the `identifier` query parameter must include both a system and a code.
 * The `given` parameter may only be provided if `family` parameter is provided.
+* The `name` parameter must have at least 2 characters
 
 ### Headers
 
