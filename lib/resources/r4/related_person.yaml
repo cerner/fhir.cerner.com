@@ -147,8 +147,9 @@ fields:
     }
   note: |
     <ul>
-      <li>The <code>relationship.coding</code> must contain exactly one proprietary system.</li>
-      <li>The <code>relationship.coding</code> cannot contain a standard system.</li>
+      <li> The <code>relationship.coding</code> must contain exactly one proprietary system. </li>
+      <li> The <code>relationship.coding</code> cannot contain a standard system. </li>
+      <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
     </ul>
 
 - name: patient
@@ -194,7 +195,7 @@ fields:
           <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
           <li> Only one `prefix` and one `suffix` may be provided. </li>
           <li> `period.end` is not supported. </li>
-          <li> When specifying a `period`, `period.start` must include a time component with a timezone. </li>
+          <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
         </ul>
       </li>
     </ul>
@@ -279,7 +280,7 @@ fields:
     <ul>
         <li> Each identifier must not contain the `use` fields. </li>
         <li> Each identifier must contain the `type`, `system`, and `value` fields. </li>
-        <li> When specifying a `period`, must include a time component with a timezone. </li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
     </ul>
   url: https://hl7.org/fhir/R4/datatypes.html#Identifier
 

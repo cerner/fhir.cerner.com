@@ -1044,6 +1044,13 @@ module Cerner
           ],
           'extension': [
             {
+              'valuePeriod': {
+                'start': '2016-12-19T16:44:25.000Z',
+                'end': '2022-05-01T16:56:56.000Z'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
               'valueCodeableConcept': {
                 'coding': [
                   {
@@ -1331,6 +1338,15 @@ module Cerner
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
               'code': '1152'
             }
+          ],
+          'extension': [
+            {
+              'valuePeriod': {
+                'start': '2016-12-19T16:44:25.000Z',
+                'end': '2022-05-01T16:56:56.000Z'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            }
           ]
         }
       },
@@ -1414,6 +1430,15 @@ module Cerner
       {
         'op': 'remove',
         'path': '/address/0'
+      },
+      {
+        'op': 'test',
+        'path': '/relationship/0/id',
+        'value': 'CI-98278577-0'
+      },
+      {
+        'op': 'remove',
+        'path': '/relationship/0'
       },
       {
         'op': 'test',
