@@ -106,6 +106,8 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_chargeitem_bundle) %>
 
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
