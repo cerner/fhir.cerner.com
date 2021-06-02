@@ -43,7 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-Search for Schedules that meet supplied query parameters:
+Search for Slots that meet supplied query parameters:
 
     GET /Slot?:parameters
 
@@ -58,15 +58,15 @@ _Implementation Notes_
 
 ### Parameters
 
- Name             | Required?                  | Type          | Description
-------------------|----------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------
- `_id`            | Yes or `service-type`      | [`token`]     | The logical resource id associated with the resource.
- `service-type`      | Yes or `_id`            | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `[http://snomed.info/sct\|394581000|http://snomed.info/sct]`
- `schedule.actor` | No                         | [`reference`] | A single or comma separated list of Practitioner references. Example: `Practitioner/1234`
- `-location`      | No                         | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
- `start`          | See Notes                  | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
- [`_count`]       | No                         | [`number`]    | The maximum number of results to be returned per page.
- [`_include`]     | No                         | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
+ Name             | Required?             | Type          | Description
+------------------|-----------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`            | Yes or `service-type` | [`token`]     | The logical resource id associated with the resource.
+ `service-type`   | Yes or `_id`          | [`token`]     | A single or comma separated list of appointment types that can be booked into the slot. Example: `service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611`
+ `schedule.actor` | No                    | [`reference`] | A single or comma separated list of Practitioner references. Example: `schedule.actor=Practitioner/1234`
+ `-location`      | No                    | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
+ `start`          | See Notes             | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
+ [`_count`]       | No                    | [`number`]    | The maximum number of results to be returned per page.
+ [`_include`]     | No                    | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
 
 Notes:
 
@@ -79,7 +79,7 @@ Notes:
   * When using standard codes, choose codes bound to Slot.serviceType as noted in the [Terminology Bindings](#terminology-bindings) table above.
   * When using proprietary codes, the system should be `https://fhir.cerner.com/<your EHR source id>/codeSet/<code set>` (where code set is a Millennium code set) and the code should be a Millennium code value. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|24477854`
 
-* The start parameter must be provided when `service-type`, `-location`, or `actor` is provided.
+* The start parameter must be provided when `service-type`, `-location`, or `schedule.actor` is provided.
 
 * When the `start` parameter is provided:
   * both the prefixes `ge` and `lt` must be used to indicate a specific range.The date and prefix pairs must define 
@@ -188,6 +188,64 @@ List an individual Slot by its id:
 <%= json(:r4_slot_patient_access_entry) %>
 
 <%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Patch
+
+<%= beta_tag(action: true, known_issues: ["A 500 Internal Server Error is thrown when an invalid version id is used in the If-Match Header"]) %>
+
+Patch an existing Slot.
+
+    PATCH /Slot/:id
+
+_Implementation Notes_
+
+* This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
+* Only operations on the paths listed below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
+                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Slot resource>"'} %>
+
+### Patch Operations
+
+<%= patch_definition_table(:slot_patch, :r4) %>
+
+### Example
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot/4047611-32216049-61518614-0
+
+#### Body
+
+<%= json(:r4_slot_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 20
+Content-Type: text/html
+Date: Tue, 06 Apr 2021 15:36:47 GMT
+Etag: W/"410v795030969834"
+Last-Modified: Tue, 06 Apr 2021 15:36:47 GMT
+Vary: Origin
+X-Request-Id: 6801a2c5-bf2d-414b-9f6a-7bcf39cc69d9
+</pre>
+
+<%= disclaimer %>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ### Errors
 

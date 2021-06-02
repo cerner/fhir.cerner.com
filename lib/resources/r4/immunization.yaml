@@ -393,4 +393,7 @@ fields:
     {
       "primarySource": true
     }
-  note: should not be set to true when reportOrigin is populated
+  note: |
+    Will be set to true if not specified.
+    For CREATE action should not be set to true when reportOrigin is populated.
+    For UPDATE action should not be set to true.

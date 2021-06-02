@@ -1,0 +1,26 @@
+---
+name: QuestionnaireResponse
+field_name_base_url: https://hl7.org/implement/standards/fhir/R4/questionnaireresponse-definitions.html#QuestionnaireResponse
+fields:
+  - name: resourceType
+    required: 'Yes'
+    type: string
+    url: https://hl7.org/fhir/r4/json.html#resources
+    description: The type of the FHIR resource.
+    action: update
+    example: |
+      {
+        "resourceType": "QuestionnaireResponse"
+      }
+    note: resourceType must be QuestionnaireResponse
+
+  - name: id
+    required: 'Yes'
+    type: id
+    url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
+    description: The logical id of the resource.
+    action: update
+    example: |
+      {
+        "id": "SH-12508041"
+      }

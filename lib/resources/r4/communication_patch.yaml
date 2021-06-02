@@ -1,0 +1,33 @@
+---
+name: Communication
+field_name_base_url: https://hl7.org/fhir/R4/communication-definitions.html#Communication
+operations:
+  - name: replace-extension
+    path: /extension
+    operation: replace
+    type: Extension
+    url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
+    description: Replace the value of an extension.
+    example: |
+      {
+        "path": "/extension",
+        "op": "replace",
+        "value": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/task-status",
+                  "code": "completed"
+                }
+              ]
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+          }
+        ]
+      }
+    note: >
+      Supported extensions that can be replaced:
+      <ul>
+        <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Email Status</a></li>
+      </ul>
