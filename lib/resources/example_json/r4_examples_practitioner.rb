@@ -155,7 +155,41 @@ module Cerner
           'country': 'USA'
         }
       ],
-      'gender': 'male'
+      'gender': 'male',
+      'qualification': [
+        {
+          'code': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
+                'code': '677091',
+                'display': 'MD',
+                'userSelected': true
+              }
+            ],
+            'text': 'MD'
+          },
+          'period': {
+            'start': '2014-07-09T06:00:00.000Z'
+          }
+        },
+        {
+          'code': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
+                'code': '677079',
+                'display': 'PhD',
+                'userSelected': true
+              }
+            ],
+            'text': 'PhD'
+          },
+          'period': {
+            'start': '2014-07-09T06:00:00.000Z'
+          }
+        }
+      ]
     }.freeze
 
     R4_PRACTITIONER_PATIENT_ACCESS_ENTRY ||= {

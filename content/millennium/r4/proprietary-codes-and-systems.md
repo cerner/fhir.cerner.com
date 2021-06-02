@@ -120,9 +120,15 @@ The Organization Resource supports proprietary codes for:
 The Account Resource supports proprietary codes for:
 
 * Account.type.text codes are maintained in [Code Set 18736 Account Types](#code-set-18736-account-types)
-* Account.balance.currency codes are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
-* Account.state codes are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
+* The Account Balance extensions on Account are maintained in [Code Set 18934 Currency Type](#code-set-18934-currency-type)
+* The Account State extensions on Account are maintained in [Code Set 24451 Benefit Order Status](#code-set-24451-benefit-order-status) and [Code Set 4002640 Correspondence Status](#code-set-4002640-correspondence-status)
 * Account.identifier codes are maintained in [Code Set 28200 PFT Bill Alias Type](#code-set-28200-pft-bill-alias-type)
+
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary codes for:
+
+* The Bill Code Schedule extensions on ChargeItem are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
 
 ### General Clinical
 
@@ -156,7 +162,8 @@ The Patient Resource supports proprietary codes for:
 The RelatedPerson Resource supports proprietary codes for:
 
 * RelatedPerson.communication.language codes are maintained in [Code Set 36 Languages](#code-set-36-languages)
-* RelatedPerson.relationship codes are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships) and [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
+* RelatedPerson.relationship codes are maintained in [Code Set 351 Person Relationship Types](#code-set-351-person-relationship-types)
+* The Relation extension codes on RelatedPerson.relationship are maintained in [Code Set 40 Person Relationship Types](#code-set-40-person-relationships)
 
 <h4>Location</h4>
 
@@ -201,6 +208,8 @@ The contained Medication Resource supports proprietary codes for:
 <h4>Appointment</h4>
 
 The Appointment Resource supports proprietary codes for:
+
+* Appointment.cancelationReason codes are maintained in [Code Set 14229 Scheduling Appointment Cancellation Reason](#code-set-14229-scheduling-appointment-cancellation-reason)
 
 * Appointment.serviceType codes are maintained in [Code Set 14249 Scheduling Appointment Type Synonyms](#code-set-14249-scheduling-appointment-type-synonyms)
 
@@ -309,12 +318,12 @@ This code set may include Marital Statuses such as Divorced and Married.
 
 ##### Code Set 40 Person Relationships
 
-This code set is used to describe the patient's relationship to Subscriber, Guarantor, Emergency Contact, Next of Kin, and other related persons.
+This code set is used to describe the related person's relationship to the patient
 
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/40",
-      "code": "153",
-      "display": "DAUGHTER",
+      "code": "156",
+      "display": "MOTHER",
       "userSelected": true
     }
 
@@ -591,6 +600,15 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
       "display": "Moderate",
     }
 
+##### Code Set 14002 Bill Code Schedule
+
+This code set contains bill code schedules that drive billing behavior.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14002",
+      "code": "3693"
+    }
+    
 ##### Code Set 14045 Surgical Procedure Modifiers
 
 This code set contains the area of the body the surgery procedure is being executed.
@@ -601,6 +619,17 @@ This code set contains the area of the body the surgery procedure is being execu
       "display": "Left",
       "userSelected": true
     }
+    
+##### Code Set 14229 Scheduling Appointment Cancellation Reason 
+
+This code set defines a set of reasons for the cancellation of an appointment.
+  
+     {
+       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/14229",
+       "code": "2191414701",
+       "display": "Scheduled by mistake",
+       "userSelected": true
+     }
 
 ##### Code Set 14249 Scheduling Appointment Type Synonyms
 
@@ -622,6 +651,17 @@ This code set is customized by clients and defines exam rooms, surgery rooms, an
       "code": "4573",
       "display": "Radiology Exam Room",
     }
+
+##### Code Set 16127 Scheduling Processing Options
+
+This code set contains the various scheduling processing options such as diagnostic, followup or primary.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/16127",
+      "code": "22721463",
+      "display": "DIAGNOSTIC"
+      "userSelected": true
+    } 
 
 ##### Code Set 18736 Account Types
 
@@ -748,6 +788,12 @@ The Account Resource supports proprietary systems for:
 
 * Account.identifier.system is [Account Number](#account-number) for financial accounts.
 
+<h4>ChargeItem</h4>
+
+The ChargeItem Resource supports proprietary systems for:
+
+* ChargeItem.code, ChargeItem.reason, Modifier extension, Procedure extension, and Revenue Code extension codes are [Bill Codes Types](#bill-codes-types) for charge items.
+
 ### Medications
 
 <h4>MedicationRequest</h4>
@@ -767,6 +813,15 @@ This system is the account number of a financial account.
       "use": "usual",
       "system": "https://fhir.cerner.com/accountnumber",
       "value": "5646"
+    }
+
+##### Bill Codes Types
+
+This system is the bill code type for a charge item. `Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, `ICD`, `MODIFIER`, or `REVENUE`.
+
+    {
+      "system": "https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>",
+      "code": "0310"
     }
 
 ##### Medication Request Category

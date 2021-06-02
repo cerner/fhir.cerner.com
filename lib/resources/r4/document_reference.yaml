@@ -303,7 +303,7 @@ fields:
   action:
     - update
   description: The status of this document reference.
-  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Both `current` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {

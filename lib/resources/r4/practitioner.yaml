@@ -111,6 +111,47 @@ fields:
         system: http://terminology.hl7.org/CodeSystem/v2-0203
         info_link: https://hl7.org/fhir/r4/v2/0203/index.html
 
+- name: qualification
+  type: BackboneElement
+  required: 'No'
+  description: Qualifications obtained by training and certification.
+  action: get
+  example: |
+    {
+      "qualification": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0360|2.7",
+                "code": "DED",
+                "display": "Doctor of Education",
+                "userSelected": true
+              }
+            ],
+            "text": "Doctor of Education"
+          },
+          "period": {
+            "start": "2014-07-09T06:00:00.000Z"
+          }
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.qualification
+  children:
+
+  - name: code
+    type: CodeableConcept
+    description: Coded representation of the qualification.
+    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Coding.code
+    action: terminology
+    binding:
+      description: Coded representation of the qualification.
+      terminology:
+      - display: Qualification codes 
+        system: http://terminology.hl7.org/CodeSystem/v2-0360|2.7
+        info_link: http://hl7.org/fhir/v2/0360/2.7/index.html
+
 - name: active
   required: 'No'
   type: boolean

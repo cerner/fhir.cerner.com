@@ -379,3 +379,20 @@ fields:
       "time": "2019-06-09T14:03:26-05:00",
       "text": "Additional details"
     }
+
+- name: primarySource
+  required: 'No'
+  type: boolean
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.primarySource
+  description: An indication that the content of the record is based on information from the person who administered the vaccine.
+  action:
+    - create
+    - update
+  example: |
+    {
+      "primarySource": true
+    }
+  note: |
+    Will be set to true if not specified.
+    For CREATE action should not be set to true when reportOrigin is populated.
+    For UPDATE action should not be set to true.

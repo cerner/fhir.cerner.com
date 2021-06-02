@@ -16,7 +16,8 @@ operations:
       }
     note: >
       <ul>
-        <li>The `Coverage.class` at index 0 represents the plan for the Coverage.</li>
+        <li>For Private Coverages, the `Coverage.class` at index 0 represents the plan for the Coverage.</li>
+        <li>For Public Coverages, the `Coverage.class` at index 0 represents the charging category for the Coverage.</li>
       </ul>
 
   - name: replace-class-1-value

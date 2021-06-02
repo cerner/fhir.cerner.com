@@ -311,8 +311,12 @@ module Cerner
           'id': 'CI-PH-29811920-0',
           "extension": [
             {
-              "valueUrl": '(816) 888 8886',
+              "valueUrl": '(816)888-8886',
               "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            },
+            {
+              "valueString": '12345',
+              "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
             }
           ],
           'system': 'phone',
@@ -497,6 +501,13 @@ module Cerner
           'system': 'phone',
           'value': '8168229121',
           'use': 'home',
+          'id': 'CI-PH-29811920-0',
+          "extension": [
+            {
+              "valueString": '12345',
+              "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
+            }
+          ],
           'period': {
             'start': '2012-05-17T15:33:18.000Z'
           }

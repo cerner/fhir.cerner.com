@@ -96,6 +96,12 @@ _Implementation Notes_
  `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
  [`_count`] | No                                          | [`number`]    | The maximum number of results to return.
+ `status`   | No                                          | [`token`]     | The status of the encounter. Example: `planned`
+
+  Notes:
+
+* `_count` and `status` must be provided with patient
+* `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
 
 ### Headers
 

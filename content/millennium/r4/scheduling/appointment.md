@@ -26,13 +26,16 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Fulfilled, or Cancelled
 
-Video Visit functionality is available for supported vendors only, and requires additional configuration and application support.
+Video Visit functionality requires additional configuration and application support.
 
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
+* [Cancellation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
+* [ServiceCategory](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory){:target="_blank"}
 * [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
+* [Slot](https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot){:target="_blank"}
 * [Participant](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant){:target="_blank"}
   * [Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
   * [Actor](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
@@ -44,6 +47,7 @@ The following fields are returned if valued:
 * [End date time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
 * [Duration in minutes](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
+* [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
 
 ## Terminology Bindings
@@ -66,22 +70,25 @@ _Implementation Notes_
 
 ### Parameters
 
- Name           | Required?                                                | Type          | Description
-----------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `7890`
- `date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `1234`
- `practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `4567`
- `location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `6789`
- `status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
- [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
+ Name                  | Required?                                                                          | Type          | Description
+-----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
+ `_id`                 | Yes, or one of `patient`, `practitioner`, or `location`.                           | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
+ `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start date time with offset or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
+ `patient`             | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
+ `practitioner`        | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
+ `location`            | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Location references. Example: `633867`
+ `status`              | No                                                                                 | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+ [`_count`]            | No                                                                                 | [`number`]    | The maximum number of results to return.
 
 Notes:
 
 * The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination. For example, `patient=1234,5678` is supported but `patient=1234&patient=5678` and `patient=1234&location=5678` are not.
-* The `date` parameter may be provided:
+* Either `date` or `-date-or-req-period` parameter may be provided:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
+* Search by `date` returns appointments with a status other than `proposed` that start and end within the date range provided.
+* Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or are requested to end between the dates provided.
 * The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
 
 ### Headers
@@ -241,6 +248,34 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 #### Body
 
 <%= json(:r4_appointment_reasoncode_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
+### Example - Add cancelationReason
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+
+#### Body
+
+<%= json(:r4_appointment_cancelationreason_patch) %>
 
 #### Response
 
