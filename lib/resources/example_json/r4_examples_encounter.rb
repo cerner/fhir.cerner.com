@@ -379,6 +379,326 @@ module Cerner
       }
     }.freeze
 
+    R4_ENCOUNTER_REVINCLUDE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'ee084347-903b-494f-be58-640f1cc11ac7',
+      "type": 'searchset',
+      "total": 1,
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?_id=1361920&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1361920',
+          "resource": {
+            "resourceType": 'Encounter',
+            "id": '1361920',
+            "meta": {
+              "versionId": '3',
+              "lastUpdated": '1902-01-02T06:01:02.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Encounter</b></p><p><b>Patient</b>: CONNOR, JOHN'\
+                     '</p><p><b>Location</b>: Baseline West Primary Care Clinic, BW Clinic, BW Clinic</p><p><b>Type'\
+                     '</b>: Clinic</p><p><b>Service Type</b>: Medicine-General</p><p><b>Class</b>: Outpatient</p><p>'\
+                     '<b>Status</b>: Finished</p><p><b>Period Start Date</b>: Jan 23, 2013  2:00 P.M. CST</p><p><b>'\
+                     'Period End Date</b>: Jan 23, 2013  7:00 A.M. CST</p><p><b>Reason For Visit</b>: annual</p><p><b>'\
+                     'Service Provider</b>: Baseline West Primary Care Clinic</p></div>'
+            },
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "id": 'ENCNTR:3339151',
+                    "valueString": 'Previous Patient Type',
+                    "url": 'custom-attribute-name'
+                  },
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                          "code": '22282402',
+                          "display": 'Clinic',
+                          "userSelected": true
+                        }
+                      ],
+                      "text": 'Clinic'
+                    },
+                    "url": 'custom-attribute-value'
+                  }
+                ],
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+              },
+              {
+                "extension": [
+                  {
+                    "id": 'ENCNTR:17368048',
+                    "valueString": 'Full Reg Date/Time',
+                    "url": 'custom-attribute-name'
+                  },
+                  {
+                    "valueDateTime": '2013-08-05T18:14:37.000Z',
+                    "url": 'custom-attribute-value'
+                  }
+                ],
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+              },
+              {
+                "extension": [
+                  {
+                    "id": 'ENCNTR:4047481',
+                    "valueString": 'Conversation',
+                    "url": 'custom-attribute-name'
+                  },
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040',
+                          "code": '4630114',
+                          "display": 'Register Patient',
+                          "userSelected": true
+                        }
+                      ],
+                      "text": 'Register Patient'
+                    },
+                    "url": 'custom-attribute-value'
+                  }
+                ],
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+              },
+              {
+                "valueReference": {
+                  "reference": 'Organization/589723'
+                },
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization'
+              }
+            ],
+            "identifier": [
+              {
+                "use": 'usual',
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319',
+                      "code": '1077',
+                      "display": 'FIN NBR',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                      "code": 'AN',
+                      "display": 'Account number',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'FIN NBR'
+                },
+                "system": 'urn:oid:1.2.243.58',
+                "value": '110219457',
+                "period": {
+                  "start": '2013-03-01T04:57:37.000Z'
+                }
+              }
+            ],
+            "status": 'finished',
+            "class": {
+              "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+              "code": 'O',
+              "display": 'Outpatient',
+              "userSelected": false
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71',
+                    "code": '22282402',
+                    "display": 'Clinic',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0004',
+                    "code": 'O',
+                    "display": 'Outpatient',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Clinic'
+              }
+            ],
+            "serviceType": {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/34',
+                  "code": '313012',
+                  "display": 'Medicine-General',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '700232004',
+                  "display": 'General medical service (qualifier value)',
+                  "userSelected": false
+                }
+              ],
+              "text": 'Medicine-General'
+            },
+            "priority": {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/3',
+                  "code": '309205',
+                  "display": 'Routine',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ActPriority',
+                  "code": 'R',
+                  "display": 'routine',
+                  "userSelected": false
+                }
+              ],
+              "text": 'Routine'
+            },
+            "subject": {
+              "reference": 'Patient/1349960',
+              "display": 'CONNOR, JOHN'
+            },
+            "period": {
+              "start": '2013-01-23T20:00:00.000Z',
+              "end": '2013-01-23T13:00:00.000Z'
+            },
+            "reasonCode": [
+              {
+                "text": 'annual'
+              }
+            ],
+            "hospitalization": {
+              "admitSource": {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/2',
+                    "code": '309191',
+                    "display": 'Clinic or Physician Office Referral',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/admit-source',
+                    "code": 'gp',
+                    "display": 'General Practitioner referral',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Clinic or Physician Office Referral'
+              },
+              "dischargeDisposition": {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/19',
+                    "code": '638671',
+                    "display": 'Home or Self Care',
+                    "userSelected": true
+                  },
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/discharge-disposition',
+                    "code": 'home',
+                    "display": 'Home',
+                    "userSelected": false
+                  }
+                ],
+                "text": 'Home or Self Care'
+              }
+            },
+            "location": [
+              {
+                "location": {
+                  "reference": 'Location/20573082',
+                  "display": 'Baseline West Primary Care Clinic, BW Clinic, BW Clinic'
+                },
+                "status": 'completed'
+              }
+            ],
+            "serviceProvider": {
+              "reference": 'Organization/667844',
+              "display": 'Baseline West Primary Care Clinic'
+            }
+          },
+          "search": {
+            "mode": 'match'
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/encntr-12606691',
+          "resource": {
+            "resourceType": 'Provenance',
+            "id": 'encntr-12606691',
+            "meta": {
+              "versionId": '12606691',
+              "lastUpdated": '2021-05-17T07:25:58-05:00'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>'\
+                     'Encounter/1361920</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p><p><b>Agents</b>:'\
+                     '</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role</b>: Source'\
+                     '</dd></dl><p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
+            },
+            "target": [
+              {
+                "reference": 'Encounter/1361920'
+              }
+            ],
+            "recorded": '2019-10-25T09:57:43-05:00',
+            "agent": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type',
+                      "code": 'transmitter'
+                    }
+                  ],
+                  "text": 'Transmitter'
+                },
+                "role": [
+                  {
+                    "coding": [
+                      {
+                        "system": 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        "code": 'SOURCE'
+                      }
+                    ],
+                    "text": 'Source'
+                  }
+                ],
+                "who": {
+                  "reference": 'Organization/619848',
+                  "display": 'Unknown'
+                }
+              }
+            ],
+            "entity": [
+              {
+                "role": 'source',
+                "what": {
+                  "reference": 'DocumentReference/17255835'
+                }
+              }
+            ]
+          },
+          "search": {
+            "mode": 'include'
+          }
+        }
+      ]
+    }.freeze
+
     R4_ENCOUNTER_PATIENT_ENTRY ||= {
       "resourceType": 'Encounter',
       "id": '97954225',
