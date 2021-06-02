@@ -24,7 +24,7 @@ The following [FHIR Patient](http://build.fhir.org/ig/dvci/vaccine-credential-ig
   * given
 * birthDate
 
-The following [FHIR Immunization](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-dm.html) payload fields in the Health Card are returned if valued:
+The following [FHIR Immunization](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-dm.html#tab-ms) payload fields in the Health Card are returned if valued:
 
 * status
 * vaccineCode (Only supported codes for the credentialType are returned)
