@@ -75,6 +75,8 @@ Authorization is not required.
  [`account-presented-form`]                                  | Link to the PDF statement image related to the statement account.
  [`account-related-parts`]                                   | A reference to other related Accounts.
  [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
+ [`bill-code-schedule`]                                      | A defined group of bill codes that drives billing behavior.
+ [`choice-answer`]                                           | Indicates answers come from a list of options.
  [`client-instruction`]                                      | Represents instructions for an order that are intended for healthcare providers.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
@@ -103,9 +105,12 @@ Authorization is not required.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
+ [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
+ [`priority`]                                                | The priority of the element within a list.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
+ [`relation`]                                                | The related person's familial relationship to the patient.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
  [`replaced-by`]                                             | The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.
  [`replacing`]                                               | A reference to a resource that this resource is replacing.
@@ -118,6 +123,8 @@ Authorization is not required.
 [`account-presented-form`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
+[`bill-code-schedule`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json
+[`choice-answer`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer?_format=json
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
 [`clinical-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction?_format=json
@@ -146,9 +153,12 @@ Authorization is not required.
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
+[`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
+[`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
+[`relation`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relation?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
 [`replaced-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replaced-by?_format=json
 [`replacing`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing?_format=json

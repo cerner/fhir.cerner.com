@@ -26,7 +26,7 @@ The following fields are returned if valued:
 * [Date of birth](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate){:target="_blank"}
 * [Address](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address){:target="_blank"}
 * [Communication (preferred language)](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication){:target="_blank"}
-* [Extensions including related person encounter and relationship level](#extensions){:target="_blank"}
+* [Extensions including related person encounter, relationship level, period, and relation](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -36,6 +36,8 @@ The following fields are returned if valued:
 
 * [Related Person Encounter]
 * [Relationship Level]
+* [Period]
+* [Relation]
 
 ### Custom Extensions
 
@@ -45,6 +47,8 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 ----------------------------|---------------------|----------------------------------------------------------------------------
  `related-person-encounter` | [`reference`]       | Reference to the Encounter associated to the encounter level RelatedPerson.
  `relationship-level`       | [`CodeableConcept`] | The resource's relationship to either patient or encounter.
+ `period`                   | [`Period`]          | A time period defined by a start and end date/time.
+ `relation`                 | [`CodeableConcept`] | The related person's familial relationship to the patient.
 
 ## Search
 
@@ -85,7 +89,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=12724066
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=12724066&-relationship-level=Patient
 
 #### Response
 
@@ -103,30 +107,6 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_encounter_bundle) %>
 
-<%= disclaimer %>
-
-#### Patient Authorization Request
-
-### Example - Search by Patient
-
-#### Request
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=166045489
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_bundle_patient_access) %>
-<%= disclaimer %>
-
-### Example - Search by Encounter
-
-#### Request
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=51678301
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_encounter_bundle_patient_access) %>
 <%= disclaimer %>
 
 ### Errors
@@ -172,32 +152,6 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_relatedperson_encounter_entry) %>
-
-<%= disclaimer %>
-
-#### Patient Authorization Request
-
-### Example - Patient-level RelatedPerson
-
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/166624790-166045489
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_entry_patient_access) %>
-
-### Example - Encounter-level RelatedPerson
-
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-173417344-51678301
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_relatedperson_encounter_entry_patient_access) %>
 
 <%= disclaimer %>
 
@@ -317,9 +271,12 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
+[`Period`]: https://hl7.org/fhir/r4/datatypes.html#Period
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Relationship Level]: #custom-extensions
 [Related Person Encounter]: #custom-extensions
+[Period]: #custom-extensions
+[Relation]: #custom-extensions

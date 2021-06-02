@@ -24,7 +24,7 @@ module Cerner
           'type': 'group',
           'item': [
             {
-              'linkId': '6930356',
+              'linkId': '93-6930356',
               'text': 'Tobacco use per day:',
               'type': 'text',
               'required': false,
@@ -32,28 +32,28 @@ module Cerner
               'maxLength': 255
             },
             {
-              'linkId': '6930316',
+              'linkId': '93-6930316',
               'text': 'Number of years:',
-              'type': 'integer',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
             {
-              'linkId': '6930360',
+              'linkId': '93-6930360',
               'text': 'Started at age:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
             {
-              'linkId': '6930364',
+              'linkId': '93-6930364',
               'text': 'Stopped at age:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
             {
-              'linkId': '6930372',
+              'linkId': '93-6930372',
               'text': 'Ready to change:',
               'type': 'choice',
               'required': false,
@@ -76,7 +76,7 @@ module Cerner
               ]
             },
             {
-              'linkId': '6930376',
+              'linkId': '93-6930376',
               'text': 'Concerns about tobacco use in household:',
               'type': 'open-choice',
               'required': false,
@@ -100,9 +100,9 @@ module Cerner
               ]
             },
             {
-              'linkId': '6930380',
+              'linkId': '93-6930380',
               'text': 'Total pack years:',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false
             },
@@ -113,9 +113,9 @@ module Cerner
                   'url': 'http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces'
                 }
               ],
-              'linkId': '4356884',
+              'linkId': '93-4356884',
               'text': 'Weight',
-              'type': 'decimal',
+              'type': 'quantity',
               'required': false,
               'repeats': false,
               'maxLength': 6

@@ -52,6 +52,9 @@ Search for Organizations that meet supplied query parameters:
   - When valid system is provided, search is performed against the specific system.
   - When invalid system is provided, 400 bad request is returned.
 
+- The `type` parameter
+  - Searching with proprietary codes or systems is not supported.
+
 ### Headers
 
 <%= headers fhir_json: true %>

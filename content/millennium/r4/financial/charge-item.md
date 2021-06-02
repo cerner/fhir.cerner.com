@@ -29,7 +29,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
-* [Extensions including custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price](#extensions){:target="_blank"}
+* [Extensions including bill code schedule, custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -37,12 +37,14 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Bill Code Schedule]
 * [Custom Attribute]
 * [Description]
 * [Modifier]
 * [Net Price]
 * [Offset By]
 * [Performing Location]
+* [Priority]
 * [Procedure]
 * [Replacing]
 * [Revenue Code]
@@ -54,12 +56,14 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                     | Value\[x] Type                    | Description
 ------------------------|-----------------------------------|--------------------------------------------------------------------------
+ `bill-code-schedule`   | [`coding`]                        | A defined group of bill codes that drives billing behavior.
  `custom-attribute`     | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
  `description`          | [`string`]                        | A description providing additional details of the resource.
  `modifier`             | None (contains nested extensions) | A code providing additional detail about a product or service.
  `net-price`            | [`Money`]                         | The quantity times the unit price for a resource (total price).
  `offset-by`            | [`Reference`]                     | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  `performing-location`  | [`Reference`]                     | A location where the resource was performed.
+ `priority`             | [`unsignedInt`]                   | The priority of the element within a list.
  `procedure`            | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
  `replacing`            | [`Reference`]                     | A reference to a resource that this resource is replacing.
  `revenue-code`         | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
@@ -85,7 +89,7 @@ List an individual ChargeItem by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/157320807
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292870306
 
 #### Response
 
@@ -104,8 +108,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`Reference`]: https://hl7.org/fhir/r4/references.html#Reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
+[`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
+[`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Priority]: #custom-extensions
 [Procedure]: #custom-extensions
 [Modifier]: #custom-extensions
 [Unit Price]: #custom-extensions
@@ -116,3 +123,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Description]: #custom-extensions
 [Performing Location]: #custom-extensions
 [Replacing]: #custom-extensions
+[Bill Code Schedule]: #custom-extensions
