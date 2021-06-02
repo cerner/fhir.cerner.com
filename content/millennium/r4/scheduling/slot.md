@@ -195,8 +195,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
-<%= beta_tag(action: true, known_issues: ["A 500 Internal Server Error is thrown when an invalid version id is used in the If-Match Header"]) %>
-
 Patch an existing Slot.
 
     PATCH /Slot/:id
