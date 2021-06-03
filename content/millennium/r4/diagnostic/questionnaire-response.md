@@ -99,8 +99,7 @@ Update an QuestionnaireResponse.
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json',
-                   'If-Match': 'W/"&lt;Current version of the QuestionnaireResponse resource>"'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body fields
 
