@@ -23,7 +23,7 @@ The following fields are returned if valued:
 
 <%= beta_tag(action: true) %>
 
-Search for FamilyMemberHistory that meet supplied query parameters:
+Search for FamilyMemberHistories that meet supplied query parameters:
 
     GET /FamilyMemberHistory?:parameters
 
@@ -92,7 +92,7 @@ List an individual FamilyMemberHistory by its id:
 
 <%= beta_tag(action: true) %>
 
-Create new family member history.
+Create a new FamilyMemberHistory.
 
     POST /FamilyMemberHistory
 
@@ -149,7 +149,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 <%= beta_tag(action: true) %>
 
-Update an FamilyMemberHistory.
+Update a FamilyMemberHistory.
 
     PUT /FamilyMemberHistory/:id
 
