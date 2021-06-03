@@ -37,7 +37,8 @@ fields:
     type: uri
     description: Value of the parameter.
     note: |
-      <p>Only the following valueUri value is supported:</p>
+      <p>Cerner recommends using several valueURI at once. This will limit the scope of returned values and will avoid integration issues as Cerner supports further valueURI.</p>
+      <p>Only the following valueUri values are supported:</p>
       <ul>
         <li>https://smarthealth.cards#health-card</li>
         <li>https://smarthealth.cards#immunization</li>
