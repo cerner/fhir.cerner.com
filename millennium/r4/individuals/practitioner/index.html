@@ -112,6 +112,8 @@
 
 <p>The Practitioner Resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
 
+<p>Not all practitioners have access to the EHR but can be referenced by other resources to indicate they are in some way involved in a patient’s care.</p>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -122,6 +124,7 @@
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom" target="_blank">Telecom Information (secure email and phone)</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address" target="_blank">Address (Provider and System Authorization Only)</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
+  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification" target="_blank">Qualification</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -174,6 +177,48 @@
                       <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/v2/0203/index.html">v2 Identifier Type</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/v2-0203 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Coding.code">Practitioner.qualification.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Coded representation of the qualification.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/v2/0360/2.7/index.html">Qualification codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0360|2.7 <br>
                       
                       </p>
                     
@@ -245,6 +290,13 @@
       <td>The start of the given name of the practitioner. Example: <code>John</code>
 </td>
     </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>This or any other required search parameter</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
+      <td>The start of the first, middle or last name of the practitioner. Example: <code>John</code> or <code>Smith</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -253,6 +305,7 @@
 <ul>
   <li>When provided, the <code>identifier</code> query parameter must include both a system and a code.</li>
   <li>The <code>given</code> parameter may only be provided if <code>family</code> parameter is provided.</li>
+  <li>The <code>name</code> parameter must have at least 2 characters</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -435,11 +488,47 @@
             "country": "USA"
           }
         ],
-        "gender": "male"
+        "gender": "male",
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
+                  "code": "677091",
+                  "display": "MD",
+                  "userSelected": true
+                }
+              ],
+              "text": "MD"
+            },
+            "period": {
+              "start": "2014-07-09T06:00:00.000Z"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
+                  "code": "677079",
+                  "display": "PhD",
+                  "userSelected": true
+                }
+              ],
+              "text": "PhD"
+            },
+            "period": {
+              "start": "2014-07-09T06:00:00.000Z"
+            }
+          }
+        ]
       }
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
@@ -537,6 +626,8 @@
     }
   ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors">Errors</h3>
 
@@ -721,8 +812,44 @@
       "country": "USA"
     }
   ],
-  "gender": "male"
+  "gender": "male",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
+            "code": "677091",
+            "display": "MD",
+            "userSelected": true
+          }
+        ],
+        "text": "MD"
+      },
+      "period": {
+        "start": "2014-07-09T06:00:00.000Z"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
+            "code": "677079",
+            "display": "PhD",
+            "userSelected": true
+          }
+        ],
+        "text": "PhD"
+      },
+      "period": {
+        "start": "2014-07-09T06:00:00.000Z"
+      }
+    }
+  ]
 }</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
 
@@ -804,13 +931,15 @@
   "gender": "male"
 }</code></pre>
 
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors-1">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
-<p>Create an individual Practitioner.</p>
+<p>Create an individual Practitioner that can be referenced by other resources. This API is not used for user provisioning.</p>
 
 <pre><code>POST /Practitioner
 </code></pre>
@@ -1232,6 +1361,7 @@ X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
         <ul class="js-guides">
           <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
           <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/family-member-history/">FamilyMemberHistory</a></li>
           <li><a href="../../general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>

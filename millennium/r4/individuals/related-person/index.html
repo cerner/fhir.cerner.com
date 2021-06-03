@@ -2354,8 +2354,9 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li>The <code>relationship.coding</code> must contain exactly one proprietary system.</li>
-  <li>The <code>relationship.coding</code> cannot contain a standard system.</li>
+  <li> The <code>relationship.coding</code> must contain exactly one proprietary system. </li>
+  <li> The <code>relationship.coding</code> cannot contain a standard system. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
 </ul>
 </li></ul>
       
@@ -2454,7 +2455,7 @@
       <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
       <li> Only one <code>prefix</code> and one <code>suffix</code> may be provided. </li>
       <li> <code>period.end</code> is not supported. </li>
-      <li> When specifying a <code>period</code>, <code>period.start</code> must include a time component with a timezone. </li>
+      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
     </ul>
   </li>
 </ul>
@@ -2620,7 +2621,7 @@
 <ul>
     <li> Each identifier must not contain the <code>use</code> fields. </li>
     <li> Each identifier must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
-    <li> When specifying a <code>period</code>, must include a time component with a timezone. </li>
+    <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
 </ul>
 </li></ul>
       
@@ -2962,6 +2963,13 @@
       ],
       "extension": [
         {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
           "valueCodeableConcept": {
             "coding": [
               {
@@ -3171,7 +3179,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
 <ul>
   <li>Must not contain the <code>use</code> field.</li>
   <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
-  <li>When specifying a <code>period</code>, the <code>start</code> and <code>end</code> fields must include a time component with a timezone.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
 </ul>
 </li></ul>
           
@@ -3287,6 +3295,15 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
           "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
           "code": "1152"
         }
+      ],
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        }
       ]
     }
   }
@@ -3300,7 +3317,84 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
 <ul>
   <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
   <li>The <code>value.coding</code> cannot contain a standard system.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
   <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-relationship-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/relationship/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the <code>Relationship.id</code> value of the relationship at the given <code>{index}</code> in the list of related person relationships.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/relationship/0/id",
+  "value": "CI-98278577-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-relationship">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship"><code>/relationship/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the relationship at the given <code>{index}</code> in the list of related person relationships.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove",
+  "path": "/relationship/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a test operation to be provided for the <code>Relationship.id</code> field of the relationship to be removed.</li>
 </ul>
 </li></ul>
           
@@ -3358,7 +3452,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
 <ul>
   <li>Must not contain the <code>text</code> field.</li>
   <li>Must contain the <code>use</code> field.</li>
-  <li>Must include a time component with a timezone when specifying a <code>period</code>.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
   <li>If <code>line</code> is provided, only the first four values are used. Additional values will be ignored.</li>
 </ul>
 </li></ul>
@@ -3497,7 +3591,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <ul style="list-style-type: none"><li>
 <ul>
   <li>Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li>
-  <li>When specifying a <code>period</code>, the <code>start</code> and <code>end</code> fields must include a time component with a timezone.</li>
+  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
 </ul>
 </li></ul>
           
@@ -3827,6 +3921,15 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
           "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
           "code": "1152"
         }
+      ],
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        }
       ]
     }
   },
@@ -3910,6 +4013,15 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
   {
     "op": "remove",
     "path": "/address/0"
+  },
+  {
+    "op": "test",
+    "path": "/relationship/0/id",
+    "value": "CI-98278577-0"
+  },
+  {
+    "op": "remove",
+    "path": "/relationship/0"
   },
   {
     "op": "test",
@@ -4078,6 +4190,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
         <ul class="js-guides">
           <li><a href="../../general-clinical/allergy-intolerance/">AllergyIntolerance</a></li>
           <li><a href="../../general-clinical/condition/">Condition</a></li>
+          <li><a href="../../general-clinical/family-member-history/">FamilyMemberHistory</a></li>
           <li><a href="../../general-clinical/procedure/">Procedure</a></li>
         </ul>
       </li>
