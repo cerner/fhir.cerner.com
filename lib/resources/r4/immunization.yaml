@@ -118,7 +118,6 @@ fields:
         "display": "Immun, Test1"
       }
     }
-
 - name: encounter
   required: 'Yes'
   type: Reference
@@ -126,7 +125,6 @@ fields:
   description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
   action:
     - create
-    - update
   example: |
     {
       "encounter": {
@@ -138,6 +136,20 @@ fields:
       <li> encounter is required field to create charted immunizations </li>
       <li> encounter is not a required field to create staged immunizations. </li>
     </ul> 
+
+- name: encounter
+  required: 'No'
+  type: Reference
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
+  description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+  action:
+    - update
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/36209678"
+      }
+    }
 
 - name: occurrenceDateTime
   required: 'Yes'
