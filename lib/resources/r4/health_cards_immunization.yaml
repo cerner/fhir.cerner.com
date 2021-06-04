@@ -1,0 +1,16 @@
+---
+name: Immunization
+field_name_base_url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-definitions.html#Immunization
+fields:
+
+- name: vaccineCode
+  required: 'Yes'
+  type: CodeableConcept
+  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-definitions.html#Immunization.vaccineCode
+  description: The vaccine that was administered or was to be administered.
+  binding:
+    description: Vaccine product administered.
+    terminology:
+    - display: CVX
+      system: http://hl7.org/fhir/sid/cvx
+      info_link: http://hl7.org/fhir/r4/cvx.html

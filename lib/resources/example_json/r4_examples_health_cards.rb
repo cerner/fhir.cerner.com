@@ -8,26 +8,26 @@ module Cerner
       'parameter': [
         {
           'name': 'credentialType',
-          'valueUri': 'https://smarthealth.cards#covid19'
-        },
-        {
-          'name': 'credentialType',
           'valueUri': 'https://smarthealth.cards#health-card'
         },
         {
           'name': 'credentialType',
           'valueUri': 'https://smarthealth.cards#immunization'
+        },
+        {
+          'name': 'credentialType',
+          'valueUri': 'https://smarthealth.cards#covid19'
         }
       ]
     }.freeze
 
     R4_HEALTH_CARDS_RESPONSE ||= {
       'resourceType': 'Parameters',
-      '"parameter': [
+      'parameter': [
         {
           'name': 'verifiableCredential',
           # rubocop:disable Layout/LineLength
-          'valueString': 'eyJhbGciOiJFUzI1NiIsInppcCI6IkRFRiIsImtpZCI6IkJlbXNQUm83dTBrTFd4ZERKSzk2cmx4ZHFhOVpicjJsSXhzZmU3VGlFMTAifQ.3ZJPb9QwEMW_yspc889pdpPmxi4VrFQQolsuaA-OM9kYOXZkOxFLle_OONlWINqKM1Iunhn__N7LPBBhLSlJ61xvyzhuWmFC3YOKrGMnoU4cjAITcd3FFTgWA0-zddGkIYU0CzPKi7DKaRUmkCeUNfm6uKpJQFTVkJJuUrrOimSdB2TkpHwg7twDKb89PWc7ZlwLTLo24szU9s1yCP0BMS_Pia4blPjJnNDq1UGuR1HTa3IMCDdQg3KCybuh-g7ceUne8Vcw1nNKkkVJlCDPV7eDqiX4GQNWD4bDYZZPLo3gYodwLSXSFiX4gDmjRyQPUt4biQOP90uPfjw8A_6MdvC-z491sEBYJyTyyPv97fbmywF7JzGC8im-vd3vbrBwR44T2qsEWn_HnCfR6zwJKQ3phkxT8KwW-rqW_Z8B4zq4wc5mu16CA_97Rsa5ULDT9UzgusaNmWXbs3XQXRYL_0sr80ib07xfsRV1zMcfCODzTZImOZmOU0D6SwCznAYMKK_t9_xwSHM-mLnlzR5EtyBSGiZXIS0QK7X7NHQVGGzkRb7JsNaDabTpfA31Me608c_UwvaS-YA_oha52kLLRqENk6sP8xqtdlIowTHG40tJpv9hkunfSWbpepPTf49yCW5131UGpGRLgvhN0y8.JyN5g2viSvI8DkBRROiAqrtTP19O9EGI1a-LYEzKnJktCZ6B_mYUXNw9OkyewBr1yB9gSUq7ieiiddWK1iEwzQ'
+          'valueString': 'eyJhbGciOiJFUzI1NiIsInppcCI6IkRFRiIsImtpZCI6Ik4ybWFHOHFPaElUZV96eVBxY3JDYTZMVF9tVzE4WnRGUHkwOWNHQUIyNHcifQ.3ZJPj9MwEMW_Chqu-ec0bdLc2GUFlRaE2C4X1IPjTFojO45sp6Ks8t0Zp10EYncPHJF88cz45_ee_QDSOajh4P3g6jTtDtLG-mRRGNsmAm2PNhFGp7ZIUeTFsurymGFexAUTVdyUrIkzLDPGu3JZLVqIoG86qNkqz1flMlusIzgKqB_AnwaE-uuvm5zm1h-QK39IBLete33exGFDmOfnpNZjL39wL03_4qAwR9myNewiEBZb7L3k6m5svqHwQVIw-wWtC5waiiRLMuKF6tXYtwrDjEVnRitwO8uHSyO62AFhlCLaWQldYE_kkcijUvdW0cDj-TqgHzdPgD-RHTof8uMazxCupSIevNvcXt183lJvL4_YhxTf3G6ub6hwB7uJ7DWSrL_lPpDYusxixmK2gmmKntTCXtay-TNg57kf3WxWDwo9huc5ciFkj9emnQnCtLLfz7LdyXnUlz9F73JQZWLsfv5aqZNtKo7fCSDmk5BnJUy7KYLhEsAsp0OLfdD2e340ZIQY7dwKZrdSnxE5i7NFzCrCKuM_jrpBS42yKlcF1Qa0nbE61EgfF97YcE0r3aB4CPgDaVGv3hs3SM8VxbZ7Lrn8P0wu_zu5Il-uSvav0dGapp8.UY3V4aWsmxf3an_TvmqDT16kjSX2QAv6E0cbOXS1d1wY5viR5710H39wNmIyuqRAKdNH7CMzxY-U6n7y-qzgSw'
           # rubocop:enable Layout/LineLength
         },
         {

@@ -460,6 +460,13 @@ module Cerner
                   'documentation': "The maximum number of results to return. Not honoured when '_id' or 'identifier' "\
                                    'are set.'
                 }
+              ],
+              'operation': [
+                {
+                  'name': 'health-cards-issue',
+                  'definition': 'https://smarthealth.cards/artifacts/operation-patient-i-health-cards-issue.json',
+                  'documentation': 'Issues verifiable health cards for the patient'
+                }
               ]
             },
             {

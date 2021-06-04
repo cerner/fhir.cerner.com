@@ -264,6 +264,14 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Operation: $health-cards-issue
+
+Issues Health Cards for an existing Patient.
+
+    POST /Patient/:id/$health-cards-issue
+
+See [Health Cards] documentation for more details about this operation.
+
 [`_count`]: http://hl7.org/fhir/R4/search.html#count
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`number`]: http://hl7.org/fhir/R4/search.html#number
@@ -275,3 +283,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html
+[Health Cards]: ../../other/health-cards
