@@ -464,7 +464,7 @@ module Cerner
               'operation': [
                 {
                   'name': 'health-cards-issue',
-                  'definition': 'https://smarthealth.cards/artifacts/operation-patient-i-health-cards-issue.json',
+                  'definition': 'https://spec.smarthealth.cards/artifacts/operation-patient-i-health-cards-issue.json',
                   'documentation': 'Issues verifiable health cards for the patient'
                 }
               ]

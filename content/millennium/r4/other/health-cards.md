@@ -15,7 +15,7 @@ A Health Card is a verifiable, digital artifact that represents a limited set of
 
 Health cards are designed in conformance with the emerging [SMART<sup>®</sup> Health Card framework](https://smarthealth.cards) ([technical specification](https://spec.smarthealth.cards/)) and [HL7<sup>®</sup> FHIR<sup>®</sup> Vaccination and Testing IG](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/).
 
-The [$health-cards-issue](#health-cards-issue) operation adheres to the [via FHIR specification](https://spec.smarthealth.cards/#via-fhir-health-cards-issue-operation) and returns Health Cards as verifiableCredentials in a FHIR [Parameters](http://hl7.org/fhir/r4/parameters.html) resource. These verifiable credentials are [JSON Web Signatures](https://datatracker.ietf.org/doc/html/rfc7515) with a compressed payload. Refer to the specification for details on the protocols for 
+The [$health-cards-issue](#health-cards-issue) operation adheres to the [FHIR specification](https://spec.smarthealth.cards/#via-fhir-health-cards-issue-operation) and returns Health Cards as verifiableCredentials in a FHIR [Parameters](http://hl7.org/fhir/r4/parameters.html) resource. These verifiable credentials are [JSON Web Signatures](https://datatracker.ietf.org/doc/html/rfc7515) with a compressed payload. Refer to the specification for details on the protocols for 
 
 * [encoding/decoding the health cards JWS](https://spec.smarthealth.cards/#health-cards-are-encoded-as-compact-serialization-json-web-signatures-jws)
 * [signing/verifying the JWS](https://spec.smarthealth.cards/#generating-and-resolving-cryptographic-keys)
