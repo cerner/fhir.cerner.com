@@ -390,6 +390,18 @@ describe Cerner::Resources::Helpers do
         expect(json).to eq(expected_html)
       end
     end
+
+    context 'when the css override parameter is provided' do
+      let(:expected_hash) { resource_json }
+      let(:expected_html) do
+        '<pre class="test-class"><code class="language-javascript">'\
+        "#{JSON.pretty_generate(expected_hash)}</code></pre>"
+      end
+
+      it 'returns the generated HTML with the override css class' do
+        expect(Cerner::Resources::Helpers.json(key, css_override: 'test-class')).to eq(expected_html)
+      end
+    end
   end
 
   describe '#html' do

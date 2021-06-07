@@ -82,13 +82,13 @@ module Cerner
         ]
       end
 
-      def json(key)
+      def json(key, css_override: nil)
         hash = get_resource(key)
         hash = yield hash if block_given?
 
         escaped_values_hash = deep_transform_values(hash)
 
-        '<pre class="body-response"><code class="language-javascript">'\
+        "<pre class=\"#{css_override || 'body-response'}\"><code class=\"language-javascript\">"\
         "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
 
