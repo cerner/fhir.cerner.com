@@ -4,7 +4,7 @@ title: Procedure | R4 API
 
 # Procedure
 
-* TOC 
+* TOC
   {:toc}
 
 ## Overview
@@ -47,10 +47,12 @@ Search for Procedures that meet supplied query parameters:
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
  `date`            | N                              | [`date`]      | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
 * The `date` parameter must be provided two times, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+
 ### Headers
 
  <%= headers fhir_json: true %>
