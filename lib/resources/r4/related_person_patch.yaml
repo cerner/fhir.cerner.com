@@ -88,6 +88,17 @@ operations:
                   "end": "2022-05-01T16:56:56.000Z"
                 },
                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
+                      'code': '155'
+                    }
+                  ]
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
               }
             ]
           }
@@ -129,6 +140,44 @@ operations:
     note: >
       <ul>
         <li>Requires a test operation to be provided for the `Relationship.id` field of the relationship to be removed.</li>
+      </ul>
+
+  - name: replace-relationship-extensions
+    path: /relationship/{index}/extension
+    operation: replace
+    type: string
+    url: https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship
+    description: Replace the `period` and `relation` of the relationship at the given <code>{index}</code>.
+    example: |
+      {
+        "op": "replace",
+        "path": "/relationship/0/extension",
+        "value": [
+          {
+            "valuePeriod": {
+              "start": "2016-12-30T22:26:08.000Z",
+              "end": "2036-12-30T22:26:08.000Z"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                  "code": "155",
+                }
+              ]
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>Requires a test operation to be provided for the `Relationship.id` of the relationship whose `period` and `relation` is intended to be replaced.</li>
+        <li>The `start` and `end` when provided must include a time component with a timezone.</li>
+        <li>When either `start` or `end` are not provided its value will be unset.</li>
       </ul>
 
   - name: add-address

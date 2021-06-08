@@ -1346,6 +1346,17 @@ module Cerner
                 'end': '2022-05-01T16:56:56.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/40',
+                    'code': '155'
+                  }
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
@@ -1439,6 +1450,30 @@ module Cerner
       {
         'op': 'remove',
         'path': '/relationship/0'
+      },
+      {
+        'op': 'replace',
+        'path': '/relationship/0/extension',
+        'value': [
+          {
+            'valuePeriod': {
+              'start': '2016-12-30T22:26:08.000Z',
+              'end': '2036-12-30T22:26:08.000Z'
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+          },
+          {
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                  'code': '155'
+                }
+              ]
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+          }
+        ]
       },
       {
         'op': 'test',
