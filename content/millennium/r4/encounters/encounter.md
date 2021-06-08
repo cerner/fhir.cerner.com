@@ -87,12 +87,29 @@ _Implementation Notes_
 ### Parameters
 
  Name       | Required?                                   | Type          | Description
-------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
+------------|---------------------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------
  `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
  `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
  `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
- [`_count`] | No                                          | [`number`]    | The maximum number of results to return.
+ `date`     | N                                           | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'. 
+[`_count`]  | No                                          | [`number`]    | The maximum number of results to return.
+
+Notes:
+
+- The `date` parameter may be provided:
+  - once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
+    `date=ge2015-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z`,    
+    `date=le2016-01-01T00:00.00.000Z`,
+    `date=lt2016-01-01T00:00.00.000Z`)
+  - twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
+    `date=ge2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
+    `date=ge2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    )
+
 
 ### Headers
 
