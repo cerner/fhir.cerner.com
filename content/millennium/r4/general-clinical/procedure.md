@@ -4,7 +4,7 @@ title: Procedure | R4 API
 
 # Procedure
 
-* TOC
+* TOC 
   {:toc}
 
 ## Overview
@@ -41,21 +41,19 @@ Search for Procedures that meet supplied query parameters:
 
 ### Parameters
 
-Name              | Required?                      | Type          | Description
+ Name              | Required?                      | Type          | Description
 -------------------|--------------------------------|---------------|-----------------------------------------------------------------------
-`_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
-`patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
-`subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
-`date`            | N                              | [`date`]      | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
-
+ `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
+ `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
+ `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
+ `date`            | N                              | [`date`]      | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
 * The `date` parameter must be provided two times, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
-
 ### Headers
 
-<%= headers fhir_json: true %>
+ <%= headers fhir_json: true %>
 
 ### Example
 
@@ -192,7 +190,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[`date`]: https://hl7.org/fhir/r4/search.html#date
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
