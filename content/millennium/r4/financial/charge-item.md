@@ -94,7 +94,7 @@ Notes:
 
 - When searching by `_id`, only a single ChargeItem id can be provided.
 - `_count` and `-status` must be provided with context.
-- `-status` must be set to `billable`
+- `-status` must be set to `billable`.
 
 ### Headers
 
