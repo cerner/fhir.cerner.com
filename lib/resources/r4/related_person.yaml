@@ -147,8 +147,6 @@ fields:
     }
   note: |
     <ul>
-      <li> The <code>relationship.coding</code> must contain exactly one proprietary system. </li>
-      <li> The <code>relationship.coding</code> cannot contain a standard system. </li>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
     </ul>
 

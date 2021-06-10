@@ -107,8 +107,6 @@ operations:
 
     note: >
       <ul>
-        <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
-        <li>The <code>value.coding</code> cannot contain a standard system.</li>
         <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
       </ul>
@@ -147,7 +145,7 @@ operations:
     operation: replace
     type: string
     url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship
-    description: Replace the `period` and `relation` of the relationship at the given <code>{index}</code>.
+    description: Replace the `period` and `relation` extensions of the relationship at the given <code>{index}</code>.
     example: |
       {
         "op": "replace",
@@ -175,9 +173,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a test operation to be provided for the `Relationship.id` of the relationship whose `period` and `relation` is intended to be replaced.</li>
-        <li>The `relationship.relation` extension must contain exactly one proprietary system.</li>
-        <li>The `relationship.relation` extension cannot contain a standard system.</li>
+        <li>Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` of the relationship whose `period` and `relation` is intended to be replaced.</li>
         <li>The `start` and `end` when provided must include a time component with a timezone.</li>
         <li>When either `start` or `end` are not provided its value will be unset.</li>
       </ul>
