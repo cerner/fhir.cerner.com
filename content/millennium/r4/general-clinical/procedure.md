@@ -46,12 +46,12 @@ Search for Procedures that meet supplied query parameters:
  `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
- `date`            | N                              | [`date`]      | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `date`            | N                              | [`dateTime`]  | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
 
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
-* The `date` parameter must be provided two times, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* The `date` parameter must be provided two times with time, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
 ### Headers
 
@@ -192,6 +192,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
