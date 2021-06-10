@@ -35,7 +35,6 @@ layout: api
 * [ServiceRequest](../clinical/care-provision/service-request)
 * [NutritionOrder](../clinical/care-provision/nutrition-order)
 
-
 ## Request & Response
 
 <%= render '/millennium/r4/clinical/request-and-response.*' %>
