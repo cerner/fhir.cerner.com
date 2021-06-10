@@ -449,7 +449,7 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir.applications.stagingcerner.com/r4/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/ChargeItem/2179698947',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292870306',
           'resource': {
             'resourceType': 'ChargeItem',
             'id': '292870306',

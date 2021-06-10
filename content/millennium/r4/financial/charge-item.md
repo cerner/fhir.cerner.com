@@ -120,7 +120,7 @@ Notes:
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_chargeitem_bundle) %>
+<%= json(:r4_chargeitem_context_bundle) %>
 
 <%= disclaimer %>
 
