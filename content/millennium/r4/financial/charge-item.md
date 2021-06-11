@@ -87,13 +87,13 @@ Search for ChargeItems that meet supplied query parameters:
 -----------------------|-----------------|---------------|-------------------------------------------------------
  `_id`                 | This or context | [`token`]     | The logical resource id associated with the ChargeItem.
  `context`             | This or _id     | [`token`]     | Encounter associated with event.
-[`_count`]             | No              | [`number`]    | The maximum number of results to return.
-  `-status`            | No              | [`token`]     | The status of the encounter. Example: `billable`
+ `-status`             | see notes       | [`token`]     | The status of the encounter. Example: `billable`
+ [`_count`]            | No              | [`number`]    | The maximum number of results to return.
 
 Notes:
 
 - When searching by `_id`, only a single ChargeItem id can be provided.
-- `_count` and `-status` must be provided with context.
+- `-status` must be provided with context.
 - `-status` must be set to `billable`.
 
 ### Headers
