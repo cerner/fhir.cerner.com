@@ -47,12 +47,15 @@ Search for Practitioners that meet supplied query parameters:
  `family`    | This or any other required search parameter                | [`string`] | The start of the family name of the practitioner. Example: `Smith`
  `given`     | This and `family`, or any other required search parameter  | [`string`] | The start of the given name of the practitioner. Example: `John`
  `name`      | This or any other required search parameter                | [`string`] | The start of the first, middle or last name of the practitioner. Example: `John` or `Smith`
+ `active`    | This or any other required search parameter                | [`token`]  | true or false. Example: `active=true`
+ [`_count`]  | No                                                         | [`number`]    | Number of results per page.
 
  Notes:
 
 * When provided, the `identifier` query parameter must include both a system and a code.
 * The `given` parameter may only be provided if `family` parameter is provided.
 * The `name` parameter must have at least 2 characters
+* When provided, the `active` query parameter must not include system. It accepts only true or false code.
 
 ### Headers
 
@@ -70,6 +73,18 @@ Search for Practitioners that meet supplied query parameters:
 <%= json(:r4_practitioner_bundle) %>
 
 <%= disclaimer %>
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_practitioner_active_bundle) %>
+
+<%= disclaimer %>
+
 #### Patient Authorization Request
 
     GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
@@ -173,5 +188,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`string`]: https://hl7.org/fhir/R4/search.html#string
+[`_count`]: http://hl7.org/fhir/r4/search.html#count
+[`number`]: http://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
