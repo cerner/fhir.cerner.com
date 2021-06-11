@@ -19,7 +19,7 @@ The Account resource acts as a central record against which charges, payments, a
 
 The account resource supports multiple account types which are defined below.
 
-* `charge-group` - Charge group account
+* `charge-group` - A grouping of charges for billing
 * `financial-account` - Top level patient account
 * `guarantor-balance` - Self pay balance account
 * `insurance-balance` - Insurance balance account
