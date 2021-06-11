@@ -17,6 +17,7 @@ layout: api
 <%= render '/millennium/r4/clinical/diagnostics.*' %>
 
 * [Observation](../clinical/diagnostics/observation)
+* [QuestionnaireResponse](../clinical/diagnostics/questionnaire-response)
 
 ## Medications
 
@@ -40,3 +41,12 @@ layout: api
 <%= render '/millennium/r4/clinical/request-and-response.*' %>
 
 * [Communication](../clinical/request-and-response/communication)
+
+## Summary 
+
+<%= render '/millennium/r4/clinical/summary.*' %>
+
+* [AllergyIntolerance](../clinical/summary/allergy-intolerance)
+* [Condition](../clinical/summary/condition)
+* [FamilyMemberHistory](../clinical/summary/family-member-history)
+* [Procedure](../clinical/summary/procedure)
