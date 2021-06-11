@@ -134,8 +134,8 @@ fields:
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '155'
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'SIS'
                   }
                 ]
               },
@@ -148,6 +148,8 @@ fields:
   note: |
     <ul>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li>The `value.coding` can be either from the standard or proprietary system, but not both.</li>
+      <li>Only one coding may be provided in the value.</li>
     </ul>
 
 - name: patient
