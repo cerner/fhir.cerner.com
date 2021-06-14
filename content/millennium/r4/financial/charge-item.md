@@ -95,7 +95,7 @@ Notes:
 - When searching by `_id`, only a single ChargeItem id can be provided.
 - `-status` must be provided with `context`.
 - `-status` must be set to `billable`.
-- `context` has to reference an Encounter.
+- `context` must reference an Encounter.
 
 ### Headers
 
