@@ -77,8 +77,8 @@ operations:
           "value":{
             "coding": [
               {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
-                "code": "1152"
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FAMMEMB"
               }
             ],
             "extension": [
@@ -90,15 +90,15 @@ operations:
                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
               },
               {
-                'valueCodeableConcept': {
-                  'coding': [
+                "valueCodeableConcept": {
+                  "coding": [
                     {
                       "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
                       "code": "SIS"
                     }
                   ]
                 },
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
               }
             ]
           }
@@ -109,8 +109,8 @@ operations:
       <ul>
         <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
         <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
-        <li>The `value.coding` can be either from the standard or proprietary system, but not both.</li>
-        <li>Only one coding may be provided in the value.</li>
+        <li>Each `coding` can be either from the standard or proprietary system, but not both.</li>
+        <li>If the coding is from a proprietary system, only one code may be provided.</li>
       </ul>
 
   - name: test-relationship-id
@@ -139,7 +139,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a test operation to be provided for the `Relationship.id` field of the relationship to be removed.</li>
+        <li>Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` field of the relationship to be removed.</li>
       </ul>
 
   - name: replace-relationship-extensions
@@ -178,8 +178,8 @@ operations:
         <li>Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` of the relationship whose `period` and `relation` is intended to be replaced.</li>
         <li>The `start` and `end` when provided must include a time component with a timezone.</li>
         <li>When either `start` or `end` are not provided its value will be unset.</li>
-        <li>The `value.coding` can be either from the standard or proprietary system, but not both.</li>
-        <li>Only one coding may be provided in the value.</li>
+        <li>Each `coding` can be either from the standard or proprietary system, but not both.</li>
+        <li>If the coding is from a proprietary system, only one code may be provided.</li>
       </ul>
 
   - name: add-address
