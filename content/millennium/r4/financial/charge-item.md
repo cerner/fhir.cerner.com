@@ -93,8 +93,9 @@ Search for ChargeItems that meet supplied query parameters:
 Notes:
 
 - When searching by `_id`, only a single ChargeItem id can be provided.
-- `-status` must be provided with context.
+- `-status` must be provided with `context`.
 - `-status` must be set to `billable`.
+- `context` has to reference an Encounter.
 
 ### Headers
 
