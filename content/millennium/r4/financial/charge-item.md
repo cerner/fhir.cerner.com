@@ -87,7 +87,7 @@ Search for ChargeItems that meet supplied query parameters:
 -----------------------|-----------------|---------------|-------------------------------------------------------
  `_id`                 | This or context | [`token`]     | The logical resource id associated with the ChargeItem.
  `context`             | This or _id     | [`token`]     | Encounter associated with event.
- `-status`             | see notes       | [`token`]     | The status of the ChargeItem. Example: `billable`
+ `-status`             | See notes       | [`token`]     | The status of the ChargeItem. Example: `billable`
  [`_count`]            | No              | [`number`]    | The maximum number of results to return.
 
 Notes:
@@ -100,18 +100,7 @@ Notes:
 
 <%= headers %>
 
-### Example - Search by Id
-
-#### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_chargeitem_bundle) %>
-
-### Example - Search by Context
+### Example
 
 #### Request
 
@@ -120,7 +109,7 @@ Notes:
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_chargeitem_context_bundle) %>
+<%= json(:r4_chargeitem_bundle) %>
 
 <%= disclaimer %>
 
