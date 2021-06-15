@@ -6,6 +6,7 @@ BackboneElement: https://hl7.org/fhir/R4/backboneelement.html
 boolean: https://hl7.org/fhir/R4/datatypes.html#boolean
 code: https://hl7.org/fhir/R4/datatypes.html#code
 CodeableConcept: https://hl7.org/fhir/R4/datatypes.html#CodeableConcept
+Coding: https://hl7.org/fhir/R4/datatypes.html#Coding
 ContactPoint: https://hl7.org/fhir/R4/datatypes.html#ContactPoint
 date: https://hl7.org/fhir/R4/datatypes.html#date
 dateTime: https://hl7.org/fhir/R4/datatypes.html#dateTime
@@ -31,6 +32,7 @@ Period: https://hl7.org/fhir/R4/datatypes.html#Period
 performerFunction: https://hl7.org/fhir/R4/extension-event-performerfunction.html
 positiveInt: https://hl7.org/fhir/R4/datatypes.html#positiveInt
 Quantity: https://hl7.org/fhir/R4/datatypes.html#Quantity
+Questionnaire: https://hl7.org/fhir/R4/questionnaire.html
 RelatedPerson: https://hl7.org/fhir/R4/relatedperson.html
 Resource: https://hl7.org/fhir/R4/resource.html
 SimpleQuantity: https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity

@@ -9,7 +9,7 @@ title: Questionnaire | R4 API
 
 ## Overview
 
-The Questionnaire resource defines and organizes questions and the allowed answers to the questions typically used to collect patient healthcare information.  A questionnaire is a snapshot in time and should be retrieved before each use. Examples of questionnaires are forms used to collect a patient's social history or family member history.  Currently, only social history is supported.
+The Questionnaire resource defines and organizes questions and the allowed answers to the questions typically used to collect patient healthcare information.  A questionnaire is a snapshot in time and should be retrieved before each use. Examples of questionnaires are forms used to collect a patient's social history or family member history. Currently, only social history is supported. In order to find a questionnaire for a specific patient, first search QuestionnaireResponse by patient. Then use the 'questionnaire' field from the QuestionnaireResponse to retrieve the original questionnaire.
 
 The following fields are returned if valued:
 
