@@ -181,6 +181,7 @@ operations:
         <li> When either `start` or `end` are not provided its value will be unset. </li>
         <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
         <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
+        <li> If either the `valuePeriod` and `valueCodeableConcept` are not provided, any existing values for the absent period and relation extensions will be removed. </li>
       </ul>
 
   - name: add-address
