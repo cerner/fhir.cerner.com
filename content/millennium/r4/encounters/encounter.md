@@ -96,7 +96,7 @@ _Implementation Notes_
  `subject`    | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `account`    | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
  `date`       | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
-[`_count`]    | No                                          | [`number`]    | The maximum number of results to return.
+ [`_count`]   | No                                          | [`number`]    | The maximum number of results to return.
  `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
 `_revinclude` | No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
   
