@@ -95,6 +95,7 @@ _Implementation Notes_
  `patient`    | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
  `subject`    | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
  `account`    | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
+ `date`       | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
  [`_count`]   | No                                          | [`number`]    | The maximum number of results to return.
  `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
 `_revinclude` | No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
@@ -106,6 +107,19 @@ Notes:
 * `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 * `_count` and `status` must be provided with patient
 * `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
+* The `date` parameter may be provided:
+  * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
+    `date=ge2015-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z`,    
+    `date=le2016-01-01T00:00.00.000Z`,
+    `date=lt2016-01-01T00:00.00.000Z`)
+  * twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
+    `date=ge2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
+    `date=ge2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
+    `date=gt2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    )
+
 
 ### Headers
 
