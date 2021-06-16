@@ -1381,6 +1381,11 @@ pre.body-response {
   resize: vertical;
 }
 
+pre.body-response-auto-height {
+  min-height: 200px;
+  resize: vertical;
+}
+
 pre span.comment {color: #aaa;}
 
 .headers {
@@ -1726,6 +1731,40 @@ pre span.comment {color: #aaa;}
   white-space: pre-wrap;
 }
 
+/* @end */
+
+/* -----------------------------
+Beta tag
+-------------------------------*/
+
+.beta-tag {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #ffa500;
+    border-color: #582400;
+    font-size: 20px;
+}
+
+.beta-tag:before {
+    content: "⚠ BETA";
+    font-weight: bold;
+    display: block;
+    font-size: 24px;
+}
+
+/* Known Issues Heading */
+.beta-tag p:nth-child(2) {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Known Issues List */
+.beta-tag ul {
+  margin-top: 0px;
+  font-size: 14px;
+}
 /* @end */
 
 /* -----------------------------

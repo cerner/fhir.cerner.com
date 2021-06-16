@@ -54,7 +54,7 @@ fields:
   note: >
     <ul>
       <li>When creating a MedicationRequest, the intent must be `order` or `plan`.</li>
-      <li>When read back, the created MedicationRequest will always have an intent of `order`. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. In the future, MedicationRequests with intents of `order` and `plan` will be supported in accordance with pending changes to the US Core Profile.</li>
+      <li>When read back, the created MedicationRequest will always have an intent of `order` or `plan`. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. MedicationRequests with intents of `order` and `plan` is supported in accordance with the changes to the US Core Profile.</li>
     </ul>
   example: |
     {
@@ -246,7 +246,6 @@ fields:
         type: Period
         description: The outer bounds for start and/or end limits of the timing schedule.
         url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_
-        note: If provided, must be of type `Period`. If an `end` is given a `start` must be provided.
         example: |
           {
             "dosageInstruction": [

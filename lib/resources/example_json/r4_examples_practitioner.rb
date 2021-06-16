@@ -155,7 +155,41 @@ module Cerner
           'country': 'USA'
         }
       ],
-      'gender': 'male'
+      'gender': 'male',
+      'qualification': [
+        {
+          'code': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
+                'code': '677091',
+                'display': 'MD',
+                'userSelected': true
+              }
+            ],
+            'text': 'MD'
+          },
+          'period': {
+            'start': '2014-07-09T06:00:00.000Z'
+          }
+        },
+        {
+          'code': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
+                'code': '677079',
+                'display': 'PhD',
+                'userSelected': true
+              }
+            ],
+            'text': 'PhD'
+          },
+          'period': {
+            'start': '2014-07-09T06:00:00.000Z'
+          }
+        }
+      ]
     }.freeze
 
     R4_PRACTITIONER_PATIENT_ACCESS_ENTRY ||= {
@@ -235,7 +269,6 @@ module Cerner
       'resourceType': 'Bundle',
       'id': '7ec264d2-c7c7-49b2-8478-22351c82db73',
       'type': 'searchset',
-      'total': 1,
       'link': [
         {
           'relation': 'self',
@@ -250,11 +283,32 @@ module Cerner
       ]
     }.freeze
 
+    R4_PRACTITIONER_ACTIVE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '7ec264d2-c7c7-49b2-8478-22351c82db73',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&_count=100'
+        },
+        {
+          "relation": 'next',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&_count=100&-offset=100'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936',
+          'resource': R4_PRACTITIONER_ENTRY
+        }
+      ]
+    }.freeze
+
     R4_PRACTITIONER_PATIENT_ACCESS_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '13230afb-0bbd-45a6-a7c9-9c6d286a2f4c',
       'type': 'searchset',
-      'total': 1,
       'link': [
         {
           'relation': 'self',

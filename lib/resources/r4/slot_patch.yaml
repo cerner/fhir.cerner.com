@@ -1,0 +1,20 @@
+---
+name: Slot
+field_name_base_url: https://hl7.org/fhir/r4/slot-definitions.html#Slot
+operations:
+  - name: replace-status
+    path: /status
+    operation: replace
+    type: code
+    url: https://hl7.org/fhir/R4/slot-definitions.html#Slot.status
+    description: The status of the slot.
+    example: |
+      {
+        "op": "replace",
+        "path": "/status"
+        "status": "free"
+      }
+    note: >
+      <ul>
+        <li>Only `free` and `busy-tentative` are supported.</li>
+      </ul>

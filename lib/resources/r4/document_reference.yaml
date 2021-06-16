@@ -82,6 +82,9 @@ fields:
     - display: US Core DocumentReference Type
       system: http://loinc.org
       info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+    - display: US Core DocumentReference Type
+      system: http://terminology.hl7.org/CodeSystem/v3-NullFlavor (when type doesn't have a LOINC code)
+      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
     - display: Millennium Event Code
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
@@ -303,7 +306,7 @@ fields:
   action:
     - update
   description: The status of this document reference.
-  note: Both `final` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Both `current` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -558,7 +561,7 @@ fields:
     description: Specifies the particular kind of document referenced.
     terminology:
       - display: US Core DocumentReference Type
-        system: http://loinc.org
+        system: http://loinc.org, http://terminology.hl7.org/CodeSystem/v3-NullFlavor
         info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
 
 - name: type

@@ -7,4 +7,5 @@ layout: api
 
 * [AllergyIntolerance](../general-clinical/allergy-intolerance)
 * [Condition](../general-clinical/condition)
+* [FamilyMemberHistory](../general-clinical/family-member-history)
 * [Procedure](../general-clinical/procedure)

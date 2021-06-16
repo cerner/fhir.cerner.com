@@ -118,6 +118,24 @@ fields:
         "display": "Immun, Test1"
       }
     }
+- name: encounter
+  required: 'Yes'
+  type: Reference
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
+  description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+  action:
+    - create
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/36209678"
+      }
+    }
+  note: |
+    <ul>
+      <li> encounter is required field to create charted immunizations </li>
+      <li> encounter is not a required field to create staged immunizations. </li>
+    </ul> 
 
 - name: encounter
   required: 'No'
@@ -125,7 +143,6 @@ fields:
   url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.encounter
   description: The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
   action:
-    - create
     - update
   example: |
     {
@@ -166,6 +183,7 @@ fields:
         "text": "Primary Care Provider"
       }
     }
+  note: Should not be supplied when primarySource is set to true
   binding:
     description: The source of an immunization record when not reported by the person who administered the vaccine.
     terminology:
@@ -379,3 +397,20 @@ fields:
       "time": "2019-06-09T14:03:26-05:00",
       "text": "Additional details"
     }
+
+- name: primarySource
+  required: 'No'
+  type: boolean
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.primarySource
+  description: An indication that the content of the record is based on information from the person who administered the vaccine.
+  action:
+    - create
+    - update
+  example: |
+    {
+      "primarySource": true
+    }
+  note: |
+    Will be set to true if not specified.
+    For CREATE action should not be set to true when reportOrigin is populated.
+    For UPDATE action should not be set to true.

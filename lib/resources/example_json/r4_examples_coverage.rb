@@ -187,7 +187,7 @@ module Cerner
             'resourceType': 'Coverage',
             'id': 'PH-98371617-97701467',
             'meta': {
-              'versionId': '2',
+              'versionId': '2-0',
               'lastUpdated': '2020-09-24T17:11:10.000Z'
             },
             'text': {
@@ -243,6 +243,71 @@ module Cerner
                 },
                 'value': '2572499881',
                 'name': 'Charging Category'
+              }
+            ]
+          }
+        }
+      ]
+    }.freeze
+
+    R4_COVERAGE_PATIENT_SOCIAL_HEALTHCARE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '8ff4481d-ce55-4b3f-ac2c-4d4fd3cad4c0',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-490218084-12724066',
+          'resource': {
+            'resourceType': 'Coverage',
+            'id': 'PHP-490218084-12724066',
+            'meta': {
+              'versionId': '134-0',
+              'lastUpdated': '2021-03-16T20:04:11.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
+              '<p><b>Beneficiary</b>: SMART, NANCY</p><p><b>Coverage Start Date</b>: Mar 16, 2021  8:04 P.M. UTC</p>'\
+              '<p><b>Payor</b>: Government</p><p><b>Class</b>:</p><dl><dt>Charging Category</dt><dd><b>Value</b>:'\
+               '2572940471</dd><dd><b>Name</b>: 10-OPC, Class II</dd></dl><p><b>Type</b>: public healthcare</p></div>'
+            },
+            'status': 'active',
+            'type': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+                  'code': 'PUBLICPOL',
+                  'display': 'public healthcare'
+                }
+              ],
+              'text': 'public healthcare'
+            },
+            'beneficiary': {
+              'reference': 'Patient/12462008',
+              'display': 'TRAUMA SURGERY, TESTONE'
+            },
+            'period': {
+              'start': '2021-03-16T20:04:11.000Z'
+            },
+            'payor': [
+              {
+                'display': 'Government'
+              }
+            ],
+            'class': [
+              {
+                'type': {
+                  'text': 'Charging Category'
+                },
+                'value': '2572940471',
+                'name': '10-OPC, Class II'
               }
             ]
           }

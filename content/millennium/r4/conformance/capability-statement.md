@@ -22,6 +22,7 @@ _Implementation Notes_
 
 * Authentication is not required to access the Conformance resource
 * No parameters other than the standard `_format` parameter are supported for reading CapabilityStatement
+* Resource actions that are sill under development will be returned in the CapabilityStatement with documentation on the interaction explaining that the resource action is still under development and should not be used in production. These resource actions are listed as 'beta' on fhir.cerner.com.
 
 ### Authorization Types
 

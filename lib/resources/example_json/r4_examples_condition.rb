@@ -231,7 +231,7 @@ module Cerner
         {
           'coding': [
             {
-              'system': 'http://terminology.hl7.org/CodeSystem/condition-category',
+              'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
               'code': 'health-concern',
               'display': 'Health Concern'
             }
@@ -240,11 +240,6 @@ module Cerner
         }
       ],
       'code': {
-        'coding': [
-          {
-            'display': 'THIS IS A TEST GOAL'
-          }
-        ],
         'text': 'THIS IS A TEST GOAL'
       },
       'subject': {
@@ -383,7 +378,7 @@ module Cerner
           {
             'coding': [
               {
-                'system': 'http://terminology.hl7.org/CodeSystem/condition-category',
+                'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
                 'code': 'health-concern',
                 'display': 'Health Concern'
               }
@@ -392,11 +387,6 @@ module Cerner
           }
         ],
         'code': {
-          'coding': [
-            {
-              'display': 'description'
-            }
-          ],
           'text': 'description'
         },
         'subject': {

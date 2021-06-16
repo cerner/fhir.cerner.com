@@ -82,13 +82,13 @@ module Cerner
         ]
       end
 
-      def json(key)
+      def json(key, css_override: nil)
         hash = get_resource(key)
         hash = yield hash if block_given?
 
         escaped_values_hash = deep_transform_values(hash)
 
-        '<pre class="body-response"><code class="language-javascript">'\
+        "<pre class=\"#{css_override || 'body-response'}\"><code class=\"language-javascript\">"\
         "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
 
@@ -141,6 +141,26 @@ module Cerner
       def disclaimer
         '<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not '\
         "guaranteed to yield the results shown on the site.</p>\n"
+      end
+
+      # Public: Helper method to create a tag to denote if a resource/action is still under development.
+      #
+      # @param action [boolean] flag to denote if a resource action is under development. Defaults to false.
+      # @param known_issues [Array<String>] an array of known issues for the resource/action.
+      #
+      # @return [String] an HTML div for beta tag.
+      def beta_tag(action: false, known_issues: nil)
+        beta = "<div class=\"beta-tag\"><p>This Resource#{' Action' if action} is still under development.</p>"
+
+        if known_issues
+          beta += '<p>Known Issues:</p><ul>'
+          known_issues.each do |issue|
+            beta += "<li>#{issue}</li>"
+          end
+          beta += '</ul>'
+        end
+
+        beta + '</div>'
       end
 
       def deep_transform_values(value)

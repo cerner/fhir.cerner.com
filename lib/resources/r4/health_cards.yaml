@@ -1,0 +1,62 @@
+---
+name: Parameters
+field_name_base_url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters
+fields:
+
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: health-cards-issue
+  example: |
+    {
+      "resourceType": "Parameters"
+    }
+  note: resourceType must be Parameters
+  url: https://hl7.org/fhir/r4/json.html#resources
+
+- name: parameter
+  required: 'Yes'
+  type: List of BackboneElement
+  description: Parameters defined by the operation.
+  action: health-cards-issue
+  url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+- name: credentialType
+  required: 'Yes'
+  type: List of parameter BackboneElement
+  description: The type of the health cards requested.
+  action: health-cards-issue
+  example: |
+    {
+      "parameter": [
+        {
+          "name": "credentialType",
+          "valueUri": "https://smarthealth.cards#health-card"
+        }
+      ]
+    }
+  example2: |
+    {
+      "parameter": [
+        {
+          "name": "credentialType",
+          "valueUri": "https://smarthealth.cards#covid19"
+        },
+        {
+          "name": "credentialType",
+          "valueUri": "https://smarthealth.cards#immunization"
+        }
+      ]
+    }
+  note: >
+    <ul>
+      <li>The value must be in the form of `valueUri`</li>
+      <li>More than one value for the credentialType can be defined by repeating the element with a different `valueUri`</li>
+      <ul>
+        <li>Multiple values in a request are interpreted as a request for the intersection of the requested types (logical AND)</li>
+        <li>It is recommended to add multiple credential types to the request to match the intended health card type most precisely. This will avoid any integration issues as support for additional health card types is added</li>
+      </ul>
+      <li>See <a href="#supported-health-card-types">Supported Health Card Types</a> for a list of valid credential types</li>
+    </ul>
+  url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter

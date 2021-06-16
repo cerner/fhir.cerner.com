@@ -77,6 +77,9 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
 
 * Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
+* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+  URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status`.
+
 ## Search
 
 Search for MedicationRequests that meet supplied query parameters:
@@ -85,7 +88,7 @@ Search for MedicationRequests that meet supplied query parameters:
 
 _Implementation Notes_
 
-We are currently always returning a value of "Order" in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support "Plan" and "Order" in accordance with the US Core Profile pending changes.
+We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" in accordance with the US Core Profile changes.
 
 ### Authorization Types
 
@@ -98,7 +101,8 @@ We are currently always returning a value of "Order" in the intent field. We rec
  `_id`                  | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`              | This, or `_id`     | [`reference`] | The specific patient to return MedicationRequests for. Example: `12345`
  `status`               | N                  | [`token`]     | The [status] of the medication, may be a list separated by commas. Example: `active,completed`
- `-timing-boundsPeriod` | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z`
+ `intent`               | N                  | [`token`]     | Whether the medication is an authorization or a medication reported by a patient. Example: `order,plan`
+ `-timing-boundsPeriod` | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z` 
  `_lastUpdated`         | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`               | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
@@ -144,7 +148,7 @@ List an individual MedicationRequest by its id:
 
 _Implementation Notes_
 
-We are currently always returning a value of "Order" in the intent field. We recommend using the reported field to determine if a medication is an authorization or a medication reported by a patient. In the future, we will support "Plan" and "Order" in accordance with the US Core Profile pending changes.
+We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" in accordance with the US Core Profile changes.
 
 ### Authorization Types
 

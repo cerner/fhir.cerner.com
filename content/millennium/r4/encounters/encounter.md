@@ -27,6 +27,9 @@ The following fields are returned if valued:
 * [Appointment](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.appointment){:target="_blank"} 
 * [Start/end time of the encounter](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period){:target="_blank"}
 * [Reason for visit](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
+* [Incident](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
+* [Admitting diagnoses](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
+* [Administrative problem](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}  
 * [Hospitalization:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization){:target="_blank"}
   * [Admit source](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.admitSource){:target="_blank"}
   * [Diet preference](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference){:target="_blank"}
@@ -86,24 +89,31 @@ _Implementation Notes_
 
 ### Parameters
 
- Name       | Required?                                   | Type          | Description
-------------|---------------------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------
- `_id`      | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient`  | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
- `subject`  | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `account`  | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
- `date`     | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'. 
-[`_count`]  | No                                          | [`number`]    | The maximum number of results to return.
-
+ Name         | Required?                                   | Type          | Description
+--------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
+ `_id`        | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `patient`    | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `subject`    | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
+ `account`    | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
+ `date`       | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
+[`_count`]    | No                                          | [`number`]    | The maximum number of results to return.
+ `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
+ `_revinclude`| No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+  
 Notes:
 
-- The `date` parameter may be provided:
-  - once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
+* `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* `_count` and `status` must be provided with patient
+* `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
+* The `date` parameter may be provided:
+  * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
     `date=ge2015-01-01T00:00.00.000Z`,
     `date=gt2015-01-01T00:00.00.000Z`,    
     `date=le2016-01-01T00:00.00.000Z`,
     `date=lt2016-01-01T00:00.00.000Z`)
-  - twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
+  * twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
     `date=ge2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
     `date=ge2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
     `date=gt2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
@@ -127,6 +137,21 @@ Notes:
 <%= json(:r4_encounter_bundle) %>
 
 <%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?_id=1361920&_revinclude=Provenance:target
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_encounter_revinclude_bundle) %>
+
 
 #### Patient Authorization Request
 

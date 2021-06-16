@@ -390,6 +390,18 @@ describe Cerner::Resources::Helpers do
         expect(json).to eq(expected_html)
       end
     end
+
+    context 'when the css override parameter is provided' do
+      let(:expected_hash) { resource_json }
+      let(:expected_html) do
+        '<pre class="test-class"><code class="language-javascript">'\
+        "#{JSON.pretty_generate(expected_hash)}</code></pre>"
+      end
+
+      it 'returns the generated HTML with the override css class' do
+        expect(Cerner::Resources::Helpers.json(key, css_override: 'test-class')).to eq(expected_html)
+      end
+    end
   end
 
   describe '#html' do
@@ -630,6 +642,80 @@ describe Cerner::Resources::Helpers do
 
     it 'returns the Disclaimer blurb' do
       expect(disclaimer).to eq(blurb)
+    end
+  end
+
+  describe '#beta_tag' do
+    subject(:beta_tag) { Cerner::Resources::Helpers.beta_tag }
+    let(:beta_tag_div) do
+      '<div class="beta-tag"><p>This Resource is still under development.</p></div>'
+    end
+    let(:beta_tag_action_div) do
+      '<div class="beta-tag"><p>This Resource Action is still under development.</p></div>'
+    end
+
+    context 'when no parameters are passed in' do
+      it 'returns the beta_tag div for a Resource' do
+        expect(beta_tag).to eq(beta_tag_div)
+      end
+    end
+
+    context 'when parameters are passed in' do
+      subject(:beta_tag_parameters) { Cerner::Resources::Helpers.beta_tag(action: action, known_issues: issues) }
+      let(:issues) { %w[hi hello] }
+      let(:beta_tag_div) do
+        '<div class="beta-tag"></div>This Resource is still under development.<p>Known Issues:</p><ul><li>hi</li>'\
+        '<li>hello</li></ul></p>'
+      end
+
+      context 'when action is false' do
+        let(:action) { false }
+
+        context 'when known issues are not present' do
+          let(:issues) { nil }
+          let(:beta_tag_div) do
+            '<div class="beta-tag"><p>This Resource is still under development.</p></div>'
+          end
+
+          it 'returns the beta_tag div for a Resource' do
+            expect(beta_tag_parameters).to eq(beta_tag_div)
+          end
+        end
+
+        context 'when known issues are present' do
+          let(:beta_tag_div) do
+            '<div class="beta-tag"><p>This Resource is still under development.</p><p>Known Issues:</p><ul>'\
+            '<li>hi</li><li>hello</li></ul></div>'
+          end
+
+          it 'returns the beta_tag div for a Resource with known issues' do
+            expect(beta_tag_parameters).to eq(beta_tag_div)
+          end
+        end
+      end
+
+      context 'when action is true' do
+        let(:action) { true }
+
+        context 'when known issues are not present' do
+          let(:issues) { nil }
+
+          it 'returns the beta_tag div for a Resource Action' do
+            expect(beta_tag_parameters).to eq(beta_tag_action_div)
+          end
+        end
+
+        context 'when known issues are present' do
+          let(:beta_tag_action_div) do
+            '<div class="beta-tag"><p>This Resource Action is still under development.</p><p>Known Issues:</p><ul>'\
+            '<li>hi</li><li>hello</li></ul></div>'
+          end
+
+          it 'returns the beta_tag div for a Resource Action with known issues' do
+            expect(beta_tag_parameters).to eq(beta_tag_action_div)
+          end
+        end
+      end
     end
   end
 end

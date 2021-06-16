@@ -37,6 +37,12 @@ module Cerner
               'display': 'Electronic'
             },
             'url': 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+          },
+          {
+            'valueCodeableConcept': {
+              'text': 'Does not need pharmacy verification'
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status'
           }
         ],
         'status': 'active',
