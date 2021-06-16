@@ -111,7 +111,7 @@ operations:
         <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
         <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
         <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
-        <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
+        <li> Only one `coding` may be provided. </li>
       </ul>
 
   - name: test-relationship-id
@@ -180,7 +180,7 @@ operations:
         <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
         <li> When either `start` or `end` are not provided its value will be unset. </li>
         <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
-        <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
+        <li> Only one `coding` may be provided. </li>
         <li> If either the `valuePeriod` and `valueCodeableConcept` are not provided, any existing values for the absent period and relation extensions will be removed. </li>
       </ul>
 

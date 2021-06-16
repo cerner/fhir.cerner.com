@@ -148,7 +148,7 @@ fields:
     <ul>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
       <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
-      <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
+      <li> Only one `coding` may be provided. </li>
     </ul>
 
 - name: patient
