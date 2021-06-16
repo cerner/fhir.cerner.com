@@ -63,6 +63,7 @@ operations:
       <ul>
         <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier intended to be removed. </li>
       </ul>
+
   - name: add-relationship
     path: /relationship/-
     operation: add
