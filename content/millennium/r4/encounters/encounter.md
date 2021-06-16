@@ -98,7 +98,7 @@ _Implementation Notes_
  `date`       | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
 [`_count`]    | No                                          | [`number`]    | The maximum number of results to return.
  `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
- `_revinclude`| No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+`_revinclude` | No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
   
 Notes:
 
