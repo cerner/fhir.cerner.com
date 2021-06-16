@@ -31,9 +31,9 @@ operations:
       }
     note: >
       <ul>
-        <li>Must not contain the `use` field.</li>
-        <li>Must contain the `type`, `system`, and `value` fields.</li>
-        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+        <li> Must not contain the `use` field. </li>
+        <li> Must contain the `type`, `system`, and `value` fields. </li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
       </ul>
 
   - name: test-identifier-id
@@ -61,7 +61,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier intended to be removed.</li>
+        <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the `Identifier.id` of the identifier intended to be removed. </li>
       </ul>
   - name: add-relationship
     path: /relationship/-
@@ -107,10 +107,10 @@ operations:
 
     note: >
       <ul>
-        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
-        <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
-        <li>Each `coding` can be either from the standard or proprietary system, but not both.</li>
-        <li>If the coding is from a proprietary system, only one code may be provided.</li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+        <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
+        <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
+        <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
       </ul>
 
   - name: test-relationship-id
@@ -139,15 +139,15 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` field of the relationship to be removed.</li>
+        <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` field of the relationship to be removed. </li>
       </ul>
 
-  - name: replace-relationship-extensions
+  - name: replace-relationship-extension
     path: /relationship/{index}/extension
     operation: replace
-    type: string
-    url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship
-    description: Replace the `period` and `relation` extensions of the relationship at the given <code>{index}</code>.
+    type: Extension
+    url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
+    description: Replace the relationship extension field at the given <code>{index}</code>.
     example: |
       {
         "op": "replace",
@@ -175,11 +175,11 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` of the relationship whose `period` and `relation` is intended to be replaced.</li>
-        <li>The `start` and `end` when provided must include a time component with a timezone.</li>
-        <li>When either `start` or `end` are not provided its value will be unset.</li>
-        <li>Each `coding` can be either from the standard or proprietary system, but not both.</li>
-        <li>If the coding is from a proprietary system, only one code may be provided.</li>
+        <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the `Relationship.id` of the relationship whose `extension` value is intended to be replaced. </li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+        <li> When either `start` or `end` are not provided its value will be unset. </li>
+        <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
+        <li> If the `coding` field contains a proprietary system, only one coding may be provided. </li>
       </ul>
 
   - name: add-address
@@ -210,10 +210,10 @@ operations:
       }
     note: >
       <ul>
-        <li>Must not contain the `text` field.</li>
-        <li>Must contain the `use` field.</li>
-        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
-        <li>If `line` is provided, only the first four values are used. Additional values will be ignored.</li>
+        <li> Must not contain the `text` field. </li>
+        <li> Must contain the `use` field. </li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+        <li> If `line` is provided, only the first four values are used. Additional values will be ignored. </li>
       </ul>
 
   - name: test-address-id
@@ -242,7 +242,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` field of the address to be removed.</li>
+        <li> Requires a <a href="#test-address-id">test operation</a> to be provided for the `Address.id` field of the address to be removed. </li>
       </ul>
 
   - name: add-telecom
@@ -278,8 +278,8 @@ operations:
       }
     note: >
       <ul>
-        <li>Must contain the `system`, `use`, and `value` fields.</li>
-        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+        <li> Must contain the `system`, `use`, and `value` fields. </li>
+        <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
       </ul>
 
   - name: test-telecom-id
@@ -308,7 +308,7 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom intended to be removed.</li>
+        <li> Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom intended to be removed. </li>
       </ul>
 
   - name: test-name-id
@@ -325,7 +325,7 @@ operations:
       }
     note: >
       <ul>
-        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+        <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
       </ul>
 
   - name: replace-name-family
@@ -342,8 +342,8 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced.</li>
-        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+        <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `family` is intended to be replaced. </li>
+        <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
       </ul>
 
   - name: replace-name-prefix
@@ -360,10 +360,10 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced.</li>
-        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-        <li>If no prefix value is provided, the prefix on the name will be unset.</li>
-        <li>Only one prefix value may be provided.</li>
+        <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `prefix` is intended to be replaced. </li>
+        <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+        <li> If no prefix value is provided, the prefix on the name will be unset. </li>
+        <li> Only one prefix value may be provided. </li>
       </ul>
 
   - name: replace-name-given
@@ -383,10 +383,10 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced.</li>
-        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-        <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed.</li>
-        <li>Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+        <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `given` is intended to be replaced. </li>
+        <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+        <li> If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed. </li>
+        <li> Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
       </ul>
 
   - name: replace-name-suffix
@@ -403,8 +403,8 @@ operations:
       }
     note: >
       <ul>
-        <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `suffix` is intended to be replaced.</li>
-        <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-        <li>If no suffix value is provided, the suffix on the name will be unset.</li>
-        <li>Only one suffix value may be provided.</li>
+        <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the `HumanName.id` of the name whose `suffix` is intended to be replaced. </li>
+        <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+        <li> If no suffix value is provided, the suffix on the name will be unset. </li>
+        <li> Only one suffix value may be provided. </li>
       </ul>
