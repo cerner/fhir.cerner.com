@@ -213,13 +213,13 @@ module Cerner
 
     R4_CHARGEITEM_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': 'e2a7275f-fe18-4885-a39b-8d798137693f',
+      'id': '0f2ae629-4e99-4843-a200-406dffce7091',
       'type': 'searchset',
       'total': 1,
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?context=97953601&-status=billable'
         }
       ],
       'entry': [
@@ -254,12 +254,6 @@ module Cerner
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price'
               },
               {
-                'valueReference': {
-                  'reference': 'ChargeItem/157320880'
-                },
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by'
-              },
-              {
                 'valueString': 'Acetaminophen Level',
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/description'
               },
@@ -273,7 +267,7 @@ module Cerner
                             {
                               'valueCoding': {
                                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
-                                'code': '615215'
+                                'code': '615214'
                               },
                               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                             }
