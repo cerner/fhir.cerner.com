@@ -28,6 +28,18 @@ fields:
   note: The id value must match the Observation/&lt;id> value.
   url: https://hl7.org/fhir/resource-definitions.html#Resource.id
 
+- name: identifier
+  required: 'No'
+  type: Identifier
+  description: A unique identifier assigned to the observation.
+  action: update
+  example: |
+    {
+      "system":"https://fhir.cerner.com/ceuuid",
+      "value":"CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900"
+    }
+  note: Identifier is required for `Vital Signs` and it can't be modified. Identifier is optional for `Laboratory`
+
 - name: status
   required: 'Yes'
   type: code
@@ -117,6 +129,23 @@ fields:
         }
       ]
     }
+
+  example2: |
+    {
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ]
+    }
+
   note: |
     <ul>
       <li> Updating a category is not allowed. </li>
@@ -358,6 +387,7 @@ fields:
   note: |
     <ul>
       <li> Must be a reference to Practitioner. </li>
+      <li> Vital Signs require performer. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
@@ -460,38 +490,65 @@ fields:
     }
   example2: |
     {
-       "extension": [
-          {
-             "valueCodeableConcept": {
-                "coding": [
-                   {
-                      "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                      "code": "OP",
-                      "display": "ordering provider"
-                   }
-                ],
-                "text": "ordering provider"
-             },
-             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+    "extension":[
+       {
+          "valueCodeableConcept":{
+             "coding":[
+                {
+                   "system":"http://terminology.hl7.org/CodeSystem/v2-0912",
+                   "code":"OP",
+                   "display":"ordering provider"
+                }
+             ],
+             "text":"ordering provider"
           },
-          {
-             "valueCodeableConcept": {
-                "coding": [
-                   {
-                      "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                      "code": "PPRF",
-                      "display": "primary performer"
-                   }
-                ],
-                "text": "primary performer"
-             },
-             "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-          }
-       ]
+          "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+       },
+       {
+          "valueCodeableConcept":{
+             "coding":[
+                {
+                   "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                   "code":"PPRF",
+                   "display":"primary performer"
+                }
+             ],
+             "text":"primary performer"
+          },
+          "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+       },
+       {
+          "valueCodeableConcept":{
+             "coding":[
+                {
+                   "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                   "code":"PRF",
+                   "display":"performer"
+                }
+             ],
+             "text":"performer"
+          },
+          "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+       },
+       {
+          "valueCodeableConcept":{
+             "coding":[
+                {
+                   "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                   "code":"AUTHEN",
+                   "display":"authenticator"
+                }
+             ],
+             "text":"authenticator"
+          },
+          "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+       }
+    ]
     }
   note: |
     <ul>
-       <li> Laboratory supports `LA` , `PPRF` and `OP` extensions. </li>
+       <li>Vital Signs supports `LA` and `PPRF` codes.</li>
+       <li> Laboratory supports `LA` , ``PRF` , `PPRF` , `AUTHEN` and `OP` extensions. </li>
     </ul>
   url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
 
@@ -580,9 +637,12 @@ fields:
   note: |
     <ul>
       <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
+      <li> Updating value type to another is supported only for the `Laboratory`.
+              <ul>The exception is valueDateTime cannot be updated to other value type and vice-versa </ul>
+      </li>
     </ul>
     <ul>
-      <li> Updating value type to another is not supported. </li>
+      <li> Vital Signs support updating observations with `valueQuantity` </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
