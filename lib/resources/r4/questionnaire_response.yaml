@@ -2,6 +2,19 @@
 name: QuestionnaireResponse
 field_name_base_url: https://hl7.org/implement/standards/fhir/R4/questionnaireresponse-definitions.html#QuestionnaireResponse
 fields:
+  - name: ValueCoding Answer
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_
+    terminology_name: answer.valueCoding
+    type: Coding
+    description: An answer from a list of available Coding answer options.
+    action: terminology
+    binding:
+      description: An answer from a list of available Coding answer options.
+      terminology:
+        - display: Nomenclature Value
+          system: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature
+
   - name: resourceType
     required: 'Yes'
     type: string
@@ -24,3 +37,212 @@ fields:
       {
         "id": "SH-12508041"
       }
+
+  - name: questionnaire
+    required: 'Yes'
+    type: Questionnaire
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire
+    description: The Questionnaire that defines and organizes the questions for which answers are being provided.
+    action: update
+    example: |
+      {
+        "questionnaire": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041"
+      }
+
+  - name: status
+    required: 'Yes'
+    type: code
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.status
+    description: The position of the questionnaire response within its overall lifecycle.
+    action: update
+    example: |
+      {
+        "status": "in-progress"
+      }
+    note: Status must be 'in-progress'.
+  
+  - name: subject
+    required: 'Yes'
+    type: Reference
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.subject
+    description: The subject of the questionnaire response. This is the patient the answers apply to, but is not necessarily the source of information.
+    action: update
+    example: |
+      {
+        "subject": {
+          "reference": "Patient/12508041"
+        }
+      }
+
+  - name: item
+    required: 'Yes'
+    type: List of BackboneElement
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item
+    description: A group or question item from the original questionnaire for which answers are provided.
+    action: update
+    example: |
+      {
+        "item": [
+          {
+            "id": "111",
+            "linkId": "93",
+            "extension": [
+              {​​​​​​​​​​​​
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+                "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+                  "text": "category/group comment"
+                }​​​​​​​​​​​​​​​​​​​​​​​​​​
+              }​​​​​​​​​​​​​​​​​​​​​​​​​​
+            ],
+            "item": [
+              {
+                "linkId": "93-123",
+                "extension": [
+                  {​​​​​​​​​​​​
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                    "valueBoolean": true
+                  }​​​​​​​​​​​​​​​​​​​​​​​​​​
+                ],
+                "answer": [
+                  {
+                    "valuestring": "Answer text"
+                  }
+                ]
+              }
+            ] 
+          }
+        ]
+      }
+
+  - name: item.id
+    required: 'No'
+    type: string
+    url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+    description: Unique id for inter-element referencing.
+    action: update
+    example: |
+      {
+        "id": "111"
+      }
+    note: If an item.id is returned on a read, it must be provided on an update.
+
+  - name: item.linkId
+    required: 'Yes'
+    type: string
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId
+    description: The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+    action: update
+    example: |
+      {
+        "linkId": "93"
+      }
+
+  - name: item.extension
+    required: 'No'
+    type: Extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/note
+    description: Additional details about a given QuestionnaireResponse group item.
+    action: update
+    example: |
+      {
+        "extension": [
+          {​​​​​​​​​​​​
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+            "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+              "text": "category/group comment"
+            }​​​​​​​​​​​​​​​​​​​​​​​​​​
+          }​​​​​​​​​​​​​​​​​​​​​​​​​​
+        ]
+      }
+    note: Only the 'note' extension is supported for this field. Notes can only be added, not replaced or deleted.
+
+  - name: item.item
+    required: 'No'
+    type: List of BackboneElement
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.item
+    description: Questions nested beneath a group.
+    action: update
+    example: |
+      {
+        "item": [
+          {
+            "linkId": "93-123",
+            "extension": [
+              {​​​​​​​​​​​​
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                "valueBoolean": true
+              }​​​​​​​​​​​​​​​​​​​​​​​​​​
+            ],
+            "answer": [
+              {
+                "valuestring": "Answer text"
+              }
+            ]
+          }
+        ]
+      }
+
+  - name: item.item.linkId
+    required: 'Yes'
+    type: string
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId
+    description: The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+    action: update
+    example: |
+      {
+        "linkId": "93-123"
+      }
+
+  - name: item.item.extension
+    required: 'No'
+    type: Extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer
+    description: Whether the answers come from a list of options.
+    action: update
+    example: |
+      {
+        "extension": [
+          {​​​​​​​​​​​​
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+            "valueBoolean": true
+          }​​​​​​​​​​​​​​​​​​​​​​​​​​
+        ]
+      }
+    note: Only the 'choice-answer' extension is supported for this field. Extension must be provided and true when answering a question of type choice or open choice.
+
+  - name: item.item.answer
+    required: 'Yes'
+    type: string | Coding | Quantity
+    url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer
+    description: The respondent's answer(s) to the question.
+    action: update
+    example: |
+      {
+        "answer": [
+          {
+            "valueString": "Answer text"
+          }
+        ]
+      }
+    example2: |
+      {
+        "answer": [
+          {
+            "valueCoding": {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+              "code": "960439"
+            }
+          }
+        ]
+      }
+    example3: |
+      {
+        "answer": [
+          {
+            "valueQuantity": {
+              "value": 20
+            }
+          }
+        ]
+      }
+    note: Only answer value types of String, Quantity, and Coding are supported.
