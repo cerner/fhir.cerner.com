@@ -195,7 +195,7 @@ _Implementation Notes_
 
 _Note_: 
 
-* Vitals creates for a Provider persona requires an active relationship.
+* Vital Sign creates via a Provider persona requires an active relationship between the Provider and the Patient.
 
 ### Headers
 
