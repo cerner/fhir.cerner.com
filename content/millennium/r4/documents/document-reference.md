@@ -56,6 +56,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `period`                 | N                  | [`date`]      | Time of service that is being documented. Must use the `ge` and `lt` prefixes. Example: `lt2017-01-5`
  `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
+ `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
 
 _Implementation Notes_
 
