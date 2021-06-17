@@ -191,7 +191,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> </i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> </i></div>
+<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Vital Signs and Laboratory)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
 
 ### Headers
 

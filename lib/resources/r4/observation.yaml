@@ -414,13 +414,39 @@ fields:
                 "text": "primary performer"
              },
              "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+          },
+          {
+             "valueCodeableConcept":{
+                "coding":[
+                   {
+                      "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code":"PRF",
+                      "display":"performer"
+                   }
+                ],
+                "text":"performer"
+             },
+             "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+          },
+          {
+             "valueCodeableConcept":{
+                "coding":[
+                   {
+                      "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                      "code":"AUTHEN",
+                      "display":"authenticator"
+                   }
+                ],
+                "text":"authenticator"
+             },
+             "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
           }
        ]
     }
   note: |
     <ul>
-       <li> Vital Signs supports only `LA` extension. </li>
-       <li> Laboratory supports `LA` , `PPRF` and `OP` extensions. </li>
+       <li> Vital Signs supports `LA` and `PPRF` extension. The code must be 'LA' when only one performer is provided and when multiple performers are present then the code must be 'LA' for one of the performers.</li>
+       <li> Laboratory supports `LA` , `PPRF` , `PRF` , `OP` and `AUTHEN` extensions. </li>
     </ul>
   url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
 
