@@ -350,6 +350,17 @@ module Cerner
       'reasonCode': [
         {
           'text': 'Illness'
+        },
+        {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+              'code': '111611746',
+              'display': 'Illness',
+              'userSelected': true
+            }
+          ],
+          'text': 'Illness'
         }
       ],
       'hospitalization': {
