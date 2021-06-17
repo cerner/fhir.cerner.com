@@ -19,9 +19,11 @@ The Account resource acts as a central record against which charges, payments, a
 
 The account resource supports multiple account types which are defined below.
 
+* `charge-group` - A grouping of charges for billing
 * `financial-account` - Top level patient account
-* `guarantor-balance` - Self pay balance account.
-* `statement` - Snapshot in time of a patient statement.
+* `guarantor-balance` - Self pay balance account
+* `insurance-balance` - Insurance balance account
+* `statement` - Snapshot in time of a patient statement
 
 The following fields are returned if valued:
 
@@ -64,7 +66,7 @@ Search for Accounts that meet supplied query parameters:
 
 _Implementation Notes_
 
-* The Account balance extension is only returned on statement and guarantor-balance types
+* The [Account Balance] extension is only returned on statement, guarantor-balance, and insurance-benefit types
 * [Account.subject] is only returned on statement and financial-account types
 
 ### Authorization Types
