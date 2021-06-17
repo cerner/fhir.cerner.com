@@ -1472,8 +1472,13 @@ module Cerner
         ]
       },
       {
+        'op': 'test',
+        'path': '/relationship/1/id',
+        'value': 'CI-98909708-1'
+      },
+      {
         'op': 'remove',
-        'path': '/relationship/0'
+        'path': '/relationship/1'
       },
       {
         'op': 'test',
