@@ -445,8 +445,14 @@ fields:
     }
   note: |
     <ul>
-       <li> Vital Signs supports `LA` and `PPRF` extension. The code must be 'LA' when only one performer is provided and when multiple performers are present then the code must be 'LA' for one of the performers.</li>
-       <li> Laboratory supports `LA` , `PPRF` , `PRF` , `OP` and `AUTHEN` extensions. </li>
+       <li>
+          Vital Signs supports `LA` and `PPRF` codes.
+          <ul>
+             <li>When only one performer is provided, the code must be `LA`.</li>
+             <li>When multiple performers are provided, then the code must be `LA` for one of the performers.</li>
+          </ul>
+       </li>
+       <li> Laboratory supports `LA` , `PPRF` , `PRF` , `OP` and `AUTHEN` codes. </li>
     </ul>
   url: https://hl7.org/fhir/R4/extension-event-performerfunction-definitions.html
 

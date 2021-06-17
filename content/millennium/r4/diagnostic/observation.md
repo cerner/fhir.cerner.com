@@ -193,6 +193,10 @@ _Implementation Notes_
 
 <div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Vital Signs and Laboratory)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
 
+_Note_: 
+
+* Vitals creates for a Provider persona requires an active relationship.
+
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
