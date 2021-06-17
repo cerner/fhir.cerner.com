@@ -1448,10 +1448,6 @@ module Cerner
         'value': 'CI-98278577-0'
       },
       {
-        'op': 'remove',
-        'path': '/relationship/0'
-      },
-      {
         'op': 'replace',
         'path': '/relationship/0/extension',
         'value': [
@@ -1474,6 +1470,10 @@ module Cerner
             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
           }
         ]
+      },
+      {
+        'op': 'remove',
+        'path': '/relationship/0'
       },
       {
         'op': 'test',
