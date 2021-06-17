@@ -60,7 +60,7 @@ Search for DocumentReferences that meet supplied query parameters:
 
 _Implementation Notes_
 
-* When searching with the `period` parameter:   
+* When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
   * If one `period` parameter includes a time, both must include a time.
 
