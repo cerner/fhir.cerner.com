@@ -636,13 +636,13 @@ fields:
     }
   note: |
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
-      <li> Updating value type to another is supported only for the `Laboratory`.
-              <ul>The exception is valueDateTime cannot be updated to other value type and vice-versa </ul>
-      </li>
+       <li> Laboratory support updating `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime` to the same value type. </li>
     </ul>
     <ul>
-      <li> Vital Signs support updating observations with `valueQuantity` </li>
+       <li> Vital Signs support only updating observations with `valueQuantity` to `valueQuantity` type</li>
+    </ul>
+    <ul>
+       <li> Updating value type to another is supported only for the `Laboratory`. The exception is valueDateTime cannot be updated to other value type and vice-versa</li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 

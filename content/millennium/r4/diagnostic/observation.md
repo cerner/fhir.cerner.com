@@ -255,6 +255,10 @@ _Implementation Notes_
 
 <%= authorization_types(provider: true, patient: false, system: true) %>
 
+_Note_:
+
+* Vital Sign updates via a Provider persona requires an active relationship between the Provider and the Patient.
+
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json', 'If-Match': 'W/"&lt;Current version of the Observation resource>"'} %>
