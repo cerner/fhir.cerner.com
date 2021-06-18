@@ -387,7 +387,6 @@ fields:
   note: |
     <ul>
       <li> Must be a reference to Practitioner. </li>
-      <li> Vital Signs require performer. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.performer
 
