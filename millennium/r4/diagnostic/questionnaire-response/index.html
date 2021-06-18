@@ -81,6 +81,12 @@
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -110,13 +116,132 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The QuestionnaireResponse resource is a collection of answers to a given questionnaire typically used to request patient healthcare information. An example of a questionnaire is a form used to collect a patient’s social history. Currently, only social history is supported.</p>
+<p>The QuestionnaireResponse resource is a collection of answers to a given questionnaire typically used to request patient healthcare information. A given QuestionnaireResponse must belong to a corresponding Questionnaire. An example of a questionnaire is a form used to collect a patient’s social history. Currently, only social history is supported.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire" target="_blank">Questionnaire</a></li>
+  <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.subject" target="_blank">Subject</a></li>
+  <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.authored" target="_blank">Authored</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item" target="_blank">Item</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/element-definitions.html#Element.id" target="_blank">Id</a></li>
+      <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId" target="_blank">Link id</a></li>
+      <li><a href="#extensions" target="_blank">Note Extension</a></li>
+      <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.text" target="_blank">Text</a></li>
+      <li>
+<a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.item" target="_blank">Item</a>
+        <ul>
+          <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId" target="_blank">Link id</a></li>
+          <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.text" target="_blank">Text</a></li>
+          <li><a href="#extensions" target="_blank">Choice Answer Extension</a></li>
+          <li><a href="https://hl7.org/fhir/r4/datatypes.html#string" target="_blank">valueString Answers</a></li>
+          <li><a href="https://hl7.org/fhir/r4/datatypes.html#Coding" target="_blank">valueCoding Answers</a></li>
+          <li><a href="https://hl7.org/fhir/r4/datatypes.html#Quantity" target="_blank">valueQuantity Answers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_">QuestionnaireResponse.answer.valueCoding</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>An answer from a list of available Coding answer options.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature">Nomenclature Value</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Choice Answer</a></li>
+  <li><a href="#custom-extensions">Note</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>choice-answer</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
+      <td>Indicates answers come from a list of options.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#annotation"><code>Annotation</code></a></td>
+      <td>Additional details about a given QuestionnaireResponse group item. Includes author and date/time information.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -127,10 +252,16 @@
 <pre><code>GET /QuestionnaireResponse?:parameters
 </code></pre>
 
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>QuestionnaireResponses are sometimes system generated without any answers. These may be updated with the correct responses at any time.</li>
+</ul>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h3 id="parameters">Parameters</h3>
@@ -147,9 +278,18 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Yes</td>
+      <td>This or <code>patient</code>
+</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>The subject (Patient) that the questionnaire response is about. Example: <code>patient=12345</code>
+</td>
     </tr>
   </tbody>
 </table>
@@ -185,7 +325,77 @@
       "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/QuestionnaireResponse/SH-12508041",
       "resource": {
         "resourceType": "QuestionnaireResponse",
-        "id": "SH-12508041"
+        "id": "SH-12508041",
+        "questionnaire": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041",
+        "status": "in-progress",
+        "subject": {
+          "reference": "Patient/12508041"
+        },
+        "authored": "2019-10-25T14:57:43Z",
+        "item": [
+          {
+            "id": "111",
+            "linkId": "93",
+            "text": "Tobacco",
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+                "valueAnnotation": {
+                  "authorReference": {
+                    "reference": "Practitioner/109413936",
+                    "display": "Lombardi, Falco Shine"
+                  },
+                  "time": "2021-06-15T22:15:26.000Z",
+                  "text": "category/group comment"
+                }
+              }
+            ],
+            "item": [
+              {
+                "linkId": "93-123",
+                "text": "Number of years:",
+                "answer": [
+                  {
+                    "valueQuantity": {
+                      "value": "20"
+                    }
+                  }
+                ]
+              },
+              {
+                "linkId": "93-456",
+                "text": "Tobacco use per day:",
+                "answer": [
+                  {
+                    "valueString": "Answer text"
+                  }
+                ]
+              },
+              {
+                "linkId": "93-789",
+                "text": "Ready to change:",
+                "extension": [
+                  {
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                    "valueBoolean": true
+                  }
+                ],
+                "answer": [
+                  {
+                    "valueCoding": {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                      "code": "960439",
+                      "display": "Yes"
+                    }
+                  },
+                  {
+                    "valueString": "Other answer text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     }
   ]
@@ -201,6 +411,12 @@
 
 <pre><code>GET /QuestionnaireResponse/:id
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>QuestionnaireResponses are sometimes system generated without any answers. These may be updated with the correct responses at any time.</li>
+</ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -226,7 +442,77 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "QuestionnaireResponse",
-  "id": "SH-12508041"
+  "id": "SH-12508041",
+  "questionnaire": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041",
+  "status": "in-progress",
+  "subject": {
+    "reference": "Patient/12508041"
+  },
+  "authored": "2019-10-25T14:57:43Z",
+  "item": [
+    {
+      "id": "111",
+      "linkId": "93",
+      "text": "Tobacco",
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+          "valueAnnotation": {
+            "authorReference": {
+              "reference": "Practitioner/109413936",
+              "display": "Lombardi, Falco Shine"
+            },
+            "time": "2021-06-15T22:15:26.000Z",
+            "text": "category/group comment"
+          }
+        }
+      ],
+      "item": [
+        {
+          "linkId": "93-123",
+          "text": "Number of years:",
+          "answer": [
+            {
+              "valueQuantity": {
+                "value": "20"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "93-456",
+          "text": "Tobacco use per day:",
+          "answer": [
+            {
+              "valueString": "Answer text"
+            }
+          ]
+        },
+        {
+          "linkId": "93-789",
+          "text": "Ready to change:",
+          "extension": [
+            {
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+              "valueBoolean": true
+            }
+          ],
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                "code": "960439",
+                "display": "Yes"
+              }
+            },
+            {
+              "valueString": "Other answer text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -328,11 +614,499 @@
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
   "id": "SH-12508041"
-}</pre></li></ul>
+}
+</pre></li></ul>
       
       
       
       
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-questionnaire">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire"><code>questionnaire</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/questionnaire.html"><code>Questionnaire</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The Questionnaire that defines and organizes the questions for which answers are being provided.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "questionnaire": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-status">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The position of the questionnaire response within its overall lifecycle.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "in-progress"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Status must be 'in-progress'.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-subject">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The subject of the questionnaire response. This is the patient the answers apply to, but is not necessarily the source of information.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/12508041"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item"><code>item</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A group or question item from the original questionnaire for which answers are provided.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "item": [
+    {
+      "id": "111",
+      "linkId": "93",
+      "extension": [
+        {​​​​​​​​​​​​
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+          "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+            "text": "category/group comment"
+          }​​​​​​​​​​​​​​​​​​​​​​​​​​
+        }​​​​​​​​​​​​​​​​​​​​​​​​​​
+      ],
+      "item": [
+        {
+          "linkId": "93-123",
+          "extension": [
+            {​​​​​​​​​​​​
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+              "valueBoolean": true
+            }​​​​​​​​​​​​​​​​​​​​​​​​​​
+          ],
+          "answer": [
+            {
+              "valuestring": "Answer text"
+            }
+          ]
+        }
+      ] 
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.id">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>item.id</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Unique id for inter-element referencing.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "111"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If an item.id is returned on a read, it must be provided on an update.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.linkId">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId"><code>item.linkId</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "linkId": "93"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/note"><code>item.extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Additional details about a given QuestionnaireResponse group item.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {​​​​​​​​​​​​
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+      "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+        "text": "category/group comment"
+      }​​​​​​​​​​​​​​​​​​​​​​​​​​
+    }​​​​​​​​​​​​​​​​​​​​​​​​​​
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only the 'note' extension is supported for this field. Notes can only be added, not replaced or deleted.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.item">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.item"><code>item.item</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Questions nested beneath a group.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "item": [
+    {
+      "linkId": "93-123",
+      "extension": [
+        {​​​​​​​​​​​​
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+          "valueBoolean": true
+        }​​​​​​​​​​​​​​​​​​​​​​​​​​
+      ],
+      "answer": [
+        {
+          "valuestring": "Answer text"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.item.linkId">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId"><code>item.item.linkId</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "linkId": "93-123"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.item.extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer"><code>item.item.extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether the answers come from a list of options.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {​​​​​​​​​​​​
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+      "valueBoolean": true
+    }​​​​​​​​​​​​​​​​​​​​​​​​​​
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only the 'choice-answer' extension is supported for this field. Extension must be provided and true when answering a question of type choice or open choice.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-item.item.answer">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer"><code>item.item.answer</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Coding"><code>Coding</code></a> | <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The respondent's answer(s) to the question.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "answer": [
+    {
+      "valueString": "Answer text"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "answer": [
+    {
+      "valueCoding": {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+        "code": "960439"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "answer": [
+    {
+      "valueQuantity": {
+        "value": 20
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only answer value types of String, Quantity, and Coding are supported.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -353,7 +1127,66 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "QuestionnaireResponse",
-  "id": "SH-12508041"
+  "id": "SH-12508041",
+  "questionnaire": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041",
+  "status": "in-progress",
+  "subject": {
+    "reference": "Patient/12508041"
+  },
+  "item": [
+    {
+      "id": "111",
+      "linkId": "93",
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+          "valueAnnotation": {
+            "text": "category/group comment"
+          }
+        }
+      ],
+      "item": [
+        {
+          "linkId": "93-123",
+          "answer": [
+            {
+              "valueQuantity": {
+                "value": "20"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "93-456",
+          "answer": [
+            {
+              "valueString": "Answer text"
+            }
+          ]
+        },
+        {
+          "linkId": "93-789",
+          "extension": [
+            {
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+              "valueBoolean": true
+            }
+          ],
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                "code": "960439"
+              }
+            },
+            {
+              "valueString": "Other answer text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }</code></pre>
 
 <h4 id="response-2">Response</h4>

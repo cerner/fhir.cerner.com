@@ -2315,9 +2315,8 @@
     {
       "coding": [
         {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
-          "code": "1152",
-          "display": "Emergency Contact"
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
         }
       ]
     }
@@ -2331,15 +2330,15 @@
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
         },
         {
-          'valueCodeableConcept': {
-            'coding': [
+          "valueCodeableConcept": {
+            "coding": [
               {
-                'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                'code': '155'
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
               }
             ]
           },
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
         }
       ]
     }
@@ -2354,9 +2353,9 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> The <code>relationship.coding</code> must contain exactly one proprietary system. </li>
-  <li> The <code>relationship.coding</code> cannot contain a standard system. </li>
   <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
 </ul>
 </li></ul>
       
@@ -2973,8 +2972,8 @@
           "valueCodeableConcept": {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
-                "code": "155"
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
               }
             ]
           },
@@ -3177,9 +3176,9 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Must not contain the <code>use</code> field.</li>
-  <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
-  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+  <li> Must not contain the <code>use</code> field. </li>
+  <li> Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
 </ul>
 </li></ul>
           
@@ -3255,7 +3254,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed.</li>
+  <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed. </li>
 </ul>
 </li></ul>
           
@@ -3268,7 +3267,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
       <td>
         <a name="add-relationship">
           
-            </a><a target="_blank" href="https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship"><code>/relationship/-</code></a>
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship"><code>/relationship/-</code></a>
           
         
       </td>
@@ -3292,8 +3291,8 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
     "value":{
       "coding": [
         {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
-          "code": "1152"
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
         }
       ],
       "extension": [
@@ -3303,6 +3302,17 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             "end": "2022-05-01T16:56:56.000Z"
           },
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
         }
       ]
     }
@@ -3315,10 +3325,10 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>The <code>value.coding</code> must contain exactly one proprietary system.</li>
-  <li>The <code>value.coding</code> cannot contain a standard system.</li>
-  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
-  <li>Duplicate relationships may be added, but will only be represented once on the Resource.</li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
 </ul>
 </li></ul>
           
@@ -3394,7 +3404,73 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a test operation to be provided for the <code>Relationship.id</code> field of the relationship to be removed.</li>
+  <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> field of the relationship to be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-relationship-extension">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension"><code>/relationship/{index}/extension</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the relationship extension field at the given <code>{index}</code>.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/relationship/0/extension",
+  "value": [
+    {
+      "valuePeriod": {
+        "start": "2016-12-30T22:26:08.000Z",
+        "end": "2036-12-30T22:26:08.000Z"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+    },
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "SIS"
+          }
+        ]
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> of the relationship whose <code>extension</code> value is intended to be replaced. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> When either <code>start</code> or <code>end</code> are not provided its value will be unset. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
+  <li> If either the <code>valuePeriod</code> and <code>valueCodeableConcept</code> are not provided, any existing values for the absent period and relation extensions will be removed. </li>
 </ul>
 </li></ul>
           
@@ -3450,10 +3526,10 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Must not contain the <code>text</code> field.</li>
-  <li>Must contain the <code>use</code> field.</li>
-  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
-  <li>If <code>line</code> is provided, only the first four values are used. Additional values will be ignored.</li>
+  <li> Must not contain the <code>text</code> field. </li>
+  <li> Must contain the <code>use</code> field. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
 </ul>
 </li></ul>
           
@@ -3529,7 +3605,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed.</li>
+  <li> Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed. </li>
 </ul>
 </li></ul>
           
@@ -3590,8 +3666,8 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li>
-  <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+  <li> Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
 </ul>
 </li></ul>
           
@@ -3667,7 +3743,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed.</li>
+  <li> Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed. </li>
 </ul>
 </li></ul>
           
@@ -3709,7 +3785,7 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
 </ul>
 </li></ul>
           
@@ -3751,8 +3827,8 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced.</li>
-  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
 </ul>
 </li></ul>
           
@@ -3794,10 +3870,10 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced.</li>
-  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-  <li>If no prefix value is provided, the prefix on the name will be unset.</li>
-  <li>Only one prefix value may be provided.</li>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If no prefix value is provided, the prefix on the name will be unset. </li>
+  <li> Only one prefix value may be provided. </li>
 </ul>
 </li></ul>
           
@@ -3842,10 +3918,10 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced.</li>
-  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-  <li>If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed.</li>
-  <li>Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed. </li>
+  <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
 </ul>
 </li></ul>
           
@@ -3887,10 +3963,10 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             <li><i>Notes</i></li>
             <ul style="list-style-type: none"><li>
 <ul>
-  <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced.</li>
-  <li>This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0).</li>
-  <li>If no suffix value is provided, the suffix on the name will be unset.</li>
-  <li>Only one suffix value may be provided.</li>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If no suffix value is provided, the suffix on the name will be unset. </li>
+  <li> Only one suffix value may be provided. </li>
 </ul>
 </li></ul>
           
@@ -3918,8 +3994,8 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
     "value": {
       "coding": [
         {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
-          "code": "1152"
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
         }
       ],
       "extension": [
@@ -3929,6 +4005,17 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
             "end": "2022-05-01T16:56:56.000Z"
           },
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
         }
       ]
     }
@@ -4020,8 +4107,37 @@ If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre
     "value": "CI-98278577-0"
   },
   {
+    "op": "replace",
+    "path": "/relationship/0/extension",
+    "value": [
+      {
+        "valuePeriod": {
+          "start": "2016-12-30T22:26:08.000Z",
+          "end": "2036-12-30T22:26:08.000Z"
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+      },
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "SIS"
+            }
+          ]
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+      }
+    ]
+  },
+  {
+    "op": "test",
+    "path": "/relationship/1/id",
+    "value": "CI-98909708-1"
+  },
+  {
     "op": "remove",
-    "path": "/relationship/0"
+    "path": "/relationship/1"
   },
   {
     "op": "test",

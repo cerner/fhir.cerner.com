@@ -123,11 +123,15 @@
 
 <ul>
   <li>
+<code>charge-group</code> - A grouping of charges for billing</li>
+  <li>
 <code>financial-account</code> - Top level patient account</li>
   <li>
-<code>guarantor-balance</code> - Self pay balance account.</li>
+<code>guarantor-balance</code> - Self pay balance account</li>
   <li>
-<code>statement</code> - Snapshot in time of a patient statement.</li>
+<code>insurance-balance</code> - Insurance balance account</li>
+  <li>
+<code>statement</code> - Snapshot in time of a patient statement</li>
 </ul>
 
 <p>The following fields are returned if valued:</p>
@@ -430,7 +434,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The Account balance extension is only returned on statement and guarantor-balance types</li>
+  <li>The <a href="#custom-extensions">Account Balance</a> extension is only returned on statement, guarantor-balance, and insurance-benefit types</li>
   <li>
 <a href="http://hl7.org/fhir/R4/account-definitions.html#Account.subject">Account.subject</a> is only returned on statement and financial-account types</li>
 </ul>

@@ -1206,6 +1206,12 @@
 </td>
     </tr>
     <tr>
+      <td><code>date</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#dateTime"><code>dateTime</code></a></td>
+      <td>Datetime range into which the encounter’s period datetime falls. Must be prefixed by ‘ge’, ‘gt’, ‘le’ or ‘lt’.</td>
+    </tr>
+    <tr>
       <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
@@ -1243,6 +1249,21 @@
   <li>
 <code>status</code> valid parameters are <code>planned</code>, <code>in-proggres</code>, <code>finished</code>, <code>cancelled</code>
 </li>
+  <li>The <code>date</code> parameter may be provided:
+    <ul>
+      <li>once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
+<code>date=ge2015-01-01T00:00.00.000Z</code>,
+<code>date=gt2015-01-01T00:00.00.000Z</code>,  <br>
+<code>date=le2016-01-01T00:00.00.000Z</code>,
+<code>date=lt2016-01-01T00:00.00.000Z</code>)</li>
+      <li>twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
+<code>date=ge2015-01-01T00:00.00.000Z&amp;date=le2016-01-01T00:00.00.000Z</code>,
+<code>date=ge2015-01-01T00:00.00.000Z&amp;date=lt2016-01-01T00:00.00.000Z</code>,
+<code>date=gt2015-01-01T00:00.00.000Z&amp;date=le2016-01-01T00:00.00.000Z</code>,
+<code>date=gt2015-01-01T00:00.00.000Z&amp;date=lt2016-01-01T00:00.00.000Z</code>,
+)</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -1616,6 +1637,17 @@
         },
         "reasonCode": [
           {
+            "text": "Illness"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                "code": "111611746",
+                "display": "Illness",
+                "userSelected": true
+              }
+            ],
             "text": "Illness"
           }
         ],
@@ -3566,6 +3598,17 @@
   "reasonCode": [
     {
       "text": "Illness"
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+          "code": "111611746",
+          "display": "Illness",
+          "userSelected": true
+        }
+      ],
+      "text": "Illness"
     }
   ],
   "hospitalization": {
@@ -4707,7 +4750,7 @@
       </td>
       <td>No </td>
       <td>
-<code>List</code> <code>of</code> <code>Coding</code> </td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Coding"><code>Coding</code></a> </td>
     </tr>
     <tr>
       <td colspan="4">

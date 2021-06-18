@@ -174,6 +174,7 @@
       
       
       
+      
     <tr>
       <td>
       
@@ -1604,8 +1605,14 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
 <h3 id="authorization-types-2">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Laboratory only)</i> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i>
+<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Vital Signs and Laboratory)</i> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i>
 </div>
+
+<p><em>Note</em>:</p>
+
+<ul>
+  <li>Vital Sign creates via a Provider persona requires an active relationship between the Provider and the Patient.</li>
+</ul>
 
 <h3 id="headers-1">Headers</h3>
 
@@ -2099,6 +2106,32 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
             "text": "primary performer"
          },
          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+      },
+      {
+         "valueCodeableConcept":{
+            "coding":[
+               {
+                  "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code":"PRF",
+                  "display":"performer"
+               }
+            ],
+            "text":"performer"
+         },
+         "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+      },
+      {
+         "valueCodeableConcept":{
+            "coding":[
+               {
+                  "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code":"AUTHEN",
+                  "display":"authenticator"
+               }
+            ],
+            "text":"authenticator"
+         },
+         "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
       }
    ]
 }
@@ -2110,8 +2143,14 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-   <li> Vital Signs supports only <code>LA</code> extension. </li>
-   <li> Laboratory supports <code>LA</code> , <code>PPRF</code> and <code>OP</code> extensions. </li>
+   <li>
+      Vital Signs supports <code>LA</code> and <code>PPRF</code> codes.
+      <ul>
+         <li>When only one performer is provided, the code must be <code>LA</code>.</li>
+         <li>When multiple performers are provided, then the code must be <code>LA</code> for one of the performers.</li>
+      </ul>
+   </li>
+   <li> Laboratory supports <code>LA</code> , <code>PPRF</code> , <code>PRF</code> , <code>OP</code> and <code>AUTHEN</code> codes. </li>
 </ul>
 </li></ul>
       
@@ -2785,9 +2824,9 @@ X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Currently only <code>laboratory</code> is supported.</li>
+  <li>Currently only <code>laboratory</code> and <code>vital-signs</code> are supported.</li>
   <li>Both read and write scopes are required.</li>
-  <li>Updates on patient and category are not supported. Updating a value to a different value type is not supported.</li>
+  <li>Updates on patient and category are not supported.</li>
   <li>See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
 </ul>
 
@@ -2796,6 +2835,12 @@ X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
 <div class="auth-types">
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
+
+<p><em>Note</em>:</p>
+
+<ul>
+  <li>Vital Sign updates via a Provider persona requires an active relationship between the Provider and the Patient.</li>
+</ul>
 
 <h3 id="headers-2">Headers</h3>
 
@@ -2897,6 +2942,46 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
     
     <tr>
       <td>
+        <a name="update-identifier">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A unique identifier assigned to the observation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "system":"https://fhir.cerner.com/ceuuid",
+  "value":"CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Identifier is required for <code>Vital Signs</code> and it can't be modified. Identifier is optional for <code>Laboratory</code>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="update-status">
         
           </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.status"><code>status</code></a>
@@ -2974,6 +3059,23 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
 }
 </pre></li></ul>
       
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+      "coding": [
+        {
+          "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+          "code": 'vital-signs',
+          "display": 'Vital Signs'
+        }
+      ],
+      "text": 'Vital Signs'
+    }
+  ]
+}
+</pre></li></ul>
       
       
       
@@ -3299,34 +3401,60 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-   "extension": [
-      {
-         "valueCodeableConcept": {
-            "coding": [
-               {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                  "code": "OP",
-                  "display": "ordering provider"
-               }
-            ],
-            "text": "ordering provider"
-         },
-         "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+"extension":[
+   {
+      "valueCodeableConcept":{
+         "coding":[
+            {
+               "system":"http://terminology.hl7.org/CodeSystem/v2-0912",
+               "code":"OP",
+               "display":"ordering provider"
+            }
+         ],
+         "text":"ordering provider"
       },
-      {
-         "valueCodeableConcept": {
-            "coding": [
-               {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                  "code": "PPRF",
-                  "display": "primary performer"
-               }
-            ],
-            "text": "primary performer"
-         },
-         "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
-      }
-   ]
+      "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+   },
+   {
+      "valueCodeableConcept":{
+         "coding":[
+            {
+               "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+               "code":"PPRF",
+               "display":"primary performer"
+            }
+         ],
+         "text":"primary performer"
+      },
+      "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+   },
+   {
+      "valueCodeableConcept":{
+         "coding":[
+            {
+               "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+               "code":"PRF",
+               "display":"performer"
+            }
+         ],
+         "text":"performer"
+      },
+      "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+   },
+   {
+      "valueCodeableConcept":{
+         "coding":[
+            {
+               "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+               "code":"AUTHEN",
+               "display":"authenticator"
+            }
+         ],
+         "text":"authenticator"
+      },
+      "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+   }
+]
 }
 </pre></li></ul>
       
@@ -3336,7 +3464,8 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-   <li> Laboratory supports <code>LA</code> , <code>PPRF</code> and <code>OP</code> extensions. </li>
+   <li>Vital Signs supports <code>LA</code> and <code>PPRF</code> codes.</li>
+   <li> Laboratory supports <code>LA</code> , `<code>PRF</code> , <code>PPRF</code> , <code>AUTHEN</code> and <code>OP</code> extensions. </li>
 </ul>
 </li></ul>
       
@@ -3411,10 +3540,13 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code>. </li>
+   <li> Laboratory support updating <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code> to the same value type. </li>
 </ul>
 <ul>
-  <li> Updating value type to another is not supported. </li>
+   <li> Vital Signs support only updating observations with <code>valueQuantity</code> to <code>valueQuantity</code> type</li>
+</ul>
+<ul>
+   <li> Updating value type to another is supported only for the <code>Laboratory</code>. The exception is valueDateTime cannot be updated to another value type and vice-versa</li>
 </ul>
 </li></ul>
       
@@ -3870,6 +4002,77 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       "text": "Specimen slightly hemolyzed."
     }
   ]
+}</code></pre>
+
+<h4 id="vitals-body-example-1">Vitals Body Example</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "id": "M-197356031",
+  "identifier": [
+    {
+      "system": "https://fhir.cerner.com/ceuuid",
+      "value": "CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900"
+    }
+  ],
+  "status": "corrected",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72",
+        "code": "703558",
+        "display": "Temperature Oral",
+        "userSelected": true
+      }
+    ],
+    "text": "Temperature Oral"
+  },
+  "subject": {
+    "reference": "Patient/12457979"
+  },
+  "encounter": {
+    "reference": "Encounter/97787491"
+  },
+  "effectiveDateTime": "2020-07-04T07:15:00.000Z",
+  "issued": "2021-05-06T20:07:14.000Z",
+  "performer": [
+    {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "LA",
+                "display": "legal authenticator"
+              }
+            ],
+            "text": "legal authenticator"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+        }
+      ],
+      "reference": "Practitioner/1"
+    }
+  ],
+  "valueQuantity": {
+    "value": 123,
+    "unit": "mmHg",
+    "system": "http://unitsofmeasure.org",
+    "code": "mm[Hg]"
+  }
 }</code></pre>
 
 <h4 id="response-5">Response</h4>

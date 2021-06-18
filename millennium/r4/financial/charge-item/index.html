@@ -92,7 +92,7 @@
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#example---search-by-id" id="markdown-toc-example---search-by-id">Example - Search by Id</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -100,7 +100,7 @@
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
-      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
@@ -588,9 +588,28 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Yes</td>
+      <td>This or context</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the ChargeItem.</td>
+    </tr>
+    <tr>
+      <td><code>context</code></td>
+      <td>This or _id</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>Encounter associated with event.</td>
+    </tr>
+    <tr>
+      <td><code>-status</code></td>
+      <td>See notes</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The status of the ChargeItem. Example: <code>billable</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return.</td>
     </tr>
   </tbody>
 </table>
@@ -599,6 +618,12 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 
 <ul>
   <li>When searching by <code>_id</code>, only a single ChargeItem id can be provided.</li>
+  <li>
+<code>-status</code> must be provided with <code>context</code>.</li>
+  <li>
+<code>-status</code> must be set to <code>billable</code>.</li>
+  <li>
+<code>context</code> must reference an Encounter.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -606,11 +631,11 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example---search-by-id">Example - Search by Id</h3>
+<h3 id="example">Example</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?context=97953601&amp;-status=billable
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -619,13 +644,13 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "e2a7275f-fe18-4885-a39b-8d798137693f",
+  "id": "0f2ae629-4e99-4843-a200-406dffce7091",
   "type": "searchset",
   "total": 1,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?context=97953601&amp;-status=billable"
     }
   ],
   "entry": [
@@ -658,12 +683,6 @@ The main usage of the ChargeItem is to enable the billing process and internal c
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price"
           },
           {
-            "valueReference": {
-              "reference": "ChargeItem/157320880"
-            },
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by"
-          },
-          {
             "valueString": "Acetaminophen Level",
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/description"
           },
@@ -677,7 +696,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
                         {
                           "valueCoding": {
                             "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
-                            "code": "615215"
+                            "code": "615214"
                           },
                           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                         }
@@ -866,7 +885,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="example-1">Example</h3>
 
 <h4 id="request-1">Request</h4>
 
