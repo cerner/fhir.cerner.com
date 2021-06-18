@@ -373,6 +373,66 @@ module Cerner
       ]
     }.freeze
 
+    R4_COVERAGE_PATIENT_SOCIAL_HEALTHCARE_CREATE ||= {
+      'resourceType': 'Coverage',
+      'status': 'active',
+      'beneficiary': {
+        'reference': 'Patient/1626016'
+      },
+      'period': {
+        'start': '2021-01-18T14:30:20.000Z',
+        'end': '2021-01-18T14:30:21.000Z'
+      },
+      'payor': [
+        {
+          'display': 'Government'
+        }
+      ],
+      'class': [
+        {
+          'type': {
+            'text': 'Charging Category'
+          },
+          'value': '2572940471',
+          'name': '10-OPC, Class II'
+        }
+      ]
+    }
+
+    R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_CREATE ||= {
+      'resourceType': 'Coverage',
+      'status': 'active',
+      'beneficiary': {
+        'reference': 'Patient/1626016'
+      },
+      'period': {
+        'start': '2021-01-18T14:30:20.000Z',
+        'end': '2021-01-18T14:30:21.000Z'
+      },
+      'payor': [
+        {
+          'display': 'Government'
+        }
+      ],
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter',
+          'valueReference': {
+            'reference': 'Encounter/31363178'
+          }
+        }
+      ],
+      'class': [
+        {
+          'type': {
+            'text': 'Charging Category'
+          },
+          'value': '2572940471',
+          'name': '10-OPC, Class II'
+        }
+      ]
+    }
+
     R4_COVERAGE_ENCOUNTER_PATCH ||= [
       {
         'op': 'replace',

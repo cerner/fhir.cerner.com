@@ -49,9 +49,9 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 Search for Patient-level or Encounter-level Coverages that meet supplied query parameters:
 
     GET /Coverage?:parameters
-    
+
 _Implementation Notes_
-  
+
 * Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public coverages, they will return with an id prefixed with 'PH' or 'PHP' and will be returned in the payload with the rest of the coverages (private coverages).
 
 ### Authorization Types
@@ -170,6 +170,33 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 <%= disclaimer %>
 
+### Example - Patient-level Public Coverage
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+
+#### Body
+
+<%= json(:r4_coverage_patient_social_healthcare_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 22 Oct 2019 15:59:33 GMT
+Etag: W/"135-0"
+Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-589763-11500257-11500257
+Vary: Origin
+X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
+</pre>
+
+<%= disclaimer %>
+
 ### Example - Encounter-level Private Coverage
 
 #### Request
@@ -191,6 +218,33 @@ Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
+Vary: Origin
+X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
+</pre>
+
+<%= disclaimer %>
+
+### Example - Encounter-level Public Coverage
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+
+#### Body
+
+<%= json(:r4_coverage_encounter_social_healthcare_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 22 Oct 2019 15:59:33 GMT
+Etag: W/"42-0"
+Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-589763-11500257-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
