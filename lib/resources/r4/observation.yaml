@@ -641,7 +641,7 @@ fields:
        <li> Vital Signs support only updating observations with `valueQuantity` to `valueQuantity` type</li>
     </ul>
     <ul>
-       <li> Updating value type to another is supported only for the `Laboratory`. The exception is valueDateTime can not be updated to another value and vice-versa</li>
+       <li> Updating value type to another is supported only for the `Laboratory`. The exception is valueDateTime cannot be updated to another value and vice-versa</li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
