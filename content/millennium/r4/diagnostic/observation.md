@@ -246,7 +246,7 @@ Update an existing Observation.
 
 _Implementation Notes_
 
-* Currently only `laboratory` and `vital-signs` is supported.
+* Currently only `laboratory` and `vital-signs` are supported.
 * Both read and write scopes are required.
 * Updates on patient and category are not supported.
 * See [FHIR<sup>®</sup> Update] for additional details about update operations.
