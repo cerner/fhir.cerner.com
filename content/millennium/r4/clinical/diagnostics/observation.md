@@ -191,7 +191,11 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Laboratory only)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
+<div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Vital Signs and Laboratory)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
+
+_Note_: 
+
+* Vital Sign creates via a Provider persona requires an active relationship between the Provider and the Patient.
 
 ### Headers
 
@@ -246,14 +250,18 @@ Update an existing Observation.
 
 _Implementation Notes_
 
-* Currently only `laboratory` is supported.
+* Currently only `laboratory` and `vital-signs` are supported.
 * Both read and write scopes are required.
-* Updates on patient and category are not supported. Updating a value to a different value type is not supported.
+* Updates on patient and category are not supported.
 * See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: false, system: true) %>
+
+_Note_:
+
+* Vital Sign updates via a Provider persona requires an active relationship between the Provider and the Patient.
 
 ### Headers
 
@@ -272,6 +280,10 @@ _Implementation Notes_
 #### Labs Body Example
 
 <%= json(:R4_OBSERVATION_LABS_UPDATE) %>
+
+#### Vitals Body Example
+
+<%= json(:R4_OBSERVATION_VITALS_UPDATE) %>
 
 #### Response
 

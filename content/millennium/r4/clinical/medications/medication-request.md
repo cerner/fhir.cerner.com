@@ -105,7 +105,13 @@ We use the intent field to determine if a medication is an authorization or a me
  `-timing-boundsPeriod` | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z` 
  `_lastUpdated`         | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
  `_count`               | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
+ `_revinclude`          | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
+Notes:
+
+* `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 * The `_lastUpdated` parameter may be provided:
   * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
   * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
@@ -125,6 +131,21 @@ We use the intent field to determine if a medication is an authorization or a me
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_BUNDLE) %>
 <%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest?_id=16863377&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_medication_request_revinclude_bundle) %>
 
 #### Patient Authorization Request
 

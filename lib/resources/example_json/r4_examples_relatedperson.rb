@@ -1054,8 +1054,8 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '155'
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'SIS'
                   }
                 ]
               },
@@ -1335,8 +1335,8 @@ module Cerner
         'value': {
           'coding': [
             {
-              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
-              'code': '1152'
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'FAMMEMB'
             }
           ],
           'extension': [
@@ -1346,6 +1346,17 @@ module Cerner
                 'end': '2022-05-01T16:56:56.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'SIS'
+                  }
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
@@ -1437,8 +1448,37 @@ module Cerner
         'value': 'CI-98278577-0'
       },
       {
+        'op': 'replace',
+        'path': '/relationship/0/extension',
+        'value': [
+          {
+            'valuePeriod': {
+              'start': '2016-12-30T22:26:08.000Z',
+              'end': '2036-12-30T22:26:08.000Z'
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+          },
+          {
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                  'code': 'SIS'
+                }
+              ]
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+          }
+        ]
+      },
+      {
+        'op': 'test',
+        'path': '/relationship/1/id',
+        'value': 'CI-98909708-1'
+      },
+      {
         'op': 'remove',
-        'path': '/relationship/0'
+        'path': '/relationship/1'
       },
       {
         'op': 'test',

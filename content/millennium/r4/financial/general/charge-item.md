@@ -83,23 +83,29 @@ Search for ChargeItems that meet supplied query parameters:
 
 ### Parameters
 
- Name                  | Required?  | Type          | Description
------------------------|------------|---------------|-------------------------------------------------------
- `_id`                 | Yes        | [`token`]     | The logical resource id associated with the ChargeItem.
+ Name                  | Required?       | Type          | Description
+-----------------------|-----------------|---------------|-------------------------------------------------------
+ `_id`                 | This or context | [`token`]     | The logical resource id associated with the ChargeItem.
+ `context`             | This or _id     | [`token`]     | Encounter associated with event.
+ `-status`             | See notes       | [`token`]     | The status of the ChargeItem. Example: `billable`
+ [`_count`]            | No              | [`number`]    | The maximum number of results to return.
 
 Notes:
 
 - When searching by `_id`, only a single ChargeItem id can be provided.
+- `-status` must be provided with `context`.
+- `-status` must be set to `billable`.
+- `context` must reference an Encounter.
 
 ### Headers
 
 <%= headers %>
 
-### Example - Search by Id
+### Example
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?_id=292870306
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem?context=97953601&-status=billable
 
 #### Response
 
@@ -168,3 +174,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Replacing]: #custom-extensions
 [Bill Code Schedule]: #custom-extensions
 [`token`]: https://hl7.org/fhir/R4/search.html#token
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
+[`number`]: https://hl7.org/fhir/r4/search.html#number

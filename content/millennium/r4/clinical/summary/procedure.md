@@ -46,10 +46,17 @@ Search for Procedures that meet supplied query parameters:
  `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
+ `date`            | No                              | [`dateTime`]  | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
 
 Notes:
 
-* If `_id` is provided, no other parameters may be provided.
+* If `_id` is provided, `patient` or `subject` can no longer be provided.
+* The `date` parameter must be provided two times with time, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
+* When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
+* **Currently the `patient/Provenance.read` scope is not supported and hence `_revinclude` cannot be utilised for patient persona.**
 
 ### Headers
 
@@ -65,6 +72,23 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_procedure_bundle) %>
+
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?_id=570007845&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_procedure_revinclude_bundle) %>
 
 <%= disclaimer %>
 
@@ -190,6 +214,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
