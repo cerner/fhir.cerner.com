@@ -1,0 +1,38 @@
+---
+name: Patient
+field_name_base_url: https://hl7.org/fhir/R4/patient-definitions.html#Patient
+fields:
+- name: identifier
+  type: List of Identifier
+  description: The identifier for the patient.
+  action: terminology
+  children:
+
+  - name: type
+    type: CodeableConcept
+    description: A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.
+    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    action: terminology
+    binding:
+      description: A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.
+      terminology:
+      - display: Identifier Type Codes
+        system: http://hl7.org/fhir/v2/0203/index.html
+        info_link: https://hl7.org/fhir/R4/valueset-identifier-type.html
+
+- name: communication
+  type: List of BackboneElement
+  description: The language that can be used to communicate with the patient about their health.
+  action: terminology
+  children:
+
+  - name: language
+    type: CodeableConcept
+    description: The language used to communicate with a patient.
+    action: terminology
+    binding:
+      description: The language that can be used to communicate with the patient about their health.
+      terminology:
+      - display: Tags for the Identification of Languages
+        system: urn:ietf:bcp:47
+        info_link: https://terminology.hl7.org/1.0.0/CodeSystem-v3-ietf3066.html
