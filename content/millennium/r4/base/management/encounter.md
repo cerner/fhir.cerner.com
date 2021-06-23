@@ -95,7 +95,7 @@ Name          | Required?                                                     | 
 `patient`     | This or `subject` or `account` or `_id` or `identifier`       | [`reference`] | The patient present at the encounter. Example: `12345`
 `subject`     | This or `patient` or `account` or `_id` or `identifier`       | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
 `account`     | This or `patient` or `subject` or `_id` or `identifier`       | [`reference`] | The account associated with the encounters. Example: `F703726`
-`identifier`  | This or `patient` or `subject` or `account` or `_id`          | [`reference`] | An encounter's identifier. Example: `urn:oid:1.2.243.58|110219457`
+`identifier`  | This or `patient` or `subject` or `account` or `_id`          | [`token`]     | An encounter's identifier. Example: `urn:oid:1.2.243.58|110219457`
 `date`        | No                                                            | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
 [`_count`]    | No                                                            | [`number`]    | The maximum number of results to return.
 `status`      | No                                                            | [`token`]     | The status of the encounter. Example: `planned`
