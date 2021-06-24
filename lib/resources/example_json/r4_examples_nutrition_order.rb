@@ -12,15 +12,23 @@ module Cerner
       "text": {
         "status": 'generated',
         "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Nutrition Order</b></p>'\
-          '<p><b>Patient</b>: SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Order</p>'\
+          '<p><b>Patient</b>: SMART, NANCY</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Instance Order</p>'\
           '<p><b>Date</b>: May  3, 2021  2:30 P.M. UTC</p><p><b>Orderer</b>: CERNER, CERNER CERNER</p>'\
           '<p><b>Diet Type</b>: Bland Diet</p><p><b>Diet Instruction</b>: 05/03/21 9:30:00 CDT,'\
           ' Start Meal: Now, Vegetarian diet, Gluten Free, 2000 kcal, Medium (1,700-2,000 cal) 75g CHO, Low,'\
           ' 24 Hour Fluid Permitted 2000 mL, NDD3 (Chopped), Thin Liquid, No free water, keep sodium '\
           'to a minimum., Anemia due to membrane defect</p></div>'
       },
+      "extension": [
+        {
+          "valueReference": {
+            "reference": "NutritionOrder/41862407"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-basedOn"
+        }
+      ],
       "status": 'active',
-      "intent": 'order',
+      "intent": 'instance-order',
       "patient": {
         "reference": 'Patient/12724066',
         "display": 'SMART, NANCY'
