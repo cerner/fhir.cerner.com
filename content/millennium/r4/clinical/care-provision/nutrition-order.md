@@ -16,7 +16,7 @@ The following fields are returned if valued:
 * [NutritionOrder id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id)
 * [Status](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status)
 * [Intent](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent)
-* [Extension](http://hl7.org/fhir/R4/extension-event-basedon.html)
+* [Extensions including basedOn](#extensions){:target="_blank"}
 * [Patient](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.patient)
 * [Encounter](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.encounter)
 * [DateTime](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.dateTime)
@@ -36,6 +36,10 @@ The following fields are returned if valued:
 ## Terminology Bindings
 
 <%= terminology_table(:nutrition_order, :r4) %>
+
+## Extensions
+
+* [basedOn](http://hl7.org/fhir/R4/extension-event-basedon.html)
 
 ## Search
 
