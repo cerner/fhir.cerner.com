@@ -22,9 +22,9 @@ module Cerner
       "extension": [
         {
           "valueReference": {
-            "reference": "NutritionOrder/41862407"
+            "reference": 'NutritionOrder/41862407'
           },
-          "url": "http://hl7.org/fhir/StructureDefinition/event-basedOn"
+          "url": 'http://hl7.org/fhir/StructureDefinition/event-basedOn'
         }
       ],
       "status": 'active',
