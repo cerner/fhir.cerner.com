@@ -16,7 +16,7 @@ The following fields are returned if valued:
 * [NutritionOrder id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id)
 * [Status](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status)
 * [Intent](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent)
-* [Extensions including basedOn](#extensions){:target="_blank"}
+* [Extensions including basedOn](#extensions)
 * [Patient](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.patient)
 * [Encounter](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.encounter)
 * [DateTime](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.dateTime)
@@ -125,6 +125,17 @@ List an individual NutritionOrder by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_nutrition_order_entry) %>
+
+<%= disclaimer %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_nutrition_order_child_entry) %>
 
 <%= disclaimer %>
 
