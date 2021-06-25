@@ -1,0 +1,4382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>RelatedPerson | R4 API</title>
+  
+  <link href="../../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../overview/">Millennium</a></li>
+        <li><a href="../../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../../../../overview/">Overview</a></li>
+        <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="relatedperson">RelatedPerson</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example---search-by-patient" id="markdown-toc-example---search-by-patient">Example - Search by Patient</a></li>
+      <li><a href="#example---search-by-encounter" id="markdown-toc-example---search-by-encounter">Example - Search by Encounter</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example---patient-level-relatedperson" id="markdown-toc-example---patient-level-relatedperson">Example - Patient-level RelatedPerson</a></li>
+      <li><a href="#example---encounter-level-relatedperson" id="markdown-toc-example---encounter-level-relatedperson">Example - Encounter-level RelatedPerson</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-field" id="markdown-toc-body-field">Body Field</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
+      <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The RelatedPerson resource provides information about a person who is involved in the care of a patient but has no formal responsibility. RelatedPersons typically have a personal relationship with the patient such as a spouse, relative, friend, guardian, or attorney. RelatedPersons are commonly a source of information about a patient.</p>
+
+<p>The distinction between Practitioner and RelatedPerson is a practitioner cares for multiple patients on behalf of a healthcare facility where a RelatedPerson performs care tasks for a specific patient and is not associated with any healthcare facility.</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">RelatedPerson id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier" target="_blank">RelatedPerson Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.active" target="_blank">Active</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship" target="_blank">Relationship</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">Related person’s name</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom" target="_blank">Telecom information (may include phone and email)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender" target="_blank">Gender (administrative)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate" target="_blank">Date of birth</a></li>
+  <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address" target="_blank">Address</a></li>
+  <li><a href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.communication" target="_blank">Communication (preferred language)</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including related person encounter, relationship level, period, and relation</a></li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/relatedPerson-definitions.html#RelatedPerson.identifier">RelatedPerson.identifier.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type used to determine which identifier to use for a specific purpose.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0203 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4-person-identifier-alias-types">Millennium Person Identifier (Alias) Types</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.communication.language">RelatedPerson.communication.language</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The language used to communicate with a related person about a patient's health.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-languages.html">CommonLanguages</a><br>
+                      
+                        System: urn:ietf:bcp:47 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-36-languages">Millennium Languages</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/36 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship">RelatedPerson.relationship</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The nature of the relationship between a patient and the related person.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html">PatientRelationshipType</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0131 <br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-351-person-relationship-types">Millennium Person Relationship Types</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/351 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship.extension%5Bx%5D.valueCodeableConcept">RelatedPerson.relationship.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The related person's familial relationship to the patient. This binding is used in <code>relation</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-relatedperson-relationshiptype.html">PatientRelationshipType</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0131 <br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships">Millennium Person Relationships</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/individuals/related-person/#extensions">RelatedPerson.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The resource's relationship to either the patient or encounter level. This binding is used in <code>relationship-level</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/valueset-resource-types.html">Relationship Level</a><br>
+                      
+                        System: http://hl7.org/fhir/resource-types <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Related Person Encounter</a></li>
+  <li><a href="#custom-extensions">Relationship Level</a></li>
+  <li><a href="#custom-extensions">Period</a></li>
+  <li><a href="#custom-extensions">Relation</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>related-person-encounter</code></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>Reference to the Encounter associated to the encounter level RelatedPerson.</td>
+    </tr>
+    <tr>
+      <td><code>relationship-level</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The resource’s relationship to either patient or encounter.</td>
+    </tr>
+    <tr>
+      <td><code>period</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#Period"><code>Period</code></a></td>
+      <td>A time period defined by a start and end date/time.</td>
+    </tr>
+    <tr>
+      <td><code>relation</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The related person’s familial relationship to the patient.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for RelatedPersons that meet supplied query parameters:</p>
+
+<pre><code>GET /RelatedPerson?:parameters
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Duplicate relationships will only be represented once.</li>
+</ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code> or <code>identifier</code> or <code>-encounter</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>This or <code>_id</code> or <code>patient</code> or <code>-encounter</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>A RelatedPerson identifier.</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>This or <code>_id</code> or <code>identifier</code> or <code>-encounter</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to a patient associated with the RelatedPerson. Example: <code>14067892</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-encounter</code></td>
+      <td>This or <code>_id</code> or <code>patient</code> or <code>identifier</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to an encounter associated with the RelatedPerson. Example: <code>97697434</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>-relationship-level</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The level of relationship for the RelatedPerson. Example: <code>-relationship-level= http://hl7.org/fhir/resource-types|Patient</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>When provided, the <code>identifier</code> query parameter must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|RANDES011E8442-2E86-4A00-8394-EFC6A3434A8F</code>
+</li>
+  <li>
+<code>-relationship-level</code> is required for <code>patient</code> and <code>identifier</code> searches</li>
+  <li>
+<code>-relationship-level</code> can only be provided with <code>patient</code> or <code>identifier</code>
+</li>
+  <li>
+<code>-relationship-level</code> can only be set to <code>Patient</code>
+</li>
+</ul>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example---search-by-patient">Example - Search by Patient</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=12724066&amp;-relationship-level=Patient
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "106abf01-6358-44d4-8f66-37526caa6ab4",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?patient=12724066"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12724068",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "12724066-12724068",
+        "meta": {
+          "versionId": 145,
+          "lastUpdated": "2021-03-22T14:12:37.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Default Guarantor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Child&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "identifier": [
+          {
+            "id": "CI-490060520-1",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "22",
+                  "display": "Military Id",
+                  "userSelected": true
+                }
+              ],
+              "text": "Military Id"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.42.10001.100001.12",
+            "value": "1000000105"
+          },
+          {
+            "id": "CI-490068325-2",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236771",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:EC2458F2-1E24-41C8-B71B-0E701AF7583D-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+            "period": {
+              "start": "2020-08-10T14:29:20.000Z"
+            }
+          },
+          {
+            "id": "CI-490059563-3",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236771",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+            "period": {
+              "start": "2020-06-30T20:06:42.000Z"
+            }
+          },
+          {
+            "id": "CI-490153231-4",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236785",
+                  "display": "MIllennium Person Identifier",
+                  "userSelected": true
+                }
+              ],
+              "text": "MIllennium Person Identifier"
+            },
+            "value": "12868",
+            "period": {
+              "start": "2020-12-18T19:15:06.000Z"
+            }
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/12724068",
+          "display": "SMART, HAILEY"
+        },
+        "relationship": [
+          {
+            "id": "CI-490017041-0",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2019-12-26T16:06:26.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "156",
+                      "display": "Mother",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "MTH",
+                      "display": "mother",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Mother"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1150",
+                "display": "Default Guarantor",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GT",
+                "display": "Guarantor",
+                "userSelected": false
+              }
+            ],
+            "text": "Default Guarantor"
+          },
+          {
+            "id": "CI-490017055-1",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2019-12-26T16:06:26.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "156",
+                      "display": "Mother",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "MTH",
+                      "display": "mother",
+                      "userSelected": false
+                    },
+                    {
+                      "text": "Mother"
+                    }
+                  ]
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1153",
+                "display": "Family Member",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FAMMEMB",
+                "display": "family member",
+                "userSelected": false
+              }
+            ],
+            "text": "Family Member"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-12724066-0",
+            "use": "official",
+            "text": "SMART, NANCY",
+            "family": "SMART",
+            "given": [
+              "NANCY"
+            ],
+            "period": {
+              "start": "2019-12-26T15:12:34.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-PH-29852801-0",
+            "extension": [
+              {
+                "valueUrl": "13215555555",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "13215555555",
+            "use": "work",
+            "period": {
+              "start": "2021-03-22T14:12:37.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29811918-1",
+            "extension": [
+              {
+                "valueUrl": "(987)654-3210",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "9876543210",
+            "use": "home",
+            "period": {
+              "start": "2019-12-26T15:12:34.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844706-2",
+            "extension": [
+              {
+                "valueUrl": "(503)400-8675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844710-3",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844690-4",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844708-5",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844688-6",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T00:33:18.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-29822894-0",
+            "system": "email",
+            "value": "workemail@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-06-30T19:47:10.000Z"
+            }
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1980-08-11",
+        "address": [
+          {
+            "id": "CI-24313551-0",
+            "use": "home",
+            "text": "3P\\nKANSAS CITY, MO 641510001\\nUS",
+            "line": [
+              "3P"
+            ],
+            "city": "KANSAS CITY",
+            "district": "Jackson",
+            "state": "MO",
+            "postalCode": "641510001",
+            "country": "US",
+            "period": {
+              "start": "2020-12-08T15:05:44.000Z"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                  "code": "151",
+                  "display": "English",
+                  "userSelected": true
+                },
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English",
+                  "userSelected": false
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": "true"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12724069",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "12724066-12724069",
+        "meta": {
+          "versionId": 145,
+          "lastUpdated": "2021-03-22T14:12:37.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Default Guarantor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Child&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Patient",
+                  "display": "Patient"
+                }
+              ],
+              "text": "Patient"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "identifier": [
+          {
+            "id": "CI-490060520-1",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "22",
+                  "display": "Military Id",
+                  "userSelected": true
+                }
+              ],
+              "text": "Military Id"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.42.10001.100001.12",
+            "value": "1000000105"
+          },
+          {
+            "id": "CI-490068325-2",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236771",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:EC2458F2-1E24-41C8-B71B-0E701AF7583D-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+            "period": {
+              "start": "2020-08-10T14:29:20.000Z"
+            }
+          },
+          {
+            "id": "CI-490059563-3",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236771",
+                  "display": "Federated Person Principal",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "Federated Person Principal"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+            "period": {
+              "start": "2020-06-30T20:06:42.000Z"
+            }
+          },
+          {
+            "id": "CI-490153231-4",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236785",
+                  "display": "MIllennium Person Identifier",
+                  "userSelected": true
+                }
+              ],
+              "text": "MIllennium Person Identifier"
+            },
+            "value": "12868",
+            "period": {
+              "start": "2020-12-18T19:15:06.000Z"
+            }
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "relationship": [
+          {
+            "id": "CI-490068369-0",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2020-08-10T16:37:51.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "156",
+                      "display": "Mother",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "MTH",
+                      "display": "mother",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Mother"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "2553243305",
+                "display": "Authorized Representative",
+                "userSelected": true
+              }
+            ],
+            "text": "Authorized Representative"
+          },
+          {
+            "id": "CI-490017075-1",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2019-12-26T16:09:36.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "156",
+                      "display": "Mother",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "MTH",
+                      "display": "mother",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Mother"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1150",
+                "display": "Default Guarantor",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GT",
+                "display": "Guarantor",
+                "userSelected": false
+              }
+            ],
+            "text": "Default Guarantor"
+          },
+          {
+            "id": "CI-490068372-2",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2020-08-10T16:37:51.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "152"
+                    }
+                  ]
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1153",
+                "display": "Family Member",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "FAMMEMB",
+                "display": "family member",
+                "userSelected": false
+              }
+            ],
+            "text": "Family Member"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-12724066-0",
+            "use": "official",
+            "text": "SMART, NANCY",
+            "family": "SMART",
+            "given": [
+              "NANCY"
+            ],
+            "period": {
+              "start": "2019-12-26T15:12:34.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-PH-29852801-0",
+            "extension": [
+              {
+                "valueUrl": "13215555555",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "13215555555",
+            "use": "work",
+            "period": {
+              "start": "2021-03-22T14:12:37.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29811918-1",
+            "extension": [
+              {
+                "valueUrl": "(987)654-3210",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "9876543210",
+            "use": "home",
+            "period": {
+              "start": "2019-12-26T15:12:34.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844706-2",
+            "extension": [
+              {
+                "valueUrl": "(503)400-8675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844710-3",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844690-4",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844708-5",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T05:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-29844688-6",
+            "extension": [
+              {
+                "valueUrl": "5034008675",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "5034008675",
+            "use": "mobile",
+            "period": {
+              "start": "2021-01-25T00:33:18.000Z"
+            }
+          },
+          {
+            "id": "CI-EM-29822894-0",
+            "system": "email",
+            "value": "workemail@gmail.com",
+            "use": "home",
+            "period": {
+              "start": "2020-06-30T19:47:10.000Z"
+            }
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1980-08-11",
+        "address": [
+          {
+            "id": "CI-24313551-0",
+            "use": "home",
+            "text": "3P\\nKANSAS CITY, MO 641510001\\nUS",
+            "line": [
+              "3P"
+            ],
+            "city": "KANSAS CITY",
+            "district": "Jackson",
+            "state": "MO",
+            "postalCode": "641510001",
+            "country": "US",
+            "period": {
+              "start": "2020-12-08T15:05:44.000Z"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                  "code": "151",
+                  "display": "English",
+                  "userSelected": true
+                },
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English",
+                  "userSelected": false
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": "true"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="example---search-by-encounter">Example - Search by Encounter</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=97697434
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "8de80541-8f9c-4168-a308-bce0c576e945",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson?-encounter=97697434"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "E-12457994-97697434",
+        "meta": {
+          "versionId": "21",
+          "lastUpdated": "2018-10-30T14:17:47.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:MATERNITY, TESTTHREE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Jun 20, 1987&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;:female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: NEWBORN, TESTTHREE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;:Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Default Guarantor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;:Child&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 97697434&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "valueReference": {
+              "reference": "Encounter/97697434"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/resource-types",
+                  "code": "Encounter",
+                  "display": "Encounter"
+                }
+              ],
+              "text": "Encounter"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+          }
+        ],
+        "active": true,
+        "patient": {
+          "reference": "Patient/12457995",
+          "display": "NEWBORN, TESTTHREE"
+        },
+        "relationship": [
+          {
+            "id": "CI-97982588-0",
+            "extension": [
+              {
+                "valuePeriod": {
+                  "start": "2016-12-08T21:53:53.000Z"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                      "code": "156",
+                      "display": "Mother",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                      "code": "MTH",
+                      "display": "mother",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Mother"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+              }
+            ],
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                "code": "1150",
+                "display": "Default Guarantor",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GT",
+                "display": "Guarantor",
+                "userSelected": false
+              }
+            ],
+            "text": "Default Guarantor"
+          }
+        ],
+        "name": [
+          {
+            "id": "CI-12457994-0",
+            "use": "official",
+            "text": "MATERNITY, TESTTHREE",
+            "family": "MATERNITY",
+            "given": [
+              "TESTTHREE"
+            ],
+            "period": {
+              "start": "2016-12-08T21:28:22.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-PH-29583893-0",
+            "extension": [
+              {
+                "valueUrl": "816-888-8886",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "4264758753",
+            "use": "home",
+            "period": {
+              "start": "2016-12-08T21:28:22.000Z"
+            }
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1987-06-20",
+        "address": [
+          {
+            "id": "CI-24079465-0",
+            "use": "home",
+            "text": "3343 Genessee St\\nKansas City, MO 64111\\nUS",
+            "line": [
+              "3343 Genessee St"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64111",
+            "country": "US",
+            "period": {
+              "start": "2016-12-08T21:05:59.000Z"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                  "code": "151",
+                  "display": "English",
+                  "userSelected": true
+                },
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English",
+                  "userSelected": false
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": "true"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual RelatedPerson by its id:</p>
+
+<pre><code>GET /RelatedPerson/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Duplicate relationships will only be represented once.</li>
+</ul>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example---patient-level-relatedperson">Example - Patient-level RelatedPerson</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724068-12724066
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "12724066-12724068",
+  "meta": {
+    "versionId": 145,
+    "lastUpdated": "2021-03-22T14:12:37.000Z"
+  },
+  "text": {
+    "status": "extensions",
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Aug 11, 1980&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, HAILEY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Default Guarantor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Child&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Family Member&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Patient&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Patient",
+            "display": "Patient"
+          }
+        ],
+        "text": "Patient"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+    }
+  ],
+  "identifier": [
+    {
+      "id": "CI-490060520-1",
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+            "code": "22",
+            "display": "Military Id",
+            "userSelected": true
+          }
+        ],
+        "text": "Military Id"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.42.10001.100001.12",
+      "value": "1000000105"
+    },
+    {
+      "id": "CI-490068325-2",
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+            "code": "2553236771",
+            "display": "Federated Person Principal",
+            "userSelected": true
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:EC2458F2-1E24-41C8-B71B-0E701AF7583D-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+      "period": {
+        "start": "2020-08-10T14:29:20.000Z"
+      }
+    },
+    {
+      "id": "CI-490059563-3",
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+            "code": "2553236771",
+            "display": "Federated Person Principal",
+            "userSelected": true
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:E8A84236-C258-4952-98B7-A6FF8A9C587A-CH:PRINCIPAL:RS7MH9WX3XB8VY63",
+      "period": {
+        "start": "2020-06-30T20:06:42.000Z"
+      }
+    },
+    {
+      "id": "CI-490153231-4",
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+            "code": "2553236785",
+            "display": "MIllennium Person Identifier",
+            "userSelected": true
+          }
+        ],
+        "text": "MIllennium Person Identifier"
+      },
+      "value": "12868",
+      "period": {
+        "start": "2020-12-18T19:15:06.000Z"
+      }
+    }
+  ],
+  "active": true,
+  "patient": {
+    "reference": "Patient/12724068",
+    "display": "SMART, HAILEY"
+  },
+  "relationship": [
+    {
+      "id": "CI-490017041-0",
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2019-12-26T16:06:26.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                "code": "156",
+                "display": "Mother",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother",
+                "userSelected": false
+              }
+            ],
+            "text": "Mother"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ],
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+          "code": "1150",
+          "display": "Default Guarantor",
+          "userSelected": true
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "GT",
+          "display": "Guarantor",
+          "userSelected": false
+        }
+      ],
+      "text": "Default Guarantor"
+    },
+    {
+      "id": "CI-490017055-1",
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2019-12-26T16:06:26.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                "code": "156",
+                "display": "Mother",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother",
+                "userSelected": false
+              },
+              {
+                "text": "Mother"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ],
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+          "code": "1153",
+          "display": "Family Member",
+          "userSelected": true
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB",
+          "display": "family member",
+          "userSelected": false
+        }
+      ],
+      "text": "Family Member"
+    }
+  ],
+  "name": [
+    {
+      "id": "CI-12724066-0",
+      "use": "official",
+      "text": "SMART, NANCY",
+      "family": "SMART",
+      "given": [
+        "NANCY"
+      ],
+      "period": {
+        "start": "2019-12-26T15:12:34.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "id": "CI-PH-29852801-0",
+      "extension": [
+        {
+          "valueUrl": "13215555555",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "13215555555",
+      "use": "work",
+      "period": {
+        "start": "2021-03-22T14:12:37.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29811918-1",
+      "extension": [
+        {
+          "valueUrl": "(987)654-3210",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "9876543210",
+      "use": "home",
+      "period": {
+        "start": "2019-12-26T15:12:34.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29844706-2",
+      "extension": [
+        {
+          "valueUrl": "(503)400-8675",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "5034008675",
+      "use": "mobile",
+      "period": {
+        "start": "2021-01-25T05:00:00.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29844710-3",
+      "extension": [
+        {
+          "valueUrl": "5034008675",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "5034008675",
+      "use": "mobile",
+      "period": {
+        "start": "2021-01-25T05:00:00.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29844690-4",
+      "extension": [
+        {
+          "valueUrl": "5034008675",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "5034008675",
+      "use": "mobile",
+      "period": {
+        "start": "2021-01-25T05:00:00.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29844708-5",
+      "extension": [
+        {
+          "valueUrl": "5034008675",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "5034008675",
+      "use": "mobile",
+      "period": {
+        "start": "2021-01-25T05:00:00.000Z"
+      }
+    },
+    {
+      "id": "CI-PH-29844688-6",
+      "extension": [
+        {
+          "valueUrl": "5034008675",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "5034008675",
+      "use": "mobile",
+      "period": {
+        "start": "2021-01-25T00:33:18.000Z"
+      }
+    },
+    {
+      "id": "CI-EM-29822894-0",
+      "system": "email",
+      "value": "workemail@gmail.com",
+      "use": "home",
+      "period": {
+        "start": "2020-06-30T19:47:10.000Z"
+      }
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1980-08-11",
+  "address": [
+    {
+      "id": "CI-24313551-0",
+      "use": "home",
+      "text": "3P\\nKANSAS CITY, MO 641510001\\nUS",
+      "line": [
+        "3P"
+      ],
+      "city": "KANSAS CITY",
+      "district": "Jackson",
+      "state": "MO",
+      "postalCode": "641510001",
+      "country": "US",
+      "period": {
+        "start": "2020-12-08T15:05:44.000Z"
+      }
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+            "code": "151",
+            "display": "English",
+            "userSelected": true
+          },
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English",
+            "userSelected": false
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": "true"
+    }
+  ]
+}</code></pre>
+
+<h3 id="example---encounter-level-relatedperson">Example - Encounter-level RelatedPerson</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12457994-97697434
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "id": "E-12457994-97697434",
+  "meta": {
+    "versionId": "21",
+    "lastUpdated": "2018-10-30T14:17:47.000Z"
+  },
+  "text": {
+    "status": "extensions",
+    "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Related Person&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: MATERNITY, TESTTHREE&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Jun 20, 1987&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: female&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: NEWBORN, TESTTHREE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Default Guarantor&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship&lt;/b&gt;: Child&lt;/p&gt;&lt;p&gt;&lt;b&gt;Relationship Level&lt;/b&gt;: Encounter&lt;/p&gt;&lt;p&gt;&lt;b&gt;Encounter&lt;/b&gt;: 97697434&lt;/p&gt;&lt;/div&gt;"
+  },
+  "extension": [
+    {
+      "valueReference": {
+        "reference": "Encounter/97697434"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter"
+    },
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Encounter",
+            "display": "Encounter"
+          }
+        ],
+        "text": "Encounter"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level"
+    }
+  ],
+  "active": true,
+  "patient": {
+    "reference": "Patient/12457995",
+    "display": "NEWBORN, TESTTHREE"
+  },
+  "relationship": [
+    {
+      "id": "CI-97982588-0",
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-08T21:53:53.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40",
+                "code": "156",
+                "display": "Mother",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother",
+                "userSelected": false
+              }
+            ],
+            "text": "Mother"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ],
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+          "code": "1150",
+          "display": "Default Guarantor",
+          "userSelected": true
+        },
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "GT",
+          "display": "Guarantor",
+          "userSelected": false
+        }
+      ],
+      "text": "Default Guarantor"
+    }
+  ],
+  "name": [
+    {
+      "id": "CI-12457994-0",
+      "use": "official",
+      "text": "MATERNITY, TESTTHREE",
+      "family": "MATERNITY",
+      "given": [
+        "TESTTHREE"
+      ],
+      "period": {
+        "start": "2016-12-08T21:28:22.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "id": "CI-PH-29583893-0",
+      "extension": [
+        {
+          "valueUrl": "426-475-8753",
+          "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+        }
+      ],
+      "system": "phone",
+      "value": "4264758753",
+      "use": "home",
+      "period": {
+        "start": "2016-12-08T21:28:22.000Z"
+      }
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1987-06-20",
+  "address": [
+    {
+      "id": "CI-24079465-0",
+      "use": "home",
+      "text": "3343 Genessee St\nKansas City, MO 64111\nUS",
+      "line": [
+        "3343 Genessee St"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64111",
+      "country": "US",
+      "period": {
+        "start": "2016-12-08T21:05:59.000Z"
+      }
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+            "code": "151",
+            "display": "English",
+            "userSelected": true
+          },
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English",
+            "userSelected": false
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": "true"
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create a new Encounter-level RelatedPerson.</p>
+
+<pre><code>POST /RelatedPerson
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-field">Body Field</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "RelatedPerson"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be RelatedPerson.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-relationship">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship"><code>relationship</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The nature of the relationship between a patient and the related person.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "relationship": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
+        }
+      ]
+    }
+    {
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-patient">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Patient that the individual is related to for the Encounter-level RelatedPerson.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/12724066"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-name">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.name"><code>name</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#HumanName"><code>HumanName</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The name associated with the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "John",
+        "Smith"
+      ],
+      "period": {
+        "start": "2010-05-17T14:54:31.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+    <ul>
+      <li> Must have a <code>use</code> of 'official'. </li>
+      <li> Cannot contain the <code>text</code> field. </li>
+      <li> Must contain either the <code>given</code> or <code>family</code> fields. </li>
+      <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+      <li> Only one <code>prefix</code> and one <code>suffix</code> may be provided. </li>
+      <li> <code>period.end</code> is not supported. </li>
+      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+    </ul>
+  </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-Related%20Person%20Encounter">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json"><code>Related Person Encounter</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A reference to an Encounter.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter",
+      "valueReference": {
+        "reference": "Encounter/97939518"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The <code>valueReference.reference</code> must be an Encounter reference.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-Relationship%20Level">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json"><code>Relationship Level</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The resource's relationship to either the patient or encounter level.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Encounter",
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>If provided, the <code>valueCodeableConcept.coding[0].code</code> must be <a target="_blank" href="https://hl7.org/fhir/R4/encounter.html"><code>Encounter</code></a>.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-identifier">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The identifiers for the related person.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "MR",
+            "system": "http://hl7.org/fhir/v2/0203"
+          }
+        ]
+      },
+      "system": "urn:oid:5.5.5.5.5.5",
+      "value": "&lt;UNIQUE IDENTIFIER&gt;",
+      "period": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2020-01-02T00:00:00-05:00"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+    <li> Each identifier must not contain the <code>use</code> fields. </li>
+    <li> Each identifier must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
+    <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-address">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address"><code>address</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Addresses for the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "address": [
+    {
+      "use": "home",
+      "line": [
+         "1212 Faircastle Drive",
+         "Apartment 406"
+      ],
+      "city": "KC",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Each address must contain the <code>use</code> field. </li>
+  <li> Each address must not contain the <code>text</code> field. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-telecom">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom"><code>telecom</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    },
+    {
+      "system": "email",
+      "value": "testemail@example.com",
+      "use": "home",
+      "period": {
+        "start": "2008-01-10T15:33:18.000Z"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Each telecom must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
+  <li> System must be a <code>phone</code> or an <code>email</code>. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-active">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.active"><code>active</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#boolean"><code>boolean</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether this related person record is in active use.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "active": true
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If set, value must be true.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-gender">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.gender"><code>gender</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Administrative Gender - the gender that the related person is considered to have for administration and record keeping purposes.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "gender": "male"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-birthDate">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.birthDate"><code>birthDate</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date of birth for the individual.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "birthDate": "1990-09-15"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-communication">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.communication"><code>communication</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Language which may be used to communicate with the related person.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+    	    "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one communication may be provided. </li>
+  <li> <code>communication.prefered</code> if provided should be <code>true</code> </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "RelatedPerson",
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter",
+      "valueReference": {
+        "reference": "Encounter/97939518"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/resource-types",
+            "code": "Encounter"
+          }
+        ]
+      }
+    }
+  ],
+  "patient": {
+    "reference": "Patient/12724066"
+  },
+  "relationship": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+          "code": "1152",
+          "display": "Emergency Contact"
+        }
+      ],
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ]
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "John",
+        "Smith"
+      ],
+      "period": {
+        "start": "2010-05-17T14:54:31.000Z"
+      }
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "AN",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+          }
+        ]
+      },
+      "system": "urn:oid:5.5.5.5.5.5",
+      "value": "&lt;UNIQUE IDENTIFIER&gt;",
+      "period": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2020-01-02T00:00:00-05:00"
+      }
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "1212 Faircastle Drive",
+        "Apartment 406"
+      ],
+      "city": "KC",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1990-09-15",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    },
+    {
+      "system": "email",
+      "value": "testemail@example.com",
+      "use": "home",
+      "period": {
+        "start": "2008-01-10T15:33:18.000Z"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-4">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 27 Mar 2019 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12747484-97939518
+Last-Modified: Thu, 17 Dec 2020 16:37:42 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="patch">Patch</h2>
+
+<p>Patch an existing Encounter-level RelatedPerson.</p>
+
+<pre><code>PATCH /RelatedPerson/:id
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
+  <li>Only operations on the paths listed below are supported.</li>
+  <li>Only Encounter-level RelatedPersons may be patched. Patches are not currently supported for Patient-level RelatedPersons.</li>
+</ul>
+
+<h3 id="authorization-types-3">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/json-patch+json
+If-Match: W/"&lt;Current version of the Related Person resource&gt;"</code></pre>
+
+<h3 id="patch-operations">Patch Operations</h3>
+
+<table style="white-space: normal">
+  <thead>
+  <tr>
+    <th>Path</th>
+    <th>Operation</th>
+    <th>Value Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <td>
+        <a name="add-identifier">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier"><code>/identifier/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new identifier for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/identifier/-",
+  "op": "add",
+  "value": {
+    "type": {
+      "coding": [
+        {
+          "code": "MR",
+          "system": "http://hl7.org/fhir/v2/0203"
+        }
+      ]
+    },
+    "system": "2.16.840.1.113883.6.1000",
+    "value": "&lt;unique identifier&gt;",
+    "period": {
+      "start": "2016-01-02T00:00:00-05:00",
+      "end": "2020-01-02T00:00:00-05:00"
+    }
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Must not contain the <code>use</code> field. </li>
+  <li> Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-identifier-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/identifier/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>Identifier.id</code> of the identifier at the given <code>{index}</code> in the list of related person identifiers.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/identifier/1/id",
+  "op": "test",
+  "value": "CI-490151266-1"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-identifier">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier"><code>/identifier/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the identifier at the given <code>{index}</code> in the list of related person identifiers.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/identifier/1",
+  "op": "remove"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-relationship">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship"><code>/relationship/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The nature of the relationship between a patient and the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>[
+  {
+    "op": "add",
+    "path": "/relationship/-",
+    "value":{
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
+        }
+      ],
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+        }
+      ]
+    }
+  }
+]
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-relationship-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/relationship/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the <code>Relationship.id</code> value of the relationship at the given <code>{index}</code> in the list of related person relationships.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/relationship/0/id",
+  "value": "CI-98278577-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-relationship">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship"><code>/relationship/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the relationship at the given <code>{index}</code> in the list of related person relationships.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove",
+  "path": "/relationship/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> field of the relationship to be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-relationship-extension">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension"><code>/relationship/{index}/extension</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the relationship extension field at the given <code>{index}</code>.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/relationship/0/extension",
+  "value": [
+    {
+      "valuePeriod": {
+        "start": "2016-12-30T22:26:08.000Z",
+        "end": "2036-12-30T22:26:08.000Z"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+    },
+    {
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "SIS"
+          }
+        ]
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> of the relationship whose <code>extension</code> value is intended to be replaced. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> When either <code>start</code> or <code>end</code> are not provided its value will be unset. </li>
+  <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+  <li> Only one <code>coding</code> may be provided. </li>
+  <li> If either the <code>valuePeriod</code> and <code>valueCodeableConcept</code> are not provided, any existing values for the absent period and relation extensions will be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-address">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.address"><code>/address/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new address for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/address/-",
+  "value": {
+    "use": "home",
+    "line": [
+      "1212 Faircastle Drive",
+      "Apartment 406"
+    ],
+    "city": "KC",
+    "district": "Jackson",
+    "state": "KS",
+    "postalCode": "64199",
+    "country": "United States of America",
+    "period": {
+      "start": "2012-05-17T15:33:18.000Z"
+    }
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Must not contain the <code>text</code> field. </li>
+  <li> Must contain the <code>use</code> field. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+  <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-address-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/address/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the <code>Address.id</code> value of the address at the given <code>{index}</code> in the list of related person addresses.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/address/0/id",
+  "value": "CI-24079465-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-address">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address"><code>/address/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the address at the given <code>{index}</code> in the list of related person addresses.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove",
+  "path": "/address/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-telecom">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom"><code>/telecom/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new contact detail for the related person.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/telecom/-",
+  "value": {
+    "use": "home",
+    "system": "email",
+    "value": "test@test.com",
+    "period": {
+      "start": "2018-01-05T22:24:32.000Z"
+    }
+  }
+},
+{
+  "op": "add",
+  "path": "/telecom/-",
+  "value": {
+    "use": "home",
+    "system": "phone",
+    "value": "913-444-8881",
+    "period": {
+      "start": "2018-01-05T22:24:32.000Z"
+    }
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
+  <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-telecom-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/telecom/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of related person telecoms.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/telecom/0/id",
+  "value": "CI-PH-2807950-0"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-telecom">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom"><code>/telecom/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "remove"
+  "path": "/telecom/0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-name-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/name/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "test",
+  "path": "/name/0/id",
+  "value": "CI-12467982-0"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-family">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family"><code>/name/{index}/family</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/name/0/family",
+  "op": "replace",
+  "value": "Potter"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-prefix">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix"><code>/name/{index}/prefix</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/name/0/prefix",
+  "value": ["Mr."]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If no prefix value is provided, the prefix on the name will be unset. </li>
+  <li> Only one prefix value may be provided. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-given">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given"><code>/name/{index}/given</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/name/0/given",
+  "op": "replace",
+  "value": [
+    "Harry",
+    "James"
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed. </li>
+  <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-name-suffix">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix"><code>/name/{index}/suffix</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<code>String</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of related person names.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/name/0/suffix",
+  "value": ["Jr."]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced. </li>
+  <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+  <li> If no suffix value is provided, the suffix on the name will be unset. </li>
+  <li> Only one suffix value may be provided. </li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-5">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/E-12467982-97731398
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "add",
+    "path": "/relationship/-",
+    "value": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "FAMMEMB"
+        }
+      ],
+      "extension": [
+        {
+          "valuePeriod": {
+            "start": "2016-12-19T16:44:25.000Z",
+            "end": "2022-05-01T16:56:56.000Z"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "SIS"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+        }
+      ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/identifier/-",
+    "value": {
+      "type": {
+        "coding": [
+          {
+            "code": "MR",
+            "system": "http://hl7.org/fhir/v2/0203"
+          }
+        ]
+      },
+      "system": "2.16.840.1.113883.6.1000",
+      "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+      "period": {
+        "start": "2016-01-02T00:00:00-05:00",
+        "end": "2020-01-02T00:00:00-05:00"
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/address/-",
+    "value": {
+      "use": "home",
+      "line": [
+        "1212 Faircastle Drive",
+        "Apartment 406"
+      ],
+      "city": "KC",
+      "district": "Jackson",
+      "state": "KS",
+      "postalCode": "64199",
+      "country": "United States of America",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/telecom/-",
+    "value": {
+      "use": "home",
+      "system": "email",
+      "value": "test@test.com",
+      "period": {
+        "start": "2018-01-05T22:24:32.000Z"
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/telecom/-",
+    "value": {
+      "use": "home",
+      "system": "phone",
+      "value": "913-444-8881",
+      "period": {
+        "start": "2018-01-05T22:24:32.000Z"
+      }
+    }
+  },
+  {
+    "op": "test",
+    "path": "/telecom/0/id",
+    "value": "CI-PH-29811920-0"
+  },
+  {
+    "op": "remove",
+    "path": "/telecom/0"
+  },
+  {
+    "op": "test",
+    "path": "/address/0/id",
+    "value": "CI-24079465-0"
+  },
+  {
+    "op": "remove",
+    "path": "/address/0"
+  },
+  {
+    "op": "test",
+    "path": "/relationship/0/id",
+    "value": "CI-98278577-0"
+  },
+  {
+    "op": "replace",
+    "path": "/relationship/0/extension",
+    "value": [
+      {
+        "valuePeriod": {
+          "start": "2016-12-30T22:26:08.000Z",
+          "end": "2036-12-30T22:26:08.000Z"
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+      },
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "SIS"
+            }
+          ]
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+      }
+    ]
+  },
+  {
+    "op": "test",
+    "path": "/relationship/1/id",
+    "value": "CI-98909708-1"
+  },
+  {
+    "op": "remove",
+    "path": "/relationship/1"
+  },
+  {
+    "op": "test",
+    "path": "/name/0/id",
+    "value": "CI-12467982-0"
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/family",
+    "value": "Potter"
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/prefix",
+    "value": [
+      "Mr."
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/given",
+    "value": [
+      "Harry",
+      "James"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/name/0/suffix",
+    "value": [
+      "Jr."
+    ]
+  }
+]</code></pre>
+
+<h4 id="response-5">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"7"
+Last-Modified: Tue, 21 Jan 2020 15:57:25 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-3">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../">R4 Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../../authorization/">Authorization</a></li>
+          <li><a href="../../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../foundation/">Foundation</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../foundation/conformance/">Conformance</a></li>
+          <li><a href="../../../foundation/conformance/capability-statement/">CapabilityStatement</a></li>
+          <li><a href="../../../foundation/conformance/structure-definition/">StructureDefinition</a></li>
+          <li><a href="../../../foundation/conformance/operation-definition/">OperationDefinition</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/security/">Security</a></li>
+          <li><a href="../../../foundation/security/provenance/">Provenance</a></li>
+          <li><a href="../../../foundation/security/consent/">Consent</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/documents/">Documents</a></li>
+          <li><a href="../../../foundation/documents/document-reference/">DocumentReference</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/other/">Other</a></li>
+          <li><a href="../../../foundation/other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Base</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../">Individuals</a></li>
+          <li><a href="../patient/">Patient</a></li>
+          <li><a href="../practitioner/">Practitioner</a></li>
+          <li><a href="./">RelatedPerson</a></li>
+          <li><a href="../person/">Person</a></li>
+
+          <li class="subtopic"><a href="../../entities/">Entities</a></li>
+          <li><a href="../../entities/organization/">Organization</a></li>
+          <li><a href="../../entities/location/">Location</a></li>
+          <li><a href="../../entities/device/">Device</a></li>
+
+          <li class="subtopic"><a href="../../workflow/">Workflow</a></li>
+          <li><a href="../../workflow/appointment/">Appointment</a></li>
+          <li><a href="../../workflow/schedule/">Schedule</a></li>
+          <li><a href="../../workflow/slot/">Slot</a></li>
+
+          <li class="subtopic"><a href="../../management/">Management</a></li>
+          <li><a href="../../management/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../clinical/">Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../clinical/summary/">Summary</a></li>
+          <li><a href="../../../clinical/summary/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../../clinical/summary/condition/">Condition</a></li>
+          <li><a href="../../../clinical/summary/procedure/">Procedure</a></li>
+          <li><a href="../../../clinical/summary/family-member-history/">FamilyMemberHistory</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/diagnostics/">Diagnostics</a></li>
+          <li><a href="../../../clinical/diagnostics/observation/">Observation</a></li>
+          <li><a href="../../../clinical/diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/medications/">Medications</a></li>
+          <li><a href="../../../clinical/medications/medication-request/">MedicationRequest</a></li>
+          <li><a href="../../../clinical/medications/immunization/">Immunization</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/care-provision/">Care Provision</a></li>
+          <li><a href="../../../clinical/care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../../clinical/care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../../../clinical/care-provision/goal/">Goal</a></li>
+          <li><a href="../../../clinical/care-provision/service-request/">ServiceRequest</a></li>
+          <li><a href="../../../clinical/care-provision/nutrition-order/">NutritionOrder</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/request-and-response/">Request &amp; Response</a></li>
+          <li><a href="../../../clinical/request-and-response/communication/">Communication</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../financial/">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../financial/support/">Support</a></li>
+          <li><a href="../../../financial/support/coverage/">Coverage</a></li>
+
+          <li class="subtopic"><a href="../../../financial/general/">General</a></li>
+          <li><a href="../../../financial/general/account/">Account</a></li>
+          <li><a href="../../../financial/general/charge-item/">ChargeItem</a></li>
+          <li><a href="../../../financial/general/financial-transaction/">FinancialTransaction</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../specialized/">Specialized</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
+          <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../other/health-cards/">HealthCards</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

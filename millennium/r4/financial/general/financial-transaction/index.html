@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>FinancialTransaction | R4 API</title>
+  
+  <link href="../../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../overview/">Millennium</a></li>
+        <li><a href="../../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../../../../overview/">Overview</a></li>
+        <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="financialtransaction">FinancialTransaction</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example---cash-payment" id="markdown-toc-example---cash-payment">Example - Cash Payment</a></li>
+      <li><a href="#example---card-payment" id="markdown-toc-example---card-payment">Example - Card Payment</a></li>
+      <li><a href="#example---check-payment" id="markdown-toc-example---check-payment">Example - Check Payment</a></li>
+      <li><a href="#example---adjustment" id="markdown-toc-example---adjustment">Example - Adjustment</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The FinancialTransaction resource provides the ability to record and exchange financial payment and adjustment information related to patient healthcare services. This is a custom resource implemented via extensions on the Basic resource.</p>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json">Basic.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The Category of Payment Type Codes. Whether this is a payment or adjustment. This binding is used in <code>financial-transaction-type</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/r4/valueset-payment-type.html">Payment Type Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/payment-type <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method?_format=json">Basic.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The payment method of the transaction. This binding is used in <code>financial-transaction-method</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/v2/0570/index.html">v2 Payment Method Code</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0570 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json">Basic.extension[x].valueMoney.currency</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>financial-transaction-tendered-amount</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-currencies.html">Currencies</a><br>
+                      
+                        System: urn:iso:std:iso:4217 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json">Basic.extension[x].valueMoney.currency</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>financial-transaction-amount</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-currencies.html">Currencies</a><br>
+                      
+                        System: urn:iso:std:iso:4217 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="#custom-extensions">Basic.extension[x].extension[x].valueMoney.currency</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used for <code>amount</code> extensions nested under <code>financial-transaction-allocation</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-currencies.html">Currencies</a><br>
+                      
+                        System: urn:iso:std:iso:4217 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Financial Transaction Account Number</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Alias</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Allocation</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Amount</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Card Brand</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Date</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Location</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Method</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Tendered Amount</a></li>
+  <li><a href="#custom-extensions">Financial Transaction Type</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>financial-transaction-account-number</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-alias</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-allocation</code></td>
+      <td>None (contains nested extensions)</td>
+      <td>Defines how the payment or adjustment is to be allocated across other resources.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-amount</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
+      <td>The total amount of the financial transaction.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-card-brand</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>Identifies the brand of credit card when credit card is used as a payment method.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-date</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#date"><code>date</code></a></td>
+      <td>Represents the expiration date if method is card or check date if method is check.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-location</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>Client configured value representing the location or workflow that the payment was received in.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-method</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>Describes the method of payment for the financial transaction.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-tendered-amount</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
+      <td>The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.</td>
+    </tr>
+    <tr>
+      <td><code>financial-transaction-type</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The classification of the transaction.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="create">Create</h2>
+
+<p>Create a FinancialTransaction.</p>
+
+<pre><code>POST /Basic    
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported.</li>
+  <li>When integrating your application with a client’s environment, the client will have to provide the appropriate financial-transaction-alias values to send with the financial transaction.</li>
+  <li>Cerner’s Revenue Cycle Patient Accounting application must be in use at a client site in order to create meaningful FinancialTransactions.</li>
+  <li>When creating FinancialTransactions, a Basic OAuth2 token scope is required in addition to a FinancialTransaction Oauth2 token scope.</li>
+</ul>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types"><a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a></div>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Basic"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Basic</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-identifier">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/basic-definitions.html#Basic.identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identifier assigned to the resource for business purposes.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+      "value": "33358000",
+      "use": "usual"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>At least one external transaction identifier must be provided.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/basic-definitions.html#Basic.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identifies the 'type' of resource - equivalent to the resource name for other resources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>"code": {
+  "coding": [
+    {
+      "code": "FinancialTransaction"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>This will always be FinancialTransaction</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Type%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json"><code>FinancialTransaction Type Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Category of transaction, whether this is a payment or adjustment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "payment",
+        "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Will only accept payment or adjustment.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Alias%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias?_format=json"><code>FinancialTransaction Alias Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The aliases used to create the FinancialTransaction resources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+  "valueString": "0111"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A value that correlates to a client defined name which represents the combination of the type, subtype, and reason describing the FinancialTransaction. The alias determines the credit or debit impact on the accounts receivable. A valid alias from the tenant is required to create a FinancialTransaction resource.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Location%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location?_format=json"><code>FinancialTransaction Location Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The location where the payment was collected.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
+  "valueString": "98920358"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>These are client configured location values.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Method%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method?_format=json"><code>FinancialTransaction Method Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The method of payment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "CHCK",
+        "display": "Check",
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
+        "userSelected": true
+      }
+    ],
+    "text": "Check"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Required on payment transactions. Not required otherwise. Payment methods of Cash, Credit Card, Check, Cashier’s Check and Traveler’s Check will be supported for FinancialTransaction creates.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Card%20Brand%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand?_format=json"><code>FinancialTransaction Card Brand Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The brand of credit card used for the transaction.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand",
+  "valueString": "VISA"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Required on payment transactions when method is Credit Card. Not required otherwise. Acceptable values are "VISA", "MASTER", "AMEX", "DISCOVER".</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Account%20Number%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number?_format=json"><code>FinancialTransaction Account Number Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The last four digits of the credit card or the check number used for the transaction.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number",
+  "valueString": "1234"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Required on payment transactions when method is Credit Card, Check, Cashier's Check, Traveler's Check and Money Order. Not required otherwise. Value must be numeric.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Date%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date?_format=json"><code>FinancialTransaction Date Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Expiration date if method is credit card, check date if method is check.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date",
+  "valueDate": "2020-02-01"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Required on payment transactions when method is Credit Card, Check, Cashier's Check and Traveler's Check. Not required otherwise.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Tendered%20Amount%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json"><code>FinancialTransaction Tendered Amount Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Money"><code>Money</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Tendered amount of the cash payment.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount",
+  "valueMoney": {
+    "value": 123.45,
+    "currency": "USD"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Required on payment transactions when method is Cash. Not required otherwise. Must be greater than or equal to the value of the amount.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Amount%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json"><code>FinancialTransaction Amount Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Money"><code>Money</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The total amount of the payment/adjustment resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+  "valueMoney": {
+    "value": 123.45,
+    "currency": "USD"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must equal the sum of all amounts in the <code>financial-transaction-allocation</code> extension.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Allocation%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation?_format=json"><code>FinancialTransaction Allocation Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>How the FinancialTransaction should be applied. This extension is a nested extension.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+  "extension": [
+    {
+      "url": "target",
+      "valueReference": {
+        "reference": "Encounter/97953536"
+      }
+    },
+    {
+      "url": "amount",
+      "valueMoney": {
+        "value": 400.00,
+        "currency": "USD"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only one allocation element will be used when creating the resource.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Allocation%20Target%20Extension">
+        
+          </a><a target="_blank" href="#custom-extensions"><code>FinancialTransaction Allocation Target Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The specific target that the payment or adjustment should be posted to. This extension is nested under a <code>financial-transaction-allocation</code> extension.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "target",
+  "valueReference": {
+    "reference": "Encounter/97953536"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The <code>valueReference.reference</code> must be an Encounter reference.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-FinancialTransaction%20Allocation%20Amount%20Extension">
+        
+          </a><a target="_blank" href="#custom-extensions"><code>FinancialTransaction Allocation Amount Extension</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Money"><code>Money</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The total amount of the payment/adjustment resource. This extension is nested under a <code>financial-transaction-allocation</code> extension.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "amount",
+  "valueMoney": {
+    "value": 123.45,
+    "currency": "USD"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must equal the sum of all amounts in the <code>financial-transaction-allocation</code> extension.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example---cash-payment">Example - Cash Payment</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>POST /Basic
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Basic",
+  "code": {
+    "coding": [
+      {
+        "code": "FinancialTransaction"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "value": "14266754",
+      "use": "usual"
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "payment",
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "CASH",
+            "display": "Cash",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
+            "userSelected": true
+          }
+        ],
+        "text": "Cash"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount",
+      "valueMoney": {
+        "value": 12.0,
+        "currency": "USD"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+      "extension": [
+        {
+          "url": "target",
+          "valueReference": {
+            "reference": "Encounter/97953536"
+          }
+        },
+        {
+          "url": "amount",
+          "valueMoney": {
+            "value": 12.0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valueString": "0111"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
+      "valueString": "98920358"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "valueMoney": {
+        "value": 12.0,
+        "currency": "USD"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 04 Nov 2019 16:23:57 GMT
+Etag: W/"0"
+Last-Modified: Mon, 04 Nov 2019 16:23:57 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-14266754
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---card-payment">Example - Card Payment</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>POST /Basic
+</code></pre>
+
+<h4 id="body-1">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Basic",
+  "code": {
+    "coding": [
+      {
+        "code": "FinancialTransaction"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "value": "74389581",
+      "use": "usual"
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "payment",
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "CCCA",
+            "display": "Credit Card",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
+            "isPrimary": true
+          }
+        ],
+        "text": "Credit Card"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "valueMoney": {
+        "value": 12.0,
+        "currency": "USD"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date",
+      "valueDate": "2005-01"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number",
+      "valueString": "4321"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand",
+      "valueString": "visa"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+      "extension": [
+        {
+          "url": "target",
+          "valueReference": {
+            "reference": "Encounter/97953536"
+          }
+        },
+        {
+          "url": "amount",
+          "valueMoney": {
+            "value": 12.0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valueString": "0111"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
+      "valueString": "98920358"
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 04 Nov 2019 16:23:59 GMT
+Etag: W/"0"
+Last-Modified: Mon, 04 Nov 2019 16:23:59 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-74389581
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea69
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---check-payment">Example - Check Payment</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST /Basic
+</code></pre>
+
+<h4 id="body-2">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Basic",
+  "code": {
+    "coding": [
+      {
+        "code": "FinancialTransaction"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "value": "3335800133",
+      "use": "usual"
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "payment",
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "CCHK",
+            "display": "Check",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0570",
+            "userSelected": true
+          }
+        ],
+        "text": "Check"
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date",
+      "valueDate": "2020-01-02"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number",
+      "valueString": "1234"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+      "extension": [
+        {
+          "url": "target",
+          "valueReference": {
+            "reference": "Encounter/97953536"
+          }
+        },
+        {
+          "url": "amount",
+          "valueMoney": {
+            "value": 12.12,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valueString": "0111"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location",
+      "valueString": "98920358"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "valueMoney": {
+        "value": 12.12,
+        "currency": "USD"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 04 Nov 2019 16:23:58 GMT
+Etag: W/"0"
+Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-PL-3335800133
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---adjustment">Example - Adjustment</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>POST /Basic
+</code></pre>
+
+<h4 id="body-3">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Basic",
+  "code": {
+    "coding": [
+      {
+        "code": "FinancialTransaction"
+      }
+    ]
+  },
+  "identifier": [
+    {
+      "value": "3353423432432232",
+      "use": "usual"
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "adjustment",
+            "system": "http://terminology.hl7.org/CodeSystem/payment-type"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation",
+      "extension": [
+        {
+          "url": "target",
+          "valueReference": {
+            "reference": "Encounter/97953536"
+          }
+        },
+        {
+          "url": "amount",
+          "valueMoney": {
+            "value": 1.0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias",
+      "valueString": "3100"
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount",
+      "valueMoney": {
+        "value": 1.0,
+        "currency": "USD"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Mon, 04 Nov 2019 16:23:58 GMT
+Etag: W/"0"
+Last-Modified: Mon, 04 Nov 2019 16:23:58 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Basic/FT-AL-3335800133
+Vary: Origin
+X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../">R4 Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../../authorization/">Authorization</a></li>
+          <li><a href="../../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../foundation/">Foundation</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../foundation/conformance/">Conformance</a></li>
+          <li><a href="../../../foundation/conformance/capability-statement/">CapabilityStatement</a></li>
+          <li><a href="../../../foundation/conformance/structure-definition/">StructureDefinition</a></li>
+          <li><a href="../../../foundation/conformance/operation-definition/">OperationDefinition</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/security/">Security</a></li>
+          <li><a href="../../../foundation/security/provenance/">Provenance</a></li>
+          <li><a href="../../../foundation/security/consent/">Consent</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/documents/">Documents</a></li>
+          <li><a href="../../../foundation/documents/document-reference/">DocumentReference</a></li>
+
+          <li class="subtopic"><a href="../../../foundation/other/">Other</a></li>
+          <li><a href="../../../foundation/other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../base/">Base</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../base/individuals/">Individuals</a></li>
+          <li><a href="../../../base/individuals/patient/">Patient</a></li>
+          <li><a href="../../../base/individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../../base/individuals/related-person/">RelatedPerson</a></li>
+          <li><a href="../../../base/individuals/person/">Person</a></li>
+
+          <li class="subtopic"><a href="../../../base/entities/">Entities</a></li>
+          <li><a href="../../../base/entities/organization/">Organization</a></li>
+          <li><a href="../../../base/entities/location/">Location</a></li>
+          <li><a href="../../../base/entities/device/">Device</a></li>
+
+          <li class="subtopic"><a href="../../../base/workflow/">Workflow</a></li>
+          <li><a href="../../../base/workflow/appointment/">Appointment</a></li>
+          <li><a href="../../../base/workflow/schedule/">Schedule</a></li>
+          <li><a href="../../../base/workflow/slot/">Slot</a></li>
+
+          <li class="subtopic"><a href="../../../base/management/">Management</a></li>
+          <li><a href="../../../base/management/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../clinical/">Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../clinical/summary/">Summary</a></li>
+          <li><a href="../../../clinical/summary/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../../clinical/summary/condition/">Condition</a></li>
+          <li><a href="../../../clinical/summary/procedure/">Procedure</a></li>
+          <li><a href="../../../clinical/summary/family-member-history/">FamilyMemberHistory</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/diagnostics/">Diagnostics</a></li>
+          <li><a href="../../../clinical/diagnostics/observation/">Observation</a></li>
+          <li><a href="../../../clinical/diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/medications/">Medications</a></li>
+          <li><a href="../../../clinical/medications/medication-request/">MedicationRequest</a></li>
+          <li><a href="../../../clinical/medications/immunization/">Immunization</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/care-provision/">Care Provision</a></li>
+          <li><a href="../../../clinical/care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../../clinical/care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../../../clinical/care-provision/goal/">Goal</a></li>
+          <li><a href="../../../clinical/care-provision/service-request/">ServiceRequest</a></li>
+          <li><a href="../../../clinical/care-provision/nutrition-order/">NutritionOrder</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/request-and-response/">Request &amp; Response</a></li>
+          <li><a href="../../../clinical/request-and-response/communication/">Communication</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../support/">Support</a></li>
+          <li><a href="../../support/coverage/">Coverage</a></li>
+
+          <li class="subtopic"><a href="../">General</a></li>
+          <li><a href="../account/">Account</a></li>
+          <li><a href="../charge-item/">ChargeItem</a></li>
+          <li><a href="./">FinancialTransaction</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../specialized/">Specialized</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
+          <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../other/health-cards/">HealthCards</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

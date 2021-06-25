@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Summary | R4 API</title>
+  
+  <link href="../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>
+  <script src="../../../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../overview/">Millennium</a></li>
+        <li><a href="../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../../../overview/">Overview</a></li>
+        <li><a href="../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="summary">Summary</h1>
+
+<p>Clinical resources are used throughout the patient record to record summaries of status and health history. This includes recording information around family history, allergies, conditions, and procedures, among others.</p>
+
+<h3 id="implemented-resources">Implemented Resources</h3>
+
+<ul>
+  <li><a href="../clinical/summary/allergy-intolerance">AllergyIntolerance</a></li>
+  <li><a href="../clinical/summary/condition">Condition</a></li>
+  <li><a href="../clinical/summary/procedure">Procedure</a></li>
+</ul>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">R4 Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../authorization/">Authorization</a></li>
+          <li><a href="../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../foundation/">Foundation</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../foundation/conformance/">Conformance</a></li>
+          <li><a href="../../foundation/conformance/capability-statement/">CapabilityStatement</a></li>
+          <li><a href="../../foundation/conformance/structure-definition/">StructureDefinition</a></li>
+          <li><a href="../../foundation/conformance/operation-definition/">OperationDefinition</a></li>
+
+          <li class="subtopic"><a href="../../foundation/security/">Security</a></li>
+          <li><a href="../../foundation/security/provenance/">Provenance</a></li>
+          <li><a href="../../foundation/security/consent/">Consent</a></li>
+
+          <li class="subtopic"><a href="../../foundation/documents/">Documents</a></li>
+          <li><a href="../../foundation/documents/document-reference/">DocumentReference</a></li>
+
+          <li class="subtopic"><a href="../../foundation/other/">Other</a></li>
+          <li><a href="../../foundation/other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../base/">Base</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../base/individuals/">Individuals</a></li>
+          <li><a href="../../base/individuals/patient/">Patient</a></li>
+          <li><a href="../../base/individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../base/individuals/related-person/">RelatedPerson</a></li>
+          <li><a href="../../base/individuals/person/">Person</a></li>
+
+          <li class="subtopic"><a href="../../base/entities/">Entities</a></li>
+          <li><a href="../../base/entities/organization/">Organization</a></li>
+          <li><a href="../../base/entities/location/">Location</a></li>
+          <li><a href="../../base/entities/device/">Device</a></li>
+
+          <li class="subtopic"><a href="../../base/workflow/">Workflow</a></li>
+          <li><a href="../../base/workflow/appointment/">Appointment</a></li>
+          <li><a href="../../base/workflow/schedule/">Schedule</a></li>
+          <li><a href="../../base/workflow/slot/">Slot</a></li>
+
+          <li class="subtopic"><a href="../../base/management/">Management</a></li>
+          <li><a href="../../base/management/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../">Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="./">Summary</a></li>
+          <li><a href="allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="condition/">Condition</a></li>
+          <li><a href="procedure/">Procedure</a></li>
+          <li><a href="family-member-history/">FamilyMemberHistory</a></li>
+
+          <li class="subtopic"><a href="../diagnostics/">Diagnostics</a></li>
+          <li><a href="../diagnostics/observation/">Observation</a></li>
+          <li><a href="../diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
+
+          <li class="subtopic"><a href="../medications/">Medications</a></li>
+          <li><a href="../medications/medication-request/">MedicationRequest</a></li>
+          <li><a href="../medications/immunization/">Immunization</a></li>
+
+          <li class="subtopic"><a href="../care-provision/">Care Provision</a></li>
+          <li><a href="../care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../care-provision/goal/">Goal</a></li>
+          <li><a href="../care-provision/service-request/">ServiceRequest</a></li>
+          <li><a href="../care-provision/nutrition-order/">NutritionOrder</a></li>
+
+          <li class="subtopic"><a href="../request-and-response/">Request &amp; Response</a></li>
+          <li><a href="../request-and-response/communication/">Communication</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../financial/">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../financial/support/">Support</a></li>
+          <li><a href="../../financial/support/coverage/">Coverage</a></li>
+
+          <li class="subtopic"><a href="../../financial/general/">General</a></li>
+          <li><a href="../../financial/general/account/">Account</a></li>
+          <li><a href="../../financial/general/charge-item/">ChargeItem</a></li>
+          <li><a href="../../financial/general/financial-transaction/">FinancialTransaction</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../specialized/">Specialized</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
+          <li><a href="../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../other/health-cards/">HealthCards</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

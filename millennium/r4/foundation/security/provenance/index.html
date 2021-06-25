@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Provenance | R4 API</title>
+  
+  <link href="../../../../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../../../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../../../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+<body class="r4_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../../../overview/">Millennium</a></li>
+        <li><a href="../../../../../soarian/dstu2/">Soarian</a></li>
+        <li><a href="../../../../../authorization">Authorization</a></li>
+        <li><a href="../../../../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../../../../overview/">Overview</a></li>
+        <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="provenance">Provenance</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li>
+<a href="#search" id="markdown-toc-search">Search</a>    <ul>
+      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
+      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
+      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Provenance resource tracks the source of external data and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter.  Entities are Continuity of Care DocumentReferences (CCDs).</p>
+
+<p>The following fields are returned if valued:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Provenance id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target" target="_blank">Target</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded" target="_blank">Recorded</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type" target="_blank">Agent type (author or transmitter)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role" target="_blank">Agent role (source or informant)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who" target="_blank">Agent who (Practitioner, Device, or Organization)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf" target="_blank">Agent on behalf of</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role" target="_blank">Entity role</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what" target="_blank">Entity what (Continuity of Care DocumentReference id)</a></li>
+</ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role">Provenance.entity.role</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>How the entity was used during the activity.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/codesystem-provenance-entity-role.html">Provenance Entity Role</a><br>
+                      
+                        System: http://hl7.org/fhir/provenance-entity-role <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+  </tbody>
+</table>
+
+<h2 id="search">Search</h2>
+
+<p>Search for Provenances that meet supplied query parameters:</p>
+
+<pre><code>GET /Provenance?:parameters
+</code></pre>
+
+<h3 id="authorization-types">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>target</code>
+</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource. Example: <code>doc-7845</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>target</code></td>
+      <td>This or <code>_id</code>
+</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>Target Reference(s) (usually version specific). The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure resources are supported. Example: <code>DocumentReference/66547</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="headers">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example">Example</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "160ad230-6a5c-4813-96e2-2b36be102145",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "doc-881057",
+        "meta": {
+          "versionId": "881057",
+          "lastUpdated": "2019-10-25T14:57:43Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&amp;lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;p&gt;&amp;lt;b&gt;Provenance&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Target&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;ul&gt;&amp;lt;li&gt;DocumentReference/881049&amp;lt;/li&gt;&amp;lt;/ul&gt;&amp;lt;p&gt;&amp;lt;b&gt;Recorded&amp;lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Agents&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;dl&gt;&amp;lt;dt&gt;Baseline East Medical Center&amp;lt;/dt&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Type&amp;lt;/b&gt;: Author&amp;lt;/dd&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Role&amp;lt;/b&gt;: Source&amp;lt;/dd&gt;&amp;lt;/dl&gt;&amp;lt;p&gt;&amp;lt;b&gt;Entity Source&amp;lt;/b&gt;: DocumentReference/S-202&amp;lt;/p&gt;&amp;lt;/div&gt;"
+        },
+        "target": [
+          {
+            "reference": "DocumentReference/881049"
+          }
+        ],
+        "recorded": "2019-10-25T14:57:43Z",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ],
+              "text": "Author"
+            },
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+                    "code": "SOURCE"
+                  }
+                ],
+                "text": "Source"
+              }
+            ],
+            "who": {
+              "reference": "Organization/619848",
+              "display": "Baseline East Medical Center"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "reference": "DocumentReference/S-202"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="retrieve-by-id">Retrieve by id</h2>
+
+<p>List an individual Provenance by its id:</p>
+
+<pre><code>GET /Provenance/:id
+</code></pre>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-1">Headers</h3>
+
+<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Provenance",
+  "id": "doc-881057",
+  "meta": {
+    "versionId": "881057",
+    "lastUpdated": "2019-10-25T14:57:43Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&amp;lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&amp;lt;p&gt;&amp;lt;b&gt;Provenance&amp;lt;/b&gt;&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Target&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;ul&gt;&amp;lt;li&gt;DocumentReference/881049&amp;lt;/li&gt;&amp;lt;/ul&gt;&amp;lt;p&gt;&amp;lt;b&gt;Recorded&amp;lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&amp;lt;/p&gt;&amp;lt;p&gt;&amp;lt;b&gt;Agents&amp;lt;/b&gt;:&amp;lt;/p&gt;&amp;lt;dl&gt;&amp;lt;dt&gt;Baseline East Medical Center&amp;lt;/dt&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Type&amp;lt;/b&gt;: Author&amp;lt;/dd&gt;&amp;lt;dd&gt;&amp;lt;b&gt;Agent Role&amp;lt;/b&gt;: Source&amp;lt;/dd&gt;&amp;lt;/dl&gt;&amp;lt;p&gt;&amp;lt;b&gt;Entity Source&amp;lt;/b&gt;: DocumentReference/S-202&amp;lt;/p&gt;&amp;lt;/div&gt;"
+  },
+  "target": [
+    {
+      "reference": "DocumentReference/881049"
+    }
+  ],
+  "recorded": "2019-10-25T14:57:43Z",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author"
+          }
+        ],
+        "text": "Author"
+      },
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ],
+          "text": "Source"
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848",
+        "display": "Baseline East Medical Center"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-202"
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="create">Create</h2>
+
+<p>Create a new Provenance.</p>
+
+<pre><code>POST /Provenance
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+  <li>The <code>Provenance.write</code> and <code>Observation.read</code> scopes must be provided in order to create a Provenance with an Observation Measurement target.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Provenance"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li><ul><li>resourceType must be Provenance.</li></ul></li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-target">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target"><code>target</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The Reference(s) that were generated or updated by the activity described in this resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "target": [
+    {
+      "reference": "DocumentReference/881049"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one target may be provided.</li>
+  <li> The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest,
+    Observation and Procedure resources are supported.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-recorded">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded"><code>recorded</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#instant"><code>instant</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The instant of time at which the activity was recorded.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "recorded": "2019-10-25T14:57:43Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent"><code>agent</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+            "code": "transmitter"
+          }
+        ]
+      },
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ]
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li><ul><li> Only one agent may be provided.</li></ul></li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.type">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.type"><code>agent.type</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The participation the agent had with respect to the activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+        "code": "transmitter"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.role">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role"><code>agent.role</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The function of the agent with respect to the activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "role": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+          "code": "SOURCE"
+        }
+      ]
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-agent.who">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who"><code>agent.who</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The individual, device or organization that participated in the event.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "who": {
+    "reference": "Organization/619848"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-entity">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity"><code>entity</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An entity used in this activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-201"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-entity.role">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role"><code>entity.role</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>How the entity was used during the activity.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "role": "source"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-entity.what">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what"><code>entity.what</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identity of the Entity used.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "what": {
+    "reference": "DocumentReference/S-201"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Provenance",
+  "target": [
+    {
+      "reference": "DocumentReference/881049"
+    }
+  ],
+  "recorded": "2019-10-25T14:57:43Z",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+            "code": "transmitter"
+          }
+        ]
+      },
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+              "code": "SOURCE"
+            }
+          ]
+        }
+      ],
+      "who": {
+        "reference": "Organization/619848"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/S-201"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 31 Mar 2020 15:37:25 GMT
+Etag: W/"881057"
+Location: https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
+Last-Modified: Tue, 31 Mar 2020 15:37:25 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../">R4 Overview</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../../authorization/">Authorization</a></li>
+          <li><a href="../../../proprietary-codes-and-systems/">Proprietary Codes and Systems</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Foundation</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../conformance/">Conformance</a></li>
+          <li><a href="../../conformance/capability-statement/">CapabilityStatement</a></li>
+          <li><a href="../../conformance/structure-definition/">StructureDefinition</a></li>
+          <li><a href="../../conformance/operation-definition/">OperationDefinition</a></li>
+
+          <li class="subtopic"><a href="../">Security</a></li>
+          <li><a href="./">Provenance</a></li>
+          <li><a href="../consent/">Consent</a></li>
+
+          <li class="subtopic"><a href="../../documents/">Documents</a></li>
+          <li><a href="../../documents/document-reference/">DocumentReference</a></li>
+
+          <li class="subtopic"><a href="../../other/">Other</a></li>
+          <li><a href="../../other/binary/">Binary</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../base/">Base</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../base/individuals/">Individuals</a></li>
+          <li><a href="../../../base/individuals/patient/">Patient</a></li>
+          <li><a href="../../../base/individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../../base/individuals/related-person/">RelatedPerson</a></li>
+          <li><a href="../../../base/individuals/person/">Person</a></li>
+
+          <li class="subtopic"><a href="../../../base/entities/">Entities</a></li>
+          <li><a href="../../../base/entities/organization/">Organization</a></li>
+          <li><a href="../../../base/entities/location/">Location</a></li>
+          <li><a href="../../../base/entities/device/">Device</a></li>
+
+          <li class="subtopic"><a href="../../../base/workflow/">Workflow</a></li>
+          <li><a href="../../../base/workflow/appointment/">Appointment</a></li>
+          <li><a href="../../../base/workflow/schedule/">Schedule</a></li>
+          <li><a href="../../../base/workflow/slot/">Slot</a></li>
+
+          <li class="subtopic"><a href="../../../base/management/">Management</a></li>
+          <li><a href="../../../base/management/encounter/">Encounter</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../clinical/">Clinical</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../clinical/summary/">Summary</a></li>
+          <li><a href="../../../clinical/summary/allergy-intolerance/">AllergyIntolerance</a></li>
+          <li><a href="../../../clinical/summary/condition/">Condition</a></li>
+          <li><a href="../../../clinical/summary/procedure/">Procedure</a></li>
+          <li><a href="../../../clinical/summary/family-member-history/">FamilyMemberHistory</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/diagnostics/">Diagnostics</a></li>
+          <li><a href="../../../clinical/diagnostics/observation/">Observation</a></li>
+          <li><a href="../../../clinical/diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/medications/">Medications</a></li>
+          <li><a href="../../../clinical/medications/medication-request/">MedicationRequest</a></li>
+          <li><a href="../../../clinical/medications/immunization/">Immunization</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/care-provision/">Care Provision</a></li>
+          <li><a href="../../../clinical/care-provision/care-plan/">CarePlan</a></li>
+          <li><a href="../../../clinical/care-provision/care-team/">CareTeam</a></li>
+          <li><a href="../../../clinical/care-provision/goal/">Goal</a></li>
+          <li><a href="../../../clinical/care-provision/service-request/">ServiceRequest</a></li>
+          <li><a href="../../../clinical/care-provision/nutrition-order/">NutritionOrder</a></li>
+
+          <li class="subtopic"><a href="../../../clinical/request-and-response/">Request &amp; Response</a></li>
+          <li><a href="../../../clinical/request-and-response/communication/">Communication</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../financial/">Financial</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../financial/support/">Support</a></li>
+          <li><a href="../../../financial/support/coverage/">Coverage</a></li>
+
+          <li class="subtopic"><a href="../../../financial/general/">General</a></li>
+          <li><a href="../../../financial/general/account/">Account</a></li>
+          <li><a href="../../../financial/general/charge-item/">ChargeItem</a></li>
+          <li><a href="../../../financial/general/financial-transaction/">FinancialTransaction</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../specialized/">Specialized</a>
+</h3>
+        <ul class="js-guides">
+          <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
+          <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../other/">Other</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../other/health-cards/">HealthCards</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
