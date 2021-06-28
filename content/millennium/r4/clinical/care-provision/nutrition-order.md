@@ -128,17 +128,6 @@ List an individual NutritionOrder by its id:
 
 <%= disclaimer %>
 
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_nutrition_order_child_entry) %>
-
-<%= disclaimer %>
-
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
