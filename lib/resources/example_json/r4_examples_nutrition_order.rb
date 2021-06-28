@@ -742,8 +742,7 @@ module Cerner
         }
       ],
       'entry': [
-        R4_NUTRITION_ORDER_ENTRY,
-        R4_NUTRITION_ORDER_CHILD_ENTRY
+        R4_NUTRITION_ORDER_ENTRY
       ]
     }.freeze
 
