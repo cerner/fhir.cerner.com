@@ -54,7 +54,7 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                     | Value\[x] Type                    | Description
+ ID                     | Value\[x] Type                                                    | Description
 ------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------
  `bill-code-schedule`   | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
  `custom-attribute`     | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
