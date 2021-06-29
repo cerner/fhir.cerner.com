@@ -55,19 +55,19 @@ The following fields are returned if valued:
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
  ID                     | Value\[x] Type                    | Description
-------------------------|-----------------------------------|--------------------------------------------------------------------------
- `bill-code-schedule`   | [`coding`]                        | A defined group of bill codes that drives billing behavior.
- `custom-attribute`     | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
- `description`          | [`string`]                        | A description providing additional details of the resource.
- `modifier`             | None (contains nested extensions) | A code providing additional detail about a product or service.
- `net-price`            | [`Money`]                         | The quantity times the unit price for a resource (total price).
- `offset-by`            | [Reference]                       | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
- `performing-location`  | [Reference]                       | A location where the resource was performed.
- `priority`             | [`unsignedInt`]                   | The priority of the element within a list.
- `procedure`            | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
- `replacing`            | [Reference]                       | A reference to a resource that this resource is replacing.
- `revenue-code`         | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
- `unit-price`           | [`Money`]                         | The price of a single unit for the resource.
+------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------
+ `bill-code-schedule`   | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
+ `custom-attribute`     | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
+ `description`          | [`string`]                                                        | A description providing additional details of the resource.
+ `modifier`             | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
+ `net-price`            | [`Money`]                                                         | The quantity times the unit price for a resource (total price).
+ `offset-by`            | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
+ `performing-location`  | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A location where the resource was performed.
+ `priority`             | [`unsignedInt`]                                                   | The priority of the element within a list.
+ `procedure`            | None (contains nested extensions)                                 | Procedure performed on the patient associated to the resource.
+ `replacing`            | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A reference to a resource that this resource is replacing.
+ `revenue-code`         | None (contains nested extensions)                                 | The type of revenue or cost center providing the product and/or service.
+ `unit-price`           | [`Money`]                                                         | The price of a single unit for the resource.
 
 ## Search
 
@@ -163,7 +163,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
-[Reference]: https://hl7.org/fhir/r4/references.html#Reference
 [Priority]: #custom-extensions
 [Procedure]: #custom-extensions
 [Modifier]: #custom-extensions
