@@ -9,7 +9,7 @@ fields:
     action: terminology
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
     binding:
-      description: A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, or <code>HCPCS</code>.
+      description: A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
@@ -48,7 +48,7 @@ fields:
     description: Procedure performed on the patient associated to the resource.
     url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
     binding:
-      description: Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, or <code>HCPCS</code>.
+      description: Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
