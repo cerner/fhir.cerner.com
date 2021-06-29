@@ -54,7 +54,11 @@ fields:
         "reference": "Patient/1626016"
       }
     }
-  note: Currently supports only Patient references.
+  note: |
+    <ul>
+      <li>Currently supports only Patient references.</li>
+      <li>Not required for Public Healthcare Writes.</li>
+    </ul>
 
 - name: subscriberId
   required: 'No'
@@ -87,6 +91,7 @@ fields:
     {
       "dependent": "1626016"
     }
+  note: Not required for Public Healthcare Writes.
 
 - name: relationship
   required: 'No'
@@ -106,6 +111,7 @@ fields:
         }
       ]
     }
+  note: Not required for Public Healthcare Writes.
   binding:
     description: Indicates the beneficiary relationship to the subscriber.
     terminology:
