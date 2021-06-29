@@ -105,3 +105,16 @@ fields:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
+
+  - name: National Drug Product Extension
+    terminology_name: extension[x].valueCodeableConcept
+    required: 'No'
+    type: Extension
+    description: The national drug code for pharmacy charges.
+    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    binding:
+      description: The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.
+      terminology:
+        - display: National Drug Product
+          system: http://hl7.org/fhir/sid/ndc
+          info_link: http://hl7.org/fhir/sid/ndc
