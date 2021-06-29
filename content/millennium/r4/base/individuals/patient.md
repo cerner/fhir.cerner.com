@@ -280,7 +280,7 @@ See [Health Cards] documentation for more details about this operation.
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
-[US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
-[US Core Ethnicity]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
-[US Core Birth Sex]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html
+[US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
+[US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
+[US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
 [Health Cards]: ../../other/health-cards
