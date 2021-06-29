@@ -119,12 +119,12 @@ fields:
           system: http://hl7.org/fhir/sid/ndc
           info_link: http://hl7.org/fhir/sid/ndc
 
-  - name: performer
+  - name: performer.function
     required: 'No'
     type: performerFunction
     description: Distinguishes the type of involvement of the performer in the event.
     binding:
-      description: Codes identifying the function of the performer.
+      description: A code that identifies the function of the performer.
       terminology:
         - display: Performer function codes
           system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
