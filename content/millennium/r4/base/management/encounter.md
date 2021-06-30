@@ -90,16 +90,16 @@ _Implementation Notes_
 ### Parameters
 
 Name          | Required?                                                     | Type          | Description
---------------|---------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
- `_id`        | This or `patient` or `subject` or `account` or `identifier`   | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
-`patient`     | This or `subject` or `account` or `_id` or `identifier`       | [`reference`] | The patient present at the encounter. Example: `12345`
-`subject`     | This or `patient` or `account` or `_id` or `identifier`       | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
-`account`     | This or `patient` or `subject` or `_id` or `identifier`       | [`reference`] | The account associated with the encounters. Example: `F703726`
-`identifier`  | This or `patient` or `subject` or `account` or `_id`          | [`token`]     | An encounter's identifier. Example: `urn:oid:1.2.243.58|110219457`
-`date`        | No                                                            | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
-[`_count`]    | No                                                            | [`number`]    | The maximum number of results to return.
-`status`      | No                                                            | [`token`]     | The status of the encounter. Example: `planned`
-`_revinclude` | No                                                            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+--------------|--------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
+ `_id`        | This or `patient` or `subject` or `account` or `identifier` or `pageContext`   | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+`patient`     | This or `subject` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `12345`
+`subject`     | This or `patient` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`account`     | This or `patient` or `subject` or `_id` or `identifier` or `pageContext`       | [`reference`] | The account associated with the encounters. Example: `F703726`
+`identifier`  | This or `patient` or `subject` or `account` or `_id` or `pageContext`          | [`token`]     | An encounter's identifier. Example: `urn:oid:1.2.243.58|110219457`
+`date`        | No                                                                             | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
+[`_count`]    | No                                                                             | [`number`]    | The maximum number of results to return.
+`status`      | No                                                                             | [`token`]     | The status of the encounter. Example: `planned`
+`_revinclude` | No                                                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
   
 Notes:
 
