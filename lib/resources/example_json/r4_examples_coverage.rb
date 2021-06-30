@@ -397,7 +397,7 @@ module Cerner
           'name': '10-OPC, Class II'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_CREATE ||= {
       'resourceType': 'Coverage',
@@ -431,7 +431,7 @@ module Cerner
           'name': '10-OPC, Class II'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_ENCOUNTER_PATCH ||= [
       {
