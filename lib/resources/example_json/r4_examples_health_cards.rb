@@ -49,7 +49,7 @@ module Cerner
             },
             {
               'name': 'hostedResource',
-              'valueUri': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742542'
+              'valueUri': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742542'
             }
           ]
         },
@@ -66,7 +66,7 @@ module Cerner
             },
             {
               'name': 'hostedResource',
-              'valueUri': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197462828'
+              'valueUri': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197462828'
             }
           ]
         },
@@ -83,7 +83,7 @@ module Cerner
             },
             {
               'name': 'hostedResource',
-              'valueUri': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197462824'
+              'valueUri': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197462824'
             }
           ]
         },
@@ -100,7 +100,7 @@ module Cerner
             },
             {
               'name': 'hostedResource',
-              'valueUri': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742542'
+              'valueUri': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742542'
             }
           ]
         },
@@ -117,7 +117,7 @@ module Cerner
             },
             {
               'name': 'hostedResource',
-              'valueUri': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197287549'
+              'valueUri': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197287549'
             }
           ]
         }
