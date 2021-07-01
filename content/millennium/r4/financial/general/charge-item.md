@@ -70,7 +70,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `procedure`                  | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
  `quantity-conversion-factor` | [`decimal`]                       | The conversion factor used to calculate the quantity for billing.
  `replacing`                  | [`Reference`]                     | A reference to a resource that this resource is replacing.
- `revenue-code`               | None (contains nested extensions) | The type of revenue or cost center providing the product and/or service.
+ `revenue-code`               | [`CodeableConcept`]               | The type of revenue or cost center providing the product and/or service.
  `unit-price`                 | [`Money`]                         | The price of a single unit for the resource.
 
 ## Search
@@ -163,6 +163,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
 [`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
+[`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Priority]: #custom-extensions
