@@ -283,4 +283,4 @@ See [Health Cards] documentation for more details about this operation.
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
-[Health Cards]: ../../other/health-cards
+[Health Cards]: /millennium/r4/other/health-cards/

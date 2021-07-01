@@ -1,0 +1,27 @@
+---
+name: Observation
+field_name_base_url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation
+fields:
+
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.code
+  description: Describes what was observed. Sometimes this is called the observation "name".
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: http://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+
+- name: valueCodeableConcept
+  type: CodeableConcept
+  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept
+  description: Codes for value of the observation.
+  binding:
+    description: Codes for value of the observation.
+    terminology:
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
