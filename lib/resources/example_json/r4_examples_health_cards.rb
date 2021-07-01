@@ -13,6 +13,10 @@ module Cerner
         {
           'name': 'credentialType',
           'valueUri': 'https://smarthealth.cards#covid19'
+        },
+        {
+          'name': '_since',
+          'valueDateTime': '2020-04-01'
         }
       ]
     }.freeze

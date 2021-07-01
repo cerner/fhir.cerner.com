@@ -60,3 +60,23 @@ fields:
       <li>See <a href="#supported-health-card-types">Supported Health Card Types</a> for a list of valid credential types</li>
     </ul>
   url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+- name: _since
+  type: List of parameter BackboneElement
+  description: The date time for which the operation to return health cards since this point in time.
+  action: health-cards-issue
+  example: |
+    {
+      "parameter": [
+        {
+          "name": "_since",
+          "valueDateTime": "2020-04-01"
+        }
+      ]
+    }
+  note: >
+    <ul>
+      <li>The value must be in the form of `valueDateTime` (refer to <a href="http://hl7.org/fhir/datatypes.html#dateTime">FHIR dateTime datatype format</a>)</li>
+      <li>Only one value can be defined</li>
+    </ul>
+  url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
