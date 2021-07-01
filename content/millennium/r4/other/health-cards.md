@@ -81,7 +81,6 @@ Contains the following resources:
   * [Code](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.code){:target="_blank"}
   * [Subject](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.subject){:target="_blank"}
   * [Effective date time](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.effectiveDateTime){:target="_blank"}
-  * [Performer (Organization that performed the action)](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.performer){:target="_blank"}
   * [Value (one of)](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]){:target="_blank"}
     * [Value codeable concept](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept){:target="_blank"}
     * [Value quantity](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueQuantity){:target="_blank"}
