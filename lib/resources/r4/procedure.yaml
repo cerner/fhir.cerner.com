@@ -123,6 +123,24 @@ fields:
       <li> Only a type of dateTime is supported. </li>
       <li> The dateTime is converted to a GMT date. </li>
     </ul>
+- name: performedPeriod
+  required: 'No'
+  type: Period
+  description: Estimated or actual period when the procedure was performed.
+  example: |
+    {
+      "performedPeriod": {
+        "start": "2015-10-14T13:13:20-06:00",
+        "end": "2015-10-14T14:12:20-06:00"
+      }
+    }
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.performed_x_
+  note: |
+    <ul>
+      <li> Only a period with valid start and end dateTimes is supported. </li>
+      <li> Either performedPeriod or performedDateTime can be supplied. If both are present, performedPeriod will take precedence. </li>
+      <li> The dateTimes are converted to a GMT date. </li>
+    </ul>
 
 - name: performer
   required: 'No'
