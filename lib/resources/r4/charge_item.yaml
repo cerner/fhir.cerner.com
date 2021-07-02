@@ -29,7 +29,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Modifier Extension
-    terminology_name: extension[x].valueCodeableConcept
+    terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: A code providing additional detail about a product or service.
@@ -42,7 +42,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Procedure Extension
-    terminology_name: extension[x].valueCodeableConcept
+    terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: Procedure performed on the patient associated to the resource.
@@ -55,7 +55,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Revenue Code Extension
-    terminology_name: extension[x].valueCodeableConcept
+    terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: The type of revenue or cost center providing the product and/or service.
@@ -107,7 +107,7 @@ fields:
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: National Drug Product Extension
-    terminology_name: extension[x].valueCodeableConcept
+    terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: The national drug code for pharmacy charges.
