@@ -214,7 +214,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
-Patch an existing Encounter-level or Person-level RelatedPerson.
+Patch an existing Encounter-level or Patient-level RelatedPerson.
 
     PATCH /RelatedPerson/:id
 
