@@ -55,7 +55,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Revenue Code Extension
-    terminology_name: extension[x].extension[x].valueCodeableConcept
+    terminology_name: extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: The type of revenue or cost center providing the product and/or service.
