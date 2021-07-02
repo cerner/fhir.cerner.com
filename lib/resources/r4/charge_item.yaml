@@ -94,7 +94,7 @@ fields:
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: Bill Code Schedule Extension
-    terminology_name: extension[x].valueCodeableConcept.coding.extension[x].valueCoding
+    terminology_name: extension[x].extension[x].valueCodeableConcept.coding.extension[x].valueCoding
     required: 'No'
     type: Extension
     description: A defined group of bill codes that drives billing behavior.
