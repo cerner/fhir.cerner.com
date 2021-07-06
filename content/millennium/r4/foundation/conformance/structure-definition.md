@@ -147,8 +147,8 @@ Authorization is not required.
 [`financial-transaction-tendered-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
-[`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
+[`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
 [`note`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json
 [`note-allowed`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json
