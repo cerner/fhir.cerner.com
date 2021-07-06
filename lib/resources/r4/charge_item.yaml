@@ -120,10 +120,10 @@ fields:
           info_link: http://hl7.org/fhir/sid/ndc
 
   - name: performer
-    type: CodeableConcept
-    description: Distinguishes the type of involvement of the performer in the event.
+    type: List of BackboneElement
+    description: Who performed charged service.
     action: terminology
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer.function
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
     children:
 
       - name: function
