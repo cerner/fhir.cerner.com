@@ -1017,29 +1017,22 @@ module Cerner
             'coding': [
               {
                 'system': 'http://hl7.org/fhir/resource-types',
-                'code': 'Patient',
-                'display': 'Patient'
+                'code': 'Patient'
               }
-            ],
-            'text': 'Patient'
+            ]
           },
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
         }
       ],
       'identifier': [
         {
-          'id': 'CI-490060520-1',
-          'use': 'usual',
           'type': {
             'coding': [
               {
                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
-                'code': '22',
-                'display': 'Military Id',
-                'userSelected': true
+                'code': '22'
               }
-            ],
-            'text': 'Military Id'
+            ]
           },
           'system': 'urn:oid:2.16.840.1.113883.3.42.10001.100001.12',
           'value': '1000000105'
@@ -1047,12 +1040,10 @@ module Cerner
       ],
       'active': true,
       'patient': {
-        'reference': 'Patient/12724068',
-        'display': 'SMART, HAILEY'
+        'reference': 'Patient/12724068'
       },
       'relationship': [
         {
-          'id': 'CI-490017041-0',
           'extension': [
             {
               'valuePeriod': {
@@ -1065,12 +1056,9 @@ module Cerner
                 'coding': [
                   {
                     'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-                    'code': 'MTH',
-                    'display': 'mother',
-                    'userSelected': false
+                    'code': 'MTH'
                   }
-                ],
-                'text': 'Mother'
+                ]
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
@@ -1078,19 +1066,14 @@ module Cerner
           'coding': [
             {
               'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
-              'code': 'GT',
-              'display': 'Guarantor',
-              'userSelected': false
+              'code': 'GT'
             }
-          ],
-          'text': 'Default Guarantor'
+          ]
         }
       ],
       'name': [
         {
-          'id': 'CI-12724066-0',
           'use': 'official',
-          'text': 'SMART, NANCY',
           'family': 'SMART',
           'given': [
             'NANCY'
@@ -1102,7 +1085,6 @@ module Cerner
       ],
       'telecom': [
         {
-          'id': 'CI-PH-29852801-0',
           'extension': [
             {
               'valueUrl': '13215555555',
@@ -1121,9 +1103,7 @@ module Cerner
       'birthDate': '1980-08-11',
       'address': [
         {
-          'id': 'CI-24313551-0',
           'use': 'home',
-          'text': '3P\\nKANSAS CITY, MO 641510001\\nUS',
           'line': [
             '3P'
           ],
@@ -1143,18 +1123,13 @@ module Cerner
             'coding': [
               {
                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
-                'code': '151',
-                'display': 'English',
-                'userSelected': true
+                'code': '151'
               },
               {
                 'system': 'urn:ietf:bcp:47',
-                'code': 'en',
-                'display': 'English',
-                'userSelected': false
+                'code': 'en'
               }
-            ],
-            'text': 'English'
+            ]
           },
           'preferred': 'true'
         }
