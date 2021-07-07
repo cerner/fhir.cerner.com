@@ -56,22 +56,22 @@ The following fields are returned if valued:
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                           | Value\[x] Type                    | Description
-------------------------------|-----------------------------------|--------------------------------------------------------------------------
- `bill-code-schedule`         | [`coding`]                        | A defined group of bill codes that drives billing behavior.
- `custom-attribute`           | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
- `description`                | [`string`]                        | A description providing additional details of the resource.
- `modifier`                   | None (contains nested extensions) | A code providing additional detail about a product or service.
- `national-drug-product`      | None (contains nested extensions) | The national drug product used in care.
- `net-price`                  | [`Money`]                         | The quantity times the unit price for a resource (total price).
- `offset-by`                  | [`Reference`]                     | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
- `performing-location`        | [`Reference`]                     | A location where the resource was performed.
- `priority`                   | [`unsignedInt`]                   | The priority of the element within a list.
- `procedure`                  | None (contains nested extensions) | Procedure performed on the patient associated to the resource.
+ ID                           | Value\[x] Type                                                    | Description
+------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------
+ `bill-code-schedule`         | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
+ `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
+ `description`                | [`string`]                                                        | A description providing additional details of the resource.
+ `modifier`                   | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
+ `national-drug-product`      | None (contains nested extensions)                                 | The national drug product used in care.
+ `net-price`                  | [`Money`]                                                         | The quantity times the unit price for a resource (total price).
+ `offset-by`                  | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
+ `performing-location`        | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A location where the resource was performed.
+ `priority`                   | [`unsignedInt`]                                                   | The priority of the element within a list.
+ `procedure`                  | None (contains nested extensions)                                 | Procedure performed on the patient associated to the resource.
  `quantity-conversion-factor` | [`decimal`]                       | The conversion factor used to calculate the quantity for billing.
- `replacing`                  | [`Reference`]                     | A reference to a resource that this resource is replacing.
- `revenue-code`               | [`CodeableConcept`]               | The type of revenue or cost center providing the product and/or service.
- `unit-price`                 | [`Money`]                         | The price of a single unit for the resource.
+ `replacing`                  | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A reference to a resource that this resource is replacing.
+ `revenue-code`               | None (contains nested extensions)                                 | The type of revenue or cost center providing the product and/or service.
+ `unit-price`                 | [`Money`]                                                         | The price of a single unit for the resource.
 
 ## Search
 
@@ -87,19 +87,21 @@ Search for ChargeItems that meet supplied query parameters:
 
 ### Parameters
 
- Name                  | Required?       | Type          | Description
------------------------|-----------------|---------------|-------------------------------------------------------
- `_id`                 | This or context | [`token`]     | The logical resource id associated with the ChargeItem.
- `context`             | This or _id     | [`token`]     | Encounter associated with event.
- `-status`             | See notes       | [`token`]     | The status of the ChargeItem. Example: `billable`
- [`_count`]            | No              | [`number`]    | The maximum number of results to return.
+ Name                  | Required?                  | Type          | Description
+-----------------------|----------------------------|---------------|-------------------------------------------------------
+ `_id`                 | This or context or account | [`token`]     | The logical resource id associated with the ChargeItem.
+ `context`             | This or _id or account     | [`reference`] | Encounter associated with the ChargeItem.
+ `account`             | This or _id or context     | [`reference`] | Account associated with the ChargeItem.
+ `-status`             | See notes                  | [`token`]     | The status of the ChargeItem. Example: `billable`
+ [`_count`]            | No                         | [`number`]    | The maximum number of results to return.
 
 Notes:
 
 - When searching by `_id`, only a single ChargeItem id can be provided.
-- `-status` must be provided with `context`.
+- `-status` must be provided with `context` or `account`.
 - `-status` must be set to `billable`.
 - `context` must reference an Encounter.
+- Only charge-group `account` types are supported.
 
 ### Headers
 
@@ -159,7 +161,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
-[`Reference`]: https://hl7.org/fhir/r4/references.html#Reference
+[`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`string`]: https://hl7.org/fhir/r4/datatypes.html#string
 [`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
 [`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
