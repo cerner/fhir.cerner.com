@@ -208,7 +208,7 @@ X-Request-Id: 11111111111111111111111111111111
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-### Example- Encounter-Level RelatedPerson
+### Example - Encounter-Level RelatedPerson
 
 #### Request
 
