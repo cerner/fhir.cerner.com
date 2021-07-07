@@ -1064,12 +1064,6 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '156',
-                    'display': 'Mother',
-                    'userSelected': true
-                  },
-                  {
                     'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
                     'code': 'MTH',
                     'display': 'mother',
@@ -1082,12 +1076,6 @@ module Cerner
             }
           ],
           'coding': [
-            {
-              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
-              'code': '1150',
-              'display': 'Default Guarantor',
-              'userSelected': true
-            },
             {
               'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
               'code': 'GT',
@@ -1153,12 +1141,6 @@ module Cerner
         {
           'language': {
             'coding': [
-              {
-                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
-                'code': '151',
-                'display': 'English',
-                'userSelected': true
-              },
               {
                 'system': 'urn:ietf:bcp:47',
                 'code': 'en',

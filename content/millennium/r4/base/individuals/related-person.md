@@ -181,7 +181,7 @@ _Implementation Notes_
 
 <%= definition_table(:related_person, :create, :r4) %>
 
-### Example- Patient-Level RelatedPerson
+### Example - Patient-Level RelatedPerson
 
 #### Request
 
