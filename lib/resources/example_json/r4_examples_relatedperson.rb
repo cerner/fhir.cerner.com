@@ -1142,6 +1142,12 @@ module Cerner
           'language': {
             'coding': [
               {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
+                'code': '151',
+                'display': 'English',
+                'userSelected': true
+              },
+              {
                 'system': 'urn:ietf:bcp:47',
                 'code': 'en',
                 'display': 'English',
