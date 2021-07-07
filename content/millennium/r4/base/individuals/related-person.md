@@ -214,7 +214,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
-Patch an existing Encounter-level RelatedPerson.
+Patch an existing Encounter-level or Patient-level RelatedPerson.
 
     PATCH /RelatedPerson/:id
 
@@ -222,7 +222,6 @@ _Implementation Notes_
 
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
-* Only Encounter-level RelatedPersons may be patched. Patches are not currently supported for Patient-level RelatedPersons.
 
 ### Authorization Types
 
