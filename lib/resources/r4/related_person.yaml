@@ -229,7 +229,7 @@ fields:
   action: create
   note: |
     <ul>
-      <li>If provided, the <code>valueCodeableConcept.coding[0].code</code> must be `Encounter`.</li>
+      <li>The <code>valueCodeableConcept.coding[0].code</code> can be `Encounter or Patient`.</li>
     </ul>
   example: |
     {

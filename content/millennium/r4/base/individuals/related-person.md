@@ -161,7 +161,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create a new Encounter-level RelatedPerson.
+Create a new Encounter-level or Patient-level RelatedPerson.
 
     POST /RelatedPerson
 
@@ -181,7 +181,7 @@ _Implementation Notes_
 
 <%= definition_table(:related_person, :create, :r4) %>
 
-### Example
+### Example- Patient-Level RelatedPerson
 
 #### Request
 
@@ -190,6 +190,33 @@ _Implementation Notes_
 #### Body
 
 <%= json(:r4_relatedperson_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Wed, 27 Mar 2019 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/204989530-12724068
+Last-Modified: Thu, 17 Dec 2020 16:37:42 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Example- Encounter-Level RelatedPerson
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson
+
+#### Body
+
+<%= json(:r4_relatedperson_encounter_create) %>
 
 #### Response
 

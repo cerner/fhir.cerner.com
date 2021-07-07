@@ -1013,6 +1013,170 @@ module Cerner
       'resourceType': 'RelatedPerson',
       'extension': [
         {
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Patient',
+                'display': 'Patient'
+              }
+            ],
+            'text': 'Patient'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+        }
+      ],
+      'identifier': [
+        {
+          'id': 'CI-490060520-1',
+          'use': 'usual',
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                'code': '22',
+                'display': 'Military Id',
+                'userSelected': true
+              }
+            ],
+            'text': 'Military Id'
+          },
+          'system': 'urn:oid:2.16.840.1.113883.3.42.10001.100001.12',
+          'value': '1000000105'
+        }
+      ],
+      'active': true,
+      'patient': {
+        'reference': 'Patient/12724068',
+        'display': 'SMART, HAILEY'
+      },
+      'relationship': [
+        {
+          'id': 'CI-490017041-0',
+          'extension': [
+            {
+              'valuePeriod': {
+                'start': '2019-12-26T16:06:26.000Z'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
+                    'code': '156',
+                    'display': 'Mother',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH',
+                    'display': 'mother',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Mother'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+            }
+          ],
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+              'code': '1150',
+              'display': 'Default Guarantor',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'GT',
+              'display': 'Guarantor',
+              'userSelected': false
+            }
+          ],
+          'text': 'Default Guarantor'
+        }
+      ],
+      'name': [
+        {
+          'id': 'CI-12724066-0',
+          'use': 'official',
+          'text': 'SMART, NANCY',
+          'family': 'SMART',
+          'given': [
+            'NANCY'
+          ],
+          'period': {
+            'start': '2019-12-26T15:12:34.000Z'
+          }
+        }
+      ],
+      'telecom': [
+        {
+          'id': 'CI-PH-29852801-0',
+          'extension': [
+            {
+              'valueUrl': '13215555555',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '13215555555',
+          'use': 'work',
+          'period': {
+            'start': '2021-03-22T14:12:37.000Z'
+          }
+        }
+      ],
+      'gender': 'female',
+      'birthDate': '1980-08-11',
+      'address': [
+        {
+          'id': 'CI-24313551-0',
+          'use': 'home',
+          'text': '3P\\nKANSAS CITY, MO 641510001\\nUS',
+          'line': [
+            '3P'
+          ],
+          'city': 'KANSAS CITY',
+          'district': 'Jackson',
+          'state': 'MO',
+          'postalCode': '641510001',
+          'country': 'US',
+          'period': {
+            'start': '2020-12-08T15:05:44.000Z'
+          }
+        }
+      ],
+      'communication': [
+        {
+          'language': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
+                'code': '151',
+                'display': 'English',
+                'userSelected': true
+              },
+              {
+                'system': 'urn:ietf:bcp:47',
+                'code': 'en',
+                'display': 'English',
+                'userSelected': false
+              }
+            ],
+            'text': 'English'
+          },
+          'preferred': 'true'
+        }
+      ]
+    }.freeze
+
+    R4_RELATEDPERSON_ENCOUNTER_CREATE ||= {
+      'resourceType': 'RelatedPerson',
+      'extension': [
+        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter',
           'valueReference': {
             'reference': 'Encounter/97939518'
