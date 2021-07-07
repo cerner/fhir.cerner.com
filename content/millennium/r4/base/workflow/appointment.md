@@ -26,7 +26,7 @@ When updating an appointment, the resource provides the ability to change the [A
 * From Arrived to Checked-In, or Cancelled
 * From Checked-In to Fulfilled, or Cancelled
 
-Video Visit functionality requires additional configuration and application support.
+Video Visit functionality requires additional licensing, configuration and application support.
 
 The following fields are returned if valued:
 
@@ -168,7 +168,7 @@ _Implementation Notes_
 * This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
 * For Video Visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
-* Video Visit link patching requires additional client configuration, cloud configuration, and application support.
+* Video Visit link patching requires additional licensing, client configuration, cloud configuration, and application support.
 
 ### Authorization Types
 
