@@ -98,6 +98,7 @@ Authorization is not required.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
  [`modifier`]                                                | A code providing additional detail about a product or service.
+ [`national-drug-product`]                                   | The national drug product used in care.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
  [`note`]                                                    | Additional details related to an element within the resource along with author and date/time information.
  [`note-allowed`]                                            | Indication of whether an additional comment is permitted.
@@ -109,6 +110,7 @@ Authorization is not required.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
  [`priority`]                                                | The priority of the element within a list.
  [`procedure`]                                               | Procedure performed on the patient associated to the resource.
+ [`quantity-conversion-factor`]                              | The conversion factor used to calculate the quantity for billing.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relation`]                                                | The related person's familial relationship to the patient.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
@@ -146,6 +148,7 @@ Authorization is not required.
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
 [`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
+[`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
 [`note`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json
 [`note-allowed`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json
@@ -157,6 +160,7 @@ Authorization is not required.
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
 [`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
 [`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
+[`quantity-conversion-factor`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relation`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relation?_format=json
 [`relationship-level`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level?_format=json
