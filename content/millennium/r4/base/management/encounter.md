@@ -109,15 +109,15 @@ Notes:
 * `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
 * The `date` parameter may be provided:
   * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
-    `date=ge2015-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z`,    
-    `date=le2016-01-01T00:00.00.000Z`,
-    `date=lt2016-01-01T00:00.00.000Z`)
+    `date=ge2015-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z`,    
+    `date=le2016-01-01T00:00:00.000Z`,
+    `date=lt2016-01-01T00:00:00.000Z`)
   * twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
-    `date=ge2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
-    `date=ge2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    `date=ge2015-01-01T00:00:00.000Z&date=le2016-01-01T00:00:00.000Z`,
+    `date=ge2015-01-01T00:00:00.000Z&date=lt2016-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z&date=le2016-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z&date=lt2016-01-01T00:00:00.000Z`,
     )
 
 
