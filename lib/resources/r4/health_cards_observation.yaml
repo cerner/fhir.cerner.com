@@ -1,12 +1,12 @@
 ---
 name: Observation
-field_name_base_url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation
+field_name_base_url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation
 fields:
 
 - name: code
   required: 'Yes'
   type: CodeableConcept
-  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.code
+  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code
   description: Describes what was observed. Sometimes this is called the observation "name".
   binding:
     description: Codes identifying names of simple observations.
@@ -14,10 +14,13 @@ fields:
     - display: LOINC
       system: http://loinc.org
       info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: LOINC (Covid19)
+      system: http://loinc.org
+      info_link: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1114.9/expansion
 
 - name: valueCodeableConcept
   type: CodeableConcept
-  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept
+  url: http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept
   description: Codes for value of the observation.
   binding:
     description: Codes for value of the observation.

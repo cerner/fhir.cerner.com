@@ -63,7 +63,7 @@ fields:
 
 - name: _since
   type: List of parameter BackboneElement
-  description: The date time for which the operation to return health cards since this point in time.
+  description: The specific point of time after which resources should be included in the health cards.
   action: health-cards-issue
   example: |
     {

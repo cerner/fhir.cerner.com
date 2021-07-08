@@ -26,8 +26,8 @@ The FHIR Bundle encompassed in the Health Card adheres to the Data Minimization 
 
  Description                                            | FHIR Bundle Profile                                                               | Credential Types
 --------------------------------------------------------|-----------------------------------------------------------------------------------|-------------------------------------
-Health Card with Covid19 vaccination details            | [Vaccination Credentials (DM)](#vaccination-credentials-dm)                       | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#immunization`<br>`https://smarthealth.cards#covid19` 
-Health Card with Covid19 laboratory test result details | [Laboratory Test Result Credentials (DM)](#laboratory-test-result-credentials-dm) | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#laboratory`<br>`https://smarthealth.cards#covid19` 
+Covid19 vaccination            | [Vaccination Credentials (DM)](#vaccination-credentials-dm)                       | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#immunization`<br>`https://smarthealth.cards#covid19` 
+Covid19 laboratory test result | [Laboratory Test Result Credentials (DM)](#laboratory-test-result-credentials-dm) | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#laboratory`<br>`https://smarthealth.cards#covid19` 
 
 A supported health card type is returned if the following conditions are met:
 
@@ -76,16 +76,16 @@ Contains the following resources:
   * [Patient official name](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.name){:target="_blank"}
   * [Date of Birth](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.birthDate){:target="_blank"}
 
-* One or more Observation resources that follow the [Covid19LaboratoryResultObservationDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-dm.html) profile with the following fields, if valued:
-  * [Status](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.status){:target="_blank"}
-  * [Code](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.code){:target="_blank"}
-  * [Subject](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.subject){:target="_blank"}
-  * [Effective date time](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.effectiveDateTime){:target="_blank"}
-  * [Value (one of)](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]){:target="_blank"}
-    * [Value codeable concept](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept){:target="_blank"}
-    * [Value quantity](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueQuantity){:target="_blank"}
-    * [Value string](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.value[x]:valueString){:target="_blank"}
-  * [Reference range](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-covid19-laboratory-result-observation-definitions.html#Observation.referenceRange){:target="_blank"}
+* One or more Observation resources that follow the [InfectiousDiseaseLaboratoryResultObservationDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-dm.html) profile with the following fields, if valued:
+  * [Status](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.status){:target="_blank"}
+  * [Code](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code){:target="_blank"}
+  * [Subject](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.subject){:target="_blank"}
+  * [Effective date time](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.effectiveDateTime){:target="_blank"}
+  * [Value (one of)](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]){:target="_blank"}
+    * [Value codeable concept](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept){:target="_blank"}
+    * [Value quantity](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueQuantity){:target="_blank"}
+    * [Value string](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueString){:target="_blank"}
+  * [Reference range](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.referenceRange){:target="_blank"}
 
 _Terminology Bindings_
 
