@@ -24,9 +24,10 @@ The FHIR Bundle encompassed in the Health Card adheres to the Data Minimization 
 
 ## Supported Health Card Types
 
- Description                                 | FHIR Bundle Profile                                         | Credential Types                                    
----------------------------------------------|-------------------------------------------------------------|-------------------------------------
-Health Card with Covid19 vaccination details | [Vaccination Credentials (DM)](#vaccination-credentials-dm) | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#immunization`<br>`https://smarthealth.cards#covid19` 
+ Description                                            | FHIR Bundle Profile                                                               | Credential Types
+--------------------------------------------------------|-----------------------------------------------------------------------------------|-------------------------------------
+Covid19 vaccination            | [Vaccination Credentials (DM)](#vaccination-credentials-dm)                       | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#immunization`<br>`https://smarthealth.cards#covid19` 
+Covid19 laboratory test result | [Laboratory Test Result Credentials (DM)](#laboratory-test-result-credentials-dm) | `https://smarthealth.cards#health-card`<br>`https://smarthealth.cards#laboratory`<br>`https://smarthealth.cards#covid19` 
 
 A supported health card type is returned if the following conditions are met:
 
@@ -65,6 +66,34 @@ _Authorization Types_
 
 The OAuth2 token must include `Patient.read` and `Immunization.read` scopes.
 
+### Laboratory Test Result Credentials (DM)
+
+Represents the patient and the clinical data related to a laboratory test result
+
+Contains the following resources:
+
+* A single Patient resource that follows the [VaccinationCredentialPatientDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-dm.html#tab-ms) profile with the following fields, if valued:
+  * [Patient official name](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.name){:target="_blank"}
+  * [Date of Birth](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.birthDate){:target="_blank"}
+
+* One or more Observation resources that follow the [InfectiousDiseaseLaboratoryResultObservationDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-dm.html) profile with the following fields, if valued:
+  * [Status](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.status){:target="_blank"}
+  * [Code](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code){:target="_blank"}
+  * [Subject](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.subject){:target="_blank"}
+  * [Effective date time](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.effectiveDateTime){:target="_blank"}
+  * [Value (one of)](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]){:target="_blank"}
+    * [Value codeable concept](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueCodeableConcept){:target="_blank"}
+    * [Value quantity](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueQuantity){:target="_blank"}
+    * [Value string](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value[x]:valueString){:target="_blank"}
+  * [Reference range](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.referenceRange){:target="_blank"}
+
+_Terminology Bindings_
+
+<%= terminology_table(:health_cards_observation, :r4) %>
+
+_Authorization Types_
+
+The OAuth2 token must include `Patient.read` and `Observation.read` scopes.
 
 ## $health-cards-issue 
 
