@@ -86,6 +86,7 @@
   <li>
 <a href="#supported-fhir-bundle-profiles" id="markdown-toc-supported-fhir-bundle-profiles">Supported FHIR Bundle Profiles</a>    <ul>
       <li><a href="#vaccination-credentials-dm" id="markdown-toc-vaccination-credentials-dm">Vaccination Credentials (DM)</a></li>
+      <li><a href="#laboratory-test-result-credentials-dm" id="markdown-toc-laboratory-test-result-credentials-dm">Laboratory Test Result Credentials (DM)</a></li>
     </ul>
   </li>
   <li>
@@ -126,10 +127,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>Health Card with Covid19 vaccination details</td>
+      <td>Covid19 vaccination</td>
       <td><a href="#vaccination-credentials-dm">Vaccination Credentials (DM)</a></td>
       <td>
 <code>https://smarthealth.cards#health-card</code><br><code>https://smarthealth.cards#immunization</code><br><code>https://smarthealth.cards#covid19</code>
+</td>
+    </tr>
+    <tr>
+      <td>Covid19 laboratory test result</td>
+      <td><a href="#laboratory-test-result-credentials-dm">Laboratory Test Result Credentials (DM)</a></td>
+      <td>
+<code>https://smarthealth.cards#health-card</code><br><code>https://smarthealth.cards#laboratory</code><br><code>https://smarthealth.cards#covid19</code>
 </td>
     </tr>
   </tbody>
@@ -228,6 +236,148 @@
 <p><em>Authorization Types</em></p>
 
 <p>The OAuth2 token must include <code>Patient.read</code> and <code>Immunization.read</code> scopes.</p>
+
+<h3 id="laboratory-test-result-credentials-dm">Laboratory Test Result Credentials (DM)</h3>
+
+<p>Represents the patient and the clinical data related to a laboratory test result</p>
+
+<p>Contains the following resources:</p>
+
+<ul>
+  <li>A single Patient resource that follows the <a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-dm.html#tab-ms">VaccinationCredentialPatientDM</a> profile with the following fields, if valued:
+    <ul>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.name" target="_blank">Patient official name</a></li>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
+    </ul>
+  </li>
+  <li>One or more Observation resources that follow the <a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-dm.html">InfectiousDiseaseLaboratoryResultObservationDM</a> profile with the following fields, if valued:
+    <ul>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.status" target="_blank">Status</a></li>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code" target="_blank">Code</a></li>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.subject" target="_blank">Subject</a></li>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.effectiveDateTime" target="_blank">Effective date time</a></li>
+      <li>
+<a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value%5Bx%5D" target="_blank">Value (one of)</a>
+        <ul>
+          <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value%5Bx%5D:valueCodeableConcept" target="_blank">Value codeable concept</a></li>
+          <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value%5Bx%5D:valueQuantity" target="_blank">Value quantity</a></li>
+          <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value%5Bx%5D:valueString" target="_blank">Value string</a></li>
+        </ul>
+      </li>
+      <li><a href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.referenceRange" target="_blank">Reference range</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>Terminology Bindings</em></p>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code">Observation.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes identifying names of simple observations.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/loinc.html">LOINC</a><br>
+                      
+                        System: http://loinc.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1114.9/expansion">LOINC (Covid19)</a><br>
+                      
+                        System: http://loinc.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.value%5Bx%5D:valueCodeableConcept">Observation.valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes for value of the observation.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<p><em>Authorization Types</em></p>
+
+<p>The OAuth2 token must include <code>Patient.read</code> and <code>Observation.read</code> scopes.</p>
 
 <h2 id="health-cards-issue">$health-cards-issue</h2>
 
@@ -410,6 +560,54 @@
       </td>
     </tr>
     
+    <tr>
+      <td>
+        <a name="health-cards-issue-_since">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>_since</code></a>
+        
+        
+      </td>
+      <td> </td>
+      <td>
+<code>List</code> <code>of</code> <code>parameter</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The specific point of time after which resources should be included in the health cards.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "parameter": [
+    {
+      "name": "_since",
+      "valueDateTime": "2020-04-01"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The value must be in the form of <code>valueDateTime</code> (refer to <a href="http://hl7.org/fhir/datatypes.html#dateTime">FHIR dateTime datatype format</a>)</li>
+  <li>Only one value can be defined</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#health-cards-issue">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -431,11 +629,11 @@
     },
     {
       "name": "credentialType",
-      "valueUri": "https://smarthealth.cards#immunization"
+      "valueUri": "https://smarthealth.cards#covid19"
     },
     {
-      "name": "credentialType",
-      "valueUri": "https://smarthealth.cards#covid19"
+      "name": "_since",
+      "valueDateTime": "2020-04-01"
     }
   ]
 }</code></pre>
@@ -449,7 +647,11 @@
   "parameter": [
     {
       "name": "verifiableCredential",
-      "valueString": "eyJhbGciOiJFUzI1NiIsInppcCI6IkRFRiIsImtpZCI6Ik4ybWFHOHFPaElUZV96eVBxY3JDYTZMVF9tVzE4WnRGUHkwOWNHQUIyNHcifQ.3ZJPj9MwEMW_Chqu-ec0bdLc2GUFlRaE2C4X1IPjTFojO45sp6Ks8t0Zp10EYncPHJF88cz45_ee_QDSOajh4P3g6jTtDtLG-mRRGNsmAm2PNhFGp7ZIUeTFsurymGFexAUTVdyUrIkzLDPGu3JZLVqIoG86qNkqz1flMlusIzgKqB_AnwaE-uuvm5zm1h-QK39IBLete33exGFDmOfnpNZjL39wL03_4qAwR9myNewiEBZb7L3k6m5svqHwQVIw-wWtC5waiiRLMuKF6tXYtwrDjEVnRitwO8uHSyO62AFhlCLaWQldYE_kkcijUvdW0cDj-TqgHzdPgD-RHTof8uMazxCupSIevNvcXt183lJvL4_YhxTf3G6ub6hwB7uJ7DWSrL_lPpDYusxixmK2gmmKntTCXtay-TNg57kf3WxWDwo9huc5ciFkj9emnQnCtLLfz7LdyXnUlz9F73JQZWLsfv5aqZNtKo7fCSDmk5BnJUy7KYLhEsAsp0OLfdD2e340ZIQY7dwKZrdSnxE5i7NFzCrCKuM_jrpBS42yKlcF1Qa0nbE61EgfF97YcE0r3aB4CPgDaVGv3hs3SM8VxbZ7Lrn8P0wu_zu5Il-uSvav0dGapp8.UY3V4aWsmxf3an_TvmqDT16kjSX2QAv6E0cbOXS1d1wY5viR5710H39wNmIyuqRAKdNH7CMzxY-U6n7y-qzgSw"
+      "valueString": "eyJhbGciOiJFUzI1NiIsInppcCI6IkRFRiIsImtpZCI6Ik4ybWFHOHFPaElUZV96eVBxY3JDYTZMVF9tVzE4WnRGUHkwOWNHQUIyNHcifQ.3ZJPb9QwEMW_Chqu-edsdr3NjZYKKhWE6JYL2oPjTHaN7DiynRVLle_OOLtFINoeOCL54pnxz-89-wGU91DDPoTB13ne7ZVLzdGhtK7NJLoeXSatyV2Voyyr5borU4ZllVZMrtOGsyYtkBdMdHy5XrSQQN90ULNVueR8sVgtEjhIqB8gHAeE-uuvm7wRLuxR6LDPpHCtf33apHFDmOfnlDFjr36IoGz_4qC0B9WyC9gmIB222Acl9N3YfEMZoqRo9gs6Hzk1VFmRFcSL1cuxbzXGGYfejk7iZpYP50ZytgPSak20kxK6wB3JI5FHre-dpoHH83VEP26eAH8iO3Q-5icMniDCKE08eHdze3n9eUO9nTpgH1N8c3tzdU2FO9hOZK9RZP2tCJHELniRMpayFUxT8qQW9rKWmz8D9kGE0c9mzaAxYHyeg5BS9Xhl25kgbav63SzbH31Ac_5T9C57zTPrdvPXyr1qc3n4TgA5n4Sy4DBtpwSGcwCznA4d9lHb7_nRkJVydHMrmt0oc0KULC0WKVsTVtvwcTQNOmrwNV9VVBvQddaZWCN9Qgbr4jWt8oMWMeAPpEW_em_9oILQFNv2ueTK_zC58u_kqnK54uxfo6M1TT8B.ErkeyFvKawfR5UkTvPxF2MIUD058AG5yqRDE2oavtpUhYlLGUyN87gk72ljjat3cQaBNWfu9U8TWVk2T-oR9Hw"
+    },
+    {
+      "name": "verifiableCredential",
+      "valueString": "eyJhbGciOiJFUzI1NiIsInppcCI6IkRFRiIsImtpZCI6Ik4ybWFHOHFPaElUZV96eVBxY3JDYTZMVF9tVzE4WnRGUHkwOWNHQUIyNHcifQ.hZJda9swFIb_StFu_SHZTpz4bv1gFMo2mnQXK7mQ5eNEQ5aCJJuFkv--IztNC-syEAgdHT3nPe_RC5HOkYrsvN-7Kk3bnbRxd7AgjG0SAVaDTYTpUlukILJitmizmEFWxAUTi7guWR1TKCnjbTlb5A2JiK5bUrF5NivLPJ_nERkEqV6IP-yBVM_nSq7j1u-AK79LBLeN-zQd4nBAzL_zFK-N5d7Yw8U0YQbZsCXZRERYaEB7ydWqr3-B8EFQaPUHWCeNRgOKhCYUeSF63etGQcix4ExvBaxH8eR0EZ2aIcIohbRAiAgWQEXVM5J7pZ6swoTX91VAvx4-AH_nXuL74B7vYILwTirkkS_3D9d3j2u828oBdPDw88P9zR0GVmRzxPZqia3fch9IbFnSmLGYzcnxGH2ohV3W8q12YAd-6sp57vvwQ1qpucKAMM34Cnept6NUd3AeutMvwlkoI7VIjN2e08mymFEao6bNEZlvQ7DQggUdhLw3C5OgbYO1A4TG1jK4QjKa0ZgWcU7XdFGxWUVxaJT-xDoDVz3cYDFeK9yRuPf_kem06aBJpG5N6oR_E5vNaV7mlLJJ7lnjI9fbaTjT_C_SPdhOaqPM9pDsVBnsSIO-1ZiXnqE2QOMOuA6kswZtbDf63Ui3Vzx8hK9j6GpSEebu4bf_K_4u7K9uwaOJ0IRGwjoe_wA.hpRuDsGuiAAHjGGn5Obfow3TalP5sc7Z00KifXGdoQAtzo6dj0DEeBPqvRcjQTy93GaYhB0jPu4Tzou9QKWcLw"
     },
     {
       "name": "resourceLink",
@@ -499,6 +701,40 @@
         {
           "name": "hostedResource",
           "valueUri": "https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197462824"
+        }
+      ]
+    },
+    {
+      "name": "resourceLink",
+      "part": [
+        {
+          "name": "vcIndex",
+          "valueInteger": 1
+        },
+        {
+          "name": "bundledResource",
+          "valueUri": "resource:0"
+        },
+        {
+          "name": "hostedResource",
+          "valueUri": "https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742542"
+        }
+      ]
+    },
+    {
+      "name": "resourceLink",
+      "part": [
+        {
+          "name": "vcIndex",
+          "valueInteger": 1
+        },
+        {
+          "name": "bundledResource",
+          "valueUri": "resource:1"
+        },
+        {
+          "name": "hostedResource",
+          "valueUri": "https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197287549"
         }
       ]
     }
