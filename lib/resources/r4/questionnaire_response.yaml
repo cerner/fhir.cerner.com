@@ -124,7 +124,7 @@ fields:
       {
         "id": "111"
       }
-    note: If an item.id is returned on a read, it must be provided on an update. The item.id should NOT be provided if modifiable extension is false
+    note: If an item.id is returned on a read, it must be provided on an update.
 
   - name: item.linkId
     required: 'Yes'
