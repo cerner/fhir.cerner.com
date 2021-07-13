@@ -283,6 +283,10 @@ module Cerner
         'display': 'Baseline East'
       },
       'performedDateTime': '2019-04-05T20:21:46Z',
+      'performedPeriod': {
+        'start': '2019-04-05T20:21:46Z',
+        'end': '2019-04-05T21:21:46Z'
+      },
       'performer': [
         {
           'function': {
