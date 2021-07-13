@@ -60,7 +60,7 @@ fields:
         "status": "in-progress"
       }
     note: Status must be 'in-progress'.
-  
+
   - name: subject
     required: 'Yes'
     type: Reference
@@ -109,7 +109,7 @@ fields:
                   }
                 ]
               }
-            ] 
+            ]
           }
         ]
       }
@@ -124,7 +124,7 @@ fields:
       {
         "id": "111"
       }
-    note: If an item.id is returned on a read, it must be provided on an update.
+    note: If an item.id is returned on a read, it must be provided on an update. The item.id should NOT be provided if modifiable extension is false
 
   - name: item.linkId
     required: 'Yes'

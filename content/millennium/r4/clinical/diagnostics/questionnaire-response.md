@@ -41,6 +41,7 @@ The following fields are returned if valued:
 
 * [Choice Answer]
 * [Note]
+* [Modifiable]
 
 ### Custom Extensions
 
@@ -50,6 +51,7 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 -----------------|-------------------------------------------------------------------|-----------------------------------------------
  `choice-answer` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indicates answers come from a list of options.
  `note`          | [`Annotation`](https://hl7.org/fhir/r4/datatypes.html#annotation) | Additional details about a given QuestionnaireResponse group item. Includes author and date/time information.
+ `modifiable`    | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | The extension is present only if activity modifiable is FALSE
 
 ## Search
 
