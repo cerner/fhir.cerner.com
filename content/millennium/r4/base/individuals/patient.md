@@ -80,6 +80,11 @@ Notes:
   * May be provided twice using the prefixes `le` and `ge` to indicate a date range
   * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, `eq`
   * Must not be provided with a time component
+* The `identifier` parameter
+    * Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+      Patient resource.
+    * When valid system is provided, search is performed against the specific system.
+
 
 ### Headers
 
