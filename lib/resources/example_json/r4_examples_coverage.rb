@@ -391,6 +391,12 @@ module Cerner
       'class': [
         {
           'type': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/ValueSet/coverage-class',
+                'code': 'plan'
+              }
+            ],
             'text': 'Charging Category'
           },
           'value': '2572940471',
@@ -425,6 +431,12 @@ module Cerner
       'class': [
         {
           'type': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/ValueSet/coverage-class',
+                'code': 'plan'
+              }
+            ],
             'text': 'Charging Category'
           },
           'value': '2572940471',
