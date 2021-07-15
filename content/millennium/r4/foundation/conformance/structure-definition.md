@@ -97,7 +97,7 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
- [`modifier`]                                                | A code providing additional detail about a product or service.
+ [`modifier-code`]                                           | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
  [`note`]                                                    | Additional details related to an element within the resource along with author and date/time information.
@@ -109,7 +109,7 @@ Authorization is not required.
  [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
  [`priority`]                                                | The priority of the element within a list.
- [`procedure`]                                               | Procedure performed on the patient associated to the resource.
+ [`procedure-code`]                                          | A code providing information about the procedure performed on the patient associated to the resource.
  [`quantity-conversion-factor`]                              | The conversion factor used to calculate the quantity for billing.
  [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
  [`relation`]                                                | The related person's familial relationship to the patient.
@@ -147,7 +147,7 @@ Authorization is not required.
 [`financial-transaction-tendered-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
-[`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
+[`modifier-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
 [`note`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json
@@ -159,7 +159,7 @@ Authorization is not required.
 [`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
 [`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
-[`procedure`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure?_format=json
+[`procedure-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json
 [`quantity-conversion-factor`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor?_format=json
 [`related-person-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json
 [`relation`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/relation?_format=json

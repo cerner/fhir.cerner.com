@@ -28,27 +28,27 @@ fields:
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-ICD
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
-  - name: Modifier Extension
+  - name: Modifier Code Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: A code providing additional detail about a product or service.
     url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
     binding:
-      description: A code providing additional detail about a product or service. This binding is used in <code>modifier</code> extensions.
+      description: A code providing additional detail about a product or service. This binding is used in <code>modifier-code</code> extensions.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-MODIFIER
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
-  - name: Procedure Extension
+  - name: Procedure Code Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
-    description: Procedure performed on the patient associated to the resource.
+    description: A code providing information about the procedure performed on the patient associated to the resource.
     url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
     binding:
-      description: Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
+      description: A code providing information about the procedure performed on the patient associated to the resource. This binding is used in <code>procedure-code</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
       - display: Bill Codes Types
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
