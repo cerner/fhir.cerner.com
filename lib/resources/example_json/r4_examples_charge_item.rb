@@ -68,7 +68,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
         },
         {
           'extension': [
@@ -97,7 +97,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
         },
         {
           'extension': [
@@ -126,7 +126,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
         },
         {
           'valueCodeableConcept': {
@@ -284,7 +284,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
               },
               {
                 'extension': [
@@ -313,7 +313,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
               },
               {
                 'extension': [
@@ -342,7 +342,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
               },
               {
                 'valueCodeableConcept': {
