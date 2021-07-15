@@ -36,15 +36,18 @@ Search for Organizations that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?                               | Type       | Description
--------------|-----------------------------------------|------------|----------------------------------------------------------
- `_id`       | This or `identifier` or `type`          | [`token`]  | The logical resource id associated with the resource.
- `identifier`| This or `type` or `_id`                 | [`token`]  | NPI, OID or FederalTAXID identifier for the organization.
- `type`      | This or `identifier` or `_id`           | [`token`]  | The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`
- [`_count`]  | No                                      | [`number`] | The maximum number of results to return. Defaults to `100`.
- `name`      | This or `_id` or `identifier` or `type` | [`string`] | Name used for the organization.
+ Name        | Required? | Type       | Description
+-------------|-----------|------------|----------------------------------------------------------
+ `_id`       | No        | [`token`]  | The logical resource id associated with the resource.
+ `identifier`| No        | [`token`]  | NPI, OID or FederalTAXID identifier for the organization.
+ `type`      | No        | [`token`]  | The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`
+ [`_count`]  | No        | [`number`] | The maximum number of results to return. Defaults to `100`.
+ `name`      | No        | [`string`] | Name used for the organization.
 
  Notes:
+
+- Searching all Organizations
+  - Performing an Organization Search request without any parameters will return **all** available Organizations, paginated.
 
 - The `identifier` parameter
   - Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
