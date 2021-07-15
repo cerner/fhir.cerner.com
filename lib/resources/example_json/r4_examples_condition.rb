@@ -13,8 +13,9 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: SMART, NANCY'\
-               '</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p><p><b>Clinical Status'\
-               '</b>: Resolved</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p>'\
+               '</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p><p>'\
+               '<b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Resolved</p>'\
+               '<p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p>'\
                '<p><b>Resolved</b>: Apr  4, 2020  5:00 P.M. UTC</p></div>'
       },
       'clinicalStatus': {
@@ -49,6 +50,17 @@ module Cerner
             }
           ],
           'text': 'Problem List Item'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '74188005',
+              'display': 'Medical (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Medical'
         }
       ],
       'code': {
@@ -85,8 +97,9 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: SMART, NANCY'\
-               '</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p><p><b>Clinical Status'\
-               '</b>: Resolved</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p>'\
+               '</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p>'\
+               '<p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Resolved</p>'\
+               '<p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p>'\
                '<p><b>Resolved</b>: Apr  4, 2020  5:00 P.M. UTC</p></div>'
       },
       'clinicalStatus': {
@@ -121,6 +134,17 @@ module Cerner
             }
           ],
           'text': 'Problem List Item'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '74188005',
+              'display': 'Medical (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Medical'
         }
       ],
       'code': {
@@ -152,7 +176,8 @@ module Cerner
       'text': {
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Diagnosis</b>:'\
-            ' Error, Error</p><p><b>Verification Status</b>: Entered in Error</p></div>'
+            ' Error, Error</p><p><b>Category Classification</b>: Medical</p><p><b>Verification Status</b>:'\
+            ' Entered in Error</p></div>'
       },
       'verificationStatus': {
         'coding': [
@@ -174,6 +199,17 @@ module Cerner
             }
           ],
           'text': 'Encounter Diagnosis'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '74188005',
+              'display': 'Medical (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Medical'
         }
       ],
       'code': {
@@ -202,8 +238,9 @@ module Cerner
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: '\
               'SMART, TIMMY</p><p><b>Health Concern</b>: THIS IS A TEST GOAL, THIS IS A TEST GOAL</p>'\
-              '<p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p>'\
-              '<b>Onset</b>: Dec  3, 2020</p><p><b>Recorded Date</b>: Dec  3, 2020 10:47 P.M. UTC</p></div>'
+              '<p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Active</p>'\
+              '<p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Dec  3, 2020</p>'\
+              '<p><b>Recorded Date</b>: Dec  3, 2020 10:47 P.M. UTC</p></div>'
       },
       'clinicalStatus': {
         'coding': [
@@ -237,6 +274,17 @@ module Cerner
             }
           ],
           'text': 'Health Concern'
+        },
+        {
+          'coding': [
+            {
+              'system': 'http://snomed.info/sct',
+              'code': '74188005',
+              'display': 'Medical (qualifier value)',
+              'userSelected': false
+            }
+          ],
+          'text': 'Medical'
         }
       ],
       'code': {
@@ -267,9 +315,9 @@ module Cerner
         'text': {
           'status': 'generated',
           'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: '\
-                 'SMART, NANCY</p><p><b>Diagnosis</b>: Anemia, Anemia (disorder)</p><p><b>Clinical Status</b>: '\
-                 'Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 10, 2020  5:00 '\
-                 'P.M. UTC</p></div>'
+                 'SMART, NANCY</p><p><b>Diagnosis</b>: Anemia, Anemia (disorder)</p><p><b>Category Classification</b>:'\
+                 ' Medical</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p>'\
+                 '<p><b>Onset</b>: Jun 10, 2020  5:00 P.M. UTC</p></div>'
         },
         'clinicalStatus': {
           'coding': [
@@ -302,6 +350,17 @@ module Cerner
               }
             ],
             'text': 'Encounter Diagnosis'
+          },
+          {
+            'coding': [
+              {
+                'system': 'http://snomed.info/sct',
+                'code': '74188005',
+                'display': 'Medical (qualifier value)',
+                'userSelected': false
+              }
+            ],
+            'text': 'Medical'
           }
         ],
         'code': {
@@ -349,10 +408,10 @@ module Cerner
         'text': {
           'status': 'generated',
           'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Health Concern</b>: '\
-                'description, description</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>'\
-                ': Confirmed</p><p><b>Onset</b>: Sep 20, 2020</p><p><b>Recorder</b>: '\
-              'DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48</p>'\
-              '<p><b>Recorded Date</b>: Oct 13, 2020  3:46 P.M. CDT</p></div>'
+                'description, description</p><p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: '\
+                'Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Sep 20, 2020</p>'\
+                '<p><b>Recorder</b>: DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48</p>'\
+                '<p><b>Recorded Date</b>: Oct 13, 2020  3:46 P.M. CDT</p></div>'
         },
         'clinicalStatus': {
           'coding': [
@@ -384,6 +443,17 @@ module Cerner
               }
             ],
             'text': 'Health Concern'
+          },
+          {
+            'coding': [
+              {
+                'system': 'http://snomed.info/sct',
+                'code': '74188005',
+                'display': 'Medical (qualifier value)',
+                'userSelected': false
+              }
+            ],
+            'text': 'Medical'
           }
         ],
         'code': {
