@@ -60,7 +60,7 @@ fields:
         "status": "in-progress"
       }
     note: Status must be 'in-progress'.
-  
+
   - name: subject
     required: 'Yes'
     type: Reference
@@ -109,7 +109,7 @@ fields:
                   }
                 ]
               }
-            ] 
+            ]
           }
         ]
       }
