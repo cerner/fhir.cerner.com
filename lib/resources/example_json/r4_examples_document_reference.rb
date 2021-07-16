@@ -127,7 +127,7 @@ module Cerner
       "type": {
         "coding": [
           {
-            "system": 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
             "code": '4184837',
             "display": 'Bone Marrow Report',
             "userSelected": true
@@ -164,7 +164,7 @@ module Cerner
         {
           "attachment": {
             "contentType": 'application/pdf',
-            "url": 'https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Binary/XR-8676968',
+            "url": 'https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-8676968',
             "title": 'Bone Marrow Final Report',
             "creation": '2014-12-08T21:04:50.000Z'
           }

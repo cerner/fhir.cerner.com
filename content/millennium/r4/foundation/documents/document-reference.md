@@ -88,7 +88,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/DocumentReference?patient=823932&encounter=863887
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=823932&encounter=863887
 
 #### Response
 
