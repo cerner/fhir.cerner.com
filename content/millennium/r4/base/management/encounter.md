@@ -41,7 +41,7 @@ The following fields are returned if valued:
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
-* [Extensions including client organization, custom attribute, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
+* [Extensions including client organization, custom attribute, estimated financial responsibility amount, estimated financial responsibility not collected reason, military service connected indicator, and payment collection status](#extensions){:target="_blank"}
 
 ### Contained Location Bindings
 
@@ -56,8 +56,9 @@ The following fields are returned if valued:
 * [Client Organization]
 * [Custom Attribute]
 * [Estimated Financial Responsibility Amount]
-* [Payment Collection Status]
 * [Estimated Financial Responsibility Not Collected Reason]
+* [Military Service Connected Indicator]
+* [Payment Collection Status]
 
 ### Custom Extensions
 
@@ -69,6 +70,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`CodeableConcept`], or [`dateTime`].
  `estimated-financial-responsibility-amount`               | [`Money`]                                                        | The estimated amount to be collected for the encounter.
  `estimated-financial-responsibility-not-collected-reason` | [`CodeableConcept`]                                              | The reason no estimated amount is collected for the encounter.
+ `military-service-connected-indicator`                    | [`CodeableConcept`]                                              | Identifies whether an encounter is connected to military service.
  `payment-collection-status`                               | [`CodeableConcept`]                                              | The status of the payment collection for the encounter.
 
 ## Search
@@ -334,5 +336,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [Estimated Financial Responsibility Amount]: #custom-extensions
 [Estimated Financial Responsibility Not Collected Reason]: #custom-extensions
+[Military Service Connected Indicator]: #custom-extensions
 [OperationOutcomes]: ../../#operation-outcomes
 [Payment Collection Status]: #custom-extensions
