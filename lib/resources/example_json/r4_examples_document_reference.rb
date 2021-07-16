@@ -107,6 +107,82 @@ module Cerner
       }
     }.freeze
 
+    R4_DOCUMENT_REFERENCE_SEARCH_BY_ENCOUNTER_FILTER_PATIENT_DOCUMENTS ||= {
+      "resourceType": 'DocumentReference',
+      "id": '8676968',
+      "meta": {
+        "versionId": '4',
+        "lastUpdated": '2014-12-08T21:18:56.000Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+        'Test, Blood Bank</p><p><b>Document Type</b>: Bone Marrow Report</p><p><b>Document Category</b>: '\
+        'Unknown</p><p><b>Document Title</b>: Bone Marrow Final Report</p><p><b>Service Start Date</b>: '\
+        'Dec  8, 2014  3:04 P.M. CST</p><p><b>Service End Date</b>: Dec  8, 2014  3:04 P.M. '\
+        'CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Desani, Santosh</p></div>'
+      },
+      "status": 'current',
+      "docStatus": 'final',
+      "type": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '4184837',
+            "display": 'Bone Marrow Report',
+            "userSelected": true
+          },
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+            "code": 'UNK',
+            "display": 'unknown'
+          }
+        ],
+        "text": 'Bone Marrow Report'
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+              "code": 'unknown',
+              "display": 'Unknown'
+            }
+          ],
+          "text": 'Unknown'
+        }
+      ],
+      "subject": {
+        "reference": 'Patient/823932',
+        "display": 'Test, Blood Bank'
+      },
+      "authenticator": {
+        "reference": 'Practitioner/1994008',
+        "display": 'Desani, Santosh'
+      },
+      "content": [
+        {
+          "attachment": {
+            "contentType": 'application/pdf',
+            "url": 'https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-8676968',
+            "title": 'Bone Marrow Final Report',
+            "creation": '2014-12-08T21:04:50.000Z'
+          }
+        }
+      ],
+      "context": {
+        "encounter": [
+          {
+            "reference": 'Encounter/863887'
+          }
+        ],
+        "period": {
+          "start": '2014-12-08T21:04:50.000Z',
+          "end": '2014-12-08T21:04:50.000Z'
+        }
+      }
+    }.freeze
+
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS ||= {
       'resourceType': 'DocumentReference',
       'id': '21961261',
