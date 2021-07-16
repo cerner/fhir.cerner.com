@@ -64,6 +64,9 @@ _Implementation Notes_
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
   * If one `period` parameter includes a time, both must include a time.
 
+* When searching with the `encounter` parameter:
+  * Patient level documents are filtered out from responses when the encounter id is zero/blank.
+
 ### Headers
 
 <%= headers %>
@@ -80,6 +83,20 @@ _Implementation Notes_
 <%= json(:R4_DOCUMENT_REFERENCE_BUNDLE) %>
 
 <%= disclaimer %>
+
+### Example: search by encounter filters patients level documents
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/DocumentReference?patient=823932&encounter=863887
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_SEARCH_BY_ENCOUNTER_FILTER_PATIENT_DOCUMENTS) %>
+
+<%= disclaimer %>
+
 
 #### Patient Authorization Request
 
