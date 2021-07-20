@@ -603,6 +603,19 @@ fields:
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4660008
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4660008-estimated-financial-responsibility-not-collected-reason
 
+- name: Military Service Connected Indicator Extension
+  url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
+  terminology_name: extension[x].valueCodeableConcept
+  type: CodeableConcept
+  description: Identifies whether an encounter is connected to military service.
+  action: terminology
+  binding:
+    description: Identifies whether an encounter is connected to military service. This binding is used in <code>military-service-connected-indicator</code> extensions.
+    terminology:
+      - display: Military Service Connected Indicator
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003348
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003348-military-service-connected-indicator
+
 - name: Payment Collection status Extension
   url: https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions
   terminology_name: extension[x].valueCodeableConcept
