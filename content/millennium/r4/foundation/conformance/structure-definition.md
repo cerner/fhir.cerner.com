@@ -97,7 +97,7 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
- [`modifiable`]                                              | The extension is present only if activity modifiable is FALSE.
+ [`is-modifiable`]                                              | The extension is present only if activity modifiable is FALSE.
  [`modifier`]                                                | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
@@ -148,7 +148,7 @@ Authorization is not required.
 [`financial-transaction-tendered-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
-[`modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifiable?_format=json
+[`is-modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifiable?_format=json
 [`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
