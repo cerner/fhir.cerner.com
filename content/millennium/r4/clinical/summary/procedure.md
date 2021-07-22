@@ -52,7 +52,7 @@ Search for Procedures that meet supplied query parameters:
 Notes:
 
 * If `_id` is provided, `patient` or `subject` can no longer be provided.
-* The `date` parameter must be provided two times with time, and must use the `ge`, `gt`, `le`, or `lt` prefixes. The lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* A `date` parameter may be provided once with a prefix and time component to imply a date range. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 * The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
 * When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
