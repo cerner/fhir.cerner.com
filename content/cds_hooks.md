@@ -3,8 +3,9 @@ title: CDS Hooks
 layout: cds_hooks
 ---
 
-# CDS Hooks<sup>beta</sup> #
+# CDS Hooks #
 ------------------------------------------------------------------------
+<%= beta_tag(resource: false) %>
 * TOC
 {:toc}
 
@@ -24,7 +25,7 @@ Currently, Cerner supports the following CDS Hooks:
 - [Patient View](https://cds-hooks.org/hooks/patient-view/)
 
 ## CDS Service Registration ##
-In order to submit a service to be registered, the following information is required:
+In order to submit a service to be registered, the following information should be provided:
 
 Name         | Required     | Description | Example
 -------------|--------------|-------------|--------
@@ -48,7 +49,7 @@ When the condition in the EHR is met, the CDS Hooks Server will make a GET reque
 When Cerner's CDS Hooks server calls a service, authorization will be accomplished with a JWT token.
 
 1. The JWT issuer `iss` will be ```https://cds-hooks.cerner.com```. Make sure this is whitelisted as a trusted CDS Client.
-2. The JWT signature should be verified by calling the Cerner Authorization well-known endpoint: ```https://authorization.cerner.com/jwk``` to get the list of JKUs and confirm the token JKU is present
+2. The JWT signature should be verified by calling the Cerner Authorization well-known endpoint: ```https://authorization.cerner.com/jwk``` to get the list of JKUs and confirm the token JKU is present.
 
 
 For more information on CDS Authorization best practices, see [this page](https://cds-hooks.org/best-practices/#jwt).
