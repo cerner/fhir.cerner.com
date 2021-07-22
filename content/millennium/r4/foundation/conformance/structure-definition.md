@@ -97,17 +97,14 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
-<<<<<<< HEAD:content/millennium/r4/foundation/conformance/structure-definition.md
  [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
  [`modifier`]                                                | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
  [`note`]                                                    | Additional details related to an element within the resource along with author and date/time information.
  [`note-allowed`]                                            | Indication of whether an additional comment is permitted.
- [`offset-by`]                                               | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
-=======
  [`note-type`]                                               | Describes the type of note represented. This can be useful when there are multiple notes.
->>>>>>> e3d3bbc6... Documentation for search by Physical Type:content/millennium/r4/conformance/structure-definition.md
+ [`offset-by`]                                               | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
