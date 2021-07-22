@@ -149,17 +149,14 @@ Authorization is not required.
 [`financial-transaction-tendered-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
-<<<<<<< HEAD:content/millennium/r4/foundation/conformance/structure-definition.md
 [`military-service-connected-indicator`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json
 [`modifier`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
 [`note`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json
 [`note-allowed`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json
-[`offset-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json
-=======
 [`note-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-type?_format=json
->>>>>>> e3d3bbc6... Documentation for search by Physical Type:content/millennium/r4/conformance/structure-definition.md
+[`offset-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
