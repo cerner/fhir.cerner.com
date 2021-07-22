@@ -150,7 +150,6 @@ fields:
         "reference": "Encounter/36209678"
       }
     }
-  note: encounter is required field to create charted and staged immunizations
 
 - name: occurrenceDateTime
   required: 'Yes'
