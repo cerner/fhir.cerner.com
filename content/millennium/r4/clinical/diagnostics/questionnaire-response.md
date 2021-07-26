@@ -55,8 +55,6 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 
 ## Search
 
-<%= beta_tag(action: true) %>
-
 Search for QuestionnaireResponses that meet supplied query parameters:
 
     GET /QuestionnaireResponse?:parameters
@@ -94,8 +92,6 @@ _Implementation Notes_
 <%= disclaimer %>
 
 ## Retrieve by id
-
-<%= beta_tag(action: true) %>
 
 List an individual QuestionnaireResponse by its id:
 
