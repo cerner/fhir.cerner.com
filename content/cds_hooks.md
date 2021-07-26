@@ -12,7 +12,7 @@ layout: cds_hooks
 ## General ##
 
 ### Introduction ###
-The CDS Hooks (Clinical Decision Support Hooks) workflow defines a specification for external CDS Service developers to send notification cards to an electronic health record (EHR). These cards are triggered based on conditions such as the opening of a patient chart of a specified demographic(age, gender, etc.) or when a order is selected. These cards can contain information, a suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
+The CDS Hooks (Clinical Decision Support Hooks) workflow defines a specification for external CDS Service developers to send notification cards to an electronic health record (EHR). These cards are triggered based on conditions such as the opening of a patient chart of a specified demographic(age, gender, etc.) or when an order is selected. These cards can contain information, a suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
 
 ### Authorization Model ###
 1. Cerner must validate and register every CDS service.
