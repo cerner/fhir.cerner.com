@@ -288,6 +288,8 @@
 <ul>
   <li>Condition.severity codes are maintained in <a href="#code-set-12022-severity">Code Set 12022 Severity</a>
 </li>
+  <li>Condition.category problem classification codes are maintained in <a href="#code-set-12033-problem-classification">Code Set 12033 Problem Classification</a>
+</li>
 </ul>
 
 <h4>Procedure</h4>
@@ -823,7 +825,19 @@
 <pre><code>{
   "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12022",
   "code": "3294",
-  "display": "Moderate",
+  "display": "Moderate"
+}
+</code></pre>
+
+<h5 id="code-set-12033-problem-classification">Code Set 12033 Problem Classification</h5>
+
+<p>This code set contains problem classifications such as Medical or Patient Stated.</p>
+
+<pre><code>{
+    "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12033",
+    "code": "15186888",
+    "display": "Medical",
+    "userSelected": true
 }
 </code></pre>
 

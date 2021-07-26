@@ -310,12 +310,37 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Yes</td>
+      <td>This or <code>-physicalType</code>
+</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the resource.</td>
     </tr>
+    <tr>
+      <td><code>-physicalType</code></td>
+      <td>This or <code>_id</code>
+</td>
+      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The location’s physical type. Example: <code>http://terminology.hl7.org/CodeSystem/location-physical-type|ro</code>
+</td>
+    </tr>
+    <tr>
+      <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Defaults to <code>100</code>.</td>
+    </tr>
   </tbody>
 </table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>-physicalType</code> parameter
+    <ul>
+      <li>Searching by Millennium proprietary codes is not supported.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 

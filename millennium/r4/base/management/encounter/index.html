@@ -176,7 +176,7 @@
     </ul>
   </li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider" target="_blank">Service provider (Organization)</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including client organization, custom attribute, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including client organization, custom attribute, estimated financial responsibility amount, estimated financial responsibility not collected reason, military service connected indicator, and payment collection status</a></li>
 </ul>
 
 <h3 id="contained-location-bindings">Contained Location Bindings</h3>
@@ -1060,6 +1060,47 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Identifies whether an encounter is connected to military service. This binding is used in <code>military-service-connected-indicator</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003348-military-service-connected-indicator">Military Service Connected Indicator</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003348 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/encounters/encounter/#extensions">Encounter.extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
             <ul style="list-style-type: none"><li>The payment collection status. This binding is used in <code>payment-collection-status</code> extensions.</li></ul>
           
           
@@ -1096,8 +1137,9 @@
   <li><a href="#custom-extensions">Client Organization</a></li>
   <li><a href="#custom-extensions">Custom Attribute</a></li>
   <li><a href="#custom-extensions">Estimated Financial Responsibility Amount</a></li>
-  <li><a href="#custom-extensions">Payment Collection Status</a></li>
   <li><a href="#custom-extensions">Estimated Financial Responsibility Not Collected Reason</a></li>
+  <li><a href="#custom-extensions">Military Service Connected Indicator</a></li>
+  <li><a href="#custom-extensions">Payment Collection Status</a></li>
 </ul>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
@@ -1132,6 +1174,11 @@
       <td><code>estimated-financial-responsibility-not-collected-reason</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
       <td>The reason no estimated amount is collected for the encounter.</td>
+    </tr>
+    <tr>
+      <td><code>military-service-connected-indicator</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>Identifies whether an encounter is connected to military service.</td>
     </tr>
     <tr>
       <td><code>payment-collection-status</code></td>
@@ -1176,7 +1223,7 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>patient</code> or <code>subject</code> or <code>account</code>
+      <td>This or <code>patient</code> or <code>subject</code> or <code>account</code> or <code>identifier</code> or <code>pageContext</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the Encounter. Example: <code>7891</code>
@@ -1184,7 +1231,7 @@
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This or <code>subject</code> or <code>account</code> or <code>_id</code>
+      <td>This or <code>subject</code> or <code>account</code> or <code>_id</code> or <code>identifier</code> or <code>pageContext</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
       <td>The patient present at the encounter. Example: <code>12345</code>
@@ -1192,7 +1239,7 @@
     </tr>
     <tr>
       <td><code>subject</code></td>
-      <td>This or <code>patient</code> or <code>account</code> or <code>_id</code>
+      <td>This or <code>patient</code> or <code>account</code> or <code>_id</code> or <code>identifier</code> or <code>pageContext</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
       <td>The patient present at the encounter. Example: <code>subject=Patient/12345</code> or <code>subject:Patient=12345</code>
@@ -1200,10 +1247,18 @@
     </tr>
     <tr>
       <td><code>account</code></td>
-      <td>This or <code>patient</code> or <code>subject</code> or <code>_id</code>
+      <td>This or <code>patient</code> or <code>subject</code> or <code>_id</code> or <code>identifier</code> or <code>pageContext</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
       <td>The account associated with the encounters. Example: <code>F703726</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>identifier</code></td>
+      <td>This or <code>patient</code> or <code>subject</code> or <code>account</code> or <code>_id</code> or <code>pageContext</code>
+</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>An encounter’s identifier. Example: <code>urn:oid:1.2.243.58|110219457</code>
 </td>
     </tr>
     <tr>
@@ -1253,16 +1308,23 @@
   <li>The <code>date</code> parameter may be provided:
     <ul>
       <li>once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
-<code>date=ge2015-01-01T00:00.00.000Z</code>,
-<code>date=gt2015-01-01T00:00.00.000Z</code>,  <br>
-<code>date=le2016-01-01T00:00.00.000Z</code>,
-<code>date=lt2016-01-01T00:00.00.000Z</code>)</li>
+<code>date=ge2015-01-01T00:00:00.000Z</code>,
+<code>date=gt2015-01-01T00:00:00.000Z</code>,  <br>
+<code>date=le2016-01-01T00:00:00.000Z</code>,
+<code>date=lt2016-01-01T00:00:00.000Z</code>)</li>
       <li>twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
-<code>date=ge2015-01-01T00:00.00.000Z&amp;date=le2016-01-01T00:00.00.000Z</code>,
-<code>date=ge2015-01-01T00:00.00.000Z&amp;date=lt2016-01-01T00:00.00.000Z</code>,
-<code>date=gt2015-01-01T00:00.00.000Z&amp;date=le2016-01-01T00:00.00.000Z</code>,
-<code>date=gt2015-01-01T00:00.00.000Z&amp;date=lt2016-01-01T00:00.00.000Z</code>,
+<code>date=ge2015-01-01T00:00:00.000Z&amp;date=le2016-01-01T00:00:00.000Z</code>,
+<code>date=ge2015-01-01T00:00:00.000Z&amp;date=lt2016-01-01T00:00:00.000Z</code>,
+<code>date=gt2015-01-01T00:00:00.000Z&amp;date=le2016-01-01T00:00:00.000Z</code>,
+<code>date=gt2015-01-01T00:00:00.000Z&amp;date=lt2016-01-01T00:00:00.000Z</code>,
 )</li>
+    </ul>
+  </li>
+  <li>The <code>identifier</code> parameter
+    <ul>
+      <li>Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+Encounter resource.</li>
+      <li>When valid system is provided, search is performed against the specific system.</li>
     </ul>
   </li>
 </ul>

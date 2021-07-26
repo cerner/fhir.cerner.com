@@ -253,7 +253,12 @@
           
             <li><i>Note</i></li>
             
-            <ul style="list-style-type: none"><li style="list-style-type: none">Category codes encounter-diagnosis, problem-list-item and health-concern are supported for search and retrieve functionality</li></ul>
+            <ul style="list-style-type: none"><li style="list-style-type: none">
+<ul>
+  <li> Category codes encounter-diagnosis, problem-list-item and health-concern are supported for search and retrieve functionality. </li>
+  <li> Classification codes Medical, Patient Stated, Nursing and Nutrition are supported for search and retrieve functionality. </li>
+</ul>
+</li></ul>
           
 
           
@@ -280,6 +285,22 @@
                       <p>Details: <a target="_blank" href="http://hl7.org/fhir/us/core/CodeSystem/condition-category">US Core Condition Category Codes</a><br>
                       
                         System: http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-12033-problem-classification">Millennium Problem Classification</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12033 <br>
                       
                       </p>
                     
@@ -551,7 +572,7 @@
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "clinicalStatus": {
           "coding": [
@@ -585,6 +606,17 @@
               }
             ],
             "text": "Problem List Item"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "74188005",
+                "display": "Medical (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Medical"
           }
         ],
         "code": {
@@ -622,7 +654,7 @@
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Anemia, Anemia (disorder)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 10, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Anemia, Anemia (disorder)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 10, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "clinicalStatus": {
           "coding": [
@@ -655,6 +687,17 @@
               }
             ],
             "text": "Encounter Diagnosis"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "74188005",
+                "display": "Medical (qualifier value)",
+                "userSelected": false
+              }
+            ],
+            "text": "Medical"
           }
         ],
         "code": {
@@ -789,7 +832,7 @@
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
       },
       "clinicalStatus": {
         "coding": [
@@ -823,6 +866,17 @@
             }
           ],
           "text": "Problem List Item"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "74188005",
+              "display": "Medical (qualifier value)",
+              "userSelected": false
+            }
+          ],
+          "text": "Medical"
         }
       ],
       "code": {
@@ -852,7 +906,7 @@
       },
       "text": {
         "status": "generated",
-        "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Error, Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;/div&gt;"
+        "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Error, Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;/div&gt;"
       },
       "verificationStatus": {
         "coding": [
@@ -874,6 +928,17 @@
             }
           ],
           "text": "Encounter Diagnosis"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "74188005",
+              "display": "Medical (qualifier value)",
+              "userSelected": false
+            }
+          ],
+          "text": "Medical"
         }
       ],
       "code": {
@@ -992,7 +1057,7 @@
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
   },
   "clinicalStatus": {
     "coding": [
@@ -1026,6 +1091,17 @@
         }
       ],
       "text": "Problem List Item"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "74188005",
+          "display": "Medical (qualifier value)",
+          "userSelected": false
+        }
+      ],
+      "text": "Medical"
     }
   ],
   "code": {
@@ -1072,7 +1148,7 @@
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Problem&lt;/b&gt;: Pregnant, Patient currently pregnant (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Clinical Status&lt;/b&gt;: Resolved&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Confirmed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Onset&lt;/b&gt;: Jun 12, 2019&lt;/p&gt;&lt;p&gt;&lt;b&gt;Resolved&lt;/b&gt;: Apr  4, 2020  5:00 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
   },
   "clinicalStatus": {
     "coding": [
@@ -1106,6 +1182,17 @@
         }
       ],
       "text": "Problem List Item"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "74188005",
+          "display": "Medical (qualifier value)",
+          "userSelected": false
+        }
+      ],
+      "text": "Medical"
     }
   ],
   "code": {
@@ -1214,7 +1301,7 @@
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Error, Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Condition&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diagnosis&lt;/b&gt;: Error, Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category Classification&lt;/b&gt;: Medical&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verification Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;/div&gt;"
   },
   "verificationStatus": {
     "coding": [
@@ -1236,6 +1323,17 @@
         }
       ],
       "text": "Encounter Diagnosis"
+    },
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "74188005",
+          "display": "Medical (qualifier value)",
+          "userSelected": false
+        }
+      ],
+      "text": "Medical"
     }
   ],
   "code": {
@@ -1487,6 +1585,7 @@
 <ul>
   <li> Only a single category may be provided. </li>
   <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
+  <li> Classification codes are not supported. </li>
 </ul>
 </li></ul>
       
@@ -2174,6 +2273,7 @@ If-Match: W/"&lt;Current version of the Condition resource&gt;"</code></pre>
 <ul>
   <li> Only a single category may be provided. </li>
   <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
+  <li> Classification codes are not supported. </li>
 </ul>
 </li></ul>
       

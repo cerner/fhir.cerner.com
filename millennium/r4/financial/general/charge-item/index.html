@@ -128,7 +128,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate" target="_blank">Entered Date</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason" target="_blank">Reason</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account" target="_blank">Account</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including bill code schedule, custom attribute, description, modifier, net price, offset by, performing location, procedure, replacing, revenue code, and unit price</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including bill code schedule, custom attribute, description, modifier, national drug product, net price, offset by, performing location, procedure, quantity conversion factor, replacing, revenue code, and unit price</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -150,7 +150,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, or <code>HCPCS</code>.</li></ul>
+            <ul style="list-style-type: none"><li>A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.</li></ul>
           
           
 
@@ -223,7 +223,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions">Chargeitem.extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -264,7 +264,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions">Chargeitem.extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -273,7 +273,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, or <code>HCPCS</code>.</li></ul>
+            <ul style="list-style-type: none"><li>Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.</li></ul>
           
           
 
@@ -428,7 +428,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.extension[x].valueCodeableConcept.coding.extension[x].valueCoding</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept.coding.extension[x].valueCoding</a>
       
       </td>
     </tr>
@@ -464,6 +464,105 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       </td>
     </tr>
     
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/sid/ndc">National Drug Product</a><br>
+                      
+                        System: http://hl7.org/fhir/sid/ndc <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer.function">Chargeitem.performer.function</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that identifies the function of the performer.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-performer-function.html">Performer function codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-ParticipationType <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem/v2-0912">Participation codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v2-0912 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -474,11 +573,13 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="#custom-extensions">Custom Attribute</a></li>
   <li><a href="#custom-extensions">Description</a></li>
   <li><a href="#custom-extensions">Modifier</a></li>
+  <li><a href="#custom-extensions">National Drug Product</a></li>
   <li><a href="#custom-extensions">Net Price</a></li>
   <li><a href="#custom-extensions">Offset By</a></li>
   <li><a href="#custom-extensions">Performing Location</a></li>
   <li><a href="#custom-extensions">Priority</a></li>
   <li><a href="#custom-extensions">Procedure</a></li>
+  <li><a href="#custom-extensions">Quantity Conversion Factor</a></li>
   <li><a href="#custom-extensions">Replacing</a></li>
   <li><a href="#custom-extensions">Revenue Code</a></li>
   <li><a href="#custom-extensions">Unit Price</a></li>
@@ -518,6 +619,11 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td>A code providing additional detail about a product or service.</td>
     </tr>
     <tr>
+      <td><code>national-drug-product</code></td>
+      <td>None (contains nested extensions)</td>
+      <td>The national drug product used in care.</td>
+    </tr>
+    <tr>
       <td><code>net-price</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#Money"><code>Money</code></a></td>
       <td>The quantity times the unit price for a resource (total price).</td>
@@ -541,6 +647,11 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td><code>procedure</code></td>
       <td>None (contains nested extensions)</td>
       <td>Procedure performed on the patient associated to the resource.</td>
+    </tr>
+    <tr>
+      <td><code>quantity-conversion-factor</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#decimal"><code>decimal</code></a></td>
+      <td>The conversion factor used to calculate the quantity for billing.</td>
     </tr>
     <tr>
       <td><code>replacing</code></td>
@@ -589,15 +700,21 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or context</td>
+      <td>This or context or account</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The logical resource id associated with the ChargeItem.</td>
     </tr>
     <tr>
       <td><code>context</code></td>
-      <td>This or _id</td>
-      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>Encounter associated with event.</td>
+      <td>This or _id or account</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>Encounter associated with the ChargeItem.</td>
+    </tr>
+    <tr>
+      <td><code>account</code></td>
+      <td>This or _id or context</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>Account associated with the ChargeItem.</td>
     </tr>
     <tr>
       <td><code>-status</code></td>
@@ -620,11 +737,12 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 <ul>
   <li>When searching by <code>_id</code>, only a single ChargeItem id can be provided.</li>
   <li>
-<code>-status</code> must be provided with <code>context</code>.</li>
+<code>-status</code> must be provided with <code>context</code> or <code>account</code>.</li>
   <li>
 <code>-status</code> must be set to <code>billable</code>.</li>
   <li>
 <code>context</code> must reference an Encounter.</li>
+  <li>Only charge-group <code>account</code> types are supported.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
