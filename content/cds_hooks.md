@@ -14,6 +14,8 @@ layout: cds_hooks
 ### Introduction ###
 The CDS Hooks (Clinical Decision Support Hooks) workflow defines a specification for external CDS Service developers to send notification cards to an electronic health record (EHR). These cards are triggered based on conditions such as the opening of a patient chart of a specified demographic(age, gender, etc.) or when an order is selected. These cards can contain information, a suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
 
+As a CDS Service Developer, you will work with clients or on your own to create a service that will be called by the CDS Hooks Server when a condition you specify is met. To develop a service, you should first gather the information needed for clients to register your service (See [CDS Service Registration](./cds_hooks/#cds-service-registration)). Then, build your service API so that is uses correct authorization (See [Service Authorization](./cds_hooks/#service-registration)) and returns a properly formatted response (See [Service Response](./cds_hooks/#service-response)). Finally, your service should be available for the CDS Hooks Server to call on a client by client basis.
+
 ### Authorization Model ###
 1. Cerner must validate and register every CDS service.
 2. Each client decides whether they want to allow a CDS Service on a domain-by-domain basis.
@@ -25,25 +27,26 @@ Currently, Cerner supports the following CDS Hooks:
 - [Patient View](https://cds-hooks.org/hooks/patient-view/)
 
 ## CDS Service Registration ##
-In order to submit a service to be registered, the following information should be provided:
+In order for a service to be registered for a client, the following information must be provided first.
 
 Name         | Required     | Description | Example
 -------------|--------------|-------------|--------
-hook          | Yes | The hook this service should be invoked on. See [Supported Hooks](#supported-hooks). | patient-view
-title         | Yes | The human-friendly name of this service.    | Severe Condition Alerter
-fhir server   | Yes | The FHIR server that the service queries.   | https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d 
-service url   | Yes | The url for the service that the CDS server will call to get the service card response.  | https://company.myservice.com
-description   | No  | Further information about the service. | Sends alerts for patients above age 65 who may have a severe condition.
-owner email   | No  | Required when scopes are provided. The email address of the owner of the service.        | john.smith@company.com
-tenants       | No  | A list of tenants where the service is enabled. | C1941 - ec2458f2-1e24-41c8-b71b-0e701af7583d, A1234 - as1558f2-1e24-44c8-b71b-0e701af787f3d
-fhir scopes   | No  | A list of the FHIR scopes required for any FHIR calls this CDS service makes. | patient/Patient.read, patient/Encounter.read, patient/Observations.read
-allowed links | No  | A list of all links allowed in the response. Any links not in this list will be removed. | https://www.google.com, https://www.cerner.com
-smart apps    | No  | A list of launch urls for any SMART applications that may be linked to in CDS service responses. | https://www.myapp.com, https://www.otherapp.org
+hook              | Yes | The hook this service should be invoked on. See [Supported Hooks](#supported-hooks). | patient-view
+title             | Yes | The human-friendly name of this service.    | Severe Condition Alerter
+trigger condition | Yes | The condition(s) under which the service is called | Female patient with age > 65 years
+service url       | Yes | The url for the service that the CDS server will call to get the service card response.  | https://company.myservice.com/call
+fhir server       | Yes | The FHIR server that the service queries.   | https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d 
+description       | No  | Further information about the service. | Sends alerts for patients above age 65 who may have a severe condition.
+owner email       | No  | Required when scopes are provided. The email address of the owner of the service.        | john.smith@company.com
+tenants           | No  | A list of tenants where the service is enabled. | C1941 - ec2458f2-1e24-41c8-b71b-0e701af7583d, A1234 - as1558f2-1e24-44c8-b71b-0e701af787f3d
+fhir scopes       | No  | A list of the FHIR scopes required for any FHIR calls this CDS service makes. | patient/Patient.read, patient/Encounter.read, patient/Observations.read
+allowed links     | No  | A list of all links allowed in the response. Any links not in this list will be removed. | https://www.google.com, https://www.cerner.com
+smart apps        | No  | A list of launch urls for any SMART applications that may be linked to in CDS service responses. | https://www.myapp.com, https://www.otherapp.org
 
 For more information on CDS Service attributes see the Discovery Response section [here](https://cds-hooks.hl7.org/1.0/#response).
 
 ## CDS Service Workflow ##
-When the condition in the EHR is met, the CDS Hooks Server will make a GET request to the provided service url. The service should returns an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response). 
+Once a CDS service is registered, it will be called whenever the trigger condition is met in the EHR (e.g. a chart is opened for a patient of the specified demographic). The trigger condition will notify the CDS Hooks Server, which will call the CDS Service using a JWT token and the service url (provided during Registration). The CDS Service response cards will then be displayed in the EHR as either critical notification pop-ups or non-critical notification cards in a sidebar, depending on the card indicator value.
 
 ### Service Authorization ###
 When Cerner's CDS Hooks server calls a service, authorization will be accomplished with a JWT token.
@@ -54,7 +57,10 @@ When Cerner's CDS Hooks server calls a service, authorization will be accomplish
 
 For more information on CDS Authorization best practices, see [this page](https://cds-hooks.org/best-practices/#jwt).
 
-### Example Response from a CDS Service ###
+### Service Response ###
+When the specified condition(s) in the EHR are met, the CDS Hooks Server will make a GET request to the provided service url. The CDS service should return an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response). 
+
+#### Example Response from a CDS Service ####
 
       {
         "cards": [
