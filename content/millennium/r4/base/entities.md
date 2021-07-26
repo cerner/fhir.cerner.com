@@ -7,6 +7,6 @@ layout: api
 
 <%= render '/millennium/r4/base/entities.*' %>
 
-* [Organization](../base/entities/organization)
-* [Location](../base/entities/location)
-* [Device](../base/entities/device)
+* [Organization](../entities/organization)
+* [Location](../entities/location)
+* [Device](../entities/device)

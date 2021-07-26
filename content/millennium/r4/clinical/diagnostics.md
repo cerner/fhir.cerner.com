@@ -7,4 +7,4 @@ layout: api
 
 <%= render '/millennium/r4/clinical/diagnostics.*' %>
 
-* [Observation](../clinical/diagnostics/observation)
+* [Observation](../diagnostics/observation)

@@ -7,6 +7,6 @@ layout: api
 
 <%= render '/millennium/r4/foundation/conformance.*' %>
 
-* [Capability Statement](../foundation/conformance/capability-statement)
-* [Structure Definition](../foundation/conformance/structure-definition)
-* [Operation Definition](../foundation/conformance/operation-definition)
+* [Capability Statement](../conformance/capability-statement)
+* [Structure Definition](../conformance/structure-definition)
+* [Operation Definition](../conformance/operation-definition)

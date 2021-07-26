@@ -7,6 +7,6 @@ layout: api
 
 <%= render '/millennium/r4/base/workflow.*' %>
 
-* [Appointment](../base/workflow/appointment)
-* [Schedule](../base/workflow/schedule)
-* [Slot](../base/workflow/slot)
+* [Appointment](../workflow/appointment)
+* [Schedule](../workflow/schedule)
+* [Slot](../workflow/slot)

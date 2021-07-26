@@ -6,4 +6,4 @@ layout: api
 # Request & Response
 
 <%= render '/millennium/r4/clinical/request-and-response.*' %>
-* [Communication](../clinical/request-and-response/communication)
+* [Communication](../request-and-response/communication)

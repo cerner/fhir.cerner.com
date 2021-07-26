@@ -7,6 +7,6 @@ layout: api
 
 <%= render '/millennium/r4/clinical/summary.*' %>
 
-* [AllergyIntolerance](../clinical/summary/allergy-intolerance)
-* [Condition](../clinical/summary/condition)
-* [Procedure](../clinical/summary/procedure)
+* [AllergyIntolerance](../summary/allergy-intolerance)
+* [Condition](../summary/condition)
+* [Procedure](../summary/procedure)

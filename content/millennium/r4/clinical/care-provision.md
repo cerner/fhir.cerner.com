@@ -7,8 +7,8 @@ layout: api
 
 <%= render '/millennium/r4/clinical/care-provision.*' %>
 
-* [CarePlan](../clinical/care-provision/care-plan)
-* [CareTeam](../clinical/care-provision/care-team)
-* [Goal](../clinical/care-provision/goal)
-* [ServiceRequest](../clinical/care-provision/service-request)
-* [NutritionOrder](../clinical/care-provision/nutrition-order)
+* [CarePlan](../care-provision/care-plan)
+* [CareTeam](../care-provision/care-team)
+* [Goal](../care-provision/goal)
+* [ServiceRequest](../care-provision/service-request)
+* [NutritionOrder](../care-provision/nutrition-order)
