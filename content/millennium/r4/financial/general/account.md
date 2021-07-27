@@ -78,7 +78,7 @@ _Implementation Notes_
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource. Example: `F703726`
- `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|500000078`
+ `identifier` | See notes | [`token`]     | Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number|500000078`
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
  `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/12345`
  `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `6330015-6330017`
@@ -90,7 +90,7 @@ Notes:
   * `_id` alone
   * `patient`, `identifier`, and `type` set to 'statement'
   * `-guarantor` and `type` set to 'financial-account'
-* When searching via `identifier`, the system must be 'https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200'. You may not search via `identifier` with a system of 'https://fhir.cerner.com/accountnumber'.
+* When searching via `identifier`, the system must be 'https://fhir.cerner.com/&lt;EHR source id&gt;/statement-number'. You may not search via `identifier` with a system of 'https://fhir.cerner.com/&lt;EHR source id&gt;/account-number'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
 
 ### Headers
@@ -110,7 +110,7 @@ Notes:
 
 #### Request - `patient`, `identifier`, and `type`
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?identifier=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200|68002&patient=6330017&type=statement
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?identifier=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number|68002&patient=6330017&type=statement
 
 #### Response
 

@@ -823,7 +823,7 @@ This system is the account number of a financial account.
 
     {
       "use": "usual",
-      "system": "https://fhir.cerner.com/accountnumber",
+      "system": "https://fhir.cerner.com/<EHR source id>/account-number",
       "value": "5646"
     }
 

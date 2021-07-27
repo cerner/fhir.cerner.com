@@ -11,10 +11,10 @@ fields:
     description: A business identifier of the account.
     terminology:
     - display: PFT Bill Alias Type
-      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/28200
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/statement-number
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-28200-pft-bill-alias-type
     - display: Account Number
-      system: https://fhir.cerner.com/accountnumber
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/account-number
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#account-number
 
 - name: type
