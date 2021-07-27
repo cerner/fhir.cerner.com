@@ -27,7 +27,7 @@ Currently, Cerner supports the following CDS Hooks:
 - [Patient View](https://cds-hooks.org/hooks/patient-view/)
 
 ## CDS Service Registration ##
-In order for a service to be registered for a client, the following information must be provided first.
+In order for a service to be registered for a client, the following information must be provided first. Please reach out to the [google group](https://groups.google.com/g/cerner-fhir-developers) for configuring your service for testing.
 
 Name         | Required     | Description | Example
 -------------|--------------|-------------|--------
