@@ -7,4 +7,4 @@ layout: api
 
 <%= render '/millennium/r4/foundation/documents.*' %>
 
-* [DocumentReference](../foundation/documents/document-reference)
+* [DocumentReference](/millennium/r4/foundation/documents/document-reference)

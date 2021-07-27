@@ -7,4 +7,4 @@ layout: api
 
 <%= render '/millennium/r4/base/management.*' %>
 
-* [Encounter](../base/management/encounter)
+* [Encounter](/millennium/r4/base/management/encounter)

@@ -33,7 +33,7 @@ fields:
     required: 'No'
     type: Extension
     description: A code providing additional detail about a product or service.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions
     binding:
       description: A code providing additional detail about a product or service. This binding is used in <code>modifier</code> extensions.
       terminology:
@@ -46,7 +46,7 @@ fields:
     required: 'No'
     type: Extension
     description: Procedure performed on the patient associated to the resource.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions
     binding:
       description: Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
@@ -59,7 +59,7 @@ fields:
     required: 'No'
     type: Extension
     description: The type of revenue or cost center providing the product and/or service.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions
     binding:
       description: The type of revenue or cost center providing the product and/or service. This binding is used in <code>revenue-code</code> extensions.
       terminology:
@@ -72,7 +72,7 @@ fields:
     required: 'No'
     type: Extension
     description: A defined group of bill codes that drives billing behavior.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
@@ -85,7 +85,7 @@ fields:
     required: 'No'
     type: Extension
     description: A defined group of bill codes that drives billing behavior.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
@@ -98,7 +98,7 @@ fields:
     required: 'No'
     type: Extension
     description: A defined group of bill codes that drives billing behavior.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
       terminology:
@@ -111,7 +111,7 @@ fields:
     required: 'No'
     type: Extension
     description: The national drug code for pharmacy charges.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
       description: The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.
       terminology:

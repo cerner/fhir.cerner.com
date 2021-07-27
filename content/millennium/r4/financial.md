@@ -9,12 +9,12 @@ layout: api
 
 <%= render '/millennium/r4/financial/support.*' %>
 
-* [Coverage](../financial/support/coverage)
+* [Coverage](/millennium/r4/financial/support/coverage)
 
 ## General
 
 <%= render '/millennium/r4/financial/general.*' %>
 
-* [Account](../financial/general/account)
-* [ChargeItem](../financial/general/charge-item)
-* [FinancialTransaction](../financial/general/financial-transaction)
+* [Account](/millennium/r4/financial/general/account)
+* [ChargeItem](/millennium/r4/financial/general/charge-item)
+* [FinancialTransaction](/millennium/r4/financial/general/financial-transaction)

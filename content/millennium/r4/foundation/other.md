@@ -7,4 +7,5 @@ layout: api
 
 <%= render '/millennium/r4/foundation/other.*' %>
 
-* [Binary](../foundation/other/binary)
+* [Binary](/millennium/r4/foundation/other/binary)
+* [HealthCards](/millennium/r4/foundation/other/health-cards)
