@@ -7,7 +7,7 @@ layout: api
 
 <%= render '/millennium/r4/base/individuals.*' %>
 
-* [Patient](../individuals/patient)
-* [Practitioner](../individuals/practitioner)
-* [RelatedPerson](../individuals/related-person)
-* [Person](../individuals/person)
+* [Patient](/millennium/r4/base/individuals/patient)
+* [Practitioner](/millennium/r4/base/individuals/practitioner)
+* [RelatedPerson](/millennium/r4/base/individuals/related-person)
+* [Person](/millennium/r4/base/individuals/person)

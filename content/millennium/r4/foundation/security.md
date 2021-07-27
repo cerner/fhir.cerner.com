@@ -7,5 +7,5 @@ layout: api
 
 <%= render '/millennium/r4/foundation/security.*' %>
 
-* [Provenance](../security/provenance)
-* [Consent](../security/consent)
+* [Provenance](/millennium/r4/foundation/security/provenance)
+* [Consent](/millennium/r4/foundation/security/consent)
