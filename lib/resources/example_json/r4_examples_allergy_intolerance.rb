@@ -532,7 +532,7 @@ module Cerner
             'text': {
               'status': 'generated',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Allergy Intolerance</b></p><p><b>Patient</b>: '\
-                     'SMART, SANDY A</p><p><b>Allergy</b>: Cow&apos;s milk (substance)</p><p><b>Verification Status'\
+                     'SMART, SANDY A</p><p><b>Allergy</b>: Cow&#39;s milk (substance)</p><p><b>Verification Status'\
                      '</b>: Confirmed</p><p><b>Clinical Status</b>: Active</p><p><b>Criticality</b>: High Risk</p>'\
                      '<p><b>Category</b>: Food</p><p><b>Reactions</b>: Hives</p><p><b>Onset</b>: Dec 14, 2019  6:00 '\
                      'P.M. CST</p></div>'
