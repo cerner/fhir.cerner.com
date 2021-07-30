@@ -55,7 +55,7 @@ module Cerner
       'text': {
         'status': 'additional',
         'div': "<div xmlns='http://www.w3.org/1999/xhtml'><p><b>Care Plan</b></p>"\
-               "<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>"\
+               '<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>'\
                "<p><b>Description</b>: SMART, NANCY\nDOB: 08/11/1980\tAge: 39 Years\t"\
                "MRN: 00000006930\n------------------------------------------------------\n"\
                "\t\t\t\tSMART, NANCY DOB: 08/11/80\nPregnancy Summary (Date of Report: 04/04/20)\n"\
@@ -64,18 +64,18 @@ module Cerner
                "\n\t\t\t\tSMART, NANCY DOB: 08/11/80\nAntepartum Note\n\n\t"\
                "No antepartum notes have been documented\n\n-------------------------------------"\
                "\n\t\t\t\tSMART, NANCY DOB: 08/11/80\nProblems (Active Problems Only)\n"\
-               "Gestational diabetes mellitus, class A&gt;1&lt;"\
+               'Gestational diabetes mellitus, class A&gt;1&lt;'\
                " (Related to Pregnant problem) (SNOMED CT: 124602011, Onset: 03/05/20)\n\t"\
                "Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)\n\n"\
-               "Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)"\
+               'Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)'\
                "\n\tComment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)\n\n"\
                "Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)\n\n-----------------------\n\t\t\t\t"\
                "SMART, NANCY DOB: 08/11/80\nRisk Factors and Genetic Screening\nRisk Factors (Current Pregnancy)"\
                "\nRisk Factors: Diabetes, gestational, type A1, Gestational hypertension\n"\
                "Risk Factors Comments: --\n\nEthnic Screening\n"\
-               "***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>"\
-               "<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>: SYSTEM, SYSTEM Cerner</p>"\
-               "<p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>"
+               '***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>'\
+               '<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>: SYSTEM, SYSTEM Cerner</p>'\
+               '<p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>'
       },
       'status': 'active',
       'intent': 'plan',
@@ -281,7 +281,7 @@ module Cerner
             'text': {
               'status': 'additional',
               'div': "<div xmlns='http://www.w3.org/1999/xhtml'><p><b>Care Plan</b></p>"\
-                     "<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>"\
+                     '<p><b>Patient</b>: SMART, NANCY</p><p><b>Title</b>: Pregnancy Summary Document</p>'\
                      "<p><b>Description</b>: SMART, NANCY\nDOB: 08/11/1980\tAge: 39 Years\t"\
                      "MRN: 00000006930\n------------------------------------------------------\n"\
                      "\t\t\t\tSMART, NANCY DOB: 08/11/80\nPregnancy Summary (Date of Report: 04/04/20)\n"\
@@ -290,18 +290,18 @@ module Cerner
                      "\n\t\t\t\tSMART, NANCY DOB: 08/11/80\nAntepartum Note\n\n\t"\
                      "No antepartum notes have been documented\n\n-------------------------------------"\
                      "\n\t\t\t\tSMART, NANCY DOB: 08/11/80\nProblems (Active Problems Only)\n"\
-                     "Gestational diabetes mellitus, class A&gt;1&lt;"\
+                     'Gestational diabetes mellitus, class A&gt;1&lt;'\
                      " (Related to Pregnant problem) (SNOMED CT: 124602011, Onset: 03/05/20)\n\t"\
                      "Comment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)\n\n"\
-                     "Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)"\
+                     'Gestational hypertension (Related to Pregnant problem) (SNOMED CT: 495022012, Onset: 03/05/20)'\
                      "\n\tComment: Problem added by Discern Expert (SYSTEM, SYSTEM Cerner on 03/05/20)\n\n"\
                      "Pregnant (SNOMED CT: 191073013, Onset: 06/12/19)\n\n-----------------\n\t\t\t\t"\
                      "SMART, NANCY DOB: 08/11/80\nRisk Factors and Genetic Screening\n"\
                      "Risk Factors (Current Pregnancy)\nRisk Factors: Diabetes, gestational, type A1"\
                      ", Gestational hypertension\nRisk Factors Comments: --\n\nEthnic Screening\n"\
-                     "***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>"\
-                     "<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>"\
-                     ": SYSTEM, SYSTEM Cerner</p><p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>"
+                     '***** END OF REPORT *****</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p>'\
+                     '<p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Author</b>'\
+                     ': SYSTEM, SYSTEM Cerner</p><p><b>Effective Period</b>: Apr  5, 2020  4:00 A.M. UTC</p></div>'
             },
             'status': 'active',
             'intent': 'plan',
