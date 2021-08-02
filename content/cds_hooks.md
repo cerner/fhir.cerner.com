@@ -14,7 +14,7 @@ layout: cds_hooks
 ### Introduction ###
 The CDS Hooks (Clinical Decision Support Hooks) workflow provides external CDS Service developers the ability to send CDS cards to an electronic health record (EHR). The external CDS service will be triggered based on conditions such as opening a patient chart for the specified demographic(age, gender, etc.) or when an order is selected and the cards returned from the service will be presented to the user in the EHR. The cards can contain textual guidance, an actionable suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
 
-As a CDS Service Developer, you will work with clients or on your own to create a service that will be called by the CDS Hooks Server when a condition you specify is met. To develop a service, you should first gather the information needed for clients to register your service (See [CDS Service Registration](./cds_hooks/#cds-service-registration)). Then, build your service API so that is uses correct authorization (See [Service Authorization](./cds_hooks/#service-registration)) and returns a properly formatted response (See [Service Response](./cds_hooks/#service-response)). Finally, your service should be available for the CDS Hooks Server to call on a client by client basis.
+As a CDS Service Developer, you will work with clients or on your own to create a service based on the [CDS Hooks Specification](https://cds-hooks.hl7.org/) that will be called by the CDS Hooks Server when a condition you specify is met. Your service API should be built so that it uses correct authorization (See [Service Authorization](./cds_hooks/#service-authorization)) and returns a properly formatted response (See [Service Response](./cds_hooks/#service-response)). Once you are ready to integrate your service with the EHR system you will need to request for your service to be registered (See [CDS Service Registration](./cds_hooks/#cds-service-registration)). Finally, your service should be available for the CDS Hooks Server to call on a client by client basis.
 
 ### Authorization Model ###
 1. Cerner must validate and register every CDS service.
@@ -24,7 +24,7 @@ As a CDS Service Developer, you will work with clients or on your own to create 
 ### Supported Hooks ###
 Currently, Cerner supports the following CDS Hooks:
 
-- [Patient View](https://cds-hooks.org/hooks/patient-view/)
+- [Patient View 1.0](https://cds-hooks.org/hooks/patient-view/)
 
 ## CDS Service Registration ##
 In order for a service to be registered for a client, the following information must be provided first. Please reach out to the [google group](https://groups.google.com/g/cerner-fhir-developers) for configuring your service for testing.
