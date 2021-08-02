@@ -12,7 +12,7 @@ layout: cds_hooks
 ## General ##
 
 ### Introduction ###
-The CDS Hooks (Clinical Decision Support Hooks) workflow defines a specification for external CDS Service developers to send notification cards to an electronic health record (EHR). These cards are triggered based on conditions such as the opening of a patient chart of a specified demographic(age, gender, etc.) or when an order is selected. These cards can contain information, a suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
+The CDS Hooks (Clinical Decision Support Hooks) workflow provides external CDS Service developers the ability to send CDS cards to an electronic health record (EHR). The external CDS service will be triggered based on conditions such as opening a patient chart for the specified demographic(age, gender, etc.) or when an order is selected and the cards returned from the service will be presented to the user in the EHR. The cards can contain textual guidance, an actionable suggestion for the user, or a link to launch a SMART app (See [SMART](./smart) for more information).
 
 As a CDS Service Developer, you will work with clients or on your own to create a service that will be called by the CDS Hooks Server when a condition you specify is met. To develop a service, you should first gather the information needed for clients to register your service (See [CDS Service Registration](./cds_hooks/#cds-service-registration)). Then, build your service API so that is uses correct authorization (See [Service Authorization](./cds_hooks/#service-registration)) and returns a properly formatted response (See [Service Response](./cds_hooks/#service-response)). Finally, your service should be available for the CDS Hooks Server to call on a client by client basis.
 
@@ -58,7 +58,7 @@ When Cerner's CDS Hooks server calls a service, authorization will be accomplish
 For more information on CDS Authorization best practices, see [this page](https://cds-hooks.org/best-practices/#jwt).
 
 ### Service Response ###
-When the specified condition(s) in the EHR are met, the CDS Hooks Server will make a GET request to the provided service url. The CDS service should return an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response). 
+When the specified condition(s) in the EHR are met, the CDS Hooks Server will make a POST request to the provided service url. The CDS service should return an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response).
 
 #### Example Response from a CDS Service ####
 
