@@ -140,7 +140,7 @@ an individual accessing the EHR.</li>
 
 <p>To orchestrate this interaction, SMART<sup>®</sup> on FHIR<sup>®</sup> 
 defines a set of authorization profiles and extensions for the OAuth 2.0 
-Authorization Framework (<a href="http://tools.ietf.org/html/rfc6749" title="The OAuth 2.0 Authorization Framework">IETF RFC 6749</a>).</p>
+Authorization Framework (<a href="https://datatracker.ietf.org/doc/html/rfc6749" title="The OAuth 2.0 Authorization Framework">IETF RFC 6749</a>).</p>
 
 <h3 id="terminology">Terminology</h3>
 <p>The following terms are used within this specification:</p>
@@ -190,7 +190,7 @@ implementation and tracks the end user’s current context.</p>
 <h3 id="notational-convention">Notational Convention</h3>
 <p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, 
 “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this 
-document are to be interpreted as described in <a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a>.</p>
+document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a>.</p>
 
 <p>Unless otherwise noted, all the protocol parameter names and values are 
 case sensitive.</p>
@@ -314,7 +314,7 @@ The application <strong>MAY</strong> choose to omit the redirect URI, as SMART
 registration requires a default redirect URI.</p>
 
 <p>In addition, SMART applications <strong>MUST</strong> send the “state” 
-parameter, as detailed in the <a href="http://tools.ietf.org/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">OAuth 2.0 Security Considerations</a>.</p>
+parameter, as detailed in the <a href="https://datatracker.ietf.org/doc/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">OAuth 2.0 Security Considerations</a>.</p>
 
 <p>SMART applications that are written natively for a platform <strong>SHOULD</strong>
 utilize the operating system’s default browser when performing the 
@@ -365,7 +365,7 @@ allow SMART applications to be proactive in retrieving new access
 tokens where necessary.</p>
 
 <p>Authorization servers <strong>SHALL</strong> return a token type of “bearer” as 
-defined in <a href="http://tools.ietf.org/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">RFC 6750</a>.</p>
+defined in <a href="https://datatracker.ietf.org/doc/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">RFC 6750</a>.</p>
 
 <h4 id="resource-server-request">Resource Server Request</h4>
 
@@ -722,7 +722,7 @@ FHIR<sup>®</sup> resource.</li>
 described in <a href="http://tools.ietf.org/html/rfc6749#section-4.4.3">section 4.4.3 of OAuth 2.0</a>.<br>
 The application <strong>MUST</strong> include credentials; it is <strong>RECOMMENDED</strong> 
 that authorization servers support “basic authentication” per 
-<a href="https://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">RFC 2617</a>, and <strong>MAY</strong> offer other authentication mechanisms to 
+<a href="https://datatracker.ietf.org/doc/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">RFC 2617</a>, and <strong>MAY</strong> offer other authentication mechanisms to 
 clients.</p>
 
 <h4 id="access-token-response-3">Access Token Response</h4>
@@ -1196,7 +1196,7 @@ transmitted ONLY to authenticated servers, over TLS-secured channels.</p>
   </li>
   <li>
     <p>All use of TLS <strong>MUST</strong> incorporate best current practices for transport 
-layer security described in <a href="https://tools.ietf.org/html/rfc7525" title="Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)">RFC 7525</a>.  EHRs and SMART applications 
+layer security described in <a href="https://datatracker.ietf.org/doc/html/rfc7525" title="Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)">RFC 7525</a>.  EHRs and SMART applications 
 <strong>SHOULD</strong> continue to incorporate updates to current practices and 
 <strong>SHOULD</strong> 	document their policies for staying current.</p>
   </li>
@@ -1208,7 +1208,7 @@ layer security described in <a href="https://tools.ietf.org/html/rfc7525" title=
 
 <p>This section provides Augmented Backus-Naur Form (ABNF) syntax descriptions 
 for the elements defined in this specification using the notation of 
-<a href="https://tools.ietf.org/html/rfc5234" title="Augmented BNF for Syntax Specifications: ABNF">RFC 5234</a>, and additionally utilizes other syntax definitions defined in 
+<a href="https://datatracker.ietf.org/doc/html/rfc5234" title="Augmented BNF for Syntax Specifications: ABNF">RFC 5234</a>, and additionally utilizes other syntax definitions defined in 
 <a href="http://tools.ietf.org/html/rfc6749#appendix-A">Appendix A of the OAuth 2.0 Framework</a>.</p>
 
 <p><a id="A.1"></a></p>
@@ -1258,14 +1258,14 @@ modification-rights = ("read" / "write");
 
 <ul>
   <li><a href="http://www.hl7.org/implement/standards/FHIR/" title="FHIR&lt;sup&gt;®&lt;/sup&gt; Specification Home Page">“FHIR<sup>®</sup> Specification Home Page”</a></li>
-  <li><a href="http://tools.ietf.org/html/rfc6749" title="The OAuth 2.0 Authorization Framework">“The OAuth 2.0 Authorization Framework”</a></li>
-  <li><a href="http://tools.ietf.org/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">“OAuth 2.0 Threat Model and Security Considerations”</a></li>
-  <li><a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">“Key words for use in RFCs to Indicate Requirement Levels”</a></li>
-  <li><a href="https://tools.ietf.org/html/rfc5234" title="Augmented BNF for Syntax Specifications: ABNF">“Augmented BNF for Syntax Specifications: ABNF”</a></li>
-  <li><a href="http://tools.ietf.org/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">“The OAuth 2.0 Authorization Framework: Bearer Token Usage”</a></li>
-  <li><a href="https://tools.ietf.org/html/rfc7525" title="Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)">“Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc6749" title="The OAuth 2.0 Authorization Framework">“The OAuth 2.0 Authorization Framework”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">“OAuth 2.0 Threat Model and Security Considerations”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">“Key words for use in RFCs to Indicate Requirement Levels”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc5234" title="Augmented BNF for Syntax Specifications: ABNF">“Augmented BNF for Syntax Specifications: ABNF”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">“The OAuth 2.0 Authorization Framework: Bearer Token Usage”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc7525" title="Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)">“Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)”</a></li>
   <li><a href="https://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 International (CC BY 4.0)">“Creative Commons Attribution 4.0 International (CC BY 4.0)”</a></li>
-  <li><a href="https://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">“HTTP Authentication: Basic and Digest Access Authentication”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">“HTTP Authentication: Basic and Digest Access Authentication”</a></li>
   <li><a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID Connect Core 1.0 incorporating errata set 1">“OpenID Connect Core 1.0 incorporating errata set 1”</a></li>
   <li><a href="https://openid.net/specs/openid-connect-discovery-1_0.html" title="OpenID Connect Discovery 1.0 incorporating errata set 1">“OpenID Connect Discovery 1.0 incorporating errata set 1”</a></li>
 </ul>

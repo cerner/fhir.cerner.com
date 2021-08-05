@@ -87,6 +87,7 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-search-by-encounter-filters-patients-level-documents" id="markdown-toc-example-search-by-encounter-filters-patients-level-documents">Example: search by encounter filters patients level documents</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -585,6 +586,11 @@
       <li>If one <code>period</code> parameter includes a time, both must include a time.</li>
     </ul>
   </li>
+  <li>When searching with the <code>encounter</code> parameter:
+    <ul>
+      <li>Patient level documents are filtered out from responses when the encounter id is zero/blank.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -817,12 +823,97 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<h3 id="example-search-by-encounter-filters-patients-level-documents">Example: search by encounter filters patients level documents</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=823932&amp;encounter=863887
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "DocumentReference",
+  "id": "8676968",
+  "meta": {
+    "versionId": "4",
+    "lastUpdated": "2014-12-08T21:18:56.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Test, Blood Bank&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Bone Marrow Report&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Category&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Bone Marrow Final Report&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Start Date&lt;/b&gt;: Dec  8, 2014  3:04 P.M. CST&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec  8, 2014  3:04 P.M. CST&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Desani, Santosh&lt;/p&gt;&lt;/div&gt;"
+  },
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+        "code": "4184837",
+        "display": "Bone Marrow Report",
+        "userSelected": true
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+        "code": "UNK",
+        "display": "unknown"
+      }
+    ],
+    "text": "Bone Marrow Report"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+          "code": "unknown",
+          "display": "Unknown"
+        }
+      ],
+      "text": "Unknown"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/823932",
+    "display": "Test, Blood Bank"
+  },
+  "authenticator": {
+    "reference": "Practitioner/1994008",
+    "display": "Desani, Santosh"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-8676968",
+        "title": "Bone Marrow Final Report",
+        "creation": "2014-12-08T21:04:50.000Z"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/863887"
+      }
+    ],
+    "period": {
+      "start": "2014-12-08T21:04:50.000Z",
+      "end": "2014-12-08T21:04:50.000Z"
+    }
+  }
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1043,12 +1134,12 @@
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1160,7 +1251,7 @@
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1953,7 +2044,7 @@
 
 <h3 id="example-2">Example</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference
 </code></pre>
@@ -2009,7 +2100,7 @@
   }
 }</code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2718,7 +2809,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
 
 <h3 id="example-3">Example</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>PUT https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/16885181
 </code></pre>
@@ -2780,7 +2871,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   }
 }</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2968,12 +3059,12 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 
 <h3 id="example-4">Example</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3033,7 +3124,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3130,6 +3221,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 
           <li class="subtopic"><a href="../../other/">Other</a></li>
           <li><a href="../../other/binary/">Binary</a></li>
+          <li><a href="../../other/health-cards/">HealthCards</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -3210,14 +3302,6 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
         <ul class="js-guides">
           <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
           <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../other/">Other</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../../../other/health-cards/">HealthCards</a></li>
         </ul>
       </li>
     </ul>

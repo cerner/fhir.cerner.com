@@ -128,7 +128,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate" target="_blank">Entered Date</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason" target="_blank">Reason</a></li>
   <li><a href="https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account" target="_blank">Account</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including bill code schedule, custom attribute, description, modifier, national drug product, net price, offset by, performing location, procedure, quantity conversion factor, replacing, revenue code, and unit price</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including bill code schedule, custom attribute, description, modifier code, national drug product, net price, offset by, performing location, procedure code, quantity conversion factor, replacing, revenue code, and unit price</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -223,7 +223,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -232,7 +232,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A code providing additional detail about a product or service. This binding is used in <code>modifier</code> extensions.</li></ul>
+            <ul style="list-style-type: none"><li>A code providing additional detail about a product or service. This binding is used in <code>modifier-code</code> extensions.</li></ul>
           
           
 
@@ -273,7 +273,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Procedure performed on the patient associated to the resource. This binding is used in <code>procedure</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.</li></ul>
+            <ul style="list-style-type: none"><li>A code providing information about the procedure performed on the patient associated to the resource. This binding is used in <code>procedure-code</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.</li></ul>
           
           
 
@@ -305,7 +305,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item/#extensions">Chargeitem.extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions">Chargeitem.extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -346,7 +346,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.code.coding.extension[x].valueCoding</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.code.coding.extension[x].valueCoding</a>
       
       </td>
     </tr>
@@ -387,7 +387,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.reason.coding.extension[x].valueCoding</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.reason.coding.extension[x].valueCoding</a>
       
       </td>
     </tr>
@@ -428,7 +428,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept.coding.extension[x].valueCoding</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept.coding.extension[x].valueCoding</a>
       
       </td>
     </tr>
@@ -469,7 +469,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge_item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -572,13 +572,13 @@ The main usage of the ChargeItem is to enable the billing process and internal c
   <li><a href="#custom-extensions">Bill Code Schedule</a></li>
   <li><a href="#custom-extensions">Custom Attribute</a></li>
   <li><a href="#custom-extensions">Description</a></li>
-  <li><a href="#custom-extensions">Modifier</a></li>
+  <li><a href="#custom-extensions">Modifier Code</a></li>
   <li><a href="#custom-extensions">National Drug Product</a></li>
   <li><a href="#custom-extensions">Net Price</a></li>
   <li><a href="#custom-extensions">Offset By</a></li>
   <li><a href="#custom-extensions">Performing Location</a></li>
   <li><a href="#custom-extensions">Priority</a></li>
-  <li><a href="#custom-extensions">Procedure</a></li>
+  <li><a href="#custom-extensions">Procedure Code</a></li>
   <li><a href="#custom-extensions">Quantity Conversion Factor</a></li>
   <li><a href="#custom-extensions">Replacing</a></li>
   <li><a href="#custom-extensions">Revenue Code</a></li>
@@ -614,7 +614,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td>A description providing additional details of the resource.</td>
     </tr>
     <tr>
-      <td><code>modifier</code></td>
+      <td><code>modifier-code</code></td>
       <td>None (contains nested extensions)</td>
       <td>A code providing additional detail about a product or service.</td>
     </tr>
@@ -644,9 +644,9 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       <td>The priority of the element within a list.</td>
     </tr>
     <tr>
-      <td><code>procedure</code></td>
+      <td><code>procedure-code</code></td>
       <td>None (contains nested extensions)</td>
-      <td>Procedure performed on the patient associated to the resource.</td>
+      <td>A code providing information about the procedure performed on the patient associated to the resource.</td>
     </tr>
     <tr>
       <td><code>quantity-conversion-factor</code></td>
@@ -832,7 +832,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
               }
             ],
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
           },
           {
             "extension": [
@@ -861,7 +861,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
               }
             ],
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
           },
           {
             "extension": [
@@ -890,7 +890,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
               }
             ],
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier"
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
           },
           {
             "valueCodeableConcept": {
@@ -1078,7 +1078,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
     },
     {
       "extension": [
@@ -1107,7 +1107,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure"
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
     },
     {
       "extension": [
@@ -1136,7 +1136,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
         }
       ],
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier"
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
     },
     {
       "valueCodeableConcept": {
@@ -1265,6 +1265,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 
           <li class="subtopic"><a href="../../../foundation/other/">Other</a></li>
           <li><a href="../../../foundation/other/binary/">Binary</a></li>
+          <li><a href="../../../foundation/other/health-cards/">HealthCards</a></li>
         </ul>
       </li>
       <li class="js-topic">
@@ -1345,14 +1346,6 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul class="js-guides">
           <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
           <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
-        </ul>
-      </li>
-      <li class="js-topic">
-        <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../other/">Other</a>
-</h3>
-        <ul class="js-guides">
-          <li><a href="../../../other/health-cards/">HealthCards</a></li>
         </ul>
       </li>
     </ul>
