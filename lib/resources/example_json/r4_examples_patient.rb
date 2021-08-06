@@ -68,6 +68,76 @@ module Cerner
       },
       'extension': [
         {
+          'id': '59434424',
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/4640016',
+                    'code': '485602703',
+                    'display': 'Appointment Reminders',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/nomenclature',
+                    'code': '423535434',
+                    'display': 'APPTREMINDER',
+                    'userSelected': true
+                  }
+                ],
+                'text': 'Appointment Reminders'
+              },
+              'url': 'communication-type'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/23042',
+                    'code': '495085513',
+                    'display': 'Fax',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://hl7.org/fhir/contact-point-system',
+                    'code': '34353244',
+                    'display': 'FAX',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Fax'
+              },
+              'url': 'contact-method'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/43',
+                    'code': '163',
+                    'display': 'Business',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://hl7.org/fhir/contact-point-use',
+                    'code': 'work',
+                    'display': 'Work',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Business'
+              },
+              'url': 'contact-type'
+            },
+            {
+              'valueDateTime': '2019-04-13T20:00:00.000Z',
+              'url': 'verified-datetime'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference'
+        },
+        {
           'extension': [
             {
               'valueCoding': {
