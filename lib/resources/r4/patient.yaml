@@ -298,6 +298,7 @@ fields:
   note: |
     <ul>
       <li>Each address must contain the `use` field.</li>
+      <li>Each address should contain at least one of the `line`, `city`, `district`, `state`, `postalCode`, `country` fields, otherwise address will be ignored by the server.</li>
       <li>Each address must not contain the `text` field.</li>
       <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
       <li>Each value for the `line` field has a character limit of 100.</li>
