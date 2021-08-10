@@ -170,10 +170,10 @@ fields:
       info_link: http://snomed.info/sct
     - display: ICD-9
       system: https://hl7.org/fhir/sid/icd-9
-      info_link: https://hl7.org/fhir/sid/icd-9
+      info_link: https://hl7.org/fhir/r4/icd.html
     - display: ICD-10
       system: https://hl7.org/fhir/sid/icd-10
-      info_link: https://hl7.org/fhir/sid/icd-10
+      info_link: https://hl7.org/fhir/r4/icd.html
 - name: note
   required: 'No'
   type: Annotation

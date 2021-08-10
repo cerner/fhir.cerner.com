@@ -179,7 +179,7 @@ fields:
         info_link: https://hl7.org/fhir/r4/valueset-condition-category.html
       - display: US Core Condition Category Codes
         system: http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category
-        info_link: http://hl7.org/fhir/us/core/CodeSystem/condition-category
+        info_link: https://hl7.org/fhir/us/core/ValueSet-us-core-condition-category.html
       - display: Millennium Problem Classification
         system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/12033
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-12033-problem-classification
