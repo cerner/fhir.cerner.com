@@ -100,9 +100,9 @@ module Cerner
                     'userSelected': true
                   },
                   {
-                    'system': "http://hl7.org/fhir/contact-point-system",
-                    'code': "fax",
-                    'display': "Fax",
+                    'system': 'http://hl7.org/fhir/contact-point-system',
+                    'code': 'fax',
+                    'display': 'Fax',
                     'userSelected': false
                   }
                 ],
