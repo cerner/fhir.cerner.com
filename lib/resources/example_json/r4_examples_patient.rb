@@ -80,10 +80,10 @@ module Cerner
                     'userSelected': true
                   },
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/nomenclature',
-                    'code': '423535434',
-                    'display': 'APPTREMINDER',
-                    'userSelected': true
+                    'system': 'http://terminology.hl7.org/CodeSystem/communication-topic',
+                    'code': 'appointment-reminder',
+                    'display': 'Appointment Reminder',
+                    'userSelected': false
                   }
                 ],
                 'text': 'Appointment Reminders'
@@ -100,9 +100,9 @@ module Cerner
                     'userSelected': true
                   },
                   {
-                    'system': 'http://hl7.org/fhir/contact-point-system',
-                    'code': '34353244',
-                    'display': 'FAX',
+                    'system': "http://hl7.org/fhir/contact-point-system",
+                    'code': "fax",
+                    'display': "Fax",
                     'userSelected': false
                   }
                 ],
