@@ -785,6 +785,17 @@ This code set includes the statuses that reflect the current status of a corresp
       "userSelected": true
     }
 
+#### Code Set 4003106 Vaccine Group
+
+This code set includes the vaccine groups.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4003106,
+      "code": "2289043429",
+      "display": "COVID-19",
+      "userSelected": true
+    }
+
 ## Proprietary Systems
 
 ### Overview

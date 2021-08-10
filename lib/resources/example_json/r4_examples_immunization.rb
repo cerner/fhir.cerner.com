@@ -68,7 +68,31 @@ module Cerner
         'unit': 'unknown unit',
         'system': 'http://unitsofmeasure.org',
         'code': '{unknownunit}'
-      }
+      },
+      'protocolApplied': [
+        {
+          'targetDisease': [
+            {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003106',
+                  'code': '2289043429',
+                  'display': 'COVID-19',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://hl7.org/fhir/sid/cvx',
+                  'code': '213',
+                  'display': 'SARS-COV-2 (COVID-19) vaccine, UNSPECIFIED',
+                  'userSelected': false
+                }
+              ],
+              'text': 'COVID-19'
+            }
+          ],
+          'doseNumberString': 'Unknown'
+        }
+      ]
     }.freeze
 
     R4_IMMUNIZATION_PATIENT_ENTRY ||= {
