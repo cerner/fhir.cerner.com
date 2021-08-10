@@ -14,7 +14,6 @@ The Device resource implementation is currently limited to devices implanted in 
 The following fields are returned if valued:
 
 * [Device id](https://hl7.org/fhir/r4/device-definitions.html#Device.id){:target="_blank"}
-* [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.identifier){:target="_blank"}
 * [Udi carrier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier){:target="_blank"}
   * [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.deviceIdentifier){:target="_blank"}
   * [CarrierHRF](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.carrierHRF){:target="_blank"}
