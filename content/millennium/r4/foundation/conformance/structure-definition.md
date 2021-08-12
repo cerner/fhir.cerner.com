@@ -136,6 +136,7 @@ Authorization is not required.
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
 [`bill-code-schedule`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json
+[`communication-preference`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
 [`choice-answer`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer?_format=json
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json

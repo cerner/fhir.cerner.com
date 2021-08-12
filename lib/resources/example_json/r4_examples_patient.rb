@@ -534,6 +534,57 @@ module Cerner
               }
             }
           ]
+        },
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference',
+          'extension': [
+            {
+              'extension': [
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016',
+                        'code': '485602703',
+                        'display': 'Appointment Reminder',
+                        'userSelected': false
+                      }
+                    ],
+                    'text': 'Appointment Reminder'
+                  },
+                  'url': 'communication-type'
+                },
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042',
+                        'code': '4054467',
+                        'display': 'Phone',
+                        'userSelected': false
+                      }
+                    ]
+                  },
+                  'url': 'contact-method'
+                },
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43',
+                        'code': '163',
+                        'display': 'Business',
+                        'userSelected': false
+                      }
+                    ],
+                    'text': 'Home'
+                  },
+                  'url': 'contact-type'
+                }
+              ],
+              'verified': '2019-12-26T15:41:52.000Z'
+            }
+          ]
         }
       ],
       'identifier': [
