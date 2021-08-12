@@ -84,6 +84,7 @@ Authorization is not required.
  [`condition-lifecycle-status`]                              | Indication of whether a condition is active, inactive, resolved, etc.
  [`condition-result`]                                        | Indication of the presence (positive) or absence (negative) of a given condition.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
+ [`communication-preference`]                                | Defines communication methods preferred by a patient.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
  [`email-status`]                                            | The status of the electronic communication.
