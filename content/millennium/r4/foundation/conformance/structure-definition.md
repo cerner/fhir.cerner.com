@@ -81,6 +81,7 @@ Authorization is not required.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
+ [`communication-preference`]                                | Defines communication methods preferred by a patient.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
  [`email-status`]                                            | The status of the electronic communication.
