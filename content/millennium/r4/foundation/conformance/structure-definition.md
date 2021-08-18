@@ -80,6 +80,7 @@ Authorization is not required.
  [`client-instruction`]                                      | Represents instructions for an order that are intended for healthcare providers.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
+ [`condition-course`]                                        | Indication of a condition's progress since diagnosis.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
@@ -97,6 +98,7 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
+ [`is-modifiable`]                                           | Indication of whether data is modifiable or not.
  [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
  [`modifier-code`]                                           | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
@@ -105,11 +107,13 @@ Authorization is not required.
  [`note-allowed`]                                            | Indication of whether an additional comment is permitted.
  [`note-type`]                                               | Describes the type of note represented. This can be useful when there are multiple notes.
  [`offset-by`]                                               | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
+ [`patient-adopted`]                                         | Indication of whether a patient is adopted.
  [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
  [`performing-location`]                                     | A location where the resource was performed.
  [`period`]                                                  | A time period defined by a start and end date/time.
  [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
+ [`precision`]                                               | Indication of the precision of a given value.
  [`priority`]                                                | The priority of the element within a list.
  [`procedure-code`]                                          | A code providing information about the procedure performed on the patient associated to the resource.
  [`quantity-conversion-factor`]                              | The conversion factor used to calculate the quantity for billing.
