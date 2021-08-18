@@ -4,14 +4,13 @@ title: QuestionnaireResponse | R4 API
 
 # QuestionnaireResponse
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
 ## Overview
 
 The QuestionnaireResponse resource is a collection of answers to a given questionnaire typically used to request patient healthcare information. A given QuestionnaireResponse must belong to a corresponding Questionnaire. An example of a questionnaire is a form used to collect a patient's social history. Currently, only social history is supported.
+The resource should be leveraged as a snapshot in time and new data should be consistently retrieved through the API rather than stored within an application.
 
 The following fields are returned if valued:
 
@@ -23,6 +22,7 @@ The following fields are returned if valued:
 * [Item](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item){:target="_blank"}
     * [Id](https://hl7.org/fhir/R4/element-definitions.html#Element.id){:target="_blank"}
     * [Link id](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId){:target="_blank"}
+    * [Is Modifiable Extension](#extensions){:target="_blank"}
     * [Note Extension](#extensions){:target="_blank"}
     * [Text](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.text){:target="_blank"}
     * [Item](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.item){:target="_blank"}
@@ -39,6 +39,7 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Is Modifiable]
 * [Choice Answer]
 * [Note]
 
@@ -48,12 +49,11 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 
  ID              | Value\[x] Type                                                    | Description                   
 -----------------|-------------------------------------------------------------------|-----------------------------------------------
+ `is-modifiable` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indication of whether data is modifiable or not.
  `choice-answer` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indicates answers come from a list of options.
  `note`          | [`Annotation`](https://hl7.org/fhir/r4/datatypes.html#annotation) | Additional details about a given QuestionnaireResponse group item. Includes author and date/time information.
 
 ## Search
-
-<%= beta_tag(action: true) %>
 
 Search for QuestionnaireResponses that meet supplied query parameters:
 
@@ -93,8 +93,6 @@ _Implementation Notes_
 
 ## Retrieve by id
 
-<%= beta_tag(action: true) %>
-
 List an individual QuestionnaireResponse by its id:
 
     GET /QuestionnaireResponse/:id
@@ -130,11 +128,14 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
-<%= beta_tag(action: true) %>
-
 Update an QuestionnaireResponse.
 
     PUT /QuestionnaireResponse/:id
+
+_Implementation Notes_
+
+* When an item is returned with the is-modifiable extension as false, that item cannot be updated.
+* An update should only be preformed directly after a QuestionnaireResponse is retrieved. If an item.id is provided from the get operation, it MUST be provided on the subsequent update and must match the item.id returned from the get. 
 
 ### Authorization Types
 
@@ -179,4 +180,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [Note]: #custom-extensions
 [Choice Answer]: #custom-extensions
+[Is Modifiable]: #custom-extensions
 [OperationOutcomes]: ../../#operation-outcomes
