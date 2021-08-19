@@ -136,6 +136,7 @@ Authorization is not required.
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
 [`clinical-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction?_format=json
+[`condition-course`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course?_format=json
 [`coverage-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json
 [`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`description`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json
@@ -154,6 +155,7 @@ Authorization is not required.
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
 [`military-service-connected-indicator`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json
+[`is-modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-modifiable?_format=json
 [`modifier-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
@@ -161,11 +163,13 @@ Authorization is not required.
 [`note-allowed`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json
 [`note-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/note-type?_format=json
 [`offset-by`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json
+[`patient-adopted`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-adopted?_format=json
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 [`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
 [`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
+[`precision`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/precision?_format=json
 [`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
 [`procedure-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json
 [`quantity-conversion-factor`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor?_format=json

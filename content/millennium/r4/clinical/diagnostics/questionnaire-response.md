@@ -49,7 +49,7 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 
  ID              | Value\[x] Type                                                    | Description                   
 -----------------|-------------------------------------------------------------------|-----------------------------------------------
- `is-modifiable` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indication of whether data is modifiable or not.
+ `is-modifiable` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indication of whether data is modifiable or not. Only present when false.
  `choice-answer` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)       | Indicates answers come from a list of options.
  `note`          | [`Annotation`](https://hl7.org/fhir/r4/datatypes.html#annotation) | Additional details about a given QuestionnaireResponse group item. Includes author and date/time information.
 
@@ -134,7 +134,7 @@ Update an QuestionnaireResponse.
 
 _Implementation Notes_
 
-* When an item is returned with the is-modifiable extension as false, that item cannot be updated.
+* When an item is returned with the is-modifiable extension as false, that item cannot be updated unless the update is passed in without an id.
 * An update should only be preformed directly after a QuestionnaireResponse is retrieved. If an item.id is provided from the get operation, it MUST be provided on the subsequent update and must match the item.id returned from the get. 
 
 ### Authorization Types
