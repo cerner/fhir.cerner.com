@@ -1918,6 +1918,7 @@ the entries directly by id. They will not be returned when searching with other 
         <ul style="list-style-type: none"><li>
 <ul>
   <li>Each address must contain the <code>use</code> field.</li>
+  <li>Each address should contain at least one of the <code>line</code>, <code>city</code>, <code>district</code>, <code>state</code>, <code>postalCode</code>, <code>country</code> fields, otherwise address will be ignored by the server.</li>
   <li>Each address must not contain the <code>text</code> field.</li>
   <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
   <li>Each value for the <code>line</code> field has a character limit of 100.</li>

@@ -78,8 +78,6 @@
     <div class="content">
       <h1 id="questionnaireresponse">QuestionnaireResponse</h1>
 
-<div class="beta-tag"><p>This Resource is still under development.</p></div>
-
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
@@ -117,7 +115,8 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The QuestionnaireResponse resource is a collection of answers to a given questionnaire typically used to request patient healthcare information. A given QuestionnaireResponse must belong to a corresponding Questionnaire. An example of a questionnaire is a form used to collect a patient’s social history. Currently, only social history is supported.</p>
+<p>The QuestionnaireResponse resource is a collection of answers to a given questionnaire typically used to request patient healthcare information. A given QuestionnaireResponse must belong to a corresponding Questionnaire. An example of a questionnaire is a form used to collect a patient’s social history. Currently, only social history is supported.
+The resource should be leveraged as a snapshot in time and new data should be consistently retrieved through the API rather than stored within an application.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -132,6 +131,7 @@
     <ul>
       <li><a href="https://hl7.org/fhir/R4/element-definitions.html#Element.id" target="_blank">Id</a></li>
       <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId" target="_blank">Link id</a></li>
+      <li><a href="#extensions" target="_blank">Is Modifiable Extension</a></li>
       <li><a href="#extensions" target="_blank">Note Extension</a></li>
       <li><a href="https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.text" target="_blank">Text</a></li>
       <li>
@@ -214,6 +214,7 @@
 <h2 id="extensions">Extensions</h2>
 
 <ul>
+  <li><a href="#custom-extensions">Is Modifiable</a></li>
   <li><a href="#custom-extensions">Choice Answer</a></li>
   <li><a href="#custom-extensions">Note</a></li>
 </ul>
@@ -232,6 +233,11 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>is-modifiable</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
+      <td>Indication of whether data is modifiable or not. Only present when false.</td>
+    </tr>
+    <tr>
       <td><code>choice-answer</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
       <td>Indicates answers come from a list of options.</td>
@@ -245,8 +251,6 @@
 </table>
 
 <h2 id="search">Search</h2>
-
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
 
 <p>Search for QuestionnaireResponses that meet supplied query parameters:</p>
 
@@ -406,8 +410,6 @@
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
-
 <p>List an individual QuestionnaireResponse by its id:</p>
 
 <pre><code>GET /QuestionnaireResponse/:id
@@ -524,12 +526,17 @@
 
 <h2 id="update">Update</h2>
 
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
-
 <p>Update an QuestionnaireResponse.</p>
 
 <pre><code>PUT /QuestionnaireResponse/:id
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>When an item is returned with the is-modifiable extension as false, that item cannot be updated unless the update is passed in without an id.</li>
+  <li>An update should only be preformed directly after a QuestionnaireResponse is retrieved. If an item.id is provided from the get operation, it MUST be provided on the subsequent update and must match the item.id returned from the get.</li>
+</ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
 
