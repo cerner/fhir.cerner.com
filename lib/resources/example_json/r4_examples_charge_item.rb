@@ -429,5 +429,31 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_CHARGE_ITEM_CREDIT ||= {
+      'resourceType': 'Parameters',
+      'parameter': [
+        {
+          'name': 'versionId',
+          'valueId': '2'
+        },
+        {
+          'name': 'transactionId',
+          'valueUuid': 'urn:uuid:5bb8acae-0c7d-11ec-82a8-0242ac130003'
+        },
+        {
+          'name': 'subject',
+          'valueReference': {
+            'reference': 'Patient/12782842'
+          }
+        },
+        {
+          'name': 'context',
+          'valueReference': {
+            'reference': 'Encounter/98019577'
+          }
+        }
+      ]
+    }.freeze
   end
 end
