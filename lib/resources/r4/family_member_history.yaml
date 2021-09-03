@@ -1,28 +1,553 @@
 ---
 name: FamilyMemberHistory
-field_name_base_url: https://hl7.org/implement/standards/fhir/R4/questionnaireresponse-definitions.html#QuestionnaireResponse
+field_name_base_url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory
 fields:
-  - name: resourceType
-    required: 'Yes'
-    type: string
-    url: https://hl7.org/fhir/r4/json.html#resources
-    description: The type of the FHIR resource.
-    action:
-      create
-      update
-    example: |
-      {
-        "resourceType": "FamilyMemberHistory"
-      }
-    note: resourceType must be FamilyMemberHistory
+- name: resourceType
+  required: 'Yes'
+  type: string
+  url: https://hl7.org/fhir/r4/json.html#resources
+  description: The type of the FHIR resource.
+  action:
+    create
+    update
+  example: |
+    {
+      "resourceType": "FamilyMemberHistory"
+    }
+  note: resourceType must be FamilyMemberHistory
 
-  - name: id
-    required: 'Yes'
-    type: id
-    url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
-    description: The logical id of the resource.
-    action: update
-    example: |
-      {
-        "id": "123-456"
+- name: id
+  required: 'Yes'
+  type: id
+  url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
+  description: The logical id of the resource to update.
+  action: update
+  example: |
+    {
+      "id": "12504018-12764234"
+    }
+
+- name: extension(patient-adopted)
+  required: 'No'
+  type: Extension
+  url: https://hl7.org/fhir/extensibility.html#Extension
+  description: Indication of whether a patient is adopted.
+  action: update
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-adopted",
+          "valueBoolean": true
+        }
+      ]
+    }
+
+- name: status
+  required: 'Yes'
+  type: code
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.status
+  description: A code specifying the status of the record of the family history of a specific family member.
+  action:
+    - create
+    - update
+    - terminology
+  example: |
+    {
+      "status": "partial"
+    }
+  binding:
+    description: A code that identifies the status of the family history record.
+    terminology:
+      - display: FamilyHistoryStatus
+        system: http://hl7.org/fhir/history-status
+        info_link: https://hl7.org/fhir/valueset-history-status.html
+
+
+- name: dataAbsentReason
+  required: 'No'
+  type: CodeableConcept
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason
+  description: Describes why the family member's history is not available.
+  action:
+    - create
+    - update
+    - terminology
+  example: |
+    {
+      "dataAbsentReason": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/history-absent-reason",
+            "code": "subject-unknown"
+          }
+        ]
       }
+    }
+  binding:
+    description: Codes describing the reason why a family member's history is not available.
+    note: Can be subject-unknown or unable-to-obtain
+    terminology:
+      - display: FamilyHistoryAbsentReason
+        system: http://terminology.hl7.org/CodeSystem/history-absent-reason
+        info_link: https://hl7.org/fhir/valueset-history-absent-reason.html
+
+- name: patient
+  required: 'Yes'
+  type: Reference
+  description: The person who this history concerns.
+  action:
+    - create
+    - update
+  example: |
+    {
+      "patient": {
+        "reference": "Patient/631923",
+        "display": "Nilsson, Christine"
+      }
+    }
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.patient
+
+- name: name
+  required: 'No'
+  type: string
+  description: The family member's name.
+  action:
+    - create
+    - update
+  example: |
+    {
+      "name": "Halpert, Simothy"
+    }
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.name
+
+- name: relationship
+  required: 'Yes'
+  type: CodeableConcept
+  description: The type of relationship this person has to the patient (father, mother, brother etc.).
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.relationship
+  action:
+    - create
+    - update
+    - terminology
+  example: |
+    {
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "BRO"
+          }
+        ]
+      }
+    }
+  note: |
+    <ul>
+      <li>Should we explain what we are using 'FAMMEMB' code for?</li>
+    </ul>
+  binding:
+    description: A relationship between two people characterizing their "familial" relationship
+    terminology:
+      - display: V3 Value SetFamilyMember
+        system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
+        info_link: https://hl7.org/fhir/v3/FamilyMember/vs.html
+
+- name: sex
+  type: CodeableConcept
+  required: 'No'
+  description: The birth sex of the family member.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.sex
+  action:
+    - create
+    - update
+    - terminology
+  example: |
+    {
+      "sex": {
+        "coding": [
+          {
+            "code": "male",
+            "system": "http://hl7.org/fhir/administrative-gender"
+          }
+        ]
+      }
+    }
+  binding:
+    description: The gender of a person used for administrative purposes.
+    terminology:
+      - display: AdministrativeGender
+        system: http://hl7.org/fhir/administrative-gender
+        info_link: https://hl7.org/fhir/valueset-administrative-gender.html
+
+- name: born[x]
+  type: date
+  required: 'No'
+  description: The actual or approximate date of birth of the relative.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_
+  action:
+    - create
+    - update
+  example: |
+    {
+      "bornDate": "1998-12-07"
+    }
+
+- name: deceased[x]
+  type: Boolean, Quantity
+  required: 'No'
+  description: Deceased flag or the approximate age of the relative at the time of death for the family member history record.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_
+  action:
+    - create
+    - update
+  note: |
+    <ul>
+      <li>When deceased field is not provided, it is defaulted to deceasedBoolean false. </li>
+    </ul>
+  example: |
+    {
+      "deceasedAge": {
+        "value": 42,
+        "system": "http://unitsofmeasure.org",
+        "code": "a",
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "26175008",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  example2: |
+    {
+      "deceasedBoolean": true
+    }
+
+- name: deceasedAge.unit
+  type: Quantity
+  description: Approximate age of the relative at the time of death for the family member history record.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_
+  action: terminology
+  binding:
+    description: Code system intended to include all units of measures.
+    terminology:
+      - display: Units of Measure
+        system: http://unitsofmeasure.org
+        info_link: https://ucum.org/trac
+
+- name: deceasedAge.extension(precision)
+  type: CodeableConcept
+  required: 'Yes'
+  description: Indication of the precision of a given value.
+  url: https://hl7.org/fhir/extensibility.html#Extension
+  action:
+    - create
+    - update
+    - terminology
+  note: |
+    <ul>
+      <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
+    </ul>
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "26175008",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: Indication of the precision of a given value.
+    note: |
+      <ul>
+        <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
+        <li> https://fhir-ehr.cerner.com/r4/StructureDefinition/precision </li>
+      </ul>
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+
+- name: condition
+  type: BackboneElement
+  required: 'No'
+  description: The significant Conditions (or condition) that the family member had.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition
+  action:
+    - update
+
+- name: condition.id
+  required: 'No'
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Unique id for inter-element referencing.
+  action: update
+  example: |
+    {
+      "id": "111"
+    }
+  note: If a condition.id is returned on a read, it must be provided on an update.
+
+- name: condition.code
+  type: CodeableConcept
+  required: 'Yes'
+  description: The actual condition specified.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code
+  action:
+    - update
+    - terminology
+  example: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "57054005"
+          }
+        ]
+      }
+    }
+  binding:
+    description: Identification of the condition, problem or diagnosis.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/valueset-condition-code.html
+      - display: Millennium Condition Nomenclature
+        system: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature
+        info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature
+
+- name: condition.onset[x]
+  type: Quantity
+  required: 'No'
+  description: The age of onset.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_
+  action: update
+  example: |
+    {
+      "onsetAge": {
+        "value": 42,
+        "system": "http://unitsofmeasure.org",
+        "code": "a",
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "26175008",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+
+- name: condition.onsetAge.unit
+  type: Quantity
+  required: 'No'
+  description: The age of onset.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_
+  action: terminology
+  binding:
+    description: Code system intended to include all units of measures.
+    terminology:
+      - display: Units of Measure
+        system: http://unitsofmeasure.org
+        info_link: https://ucum.org/trac
+
+- name: condition.onsetAge.extension(precision)
+  type: CodeableConcept
+  required: 'Yes'
+  description: Indication of the precision of a given value.
+  url: https://hl7.org/fhir/extensibility.html#Extension
+  action:
+    - update
+    - terminology
+  note: |
+    <ul>
+      <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
+    </ul>
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "26175008",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: Indication of the precision of a given value.
+    note: |
+      <ul>
+        <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
+        <li> https://fhir-ehr.cerner.com/r4/StructureDefinition/precision </li>
+      </ul>
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+
+- name: condition.note
+  type: Annotation
+  required: 'No'
+  description: An area where general notes can be placed about this specific condition.
+  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note
+  action: update
+  example: |
+    {
+      "note": [
+        {
+          "text": "Comment about condition"
+        }
+      ],
+    }
+
+- name: condition.modifierExension(condition-result)
+  type: CodeableConcept
+  required: 'Yes'
+  description: Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.
+  url: https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension
+  action:
+    - update
+    - terminology
+  example: |
+    {
+      "modifierExtension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "10828004"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: Indication of the presence (positive) or absence (negative) of a given condition.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+
+- name: condition.modifierExension(condition-lifecycle-status)
+  type: CodeableConcept
+  required: 'No'
+  description: Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.
+  url: https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension
+  action:
+    - update
+    - terminology
+  example: |
+    {
+      "modifierExtensions": [
+         {
+           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
+           "valueCodeableConcept": {
+             "coding": [
+               {
+                 "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                 "code": "active"
+               }
+             ]
+           }
+        }
+      ]
+    }
+  binding:
+    description: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status
+    terminology:
+      - display: Condition Clinical Status Codes
+        system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        info_link: https://hl7.org/fhir/valueset-condition-clinical.html
+
+- name: condition.extension(condition-course)
+  type: CodeableConcept
+  required: 'No'
+  description: Indication of a condition's progress since diagnosis.
+  url: https://hl7.org/fhir/extensibility.html#Extension
+  action:
+    - update
+    - terminology
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "58158008"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: The progression of a given condition.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+
+- name: condition.extension(familymemberhistory-severity)
+  type: CodeableConcept
+  required: 'No'
+  description: A qualification of the seriousness or impact on health of the family member condition.
+  url: https://hl7.org/fhir/extension-familymemberhistory-severity.html
+  action:
+    - update
+    - terminology
+  example: |
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "24484000"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: The progression of a given condition.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
