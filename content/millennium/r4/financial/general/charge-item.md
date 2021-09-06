@@ -163,7 +163,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 Creates an offsetting ChargeItem for an existing debit ChargeItem.
 
-    POST/ChargeItem/:id/charge-item-credit
+    POST /ChargeItem/:id/charge-item-credit
+    
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.    
     
 ### Authorization Types
 
@@ -172,6 +176,12 @@ Creates an offsetting ChargeItem for an existing debit ChargeItem.
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+Notes:
+
+* versionId, transactionId, subject and context are the required fields.
 
 ### Example
 
