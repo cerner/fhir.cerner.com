@@ -7,4 +7,4 @@ layout: api
 
 <%= render '/millennium/r4/specialized/definitional-artifacts.*' %>
 
-* [Questionnaire](../specialized/definitional-artifacts/questionnaire)
+* [Questionnaire](/millennium/r4/specialized/definitional-artifacts/questionnaire)

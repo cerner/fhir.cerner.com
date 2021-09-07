@@ -8,24 +8,24 @@ layout: api
 ## Conformance
 <%= render '/millennium/r4/foundation/conformance.*' %>
 
-* [Capability Statement](../foundation/conformance/capability-statement)
-* [Structure Definition](../foundation/conformance/structure-definition)
-* [Operation Definition](../foundation/conformance/operation-definition)
+* [Capability Statement](/millennium/r4/foundation/conformance/capability-statement)
+* [Structure Definition](/millennium/r4/foundation/conformance/structure-definition)
+* [Operation Definition](/millennium/r4/foundation/conformance/operation-definition)
 
 ## Security
 <%= render '/millennium/r4/foundation/security.*' %>
 
-* [Provenance](../foundation/security/provenance)
-* [Consent](../foundation/security/consent)
+* [Provenance](/millennium/r4/foundation/security/provenance)
+* [Consent](/millennium/r4/foundation/security/consent)
 
 ## Documents
 
 <%= render '/millennium/r4/foundation/documents.*' %>
 
-* [DocumentReference](../foundation/documents/document-reference)
+* [DocumentReference](/millennium/r4/foundation/documents/document-reference)
 
 ## Other
 
 <%= render '/millennium/r4/foundation/other.*' %>
 
-* [Binary](../foundation/other/binary)
+* [Binary](/millennium/r4/foundation/other/binary)

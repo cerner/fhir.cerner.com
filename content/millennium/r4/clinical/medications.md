@@ -7,5 +7,5 @@ layout: api
 
 <%= render '/millennium/r4/clinical/medications.*' %>
 
-* [MedicationRequest](../clinical/medications/medication-request)
-* [Immunization](../clinical/medications/immunization)
+* [MedicationRequest](/millennium/r4/clinical/medications/medication-request)
+* [Immunization](/millennium/r4/clinical/medications/immunization)

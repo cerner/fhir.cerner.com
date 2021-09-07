@@ -14,7 +14,7 @@ module Cerner
         'status': 'generated',
         'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p>'\
                '<p><b>Procedure</b>: Appendectomy;</p><p><b>Date</b>: 2002</p><p><b>Status</b>: Completed</p>'\
-               '<p><b>Recorder</b>: Cerner Test, Physician - Women&apos;s Health Cerner</p></div>'
+               '<p><b>Recorder</b>: Cerner Test, Physician - Women&#39;s Health Cerner</p></div>'
       },
       'status': 'completed',
       'code': {
@@ -114,7 +114,7 @@ module Cerner
         "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Procedure</b></p><p><b>Patient</b>: SMART, NANCY</p>'\
         '<p><b>Procedure</b>: Adenoid excision (text)</p><p><b>Date</b>: Apr  5, 2019</p><p><b>Status</b>: Completed'\
         '</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: SYSTEM, SYSTEM Cerner</p>'\
-        '<p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&apos;s Health Cerner</li></ul></div>'
+        '<p><b>Performer</b>:</p><ul><li>Cerner Test, Physician - Women&#39;s Health Cerner</li></ul></div>'
       },
       "status": 'completed',
       "code": {
@@ -283,6 +283,10 @@ module Cerner
         'display': 'Baseline East'
       },
       'performedDateTime': '2019-04-05T20:21:46Z',
+      'performedPeriod': {
+        'start': '2019-04-05T20:21:46Z',
+        'end': '2019-04-05T21:21:46Z'
+      },
       'performer': [
         {
           'function': {

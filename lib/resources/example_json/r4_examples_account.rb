@@ -78,7 +78,7 @@ module Cerner
             'identifier': [
               {
                 'use': 'usual',
-                'system': 'https://fhir.cerner.com/accountnumber',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/account-number',
                 'value': '10000381'
               }
             ],
@@ -168,7 +168,7 @@ module Cerner
             'identifier': [
               {
                 'use': 'usual',
-                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/28200',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number',
                 'value': '68002'
               }
             ],
@@ -229,7 +229,7 @@ module Cerner
             'identifier': [
               {
                 'use': 'usual',
-                'system': 'https://fhir.cerner.com/accountnumber',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/account-number',
                 'value': '344'
               }
             ],
@@ -291,7 +291,7 @@ module Cerner
             'identifier': [
               {
                 'use': 'usual',
-                'system': 'https://fhir.cerner.com/accountnumber',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/account-number',
                 'value': '343'
               }
             ],
@@ -346,7 +346,7 @@ module Cerner
             'identifier': [
               {
                 'use': 'usual',
-                'system': 'https://fhir.cerner.com/accountnumber',
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/account-number',
                 'value': '347'
               }
             ],

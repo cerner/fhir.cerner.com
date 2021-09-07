@@ -41,7 +41,7 @@ The following fields are returned if valued:
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
-* [Extensions including client organization, custom attribute, estimated financial responsibility amount, payment collection status, and estimated financial responsibility not collected reason](#extensions){:target="_blank"}
+* [Extensions including client organization, custom attribute, estimated financial responsibility amount, estimated financial responsibility not collected reason, military service connected indicator, and payment collection status](#extensions){:target="_blank"}
 
 ### Contained Location Bindings
 
@@ -56,8 +56,9 @@ The following fields are returned if valued:
 * [Client Organization]
 * [Custom Attribute]
 * [Estimated Financial Responsibility Amount]
-* [Payment Collection Status]
 * [Estimated Financial Responsibility Not Collected Reason]
+* [Military Service Connected Indicator]
+* [Payment Collection Status]
 
 ### Custom Extensions
 
@@ -69,6 +70,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `custom-attribute`                                        | None (contains nested extensions)                                | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`CodeableConcept`], or [`dateTime`].
  `estimated-financial-responsibility-amount`               | [`Money`]                                                        | The estimated amount to be collected for the encounter.
  `estimated-financial-responsibility-not-collected-reason` | [`CodeableConcept`]                                              | The reason no estimated amount is collected for the encounter.
+ `military-service-connected-indicator`                    | [`CodeableConcept`]                                              | Identifies whether an encounter is connected to military service.
  `payment-collection-status`                               | [`CodeableConcept`]                                              | The status of the payment collection for the encounter.
 
 ## Search
@@ -89,16 +91,17 @@ _Implementation Notes_
 
 ### Parameters
 
- Name         | Required?                                   | Type          | Description
---------------|---------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
- `_id`        | This or `patient` or `subject` or `account` | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient`    | This or `subject` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `12345`
- `subject`    | This or `patient` or `account` or `_id`     | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `account`    | This or `patient` or `subject` or `_id`     | [`reference`] | The account associated with the encounters. Example: `F703726`
- `date`       | No                                          | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
- [`_count`]   | No                                          | [`number`]    | The maximum number of results to return.
- `status`     | No                                          | [`token`]     | The status of the encounter. Example: `planned`
-`_revinclude` | No                                          | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+Name          | Required?                                                     | Type          | Description
+--------------|--------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
+ `_id`        | This or `patient` or `subject` or `account` or `identifier` or `pageContext`   | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+`patient`     | This or `subject` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `12345`
+`subject`     | This or `patient` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`account`     | This or `patient` or `subject` or `_id` or `identifier` or `pageContext`       | [`reference`] | The account associated with the encounters. Example: `F703726`
+`identifier`  | This or `patient` or `subject` or `account` or `_id` or `pageContext`          | [`token`]     | An encounter's identifier. Example: `urn:oid:1.2.243.58|110219457`
+`date`        | No                                                                             | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
+[`_count`]    | No                                                                             | [`number`]    | The maximum number of results to return.
+`status`      | No                                                                             | [`token`]     | The status of the encounter. Example: `planned`
+`_revinclude` | No                                                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
   
 Notes:
 
@@ -109,17 +112,20 @@ Notes:
 * `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
 * The `date` parameter may be provided:
   * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
-    `date=ge2015-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z`,    
-    `date=le2016-01-01T00:00.00.000Z`,
-    `date=lt2016-01-01T00:00.00.000Z`)
+    `date=ge2015-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z`,    
+    `date=le2016-01-01T00:00:00.000Z`,
+    `date=lt2016-01-01T00:00:00.000Z`)
   * twice with the prefixes of ge or gt and le or lt to indicate a specific range. (e.g.: 
-    `date=ge2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
-    `date=ge2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z&date=le2016-01-01T00:00.00.000Z`,
-    `date=gt2015-01-01T00:00.00.000Z&date=lt2016-01-01T00:00.00.000Z`,
+    `date=ge2015-01-01T00:00:00.000Z&date=le2016-01-01T00:00:00.000Z`,
+    `date=ge2015-01-01T00:00:00.000Z&date=lt2016-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z&date=le2016-01-01T00:00:00.000Z`,
+    `date=gt2015-01-01T00:00:00.000Z&date=lt2016-01-01T00:00:00.000Z`,
     )
-
+* The `identifier` parameter
+  * Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+    Encounter resource.
+  * When valid system is provided, search is performed against the specific system.
 
 ### Headers
 
@@ -334,5 +340,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [Estimated Financial Responsibility Amount]: #custom-extensions
 [Estimated Financial Responsibility Not Collected Reason]: #custom-extensions
+[Military Service Connected Indicator]: #custom-extensions
 [OperationOutcomes]: ../../#operation-outcomes
 [Payment Collection Status]: #custom-extensions
