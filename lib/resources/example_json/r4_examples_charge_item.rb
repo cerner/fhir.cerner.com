@@ -32,6 +32,35 @@ module Cerner
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price'
         },
         {
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/sid/ndc',
+                    'code': '1111-1111-111'
+                  }
+                ]
+              },
+              'url': 'national-drug-product-code'
+            },
+            {
+              'valueQuantity': {
+                'value': 2.0,
+                'unit': 'milligram (mass)',
+                'system': 'http://unitsofmeasure.org',
+                'code': 'mg'
+              },
+              'url': 'national-drug-product-quantity'
+            },
+            {
+              'valueDecimal': 2,
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product'
+        },
+        {
           'valueReference': {
             'reference': 'ChargeItem/157320880'
           },
@@ -252,6 +281,35 @@ module Cerner
                   'currency': 'USD'
                 },
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price'
+              },
+              {
+                'extension': [
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'http://hl7.org/fhir/sid/ndc',
+                          'code': '1111-1111-111'
+                        }
+                      ]
+                    },
+                    'url': 'national-drug-product-code'
+                  },
+                  {
+                    'valueQuantity': {
+                      'value': 2.0,
+                      'unit': 'milligram (mass)',
+                      'system': 'http://unitsofmeasure.org',
+                      'code': 'mg'
+                    },
+                    'url': 'national-drug-product-quantity'
+                  },
+                  {
+                    'valueDecimal': 2,
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor'
+                  }
+                ],
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product'
               },
               {
                 'valueString': 'Acetaminophen Level',
