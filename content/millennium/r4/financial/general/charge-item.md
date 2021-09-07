@@ -185,7 +185,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/ChargeItem/292427912/$credit
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292427912/$credit
 
 #### Body
 
