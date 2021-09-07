@@ -163,7 +163,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 Creates an offsetting ChargeItem for an existing debit ChargeItem.
 
-    POST /ChargeItem/:id/charge-item-credit
+    POST /ChargeItem/:id/$credit
     
 _Implementation Notes_
 
@@ -182,6 +182,8 @@ _Implementation Notes_
 Notes:
 
 * versionId, transactionId, subject and context are the required fields.
+
+<%= definition_table(:charge_item_credit, :credit, :r4) %>
 
 ### Example
 
