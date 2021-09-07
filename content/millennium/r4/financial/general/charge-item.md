@@ -179,10 +179,6 @@ _Implementation Notes_
 
 ### Body Fields
 
-Notes:
-
-* versionId, transactionId, subject and context are the required fields.
-
 <%= definition_table(:charge_item_credit, :credit, :r4) %>
 
 ### Example
