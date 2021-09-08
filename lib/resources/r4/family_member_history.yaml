@@ -32,6 +32,7 @@ fields:
   type: Extension
   url: https://hl7.org/fhir/extensibility.html#Extension
   description: Indication of whether a patient is adopted.
+  note: Only returned when relationship is FAMMEMB and value is true.
   action: update
   example: |
     {
@@ -143,7 +144,7 @@ fields:
     }
   note: |
     <ul>
-      <li>Should we explain what we are using 'FAMMEMB' code for?</li>
+      <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
     </ul>
   binding:
     description: A relationship between two people characterizing their "familial" relationship

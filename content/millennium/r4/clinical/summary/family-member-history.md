@@ -20,25 +20,25 @@ It is recommended that an update to FamilyMemberHistory contain all relevant dat
 The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.status){:target="_blank"}
-* [Data Absent Reason](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason){:target="_blank"}
-* [Patient](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.patient){:target="_blank"}
-* [Date](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.date){:target="_blank"}
-* [Name](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.name){:target="_blank"}
-* [Relationship](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.relationship){:target="_blank"}
-* [Sex](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.sex){:target="_blank"}
-* [Born](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_){:target="_blank"}
-* [Age](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.age_x_){:target="_blank"}
-* [Deceased](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_]){:target="_blank"}
+* [Status](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.status){:target="_blank"}
+* [Data Absent Reason](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason){:target="_blank"}
+* [Patient](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.patient){:target="_blank"}
+* [Date](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.date){:target="_blank"}
+* [Name](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.name){:target="_blank"}
+* [Relationship](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.relationship){:target="_blank"}
+* [Sex](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.sex){:target="_blank"}
+* [Born](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_){:target="_blank"}
+* [Age](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.age_x_){:target="_blank"}
+* [Deceased](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_]){:target="_blank"}
   * [Precision Extension](#extensions){:target="_blank"}
 * [Extension](#extensions){:target="_blank"}
   * [Patient Adopted](#extensions){:target="_blank"}
-* [Condition](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition){:target="_blank"}
+* [Condition](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition){:target="_blank"}
   * [Id](https://hl7.org/fhir/R4/element-definitions.html#Element.id){:target="_blank"}
-  * [Code](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code){:target="_blank"}
-  * [Onset](http://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_){:target="_blank"}
+  * [Code](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code){:target="_blank"}
+  * [Onset](https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_){:target="_blank"}
      * [Precision Extension](#extensions){:target="_blank"}
-  * [Note](http://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note){:target="_blank"}
+  * [Note](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note){:target="_blank"}
   * [Modifier Extension](#modifier-extensions){:target="_blank"}
      * [Condition Result](#custom-extensions){:target="_blank"}
      * [Condition Lifecycle Status](#extensions){:target="_blank"}
@@ -91,6 +91,10 @@ Search for FamilyMemberHistories that meet supplied query parameters:
 
     GET /FamilyMemberHistory?:parameters
 
+_Implementation Notes_
+
+* FamilyMemberHistories with the 'FAMMEMB' relation are sometimes system generated.
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
@@ -99,9 +103,13 @@ Search for FamilyMemberHistories that meet supplied query parameters:
 
 Name      | Required?       | Type          | Description
 ----------|-----------------|---------------|-------------------------------------------------------
-`_id`     | This or patient         | [`token`]     | The logical resource id associated with the resource.
-`patient` | This or _id             | [`reference`] | The identity of a subject to list family member history items for. Example: `12345`
-`status`  | No. Patient is required | [`token`] | The status of the record of the family history of a specific family member.
+`_id`     | This or patient | [`token`]     | The logical resource id associated with the resource.
+`patient` | This or _id     | [`reference`] | The identity of a subject to list family member history items for. Example: `12345`
+`status`  | No              | [`token`] | The status of the record of the family history of a specific family member.
+
+_Implementation Notes_
+
+`status` may be provided when the `patient` search parameter is provided
 
 ### Headers
 
@@ -131,6 +139,10 @@ The common [errors] and [OperationOutcomes] may be returned.
 List an individual FamilyMemberHistory by its id:
 
     GET /FamilyMemberHistory/:id
+
+_Implementation Notes_
+
+* FamilyMemberHistories with the 'FAMMEMB' relation are sometimes system generated.
 
 ### Authorization Types
 
@@ -164,7 +176,7 @@ Create a new FamilyMemberHistory.
 _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
-* Conditions can only be added through the PUT operation.
+* Conditions cannot be added while creating the FamilyMemberHistory.
 
 ### Authorization Types
 
