@@ -37,6 +37,9 @@ The following fields are returned if valued:
   * [Type of performer (ordering or administering)](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
   * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
 * [Note](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
+* [Protocol applied](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied){:target="_blank"}
+  * [Target disease](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease){:target="_blank"}
+  * [Dose number](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -54,12 +57,13 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name          | Required?          | Type          | Description
----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`         | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
- `patient`     | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`        | No                 | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
- `_revinclude` | No                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ Name             | Required?          | Type          | Description
+------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`            | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
+ `patient`        | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
+ `date`           | No                 | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
+ `_revinclude`    | No                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `target-disease` | No                 | [`token`]     | The target disease the dose is being administered against.                                 Example: `http://hl7.org/fhir/sid/cvx|213`
 
 Notes:
 
@@ -70,6 +74,8 @@ Notes:
 * The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=M17255835,M17255827&_revinclude=Provenance:target`
 * When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
 * **Currently the `patient/Provenance.read` scope is not supported and hence `_revinclude` cannot be utilised for patient persona.**
+* The `target-disease` parameter
+  * Searching by Millennium proprietary codes is not supported
 
 ### Headers
 

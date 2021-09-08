@@ -414,3 +414,23 @@ fields:
     Will be set to true if not specified.
     For CREATE action should not be set to true when reportOrigin is populated.
     For UPDATE action should not be set to true.
+
+- name: protocolApplied.targetDisease
+  required: 'No'
+  type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.protocolApplied.targetDisease
+  description: The vaccine preventable disease the dose is being administered against.
+  action: terminology
+  binding:
+    description: The vaccine preventable disease the dose is being administered against.
+    terminology:
+    - display: CVX
+      system: http://hl7.org/fhir/sid/cvx
+      info_link: http://hl7.org/fhir/r4/cvx.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/r4/snomedct.html
+    - display: Millennium Vaccine Group Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/4003106
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-4003106-vaccine-group
+   
