@@ -106,31 +106,18 @@ fields:
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
-  - name: Unit Price
-    terminology_name: extension[x].valueMoney
+  - name: Unit Price/Net Price
+    terminology_name: .extension[x].valueMoney.currency
     required: 'No'
     type: Extension
-    description: The quantity times the unit price for a resource (total price).
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: The quantity times the unit price for a resource (total price). This binding is used in <extension>net-price</extension> extensions.
+      description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in net-price and unit-priceextensions.
       terminology:
-        - display: Net Price
-          system: https://hl7.org/fhir/datatypes.html#Money
-          info_link: https://hl7.org/fhir/datatypes.html#Money
-
-  - name: Net Price
-    terminology_name: extension[x].valueMoney
-    required: 'No'
-    type: Extension
-    description: The price of a single unit for the resource.
-    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
-    binding:
-      description: The price of a single unit for the resource. This binding is used in <extension>unit-price</extension> extensions.
-      terminology:
-        - display: Unit Price
-          system: https://hl7.org/fhir/datatypes.html#Money
-          info_link: https://hl7.org/fhir/datatypes.html#Money
+        - display: Currencies
+          system: urn:iso:std:iso:4217
+          info_link: http://hl7.org/fhir/r4/valueset-currencies.html
 
   - name: National Drug Product Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
