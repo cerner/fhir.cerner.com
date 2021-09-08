@@ -81,6 +81,8 @@ Authorization is not required.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
  [`condition-course`]                                        | Indication of a condition's progress since diagnosis.
+ [`condition-lifecycle-status`]                              | Indication of whether a condition is active, inactive, resolved, etc.
+ [`condition-result`]                                        | Indication of the presence (positive) or absence (negative) of a given condition.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
@@ -137,6 +139,8 @@ Authorization is not required.
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
 [`clinical-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction?_format=json
 [`condition-course`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course?_format=json
+[`condition-lifecycle-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status?_format=json
+[`condition-result`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result?_format=json
 [`coverage-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json
 [`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`description`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json
