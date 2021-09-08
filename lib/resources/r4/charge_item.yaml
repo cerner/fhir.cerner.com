@@ -106,6 +106,32 @@ fields:
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
+  - name: Unit Price
+    terminology_name: extension[x].valueMoney
+    required: 'No'
+    type: Extension
+    description: The quantity times the unit price for a resource (total price).
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
+    binding:
+      description: The quantity times the unit price for a resource (total price). This binding is used in <extension>net-price</extension> extensions.
+      terminology:
+        - display: Net Price
+          system: https://hl7.org/fhir/datatypes.html#Money
+          info_link: https://hl7.org/fhir/datatypes.html#Money
+
+  - name: Net Price
+    terminology_name: extension[x].valueMoney
+    required: 'No'
+    type: Extension
+    description: The price of a single unit for the resource.
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
+    binding:
+      description: The price of a single unit for the resource. This binding is used in <extension>unit-price</extension> extensions.
+      terminology:
+        - display: Unit Price
+          system: https://hl7.org/fhir/datatypes.html#Money
+          info_link: https://hl7.org/fhir/datatypes.html#Money
+
   - name: National Drug Product Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
@@ -118,6 +144,19 @@ fields:
         - display: National Drug Product
           system: http://hl7.org/fhir/sid/ndc
           info_link: http://hl7.org/fhir/sid/ndc
+
+  - name: National Drug Product Extension
+    terminology_name: extension[x].extension[x].valueQuantity
+    required: 'No'
+    type: Extension
+    description: The quantity for national drug code for pharmacy charges.
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
+    binding:
+      description: The quantity for national drug code for pharmacy charges. This binding is used in <extension>national-drug-product-quantity</extension> extensions.
+      terminology:
+        - display: National Drug Product Quantity
+          system: http://unitsofmeasure.org
+          info_link: http://unitsofmeasure.org
 
   - name: performer
     type: List of BackboneElement
