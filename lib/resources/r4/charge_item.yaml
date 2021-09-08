@@ -74,7 +74,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -87,7 +87,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -100,7 +100,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -113,7 +113,7 @@ fields:
     description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in net-price and unit-priceextensions.
+      description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>net-price</code> and <code>unit-price</code> extensions.
       terminology:
         - display: Currencies
           system: urn:iso:std:iso:4217
@@ -126,7 +126,7 @@ fields:
     description: The national drug code for pharmacy charges.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.
+      description: The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.
       terminology:
         - display: National Drug Product
           system: http://hl7.org/fhir/sid/ndc
@@ -139,7 +139,7 @@ fields:
     description: The quantity for national drug code for pharmacy charges.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: The quantity for national drug code for pharmacy charges. This binding is used in <extension>national-drug-product-quantity</extension> extensions.
+      description: The quantity for national drug code for pharmacy charges. This binding is used in <code>national-drug-product-quantity</code> extensions.
       terminology:
         - display: National Drug Product Quantity
           system: http://unitsofmeasure.org
