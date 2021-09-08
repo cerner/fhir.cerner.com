@@ -109,7 +109,7 @@ Name      | Required?       | Type          | Description
 
 _Implementation Notes_
 
-`status` may be provided when the `patient` search parameter is provided
+`status` may only be provided when the `patient` search parameter is provided
 
 ### Headers
 

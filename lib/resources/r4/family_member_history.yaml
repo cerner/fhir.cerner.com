@@ -252,10 +252,6 @@ fields:
     - create
     - update
     - terminology
-  note: |
-    <ul>
-      <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
-    </ul>
   example: |
     {
       "extension": [
@@ -274,11 +270,6 @@ fields:
     }
   binding:
     description: Indication of the precision of a given value.
-    note: |
-      <ul>
-        <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
-        <li> https://fhir-ehr.cerner.com/r4/StructureDefinition/precision </li>
-      </ul>
     terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
@@ -382,10 +373,6 @@ fields:
   action:
     - update
     - terminology
-  note: |
-    <ul>
-      <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
-    </ul>
   example: |
     {
       "extension": [
@@ -404,11 +391,6 @@ fields:
     }
   binding:
     description: Indication of the precision of a given value.
-    note: |
-      <ul>
-        <li> Supported codes include 397669002, 26175008, 288563008, 272113006 </li>
-        <li> https://fhir-ehr.cerner.com/r4/StructureDefinition/precision </li>
-      </ul>
     terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
