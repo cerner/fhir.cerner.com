@@ -117,7 +117,7 @@ fields:
       terminology:
         - display: Currencies
           system: urn:iso:std:iso:4217
-          info_link: http://hl7.org/fhir/r4/valueset-currencies.html
+          info_link: https://hl7.org/fhir/r4/valueset-currencies.html
 
   - name: National Drug Product Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
@@ -129,10 +129,10 @@ fields:
       description: The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.
       terminology:
         - display: National Drug Product
-          system: http://hl7.org/fhir/sid/ndc
-          info_link: http://hl7.org/fhir/sid/ndc
+          system: https://hl7.org/fhir/sid/ndc
+          info_link: https://hl7.org/fhir/sid/ndc
 
-  - name: National Drug Product Extension
+  - name: National Drug Product Quantity
     terminology_name: extension[x].extension[x].valueQuantity
     required: 'No'
     type: Extension
@@ -142,8 +142,8 @@ fields:
       description: The quantity for national drug code for pharmacy charges. This binding is used in <code>national-drug-product-quantity</code> extensions.
       terminology:
         - display: National Drug Product Quantity
-          system: http://unitsofmeasure.org
-          info_link: http://unitsofmeasure.org
+          system: https://unitsofmeasure.org
+          info_link: https://unitsofmeasure.org
 
   - name: performer
     type: List of BackboneElement
@@ -163,5 +163,5 @@ fields:
               system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
               info_link: https://hl7.org/fhir/R4/valueset-performer-function.html
             - display: Participation codes
-              system: http://terminology.hl7.org/CodeSystem/v2-0912
+              system: https://terminology.hl7.org/CodeSystem/v2-0912
               info_link: https://terminology.hl7.org/CodeSystem/v2-0912
