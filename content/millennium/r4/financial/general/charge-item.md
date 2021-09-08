@@ -157,6 +157,61 @@ List an individual ChargeItem by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Operation: charge-item-credit
+
+<%= beta_tag(action: true) %>
+
+Creates an offsetting ChargeItem for an existing debit ChargeItem.
+
+    POST /ChargeItem/:id/$credit
+    
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.    
+    
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:charge_item_credit, :credit, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292427912/$credit
+
+#### Body
+
+<%= json(:r4_charge_item_credit) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 07 Sep 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/2180632343
+Last-Modified: Tue, 07 Sep 2021 17:25:14 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`date`]: https://hl7.org/fhir/r4/datatypes.html#date
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
