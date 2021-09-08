@@ -200,7 +200,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Tue, 07 Sep 2021 17:23:14 GMT
 Etag: W/"0"
-Location: https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/ChargeItem/2180632343
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/2180632343
 Last-Modified: Tue, 07 Sep 2021 17:25:14 GMT
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
