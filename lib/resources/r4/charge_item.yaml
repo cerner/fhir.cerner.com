@@ -12,7 +12,7 @@ fields:
       description: A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
+        system: http://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: reason
@@ -25,7 +25,7 @@ fields:
       description: Describes why the event occurred in coded or textual form.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-ICD
+        system: http://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-ICD
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Modifier Code Extension
@@ -38,7 +38,7 @@ fields:
       description: A code providing additional detail about a product or service. This binding is used in <code>modifier-code</code> extensions.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-MODIFIER
+        system: http://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-MODIFIER
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Procedure Code Extension
@@ -51,7 +51,7 @@ fields:
       description: A code providing information about the procedure performed on the patient associated to the resource. This binding is used in <code>procedure-code</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
+        system: http://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Revenue Code Extension
@@ -64,7 +64,7 @@ fields:
       description: The type of revenue or cost center providing the product and/or service. This binding is used in <code>revenue-code</code> extensions.
       terminology:
       - display: Bill Codes Types
-        system: https://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-REVENUE
+        system: http://fhir.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-REVENUE
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Bill Code Schedule Extension
@@ -77,7 +77,7 @@ fields:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
-          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          system: http://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: Bill Code Schedule Extension
@@ -90,7 +90,7 @@ fields:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
-          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          system: http://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: Bill Code Schedule Extension
@@ -103,7 +103,7 @@ fields:
       description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
-          system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
+          system: http://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: Unit Price/Net Price
@@ -129,7 +129,7 @@ fields:
       description: The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.
       terminology:
         - display: National Drug Product
-          system: https://hl7.org/fhir/sid/ndc
+          system: http://hl7.org/fhir/sid/ndc
           info_link: https://hl7.org/fhir/sid/ndc
 
   - name: National Drug Product Quantity
@@ -142,7 +142,7 @@ fields:
       description: The quantity for national drug code for pharmacy charges. This binding is used in <code>national-drug-product-quantity</code> extensions.
       terminology:
         - display: National Drug Product Quantity
-          system: https://unitsofmeasure.org
+          system: http://unitsofmeasure.org
           info_link: https://unitsofmeasure.org
 
   - name: performer
@@ -163,5 +163,5 @@ fields:
               system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType
               info_link: https://hl7.org/fhir/R4/valueset-performer-function.html
             - display: Participation codes
-              system: https://terminology.hl7.org/CodeSystem/v2-0912
+              system: http://terminology.hl7.org/CodeSystem/v2-0912
               info_link: https://terminology.hl7.org/CodeSystem/v2-0912
