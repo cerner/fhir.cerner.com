@@ -107,7 +107,7 @@ fields:
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
 
   - name: Unit Price/Net Price
-    terminology_name: .extension[x].valueMoney.currency
+    terminology_name: extension[x].valueMoney.currency
     required: 'No'
     type: Extension
     description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
