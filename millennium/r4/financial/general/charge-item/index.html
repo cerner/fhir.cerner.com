@@ -105,6 +105,15 @@
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
+  <li>
+<a href="#operation-charge-item-credit" id="markdown-toc-operation-charge-item-credit">Operation: charge-item-credit</a>    <ul>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -355,7 +364,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.</li></ul>
+            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.</li></ul>
           
           
 
@@ -396,7 +405,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.</li></ul>
+            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.</li></ul>
           
           
 
@@ -437,7 +446,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.</li></ul>
+            <ul style="list-style-type: none"><li>A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.</li></ul>
           
           
 
@@ -469,6 +478,47 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.extension[x].valueMoney.currency</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>net-price</code> and <code>unit-price</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-currencies.html">Currencies</a><br>
+                      
+                        System: urn:iso:std:iso:4217 <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
           <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
@@ -478,7 +528,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.</li></ul>
+            <ul style="list-style-type: none"><li>The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.</li></ul>
           
           
 
@@ -487,9 +537,50 @@ The main usage of the ChargeItem is to enable the billing process and internal c
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/sid/ndc">National Drug Product</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/sid/ndc">National Drug Product</a><br>
                       
-                        System: http://hl7.org/fhir/sid/ndc <br>
+                        System: https://hl7.org/fhir/sid/ndc <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions">Chargeitem.extension[x].extension[x].valueQuantity</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The quantity for national drug code for pharmacy charges. This binding is used in <code>national-drug-product-quantity</code> extensions.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://unitsofmeasure.org">National Drug Product Quantity</a><br>
+                      
+                        System: http://unitsofmeasure.org <br>
                       
                       </p>
                     
@@ -802,6 +893,35 @@ The main usage of the ChargeItem is to enable the billing process and internal c
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price"
           },
           {
+            "extension": [
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/sid/ndc",
+                      "code": "1111-1111-111"
+                    }
+                  ]
+                },
+                "url": "national-drug-product-code"
+              },
+              {
+                "valueQuantity": {
+                  "value": 2.0,
+                  "unit": "milligram (mass)",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                },
+                "url": "national-drug-product-quantity"
+              },
+              {
+                "valueDecimal": 2,
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product"
+          },
+          {
             "valueString": "Acetaminophen Level",
             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/description"
           },
@@ -1042,6 +1162,35 @@ The main usage of the ChargeItem is to enable the billing process and internal c
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price"
     },
     {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "1111-1111-111"
+              }
+            ]
+          },
+          "url": "national-drug-product-code"
+        },
+        {
+          "valueQuantity": {
+            "value": 2.0,
+            "unit": "milligram (mass)",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          },
+          "url": "national-drug-product-quantity"
+        },
+        {
+          "valueDecimal": 2,
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product"
+    },
+    {
       "valueReference": {
         "reference": "ChargeItem/157320880"
       },
@@ -1224,6 +1373,372 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<h2 id="operation-charge-item-credit">Operation: charge-item-credit</h2>
+
+<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+
+<p>Creates an offsetting ChargeItem for an existing debit ChargeItem.</p>
+
+<pre><code>POST /ChargeItem/:id/$credit
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+</ul>
+
+<h3 id="authorization-types-2">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-2">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Accept</a>: application/fhir+json
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="credit-resourceType">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "Parameters"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be Parameters</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="credit-parameter">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>parameter</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Parameters defined by the operation.</li></ul>
+      
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="credit-versionId">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>versionId</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#id"><code>id</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The version id of the ChargeItem that is the target of the credit operation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "parameter": [
+    {
+      "name": "versionId",
+      "valueId": "2"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The value must be in the form of <code>valueId</code>
+</li>
+  <li>Only one value can be defined</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="credit-subject">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The Patient associated with the ChargeItem.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "parameter": [
+    {
+      "name": "subject",
+      "valueReference": {
+        "reference": "Patient/13388355"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The value must be in the form of <code>valueReference</code>
+</li>
+  <li>Only one value can be defined</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="credit-context">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>context</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/encounter.html"><code>Encounter</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The Encounter associated with the ChargeItem.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "parameter": [
+    {
+      "name": "context",
+      "valueReference": {
+        "reference": "Encounter/98255557"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The value must be in the form of <code>valueReference</code>
+</li>
+  <li>Only one value can be defined</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="credit-transactionId">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter"><code>transactionId</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>uuid</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A UUID to uniquely identify the credit operation.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "parameter": [
+    {
+      "name": "transactionId",
+      "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The value must be in the form of <code>valueUuid</code>
+</li>
+  <li>Only one value can be defined</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#credit">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292427912/$credit
+</code></pre>
+
+<h4 id="body">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "versionId",
+      "valueId": "2"
+    },
+    {
+      "name": "transactionId",
+      "valueUuid": "urn:uuid:5bb8acae-0c7d-11ec-82a8-0242ac130003"
+    },
+    {
+      "name": "subject",
+      "valueReference": {
+        "reference": "Patient/12782842"
+      }
+    },
+    {
+      "name": "context",
+      "valueReference": {
+        "reference": "Encounter/98019577"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 07 Sep 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/2180632343
+Last-Modified: Tue, 07 Sep 2021 17:25:14 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 

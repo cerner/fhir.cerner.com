@@ -82,6 +82,15 @@
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#modifier-extensions" id="markdown-toc-modifier-extensions">Modifier Extensions</a></li>
+  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
+  <li>
+<a href="#custom-modifier-extensions-and-extensions" id="markdown-toc-custom-modifier-extensions-and-extensions">Custom Modifier Extensions and Extensions</a>    <ul>
+      <li><a href="#modifier-extensions-1" id="markdown-toc-modifier-extensions-1">Modifier Extensions</a></li>
+      <li><a href="#extensions-1" id="markdown-toc-extensions-1">Extensions</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
@@ -124,11 +133,707 @@
 
 <p>The resource should be leveraged as a snapshot in time and new data should be consistently retrieved through the API rather than stored within an application. There may be instances where a relative had an associated condition removed from the patient’s chart which would then no longer be exposed on a subsequent transaction. It is crucial that the data be refreshed with every interaction.</p>
 
+<p>It is recommended that an update to FamilyMemberHistory contain all relevant data that previously existed on the resource to ensure that data remains populated in the patient’s chart (e.g., FamilyMemberHistory.sex, FamilyMemberHistory.bornDate, FamilyMemberHistory.condition.onsetDate, etc.). The absence of this optional information may result in the removal of data from the patient’s chart.</p>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">FamilyMemberHistory id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason" target="_blank">Data Absent Reason</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.date" target="_blank">Date</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.relationship" target="_blank">Relationship</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.sex" target="_blank">Sex</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_" target="_blank">Born</a></li>
+  <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.age_x_" target="_blank">Age</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_%5D" target="_blank">Deceased</a>
+    <ul>
+      <li><a href="#extensions" target="_blank">Precision Extension</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#extensions" target="_blank">Extension</a>
+    <ul>
+      <li><a href="#extensions" target="_blank">Patient Adopted</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition" target="_blank">Condition</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/element-definitions.html#Element.id" target="_blank">Id</a></li>
+      <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code" target="_blank">Code</a></li>
+      <li>
+<a href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_" target="_blank">Onset</a>
+        <ul>
+          <li><a href="#extensions" target="_blank">Precision Extension</a></li>
+        </ul>
+      </li>
+      <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note" target="_blank">Note</a></li>
+      <li>
+<a href="#modifier-extensions" target="_blank">Modifier Extension</a>
+        <ul>
+          <li><a href="#custom-extensions" target="_blank">Condition Result</a></li>
+          <li><a href="#extensions" target="_blank">Condition Lifecycle Status</a></li>
+        </ul>
+      </li>
+      <li>
+<a href="#extensions" target="_blank">Extension</a>
+        <ul>
+          <li><a href="#extensions" target="_blank">Condition Course</a></li>
+          <li><a href="#extensions" target="_blank">Family Member History Severity</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
+
+<h2 id="terminology-bindings">Terminology Bindings</h2>
+
+<table style="display: table; white-space: normal">
+  <tbody>
+    
+      
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.status">FamilyMemberHistory.status</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A code that identifies the status of the family history record.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-history-status.html">FamilyHistoryStatus</a><br>
+                      
+                        System: http://hl7.org/fhir/history-status <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason">FamilyMemberHistory.dataAbsentReason</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Codes describing the reason why a family member's history is not available.</li></ul>
+          
+          
+            <li><i>Note</i></li>
+            
+            <ul style="list-style-type: none"><li style="list-style-type: none">Can be subject-unknown or unable-to-obtain</li></ul>
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-history-absent-reason.html">FamilyHistoryAbsentReason</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/history-absent-reason <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.relationship">FamilyMemberHistory.relationship</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>A relationship between two people characterizing their "familial" relationship</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/v3/FamilyMember/vs.html">V3 Value SetFamilyMember</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.sex">FamilyMemberHistory.sex</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The gender of a person used for administrative purposes.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-administrative-gender.html">AdministrativeGender</a><br>
+                      
+                        System: http://hl7.org/fhir/administrative-gender <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_">FamilyMemberHistory.deceasedAge.unit</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Code system intended to include all units of measures.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://ucum.org/trac">Units of Measure</a><br>
+                      
+                        System: http://unitsofmeasure.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension">FamilyMemberHistory.deceasedAge.extension(precision)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indication of the precision of a given value.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code">FamilyMemberHistory.condition.code</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Identification of the condition, problem or diagnosis.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-condition-code.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature">Millennium Condition Nomenclature</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_">FamilyMemberHistory.condition.onsetAge.unit</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Code system intended to include all units of measures.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://ucum.org/trac">Units of Measure</a><br>
+                      
+                        System: http://unitsofmeasure.org <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension">FamilyMemberHistory.condition.onsetAge.extension(precision)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indication of the precision of a given value.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-result)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indication of the presence (positive) or absence (negative) of a given condition.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-lifecycle-status)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-condition-clinical.html">Condition Clinical Status Codes</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/condition-clinical <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension">FamilyMemberHistory.condition.extension(condition-course)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The progression of a given condition.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://hl7.org/fhir/extension-familymemberhistory-severity.html">FamilyMemberHistory.condition.extension(familymemberhistory-severity)</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The progression of a given condition.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h2 id="modifier-extensions">Modifier Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Condition Result</a></li>
+  <li><a href="#custom-extensions">Condition Lifecycle Status</a></li>
+</ul>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Patient Adopted</a></li>
+  <li><a href="#custom-extensions">Precision Extension</a></li>
+  <li><a href="#custom-extensions">Condition Course</a></li>
+  <li><a href="http://hl7.org/fhir/extension-familymemberhistory-severity.html">Family Member History Severity</a></li>
+</ul>
+
+<h2 id="custom-modifier-extensions-and-extensions">Custom Modifier Extensions and Extensions</h2>
+
+<p>URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<h3 id="modifier-extensions-1">Modifier Extensions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>condition-result</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
+      <td>Indication of the presence (positive) or absence (negative) of a given condition.</td>
+    </tr>
+    <tr>
+      <td><code>condition-lifecycle-status</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
+      <td>Indication of whether a condition is active, inactive, resolved, etc.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="extensions-1">Extensions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient-adopted</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
+      <td>Indication of whether a patient is adopted. Only returned when true.</td>
+    </tr>
+    <tr>
+      <td><code>precision</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
+      <td>Indication of the precision of a given value.</td>
+    </tr>
+    <tr>
+      <td><code>condition-course</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
+      <td>Indication of a condition’s progress since diagnosis.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="search">Search</h2>
 
@@ -138,6 +843,12 @@
 
 <pre><code>GET /FamilyMemberHistory?:parameters
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>FamilyMemberHistories with the ‘FAMMEMB’ relation are sometimes system generated.</li>
+</ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -166,12 +877,22 @@
     <tr>
       <td><code>patient</code></td>
       <td>This or _id</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
       <td>The identity of a subject to list family member history items for. Example: <code>12345</code>
 </td>
     </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The status of the record of the family history of a specific family member.</td>
+    </tr>
   </tbody>
 </table>
+
+<p><em>Implementation Notes</em></p>
+
+<p><code>status</code> may only be provided when the <code>patient</code> search parameter is provided</p>
 
 <h3 id="headers">Headers</h3>
 
@@ -182,7 +903,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory?_id=123-456
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory?patient=12504018
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -196,15 +917,176 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory?_id=SH-12508041"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory?patient=12504018"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/SH-12508041",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/12504018",
       "resource": {
         "resourceType": "FamilyMemberHistory",
-        "id": "123-456"
+        "id": "12504018",
+        "status": "partial",
+        "patient": {
+          "reference": "Patient/12504018"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "FAMMEMB",
+              "display": "family member"
+            }
+          ],
+          "text": "family member"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/12504018-12764234",
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "id": "12504018-12764234",
+        "status": "completed",
+        "patient": {
+          "reference": "Patient/12504018"
+        },
+        "date": "2021-09-03T09:55:51-05:00",
+        "name": "Smart, Test",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "SIS",
+              "display": "sister"
+            }
+          ],
+          "text": "Sister"
+        },
+        "sex": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/administrative-gender",
+              "code": "female",
+              "display": "Female"
+            }
+          ],
+          "text": "Female"
+        },
+        "bornDate": "1993-08-08",
+        "deceasedAge": {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "397669002",
+                    "display": "Age (qualifier value)"
+                  }
+                ],
+                "text": "Age"
+              },
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+            }
+          ],
+          "value": 18,
+          "unit": "years",
+          "system": "http://unitsofmeasure.org",
+          "code": "a"
+        },
+        "condition": [
+          {
+            "id": "73196409",
+            "extension": [
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "58158008",
+                      "display": "Stable (qualifier value)"
+                    }
+                  ],
+                  "text": "Stable"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "6736007",
+                      "display": "Moderate (severity modifier) (qualifier value)"
+                    }
+                  ],
+                  "text": "Moderate"
+                },
+                "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity"
+              }
+            ],
+            "modifierExtension": [
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "10828004",
+                      "display": "Positive (qualifier value)"
+                    }
+                  ],
+                  "text": "POSITIVE"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                      "code": "active",
+                      "display": "Active"
+                    }
+                  ],
+                  "text": "Active"
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status"
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "363346000",
+                  "display": "Malignant neoplastic disease (disorder)"
+                }
+              ],
+              "text": "Cancer"
+            },
+            "onsetAge": {
+              "extension": [
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "26175008",
+                        "display": "Approximate (qualifier value)"
+                      }
+                    ],
+                    "text": "About"
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+                }
+              ],
+              "value": 15,
+              "unit": "Years",
+              "system": "http://unitsofmeasure.org",
+              "code": "a"
+            }
+          }
+        ]
       }
     }
   ]
@@ -224,6 +1106,12 @@
 
 <pre><code>GET /FamilyMemberHistory/:id
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>FamilyMemberHistories with the ‘FAMMEMB’ relation are sometimes system generated.</li>
+</ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -249,7 +1137,147 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "FamilyMemberHistory",
-  "id": "123-456"
+  "id": "12504018-12764234",
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/12504018"
+  },
+  "date": "2021-09-03T09:55:51-05:00",
+  "name": "Smart, Test",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "SIS",
+        "display": "sister"
+      }
+    ],
+    "text": "Sister"
+  },
+  "sex": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "female",
+        "display": "Female"
+      }
+    ],
+    "text": "Female"
+  },
+  "bornDate": "1993-08-08",
+  "deceasedAge": {
+    "extension": [
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397669002",
+              "display": "Age (qualifier value)"
+            }
+          ],
+          "text": "Age"
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+      }
+    ],
+    "value": 18,
+    "unit": "years",
+    "system": "http://unitsofmeasure.org",
+    "code": "a"
+  },
+  "condition": [
+    {
+      "id": "73196409",
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "58158008",
+                "display": "Stable (qualifier value)"
+              }
+            ],
+            "text": "Stable"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "6736007",
+                "display": "Moderate (severity modifier) (qualifier value)"
+              }
+            ],
+            "text": "Moderate"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity"
+        }
+      ],
+      "modifierExtension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "10828004",
+                "display": "Positive (qualifier value)"
+              }
+            ],
+            "text": "POSITIVE"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active",
+                "display": "Active"
+              }
+            ],
+            "text": "Active"
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "363346000",
+            "display": "Malignant neoplastic disease (disorder)"
+          }
+        ],
+        "text": "Cancer"
+      },
+      "onsetAge": {
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26175008",
+                  "display": "Approximate (qualifier value)"
+                }
+              ],
+              "text": "About"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+          }
+        ],
+        "value": 15,
+        "unit": "Years",
+        "system": "http://unitsofmeasure.org",
+        "code": "a"
+      }
+    }
+  ]
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -267,6 +1295,7 @@
 
 <ul>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>Conditions cannot be added while creating the FamilyMemberHistory.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -292,6 +1321,394 @@
   </thead>
   <tbody>
     
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code specifying the status of the record of the family history of a specific family member.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "partial"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-dataAbsentReason">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason"><code>dataAbsentReason</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Describes why the family member's history is not available.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "dataAbsentReason": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/history-absent-reason",
+        "code": "subject-unknown"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-patient">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The person who this history concerns.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/631923",
+    "display": "Nilsson, Christine"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-name">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.name"><code>name</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The family member's name.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "name": "Halpert, Simothy"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-relationship">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.relationship"><code>relationship</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of relationship this person has to the patient (father, mother, brother etc.).</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "BRO"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-sex">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.sex"><code>sex</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The birth sex of the family member.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "sex": {
+    "coding": [
+      {
+        "code": "male",
+        "system": "http://hl7.org/fhir/administrative-gender"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-born%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_"><code>born[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The actual or approximate date of birth of the relative.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "bornDate": "1998-12-07"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-deceased%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_"><code>deceased[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>Boolean</code>, <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Deceased flag or the approximate age of the relative at the time of death for the family member history record.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "deceasedAge": {
+    "value": 42,
+    "system": "http://unitsofmeasure.org",
+    "code": "a",
+    "extension": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "26175008",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "deceasedBoolean": true
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-deceasedAge.extension(precision)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension"><code>deceasedAge.extension(precision)</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of the precision of a given value.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "26175008",
+            "system": "http://snomed.info/sct"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -305,7 +1722,48 @@
 <h4 id="body">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
-  "resourceType": "FamilyMemberHistory"
+  "resourceType": "FamilyMemberHistory",
+  "id": "12504018-12764234",
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/12504018"
+  },
+  "name": "Smart, Test",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "SIS"
+      }
+    ]
+  },
+  "sex": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "female"
+      }
+    ]
+  },
+  "bornDate": "1993-08-08",
+  "deceasedAge": {
+    "extension": [
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397669002"
+            }
+          ]
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+      }
+    ],
+    "value": 18,
+    "system": "http://unitsofmeasure.org",
+    "code": "a"
+  }
 }</code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -382,13 +1840,880 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The logical id of the resource.</li></ul>
+        <ul style="list-style-type: none"><li>The logical id of the resource to update.</li></ul>
       
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "id": "123-456"
-}</pre></li></ul>
+  "id": "12504018-12764234"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-extension(patient-adopted)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension"><code>extension(patient-adopted)</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of whether a patient is adopted.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-adopted",
+      "valueBoolean": true
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only returned when relationship is FAMMEMB and value is true.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-status">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code specifying the status of the record of the family history of a specific family member.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "partial"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-dataAbsentReason">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason"><code>dataAbsentReason</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Describes why the family member's history is not available.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "dataAbsentReason": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/history-absent-reason",
+        "code": "subject-unknown"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-patient">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.patient"><code>patient</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The person who this history concerns.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "patient": {
+    "reference": "Patient/631923",
+    "display": "Nilsson, Christine"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-name">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.name"><code>name</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The family member's name.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "name": "Halpert, Simothy"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-relationship">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.relationship"><code>relationship</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of relationship this person has to the patient (father, mother, brother etc.).</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "BRO"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-sex">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.sex"><code>sex</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The birth sex of the family member.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "sex": {
+    "coding": [
+      {
+        "code": "male",
+        "system": "http://hl7.org/fhir/administrative-gender"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-born%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_"><code>born[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The actual or approximate date of birth of the relative.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "bornDate": "1998-12-07"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-deceased%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_"><code>deceased[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>Boolean</code>, <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Deceased flag or the approximate age of the relative at the time of death for the family member history record.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "deceasedAge": {
+    "value": 42,
+    "system": "http://unitsofmeasure.org",
+    "code": "a",
+    "extension": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "26175008",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "deceasedBoolean": true
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-deceasedAge.extension(precision)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension"><code>deceasedAge.extension(precision)</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of the precision of a given value.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "26175008",
+            "system": "http://snomed.info/sct"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition"><code>condition</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The significant Conditions (or condition) that the family member had.</li></ul>
+      
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.id">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>condition.id</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Unique id for inter-element referencing.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "id": "111"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If a condition.id is returned on a read, it must be provided on an update.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code"><code>condition.code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The actual condition specified.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "57054005"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.onset%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_"><code>condition.onset[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Quantity"><code>Quantity</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The age of onset.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "onsetAge": {
+    "value": 42,
+    "system": "http://unitsofmeasure.org",
+    "code": "a",
+    "extension": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "code": "26175008",
+              "system": "http://snomed.info/sct"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.onsetAge.extension(precision)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension"><code>condition.onsetAge.extension(precision)</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of the precision of a given value.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "26175008",
+            "system": "http://snomed.info/sct"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.note">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note"><code>condition.note</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Annotation"><code>Annotation</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>An area where general notes can be placed about this specific condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "note": [
+    {
+      "text": "Comment about condition"
+    }
+  ],
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.modifierExension(condition-result)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-result)</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "modifierExtension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "10828004"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.modifierExension(condition-lifecycle-status)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-lifecycle-status)</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "modifierExtensions": [
+     {
+       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
+       "valueCodeableConcept": {
+         "coding": [
+           {
+             "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+             "code": "active"
+           }
+         ]
+       }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.extension(condition-course)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extensibility.html#Extension"><code>condition.extension(condition-course)</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Indication of a condition's progress since diagnosis.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "58158008"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-condition.extension(familymemberhistory-severity)">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/extension-familymemberhistory-severity.html"><code>condition.extension(familymemberhistory-severity)</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A qualification of the seriousness or impact on health of the family member condition.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "24484000"
+          }
+        ]
+      }
+    }
+  ]
+}
+</pre></li></ul>
       
       
       
@@ -406,14 +2731,133 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>PUT https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
+<pre><code>PUT https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/12504018-12764234
 </code></pre>
 
 <h4 id="body-1">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "FamilyMemberHistory",
-  "id": "123-456"
+  "id": "12504018-12764234",
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/12504018"
+  },
+  "name": "Smart, Test",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+        "code": "SIS"
+      }
+    ]
+  },
+  "sex": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "female"
+      }
+    ]
+  },
+  "bornDate": "1993-08-08",
+  "deceasedAge": {
+    "extension": [
+      {
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397669002"
+            }
+          ]
+        },
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+      }
+    ],
+    "value": 18,
+    "system": "http://unitsofmeasure.org",
+    "code": "a"
+  },
+  "condition": [
+    {
+      "id": "73196409",
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "58158008"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "6736007"
+              }
+            ]
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity"
+        }
+      ],
+      "modifierExtension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "10828004"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                "code": "active"
+              }
+            ]
+          },
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "363346000"
+          }
+        ]
+      },
+      "onsetAge": {
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26175008"
+                }
+              ]
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision"
+          }
+        ],
+        "value": 15,
+        "system": "http://unitsofmeasure.org",
+        "code": "a"
+      }
+    }
+  ]
 }</code></pre>
 
 <h4 id="response-3">Response</h4>

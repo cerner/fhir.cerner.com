@@ -78,8 +78,6 @@
     <div class="content">
       <h1 id="health-cards">Health-Cards</h1>
 
-<div class="beta-tag"><p>This Resource is still under development.</p></div>
-
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#supported-health-card-types" id="markdown-toc-supported-health-card-types">Supported Health Card Types</a></li>
@@ -381,8 +379,6 @@
 
 <h2 id="health-cards-issue">$health-cards-issue</h2>
 
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
-
 <p>Issues Health Cards for an existing Patient that meet the supplied request:</p>
 
 <pre><code>POST /Patient/:id/$health-cards-issue
@@ -397,7 +393,9 @@
 
 <h3 id="authorization-types">Authorization Types</h3>
 
-<div class="auth-types"><a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a></div>
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a>
+</div>
 
 <p><em>Implementation Notes</em></p>
 
