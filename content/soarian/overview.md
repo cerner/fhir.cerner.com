@@ -23,7 +23,7 @@ Existing DSTU 2 patient-facing applications will eventually need to be migrated 
 
 ## Supported Resources Between Versions
 
-To determine which resources and actions our DSTU 2 and R4 implementations support, browse our documentation for both DSTU 2 and R4 and compare the capabilities of each version. You can also compare the Conformance (DSTU 2) and CapabilityStatement (R4) endpoints for the list of supported resources and actions.
+To determine which resources and actions our DSTU 2 and R4 implementations support, browse the Soarian Clinicals<sup>®</sup> FHIR<sup>®</sup> R4 documentation for both DSTU 2 and R4 and compare the capabilities of each version. You can also compare the Conformance (DSTU 2) and CapabilityStatement (R4) endpoints for the list of supported resources and actions.
 
 The following table summarizes the resources and actions that our DSTU 2 and R4 implementations currently support for patient and provider access.
 

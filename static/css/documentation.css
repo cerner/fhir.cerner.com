@@ -1778,3 +1778,78 @@ sup {
 }
 
 /* @end */
+
+/*------------------------------------------------------------------------------
+    Soarian Overview Table
+------------------------------------------------------------------------------*/
+
+#soarian-table-div {
+  width: 980px;
+  margin-top: 40px;
+}
+
+#soarian-diff-table {
+  border-collapse: separate;
+  margin-left: -13px;
+}
+
+#soarian-diff-table .resource-name {
+  width: 150px;
+  text-align: left;
+}
+
+#soarian-diff-table .icon {
+  width: 16px;
+  padding: 6px 5px 6px 5px;
+}
+
+#soarian-diff-table thead tr th {
+  border: 0px;
+  white-space : nowrap;
+}
+
+#soarian-diff-table tr {
+  background-color: transparent;
+}
+
+#soarian-diff-table td {
+  border: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#soarian-diff-table tbody:nth-child(odd) {
+  background: #f5faff;
+}
+
+#soarian-diff-table tbody:hover td[rowspan],
+#soarian-diff-table tr:hover td {
+   background: #ebf6fd;
+}
+
+#soarian-table-key {
+  margin-top: 2em;
+}
+
+#soarian-table-key > * {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.soarian-failure-message {
+  margin-top: 1em;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #FFF9E6;
+  border-color: #FFE79D;
+}
+
+.soarian-failure-message p {
+  display: inline;
+  margin: 0;
+}
+
+.hide {
+  display: none;
+}
