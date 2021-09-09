@@ -74,7 +74,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -87,7 +87,7 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
@@ -100,11 +100,24 @@ fields:
     description: A defined group of bill codes that drives billing behavior.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: A defined group of bill codes that drives billing behavior. This binding is used in <extension>bill-code-schedule</extension> extensions.
+      description: A defined group of bill codes that drives billing behavior. This binding is used in <code>bill-code-schedule</code> extensions.
       terminology:
         - display: Bill Code Schedule
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14002
           info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14002-bill-code-schedule
+
+  - name: Unit Price/Net Price
+    terminology_name: extension[x].valueMoney.currency
+    required: 'No'
+    type: Extension
+    description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html).
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
+    binding:
+      description: Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html). This binding is used in <code>net-price</code> and <code>unit-price</code> extensions.
+      terminology:
+        - display: Currencies
+          system: urn:iso:std:iso:4217
+          info_link: https://hl7.org/fhir/r4/valueset-currencies.html
 
   - name: National Drug Product Extension
     terminology_name: extension[x].extension[x].valueCodeableConcept
@@ -113,11 +126,24 @@ fields:
     description: The national drug code for pharmacy charges.
     url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
     binding:
-      description: The national drug code for pharmacy charges. This binding is used in <extension>national-drug-product</extension> extensions.
+      description: The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.
       terminology:
         - display: National Drug Product
-          system: http://hl7.org/fhir/sid/ndc
-          info_link: http://hl7.org/fhir/sid/ndc
+          system: https://hl7.org/fhir/sid/ndc
+          info_link: https://hl7.org/fhir/sid/ndc
+
+  - name: National Drug Product Quantity
+    terminology_name: extension[x].extension[x].valueQuantity
+    required: 'No'
+    type: Extension
+    description: The quantity for national drug code for pharmacy charges.
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item#extensions
+    binding:
+      description: The quantity for national drug code for pharmacy charges. This binding is used in <code>national-drug-product-quantity</code> extensions.
+      terminology:
+        - display: National Drug Product Quantity
+          system: http://unitsofmeasure.org
+          info_link: https://unitsofmeasure.org
 
   - name: performer
     type: List of BackboneElement
