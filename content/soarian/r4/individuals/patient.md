@@ -9,7 +9,7 @@ title: Patient | R4 API
 
 ## Overview
 
-The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, and primary language. Additional concepts returned as extensions and not part of the base resource include race, ethnicity, and birth sex. Soarian Clinicals<sup>®</sup> is a patient-centric application; thus, many of its other resources include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR)<sup>®</sup> servers.
+The Patient resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, and primary language. Additional concepts returned as extensions and not part of the base resource include race, ethnicity, and birth sex. Soarian Clinicals<sup>®</sup> is a patient-centric application; thus, many of its other resources include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR)<sup>®</sup> servers.
 
 Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
@@ -50,7 +50,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -58,9 +58,9 @@ _Implementation Notes_
 ----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
  `_id`                | This or any other required search parameter | [`token`]  | The logical resource ID associated with the resource.
  `identifier`         | This or any other search parameter, or `_id` | [`token`]  | A patient identifier. Only MR, PI, or SB identifiers are supported and therefore searched. Example: `urn:oid:1.1.1.1.1.1`\|`1022228`
- `name`               | This or any other search parameter, or `_id` | [`string`] | The start of the either family or given name of the patient. Previous name values are searchable. Example: `Doe`
- `family`             | This or any other search parameter, or `_id` | [`string`] | The start of the patient's family name. Previous name values are searchable. Example: `Doe`
- `given`              | This or any other search parameter, or `_id` | [`string`] | The start of the patient's given name. Previous name values are searchable. Example: `Jane`
+ `name`               | This or any other search parameter, or `_id` | [`string`] | The start of either the family or the given name of the patient. Previous name values are not searchable. Example: `Doe`
+ `family`             | This or any other search parameter, or `_id` | [`string`] | The start of the patient's family name. Previous name values are not searchable. Example: `Doe`
+ `given`              | This or any other search parameter, or `_id` | [`string`] | The start of the patient's given name. Previous name values are not searchable. Example: `Jane`
  `birthdate`          | This or any other search parameter, or `_id` | [`date`]   | The patient's date of birth.  Example: `1990-01-01`
  `gender`             | No                                           | [`token`]  | The patient's gender. Example: `male`
  `_revinclude`        | No | [`_revinclude`]  | A request to include any Provenance resource in the bundle that refers to a Patient resource in the search results. Only supported with Provenance.
@@ -68,12 +68,13 @@ _Implementation Notes_
 Notes:
 
 * For the Patient user
-  * A search without any parameters is supported that returns all the Patient resources that the user can access
+  * A search without any parameter is supported that returns all the Patient resources that the user can access. This is applicable only for authorization_type = patient.
   * All other search parameters are supported as either the `_id`, or a combination of `identifier` , `birthdate`, `name`, `family`, or  `given` parameters must be provided, while still returning only the Patient resources that the user can access.
 * For the Provider user, either the `_id`, or a combination of `identifier` , `birthdate`, `name`, `family`, or  `given` parameters must be provided.
 * The `gender` parameter may only be provided if at least one of the `identifier` , `birthdate`, `name`, `family`, or `given` parameters is provided.
 * The `identifier` parameter supports the `:of-type` modifier and has the format system\|code\|value, where the system and code refer to an `Identifier.type.coding.system` and `.code`, and match if any of the type codes match. All three parts of the format must be present.
 * The `name`, `family`, and `given` parameters search for current and previous names.
+* The `name`, `family`, and `given` parameters allow search for normalized values as well when these may contain accented characters. For example, **Schlüter** will match **Schlüter** and **Schlueter**, but not **Schluter**
 * The `identifier`, `name`, `family`, `given`, and `gender` parameters may be provided exactly once and may have only a single value.
 * The `birthdate` parameter
   * May be provided once using the `eq` prefix 
@@ -133,7 +134,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 The **link** element is used to assert that patient resources refer to the same patient. This element is used to support the scenario where a duplicate record is retired; this process is known as a **patient merge** in Soarian Clincials<sup>®</sup>. When the requested patient record has been merged into another record, an inactive Patient entry is returned that has a link to the current Patient entry. Entries for merged, or source, patients are only returned when retrieving the entries directly by ID. Entries for the target patient are returned with all qualifying searches.
 
-The ability to perform patient merge operations is not available through the Cerner Ignite APIs for Soarian Clinicals<sup>®</sup> platform..
+The ability to perform patient merge operations is not available through the Cerner Ignite APIs for Soarian Clinicals<sup>®</sup> platform.
 
 #### Request
 
@@ -153,10 +154,10 @@ The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operatio
 [search]: https://www.hl7.org/fhir/http.html#search
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`string`]: https://hl7.org/fhir/R4/search.html#string
-[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`token`]: https://hl7.org/fhir/R4/search.html#token
 [`_revinclude`]: https://www.hl7.org/fhir/search.html#revinclude
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
-[US Core Race]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
-[US Core Ethnicity]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html
-[US Core Birth Sex]: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html
+[US Core Race]: https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
+[US Core Ethnicity]: https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
+[US Core Birth Sex]: https://www.hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html

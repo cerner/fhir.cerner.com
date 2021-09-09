@@ -111,14 +111,13 @@ module Cerner
         end
       end
 
-      def authorization_types(provider: false, patient: false, practitioner: false, system: false)
+      def authorization_types(provider: false, patient: false, system: false)
         template = '<a href="/authorization/#requesting-authorization-on-behalf-of-a-%s" class="%s">%s</a>'
 
         auth_types = []
 
         auth_types << format(template, 'user', 'provider', 'Provider') if provider
         auth_types << format(template, 'user', 'patient', 'Patient') if patient
-		auth_types << format(template, 'user', 'practitioner', 'Practitioner') if practitioner
         auth_types << format(template, 'system', 'system', 'System') if system
 
         "<div class=\"auth-types\">#{auth_types.join(' | ')}</div>"

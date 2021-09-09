@@ -3,7 +3,7 @@ name: Patient
 field_name_base_url: https://hl7.org/fhir/R4/patient-definitions.html#Patient
 fields:
 - name: identifier
-  type: List of Identifier
+  type: List of Identifiers
   description: The identifier for the patient.
   action: terminology
   children:
@@ -11,13 +11,13 @@ fields:
   - name: type
     type: CodeableConcept
     description: A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.
-    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
     action: terminology
     binding:
       description: A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.
       terminology:
       - display: Identifier Type Codes
-        system: http://hl7.org/fhir/v2/0203/index.html
+        system: https://hl7.org/fhir/v2/0203/index.html
         info_link: https://hl7.org/fhir/R4/valueset-identifier-type.html
 
 - name: communication

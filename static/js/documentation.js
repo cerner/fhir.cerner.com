@@ -4,6 +4,11 @@ $(function() {
   if (document.getElementById('millennium-diff-table') != null) {
     displayOverviewTable();
   }
+  
+   // Generate table when HTML element exists
+  if (document.getElementById('soarian-diff-table') != null) {
+    displaySoarianOverviewTable();
+  }
 
   // Set class 'active' for the appropriate subnav link
   var pageUrl = location.href.match(/(.+\/(millennium|soarian)\/[^\/]+\/)/)[0];
