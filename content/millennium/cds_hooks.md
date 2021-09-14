@@ -58,7 +58,7 @@ When Cerner's CDS Hooks server calls a service, authorization will be accomplish
 For more information on CDS Authorization best practices, see [this page](https://cds-hooks.org/best-practices/#jwt).
 
 ### Service Response ###
-When the specified condition(s) in the EHR are met, the CDS Hooks Server will make a POST request to the provided service url. The CDS service should return an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response).
+When the specified condition(s) in the EHR are met, the CDS Hooks Server will make a POST request to the provided service url. The CDS service should return an array of cards formatted according to the [CDS Service HTTP Response specification](https://cds-hooks.hl7.org/1.0/#http-response). Sizing should be taken into account: the cards will be displayed in a pop-out notification panel that spans around 1/8 of the screen width, and any text overflow will be wrapped.
 
 #### Example Response from a CDS Service ####
 
@@ -105,7 +105,7 @@ When the specified condition(s) in the EHR are met, the CDS Hooks Server will ma
       }
 
 ### SMART Apps ###
-Some CDS services return SMART app link cards. For information on registering a SMART app, see [this page](./smart).
+CDS services can return SMART app link cards. However, the `appContext` field is not currently supported. For information on registering a SMART app, see [this page](./smart).
 
 _Note: Each client decides whether they want a SMART app to run on a domain-by-domain basis. An app link card will only work correctly in a domain in which the corresponding SMART app is enabled._
 
