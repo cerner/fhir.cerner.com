@@ -178,6 +178,294 @@ module Cerner
       }
     }.freeze
 
+    R4_MEDICATION_REQUEST_REVINCLUDE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": '960a7634-8981-437c-bb94-199c767ef1be',
+      "type": 'searchset',
+      "total": 1,
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest?_id=16863377&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/16863377',
+          "resource": {
+            "resourceType": 'MedicationRequest',
+            "id": '16863377',
+            "meta": {
+              "versionId": '4',
+              "lastUpdated": '2020-08-08T00:21:25.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Medication Request</b></p><p><b>Status</b>: '\
+                      'Active</p><p><b>Intent</b>: Order</p><p><b>Medication</b>: DOPamine 400 mg [3 mcg/kg/min] + '\
+                      'Premix Dextrose 5% in Water 500 mL</p><p><b>Dosage Instructions</b>: 17.55 mL/hr, IV</p><p><b>'\
+                      'Patient</b>: ANDERSON, JOHN</p><p><b>Authored On</b>: May  4, 2016  5:25 A.M. CDT</p></div>'
+            },
+            "contained": [
+              {
+                "resourceType": 'Medication',
+                "id": '21268149',
+                "code": {
+                  "text": 'DOPamine 400 mg [3 mcg/kg/min] + Premix Dextrose 5% in Water 500 mL'
+                },
+                "ingredient": [
+                  {
+                    "itemCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": 'http://www.nlm.nih.gov/research/umls/rxnorm',
+                          "code": '3628',
+                          "display": 'Dopamine',
+                          "userSelected": false
+                        },
+                        {
+                          "system": 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/synonym',
+                          "code": '2756466',
+                          "display": 'DOPamine',
+                          "userSelected": true
+                        }
+                      ],
+                      "text": 'DOPamine'
+                    },
+                    "strength": {
+                      "numerator": {
+                        "value": 400,
+                        "unit": 'mg',
+                        "system": 'http://unitsofmeasure.org',
+                        "code": 'mg'
+                      },
+                      "denominator": {
+                        "value": 500,
+                        "unit": 'mL',
+                        "system": 'http://unitsofmeasure.org',
+                        "code": 'mL'
+                      }
+                    }
+                  },
+                  {
+                    "itemCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/synonym',
+                          "code": '21268149',
+                          "display": 'Premix Dextrose 5% in Water',
+                          "userSelected": true
+                        }
+                      ],
+                      "text": 'Premix Dextrose 5% in Water'
+                    },
+                    "strength": {
+                      "numerator": {
+                        "value": 500,
+                        "unit": 'mL',
+                        "system": 'http://unitsofmeasure.org',
+                        "code": 'mL'
+                      },
+                      "denominator": {
+                        "value": 500,
+                        "unit": 'mL',
+                        "system": 'http://unitsofmeasure.org',
+                        "code": 'mL'
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "extension": [
+              {
+                "valueCoding": {
+                  "system": 'http://electronichealth.se/fhir/ValueSet/prescription-format',
+                  "code": 'ELECTRONIC',
+                  "display": 'Electronic'
+                },
+                "url": 'http://electronichealth.se/fhir/StructureDefinition/NLLPrescriptionFormat'
+              },
+              {
+                "valueCoding": {
+                  "system": 'http://ehalsomyndigheten.se/fhir/ValueSet/registration-basis-codes',
+                  "code": 'ELECTRONIC',
+                  "display": 'Electronic'
+                },
+                "url": 'http://electronichealth.se/fhir/StructureDefinition/NLLRegistrationBasis'
+              },
+              {
+                "valueCodeableConcept": {
+                  "text": 'Needs pharmacy verification'
+                },
+                "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status'
+              }
+            ],
+            "status": 'active',
+            "intent": 'order',
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category',
+                    "code": 'inpatient',
+                    "display": 'Inpatient',
+                    "userSelected": false
+                  }
+                ]
+              }
+            ],
+            "reportedBoolean": false,
+            "medicationReference": {
+              "reference": '#21268149',
+              "display": 'DOPamine 400 mg [3 mcg/kg/min] + Premix Dextrose 5% in Water 500 mL'
+            },
+            "subject": {
+              "reference": 'Patient/1295925',
+              "display": 'ANDERSON, JOHN'
+            },
+            "encounter": {
+              "reference": 'Encounter/2832456'
+            },
+            "authoredOn": '2016-05-04T05:25:50.000-05:00',
+            "requester": {
+              "reference": 'Practitioner/2927954',
+              "display": 'Arora, Mohit'
+            },
+            "dosageInstruction": [
+              {
+                "extension": [
+                  {
+                    "valueString": 'Total Volume (mL): 500, IV, 17.55 mL/hr, Start Date: 05/03/16 0:27:00 CDT',
+                    "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction'
+                  }
+                ],
+                "text": '17.55 mL/hr, IV',
+                "patientInstruction": '17.55 Milliliter/hour Intravenous. Refills: 0.',
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": '2016-05-03T05:27:00.000-05:00'
+                    }
+                  }
+                },
+                "route": {
+                  "coding": [
+                    {
+                      "system": 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/4001',
+                      "code": '318170',
+                      "display": 'IV',
+                      "userSelected": true
+                    },
+                    {
+                      "system": 'http://snomed.info/sct',
+                      "code": '47625008',
+                      "display": 'Intravenous route (qualifier value)',
+                      "userSelected": false
+                    }
+                  ],
+                  "text": 'IV'
+                },
+                "doseAndRate": [
+                  {
+                    "doseQuantity": {
+                      "value": 500,
+                      "unit": 'mL',
+                      "system": 'http://unitsofmeasure.org',
+                      "code": 'mL'
+                    },
+                    "rateQuantity": {
+                      "value": 17.55,
+                      "unit": 'mL/hr',
+                      "system": 'http://unitsofmeasure.org',
+                      "code": 'mL/h'
+                    }
+                  }
+                ]
+              }
+            ],
+            "dispenseRequest": {
+              "extension": [
+                {
+                  "valueBoolean": false,
+                  "url": 'http://electronichealth.se/fhir/StructureDefinition/NLLDosePackaging'
+                }
+              ],
+              "validityPeriod": {
+                "start": '2016-05-04T05:25:50.000-05:00'
+              }
+            }
+          },
+          "search": {
+            "mode": 'match'
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/med-13343164',
+          "resource": {
+            "resourceType": 'Provenance',
+            "id": 'med-13343164',
+            "meta": {
+              "versionId": '13343164',
+              "lastUpdated": '2021-05-27T06:14:27-05:00'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>'\
+                      'MedicationRequest/16863377</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M. CDT</p><p><b>'\
+                      'Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Transmitter</dd><dd><b>Agent Role'\
+                      '</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/17255835</p></div>'
+            },
+            "target": [
+              {
+                "reference": 'MedicationRequest/16863377'
+              }
+            ],
+            "recorded": '2019-10-25T09:57:43-05:00',
+            "agent": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type',
+                      "code": 'transmitter'
+                    }
+                  ],
+                  "text": 'Transmitter'
+                },
+                "role": [
+                  {
+                    "coding": [
+                      {
+                        "system": 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        "code": 'SOURCE'
+                      }
+                    ],
+                    "text": 'Source'
+                  }
+                ],
+                "who": {
+                  "reference": 'Organization/619848',
+                  "display": 'Unknown'
+                }
+              }
+            ],
+            "entity": [
+              {
+                "role": 'source',
+                "what": {
+                  "reference": 'DocumentReference/17255835'
+                }
+              }
+            ]
+          },
+          "search": {
+            "mode": 'include'
+          }
+        }
+      ]
+    }.freeze
+
     R4_MEDICATION_REQUEST_PATIENT_ENTRY ||= {
       'resourceType': 'MedicationRequest',
       'id': '314010287',

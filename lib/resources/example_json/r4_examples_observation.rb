@@ -826,5 +826,74 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_OBSERVATION_VITALS_UPDATE ||= {
+      "resourceType": 'Observation',
+      "id": 'M-197356031',
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900'
+        }
+      ],
+      "status": 'corrected',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72',
+            "code": '703558',
+            "display": 'Temperature Oral',
+            "userSelected": true
+          }
+        ],
+        "text": 'Temperature Oral'
+      },
+      "subject": {
+        "reference": 'Patient/12457979'
+      },
+      "encounter": {
+        "reference": 'Encounter/97787491'
+      },
+      "effectiveDateTime": '2020-07-04T07:15:00.000Z',
+      "issued": '2021-05-06T20:07:14.000Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/1'
+        }
+      ],
+      "valueQuantity": {
+        "value": 123,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      }
+    }.freeze
   end
 end

@@ -138,6 +138,7 @@ The ChargeItem Resource supports proprietary codes for:
 The Condition Resource supports proprietary codes for:
 
 * Condition.severity codes are maintained in [Code Set 12022 Severity](#code-set-12022-severity)
+* Condition.category problem classification codes are maintained in [Code Set 12033 Problem Classification](#code-set-12033-problem-classification)
 
 <h4>Procedure</h4>
 
@@ -597,7 +598,18 @@ This code set contains levels of severity (mild, moderate, severe) used by multi
     {
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12022",
       "code": "3294",
-      "display": "Moderate",
+      "display": "Moderate"
+    }
+
+##### Code Set 12033 Problem Classification
+
+This code set contains problem classifications such as Medical or Patient Stated.
+
+    {
+        "system": "https://fhir.cerner.com/<EHR source id>/codeSet/12033",
+        "code": "15186888",
+        "display": "Medical",
+        "userSelected": true
     }
 
 ##### Code Set 14002 Bill Code Schedule
@@ -773,6 +785,17 @@ This code set includes the statuses that reflect the current status of a corresp
       "userSelected": true
     }
 
+#### Code Set 4003106 Vaccine Group
+
+This code set includes the vaccine groups.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/4003106,
+      "code": "2289043429",
+      "display": "COVID-19",
+      "userSelected": true
+    }
+
 ## Proprietary Systems
 
 ### Overview
@@ -811,7 +834,7 @@ This system is the account number of a financial account.
 
     {
       "use": "usual",
-      "system": "https://fhir.cerner.com/accountnumber",
+      "system": "https://fhir.cerner.com/<EHR source id>/account-number",
       "value": "5646"
     }
 

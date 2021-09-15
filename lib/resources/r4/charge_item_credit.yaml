@@ -1,0 +1,111 @@
+---
+name: Parameters
+field_name_base_url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters
+fields:
+
+  - name: resourceType
+    required: 'Yes'
+    type: string
+    description: The type of the FHIR resource.
+    action: credit
+    example: |
+      {
+        "resourceType": "Parameters"
+      }
+    note: resourceType must be Parameters
+    url: https://hl7.org/fhir/r4/json.html#resources
+
+  - name: parameter
+    required: 'Yes'
+    type: List of BackboneElement
+    description: Parameters defined by the operation.
+    action: credit
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: versionId
+    required: 'Yes'
+    type: id
+    description: The version id of the ChargeItem that is the target of the credit operation.
+    action: credit
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "versionId",
+            "valueId": "2"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueId`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: subject
+    required: 'Yes'
+    type: Reference (Patient)
+    description: The Patient associated with the ChargeItem.
+    action: credit
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "subject",
+            "valueReference": {
+              "reference": "Patient/13388355"
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: context
+    required: 'Yes'
+    type: Reference (Encounter)
+    description: The Encounter associated with the ChargeItem.
+    action: credit
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "context",
+            "valueReference": {
+              "reference": "Encounter/98255557"
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: transactionId
+    required: 'Yes'
+    type: uuid
+    description: A UUID to uniquely identify the credit operation.
+    action: credit
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "transactionId",
+            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueUuid`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter

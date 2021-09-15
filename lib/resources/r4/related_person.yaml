@@ -115,9 +115,8 @@ fields:
         {
           "coding": [
             {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
-              "code": "1152",
-              "display": "Emergency Contact"
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "FAMMEMB"
             }
           ]
         }
@@ -131,15 +130,15 @@ fields:
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
             },
             {
-              'valueCodeableConcept': {
-                'coding': [
+              "valueCodeableConcept": {
+                "coding": [
                   {
-                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '155'
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "SIS"
                   }
                 ]
               },
-              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
             }
           ]
         }
@@ -147,9 +146,9 @@ fields:
     }
   note: |
     <ul>
-      <li> The <code>relationship.coding</code> must contain exactly one proprietary system. </li>
-      <li> The <code>relationship.coding</code> cannot contain a standard system. </li>
       <li> When specifying a `period`, the fields must include a time component with a timezone. </li>
+      <li> The `coding` field can contain codings from the standard or proprietary system, but not both. </li>
+      <li> Only one `coding` may be provided. </li>
     </ul>
 
 - name: patient
@@ -202,7 +201,7 @@ fields:
   url: https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.name
 
 - name: Related Person Encounter
-  required: 'Yes'
+  required: 'No'
   type: Extension
   description: A reference to an Encounter.
   action: create
@@ -230,7 +229,7 @@ fields:
   action: create
   note: |
     <ul>
-      <li>If provided, the <code>valueCodeableConcept.coding[0].code</code> must be `Encounter`.</li>
+      <li> The <code>valueCodeableConcept.coding[0].code</code> can be `Encounter` or `Patient`. </li>
     </ul>
   example: |
     {

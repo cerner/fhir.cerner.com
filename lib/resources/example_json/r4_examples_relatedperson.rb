@@ -1013,6 +1013,133 @@ module Cerner
       'resourceType': 'RelatedPerson',
       'extension': [
         {
+          'valueCodeableConcept': {
+            'coding': [
+              {
+                'system': 'http://hl7.org/fhir/resource-types',
+                'code': 'Patient'
+              }
+            ]
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level'
+        }
+      ],
+      'identifier': [
+        {
+          'type': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                'code': '22'
+              }
+            ]
+          },
+          'system': 'urn:oid:2.16.840.1.113883.3.42.10001.100001.12',
+          'value': '1000000105'
+        }
+      ],
+      'active': true,
+      'patient': {
+        'reference': 'Patient/12724068'
+      },
+      'relationship': [
+        {
+          'extension': [
+            {
+              'valuePeriod': {
+                'start': '2019-12-26T16:06:26.000Z'
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'MTH'
+                  }
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+            }
+          ],
+          'coding': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'GT'
+            }
+          ]
+        }
+      ],
+      'name': [
+        {
+          'use': 'official',
+          'family': 'SMART',
+          'given': [
+            'NANCY'
+          ],
+          'period': {
+            'start': '2019-12-26T15:12:34.000Z'
+          }
+        }
+      ],
+      'telecom': [
+        {
+          'extension': [
+            {
+              'valueUrl': '13215555555',
+              'url': 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+            }
+          ],
+          'system': 'phone',
+          'value': '13215555555',
+          'use': 'work',
+          'period': {
+            'start': '2021-03-22T14:12:37.000Z'
+          }
+        }
+      ],
+      'gender': 'female',
+      'birthDate': '1980-08-11',
+      'address': [
+        {
+          'use': 'home',
+          'line': [
+            '3P'
+          ],
+          'city': 'KANSAS CITY',
+          'district': 'Jackson',
+          'state': 'MO',
+          'postalCode': '641510001',
+          'country': 'US',
+          'period': {
+            'start': '2020-12-08T15:05:44.000Z'
+          }
+        }
+      ],
+      'communication': [
+        {
+          'language': {
+            'coding': [
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36',
+                'code': '151'
+              },
+              {
+                'system': 'urn:ietf:bcp:47',
+                'code': 'en'
+              }
+            ]
+          },
+          'preferred': 'true'
+        }
+      ]
+    }.freeze
+
+    R4_RELATEDPERSON_ENCOUNTER_CREATE ||= {
+      'resourceType': 'RelatedPerson',
+      'extension': [
+        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter',
           'valueReference': {
             'reference': 'Encounter/97939518'
@@ -1054,8 +1181,8 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/40',
-                    'code': '155'
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'SIS'
                   }
                 ]
               },
@@ -1335,8 +1462,8 @@ module Cerner
         'value': {
           'coding': [
             {
-              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
-              'code': '1152'
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+              'code': 'FAMMEMB'
             }
           ],
           'extension': [
@@ -1346,6 +1473,17 @@ module Cerner
                 'end': '2022-05-01T16:56:56.000Z'
               },
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                    'code': 'SIS'
+                  }
+                ]
+              },
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
             }
           ]
         }
@@ -1437,8 +1575,37 @@ module Cerner
         'value': 'CI-98278577-0'
       },
       {
+        'op': 'replace',
+        'path': '/relationship/0/extension',
+        'value': [
+          {
+            'valuePeriod': {
+              'start': '2016-12-30T22:26:08.000Z',
+              'end': '2036-12-30T22:26:08.000Z'
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/period'
+          },
+          {
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                  'code': 'SIS'
+                }
+              ]
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+          }
+        ]
+      },
+      {
+        'op': 'test',
+        'path': '/relationship/1/id',
+        'value': 'CI-98909708-1'
+      },
+      {
         'op': 'remove',
-        'path': '/relationship/0'
+        'path': '/relationship/1'
       },
       {
         'op': 'test',
