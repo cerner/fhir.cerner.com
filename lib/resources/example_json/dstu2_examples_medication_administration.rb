@@ -19,13 +19,13 @@ module Cerner
       },
       'extension': [
         {
-            'url': "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
-            'valueQuantity': {
-                "value": 6.0,
-                "unit": "minutes",
-                "system": "http://unitsofmeasure.org",
-                "code": "min"
-            }
+          'url': 'https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time',
+          'valueQuantity': {
+            "value": 6.0,
+            "unit": 'minutes',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'min'
+          }
         }
       ],
       'status': 'completed',
@@ -121,13 +121,13 @@ module Cerner
       },
       'extension': [
         {
-            'url': "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
-            'valueQuantity': {
-                "value": 6.0,
-                "unit": "minutes",
-                "system": "http://unitsofmeasure.org",
-                "code": "min"
-            }
+          'url': 'https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time',
+          'valueQuantity': {
+            "value": 6.0,
+            "unit": 'minutes',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'min'
+          }
         }
       ],
       'contained': [
