@@ -156,7 +156,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/12504018-12764234
 
 #### Response
 
@@ -164,6 +164,10 @@ _Implementation Notes_
 <%= json(:r4_family_member_history_entry) %>
 
 <%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -230,6 +234,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 Update a FamilyMemberHistory.
 
     PUT /FamilyMemberHistory/:id
+
+_Implementation Notes_
+
+* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error'. Only existing conditions can be removed; condition id must be provided.
+* An update should only be preformed directly after a FamilyMemberHistory is retrieved. If a condition.id is provided from the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.
 
 ### Authorization Types
 
