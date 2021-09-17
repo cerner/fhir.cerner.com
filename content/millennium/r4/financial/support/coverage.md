@@ -315,13 +315,13 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Delete
 
-Delete an existing Encounter-level Coverage.
+Delete an existing Patient-Level or Encounter-level Coverage.
 
     DELETE /Coverage/:id
 
 _Implementation Notes_
 
-* For Private Coverages, only Encounter-level Coverages may be deleted.
+* For Private Coverages, both Encounter-level and Patient-level Coverages may be deleted.
 * For Public Coverages, both Encounter-level and Patient-level Coverages may be deleted.
 
 ### Authorization Types
