@@ -315,7 +315,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Delete
 
-Delete an existing Patient-Level or Encounter-level Coverage.
+Delete an existing Encounter-level or Patient-level Coverage.
 
     DELETE /Coverage/:id
 
