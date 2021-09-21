@@ -319,11 +319,6 @@ Delete an existing Encounter-level or Patient-level Coverage.
 
     DELETE /Coverage/:id
 
-_Implementation Notes_
-
-* For Private Coverages, both Encounter-level and Patient-level Coverages may be deleted.
-* For Public Coverages, both Encounter-level and Patient-level Coverages may be deleted.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, system: true) %>
