@@ -80,6 +80,9 @@ Notes:
   * May be provided once using the `eq` prefix 
   * May be provided up to twice to imply a date range using one of the following prefixes: `ge`, `le`, `gt`, or `lt`
   * Must not be provided with a time component
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
+
 
 ### Headers
 
