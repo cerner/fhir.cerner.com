@@ -160,7 +160,7 @@ module Cerner
           beta += '</ul>'
         end
 
-        beta + '</div>'
+        "#{beta}</div>"
       end
 
       def deep_transform_values(value)
