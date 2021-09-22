@@ -466,7 +466,7 @@ fields:
     - terminology
   example: |
     {
-      "modifierExtensions": [
+      "modifierExtension": [
          {
            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
            "valueCodeableConcept": {
@@ -482,7 +482,7 @@ fields:
     }
   example2: |
     {
-      "modifierExtensions": [
+      "modifierExtension": [
          {
            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
            "valueCodeableConcept": {
