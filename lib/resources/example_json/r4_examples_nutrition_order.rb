@@ -55,6 +55,14 @@ module Cerner
       "oralDiet": {
         "type": [
           {
+            "coding": [
+              {
+                "system": 'http://snomed.info/sct',
+                "code": '38226001',
+                "display": 'Bland diet (finding)',
+                "userSelected": false
+              }
+            ],
             "text": 'Bland Diet'
           }
         ],
@@ -309,6 +317,14 @@ module Cerner
       "oralDiet": {
         "type": [
           {
+            "coding": [
+              {
+                "system": 'http://snomed.info/sct',
+                "code": '38226001',
+                "display": 'Bland diet (finding)',
+                "userSelected": false
+              }
+            ],
             "text": 'Bland Diet'
           }
         ],
