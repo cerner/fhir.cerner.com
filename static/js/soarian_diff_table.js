@@ -1,29 +1,3 @@
-const soarianConformanceURL = 'https://fhir-myrecord-sc.cerner.com/dstu2/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/metadata';
-const soarianConformanceHeaders = { Accept: 'application/json+fhir' };
-
-const soarianCapabilityStatementURL = 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/metadata';
-const soarianCapabilityStatementHeaders = { Accept: 'application/fhir+json' };
-
-// Configuration for resources that have been altered from DSTU2 to R4
-const soarianResourceConfig = {
-  combinedSoarianResources: [    
-    {
-      soarianDstu2Resources: ["Conformance"],
-      soarianR4Resources: ["CapabilityStatement"],
-      notes: "Cerner's Soarian DSTU 2 Conformance resource was renamed to CapabilityStatement in R4."
-    },{
-      soarianDstu2Resources: ["MedicationStatement"],
-      soarianR4Resources: ["MedicationRequest"],
-      notes: "Cerner's Soarian DSTU 2 implementations of MedicationStatement were shifted to MedicationRequest in R4."
-    },    
-    {
-      soarianDstu2Resources: ["CarePlan"],
-      soarianR4Resources: ["CarePlan", "CareTeam"],
-      notes: "Cerner's Soarian DSTU 2 implementations of CarePlan was split into CarePlan and CareTeam in R4."
-    }
-  ]
-};
-
 /**
  * Retreives the configuration for a specific resource by its name.
  * @param {string} resourceName - The name of the resource to find.
@@ -31,14 +5,18 @@ const soarianResourceConfig = {
  * @returns {object} The configuration object for the given resource.
  * @returns {null} No configuration exists for the given resource.
  */
-function getSoarianConfiguration(resourceName) {
-  
-    let combinedSoarianResources = soarianResourceConfig.combinedSoarianResources;
-    for (let i = 0; i < combinedSoarianResources.length; i++) {
-      if (combinedSoarianResources[i].soarianDstu2Resources.includes(resourceName)) {
-        return combinedSoarianResources[i];
+function getConfiguration(resourceName) {
+  if (resourceName === "Basic") {
+    return soarianConfig.resourceConfig.basicResources;
+  }
+  else {
+    let combinedResources = soarianConfig.resourceConfig.combinedResources;
+    for (let i = 0; i < combinedResources.length; i++) {
+      if (combinedResources[i].dstu2Resources.includes(resourceName)) {
+        return combinedResources[i];
       }
     }
+  }
   return null;
 }
 
@@ -47,12 +25,17 @@ function getSoarianConfiguration(resourceName) {
  * @param {object} resourceObject - The object containing a resource's information.
  * @returns {object} The new resource object.
  */
-function buildSoarianResource(resourceObject) {
+function buildResource(resourceObject) {
   let supportedActions = resourceObject.interaction;
+
   return {
     resourceName: resourceObject.type,
     readSupported: supportedActions.filter(action => action.code == "read").length > 0,
-    searchSupported: supportedActions.filter(action => action.code == "search-type").length > 0
+    searchSupported: supportedActions.filter(action => action.code == "search-type").length > 0,
+    createSupported: supportedActions.filter(action => action.code == "create").length > 0,
+    updateSupported: supportedActions.filter(action => action.code == "update").length > 0,
+    patchSupported: supportedActions.filter(action => action.code == "patch").length > 0,
+    deleteSupported: supportedActions.filter(action => action.code == "delete").length > 0
   };
 }
 
@@ -63,7 +46,7 @@ function buildSoarianResource(resourceObject) {
  * @returns {object} Contains arrays of DSTU2 and R4 resources that match.
  * @returns {object} Contains an array of only DSTU2 resources if no R4 matches are found.
  */
-function buildSoarianMatch(resource, resourceArray) {
+function buildMatch(resource, resourceArray) {
   let matchingResource = null;
 
   for (let i = 0; i < resourceArray.length; i++) {
@@ -77,80 +60,80 @@ function buildSoarianMatch(resource, resourceArray) {
 
   if (matchingResource != null) {
     return {
-      soarianDstu2Resources: [buildSoarianResource(resource)],
-      soarianR4Resources: [buildSoarianResource(matchingResource)]
+      dstu2Resources: [buildResource(resource)],
+      r4Resources: [buildResource(matchingResource)]
     };
   }
   else {
-    return { soarianDstu2Resources: [buildSoarianResource(resource)] };
+    return { dstu2Resources: [buildResource(resource)] };
   }
 }
 
 /**
- * Creates an object of matching Soarian DSTU2 and R4 resources that require special configuration.
- * @param {object} config - The configuration object from soarianResourceConfig.
- * @param {array} soarianDstu2Resources - The array of Soarian DSTU2 resource objects.
- * @param {array} soarianR4Resources - The array of Soarian R4 resource objects.
- * @returns {object} Contains arrays of Soarian DSTU2 and R4 resources that match.
+ * Creates an object of matching DSTU2 and R4 resources that require special configuration.
+ * @param {object} soarianConfig - The configuration object from soarianConfig.resourceConfig.
+ * @param {array} dstu2Resources - The array of DSTU2 resource objects.
+ * @param {array} r4Resources - The array of R4 resource objects.
+ * @returns {object} Contains arrays of DSTU2 and R4 resources that match.
  */
-function buildMatchFromSoarianConfig(config, soarianDstu2Resources, soarianR4Resources) {
+function buildMatchFromConfig(soarianConfig, dstu2Resources, r4Resources) {
   let configuredResource = {
-    soarianDstu2Resources: [],
-    soarianR4Resources: [],
+    dstu2Resources: [],
+    r4Resources: [],
   };
 
-  // Find the DSTU2 resources in the config
-  for (let i = 0; i < config.soarianDstu2Resources.length; i++) {
-    for (let j = 0; j < soarianDstu2Resources.length; j++) {
-      if (soarianDstu2Resources[j] != null) {
-        if (soarianDstu2Resources[j].type === config.soarianDstu2Resources[i]) {
-          configuredResource.soarianDstu2Resources.push(buildSoarianResource(soarianDstu2Resources[j]));
-          delete soarianDstu2Resources[j];
-        }
-      }
-    }
-  }
-  
-  // Find the R4 resources in the config
-  for (let i = 0; i < config.soarianR4Resources.length; i++) {
-    for (let j = 0; j < soarianR4Resources.length; j++) {
-      if (soarianR4Resources[j] != null) {
-		 if (soarianR4Resources[j].type === config.soarianR4Resources[i]) {
-			configuredResource.soarianR4Resources.push(buildSoarianResource(soarianR4Resources[j]));
-          delete soarianR4Resources[j];
+  // Find the DSTU2 resources in the soarianConfig
+  for (let i = 0; i < soarianConfig.dstu2Resources.length; i++) {
+    for (let j = 0; j < dstu2Resources.length; j++) {
+      if (dstu2Resources[j] != null) {
+        if (dstu2Resources[j].type === soarianConfig.dstu2Resources[i]) {
+          configuredResource.dstu2Resources.push(buildResource(dstu2Resources[j]));
+          delete dstu2Resources[j];
         }
       }
     }
   }
 
-  if (config.hasOwnProperty('notes')) {
-    configuredResource.notes = config.notes;
+  // Find the R4 resources in the soarianConfig
+  for (let i = 0; i < soarianConfig.r4Resources.length; i++) {
+    for (let j = 0; j < r4Resources.length; j++) {
+      if (r4Resources[j] != null) {
+        if (r4Resources[j].type === soarianConfig.r4Resources[i]) {
+          configuredResource.r4Resources.push(buildResource(r4Resources[j]));
+          delete r4Resources[j];
+        }
+      }
+    }
+  }
+
+  if (soarianConfig.hasOwnProperty('notes')) {
+    configuredResource.notes = soarianConfig.notes;
   }
 
   return configuredResource;
 }
 /**
- * Matches each Soarian DSTU2 resource to a R4 resource using either a configuration or by name.
- * If no configuration exists for the Soarian DSTU2 resource and no match can be found, it is pushed by itself.
- * @param {array} soarianDstu2Resources - The array of Soarian DSTU2 resources from metadata.
- * @param {array} soarianR4Resources - The array of Soarian R4 resources from metadata.
+ * Matches each DSTU2 resource to a R4 resource using either a configuration or by name.
+ * If no configuration exists for the DSTU2 resource and no match can be found, it is pushed by itself.
+ * @param {array} dstu2Resources - The array of DSTU2 resources from metadata.
+ * @param {array} r4Resources - The array of R4 resources from metadata.
  * @returns {array} Array of matches.
  */
-function matchSoarianDstu2Resources(soarianDstu2Resources, soarianR4Resources) {
+function matchDstu2Resources(dstu2Resources, r4Resources) {
   let matches = [];
-  for (let i = 0; i < soarianDstu2Resources.length; i++) {
-    let currentResource = soarianDstu2Resources[i];
-
+  
+  for (let i = 0; i < dstu2Resources.length; i++) {
+    let currentResource = dstu2Resources[i];
+	
     if (currentResource != null) {
-      let config = getSoarianConfiguration(currentResource.type);
+      let config = getConfiguration(currentResource.type);
       let match = null;
-
       if (config != null) {
-        match = buildMatchFromSoarianConfig(config, soarianDstu2Resources, soarianR4Resources);
+        match = buildMatchFromConfig(config, dstu2Resources, r4Resources);
         matches.push(match);
       }
       else {
-        match = buildSoarianMatch(currentResource, soarianR4Resources);
+        match = buildMatch(currentResource, r4Resources);
         matches.push(match);
       }
     }
@@ -162,28 +145,28 @@ function matchSoarianDstu2Resources(soarianDstu2Resources, soarianR4Resources) {
 /**
  * Returns the remaining R4 resources that have no DSTU2 counterpart.
  * Resources that are extended from Basic are returned from the configuration.
- * @param {array} soarianR4Resources - The array of R4 resources from metadata.
+ * @param {array} r4Resources - The array of R4 resources from metadata.
  * @returns {array} Array of R4 resources.
  */
-function getUnmatchedSoarianResources(soarianR4Resources) {
+function getUnmatchedResources(r4Resources) {
   let resources = [];
 
-  for (let i = 0; i < soarianR4Resources.length; i++) {
-    let currentResource = soarianR4Resources[i];
-	
+  for (let i = 0; i < r4Resources.length; i++) {
+    let currentResource = r4Resources[i];
 
     if (currentResource != null) {
-      let config = getSoarianConfiguration(currentResource.type)
-	       if (config != null) {
+      let config = getConfiguration(currentResource.type)
+
+      if (config != null) {
         // Build and push all resources extended from the Basic resource
         for (let j = 0; j < config.length; j++) {
           resources.push({
-            soarianR4Resources: [buildSoarianResource(config[j])],
+            r4Resources: [buildResource(config[j])],
             notes: config[j].notes
           });
         }
       }
-      resources.push({ soarianR4Resources: [buildSoarianResource(currentResource)] });
+      resources.push({ r4Resources: [buildResource(currentResource)] });
     }
   }
 
@@ -198,28 +181,30 @@ function getUnmatchedSoarianResources(soarianR4Resources) {
  * @param {object} capabilityStatementData - The R4 metadata.
  * @returns {array} Array of all matching resource objects.
  */
-function matchSoarianResources(conformanceData, capabilityStatementData) {
-  let soarianDstu2Resources = conformanceData.rest[0].resource;
-  let soarianR4Resources = capabilityStatementData.rest[0].resource;
+function matchResources(conformanceData, capabilityStatementData) {
+  let dstu2Resources = conformanceData.rest[0].resource;
+  let r4Resources = capabilityStatementData.rest[0].resource;
   
-	soarianDstu2Resources.push({"type": "Conformance","interaction": [
-            {
-              "code": "read"
-            }
-          ]
-        });
+  dstu2Resources.push({"type": "Conformance","interaction": [
+		{
+		  "code": "read"
+		}
+	  ]
+	});
 		
-		soarianR4Resources.push({"type": "CapabilityStatement","interaction": [
-            {
-              "code": "read"
-            }
-          ]
-        });
+  r4Resources.push({"type": "CapabilityStatement","interaction": [
+		{
+		  "code": "read"
+		}
+	  ]
+	});
   
   // Match all DSTU2 Resources
-  let dstu2Matches = matchSoarianDstu2Resources(soarianDstu2Resources, soarianR4Resources);
+  let dstu2Matches = matchDstu2Resources(dstu2Resources, r4Resources);
+
   // Get the remaining R4 resources that have no DSTU2 counterpart
-  let unmatchedR4Resources = getUnmatchedSoarianResources(soarianR4Resources);
+  let unmatchedR4Resources = getUnmatchedResources(r4Resources);
+
   let matchingResources = dstu2Matches.concat(unmatchedR4Resources);
   return matchingResources;
 }
@@ -231,14 +216,15 @@ function matchSoarianResources(conformanceData, capabilityStatementData) {
  * @param {array} dstu2Only - The array of resource objects that only contain DSTU2 resources.
  * @returns {array} The resultant array after merging.
  */
-function mergeSoarianSortedArrays(includesR4, dstu2Only) {
-
+function mergeSortedArrays(includesR4, dstu2Only) {
   let result = [];
   let includesR4Length = includesR4.length;
+
   for(let x = 0; x < includesR4Length; x += 1) {
     let r4Record = includesR4[x];
+
     for (let y = 0; y < dstu2Only.length; y += 1) {
-      if (r4Record.soarianR4Resources[0].resourceName > dstu2Only[y].soarianDstu2Resources[0].resourceName) {
+      if (r4Record.r4Resources[0].resourceName > dstu2Only[y].dstu2Resources[0].resourceName) {
         result.push(dstu2Only[y]);
         dstu2Only.splice(y, 1);
         y -= 1;
@@ -256,33 +242,34 @@ function mergeSoarianSortedArrays(includesR4, dstu2Only) {
  * @param {array} resourceArray - The array of matching resources.
  * @returns {object} Contains the array of matching resources.
  */
-function sortSoarianMatchedResources(resourceArray) {
+function sortMatchedResources(resourceArray) {
   let matchingResources = [];
   let includesR4 = [];
   let dstu2Only = [];
 
   // Split the resources between those that have R4 resources and those that are only in DSTU2
   for (let i = 0; i < resourceArray.length; i++) {
-    if (resourceArray[i].hasOwnProperty('soarianR4Resources')) {
+    if (resourceArray[i].hasOwnProperty('r4Resources')) {
       includesR4.push(resourceArray[i]);
     }
     else {
       dstu2Only.push(resourceArray[i]);
     }
   }
-    
+
   includesR4.sort(function(a, b) {
-	   let resourceA = a.soarianR4Resources[0].resourceName.toLowerCase();
-	  let resourceB = b.soarianR4Resources[0].resourceName.toLowerCase();
+    let resourceA = a.r4Resources[0].resourceName.toLowerCase();
+    let resourceB = b.r4Resources[0].resourceName.toLowerCase();
     return (resourceA < resourceB) ? -1 : (resourceA > resourceB) ? 1 : 0;
   });
-  
+
   dstu2Only.sort(function(a, b) {
-    let resourceA = a.soarianDstu2Resources[0].resourceName.toLowerCase();
-    let resourceB = b.soarianDstu2Resources[0].resourceName.toLowerCase();
+    let resourceA = a.dstu2Resources[0].resourceName.toLowerCase();
+    let resourceB = b.dstu2Resources[0].resourceName.toLowerCase();
     return (resourceA < resourceB) ? -1 : (resourceA > resourceB) ? 1 : 0;
   });
-  matchingResources = mergeSoarianSortedArrays(includesR4, dstu2Only);
+
+  matchingResources = mergeSortedArrays(includesR4, dstu2Only);
   return { matchingResources: matchingResources };
 }
 
@@ -295,7 +282,7 @@ function sortSoarianMatchedResources(resourceArray) {
  * @param {string} title - The title to be set for the given icon.
  * @returns {HTMLElement} - The created td.
  */
-function getSoarianActionIcon(resourceName, version, action, iconName, title) {
+function getActionIcon(resourceName, version, action, iconName, title) {
   let tableData = document.createElement('td');
   tableData.className = 'icon';
   if (action) {
@@ -323,16 +310,24 @@ function getSoarianActionIcon(resourceName, version, action, iconName, title) {
  * @param {string} version - The API version of the given resource.
  * @returns {array} Array of the td elements.
  */
-function getSoarianSupportedActions(resource, version) {
+function getSupportedActions(resource, version) {
   let supportedActions = [];
   let icons = {
     read: 'octicon octicon-file-text',
-    search: 'octicon octicon-search'
+    search: 'octicon octicon-search',
+    create: 'octicon octicon-plus',
+    update: 'octicon octicon-pencil',
+    patch: 'octicon octicon-diff',
+    delete: 'octicon octicon-trashcan'
   }
 
   // Build a td for each action and icon and add it to the array.
-  supportedActions.push(getSoarianActionIcon(resource.resourceName, version, resource.readSupported, icons.read, 'read'));
-  supportedActions.push(getSoarianActionIcon(resource.resourceName, version, resource.searchSupported, icons.search, 'search'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.readSupported, icons.read, 'read'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.searchSupported, icons.search, 'search'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.createSupported, icons.create, 'create'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.updateSupported, icons.update, 'update'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.patchSupported, icons.patch, 'patch'));
+  supportedActions.push(getActionIcon(resource.resourceName, version, resource.deleteSupported, icons.delete, 'delete'));
 
   return supportedActions;
 }
@@ -346,9 +341,22 @@ function getSoarianSupportedActions(resource, version) {
  * @param {string} [notes = null] - Notes to be displayed on the resource in the table.
  * @returns {array} The resource's td elements.
  */
-function createSoarianResourceRow(resource, version, rowSpan = 1, notes = null) {
+function createResourceRow(resource, version, rowSpan = 1, notes = null) {
+  let versionKey = version.toLowerCase().replace(' ', '');
+  let resourceUrl = soarianConfig[versionKey]['documentationUrls'][resource.resourceName];
+  let resourceLink;
+
+  if (resourceUrl == null) {
+    resourceLink = document.createTextNode(resource.resourceName);
+  }
+  else {
+    resourceLink = document.createElement('a');
+    resourceLink.appendChild(document.createTextNode(resource.resourceName));
+    resourceLink.href = resourceUrl;
+  }
+
   let tableData = document.createElement('td');
-  tableData.appendChild(document.createTextNode(resource.resourceName));
+  tableData.appendChild(resourceLink);
   tableData.className = 'resource-name';
   tableData.rowSpan = rowSpan;
 
@@ -360,7 +368,7 @@ function createSoarianResourceRow(resource, version, rowSpan = 1, notes = null) 
   }
 
   let resourceRow = [tableData];
-  let supportedActions = getSoarianSupportedActions(resource, version);
+  let supportedActions = getSupportedActions(resource, version);
   for (let i = 0; i < supportedActions.length; i++) {
     supportedActions[i].rowSpan = rowSpan;
     resourceRow.push(supportedActions[i]);
@@ -371,23 +379,23 @@ function createSoarianResourceRow(resource, version, rowSpan = 1, notes = null) 
 
 /**
  * Spans an R4 resource to align with the DSTU2 resources that match it.
- * @param {array} soarianDstu2Resources - The array of DSTU2 resources.
- * @param {array} soarianR4Resources - The array of R4 resources.
+ * @param {array} dstu2Resources - The array of DSTU2 resources.
+ * @param {array} r4Resources - The array of R4 resources.
  * @param {string} notes - Notes to be displayed on the resource in the table.
  */
-function spanSoarianR4WithDstu2(soarianDstu2Resources, soarianR4Resources, notes) {
+function spanR4WithDstu2(dstu2Resources, r4Resources, notes) {
   let table = document.getElementById('soarian-diff-table');
   let tableBody = document.createElement('tbody');
   table.appendChild(tableBody);
 
-  let rowSpan = soarianDstu2Resources.length;
+  let rowSpan = dstu2Resources.length;
 
   // Create rows for each DSTU2 resource.
-  for (let i = 0; i < soarianDstu2Resources.length; i++) {
+  for (let i = 0; i < dstu2Resources.length; i++) {
     let tableRow = document.createElement('tr');
     tableBody.appendChild(tableRow);
 
-    let dstu2ResourceInfo = createSoarianResourceRow(soarianDstu2Resources[i], 'DSTU 2', 1, notes);
+    let dstu2ResourceInfo = createResourceRow(dstu2Resources[i], 'DSTU 2', 1, notes);
     for (let j = 0; j < dstu2ResourceInfo.length; j++) {
       tableRow.appendChild(dstu2ResourceInfo[j]);
     }
@@ -395,7 +403,7 @@ function spanSoarianR4WithDstu2(soarianDstu2Resources, soarianR4Resources, notes
 
   // Add the R4 resource to the first DSTU2 row that is created and span it
   let tableRow = tableBody.childNodes[tableBody.childNodes.length-rowSpan];
-  let r4ResourceInfo = createSoarianResourceRow(soarianR4Resources[0], 'R4', rowSpan, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', rowSpan, notes);
   for (let i = 0; i < r4ResourceInfo.length; i++) {
     tableRow.appendChild(r4ResourceInfo[i]);
   }
@@ -403,23 +411,23 @@ function spanSoarianR4WithDstu2(soarianDstu2Resources, soarianR4Resources, notes
 
 /**
  * Spans a DSTU2 resource to align with the R4 resources that match it.
- * @param {array} soarianDstu2Resources  - The array of DSTU2 resources.
- * @param {array} soarianR4Resources - The array of R4 resources.
+ * @param {array} dstu2Resources  - The array of DSTU2 resources.
+ * @param {array} r4Resources - The array of R4 resources.
  * @param {string} notes - Notes to be displayed on the resource in the table.
  */
-function spanSoarianDstu2WithR4(soarianDstu2Resources, soarianR4Resources, notes) {
+function spanDstu2WithR4(dstu2Resources, r4Resources, notes) {
   let table = document.getElementById('soarian-diff-table');
   let tableBody = document.createElement('tbody');
   table.appendChild(tableBody);
 
-  let rowSpan = soarianR4Resources.length;
+  let rowSpan = r4Resources.length;
   let tableRow = document.createElement('tr');
   tableBody.appendChild(tableRow);
 
   // Create the row for the DSTU2 resource and span it
   // Add the first R4 resource to this row
-  let dstu2ResourceInfo = createSoarianResourceRow(soarianDstu2Resources[0], 'DSTU 2', rowSpan, notes);
-  let r4ResourceInfo = createSoarianResourceRow(soarianR4Resources[0], 'R4', 1, notes);
+  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], 'DSTU 2', rowSpan, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', 1, notes);
   for (let i = 0; i < dstu2ResourceInfo.length; i++) {
     tableRow.appendChild(dstu2ResourceInfo[i]);
   }
@@ -428,11 +436,11 @@ function spanSoarianDstu2WithR4(soarianDstu2Resources, soarianR4Resources, notes
   }
 
   // Create rows for the remaining R4 resources
-  for (let i = 1; i < soarianR4Resources.length; i++) {
+  for (let i = 1; i < r4Resources.length; i++) {
     let tableRow = document.createElement('tr');
     tableBody.appendChild(tableRow);
 
-    let r4ResourceInfo = createSoarianResourceRow(soarianR4Resources[i], 'R4', 1, notes);
+    let r4ResourceInfo = createResourceRow(r4Resources[i], 'R4', 1, notes);
     for (let j = 0; j < r4ResourceInfo.length; j++) {
       tableRow.appendChild(r4ResourceInfo[j]);
     }
@@ -441,10 +449,10 @@ function spanSoarianDstu2WithR4(soarianDstu2Resources, soarianR4Resources, notes
 
 /**
  * Adds resources to the table that have a single DSTU2 resource and a single matching R4 resource.
- * @param {array} soarianDstu2Resources - The array of DSTU2 resources.
- * @param {array} soarianR4Resources - The array of R4 resources.
+ * @param {array} dstu2Resources - The array of DSTU2 resources.
+ * @param {array} r4Resources - The array of R4 resources.
  */
-function alignSoarianSingleResources(soarianDstu2Resources, soarianR4Resources, notes) {
+function alignSingleResources(dstu2Resources, r4Resources, notes) {
   let table = document.getElementById('soarian-diff-table');
   let tableBody = document.createElement('tbody');
   table.appendChild(tableBody);
@@ -452,8 +460,8 @@ function alignSoarianSingleResources(soarianDstu2Resources, soarianR4Resources, 
   let tableRow = document.createElement('tr');
   tableBody.appendChild(tableRow);
 
-  let dstu2ResourceInfo = createSoarianResourceRow(soarianDstu2Resources[0], 'DSTU 2', 1, notes);
-  let r4ResourceInfo = createSoarianResourceRow(soarianR4Resources[0], 'R4', 1, notes);
+  let dstu2ResourceInfo = createResourceRow(dstu2Resources[0], 'DSTU 2', 1, notes);
+  let r4ResourceInfo = createResourceRow(r4Resources[0], 'R4', 1, notes);
   for (let i = 0; i < dstu2ResourceInfo.length; i++) {
     tableRow.appendChild(dstu2ResourceInfo[i]);
   }
@@ -466,19 +474,19 @@ function alignSoarianSingleResources(soarianDstu2Resources, soarianR4Resources, 
  * Aligns the matching resources between DSTU2 and R4 for a given resource.
  * @param {object} matchedResourcesObj - The object containing the arrays of matching resources.
  */
-function alignSoarianRows(matchedResourcesObj) {
-  let soarianDstu2Resources = matchedResourcesObj.soarianDstu2Resources;
-  let soarianR4Resources = matchedResourcesObj.soarianR4Resources;
+function alignRows(matchedResourcesObj) {
+  let dstu2Resources = matchedResourcesObj.dstu2Resources;
+  let r4Resources = matchedResourcesObj.r4Resources;
   let notes = matchedResourcesObj.notes;
 
-  if (soarianDstu2Resources.length > 1) {
-    spanSoarianR4WithDstu2(soarianDstu2Resources, soarianR4Resources, notes);
+  if (dstu2Resources.length > 1) {
+    spanR4WithDstu2(dstu2Resources, r4Resources, notes);
   }
-  else if (soarianR4Resources.length > 1) {
-    spanSoarianDstu2WithR4(soarianDstu2Resources, soarianR4Resources, notes);
+  else if (r4Resources.length > 1) {
+    spanDstu2WithR4(dstu2Resources, r4Resources, notes);
   }
   else {
-    alignSoarianSingleResources(soarianDstu2Resources, soarianR4Resources, notes);
+    alignSingleResources(dstu2Resources, r4Resources, notes);
   }
 }
 
@@ -486,31 +494,31 @@ function alignSoarianRows(matchedResourcesObj) {
  * Generates the table using the object of matching resources.
  * @param {object} resourcesObject - The object containing the array of matching resource objects.
  */
-function generateSoarianTable(resourcesObject) {
+function generateTable(resourcesObject) {
   let table = document.getElementById('soarian-diff-table');
 
   for (let i = 0; i < resourcesObject.matchingResources.length; i++) {
-    if (resourcesObject.matchingResources[i].hasOwnProperty('soarianDstu2Resources')) {
+    if (resourcesObject.matchingResources[i].hasOwnProperty('dstu2Resources')) {
       // The current resource has a match and needs to be aligned
-      if (resourcesObject.matchingResources[i].hasOwnProperty('soarianR4Resources')) {
-        alignSoarianRows(resourcesObject.matchingResources[i]);
+      if (resourcesObject.matchingResources[i].hasOwnProperty('r4Resources')) {
+        alignRows(resourcesObject.matchingResources[i]);
       }
       // The current resource has no R4 counterpart and needs an empty cell to fill the space
       else {
         let tableBody = document.createElement('tbody');
         table.appendChild(tableBody);
 
-        let dstu2Resource = resourcesObject.matchingResources[i].soarianDstu2Resources[0];
+        let dstu2Resource = resourcesObject.matchingResources[i].dstu2Resources[0];
         let tableRow = document.createElement('tr');
         tableBody.appendChild(tableRow);
 
-        let dstu2ResourceInfo = createSoarianResourceRow(dstu2Resource, 'DSTU 2');
+        let dstu2ResourceInfo = createResourceRow(dstu2Resource, 'DSTU 2');
         for (let j = 0; j < dstu2ResourceInfo.length; j++) {
           tableRow.appendChild(dstu2ResourceInfo[j]);
         }
 
         let emptyRow = document.createElement('td');
-        emptyRow.colSpan = 3;
+        emptyRow.colSpan = 7;
         tableRow.appendChild(emptyRow);
       }
     }
@@ -519,16 +527,16 @@ function generateSoarianTable(resourcesObject) {
       let tableBody = document.createElement('tbody');
       table.appendChild(tableBody);
 
-      let r4Resource = resourcesObject.matchingResources[i].soarianR4Resources[0];
+      let r4Resource = resourcesObject.matchingResources[i].r4Resources[0];
       let notes = resourcesObject.matchingResources[i].notes;
       let tableRow = document.createElement('tr');
       tableBody.appendChild(tableRow);
 
       let emptyRow = document.createElement('td');
-      emptyRow.colSpan = 3;
+      emptyRow.colSpan = 7;
       tableRow.appendChild(emptyRow);
 
-      let r4ResourceInfo = createSoarianResourceRow(r4Resource, 'R4', 1, notes)
+      let r4ResourceInfo = createResourceRow(r4Resource, 'R4', 1, notes)
       for (let k = 0; k < r4ResourceInfo.length; k++) {
         tableRow.appendChild(r4ResourceInfo[k]);
       }
@@ -539,7 +547,7 @@ function generateSoarianTable(resourcesObject) {
 /**
  * Hides the loading spinner and displays the failure message.
  */
-function showTableSoarianFailureMessage() {
+function showTableFailureMessage() {
   document.getElementById('soarian-diff-table-spinner').classList.toggle('hide');
   document.getElementsByClassName('soarian-failure-message')[0].classList.toggle('hide');
 }
@@ -548,17 +556,16 @@ function showTableSoarianFailureMessage() {
  * Displays the table.
  * If an error occurs during the process, an error message is displayed instead.
  */
-function displaySoarianOverviewTable() {
+function displaySoarianOverviewTable() {  
   document.getElementById('soarian-table-div').classList.toggle('hide');
   document.getElementsByClassName('soarian-failure-message')[0].classList.toggle('hide');
+  fetchData(soarianConfig.dstu2.metadataUrl, soarianConfig.dstu2.metadataHeaders, true, function(dstu2Response) {
+    fetchData(soarianConfig.r4.metadataUrl, soarianConfig.r4.metadataHeaders, true, function(r4Response) {
+      let tableResources = sortMatchedResources(matchResources(dstu2Response, r4Response));
 
-  fetchData(soarianConformanceURL, soarianConformanceHeaders, true, function(dstu2Response) {
-    fetchData(soarianCapabilityStatementURL, soarianCapabilityStatementHeaders, true, function(r4Response) {
-      let tableResources = sortSoarianMatchedResources(matchSoarianResources(dstu2Response, r4Response));
-
-      generateSoarianTable(tableResources);
+      generateTable(tableResources);
       document.getElementById('soarian-diff-table-spinner').classList.toggle('hide')
       document.getElementById('soarian-table-div').classList.toggle('hide');
-    }, showTableSoarianFailureMessage);
-  }, showTableSoarianFailureMessage);
+    }, showTableFailureMessage);
+  }, showTableFailureMessage);
 }

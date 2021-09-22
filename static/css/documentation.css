@@ -1833,15 +1833,6 @@ sup {
    background: #ebf6fd;
 }
 
-#soarian-table-key {
-  margin-top: 2em;
-}
-
-#soarian-table-key > * {
-  display: inline-block;
-  margin: 0 3px;
-}
-
 .soarian-failure-message {
   margin-top: 1em;
   padding: 12px;
