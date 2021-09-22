@@ -287,6 +287,7 @@ fields:
   url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition
   action:
     - update
+  note: Each item in the list must represent a distinct condition.
 
 - name: condition.id
   required: 'No'
