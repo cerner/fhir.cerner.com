@@ -204,7 +204,7 @@ fields:
   note: |
     <ul>
       <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
-      <li>When deceasedAge is provodied without the precision extension, it is defaulted to 'Age'</li>
+      <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
     </ul>
   example: |
     {
@@ -338,7 +338,7 @@ fields:
   action: update
   note: |
     <ul>
-      <li>When onsetAge is provodied without the precision extension, it is defaulted to 'Age'</li>
+      <li>When onsetAge is provided without the precision extension, it is defaulted to 'Age'</li>
     </ul>
   example: |
     {
