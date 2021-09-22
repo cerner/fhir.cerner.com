@@ -117,7 +117,13 @@ module Cerner
               {
                 'system': 'http://snomed.info/sct',
                 'code': '363346000',
-                'display': 'Malignant neoplastic disease (disorder)'
+                'display': 'Malignant neoplastic disease (disorder)',
+                'userSelected': false
+              },
+              {
+                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+                'code': '7588338',
+                'display': 'Cancer'
               }
             ],
             'text': 'Cancer'
@@ -142,7 +148,17 @@ module Cerner
             'unit': 'Years',
             'system': 'http://unitsofmeasure.org',
             'code': 'a'
-          }
+          },
+          'note': [
+            {
+              'authorReference': {
+                'reference': 'Practitioner/12742069',
+                'display': 'Portal, Portal'
+              },
+              'time': '2021-09-17T14:58:35Z',
+              'text': 'Cancer is common in the family'
+            }
+          ]
         }
       ]
     }.freeze
@@ -352,7 +368,12 @@ module Cerner
             'value': 15,
             'system': 'http://unitsofmeasure.org',
             'code': 'a'
-          }
+          },
+          'note': [
+            {
+              'text': 'Cancer is common in the family'
+            }
+          ]
         }
       ]
     }.freeze
