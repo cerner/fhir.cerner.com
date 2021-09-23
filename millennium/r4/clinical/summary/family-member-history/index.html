@@ -10,7 +10,7 @@
   <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
   <script src="../../../../../js/jquery.js" type="text/javascript"></script>
-  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>
+  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
   <script src="../../../../../js/millennium_diff_table.js" type="text/javascript"></script>
   <script src="../../../../../js/documentation.js" type="text/javascript"></script>
   <script src="../../../../../js/request_button.js" type="text/javascript"></script>
@@ -23,6 +23,7 @@
     ga('create', 'UA-62403415-1', 'auto');
     ga('send', 'pageview');
   </script>
+
 </head>
 
 
@@ -47,7 +48,7 @@
 
       <ul class="pages">
         <li><a href="../../../../overview/">Millennium</a></li>
-        <li><a href="../../../../../soarian/dstu2/">Soarian</a></li>
+         <li><a href="../../../../../soarian/overview/">Soarian</a></li>
         <li><a href="../../../../../authorization">Authorization</a></li>
         <li><a href="../../../../../smart">SMART</a></li>
       </ul>
@@ -105,6 +106,7 @@
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -113,7 +115,7 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -122,7 +124,7 @@
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
@@ -650,7 +652,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status</li></ul>
+            <ul style="list-style-type: none"><li>Indication of whether a condition is active, inactive, resolved, etc.</li></ul>
           
           
 
@@ -662,6 +664,22 @@
                       <p>Details: <a target="_blank" href="https://hl7.org/fhir/valueset-condition-clinical.html">Condition Clinical Status Codes</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/condition-clinical <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/ValueSet/condition-ver-status">ConditionVerificationStatus</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/condition-ver-status <br>
                       
                       </p>
                     
@@ -1059,7 +1077,13 @@
                 {
                   "system": "http://snomed.info/sct",
                   "code": "363346000",
-                  "display": "Malignant neoplastic disease (disorder)"
+                  "display": "Malignant neoplastic disease (disorder)",
+                  "userSelected": false
+                },
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                  "code": "7588338",
+                  "display": "Cancer"
                 }
               ],
               "text": "Cancer"
@@ -1084,7 +1108,17 @@
               "unit": "Years",
               "system": "http://unitsofmeasure.org",
               "code": "a"
-            }
+            },
+            "note": [
+              {
+                "authorReference": {
+                  "reference": "Practitioner/12742069",
+                  "display": "Portal, Portal"
+                },
+                "time": "2021-09-17T14:58:35Z",
+                "text": "Cancer is common in the family"
+              }
+            ]
           }
         ]
       }
@@ -1128,7 +1162,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/12504018-12764234
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -1250,7 +1284,13 @@
           {
             "system": "http://snomed.info/sct",
             "code": "363346000",
-            "display": "Malignant neoplastic disease (disorder)"
+            "display": "Malignant neoplastic disease (disorder)",
+            "userSelected": false
+          },
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+            "code": "7588338",
+            "display": "Cancer"
           }
         ],
         "text": "Cancer"
@@ -1275,12 +1315,26 @@
         "unit": "Years",
         "system": "http://unitsofmeasure.org",
         "code": "a"
-      }
+      },
+      "note": [
+        {
+          "authorReference": {
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
+          },
+          "time": "2021-09-17T14:58:35Z",
+          "text": "Cancer is common in the family"
+        }
+      ]
     }
   ]
 }</code></pre>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -1653,7 +1707,8 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false. </li>
+  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
+  <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
 </ul>
 </li></ul>
       
@@ -1670,7 +1725,7 @@
         
         
       </td>
-      <td>Yes </td>
+      <td>No </td>
       <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
@@ -1703,6 +1758,13 @@
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When precision is not provided, it is defaulted to 'Age'</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1786,7 +1848,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="errors-1">Errors</h3>
+<h3 id="errors-2">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
@@ -1798,6 +1860,13 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 
 <pre><code>PUT /FamilyMemberHistory/:id
 </code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>Conditions can be removed from a FamilyMemberHistory by setting the ‘condition-lifecycle-status’ modifierExtension to ‘entered-in-error’. Only existing conditions can be removed; condition id must be provided.</li>
+  <li>An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.id is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.</li>
+</ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
 
@@ -2233,7 +2302,8 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false. </li>
+  <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
+  <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
 </ul>
 </li></ul>
       
@@ -2250,7 +2320,7 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
         
         
       </td>
-      <td>Yes </td>
+      <td>No </td>
       <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
@@ -2284,6 +2354,13 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When precision is not provided, it is defaulted to 'Age'</li>
+</ul>
+</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -2312,6 +2389,9 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Each item in the list must represent a distinct condition.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -2445,6 +2525,13 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When onsetAge is provided without the precision extension, it is defaulted to 'Age'</li>
+</ul>
+</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -2458,7 +2545,7 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
         
         
       </td>
-      <td>Yes </td>
+      <td>No </td>
       <td>
 <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
     </tr>
@@ -2491,6 +2578,13 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>When precision is not provided, it is defaulted to 'Age'</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -2605,7 +2699,7 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "modifierExtensions": [
+  "modifierExtension": [
      {
        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
        "valueCodeableConcept": {
@@ -2621,6 +2715,24 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
 }
 </pre></li></ul>
       
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "modifierExtension": [
+     {
+       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
+       "valueCodeableConcept": {
+         "coding": [
+           {
+             "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+             "code": "entered-in-error"
+           }
+         ]
+       }
+    }
+  ]
+}
+</pre></li></ul>
       
       
       
@@ -2855,7 +2967,12 @@ If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code>
         "value": 15,
         "system": "http://unitsofmeasure.org",
         "code": "a"
-      }
+      },
+      "note": [
+        {
+          "text": "Cancer is common in the family"
+        }
+      ]
     }
   ]
 }</code></pre>
@@ -2873,7 +2990,7 @@ Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 </pre>
 
-<h3 id="errors-2">Errors</h3>
+<h3 id="errors-3">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
