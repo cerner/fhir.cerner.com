@@ -135,7 +135,7 @@ Update an QuestionnaireResponse.
 _Implementation Notes_
 
 * When an item is returned with the is-modifiable extension as false, that item cannot be updated unless the update is passed in without an id.
-* An update should only be preformed directly after a QuestionnaireResponse is retrieved. If an item.id is provided from the get operation, it MUST be provided on the subsequent update and must match the item.id returned from the get. 
+* An update should only be performed directly after a QuestionnaireResponse is retrieved. If an item.id is provided from the get operation, it MUST be provided on the subsequent update and must match the item.id returned from the get. 
 
 ### Authorization Types
 
