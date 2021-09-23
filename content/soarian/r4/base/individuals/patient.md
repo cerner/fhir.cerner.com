@@ -9,9 +9,9 @@ title: Patient | R4 API
 
 ## Overview
 
-The Patient resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, and primary language. Additional concepts returned as extensions and not part of the base resource include race, ethnicity, and birth sex. Soarian Clinicals<sup>®</sup> is a patient-centric application; thus, many of its other resources include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR)<sup>®</sup> servers.
+The Patient resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, and primary language. Additional concepts returned as extensions and not part of the base resource include race, ethnicity, and birth sex. Soarian Clinicals<sup>®</sup> is a patient-centric application, so many of its other resources include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR)<sup>®</sup> servers.
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they are valued:
 
@@ -155,6 +155,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
 
 [search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`string`]: https://hl7.org/fhir/R4/search.html#string
 [`token`]: https://hl7.org/fhir/R4/search.html#token

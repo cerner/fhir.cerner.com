@@ -55,7 +55,6 @@ const soarianConfig = {
       "Goal": "/soarian/r4/clinical/care-provision/goal",
       "Immunization": "/soarian/r4/clinical/medications/immunization",
       "MedicationRequest": "/soarian/r4/clinical/medications/medication-request",
-      "MedicationStatement": "/soarian/r4/clinical/medications/medication-statement",
       "Observation": "/soarian/r4/clinical/diagnostics/observation",
       "Organization": "/soarian/r4/base/entities/organization",
       "Patient": "/soarian/r4/base/individuals/patient",
