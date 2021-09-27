@@ -1,0 +1,83 @@
+name: AllergyIntolerance
+field_name_base_url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  note: resourceType must be AllergyIntolerance.
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
+
+- name: clinicalStatus
+  type: CodeableConcept
+  description: active | inactive | resolved
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus
+  action: terminology
+  binding:
+    description: The clinical status of the allergy.
+    terminology:
+    - display: AllergyIntolerance Clinical Status Codes
+      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+      info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html
+
+- name: verificationStatus
+  type: CodeableConcept
+  description: unconfirmed | confirmed | refuted | entered-in-error
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus
+  action: terminology
+  binding:
+    description: An assertion about certainty associated with the propensity, or 
+                 potential risk, of a reaction to the identified substance (including 
+                 pharmaceutical product).
+    terminology:
+    - display: AllergyIntolerance Verification Status Codes
+      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+      info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html
+
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  description: Code that identifies the allergy or intolerance
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
+  note: A code must always be provided while creating an allergy.
+  binding:
+    description: The code for an allergy statement (a positive or negated statement). 
+                 This may be a code for a substance or pharmaceutical product that is 
+                 considered to be responsible for the adverse reaction risk (for 
+                 example, Latex), an allergy condition (for example, Latex allergy), or 
+                 a general or categorical negated statement (for example, No known 
+                 allergy, No known drug allergies).
+    terminology:
+    - display: RxNorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: http://hl7.org/fhir/r4/rxnorm.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-code.html
+    - display: Unique Ingredient Identifier (UNII)
+      system: http://fdasis.nlm.nih.gov
+      info_link: http://hl7.org/fhir/R4/unii.html
+    - display: National Drug Data File (FDB Medknowledge)
+      system: https://terminology.hl7.org/CodeSystem-nddf.html
+      info_link: https://terminology.hl7.org/CodeSystem-nddf.html
+
+- name: reaction
+  required: 'No'
+  type: List of BackboneElement
+  description: Adverse Reaction Events linked to exposure to substance
+  url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.code
+  children:
+
+  - name: manifestation
+    required: 'Yes'
+    type: List of CodeableConcept
+    description: Clinical symptoms/signs associated with the Event
+    url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation
+    note: Only one manifestation can be provided.
+    binding:
+      description: The clinical symptoms or signs that are observed or associated with the adverse reaction event.
+      terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/valueset-clinical-findings.html
+   
