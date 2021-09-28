@@ -1,0 +1,14 @@
+---
+name: Device
+field_name_base_url: https://www.hl7.org/fhir/device-definitions.html#Device
+fields:
+- name: type
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: The specific type of device.
+  binding:
+    description: The type of device.
+    terminology:
+    - display: FHIR Device Types
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/R4/valueset-device-kind.html
