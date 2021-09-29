@@ -17,6 +17,17 @@ module Cerner
                'Quantity</b>: 650 mg</p><p><b>Medication Status</b>: Completed</p><p><b>Effective Time</b>: '\
                'Jul  6, 2020  9:11 P.M. UTC</p></div>'
       },
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time',
+          'valueQuantity': {
+            "value": 6.0,
+            "unit": 'minutes',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'min'
+          }
+        }
+      ],
       'status': 'completed',
       'patient': {
         'reference': 'Patient/12724066',
@@ -108,6 +119,17 @@ module Cerner
                '<p><b>Effective Start Time</b>: Sep 24, 2020  2:00 P.M. UTC</p>'\
                '<p><b>Effective End Time</b>: Sep 24, 2020  2:59 P.M. UTC</p></div>'
       },
+      'extension': [
+        {
+          'url': 'https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time',
+          'valueQuantity': {
+            "value": 6.0,
+            "unit": 'minutes',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'min'
+          }
+        }
+      ],
       'contained': [
         {
           'resourceType': 'Medication',
