@@ -24,7 +24,7 @@ The search results include the following fields if they contain values:
 * [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category)
 * [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code)
 * [Patient](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient)
-* [Adverse reaction](http://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction)
+* [Adverse reaction](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction)
     * [Manifestation](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation)
     * [Severity](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity)
 
@@ -115,7 +115,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[`_revinclude`]: http://hl7.org/fhir/search.html#revinclude
+[`_revinclude`]: https://hl7.org/fhir/search.html#revinclude
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [search]: https://www.hl7.org/fhir/http.html#search
