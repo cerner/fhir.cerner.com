@@ -11,7 +11,7 @@ title: Device | R4 API
 
 The Device resource Implementation is currently limited to devices such as pacemakers that are implanted in a patient as part of a charted procedure. As such, this resource currently exposes the known implant history for a patient occurring at this site. 
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_ at the time of the query. 
+_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_ at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -58,7 +58,7 @@ Search for Device resources that meet the specified query parameters:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -71,7 +71,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F.9005
 
 #### Response
 
@@ -83,7 +83,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -104,7 +104,7 @@ List an individual Device resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device/A879904FD2FE4B2D90C89FDA84E1285F.9005
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F.9005
 
 #### Response
 
@@ -120,3 +120,4 @@ Note: The examples provided here are non-normative and replaying them in the pub
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://www.hl7.org/fhir/r4/operationoutcome.html
 [search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
