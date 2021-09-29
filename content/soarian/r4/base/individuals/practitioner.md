@@ -11,7 +11,7 @@ title: Practitioner | R4 API
 
 The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a health care facility. 
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search](https://www.hl7.org/fhir/http.html#search) interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -38,9 +38,9 @@ _Implementation Notes_
 
  Name        | Required?                                      | Type       										      | Description
 -------------|------------------------------------------------|-------------------------------------------------------|
- `_id`       | This, or any other required search parameter   | [`token`](http://hl7.org/fhir/R4/search.html#token)   |The logical resource ID associated with the resource.
- `identifier`| This, or any other required search parameter   | [`token`](http://hl7.org/fhir/R4/search.html#token)   |A practitioner identifier alias.         Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
- `name`		 | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of either the family or given name of the Practitioner. Example: `Smith` 
+ `_id`       | This, or any other required search parameter   | [`token`](https://hl7.org/fhir/R4/search.html#token)   |The logical resource ID associated with the resource.
+ `identifier`| This, or any other required search parameter   | [`token`](https://hl7.org/fhir/R4/search.html#token)   |A practitioner identifier alias.         Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+ `name`		 | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of either the family or the given name of the Practitioner. Example: `Smith` 
  `family`    | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of the practitioner's family name. Example: `Smith`
  `given`     | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of the practitioner's given name. Example: `Jane`
 
@@ -94,4 +94,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 ### Errors
 
 The common [errors](#errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+
+[search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
 
