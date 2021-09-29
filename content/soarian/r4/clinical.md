@@ -8,4 +8,4 @@ layout: api
 ## Summary
 <%= render '/soarian/r4/clinical/summary.*' %>
 
-* [Condition](/soarian/r4/clinical/summary/condition)
+* [Procedure](/soarian/r4/clinical/summary/procedure)

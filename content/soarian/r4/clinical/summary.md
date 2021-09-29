@@ -5,5 +5,5 @@ layout: api
 
 <%= render '/soarian/r4/clinical/summary.*' %>
 
-* [Condition](../summary/condition)
+* [Procedure](../summary/procedure)
 
