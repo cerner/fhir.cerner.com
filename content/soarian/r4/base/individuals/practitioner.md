@@ -28,7 +28,7 @@ Search for Practitioner resources that meet specified query parameters:
 
 _Implementation Notes_
 
-*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when > 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources (FHIR) applications may prompt the user for more specific search criteria to avoid this possibility
+*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when > 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources (FHIR) applications may prompt the user for more specific search criteria to avoid this possibility.
 
 ### Authorization Types
 
@@ -38,11 +38,11 @@ _Implementation Notes_
 
  Name        | Required?                                      | Type       										      | Description
 -------------|------------------------------------------------|-------------------------------------------------------|
- `_id`       | This, or any other required search parameter   | [`token`](https://hl7.org/fhir/R4/search.html#token)   |The logical resource ID associated with the resource.
- `identifier`| This, or any other required search parameter   | [`token`](https://hl7.org/fhir/R4/search.html#token)   |A practitioner identifier alias.         Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
- `name`		 | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of either the family or the given name of the Practitioner. Example: `Smith` 
- `family`    | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of the practitioner's family name. Example: `Smith`
- `given`     | This, or any other required search parameter   | [`string`](https://hl7.org/fhir/R4/search.html#string)|The start of the practitioner's given name. Example: `Jane`
+ `_id`       | This, or any other required search parameter   | [`token`] |The logical resource ID associated with the resource.
+ `identifier`| This, or any other required search parameter   | [`token`] |A practitioner identifier alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+ `name`		 | This, or any other required search parameter   | [`string`]|The start of either the family or the given name of the Practitioner. Example: `Smith` 
+ `family`    | This, or any other required search parameter   | [`string`]|The start of the practitioner's family name. Example: `Smith`
+ `given`     | This, or any other required search parameter   | [`string`]|The start of the practitioner's given name. Example: `Jane`
 
 ### Headers
 
@@ -52,8 +52,8 @@ _Implementation Notes_
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Practitioner?_id=64FB91107E72432583430C3717ECF486
-
+	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner?_id=DF2821C049CC47E6A37C6B796DF4CF1D
+	
 #### Response
 
 <%= headers status: 200 %>
@@ -61,7 +61,7 @@ _Implementation Notes_
 
 ### Errors
 
-*	The common [errors](#errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned. 
+*	The common [errors](#errors) and [OperationOutcomes] may be returned. 
 *	In addition, a `422 Unprocessable Entity`  HTTP response status code and OperationOutcome is returned when > 499 Practitioners qualify for the search criteria.
 
 ## Retrieve by ID
@@ -82,7 +82,7 @@ List an individual Practitioner resource by its resource ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Practitioner/64FB91107E72432583430C3717ECF486
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D
 
 #### Response
 
@@ -93,8 +93,12 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors](#errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [search]: https://www.hl7.org/fhir/http.html#search
 [read]: https://www.hl7.org/fhir/http.html#read
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[`string`]: https://hl7.org/fhir/R4/search.html#string
+[OperationOutcomes]: https://www.hl7.org/fhir/r4/operationoutcome.html
+[errors]: ../../#client-errors
 
