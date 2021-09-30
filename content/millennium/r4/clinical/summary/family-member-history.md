@@ -4,8 +4,6 @@ title: FamilyMemberHistory | R4 API
 
 # FamilyMemberHistory
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
@@ -85,8 +83,6 @@ ID              | Value\[x] Type                                                
 
 ## Search
 
-<%= beta_tag(action: true) %>
-
 Search for FamilyMemberHistories that meet supplied query parameters:
 
     GET /FamilyMemberHistory?:parameters
@@ -134,8 +130,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
-<%= beta_tag(action: true) %>
-
 List an individual FamilyMemberHistory by its id:
 
     GET /FamilyMemberHistory/:id
@@ -170,8 +164,6 @@ _Implementation Notes_
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
-
-<%= beta_tag(action: true) %>
 
 Create a new FamilyMemberHistory.
 
@@ -228,8 +220,6 @@ The `ETag` response header indicates the current `If-Match` version to use on a 
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
-
-<%= beta_tag(action: true) %>
 
 Update a FamilyMemberHistory.
 
