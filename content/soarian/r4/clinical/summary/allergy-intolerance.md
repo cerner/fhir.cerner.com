@@ -14,7 +14,7 @@ The AllergyIntolerance resource provides the clinical assessment of a patient’
 
 Allergy negation statements for No Known Allergies (NKA), No Known Drug Allergies (NKDA), and No Known Food Allergies (NKFA) are reported using the code element. If a patient has not been asked about their allergies, these statements are conveyed by the absence of information (empty query response). Allergy negation statements for latex and contrast are not coded and are conveyed in the response with the AllergyIntolerance.code.text element as __No known latex allergy (situation)__ or __No known contrast allergy (situation)__.
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query.
+_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query.
 
 The search results include the following fields if they contain values:
 
@@ -71,7 +71,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/AllergyIntolerance?_id=A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance?_id=A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073
 
 #### Response
 
@@ -103,7 +103,7 @@ List an individual AllergyIntolerance resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073
 
 #### Response
 
@@ -112,6 +112,9 @@ List an individual AllergyIntolerance resource by its ID:
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
+### Errors
+
+The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
@@ -119,3 +122,4 @@ Note: The examples provided here are non-normative and replaying them in the pub
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
