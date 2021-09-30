@@ -89,8 +89,8 @@ Notes:
     * When valid system is provided, search is performed against the specific system.
 
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* The `_revinclude` parameter may be provided with the `_id` parameter. Example: `_id=629928&_revinclude=Provenance:target`
-* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be 
+* The `_revinclude` parameter may be provided with the `_id/identifier` parameter. Example: `_id=629928,identifier=urn:oid:1.1.1.1.1.1|10000360&_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 ### Headers
 
