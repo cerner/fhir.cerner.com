@@ -87,6 +87,11 @@
     </ul>
   </li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -122,6 +127,7 @@ The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier" target="_blank">Medication Administration id</a></li>
+  <li><a href="#extensions">Infuse Over Time Extension</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status" target="_blank">Status</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient" target="_blank">Patient</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner" target="_blank">Practitioner</a></li>
@@ -338,6 +344,33 @@ The following fields are returned if valued:</p>
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Infuse Over Time</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>infuse-over-time</code></td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#quantity"><code>Quantity</code></a></td>
+      <td>The length of time in minutes it took to infuse a medication.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
 <p>Search for MedicationAdministrations that meet supplied query parameters:</p>
@@ -472,6 +505,17 @@ The following fields are returned if valued:</p>
           "status": "generated",
           "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 650 mg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: Jul  6, 2020  9:11 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
+            "valueQuantity": {
+              "value": 6.0,
+              "unit": "minutes",
+              "system": "http://unitsofmeasure.org",
+              "code": "min"
+            }
+          }
+        ],
         "status": "completed",
         "patient": {
           "reference": "Patient/12724066",
@@ -564,6 +608,17 @@ The following fields are returned if valued:</p>
           "status": "generated",
           "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: TEST, BOB&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: Dopamine Hydrochloride 80 MG/ML Injection&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 12.76 milliliter (iso1000)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Start Time&lt;/b&gt;: Sep 24, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective End Time&lt;/b&gt;: Sep 24, 2020  2:59 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
+            "valueQuantity": {
+              "value": 6.0,
+              "unit": "minutes",
+              "system": "http://unitsofmeasure.org",
+              "code": "min"
+            }
+          }
+        ],
         "contained": [
           {
             "resourceType": "Medication",
@@ -763,6 +818,17 @@ The following fields are returned if valued:</p>
     "status": "generated",
     "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: acetaminophen&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 650 mg&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Time&lt;/b&gt;: Jul  6, 2020  9:11 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
+      "valueQuantity": {
+        "value": 6.0,
+        "unit": "minutes",
+        "system": "http://unitsofmeasure.org",
+        "code": "min"
+      }
+    }
+  ],
   "status": "completed",
   "patient": {
     "reference": "Patient/12724066",
@@ -838,6 +904,17 @@ The following fields are returned if valued:</p>
     "status": "generated",
     "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Medication Administration&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: TEST, BOB&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Display&lt;/b&gt;: Dopamine Hydrochloride 80 MG/ML Injection&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administered&lt;/b&gt;: Yes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Dosage Quantity&lt;/b&gt;: 12.76 milliliter (iso1000)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Medication Status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Start Time&lt;/b&gt;: Sep 24, 2020  2:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective End Time&lt;/b&gt;: Sep 24, 2020  2:59 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time",
+      "valueQuantity": {
+        "value": 6.0,
+        "unit": "minutes",
+        "system": "http://unitsofmeasure.org",
+        "code": "min"
+      }
+    }
+  ],
   "contained": [
     {
       "resourceType": "Medication",
