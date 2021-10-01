@@ -44,10 +44,10 @@ module Cerner
       "resourceType": 'Bundle',
       "id": 'd06e8cc5-c320-4c59-99ab-96140ac57305',
       "type": 'searchset',
-      "timestamp": '2021-02-23T15:40:43-05:00',
+      "timestamp": '2021-09-30T22:48:31-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
           "resource": {
             "resourceType": 'Device',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.9005',
@@ -89,7 +89,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005&_format=json'
         }
       ]
     }.freeze
@@ -101,7 +101,7 @@ module Cerner
       "timestamp": '2021-02-23T15:33:07-05:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
           "resource": {
             "resourceType": 'Device',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.9005',
@@ -140,7 +140,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device/A879904FD2FE4B2D90C89FDA84E1285F.9004',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device/A879904FD2FE4B2D90C89FDA84E1285F.9004',
           "resource": {
             "resourceType": 'Device',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.9004',
@@ -184,7 +184,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
         }
       ]
     }.freeze
