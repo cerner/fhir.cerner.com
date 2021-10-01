@@ -11,7 +11,7 @@ title: Encounter | R4 API
 
 The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency and so on.
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts`GET` and `POST` based [search](https://www.hl7.org/fhir/http.html#search) interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -59,10 +59,10 @@ _Implementation Notes_
 
  Name          | Required?                              | Type                                                          | Description
 ---------------|----------------------------------------|---------------------------------------------------------------|
- `_id`       | This, or `patient`                     | [`token`](http://hl7.org/fhir/R4/search.html#token)           | The logical resource ID associated with the resource
- `patient`   | This, or `_id`                         | [`reference`](http://hl7.org/fhir/R4/search.html#reference)   | The patient who has the encounter. 
- `date`     | No                                    | [`date`](http://hl7.org/fhir/R4/search.html#date)             | Date range into which the encounter falls. Example: `date=gt2014-09-24 or date=lt2015-09-24T12:00:00.000Z`
- `_revinclude` | No                                     | [`_revinclude`](http://hl7.org/fhir/R4/search.html#revinclude)| A request to include any Provenance resource in the bundle that refers to an Encounter resource in the search results. Only supported with Provenance.
+ `_id`         | This, or `patient`                     | [`token`]                                                     | The logical resource ID associated with the resource
+ `patient`     | This, or `_id`                         | [`reference`]                                                 | The patient who has the encounter. 
+ `date`        | No                                     | [`date`]                                                      | Date range into which the encounter falls. Example: `date=gt2014-09-24 or date=lt2015-09-24T12:00:00.000Z`
+ `_revinclude` | No                                     | [`_revinclude`]                                               | A request to include any Provenance resource in the bundle that refers to an Encounter resource in the search results. Only supported with Provenance.
 
  Notes
 
@@ -77,7 +77,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -90,7 +90,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Encounter?_id=A879904FD2FE4B2D90C89FDA84E1285F.29019
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?_id=A879904FD2FE4B2D90C89FDA84E1285F.29019
 
 #### Response
 
@@ -125,7 +125,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019
 
 #### Response
 
@@ -133,3 +133,16 @@ _Implementation Notes_
 <%= json(:SOARIAN_R4_ENCOUNTER_READ_BY_ID) %>
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
+### Errors
+
+The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+
+[search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`_revinclude`]: https://www.hl7.org/fhir/search.html#revinclude
+[errors]: ../../#client-errors
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html

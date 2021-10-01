@@ -1,5 +1,5 @@
 ---
-title: Encounters | R4 API
+title: Management | R4 API
 layout: api
 ---
 
