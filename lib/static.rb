@@ -12,7 +12,7 @@ module Nanoc::DataSources
       prefix = config[:prefix] || 'static'
 
       # Get all files under prefix dir
-      filenames = Dir["#{prefix}/**/*"].select { |f| File.file?(f) }
+      filenames = Dir[prefix + '/**/*'].select { |f| File.file?(f) }
 
       # Convert filenames to items
       filenames.map do |filename|
