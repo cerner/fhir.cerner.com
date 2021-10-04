@@ -11,11 +11,11 @@ title: Organization | R4 API
 
 The Organization resource describes a healthcare entity.
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search interactions](https://www.hl7.org/fhir/http.html#search). The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query.
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query.
 
 The search results include the following fields if they contain values:
 
-* [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Identifier](https://hl7.org/fhir/r4/organization-definitions.html#Organization.identifier){:target="_blank"}
 * [Active](https://hl7.org/fhir/r4/organization-definitions.html#Organization.active){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/organization-definitions.html#Organization.type){:target="_blank"}
@@ -39,11 +39,11 @@ Search for Organization resources that meet the specified query parameters:
 
 ### Parameters
 
- Name          | Required?                                    | Type                                                       | Description
----------------|----------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------
- `_id`         | This name, or `address`                      | [`token`](http://hl7.org/fhir/R4/search.html#token)        | The logical resource ID associated with the resource.
- `name`	       | This name, or `address`				      | [`string`](http://hl7.org/fhir/R4/search.html#string)      | The start of the name of the organization. 
- `address`     | This name, or `address`				      | [`string`](http://hl7.org/fhir/R4/search.html#string)      | The start of either the address line, city, state, postal code, or country of the organization. 
+ Name          | Required?                                    | Type            | Description
+---------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
+ `_id`         | This name, or `address`                      | [`token`]       | The logical resource ID associated with the resource.
+ `name`        | This name, or `address`				      | [`string`]      | The start of the name of the organization. 
+ `address`     | This name, or `address`				      | [`string`]      | The start of either the address line, city, state, postal code, or country of the organization. 
  
 
 
@@ -59,7 +59,7 @@ Search for Organization resources that meet the specified query parameters:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Organization?_id= HCU.1
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Organization?_id=HCU.1
 
 #### Response
 
@@ -72,7 +72,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors](../../#client-errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -92,7 +92,7 @@ List an individual Organization resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Organization/HCU.1
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Organization/HCU.1
     
 #### Response
 
@@ -100,3 +100,11 @@ List an individual Organization resource by its ID:
 <%= json(:SOARIAN_R4_ORGANIZATION_READ) %>
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
+
+[search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
+[`string`]: https://hl7.org/fhir/R4/search.html#string
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[errors]: ../../#client-errors
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
