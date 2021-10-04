@@ -11,7 +11,7 @@ title: Procedure | R4 API
 
 The Procedure resource implementation is limited to a patient’s known procedure history that occured at this site and is recorded in _Soarian Clinicals_<sup>®</sup>. As such, this resource may not be as complete as a procedure list provided as part of the patient’s billing record.
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query. 
+_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -21,9 +21,9 @@ The search results include the following fields if they contain values:
 * [Subject (Patient only)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject)
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter)
 * [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_)
-* [Focal Device](http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice)
-	* [Action](http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.action)
-	* [Manipulated](http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.manipulated)
+* [Focal Device](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice)
+	* [Action](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.action)
+	* [Manipulated](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.manipulated)
 
 
 ## Terminology Bindings
@@ -58,7 +58,7 @@ Search for Procedure resources that meet specified query parameters:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -71,7 +71,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure?_id=A879904FD2FE4B2D90C89FDA84E1285F.8008
+    GET https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?_id=A879904FD2FE4B2D90C89FDA84E1285F.8008
 
 #### Response
 
@@ -103,7 +103,7 @@ List an individual Procedure resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008
+    GET https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008
 
 #### Response
 
@@ -112,6 +112,10 @@ List an individual Procedure resource by its ID:
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [`date`]: https://hl7.org/fhir/r4/search.html#date
@@ -119,3 +123,4 @@ Note: The examples provided here are non-normative and replaying them in the pub
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read

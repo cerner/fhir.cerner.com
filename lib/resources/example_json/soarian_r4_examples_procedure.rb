@@ -7,7 +7,7 @@ module Cerner
       "resourceType": 'Procedure',
       "id": 'A879904FD2FE4B2D90C89FDA84E1285F.8008',
       "meta": {
-        "lastUpdated": '2020-11-13T17:02:40-05:00'
+        "lastUpdated": '2021-03-02T15:48:45-05:00'
       },
       "status": 'completed',
       "code": {
@@ -22,7 +22,7 @@ module Cerner
       },
       "subject": {
         "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-        "display": 'Mcgovern,Astrid Santiago'
+        "display": 'Mcgovern,Astrid-Anna Santiago'
       },
       "encounter": {
         "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -41,8 +41,8 @@ module Cerner
             ]
           },
           "manipulated": {
-            "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9004',
-            "display": '463239005 Posterior-stabilized total knee prosthesis (physical object)'
+            "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
+            "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
           }
         },
         {
@@ -56,30 +56,35 @@ module Cerner
             ]
           },
           "manipulated": {
-            "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
-            "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
+            "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.13004',
+            "display": '714547008 Bone matrix implant, human derived (physical object)'
           }
         }
       ],
       "text": {
         "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9004,463239005 Posterior-stabilized total knee prosthesis (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /></div>'
+        # rubocop:disable Layout/LineLength
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+        # rubocop:enable Layout/LineLength
       }
     }.freeze
 
     SOARIAN_R4_PROCEDURE_SEARCH_BY_ID_ENTRY ||= {
       "resourceType": 'Bundle',
-      "id": 'ae379b20-58a6-4b85-9eff-be232222ea7a',
+      "id": '5da7c4ff-3aec-4ade-9b5b-07d6964d7f65',
       "type": 'searchset',
-      "timestamp": '2021-02-24T18:31:59-05:00',
+      "timestamp": '2021-10-04T01:50:25-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "search": {
+            "mode": 'match'
+          },
           "resource": {
             "resourceType": 'Procedure',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.8008',
             "meta": {
-              "lastUpdated": '2020-11-13T17:02:40-05:00'
+              "lastUpdated": '2021-03-02T15:48:45-05:00'
             },
             "status": 'completed',
             "code": {
@@ -94,7 +99,7 @@ module Cerner
             },
             "subject": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
+              "display": 'Mcgovern,Astrid-Anna Santiago'
             },
             "encounter": {
               "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -113,8 +118,8 @@ module Cerner
                   ]
                 },
                 "manipulated": {
-                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9004',
-                  "display": '463239005 Posterior-stabilized total knee prosthesis (physical object)'
+                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
+                  "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
                 }
               },
               {
@@ -128,14 +133,16 @@ module Cerner
                   ]
                 },
                 "manipulated": {
-                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
-                  "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
+                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.13004',
+                  "display": '714547008 Bone matrix implant, human derived (physical object)'
                 }
               }
             ],
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9004,463239005 Posterior-stabilized total knee prosthesis (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /></div>'
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+              # rubocop:enable Layout/LineLength
             }
           }
         }
@@ -143,7 +150,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
@@ -155,12 +162,15 @@ module Cerner
       "timestamp": '2021-02-24T18:31:59-05:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "search": {
+            "mode": 'match'
+          },
           "resource": {
             "resourceType": 'Procedure',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.8008',
             "meta": {
-              "lastUpdated": '2020-11-13T17:02:40-05:00'
+              "lastUpdated": '2021-03-02T15:48:45-05:00'
             },
             "status": 'completed',
             "code": {
@@ -175,7 +185,7 @@ module Cerner
             },
             "subject": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
+              "display": 'Mcgovern,Astrid-Anna Santiago'
             },
             "encounter": {
               "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -194,8 +204,8 @@ module Cerner
                   ]
                 },
                 "manipulated": {
-                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9004',
-                  "display": '463239005 Posterior-stabilized total knee prosthesis (physical object)'
+                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
+                  "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
                 }
               },
               {
@@ -209,14 +219,16 @@ module Cerner
                   ]
                 },
                 "manipulated": {
-                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.9005',
-                  "display": '700803007 Orthopedic prosthesis implantation instrument, reusable (physical object)'
+                  "reference": 'Device/A879904FD2FE4B2D90C89FDA84E1285F.13004',
+                  "display": '714547008 Bone matrix implant, human derived (physical object)'
                 }
               }
             ],
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9004,463239005 Posterior-stabilized total knee prosthesis (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /></div>'
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+              # rubocop:enable Layout/LineLength
             }
           }
         }
@@ -224,7 +236,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.cerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
@@ -273,7 +285,9 @@ module Cerner
       ],
       "text": {
         "status": 'generated',
+        # rubocop:disable Layout/LineLength
         "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Lansford,Mukesh-Procedure Dianne;<br /><b>Encounter</b>:City General,Initial;<br /><b>Status</b>:entered-in-error;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:429211003 <b>display</b>:Procedure for Atrial Fib;<br /><b>Performed</b>:2020-07-16T02:55:00-04:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:386746003 <b>display</b>:Maintenance - action;<br /><b>Manipulated</b>:Device/7DD361F7EB43448690AABCCC45E62285.3007;<br /></div>'
+        # rubocop:enable Layout/LineLength
       }
     }.freeze
 
@@ -321,7 +335,9 @@ module Cerner
       ],
       "text": {
         "status": 'generated',
+        # rubocop:disable Layout/LineLength
         "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Lansford,Mukesh-Procedure Dianne;<br /><b>Encounter</b>:City General,Initial;<br /><b>Status</b>:stopped;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:428663009 <b>display</b>:Ablation of AV Node;<br /><b>Performed</b>:2021-05-20T03:57:00-04:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/7DD361F7EB43448690AABCCC45E62285.1003;<br /></div>'
+        # rubocop:enable Layout/LineLength
       }
     }.freeze
   end
