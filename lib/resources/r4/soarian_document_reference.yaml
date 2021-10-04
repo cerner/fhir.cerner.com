@@ -7,13 +7,13 @@ fields:
   required: 'Yes'
   type: CodeableConcept
   description: Specifies the particular kind of document referenced.
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
+  url: https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
   binding:
     description: Specifies the particular kind of document referenced.
     terminology:
     - display: US Core DocumentReference Type
-      system: http://loinc.org
-      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
+      system: https://loinc.org
+      info_link: https://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type
 
 - name: category
   required: 'No'
@@ -24,8 +24,8 @@ fields:
     description: A categorization for the type of document referenced.
     terminology:
     - display: US Core DocumentReference Category
-      system: http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category
-      info_link: http://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-category
+      system: https://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category
+      info_link: https://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-category
 
 - name: securityLabel
   required: 'No'
@@ -35,7 +35,7 @@ fields:
     description: A set of Security-Tag codes specifying the level of privacy/security of the Document.
     terminology:
     - display: SecurityLabels
-      system: http://terminology.hl7.org/CodeSystem/v3-Confidentiality
+      system: https://terminology.hl7.org/CodeSystem/v3-Confidentiality
       info_link: https://hl7.org/fhir/R4/valueset-security-labels.html
 
 - name: content.format
@@ -46,5 +46,5 @@ fields:
     description: An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
     terminology:
     - display: FormatCodes
-      system: http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem
-      info_link: http://hl7.org/fhir/R4/valueset-formatcodes.html
+      system: https://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem
+      info_link: https://hl7.org/fhir/R4/valueset-formatcodes.html

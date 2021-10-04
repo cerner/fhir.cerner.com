@@ -11,7 +11,7 @@ title: DocumentReference | R4 API
 
 The DocumentReference resource is used to reference a clinical document for a patient in the health system. This resource supports reading clinical notes and returning references to retrieve Continuity of Care Documents (CCD).
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search interactions](https://www.hl7.org/fhir/http.html#search). The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The following fields are returned if valued for clinical documents:
 
@@ -57,7 +57,7 @@ Search for DocumentReference resources that meet the specified query parameters:
  `_id`                    | This, or `patient` | [`token`]     | The logical resource ID associated with the resource.
  `patient`                | This, or `_id`     | [`reference`] | The patient who has the document referenced. 
 `category`                | No                 | [`token`]     | The categorization for the type of document referenced. Example: `category=clinical-note`
-`type`                    | No                 | [`token`]     | The kind of document referenced. Example: `https://loinc.org|11488-4`
+`type`                    | No                 | [`token`]     | The kind of document referenced. Example: `https://loinc.org/11488-4`
 `date`                    | No                 | [`date`]      | Date range into which the document referenced falls. Example: `date=ge2020-01-01`
 `encounter`               | No                 | [`reference`] | The encounter associated with the document referenced. 
 `_count`                  | No                 | [`count`]     | The maximum number of resources returned in a page.
@@ -77,7 +77,7 @@ Notes
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/0e885770-571b-4c0c-b30f-21df9a058d0d/DocumentReference?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DocumentReference?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -86,11 +86,15 @@ Notes
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
+### Errors
+
+• The common [errors] and [OperationOutcomes] may be returned. 
+
 ### Example Search by ID
 
 #### Request
 
-    GET https://fhir-myrecord-sc.stagingcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DocumentReference?_id=A879904FD2FE4B2D90C89FDA84E1285F.DM.CS2OX64WFII6XEI7ABIFNDS6EM
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DocumentReference?_id=A879904FD2FE4B2D90C89FDA84E1285F.DM.CS2OX64WFII6XEI7ABIFNDS6EM
 
 #### Response
 
@@ -121,7 +125,7 @@ List an individual DocumentReference resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.stagingcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DocumentReference/A879904FD2FE4B2D90C89FDA84E1285F.DM.CS2OX64WFII6XEI7ABIFNDS6EM
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DocumentReference/A879904FD2FE4B2D90C89FDA84E1285F.DM.CS2OX64WFII6XEI7ABIFNDS6EM
 
 #### Response
 
@@ -129,6 +133,10 @@ List an individual DocumentReference resource by its ID:
 <%= json(:SOARIAN_R4_DOCREF_READ_BY_ID) %>
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
+### Errors
+
+• The common [errors] and [OperationOutcomes] may be returned. 
 
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
@@ -139,3 +147,5 @@ Note: The examples provided here are non-normative and replaying them in the pub
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
 [`count`]: https://hl7.org/fhir/r4/search.html#count
 [`revinclude`]: https://hl7.org/fhir/search.html#revinclude
+[search]: https://www.hl7.org/fhir/http.html#search
+[read]: https://www.hl7.org/fhir/http.html#read
