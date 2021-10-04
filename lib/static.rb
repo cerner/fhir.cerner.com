@@ -20,7 +20,7 @@ module Nanoc::DataSources
           extension: File.extname(filename)[1..],
           filename: filename
         }
-        identifier = "#{filename[(prefix.length + 1)..]}/"
+        identifier = filename[(prefix.length + 1)..] + '/'
 
         mtime = File.mtime(filename)
         checksum = checksum_for(filename)
