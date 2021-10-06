@@ -4,7 +4,7 @@ fields:
 - name: resourceType
   required: 'Yes'
   type: string
-  description: The type of the FHIR resource.
+  description: The type of FHIR<sup>®</sup> resource.
   note: resourceType must be AllergyIntolerance.
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
 
