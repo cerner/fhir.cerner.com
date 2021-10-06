@@ -97,64 +97,66 @@ module Cerner
     }.freeze
 
     R4_LOCATION_ADDRESS_ENTRY ||= {
-        "resourceType": "Location",
-        "id": "982243103",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-29T14:40:50Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Location</b></p><p><b>Name</b>: Anushka Org One</p><p><b>Alias</b>: ADOne</p><p><b>Managing Organization</b>: Anushka Org One</p><p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>"
-        },
-        "status": "active",
-        "name": "Anushka Org One",
-        "alias": [
-          "ADOne"
+      "resourceType": 'Location',
+      "id": '982243103',
+      "meta": {
+        "versionId": '0',
+        "lastUpdated": '2019-03-29T14:40:50Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>: '\
+        'Anushka Org One</p><p><b>Alias</b>: ADOne</p><p><b>Managing Organization</b>: Anushka Org One</p>'\
+        '<p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+      },
+      "status": 'active',
+      "name": 'Anushka Org One',
+      "alias": [
+        'ADOne'
+      ],
+      "mode": 'instance',
+      "address": {
+        "use": 'work',
+        "text": "111th West st\nMalvern, PA 19355\nUSA",
+        "line": [
+          '111th West st'
         ],
-        "mode": "instance",
-        "address": {
-          "use": "work",
-          "text": "111th West st\nMalvern, PA 19355\nUSA",
-          "line": [
-            "111th West st"
-          ],
-          "city": "Malvern",
-          "state": "PA",
-          "postalCode": "19355",
-          "country": "USA"
-        },
-        "physicalType": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222",
-              "code": "783",
-              "display": "Facility(s)",
-              "userSelected": true
-            },
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
-              "code": "si",
-              "display": "Site"
-            }
-          ],
-          "text": "Facility(s)"
-        },
-        "managingOrganization": {
-          "reference": "Organization/28096355",
-          "display": "Anushka Org One"
-        }
-      }.freeze
+        "city": 'Malvern',
+        "state": 'PA',
+        "postalCode": '19355',
+        "country": 'USA'
+      },
+      "physicalType": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
+            "code": '783',
+            "display": 'Facility(s)',
+            "userSelected": true
+          },
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
+            "code": 'si',
+            "display": 'Site'
+          }
+        ],
+        "text": 'Facility(s)'
+      },
+      "managingOrganization": {
+        "reference": 'Organization/28096355',
+        "display": 'Anushka Org One'
+      }
+    }.freeze
 
     R4_LOCATION_ADDRESS_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "f4749f7a-e67d-49d1-8b92-ddbef46eae15",
-      "type": "searchset",
+      "resourceType": 'Bundle',
+      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "type": 'searchset',
       "link": [
-          {
-              "relation": "self",
-              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA"
-          }
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA'
+        }
       ],
       "entry": [
         {
@@ -165,20 +167,18 @@ module Cerner
     }.freeze
 
     R4_LOCATION_ADDRESS_CITY_STATE_BUNDLE ||= {
-      "resourceType": "Bundle",
-      "id": "418d018e-ef93-43a0-b880-4888218ed3c6",
-      "type": "searchset",
+      "resourceType": 'Bundle',
+      "id": '418d018e-ef93-43a0-b880-4888218ed3c6',
+      "type": 'searchset',
       "link": [
-          {
-              "relation": "self",
-              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern
-              "
-          }
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern'
+        }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern
-          ',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern',
           "resource": R4_LOCATION_ADDRESS_ENTRY
         }
       ]
