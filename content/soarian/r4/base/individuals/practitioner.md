@@ -28,7 +28,7 @@ Search for Practitioner resources that meet specified query parameters:
 
 _Implementation Notes_
 
-*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when > 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources (FHIR) applications may prompt the user for more specific search criteria to avoid this possibility.
+*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when > 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>) applications may prompt the user for more specific search criteria to avoid this possibility.
 
 ### Authorization Types
 
@@ -59,6 +59,8 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:SOARIAN_R4_PRACTITIONER_SEARCH_BY_ID) %>
 
+Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
+
 ### Errors
 
 *	The common [errors](#errors) and [OperationOutcomes] may be returned. 
@@ -70,7 +72,7 @@ List an individual Practitioner resource by its resource ID:
 
 	GET /Practitioner/:id
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true)%>
 
@@ -93,7 +95,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+*  The common [errors] and [OperationOutcomes] may be returned.
 
 [search]: https://www.hl7.org/fhir/http.html#search
 [read]: https://www.hl7.org/fhir/http.html#read
