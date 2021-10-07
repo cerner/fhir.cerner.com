@@ -11,7 +11,7 @@ title: Device | R4 API
 
 The Device resource Implementation is currently limited to devices such as pacemakers that are implanted in a patient as part of a charted procedure. As such, this resource currently exposes the known implant history for a patient occurring at this site. 
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_ at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -67,6 +67,10 @@ Search for Device resources that meet the specified query parameters:
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
+### Errors
+
+*   The common [errors] and [OperationOutcomes] may be returned.
+
 ### Example Search by ID
 
 #### Request
@@ -80,10 +84,9 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
-
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+*   The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -115,7 +118,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+*   The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/r4/search.html#token
