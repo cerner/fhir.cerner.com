@@ -100,6 +100,7 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
+ [`infuse-over-time`]                                        | The length of time in minutes it took to infuse a medication.
  [`is-modifiable`]                                           | Indication of whether data is modifiable or not.
  [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
  [`modifier-code`]                                           | A code providing additional detail about a product or service.
@@ -159,6 +160,7 @@ Authorization is not required.
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
 [`military-service-connected-indicator`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json
+[`infuse-over-time`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/infuse-over-time?_format=json
 [`is-modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-modifiable?_format=json
 [`modifier-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
