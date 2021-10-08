@@ -8,4 +8,4 @@ layout: api
 ## Medications
 <%= render '/soarian/r4/clinical/medications.*' %>
 
-* [MedicationRequest](/soarian/r4/clinical/medications/medicationrequest)
+* [Immunization](/soarian/r4/clinical/medications/immunization)
