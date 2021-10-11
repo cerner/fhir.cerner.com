@@ -61,7 +61,7 @@ Search for Locations that meet supplied query parameters:
  `address`            | no                      | [`string`]   | A (part of the) address of the location.
  `address-city`       | no                      | [`string`]   | A city specified in an address
  `address-state`      | no                      | [`string`]   | A state specified in an address
- `address-postalCode` | no                      | [`string`]   | A postal code specified in an address
+ `address-postalcode` | no                      | [`string`]   | A postal code specified in an address
  `name`               | no                      | [`string`]   | A portion of the location's name or alias
  `organization`       | no                      | [`reference`]| Searches for locations that are managed by the provided organization
 
@@ -70,6 +70,8 @@ Search for Locations that meet supplied query parameters:
 
 - The `-physicalType` parameter
   - Searching by Millennium proprietary codes is not supported.
+- The `-address-city` parameter
+  - needs address-state or address-postalcode while searching with address-city
 
 ### Headers
 
