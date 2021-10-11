@@ -5,7 +5,7 @@ layout: api
 
 <%= render '/soarian/r4/clinical.*' %>
 
-## Summary
-<%= render '/soarian/r4/clinical/summary.*' %>
+## Care Provision
+<%= render '/soarian/r4/clinical/care-provision.*' %>
 
-* [AllergyIntolerance](/soarian/r4/clinical/summary/allergy-intolerance)
+* [AllergyIntolerance](/soarian/r4/clinical/care-provision/care-plan)
