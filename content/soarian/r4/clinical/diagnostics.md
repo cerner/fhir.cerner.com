@@ -7,4 +7,4 @@ layout: api
 
 <%= render '/soarian/r4/clinical/diagnostics.*' %>
 
-* [Observation](soarian/r4/clinical/diagnostics/observation)
+* [Observation](../diagnostics/observation)
