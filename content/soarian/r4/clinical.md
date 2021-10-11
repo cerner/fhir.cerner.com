@@ -8,4 +8,4 @@ layout: api
 ## Care Provision
 <%= render '/soarian/r4/clinical/care-provision.*' %>
 
-* [AllergyIntolerance](/soarian/r4/clinical/care-provision/care-plan)
+* [CarePlan](/soarian/r4/clinical/care-provision/care-plan)
