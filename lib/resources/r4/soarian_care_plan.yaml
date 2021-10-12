@@ -1,6 +1,6 @@
 ---
 name: CarePlan
-field_name_base_url: http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan
+field_name_base_url: https://hl7.org/fhir/R4/careplan-definitions.html#CarePlan
 fields:
 - name: category
   required: 'No'
@@ -9,5 +9,5 @@ fields:
     description: Type of plan
     terminology:
     - display: Request Category
-      system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-      info_link: http://hl7.org/fhir/R4/valueset-care-plan-category.html
+      system: https://hl7.org/fhir/us/core/CodeSystem/careplan-category
+      info_link: https://hl7.org/fhir/R4/valueset-care-plan-category.html
