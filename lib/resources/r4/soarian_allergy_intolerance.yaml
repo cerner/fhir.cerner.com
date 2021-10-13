@@ -1,5 +1,5 @@
 name: AllergyIntolerance
-field_name_base_url: http://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
+field_name_base_url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance
 fields:
 - name: resourceType
   required: 'Yes'
@@ -17,7 +17,7 @@ fields:
     description: The clinical status of the allergy.
     terminology:
     - display: AllergyIntolerance Clinical Status Codes
-      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+      system: https://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html
 
 - name: verificationStatus
@@ -31,7 +31,7 @@ fields:
                  pharmaceutical product).
     terminology:
     - display: AllergyIntolerance Verification Status Codes
-      system: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+      system: https://terminology.hl7.org/CodeSystem/allergyintolerance-verification
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html
 
 - name: code
@@ -49,14 +49,14 @@ fields:
                  allergy, No known drug allergies).
     terminology:
     - display: RxNorm
-      system: http://www.nlm.nih.gov/research/umls/rxnorm
-      info_link: http://hl7.org/fhir/r4/rxnorm.html
+      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://hl7.org/fhir/r4/rxnorm.html
     - display: SNOMED CT
       system: http://snomed.info/sct
       info_link: https://hl7.org/fhir/r4/valueset-allergyintolerance-code.html
     - display: Unique Ingredient Identifier (UNII)
-      system: http://fdasis.nlm.nih.gov
-      info_link: http://hl7.org/fhir/R4/unii.html
+      system: https://fdasis.nlm.nih.gov
+      info_link: https://hl7.org/fhir/R4/unii.html
     - display: National Drug Data File (FDB Medknowledge)
       system: https://terminology.hl7.org/CodeSystem-nddf.html
       info_link: https://terminology.hl7.org/CodeSystem-nddf.html
