@@ -11,7 +11,7 @@ title: CareTeam | R4 API
 
 The CareTeam resource represents a patient’s care team members. Care team members or participants include medical practitioners (physicians, nurses, technicians, and so on), family members, and guardians. The care team can be specific to an encounter or to the patient across all encounters (longitudinal).
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query.
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query.
 
 The search results include the following fields if they contain values:
 
