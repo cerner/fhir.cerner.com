@@ -102,6 +102,7 @@ Authorization is not required.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
  [`infuse-over-time`]                                        | The length of time in minutes it took to infuse a medication.
  [`is-modifiable`]                                           | Indication of whether data is modifiable or not.
+ [`is-physician`]                                            | Indication of whether the provider is a physician or not.
  [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
  [`modifier-code`]                                           | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
@@ -162,6 +163,7 @@ Authorization is not required.
 [`military-service-connected-indicator`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json
 [`infuse-over-time`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/infuse-over-time?_format=json
 [`is-modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-modifiable?_format=json
+[`is-physician`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician?_format=json
 [`modifier-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json
