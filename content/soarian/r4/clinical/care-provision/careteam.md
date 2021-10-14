@@ -92,7 +92,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors](../../#client-errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
