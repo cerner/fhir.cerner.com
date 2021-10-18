@@ -89,7 +89,7 @@ List an individual Immunization resource by its ID:
 
     GET /Immunization/:id
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
