@@ -11,4 +11,4 @@ fields:
     terminology:
     - display: FHIR Device Types
       system: http://snomed.info/sct
-      info_link: http://hl7.org/fhir/R4/valueset-device-kind.html
+      info_link: https://hl7.org/fhir/R4/valueset-device-kind.html
