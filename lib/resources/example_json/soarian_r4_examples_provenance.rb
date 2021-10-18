@@ -3,124 +3,43 @@
 module Cerner
   module Resources
 
-    SOARIAN_R4_PROVENANCE_ENTRY ||= {
-      'resourceType': 'Provenance',
-      'id': 'doc-881057',
-      'meta': {
-        'versionId': '881057',
-        'lastUpdated': '2019-10-25T14:57:43Z'
-      },
-      'text': {
-        'status': 'generated',
-        'div': '&lt;div xmlns="http://www.w3.org/1999/xhtml">&lt;p>&lt;b>Provenance&lt;/b>&lt;/p>&lt;p>&lt;b>'\
-        'Target&lt;/b>:&lt;/p>&lt;ul>&lt;li>DocumentReference/881049&lt;/li>&lt;/ul>&lt;p>&lt;b>Recorded&lt;/b>'\
-        ': Oct 25, 2019  9:57 A.M. CDT&lt;/p>&lt;p>&lt;b>Agents&lt;/b>:&lt;/p>&lt;dl>&lt;dt>'\
-        'Baseline East Medical Center&lt;/dt>&lt;dd>&lt;b>Agent Type&lt;/b>: Author&lt;/dd>&lt;dd>&lt;b>'\
-        'Agent Role&lt;/b>: Source&lt;/dd>&lt;/dl>&lt;p>&lt;b>Entity Source&lt;'\
-        '/b>: DocumentReference/S-202&lt;/p>&lt;/div>'
-      },
-      'target': [
+    SOARIAN_R4_PROVENANCE_READ ||= {
+      "resourceType": 'Provenance',
+      "id": 'GO.A879904FD2FE4B2D90C89FDA84E1285F.NRS.43083',
+      "recorded": '2020-11-15T16:20:00-05:00',
+      "target": [
         {
-          'reference': 'DocumentReference/881049'
+          "reference": 'Goal/A879904FD2FE4B2D90C89FDA84E1285F.NRS.43083'
         }
       ],
-      'recorded': '2019-10-25T14:57:43Z',
-      'agent': [
+      "agent": [
         {
-          'type': {
-            'coding': [
+          "type": {
+            "coding": [
               {
-                'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
-                'code': 'author'
-              }
-            ],
-            'text': 'Author'
-          },
-          'role': [
-            {
-              'coding': [
-                {
-                  'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
-                  'code': 'SOURCE'
-                }
-              ],
-              'text': 'Source'
-            }
-          ],
-          'who': {
-            'reference': 'Organization/619848',
-            'display': 'Baseline East Medical Center'
-          }
-        }
-      ],
-      'entity': [
-        {
-          'role': 'source',
-          'what': {
-            'reference': 'DocumentReference/S-202'
-          }
-        }
-      ]
-    }.freeze
-
-    SOARIAN_R4_PROVENANCE_BUNDLE ||= {
-      'resourceType': 'Bundle',
-      'id': '160ad230-6a5c-4813-96e2-2b36be102145',
-      'type': 'searchset',
-      'total': 1,
-      'link': [
-        {
-          'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=doc-881057'
-        }
-      ],
-      'entry': [
-        'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057',
-        'resource': R4_PROVENANCE_ENTRY
-      ]
-    }.freeze
-
-    SOARIAN_R4_PROVENANCE_CREATE ||= {
-      'resourceType': 'Provenance',
-      'target': [
-        {
-          'reference': 'DocumentReference/881049'
-        }
-      ],
-      'recorded': '2019-10-25T14:57:43Z',
-      'agent': [
-        {
-          'type': {
-            'coding': [
-              {
-                'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type',
-                'code': 'transmitter'
+                "system": 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                "code": 'author',
+                "display": 'Author'
               }
             ]
           },
-          'role': [
-            {
-              'coding': [
-                {
-                  'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
-                  'code': 'SOURCE'
-                }
-              ]
-            }
-          ],
-          'who': {
-            'reference': 'Organization/619848'
+          "who": {
+            "reference": 'Practitioner/40134EF110CA4C07988F544E90057844',
+            "display": 'Admin,Admin'
+          },
+          "onBehalfOf": {
+            "reference": 'Organization/HCU.1',
+            "display": 'Health Enterprise'
           }
         }
       ],
-      'entity': [
-        {
-          'role': 'source',
-          'what': {
-            'reference': 'DocumentReference/S-201'
-          }
-        }
-      ]
+      "text": {
+        "status": 'generated',
+        # rubocop:disable Layout/LineLength
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Provenance</b><br /><b>Target</b>:<b>Reference</b>:Goal/A879904FD2FE4B2D90C89FDA84E1285F.NRS.43083 <br /><b>Recorded</b>:2020-11-15T16:20:00-05:00<br /><b>Agent:</b><br /><b>Type:</b><b>System</b>:http://terminology.hl7.org/CodeSystem/provenance-participant-type <b>Code</b>:author <b>Display</b>:Author<br /><b>Who</b>:<b>Reference</b>:Practitioner/40134EF110CA4C07988F544E90057844 <b>Display</b>:Admin,Admin<br /><b>OnBehalfOf</b>:<b>Reference</b>:Organization/HCU.1 <b>Display</b>:Health Enterprise</div>'
+        # rubocop:enable Layout/LineLength
+      }
     }.freeze
+
   end
 end
