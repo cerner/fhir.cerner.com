@@ -94,7 +94,7 @@ List an individual Condition resource by its ID:
 
     GET /Condition/:id
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
