@@ -71,7 +71,7 @@ Search for Observation resources that meet the specified query parameters:
 
  Name          | Required?           | Type            | Description
 ---------------|---------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
- `_id`         | This, or `patient`  | [`token`]       | The logical resource id associated with the resource.
+ `_id`         | This, or `patient`  | [`token`]       | The logical resource ID associated with the resource.
  `patient`	   | See notes           | [`reference`]   | The patient that the observation is about. 
  `category`	   | See notes           | [`token`]       | The category of the observation report.
  `code`	       | See notes           | [`token`]       | The code of the observation.
