@@ -9,9 +9,9 @@ title: Procedure | R4 API
 
 ## Overview
 
-The Procedure resource implementation is limited to a patient’s known procedure history that occured at this site and is recorded in _Soarian Clinicals_<sup>®</sup>. As such, this resource may not be as complete as a procedure list provided as part of the patient’s billing record.
+The Procedure resource implementation is limited to a patient’s known procedure history that occured at this site and is recorded in Soarian Clinicals<sup>®</sup>. As such, this resource may not be as complete as a procedure list provided as part of the patient’s billing record.
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -91,7 +91,7 @@ List an individual Procedure resource by its ID:
     GET /Procedure/:id
 
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
