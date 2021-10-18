@@ -37,7 +37,7 @@ The search results include the following fields if they contain values:
 
 ## Search
 
-Search for MedicationRequest resources that meet the specified query parameters
+Search for MedicationRequest resources that meet the specified query parameters.
 
     GET /MedicationRequest?:parameters
 
@@ -101,7 +101,7 @@ List an individual MedicationRequest resource by its ID:
 
     GET /MedicationRequest/:id
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
