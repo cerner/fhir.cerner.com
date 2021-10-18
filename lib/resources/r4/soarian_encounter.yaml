@@ -18,7 +18,7 @@ fields:
     description: The type of encounter.
     terminology:
     - display: CPT
-      system: http://www.ama-assn.org/go4/cpt
+      system: https://www.ama-assn.org/go4/cpt
       info_link: https://hl7.org/fhir/R4/cpt.html
 
 - name: participant
@@ -36,7 +36,7 @@ fields:
       description: Role of participant in encounter.
       terminology:
       - display: ParticipantType
-        system: http://terminology.hl7.org/CodeSystem/v3-ParticipationType 
+        system: https://terminology.hl7.org/CodeSystem/v3-ParticipationType 
         info_link: https://hl7.org/fhir/r4/valueset-encounter-participant-type.html
 
 - name: reasonCode
@@ -48,7 +48,7 @@ fields:
     description: Reason the encounter takes place.
     terminology:
     - display: ParticipantType
-      system: http://hl7.org/fhir/sid/icd-9-cm and http://hl7.org/fhir/sid/icd-10-cm
+      system: https://hl7.org/fhir/sid/icd-9-cm and http://hl7.org/fhir/sid/icd-10-cm
       info_link: https://hl7.org/fhir/r4/icd.html
 
 
@@ -67,7 +67,7 @@ fields:
       description: Discharge Disposition.
       terminology:
       - display: Category or kind of location after discharge
-        system: http://www.nubc.org/patient-discharge
+        system: https://www.nubc.org/patient-discharge
         info_link: https://www.nubc.org/
 
 

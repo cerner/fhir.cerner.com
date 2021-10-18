@@ -9,9 +9,9 @@ title: Encounter | R4 API
 
 ## Overview
 
-The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency and so on.
+The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, and so on.
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and  and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
 The search results include the following fields if they contain values:
 
@@ -66,7 +66,9 @@ _Implementation Notes_
 
  Notes
 
-* The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix. 
+* The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
 
 
 ### Headers
@@ -101,7 +103,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors](#errors) and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -113,7 +115,7 @@ _Implementation Notes_
 
 * [Encounter.location.location](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location) is always returned as a reference to a [contained](https://hl7.org/fhir/r4/references.html#contained) Location resource.
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
@@ -136,7 +138,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 ### Errors
 
-The common [errors] and [OperationOutcomes](https://www.hl7.org/fhir/r4/operationoutcome.html) may be returned.
+The common [errors] and [OperationOutcomes] may be returned.
 
 [search]: https://www.hl7.org/fhir/http.html#search
 [read]: https://www.hl7.org/fhir/http.html#read
