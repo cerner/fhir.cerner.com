@@ -1,8 +1,8 @@
 ---
-title: Capability Statement | R4 API
+title: CapabilityStatement | R4 API
 ---
 
-# Capability Statement
+# CapabilityStatement
 
 * TOC
 {:toc}
