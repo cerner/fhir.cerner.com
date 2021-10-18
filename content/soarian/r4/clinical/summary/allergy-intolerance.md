@@ -91,7 +91,7 @@ List an individual AllergyIntolerance resource by its ID:
     GET /AllergyIntolerance/:id
 
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
