@@ -65,12 +65,6 @@ Search for Device resources that meet the specified query parameters:
 <%= headers status: 200 %>
 <%= json(:SOARIAN_R4_DEVICE_SEARCH_BY_PT_ENTRY) %>
 
-Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
-### Errors
-
-*   The common [errors] and [OperationOutcomes] may be returned.
-
 ### Example Search by ID
 
 #### Request
@@ -95,7 +89,7 @@ List an individual Device resource by its ID:
     GET /Device/:id
 
 
-## Authorization Types
+### Authorization Types
 
 <%= authorization_types(provider: true, patient: true)%>
 
