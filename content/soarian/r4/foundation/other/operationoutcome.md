@@ -1,5 +1,5 @@
 ---
-title: Operation Outcome | R4 API
+title: OperationOutcome | R4 API
 ---
 
 # OperationOutcome
