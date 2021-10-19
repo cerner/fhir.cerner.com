@@ -274,6 +274,8 @@ redirects:
     url: /millennium/r4/clinical/medications
   /millennium/r4/medications/immunization:
     url: /millennium/r4/clinical/medications/immunization
+  /millennium/r4/medications/medication-administration:
+    url: /millennium/r4/clinical/medications/medication-administration
   /millennium/r4/medications/medication-request:
     url: /millennium/r4/clinical/medications/medication-request
   /millennium/r4/other:
