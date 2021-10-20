@@ -40,15 +40,17 @@ The following fields are returned if valued:
 
 <%= terminology_table(:medication_administration_contained_medication, :r4) %>
 
-## Custom Extensions
+## Extensions
 
 * [Infuse Over Time]
+
+### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
  ID                 | Value\[x] Type | Description
 -----------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
- `infuse-over-time` | Quantity       | The length of time in minutes it took to infuse a medication.
+ `infuse-over-time` | [`Quantity`](https://hl7.org/fhir/r4/datatypes.html#quantity)       | The length of time in minutes it took to infuse a medication.
 
 ## Search
 
@@ -139,15 +141,14 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[`quantity`]: http://hl7.org/fhir/DSTU2/search.html#quantity
-[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
-[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
-[`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
-[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
-[MedicationAdministration.medication]: http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_
+[`reference`]: http://hl7.org/fhir/R4/search.html#reference
+[`token`]: http://hl7.org/fhir/R4/search.html#token
+[`date`]: http://hl7.org/fhir/R4/search.html#date
+[`_count`]: http://hl7.org/fhir/R4/search.html#count
+[`number`]: http://hl7.org/fhir/R4/search.html#number
+[`CodeableConcept`]: http://hl7.org/fhir/R4/datatypes.html#codeableconcept
+[contained]: http://hl7.org/fhir/R4/references.html#contained
+[MedicationAdministration.medication]: http://hl7.org/fhir/R4/medicationadministration-definitions.html#MedicationAdministration.medication_x_
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Infuse Over Time]: #custom-extensions
