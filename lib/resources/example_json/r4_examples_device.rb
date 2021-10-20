@@ -41,8 +41,7 @@ module Cerner
           {
             'system': 'http://snomed.info/sct',
             'code': '14106009',
-            'display': 'Cardiac pacemaker implant',
-            'userSelected': true
+            'display': 'Cardiac pacemaker implant'
           }
         ],
         'text': 'Pacemaker'
@@ -144,8 +143,7 @@ module Cerner
           {
             'system': 'http://snomed.info/sct',
             'code': '14106009',
-            'display': 'Cardiac pacemaker implant',
-            'userSelected': true
+            'display': 'Cardiac pacemaker implant'
           }
         ],
         'text': 'Pacemaker'
@@ -213,8 +211,7 @@ module Cerner
                 {
                   'system': 'http://snomed.info/sct',
                   'code': '14106009',
-                  'display': 'Cardiac pacemaker implant',
-                  'userSelected': true
+                  'display': 'Cardiac pacemaker implant'
                 }
               ],
               'text': 'Pacemaker'
