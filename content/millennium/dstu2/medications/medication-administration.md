@@ -19,6 +19,7 @@ The Medication Administration resource provides information about medications an
 The following fields are returned if valued:
 
 * [Medication Administration id](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier){:target="_blank"}
+* [Infuse Over Time Extension](#extensions)
 * [Status](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status){:target="_blank"}
 * [Patient](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient){:target="_blank"}
 * [Practitioner](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner){:target="_blank"}
@@ -40,6 +41,18 @@ The following fields are returned if valued:
 ### Contained Medication Bindings
 
 <%= terminology_table(:medication_administration_contained_medication, :dstu2) %>
+
+## Extensions
+
+* [Infuse Over Time]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
+
+ ID                    | Value\[x] Type | Description
+-----------------------|----------------|------------------------------------------------------------------------------------------------
+ `infuse-over-time` | [`Quantity`]  | The length of time in minutes it took to infuse a medication.
 
 ## Search
 
@@ -156,6 +169,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
+[`quantity`]: http://hl7.org/fhir/DSTU2/search.html#quantity
 [`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
 [`number`]: http://hl7.org/fhir/DSTU2/search.html#number
 [`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
@@ -163,3 +177,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [MedicationAdministration.medication]: http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Infuse Over Time]: #custom-extensions

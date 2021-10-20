@@ -36,7 +36,10 @@ module Cerner
               'answer': [
                 {
                   'valueQuantity': {
-                    'value': '20'
+                    'value': '20',
+                    'unit': 'year (iso1000)',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': 'a'
                   }
                 }
               ]
@@ -121,7 +124,10 @@ module Cerner
               'answer': [
                 {
                   'valueQuantity': {
-                    'value': '20'
+                    'value': '20',
+                    'unit': 'year (iso1000)',
+                    'system': 'http://unitsofmeasure.org',
+                    'code': 'a'
                   }
                 }
               ]

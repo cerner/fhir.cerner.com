@@ -48,7 +48,7 @@ module Cerner
         "status": 'generated',
         "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Schedule</b></p>'\
         '<p><b>Status</b>: Active</p><p><b>Service Type</b>: WH Existing Annual</p>'\
-        '<p><b>Practitioner</b>: Jones, Amy</p><p><b>Location</b>: BW Women&apos;s Health</p></div>'
+        '<p><b>Practitioner</b>: Jones, Amy</p><p><b>Location</b>: BW Women&#39;s</p></div>'
       },
       "active": true,
       "serviceType": [

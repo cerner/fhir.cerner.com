@@ -32,6 +32,35 @@ module Cerner
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price'
         },
         {
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/sid/ndc',
+                    'code': '1111-1111-111'
+                  }
+                ]
+              },
+              'url': 'national-drug-product-code'
+            },
+            {
+              'valueQuantity': {
+                'value': 2.0,
+                'unit': 'milligram (mass)',
+                'system': 'http://unitsofmeasure.org',
+                'code': 'mg'
+              },
+              'url': 'national-drug-product-quantity'
+            },
+            {
+              'valueDecimal': 2,
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product'
+        },
+        {
           'valueReference': {
             'reference': 'ChargeItem/157320880'
           },
@@ -68,7 +97,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
         },
         {
           'extension': [
@@ -97,7 +126,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
         },
         {
           'extension': [
@@ -126,7 +155,7 @@ module Cerner
               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier'
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
         },
         {
           'valueCodeableConcept': {
@@ -254,6 +283,35 @@ module Cerner
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price'
               },
               {
+                'extension': [
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'http://hl7.org/fhir/sid/ndc',
+                          'code': '1111-1111-111'
+                        }
+                      ]
+                    },
+                    'url': 'national-drug-product-code'
+                  },
+                  {
+                    'valueQuantity': {
+                      'value': 2.0,
+                      'unit': 'milligram (mass)',
+                      'system': 'http://unitsofmeasure.org',
+                      'code': 'mg'
+                    },
+                    'url': 'national-drug-product-quantity'
+                  },
+                  {
+                    'valueDecimal': 2,
+                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor'
+                  }
+                ],
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product'
+              },
+              {
                 'valueString': 'Acetaminophen Level',
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/description'
               },
@@ -284,7 +342,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
               },
               {
                 'extension': [
@@ -313,7 +371,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
               },
               {
                 'extension': [
@@ -342,7 +400,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
               },
               {
                 'valueCodeableConcept': {
@@ -425,6 +483,32 @@ module Cerner
                 'reference': 'Account/C98900463'
               }
             ]
+          }
+        }
+      ]
+    }.freeze
+
+    R4_CHARGE_ITEM_CREDIT ||= {
+      'resourceType': 'Parameters',
+      'parameter': [
+        {
+          'name': 'versionId',
+          'valueId': '2'
+        },
+        {
+          'name': 'transactionId',
+          'valueUuid': 'urn:uuid:5bb8acae-0c7d-11ec-82a8-0242ac130003'
+        },
+        {
+          'name': 'subject',
+          'valueReference': {
+            'reference': 'Patient/12782842'
+          }
+        },
+        {
+          'name': 'context',
+          'valueReference': {
+            'reference': 'Encounter/98019577'
           }
         }
       ]

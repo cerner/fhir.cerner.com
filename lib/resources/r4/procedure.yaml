@@ -186,7 +186,7 @@ fields:
           info_link: https://hl7.org/fhir/R4/valueset-performer-role.html
         - display: Procedure Personnel Relation Type
           system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/388
-          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes/#code-set-388-procedure-personnel-relation-type
+          info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-388-procedure-personnel-relation-type
     example: |
       {
         "function": {

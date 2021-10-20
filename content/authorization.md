@@ -1138,14 +1138,6 @@ preceding documentation.
 > _NOTE_:  Cerner currently does not support
   offline_access support for such applications.
 
-- Can I require Cerner to force the use of client credentials
-  (also known as a "confidential client") when exchanging a
-  grant code for an access token?
-
-> No, Cerner currently does not have this capability.  It
-  is currently under construction and will be available in 
-  the future.
-
 - How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
   application in another application, such as inside of a web
   view or iframe and still orchestrate the authorization

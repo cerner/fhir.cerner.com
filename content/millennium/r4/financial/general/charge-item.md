@@ -29,7 +29,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
-* [Extensions including bill code schedule, custom attribute, description, modifier, national drug product, net price, offset by, performing location, procedure, quantity conversion factor, replacing, revenue code, and unit price](#extensions){:target="_blank"}
+* [Extensions including bill code schedule, custom attribute, description, modifier code, national drug product, net price, offset by, performing location, procedure code, quantity conversion factor, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -40,13 +40,13 @@ The following fields are returned if valued:
 * [Bill Code Schedule]
 * [Custom Attribute]
 * [Description]
-* [Modifier]
+* [Modifier Code]
 * [National Drug Product]
 * [Net Price]
 * [Offset By]
 * [Performing Location]
 * [Priority]
-* [Procedure]
+* [Procedure Code]
 * [Quantity Conversion Factor]
 * [Replacing]
 * [Revenue Code]
@@ -61,14 +61,14 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `bill-code-schedule`         | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
  `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
  `description`                | [`string`]                                                        | A description providing additional details of the resource.
- `modifier`                   | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
+ `modifier-code`              | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
  `national-drug-product`      | None (contains nested extensions)                                 | The national drug product used in care.
  `net-price`                  | [`Money`]                                                         | The quantity times the unit price for a resource (total price).
  `offset-by`                  | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
  `performing-location`        | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A location where the resource was performed.
  `priority`                   | [`unsignedInt`]                                                   | The priority of the element within a list.
- `procedure`                  | None (contains nested extensions)                                 | Procedure performed on the patient associated to the resource.
- `quantity-conversion-factor` | [`decimal`]                       | The conversion factor used to calculate the quantity for billing.
+ `procedure-code`             | None (contains nested extensions)                                 | A code providing information about the procedure performed on the patient associated to the resource.
+ `quantity-conversion-factor` | [`decimal`]                                                       | The conversion factor used to calculate the quantity for billing.
  `replacing`                  | [`Reference`](https://hl7.org/fhir/r4/references.html#Reference)  | A reference to a resource that this resource is replacing.
  `revenue-code`               | None (contains nested extensions)                                 | The type of revenue or cost center providing the product and/or service.
  `unit-price`                 | [`Money`]                                                         | The price of a single unit for the resource.
@@ -157,6 +157,61 @@ List an individual ChargeItem by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Operation: charge-item-credit
+
+<%= beta_tag(action: true) %>
+
+Creates an offsetting ChargeItem for an existing debit ChargeItem.
+
+    POST /ChargeItem/:id/$credit
+    
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.    
+    
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:charge_item_credit, :credit, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292427912/$credit
+
+#### Body
+
+<%= json(:r4_charge_item_credit) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 07 Sep 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/2180632343
+Last-Modified: Tue, 07 Sep 2021 17:25:14 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`date`]: https://hl7.org/fhir/r4/datatypes.html#date
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
@@ -169,8 +224,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Priority]: #custom-extensions
-[Procedure]: #custom-extensions
-[Modifier]: #custom-extensions
+[Procedure Code]: #custom-extensions
+[Modifier Code]: #custom-extensions
 [Unit Price]: #custom-extensions
 [Net Price]: #custom-extensions
 [Custom Attribute]: #custom-extensions

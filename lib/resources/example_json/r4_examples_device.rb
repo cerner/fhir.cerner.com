@@ -18,21 +18,6 @@ module Cerner
                '<p><b>Type</b>: Pacemaker</p><p><b>Model Number</b>: T0765</p><p><b>Patient</b>: SMART, NANCY</p>'\
                '<p><b>Owner</b>: Model Clinic</p></div>'
       },
-      'identifier': [
-        {
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'SNO',
-                'display': 'Serial Number'
-              }
-            ],
-            'text': 'Serial Number'
-          },
-          'value': '17642857292'
-        }
-      ],
       'udiCarrier': [
         {
           'carrierHRF': '1721123408'
@@ -135,21 +120,6 @@ module Cerner
           '<p><b>Serial Number</b>: 17642857292</p><p><b>Type</b>: Pacemaker</p><p><b>Model Number</b>: T0765</p>'\
           '<p><b>Patient</b>: SMART, NANCY</p><p><b>Owner</b>: Model Clinic</p></div>'
       },
-      'identifier': [
-        {
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'SNO',
-                'display': 'Serial Number'
-              }
-            ],
-            'text': 'Serial Number'
-          },
-          'value': '17642857292'
-        }
-      ],
       'udiCarrier': [
         {
           'deviceIdentifier': '234556',
@@ -219,21 +189,6 @@ module Cerner
                     '<p><b>Serial Number</b>: 17642857292</p><p><b>Type</b>: Pacemaker</p><p><b>Model Number</b>: '\
                     'T0765</p><p><b>Patient</b>: SMART, NANCY</p><p><b>Owner</b>: Model Clinic</p></div>'
             },
-            'identifier': [
-              {
-                'type': {
-                  'coding': [
-                    {
-                      'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                      'code': 'SNO',
-                      'display': 'Serial Number'
-                    }
-                  ],
-                  'text': 'Serial Number'
-                },
-                'value': '17642857292'
-              }
-            ],
             'udiCarrier': [
               {
                 'deviceIdentifier': '234556',

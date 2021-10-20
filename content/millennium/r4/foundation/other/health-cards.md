@@ -4,8 +4,6 @@ title: Health Cards | R4 API
 
 # Health-Cards
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
@@ -97,8 +95,6 @@ The OAuth2 token must include `Patient.read` and `Observation.read` scopes.
 
 ## $health-cards-issue 
 
-<%= beta_tag(action: true) %>
-
 Issues Health Cards for an existing Patient that meet the supplied request:
 
     POST /Patient/:id/$health-cards-issue
@@ -110,7 +106,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: false, patient: true, system: false) %>
+<%= authorization_types(provider: true, patient: true, system: false) %>
 
 _Implementation Notes_
 
