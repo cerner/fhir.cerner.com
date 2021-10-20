@@ -76,7 +76,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
-List an individual Organization resource by its ID:
+List an individual Organization resource by its id:
 
     GET /Organization/:id
 
