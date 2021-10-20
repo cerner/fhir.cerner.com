@@ -74,8 +74,8 @@ _Implementation Notes_
 ------------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`            | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `_id=12345`
  `patient`        | This, or `_id`     | [`reference`] | The specific patient to return MedicationAdministrations for. Example: `patient=1234`
- `status`         | N                  | [`token`]     | The [status] of the medication administration event, may be a list separated by commas. Example: `status=completed,not-done`
- `performer`      | N                  | [`reference`] | The identity of the individual who administered the medication. ay be a list separated by commas. Example: `performer=1245,7659`
+ `status`         | N                  | [`token`]     | The [status] of the medication administration event. May be a list separated by commas. Example: `status=completed,not-done`
+ `performer`      | N                  | [`reference`] | The identity of the individual who administered the medication. May be a list separated by commas. Example: `performer=1245,7659`
  `effective-time` | N                  | [`date`]      | An date-time range when administration happened. Must include a time. Example: `effective-time=ge2014-05-19T20:54:02.000Z`
  `_count`         | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
