@@ -35,7 +35,7 @@ The following fields are returned if valued:
 
 ### Custom Extensions
 
-All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
  ID                    | Value\[x] Type                                              | Description
 -----------------------|----------------|------------------------------------------------------------------------------------------------
