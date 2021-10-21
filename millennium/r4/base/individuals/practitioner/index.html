@@ -83,6 +83,11 @@
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -127,6 +132,7 @@
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address" target="_blank">Address (Provider and System Authorization Only)</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification" target="_blank">Qualification</a></li>
+  <li><a href="#extensions">Is Physician Extension</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -237,6 +243,33 @@
     </tr>
     
       
+  </tbody>
+</table>
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Is Physician</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>is-physician</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
+      <td>Indication of whether the provider is a physician or not.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -364,6 +397,12 @@
           "status": "generated",
           "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "valueBoolean": true,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
+          }
+        ],
         "identifier": [
           {
             "use": "usual",
@@ -582,6 +621,12 @@
           "status": "generated",
           "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "valueBoolean": true,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
+          }
+        ],
         "identifier": [
           {
             "use": "usual",
@@ -796,6 +841,12 @@
           "status": "generated",
           "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: SPI: 16611661, NPI: 6656656&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
+        "extension": [
+          {
+            "valueBoolean": true,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
+          }
+        ],
         "identifier": [
           {
             "use": "usual",
@@ -905,6 +956,12 @@
     "status": "generated",
     "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "valueBoolean": true,
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
+    }
+  ],
   "identifier": [
     {
       "use": "usual",
@@ -1103,6 +1160,12 @@
     "status": "generated",
     "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: SPI: 16611661, NPI: 6656656&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
+  "extension": [
+    {
+      "valueBoolean": true,
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
+    }
+  ],
   "identifier": [
     {
       "use": "usual",
@@ -1566,6 +1629,7 @@ X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
           <li><a href="../../../clinical/diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
 
           <li class="subtopic"><a href="../../../clinical/medications/">Medications</a></li>
+          <li><a href="../../../clinical/medications/medication-administration/">MedicationAdministration</a></li>
           <li><a href="../../../clinical/medications/medication-request/">MedicationRequest</a></li>
           <li><a href="../../../clinical/medications/immunization/">Immunization</a></li>
 
