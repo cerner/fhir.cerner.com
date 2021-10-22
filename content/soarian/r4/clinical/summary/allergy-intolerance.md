@@ -98,7 +98,7 @@ List an individual AllergyIntolerance resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Headers
 
