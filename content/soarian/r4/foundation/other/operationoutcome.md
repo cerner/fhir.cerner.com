@@ -72,7 +72,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | not-supported
 OperationOutcome.issue.__details__	      | [code value \| code system] not supported for [%s].
 
-When a parameter which can only be included n times on the request appears n+ times on the request:
+When a parameter that may only be included n times on the request appears n+ times on the request:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
@@ -102,9 +102,9 @@ Element                                   | Value
 ------------------------------------------|------------------------------------------------------------------------------------------------------
 OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | business-rule
-OperationOutcome.issue.__details__	      | More than 499 search results qualify for [%s] resource. Please narrow the search.
+OperationOutcome.issue.__details__	      | More than 499 search results qualify for [%s] resource. Narrow the search.
 
-When a parameter which does not support combining values has more than one value:
+When a parameter that does not support combining values has more than one value:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
@@ -162,7 +162,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | security
 OperationOutcome.issue.__details__	      | Incorrect persona.
 
-When a resource is requested for which the user does not have access:
+When a resource is requested to which the user does not have access:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
