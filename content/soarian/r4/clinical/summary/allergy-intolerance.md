@@ -40,7 +40,7 @@ Search for AllergyIntolerance resources that meet the specified query parameters
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system:false)%>
 
 ### Parameters
 
@@ -49,6 +49,11 @@ Search for AllergyIntolerance resources that meet the specified query parameters
  `_id`          | This, or `patient` | [`token`]       | The logical resource ID associated with the resource.
  `patient`      | This, or `_id`     | [`reference`]   | The patient who has the allergy. 
  `_revinclude`  | No                 | [`_revinclude`] | A request to include any Provenance resource in the bundle that refers to an AllergyIntolerance resource in the search results. Only supported with Provenance.
+ 
+Notes:
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
 
 ### Headers
 
