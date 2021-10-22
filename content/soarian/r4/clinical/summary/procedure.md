@@ -38,7 +38,7 @@ Search for Procedure resources that meet specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Parameters
 
@@ -93,7 +93,7 @@ List an individual Procedure resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Headers
 
@@ -109,6 +109,24 @@ List an individual Procedure resource by its ID:
 
 <%= headers status: 200 %>
 <%= json(:SOARIAN_R4_PROCEDURE_READ_BY_ID) %>
+
+#### Request
+
+    GET https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/7DD361F7EB43448690AABCCC45E62285.4010
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:SOARIAN_R4_PROCEDURE_ERROR) %>
+
+#### Request
+
+    GET https://fhir-myrecord-sc.cerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/7DD361F7EB43448690AABCCC45E62285.503
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:SOARIAN_R4_PROCEDURE_STOPPED) %>
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
