@@ -20,7 +20,7 @@ The search results include the following fields if they contain values:
 * [Status reason](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
 * [Vaccine administered](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
 * [Patient](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
-* [Administration date](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
+* [Administration date/time](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
 * [Indicates if the record is from the source who administered the vaccine](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
 
 
@@ -37,7 +37,7 @@ Search for Immunization resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Parameters
 
@@ -47,6 +47,10 @@ Search for Immunization resources that meet the specified query parameters:
  `patient`	   | This, or `_id`								   | [`reference`](https://hl7.org/fhir/r4/search.html#reference)| The patient for the vaccination record. 
  `_revinclude` | No 										   | [`_revinclude`](https://hl7.org/fhir/search.html#revinclude)| A request to include any Provenance resource in the bundle that refers to a Immunization resource in the search results. Only supported with Provenance.
 
+Notes:
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
 
 
 ### Headers
@@ -91,7 +95,7 @@ List an individual Immunization resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Headers
 
