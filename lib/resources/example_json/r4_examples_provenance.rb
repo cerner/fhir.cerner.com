@@ -138,48 +138,48 @@ module Cerner
           '</dd></dl><p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
       },
       'target': [
-          {
-              'reference': 'AllergyIntolerance/S-1595069'
-          }
+        {
+          'reference': 'AllergyIntolerance/S-1595069'
+        }
       ],
-      'recorded': '2019-12-09T16:49:43Z',
+      'recorded': '2019-12-09T16: 49: 43Z',
       'agent': [
-          {
-              'type': {
-                  'coding': [
-                      {
-                          'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
-                          'code': 'author'
-                      }
-                  ],
-                  'text': 'Author'
-              },
-              'role': [
-                  {
-                      'coding': [
-                          {
-                              'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
-                              'code': 'SOURCE'
-                          }
-                      ],
-                      'text': 'Source'
-                  }
-              ],
-              'who': {
-                  'reference': 'Organization/50',
-                  'display': 'Unknown'
+        {
+          'type': {
+            'coding': [
+              {
+                'system': 'http: //terminology.hl7.org/CodeSystem/provenance-participant-type',
+                'code': 'author'
               }
+            ],
+            'text': 'Author'
+          },
+          'role': [
+            {
+              'coding': [
+                {
+                  'system': 'http: //terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                  'code': 'SOURCE'
+                }
+              ],
+              'text': 'Source'
+            }
+          ],
+          'who': {
+            'reference': 'Organization/50',
+            'display': 'Unknown'
           }
+        }
       ],
       'entity': [
-          {
-              'role': 'source',
-              'what': {
-                  'reference': 'DocumentReference/S-200'
-              }
+        {
+          'role': 'source',
+          'what': {
+            'reference': 'DocumentReference/S-200'
           }
+        }
       ]
-  }.freeze
+    }.freeze
 
     R4_PROVENANCE_PATIENT_ACCESS_BUNDLE ||= {
       'resourceType': 'Bundle',
@@ -187,16 +187,16 @@ module Cerner
       'type': 'searchset',
       'total': 1,
       'link': [
-          {
-              'relation': 'self',
-              'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=all-1595070'
-          }
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=all-1595070'
+        }
       ],
       'entry': [
-          {
-              'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-1595070',
-              'resource': R4_PROVENANCE_PATIENT_ACCESS_ENTRY
-          }
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-1595070',
+          'resource': R4_PROVENANCE_PATIENT_ACCESS_ENTRY
+        }
       ]
     }.freeze
   end
