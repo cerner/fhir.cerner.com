@@ -127,15 +127,15 @@ module Cerner
       'resourceType': 'Provenance',
       'id': 'all-1595070',
       'meta': {
-          'versionId': '1595070',
-          'lastUpdated': '2019-12-09T16:49:43Z'
+        'versionId': '1595070',
+        'lastUpdated': '2019-12-09T16:49:43Z'
       },
       'text': {
-          'status': 'generated',
-          'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:'\
-          '</p><ul><li>AllergyIntolerance/S-1595069</li></ul><p><b>Recorded</b>: Dec  9, 2019 10:49 A.M. CST</p>'\
-          '<p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source'\
-          '</dd></dl><p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
+        'status': 'generated',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:'\
+        '</p><ul><li>AllergyIntolerance/S-1595069</li></ul><p><b>Recorded</b>: Dec  9, 2019 10:49 A.M. CST</p>'\
+        '<p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source'\
+        '</dd></dl><p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
       },
       'target': [
         {
