@@ -44,7 +44,7 @@ Search for MedicationRequest resources that meet the specified query parameters.
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Parameters
 
@@ -60,6 +60,9 @@ Search for MedicationRequest resources that meet the specified query parameters.
 Notes
 
 *  The `intent` parameter only supports the codes `order` and `plan`.
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`.
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
+
 
 ### Headers
 
@@ -103,7 +106,7 @@ List an individual MedicationRequest resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: false)%>
 
 ### Headers
 
