@@ -22,8 +22,6 @@ The search results include the following fields if they contain values:
 * [Name](https://hl7.org/fhir/r4/organization-definitions.html#Organization.name){:target="_blank"}
 * [Contact Information](https://hl7.org/fhir/r4/organization-definitions.html#Organization.telecom){:target="_blank"}
 * [Address](https://hl7.org/fhir/r4/organization-definitions.html#Organization.address){:target="_blank"}
-  
-
 
 
 ## Search
@@ -35,7 +33,7 @@ Search for Organization resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -44,11 +42,6 @@ Search for Organization resources that meet the specified query parameters:
  `_id`         | This name, or `address`                      | [`token`]       | The logical resource ID associated with the resource.
  `name`        | This name, or `address`				      | [`string`]      | The start of the name of the organization. 
  `address`     | This name, or `address`				      | [`string`]      | The start of either the address line, city, state, postal code, or country of the organization. 
- 
-
-
- 
-
 
 
 ### Headers
@@ -82,7 +75,7 @@ List an individual Organization resource by its id:
 
 ## Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
