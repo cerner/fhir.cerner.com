@@ -40,15 +40,21 @@ Search for Device resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
  Name           | Required?          | Type            | Description
 ----------------|--------------------|-----------------|------------------------------------------------------------------------
- `_id`          | This, or `patient` | [`token`]       | The logical resource ID associated with the resource.
- `patient`      | This, or `_id`     | [`reference`]   | The patient for the device record.
+ `_id`          | This, or `patient` | [`token`]       | The logical resource ID associated with the resource. Example: 9005
+ `patient`      | This, or `_id`     | [`reference`]   | The patient for the device record. Example: A879904FD2FE4B2D90C89FDA84E1285F
  `_revinclude`  | No                 | [`_revinclude`] | A request to include any Provenance resource in the bundle that refers to a Device resource in the search results. Only supported with Provenance.
+
+Notes:
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
+
 
 ### Headers
 
@@ -69,7 +75,7 @@ Search for Device resources that meet the specified query parameters:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F.9005
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005
 
 #### Response
 
@@ -91,7 +97,7 @@ List an individual Device resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
