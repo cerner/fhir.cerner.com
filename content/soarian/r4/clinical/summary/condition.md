@@ -37,7 +37,7 @@ Search for Condition resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -49,9 +49,10 @@ Search for Condition resources that meet the specified query parameters:
  `status`      | No 										  | [`token`](https://hl7.org/fhir/R4/search.html#token)        | The status of the condition. May be a list separated by commas.
  `_revinclude` | No 										  | [`_revinclude`](https://hl7.org/fhir/search.html#revinclude)| A request to include any Provenance resource in the bundle that refers to a condition resource in the search results. Only supported with Provenance. 
 
+Notes:
 
- 
-
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
 
 
 ### Headers
@@ -96,7 +97,7 @@ List an individual Condition resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
