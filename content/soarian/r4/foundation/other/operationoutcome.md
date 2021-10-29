@@ -56,7 +56,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | required
 OperationOutcome.issue.__details__	      | [%s] is required and is missing.
 
-When no parameters are on the request [for a non-patient centered resource]:
+When no parameters are provided in the request [for a non-patient centered resource]:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
@@ -170,7 +170,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | security
 OperationOutcome.issue.__details__	      | Expected scope does not match the URL.
 
-_When a catastrophic failure occurs (i.e. database corrupted) or when required configuration is missing or invalid:_
+When a catastrophic failure occurs (i.e. database corrupted) or when required configuration is missing or invalid:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
