@@ -29,7 +29,7 @@ Search for Goal resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -86,7 +86,7 @@ List an individual Goal Resource by its ID:
 
 ## Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
