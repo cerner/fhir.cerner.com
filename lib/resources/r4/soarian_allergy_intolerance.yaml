@@ -81,4 +81,18 @@ fields:
         system: http://snomed.info/sct
         info_link: https://hl7.org/fhir/r4/valueset-clinical-findings.html
         
+  - name: severity
+    required: 'Yes'
+    type: code
+    description: Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
+    url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity
+    note: Only one severity can be provided.
+    binding:
+      description: Clinical assessment of the severity of a reaction event as a whole.
+      terminology:
+      - display: SNOMED CT
+        system: http://hl7.org/fhir/reaction-event-severity
+        info_link: https://hl7.org/fhir/r4/valueset-clinical-findings.html
+        
+        
    
