@@ -40,7 +40,7 @@ Search for CareTeam resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -50,7 +50,7 @@ Search for CareTeam resources that meet the specified query parameters:
  `patient`	   | This, or `_id`								  | [`reference`]											   | The patient who has the care team.
  `encounter`   | No 										  | [`reference`]											   | The encounter associated with the care team
  `status`      | No 										  | [`token`]												   | The status of the care team. May be a list separated by commas.
- `_revinclude` | No 										  | [`_revinclude`]											   | A request to include any Provenance resource in the bundle that refers to an Immunization resource in the search results. Only supported with Provenance. 
+ `_revinclude` | No 										  | [`_revinclude`]											   | A request to include any Provenance resource in the bundle that refers to an CareTeam resource in the search results. Only supported with Provenance. 
 
 
  Notes
@@ -102,7 +102,7 @@ List an individual CareTeam resource by its ID:
 
 ## Authorization Types
 
-<%= authorization_types(provider: true, patient: true)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
