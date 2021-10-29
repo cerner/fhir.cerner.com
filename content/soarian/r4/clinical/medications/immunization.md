@@ -20,7 +20,7 @@ The search results include the following fields if they contain values:
 * [Status reason](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
 * [Vaccine administered](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
 * [Patient](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
-* [Administration date/time](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
+* [Administration date](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
 * [Indicates if the record is from the source who administered the vaccine](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
 
 
@@ -37,7 +37,7 @@ Search for Immunization resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true, system: false)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -95,7 +95,7 @@ List an individual Immunization resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true, system: false)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
