@@ -34,7 +34,7 @@ List an individual Provenance by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
