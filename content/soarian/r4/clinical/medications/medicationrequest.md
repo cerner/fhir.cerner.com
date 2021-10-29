@@ -44,7 +44,7 @@ Search for MedicationRequest resources that meet the specified query parameters.
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true, system: false)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Parameters
 
@@ -106,7 +106,7 @@ List an individual MedicationRequest resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true, system: false)%>
+<%= authorization_types(provider: true, patient: true, system: true)%>
 
 ### Headers
 
