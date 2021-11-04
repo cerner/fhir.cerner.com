@@ -17,7 +17,7 @@ module Cerner
         'description': 'Cerner implementation of FHIR on top of Millennium',
         'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'
       },
-      'fhirVersion': '4.0.0',
+      'fhirVersion': '4.0.1',
       'format': [
         'json',
         'application/fhir+json'
@@ -549,7 +549,7 @@ module Cerner
         'description': 'Cerner implementation of FHIR on top of Millennium',
         'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'
       },
-      'fhirVersion': '4.0.0',
+      'fhirVersion': '4.0.1',
       'format': [
         'json',
         'application/fhir+json'
