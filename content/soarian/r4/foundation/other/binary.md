@@ -11,7 +11,7 @@ title: Binary | R4 API
 
 The Binary resource contains the actual data content of a single consolidated clinical document architecture (C-CDA)  Summary of Episode Note (SOEN) document. The Binary resource is the target of the DocumentReference.content.attachment.url element and the content is always XML.
 
-Cerner recommends that you request a Binary resource only after obtaining the link to the resource via the reference made in DocumentReference. Cerner does not recommend starting a workflow with a Binary resource.
+Cerner recommends that you request a Binary resource only after obtaining the link to the resource using the reference made in DocumentReference. Cerner does not recommend starting a workflow with a Binary resource.
 
 Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
@@ -30,7 +30,7 @@ List an individual Binary resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true) %>
+<%= authorization_types(provider: true, patient: true,system: true) %>
 
 _Implementation Note_
 
@@ -58,5 +58,5 @@ Note: The examples provided here are non-normative and replaying them in the pub
 • The common [errors] and [OperationOutcomes] may be returned.
  
 [errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [read]: https://www.hl7.org/fhir/http.html#read
