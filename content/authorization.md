@@ -1052,10 +1052,7 @@ preceding documentation.
 
 > Cerner currently does not have a mechanism to allow
   such devices to participate in the authorization
-  ecosystem.  Cerner is tracking the progress
-  of the IETF draft RFC
-  ["OAuth 2.0 Device Flow"](https://tools.ietf.org/html/draft-denniss-oauth-device-flow-00)
-  for further evaluation of such capabilities.
+  ecosystem.
 
 - How can my application revoke a refresh token on
   behalf of a user?
