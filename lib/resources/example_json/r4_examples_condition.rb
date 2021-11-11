@@ -470,6 +470,160 @@ module Cerner
       ]
     }.freeze
 
+    R4_CONDITION_REVINCLUDE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+      'type': 'searchset',
+      'total': 2,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?'\
+          '_id=bed1c2ec-1f33-4097-8296-f6aa01824387&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+          'Condition/bed1c2ec-1f33-4097-8296-f6aa01824387',
+          'resource': {
+            'resourceType': 'Condition',
+            'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+            'meta': {
+              'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+              'lastUpdated': '2020-10-20T20:46:41.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Health Concern</b>: '\
+              'description, description</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>'\
+              ': Confirmed</p><p><b>Onset</b>: Sep 20, 2020</p><p><b>Recorder</b>: '\
+              'DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48</p>'\
+              '<p><b>Recorded Date</b>: Oct 13, 2020  3:46 P.M. CDT</p></div>'
+            },
+            'clinicalStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
+                  'code': 'active',
+                  'display': 'Active'
+                }
+              ],
+              'text': 'Active'
+            },
+            'verificationStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+                  'code': 'confirmed',
+                  'display': 'Confirmed'
+                }
+              ],
+              'text': 'Confirmed'
+            },
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
+                    'code': 'health-concern',
+                    'display': 'Health Concern'
+                  }
+                ],
+                'text': 'Health Concern'
+              }
+            ],
+            'code': {
+              'text': 'description'
+            },
+            'subject': {
+              'reference': 'Patient/9279171'
+            },
+            'onsetDateTime': '2020-09-20',
+            'recordedDate': '2020-10-13T20:46:40.000Z',
+            'recorder': {
+              'reference': 'Practitioner/9279172',
+              'display': 'DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48'
+            },
+            'note': [
+              {
+                'time': '2020-10-20T20:46:41.000Z',
+                'text': 'comments'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/'\
+          'INT.hcncrn-bed1c2ec-1f33-4097-8296-f6aa01824387',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'INT.hcncrn-bed1c2ec-1f33-4097-8296-f6aa01824387',
+            'meta': {
+              'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+              'lastUpdated': '2020-03-16T21:45:09Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>'\
+              '<p><b>Target</b>:</p><ul><li>Condition/bed1c2ec-1f33-4097-8296-f6aa01824387</li></ul>'\
+              '<p><b>Recorded</b>: Mar 16, 2020  4:45 P.M. CDT</p><p><b>Agents</b>:</p>'\
+              '<dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl>'\
+              '<p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
+            },
+            'target': [
+              {
+                'reference': 'Condition/bed1c2ec-1f33-4097-8296-f6aa01824387'
+              }
+            ],
+            'recorded': '2020-03-16T21:45:09Z',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/40475456',
+                  'display': 'Unknown'
+                }
+              }
+            ],
+            'entity': [
+              {
+                'role': 'source',
+                'what': {
+                  'reference': 'DocumentReference/S-200'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        }
+      ]
+    }.freeze
+
     R4_CONDITION_CREATE ||= {
       'resourceType': 'Condition',
       'subject': {
