@@ -64,11 +64,3 @@ Capabilities	                      | An array of strings representing SMART® ca
 
 <%= headers status: 200 %>
 <%= json(:SOARIAN_R4_RESPONSE_PROVIDER_AND_SYSTEM_PERSONA) %>
-
-
-
-
-
-
-
- 
