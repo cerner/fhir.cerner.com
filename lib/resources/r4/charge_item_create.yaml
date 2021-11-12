@@ -42,7 +42,7 @@ fields:
          ]
        }
       }
-    url: #####
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem
 
   - name: chargeItem.resourceType
     required: 'Yes'
