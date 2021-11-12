@@ -10,11 +10,11 @@ title: AllergyIntolerance | R4 API
 ## Overview
 
 
-The AllergyIntolerance resource provides the clinical assessment of a patient’s allergy when exposed to a specific substance or class of substance, including information about the adverse reaction. _Soarian Clinicals_<sup>®</sup> does not differentiate between an allergy and an intolerance. The term __allergy__ is used generically and may overlap with an __intolerance__. Substances include medications, foods, and environmental allergens (such as plants and animals). 
+The AllergyIntolerance resource provides the clinical assessment of a patient’s allergy when exposed to a specific substance or class of substance, including information about the adverse reaction. Soarian Clinicals<sup>®</sup> does not differentiate between an allergy and an intolerance. The term __allergy__ is used generically and may overlap with an __intolerance__. Substances include medications, foods, and environmental allergens (such as plants and animals). 
 
 Allergy negation statements for No Known Allergies (NKA), No Known Drug Allergies (NKDA), and No Known Food Allergies (NKFA) are reported using the code element. If a patient has not been asked about their allergies, these statements are conveyed by the absence of information (empty query response). Allergy negation statements for latex and contrast are not coded and are conveyed in the response with the AllergyIntolerance.code.text element as __No known latex allergy (situation)__ or __No known contrast allergy (situation)__.
 
-_Soarian Clinicals_<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in _Soarian Clinicals_<sup>®</sup> at the time of the query.
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query.
 
 The search results include the following fields if they contain values:
 
