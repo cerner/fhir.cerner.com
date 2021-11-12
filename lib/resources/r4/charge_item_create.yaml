@@ -1,0 +1,386 @@
+---
+name: Parameters
+field_name_base_url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters
+fields:
+
+  - name: resourceType
+    required: 'Yes'
+    type: string
+    description: The type of the FHIR resource.
+    action: create
+    example: |
+      {
+        "resourceType": "Parameters"
+      }
+    note: resourceType must be Parameters
+    url: https://hl7.org/fhir/r4/json.html#resources
+
+  - name: parameter
+    required: 'Yes'
+    type: List of BackboneElement
+    description: Parameters defined by the operation.
+    action: create
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: chargeItem
+    required: 'Yes'
+    type: id
+    description: Logical id of this artifact
+    action: create
+    example: |
+      {
+        'parameter': [
+           {
+              'name': 'chargeItem',
+              'resource': {
+              'resourceType': 'chargeItem',
+              'status': 'unknown',
+              'subject': {
+                'reference': 'Patient/178594204'
+               }
+            }
+         ]
+       }
+      }
+    url: #####
+
+  - name: chargeItem.resourceType
+    required: 'Yes'
+    type: meta
+    description: Matadata about the resource
+    action: create
+    example: |
+      {
+        'parameter': [
+           {
+             'name': 'chargeItem'
+             'resource': {
+               'resouceType': 'chargeItem'
+             }
+          }
+        ]
+      }
+
+  - name: chargeitem.status
+    required: 'Yes'
+    type: code
+    description: The current state of the ChargeItem.
+    action: create
+    example: |
+      {
+        'parameter': [
+           {
+             'name': 'chargeItem'
+             'resource': {
+               'status': 'unknown'
+             }
+          }
+        ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.status
+
+  - name: chargeitem.subject
+    required: 'Yes'
+    type: Reference(Patient | Group)
+    description: Individual service was done for/to
+    action: create
+    example: |
+      {
+         "parameter": [
+            {
+              "name": "chargeItem",
+              "resource": {
+              "subject": {
+                "reference": "Patient/178594204"
+                }
+              }
+            }
+         ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.subject
+
+  - name: chargeitem.context
+    required: 'Yes'
+    type: Reference(Encounter | Episode of Care)
+    description: Encounter / Episode associated with event
+    action: create
+    example: |
+      {
+         "parameter": [
+            {
+              "name": "chargeItem",
+              "context": {
+                "reference": "Encounter/53066085"
+                }
+            }
+         ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.context
+
+  - name: chargeitem.occurrenceDateTime
+    required: 'Yes'
+    type: dateTime
+    description: Occurrence date time
+    action: create
+    example: |
+      {
+         "parameter": [
+            {
+              "name": "chargeItem",
+               "occurrenceDateTime": "2021-08-02T21:53:34Z"
+            }
+         ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.enteredDate
+
+  - name: chargeitem.quantity
+    required: 'Yes'
+    type: quantity
+    description: Quantity of which the charge item has been serviced
+    action: create
+    example: |
+      {
+         "parameter": [
+            {
+              "name": "chargeItem",
+               "quantity": {
+                  "value": 1
+              }
+            }
+         ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.quantity
+
+  - name: chargeitem.code
+    required: 'Yes'
+    type: CodeableConcept
+    description: A code that identifies the charge, like a billing code
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "code": {
+              "coding": [
+                {
+                  "extension": [
+                    {
+                      "valueCoding": {
+                        "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                        "code": "667687"
+                      },
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                    }
+                  ],
+                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CDM_SCHED",
+                  "code": "01012021"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.code
+
+  - name: chargeitem.performer
+    required: 'Yes'
+    type: BackboneElement
+    description: Who performed charged service
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "performer": [
+              {
+                "function": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                      "code": "OP",
+                      "display": "Ordering Provider"
+                    }
+                  ],
+                  "text": "Ordering Provider"
+                },
+                "actor": {
+                  "reference": "Practitioner/190182805"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.performer
+
+  - name: chargeitem.reason
+    required: 'Yes'
+    type: CodeableConcept
+    description: Why was the charged service rendered?
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "reason": [
+              {
+                "extension": [
+                  {
+                    "valueUnsignedInt": 1,
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                  }
+                ],
+                "coding": [
+                  {
+                    "extension": [
+                      {
+                        "valueCoding": {
+                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                          "code": "3693"
+                        },
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                      }
+                    ],
+                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-ICD",
+                    "code": "Y22"
+                  }
+                ]
+              }
+            ],
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "extension": [
+                            {
+                              "valueCoding": {
+                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                "code": "3692"
+                              },
+                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                            }
+                          ],
+                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-MODIFIER",
+                          "code": "26"
+                        }
+                      ]
+                    },
+                    "url": "code"
+                  },
+                  {
+                    "valueUnsignedInt": 1,
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                  }
+                ],
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
+              },
+              {
+                "extension": [
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "extension": [
+                            {
+                              "valueCoding": {
+                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                "code": "615214"
+                              },
+                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                            }
+                          ],
+                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CPT",
+                          "code": "99204"
+                        }
+                      ]
+                    },
+                    "url": "code"
+                  },
+                  {
+                    "valueUnsignedInt": 1,
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                  }
+                ],
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+              },
+              {
+                "extension": [
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "extension": [
+                            {
+                              "valueCoding": {
+                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                "code": "615216"
+                              },
+                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                            }
+                          ],
+                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-PROCCODE",
+                          "code": "01U10JZ"
+                        }
+                      ]
+                    },
+                    "url": "code"
+                  },
+                  {
+                    "valueUnsignedInt": 1,
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                  }
+                ],
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "extension": [
+                        {
+                          "valueCoding": {
+                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                            "code": "615217"
+                          },
+                          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                        }
+                      ],
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-REVENUE",
+                      "code": "0100"
+                    }
+                  ]
+                },
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code"
+              }
+            ]
+          }
+        ]
+      }
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.reason
+
+  - name: transactionId
+    required: 'Yes'
+    type: uuid
+    description: A UUID to uniquely identify the credit operation.
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "transactionId",
+            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueUuid`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
