@@ -212,6 +212,61 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+## Operation: charge-item-create
+
+<%= beta_tag(action: true) %>
+
+Creates a charge event which can result in the creation of one or more ChargeItems.
+
+    POST /ChargeItem/:id/$create
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:charge_item_create, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/ChargeItem/$create
+
+#### Body
+
+<%= json(:r4_charge_item_create) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Thu, 11 Nov 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/ChargeItem/$create
+Last-Modified: Thu, 11 Nov 2021 17:25:14 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 [`date`]: https://hl7.org/fhir/r4/datatypes.html#date
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
