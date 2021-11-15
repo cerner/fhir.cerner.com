@@ -92,7 +92,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?_id=bed1c2ec-1f33-4097-8296-f6aa01824387&_revinclude=Provenance:target
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?_id=00a5d6eb-c567-42f7-be07-53804cece075&_revinclude=Provenance:target
 
 #### Response
 

@@ -472,34 +472,34 @@ module Cerner
 
     R4_CONDITION_REVINCLUDE_BUNDLE ||= {
       'resourceType': 'Bundle',
-      'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+      'id': '27541846-3943-4168-8ccf-fc5dff9cdac3',
       'type': 'searchset',
-      'total': 2,
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?'\
-          '_id=bed1c2ec-1f33-4097-8296-f6aa01824387&_revinclude=Provenance%3Atarget'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+          'Condition?_id=00a5d6eb-c567-42f7-be07-53804cece075&_revinclude=Provenance%3Atarget'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
-          'Condition/bed1c2ec-1f33-4097-8296-f6aa01824387',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+          'Condition/00a5d6eb-c567-42f7-be07-53804cece075',
           'resource': {
             'resourceType': 'Condition',
-            'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
+            'id': '00a5d6eb-c567-42f7-be07-53804cece075',
             'meta': {
-              'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
-              'lastUpdated': '2020-10-20T20:46:41.000Z'
+              'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
+              'lastUpdated': '2020-07-06T19:36:23.000Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Health Concern</b>: '\
-              'description, description</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>'\
-              ': Confirmed</p><p><b>Onset</b>: Sep 20, 2020</p><p><b>Recorder</b>: '\
-              'DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48</p>'\
-              '<p><b>Recorded Date</b>: Oct 13, 2020  3:46 P.M. CDT</p></div>'
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p>'\
+                     '<p><b>Patient</b>: SMART, NANCYU</p><p><b>Health Concern</b>'\
+                     ': Afraid my community will not be as close with COVID19.</p><p><b>Clinical Status</b>'\
+                     ': Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jul  6, 2020</p>'\
+                     '<p><b>Recorder</b>: Spence, Stephen</p><p><b>Recorded Date</b>: Jul  6, 2020  7:36 P.M. UTC</p>'\
+                     '<p><b>Asserter</b>: SMART, NANCYU</p></div>'
             },
             'clinicalStatus': {
               'coding': [
@@ -534,21 +534,26 @@ module Cerner
               }
             ],
             'code': {
-              'text': 'description'
+              'text': 'Afraid my community will not be as close with COVID19.'
             },
             'subject': {
-              'reference': 'Patient/9279171'
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCYU'
             },
-            'onsetDateTime': '2020-09-20',
-            'recordedDate': '2020-10-13T20:46:40.000Z',
+            'onsetDateTime': '2020-07-06',
+            'recordedDate': '2020-07-06T19:36:23.000Z',
             'recorder': {
-              'reference': 'Practitioner/9279172',
-              'display': 'DEXLast2020-10-20T20:46:41.123Z_11, DEXFirst2020-10-20T20:46:41.122Z_48'
+              'reference': 'Practitioner/12724064',
+              'display': 'Spence, Stephen'
+            },
+            'asserter': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCYU'
             },
             'note': [
               {
-                'time': '2020-10-20T20:46:41.000Z',
-                'text': 'comments'
+                'time': '2020-07-06T19:36:23.000Z',
+                'text': 'Concerns with impact of COVID19 on community.'
               }
             ]
           },
@@ -557,29 +562,27 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/'\
-          'INT.hcncrn-bed1c2ec-1f33-4097-8296-f6aa01824387',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.hcncrn-00a5d6eb-c567-42f7-be07-53804cece075',
           'resource': {
             'resourceType': 'Provenance',
-            'id': 'INT.hcncrn-bed1c2ec-1f33-4097-8296-f6aa01824387',
+            'id': 'INT.hcncrn-00a5d6eb-c567-42f7-be07-53804cece075',
             'meta': {
-              'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
-              'lastUpdated': '2020-03-16T21:45:09Z'
+              'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
+              'lastUpdated': '2020-07-06T19:36:23Z'
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>'\
-              '<p><b>Target</b>:</p><ul><li>Condition/bed1c2ec-1f33-4097-8296-f6aa01824387</li></ul>'\
-              '<p><b>Recorded</b>: Mar 16, 2020  4:45 P.M. CDT</p><p><b>Agents</b>:</p>'\
-              '<dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl>'\
-              '<p><b>Entity Source</b>: DocumentReference/S-200</p></div>'
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p><p><b>Target</b>:</p>'\
+                     '<ul><li>Condition/00a5d6eb-c567-42f7-be07-53804cece075</li></ul><p><b>Recorded'\
+                     'Spence, Open Platform IA, Stephen</b>: Jul  6, 2020  7:36 P.M. UTC</p><p><b>Agents</b>'\
+                     ':</p><dl><dt></dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
             },
             'target': [
               {
-                'reference': 'Condition/bed1c2ec-1f33-4097-8296-f6aa01824387'
+                'reference': 'Condition/00a5d6eb-c567-42f7-be07-53804cece075'
               }
             ],
-            'recorded': '2020-03-16T21:45:09Z',
+            'recorded': '2020-07-06T19:36:23Z',
             'agent': [
               {
                 'type': {
@@ -603,16 +606,8 @@ module Cerner
                   }
                 ],
                 'who': {
-                  'reference': 'Organization/40475456',
-                  'display': 'Unknown'
-                }
-              }
-            ],
-            'entity': [
-              {
-                'role': 'source',
-                'what': {
-                  'reference': 'DocumentReference/S-200'
+                  'reference': 'Practitioner/12724064',
+                  'display': 'Spence, Open Platform IA, Stephen'
                 }
               }
             ]
