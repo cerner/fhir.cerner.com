@@ -55,6 +55,7 @@ _Implementation Notes_
  `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=12345`
  `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`
  [`_count`]   | N         | [`number`]    | Number of results per page.
+ `_revinclude`| No        | [`token`]  | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 
 Notes:
@@ -77,9 +78,31 @@ Notes:
   - Only supports the code `assess-plan`.
   - This can be combined with the patient parameter.
 
+- The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+- The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
+
+- When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
 ### Headers
 
  <%= headers %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?_id=178866310&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_careplan_revinclude_bundle) %>
+<%= disclaimer %>
 
 ### Example retrieve care plan
 

@@ -45,6 +45,114 @@ module Cerner
       }
     }.freeze
 
+    R4_CAREPLAN_REVINCLUDE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '627a14f6-0eda-42ab-ad21-e860f5780a20',
+      'type': 'searchset',
+      'link': [
+          {
+              'relation': 'self',
+              'url': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CarePlan?_id=178866310&_revinclude=Provenance%3Atarget'
+          }
+      ],
+      'entry': [
+          {
+              'fullUrl': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CarePlan/178866310',
+              'resource': {
+                  'resourceType': 'CarePlan',
+                  'id': '178866310',
+                  'meta': {
+                      'versionId': '1',
+                      'lastUpdated': '2020-02-03T19:37:47.000Z'
+                  },
+                  'text': {
+                      'status': 'additional',
+                      'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Care Plan</b></p><p><b>Patient</b>: SMITH, MORGAN</p><p><b>Description</b>: unknown</p><p><b>Status</b>: Active</p><p><b>Intent</b>: Plan</p><p><b>Category</b>: Assessment and Plan of Treatment</p><p><b>Effective Period</b>: Feb  3, 2020  7:39 P.M. UTC</p></div>'
+                  },
+                  'status': 'active',
+                  'intent': 'plan',
+                  'category': [
+                      {
+                          'coding': [
+                              {
+                                  'system': 'http://hl7.org/fhir/us/core/CodeSystem/careplan-category',
+                                  'code': 'assess-plan',
+                                  'display': 'Assessment and Plan of Treatment'
+                              }
+                          ],
+                          'text': 'Assessment and Plan of Treatment'
+                      }
+                  ],
+                  'subject': {
+                      'reference': 'Patient/725944',
+                      'display': 'SMITH, MORGAN'
+                  },
+                  'encounter': {
+                      'reference': 'Encounter/953887'
+                  },
+                  'period': {
+                      'start': '2020-02-03T19:39:33.000Z'
+                  }
+              },
+              'search': {
+                  'mode': 'match'
+              }
+          },
+          {
+              'fullUrl': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/INT.doc-178866310',
+              'resource': {
+                  'resourceType': 'Provenance',
+                  'id': 'INT.doc-178866310',
+                  'meta': {
+                      'versionId': '178866310',
+                      'lastUpdated': '2020-02-03T19:39:31Z'
+                  },
+                  'text': {
+                      'status': 'generated',
+                      'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>CarePlan/178866310</li></ul><p><b>Recorded</b>: Feb  3, 2020  1:39 P.M. CST</p><p><b>Agents</b>:</p><dl><dt>DEVENG-DEFAULT-PROV</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
+                  },
+                  'target': [
+                      {
+                          'reference': 'CarePlan/178866310'
+                      }
+                  ],
+                  'recorded': '2020-02-03T19:39:31Z',
+                  'agent': [
+                      {
+                          'type': {
+                              'coding': [
+                                  {
+                                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                                      'code': 'author'
+                                  }
+                              ],
+                              'text': 'Author'
+                          },
+                          'role': [
+                              {
+                                  'coding': [
+                                      {
+                                          'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                                          'code': 'SOURCE'
+                                      }
+                                  ],
+                                  'text': 'Source'
+                              }
+                          ],
+                          'who': {
+                              'reference': 'Organization/57535538',
+                              'display': 'DEVENG-DEFAULT-PROV'
+                          }
+                      }
+                  ]
+              },
+              'search': {
+                  'mode': 'include'
+            }
+        }
+    ]
+  }.freeze
+
     R4_CARE_PLAN_PATIENT_ENTRY ||= {
       'resourceType': 'CarePlan',
       'id': '197286315',
