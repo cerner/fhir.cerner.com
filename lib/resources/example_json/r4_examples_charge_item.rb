@@ -622,6 +622,27 @@ module Cerner
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
               },
               {
+                'valueReference': {
+                  'reference': 'Location/683731',
+                  'display': '1 West SA2'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location'
+              },
+              {
+                'extension': [
+                  {
+                    'id': '68985657',
+                    'valueString': 'Family Planning Indicator',
+                    'url': 'custom-attribute-name'
+                  },
+                  {
+                    'valueInteger': 68985657,
+                    'url': 'custom-attribute-value'
+                  }
+                ],
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+              },
+              {
                 'extension': [
                   {
                     'valueCodeableConcept': {

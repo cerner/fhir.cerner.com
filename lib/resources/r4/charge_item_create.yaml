@@ -29,18 +29,18 @@ fields:
     action: create
     example: |
       {
-        'parameter': [
-           {
-              'name': 'chargeItem',
-              'resource': {
-              'resourceType': 'chargeItem',
-              'status': 'unknown',
-              'subject': {
-                'reference': 'Patient/178594204'
-               }
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "resourceType": "chargeItem",
+              "status": "unknown",
+              "subject": {
+                "reference": "Patient/178594204"
+              }
             }
-         ]
-       }
+          }
+        ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem
 
@@ -51,12 +51,12 @@ fields:
     action: create
     example: |
       {
-        'parameter': [
-           {
-             'name': 'chargeItem'
-             'resource': {
-               'resouceType': 'chargeItem'
-             }
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "resouceType": "chargeItem"
+            }
           }
         ]
       }
@@ -68,12 +68,12 @@ fields:
     action: create
     example: |
       {
-        'parameter': [
-           {
-             'name': 'chargeItem'
-             'resource': {
-               'status': 'unknown'
-             }
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "status": "unknown"
+            }
           }
         ]
       }
@@ -86,16 +86,16 @@ fields:
     action: create
     example: |
       {
-         "parameter": [
-            {
-              "name": "chargeItem",
-              "resource": {
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
               "subject": {
                 "reference": "Patient/178594204"
-                }
               }
             }
-         ]
+          }
+        ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.subject
 
@@ -106,14 +106,16 @@ fields:
     action: create
     example: |
       {
-         "parameter": [
-            {
-              "name": "chargeItem",
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
               "context": {
                 "reference": "Encounter/53066085"
-                }
+              }
             }
-         ]
+          }
+        ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.context
 
@@ -124,12 +126,14 @@ fields:
     action: create
     example: |
       {
-         "parameter": [
-            {
-              "name": "chargeItem",
-               "occurrenceDateTime": "2021-08-02T21:53:34Z"
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "occurrenceDateTime": "2021-08-02T21:53:34Z"
             }
-         ]
+          }
+        ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.enteredDate
 
@@ -140,14 +144,16 @@ fields:
     action: create
     example: |
       {
-         "parameter": [
-            {
-              "name": "chargeItem",
-               "quantity": {
-                  "value": 1
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "quantity": {
+                "value": 1
               }
             }
-         ]
+          }
+        ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.quantity
 
@@ -161,22 +167,24 @@ fields:
         "parameter": [
           {
             "name": "chargeItem",
-            "code": {
-              "coding": [
-                {
-                  "extension": [
-                    {
-                      "valueCoding": {
-                        "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                        "code": "667687"
-                      },
-                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                    }
-                  ],
-                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CDM_SCHED",
-                  "code": "01012021"
-                }
-              ]
+            "resource": {
+              "code": {
+                "coding": [
+                  {
+                    "extension": [
+                      {
+                        "valueCoding": {
+                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                          "code": "667687"
+                        },
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                      }
+                    ],
+                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CDM_SCHED",
+                    "code": "01012021"
+                  }
+                ]
+              }
             }
           }
         ]
@@ -193,23 +201,25 @@ fields:
         "parameter": [
           {
             "name": "chargeItem",
-            "performer": [
-              {
-                "function": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
-                      "code": "OP",
-                      "display": "Ordering Provider"
-                    }
-                  ],
-                  "text": "Ordering Provider"
-                },
-                "actor": {
-                  "reference": "Practitioner/190182805"
+            "resource": {
+              "performer": [
+                {
+                  "function": {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                        "code": "OP",
+                        "display": "Ordering Provider"
+                      }
+                    ],
+                    "text": "Ordering Provider"
+                  },
+                  "actor": {
+                    "reference": "Practitioner/190182805"
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
         ]
       }
@@ -225,144 +235,183 @@ fields:
         "parameter": [
           {
             "name": "chargeItem",
-            "reason": [
-              {
-                "extension": [
-                  {
-                    "valueUnsignedInt": 1,
-                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-                  }
-                ],
-                "coding": [
-                  {
-                    "extension": [
-                      {
-                        "valueCoding": {
-                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                          "code": "3693"
-                        },
-                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                      }
-                    ],
-                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-ICD",
-                    "code": "Y22"
-                  }
-                ]
-              }
-            ],
-            "extension": [
-              {
-                "extension": [
-                  {
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "extension": [
-                            {
-                              "valueCoding": {
-                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                                "code": "3692"
-                              },
-                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                            }
-                          ],
-                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-MODIFIER",
-                          "code": "26"
-                        }
-                      ]
-                    },
-                    "url": "code"
-                  },
-                  {
-                    "valueUnsignedInt": 1,
-                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-                  }
-                ],
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
-              },
-              {
-                "extension": [
-                  {
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "extension": [
-                            {
-                              "valueCoding": {
-                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                                "code": "615214"
-                              },
-                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                            }
-                          ],
-                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CPT",
-                          "code": "99204"
-                        }
-                      ]
-                    },
-                    "url": "code"
-                  },
-                  {
-                    "valueUnsignedInt": 1,
-                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-                  }
-                ],
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
-              },
-              {
-                "extension": [
-                  {
-                    "valueCodeableConcept": {
-                      "coding": [
-                        {
-                          "extension": [
-                            {
-                              "valueCoding": {
-                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                                "code": "615216"
-                              },
-                              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                            }
-                          ],
-                          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-PROCCODE",
-                          "code": "01U10JZ"
-                        }
-                      ]
-                    },
-                    "url": "code"
-                  },
-                  {
-                    "valueUnsignedInt": 1,
-                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-                  }
-                ],
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
-              },
-              {
-                "valueCodeableConcept": {
+            "resource": {
+              "reason": [
+                {
+                  "extension": [
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
                   "coding": [
                     {
                       "extension": [
                         {
                           "valueCoding": {
                             "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
-                            "code": "615217"
+                            "code": "3693"
                           },
                           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                         }
                       ],
-                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-REVENUE",
-                      "code": "0100"
+                      "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-ICD",
+                      "code": "Y22"
                     }
                   ]
-                },
-                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code"
-              }
-            ]
+                }
+              ]
+            }
           }
         ]
       }
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.reason
+
+  - name: chargeItem.extension
+    required: 'Yes'
+    type: Extension
+    description: To be update** reminder to revert
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "chargeItem",
+            "resource": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "extension": [
+                              {
+                                "valueCoding": {
+                                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                  "code": "3692"
+                                },
+                                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                              }
+                            ],
+                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-MODIFIER",
+                            "code": "26"
+                          }
+                        ]
+                      },
+                      "url": "code"
+                    },
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
+                },
+                {
+                  "valueReference": {
+                    "reference": "Location/683731",
+                    "display": "1 West SA2"
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
+                },
+                {
+                  "extension": [
+                    {
+                      "id": "68985657",
+                      "valueString": "Family Planning Indicator",
+                      "url": "custom-attribute-name"
+                    },
+                    {
+                      "valueInteger": 68985657,
+                      "url": "custom-attribute-value"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+                },
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "extension": [
+                              {
+                                "valueCoding": {
+                                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                  "code": "615214"
+                                },
+                                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                              }
+                            ],
+                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-CPT",
+                            "code": "99204"
+                          }
+                        ]
+                      },
+                      "url": "code"
+                    },
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+                },
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "extension": [
+                              {
+                                "valueCoding": {
+                                  "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                                  "code": "615216"
+                                },
+                                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                              }
+                            ],
+                            "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-PROCCODE",
+                            "code": "01U10JZ"
+                          }
+                        ]
+                      },
+                      "url": "code"
+                    },
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "extension": [
+                          {
+                            "valueCoding": {
+                              "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14002",
+                              "code": "615217"
+                            },
+                            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                          }
+                        ],
+                        "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CodeSystem/BillCodes-REVENUE",
+                        "code": "0100"
+                      }
+                    ]
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code"
+                }
+              ]
+            }
+          }
+        ]
+      }
 
   - name: transactionId
     required: 'Yes'
