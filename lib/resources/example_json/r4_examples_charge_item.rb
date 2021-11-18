@@ -636,7 +636,7 @@ module Cerner
                     'url': 'custom-attribute-name'
                   },
                   {
-                    'valueInteger': 68985657,
+                    'valueInteger': 689_856_57,
                     'url': 'custom-attribute-value'
                   }
                 ],
