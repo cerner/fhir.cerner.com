@@ -52,12 +52,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CarePlan?_id=178866310&_revinclude=Provenance%3Atarget'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan?_id=178866310&_revinclude=Provenance%3Atarget'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/CarePlan/178866310',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CarePlan/178866310',
           'resource': {
             'resourceType': 'CarePlan',
             'id': '178866310',
@@ -102,7 +102,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'http://localhost:3000/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/Provenance/INT.doc-178866310',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.doc-178866310',
           'resource': {
             'resourceType': 'Provenance',
             'id': 'INT.doc-178866310',
