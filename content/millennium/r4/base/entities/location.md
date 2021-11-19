@@ -20,6 +20,7 @@ The following fields are returned if valued:
 * [Mode](http://hl7.org/fhir/R4/location-definitions.html#Location.mode){:target="_blank"}
 * [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
+* [Type](https://www.hl7.org/fhir/R4/location-definitions.html#Location.type){:target="_blank"}
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
 * [Part Of](http://hl7.org/fhir/R4/location-definitions.html#Location.partOf){:target="_blank"}
@@ -56,12 +57,15 @@ Search for Locations that meet supplied query parameters:
  Name            | Required?               | Type       | Description
 -----------------|-------------------------|------------|-------------------------------------------------------
  `_id`           | This or `-physicalType` | [`token`]  | The logical resource id associated with the resource.
+ `type`          | This or `_id`           | [`token`]  | The location’s type. Example: `http://terminology.hl7.org/CodeSystem/v3-RoleCode|PHARM`
  `-physicalType` | This or `_id`           | [`token`]  | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
  [`_count`]      | no                      | [`number`] | The maximum number of results to return. Defaults to `100`.
 
  Notes:
 
 - The `-physicalType` parameter
+  - Searching by Millennium proprietary codes is not supported.
+- The `type` parameter
   - Searching by Millennium proprietary codes is not supported.
 
 ### Headers
@@ -78,6 +82,24 @@ Search for Locations that meet supplied query parameters:
 
 <%= headers status: 200 %>
 <%= json(:r4_location_bundle) %>
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|wa
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_physical_type_bundle) %>
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=http://terminology.hl7.org/CodeSystem/v3-RoleCode|PHARM
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_type_bundle) %>
 
 <%= disclaimer %>
 
