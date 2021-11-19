@@ -58,16 +58,39 @@ module Cerner
         "state": 'AA',
         "country": 'Ireland'
       },
+      "type": [
+        {
+            "coding": [
+                {
+                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222",
+                    "code": "772",
+                    "display": "Ambulatory(s)",
+                    "userSelected": true
+                },
+                {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "OF",
+                    "display": "Outpatient facility"
+                }
+            ],
+            "text": "Ambulatory(s)"
+        }
+    ],
       "physicalType": {
         "coding": [
           {
             "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
-            "code": '783',
-            "display": 'Facility(s)',
+            "code": '772',
+            "display": 'Ambulatory(s)',
             "userSelected": true
-          }
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+            "code": 'wa',
+            "display": 'Ward'
+        }
         ],
-        "text": 'Facility(s)'
+        "text": 'Ambulatory(s)'
       },
       "managingOrganization": {
         "reference": 'Organization/13971625',
@@ -91,6 +114,42 @@ module Cerner
       "entry": [
         {
           "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409',
+          "resource": R4_LOCATION_ENTRY
+        }
+      ]
+    }.freeze
+
+    R4_LOCATION_TYPE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=http://terminology.hl7.org/CodeSystem/v3-RoleCode|PHARM'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=http://terminology.hl7.org/CodeSystem/v3-RoleCode|PHARM',
+          "resource": R4_LOCATION_ENTRY
+        }
+      ]
+    }.freeze
+
+    R4_LOCATION_PHYSICAL_TYPE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si',
           "resource": R4_LOCATION_ENTRY
         }
       ]
