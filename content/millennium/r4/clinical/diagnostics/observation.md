@@ -80,6 +80,7 @@ _Implementation Notes_
  `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  `category`       | N                 | [`token`]     | The category of observations. Example: `category=laboratory`
  [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page.
+ `_revinclude`    | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 
 
@@ -100,6 +101,12 @@ Notes:
 
 * The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
 
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+* The `_revinclude` parameter may be provided with the `patient/subject` parameter. Example: `patient=12457977&category=vital-signs&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
 ### Headers
 
  <%= headers %>
@@ -115,6 +122,22 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_OBSERVATION_BUNDLE) %>
 
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12457977&category=vital-signs&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_observation_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request
