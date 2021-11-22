@@ -55,7 +55,7 @@ _Implementation Notes_
  `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=12345`
  `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`
  [`_count`]   | N         | [`number`]    | Number of results per page.
- `_revinclude`| No        | [`token`]  | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `_revinclude`| No        | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 
 Notes:
