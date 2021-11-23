@@ -194,6 +194,7 @@ _Implementation Notes_
   * The other coding must have userSelected: false
 * The Condition Create API currently supports only Conditions with a category of `problem-list-item` or `encounter-diagnosis`.
 * An `encounter-diagnosis` Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
+* On FHIR write of an encounter-diagnosis, the diagnosis will automatically receive the next available diagnosis priority within the problem list component.
 
 ### Authorization Types
 
