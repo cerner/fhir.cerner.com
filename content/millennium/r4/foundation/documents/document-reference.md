@@ -57,7 +57,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
  `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
- `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 _Implementation Notes_
 
