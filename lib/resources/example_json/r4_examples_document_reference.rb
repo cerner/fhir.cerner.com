@@ -677,193 +677,203 @@ module Cerner
     }.freeze
 
     R4_DOCUMENT_REFERENCE_REVINCLUDE_BUNDLE ||= {
-        "resourceType": "Bundle",
-        "id": "11d98db4-e637-4586-af8f-f7256ec5539b",
-        "type": "searchset",
-        "link": [
-            {
-                "relation": "self",
-                "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference?_id=214938095&_revinclude=Provenance%3Atarget"
-            }
-        ],
-        "entry": [
-            {
-                "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference/214938095",
-                "resource": {
-                    "resourceType": "DocumentReference",
-                    "id": "214938095",
-                    "meta": {
-                        "versionId": "1",
-                        "lastUpdated": "2020-10-29T09:40:27.000Z"
-                    },
-                    "text": {
-                        "status": "generated",
-                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p><p><b>Document Type</b>: Rheumatology Consultation</p><p><b>Document Title</b>: TEST TIMEZONE A17</p><p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>"
-                    },
-                    "identifier": [
-                        {
-                            "system": "https://fhir.cerner.com/ceuuid",
-                            "value": "CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-214938095-2020102909402700"
-                        }
-                    ],
-                    "status": "current",
-                    "docStatus": "final",
-                    "type": {
-                        "coding": [
-                            {
-                                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72",
-                                "code": "2820583",
-                                "display": "Rheumatology Consultation",
-                                "userSelected": true
-                            },
-                            {
-                                "system": "http://loinc.org",
-                                "code": "34839-1",
-                                "userSelected": false
-                            }
-                        ],
-                        "text": "Rheumatology Consultation"
-                    },
-                    "category": [
-                        {
-                            "coding": [
-                                {
-                                    "system": "http://loinc.org",
-                                    "code": "34839-1",
-                                    "userSelected": false
-                                }
-                            ]
-                        },
-                        {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
-                                    "code": "clinical-note",
-                                    "display": "Clinical Note",
-                                    "userSelected": false
-                                }
-                            ],
-                            "text": "Clinical Note"
-                        }
-                    ],
-                    "subject": {
-                        "reference": "Patient/1316024",
-                        "display": "PETERS, TIMOTHY CCCC"
-                    },
-                    "author": [
-                        {
-                            "reference": "Practitioner/159105544",
-                            "display": "M, SANGEETHA"
-                        }
-                    ],
-                    "authenticator": {
-                        "reference": "Practitioner/159105544",
-                        "display": "M, SANGEETHA"
-                    },
-                    "content": [
-                        {
-                            "attachment": {
-                                "contentType": "application/pdf",
-                                "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-214938095",
-                                "title": "TEST TIMEZONE A17",
-                                "creation": "2020-07-30T11:20:00.000Z"
-                            }
-                        }
-                    ],
-                    "context": {
-                        "encounter": [
-                            {
-                                "reference": "Encounter/32487567"
-                            }
-                        ],
-                        "period": {
-                            "end": "2020-07-30T11:20:00.000Z"
-                        }
-                    }
-                },
-                "search": {
-                    "mode": "match"
-                }
+      'resourceType': 'Bundle',
+      'id': '11d98db4-e637-4586-af8f-f7256ec5539b',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference?_id=214938095&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference/214938095',
+          'resource': {
+            'resourceType': 'DocumentReference',
+            'id': '214938095',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2020-10-29T09:40:27.000Z'
             },
-            {
-                "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//Provenance/INT.doc-214938095",
-                "resource": {
-                    "resourceType": "Provenance",
-                    "id": "INT.doc-214938095",
-                    "meta": {
-                        "versionId": "214938095",
-                        "lastUpdated": "2020-07-30T11:20:00Z"
-                    },
-                    "text": {
-                        "status": "generated",
-                        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:</p><ul><li>DocumentReference/214938095</li></ul><p><b>Recorded</b>: Jul 30, 2020  6:20 A.M. CDT</p><p><b>Agents</b>:</p><dl><dt>M, SANGEETHA</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd><dt>DEVENG-DEFAULT-PROV</dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>"
-                    },
-                    "target": [
-                        {
-                            "reference": "DocumentReference/214938095"
-                        }
-                    ],
-                    "recorded": "2020-07-30T11:20:00Z",
-                    "agent": [
-                        {
-                            "type": {
-                                "coding": [
-                                    {
-                                        "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
-                                        "code": "author"
-                                    }
-                                ],
-                                "text": "Author"
-                            },
-                            "role": [
-                                {
-                                    "coding": [
-                                        {
-                                            "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
-                                            "code": "SOURCE"
-                                        }
-                                    ],
-                                    "text": "Source"
-                                }
-                            ],
-                            "who": {
-                                "reference": "Practitioner/159105544",
-                                "display": "M, SANGEETHA"
-                            }
-                        },
-                        {
-                            "type": {
-                                "coding": [
-                                    {
-                                        "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
-                                        "code": "author"
-                                    }
-                                ],
-                                "text": "Author"
-                            },
-                            "role": [
-                                {
-                                    "coding": [
-                                        {
-                                            "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
-                                            "code": "SOURCE"
-                                        }
-                                    ],
-                                    "text": "Source"
-                                }
-                            ],
-                            "who": {
-                                "reference": "Organization/57535538",
-                                "display": "DEVENG-DEFAULT-PROV"
-                            }
-                        }
-                    ]
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p>
+              <p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p>
+              <p><b>Document Type</b>: Rheumatology Consultation</p>
+              <p><b>Document Title</b>: TEST TIMEZONE A17</p><p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p>
+              <p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
+            },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-214938095-2020102909402700'
+              }
+            ],
+            'status': 'current',
+            'docStatus': 'final',
+            'type': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
+                  'code': '2820583',
+                  'display': 'Rheumatology Consultation',
+                  'userSelected': true
                 },
-                "search": {
-                    "mode": "include"
+                {
+                  'system': 'http://loinc.org',
+                  'code': '34839-1',
+                  'userSelected': false
                 }
+              ],
+              'text': 'Rheumatology Consultation'
+            },
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://loinc.org',
+                    'code': '34839-1',
+                    'userSelected': false
+                  }
+                ]
+              },
+              {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                    'code': 'clinical-note',
+                    'display': 'Clinical Note',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Clinical Note'
+              }
+            ],
+            'subject': {
+              'reference': 'Patient/1316024',
+              'display': 'PETERS, TIMOTHY CCCC'
+            },
+            'author': [
+              {
+                'reference': 'Practitioner/159105544',
+                'display': 'M, SANGEETHA'
+              }
+            ],
+            'authenticator': {
+              'reference': 'Practitioner/159105544',
+              'display': 'M, SANGEETHA'
+            },
+            'content': [
+              {
+                'attachment': {
+                  'contentType': 'application/pdf',
+                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-214938095',
+                  'title': 'TEST TIMEZONE A17',
+                  'creation': '2020-07-30T11:20:00.000Z'
+                }
+              }
+            ],
+            'context': {
+              'encounter': [
+                {
+                  'reference': 'Encounter/32487567'
+                }
+              ],
+              'period': {
+                'end': '2020-07-30T11:20:00.000Z'
+              }
             }
-        ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//Provenance/INT.doc-214938095',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'INT.doc-214938095',
+            'meta': {
+              'versionId': '214938095',
+              'lastUpdated': '2020-07-30T11:20:00Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>
+              <p><b>Target</b>:</p><ul><li>DocumentReference/214938095</li></ul>
+              <p><b>Recorded</b>: Jul 30, 2020  6:20 A.M. CDT</p>
+              <p><b>Agents</b>:</p>
+              <dl><dt>M, SANGEETHA</dt><dd><b>Agent Type</b>: Author</dd>
+              <dd><b>Agent Role</b>: Source</dd><dt>DEVENG-DEFAULT-PROV</dt>
+              <dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
+            },
+            'target': [
+              {
+                'reference': 'DocumentReference/214938095'
+              }
+            ],
+            'recorded': '2020-07-30T11:20:00Z',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Practitioner/159105544',
+                  'display': 'M, SANGEETHA'
+                }
+              },
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/57535538',
+                  'display': 'DEVENG-DEFAULT-PROV'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        }
+      ]
     }.freeze
   end
 end
