@@ -1054,6 +1054,18 @@ preceding documentation.
   such devices to participate in the authorization
   ecosystem.
 
+- What happens when a user revokes my application's
+  access to their data?
+
+> When a user revokes an application's access, its
+  *refresh* tokens immediately become non-functional.
+  *Access* tokens cannot be directly revoked; however,
+  they are only valid a brief period in any case
+  (on the order of a few minutes). As a result, it is
+  generally unnecessary (and inefficient) for applications
+  check for access token validity using an introspection
+  endpoint.
+
 - How can my application revoke a refresh token on
   behalf of a user?
 
