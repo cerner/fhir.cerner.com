@@ -1058,11 +1058,9 @@ preceding documentation.
   behalf of a user?
 
 > Cerner currently does not have a mechanism that allows
-  client applications to revoke refresh tokens.  Cerner is
-  currently tracking the progress of the IETF Proposed
-  Standard RFC
-  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009)
-  for further evaluation of such capabilities.
+  client applications to revoke refresh tokens.  If/when
+  such functionality is implemented, it will follow RFC 7009
+  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009).
 
 - How can my application participate in log out
   mechanisms provided by the organization's single
