@@ -1064,7 +1064,11 @@ preceding documentation.
   (on the order of a few minutes). As a result, it is
   generally unnecessary (and inefficient) for applications
   check for access token validity using an introspection
-  endpoint.
+  endpoint. This behavior is discussed in more detail in
+  Section 3 of
+  RFC 7009 ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009),
+  as well as Section 16.18 of
+  ["OpenID Connect Core 1.0"](https://openid.net/specs/openid-connect-core-1_0.html).
 
 - How can my application revoke a refresh token on
   behalf of a user?
