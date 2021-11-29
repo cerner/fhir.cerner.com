@@ -1063,7 +1063,7 @@ preceding documentation.
   they are only valid a brief period in any case
   (on the order of a few minutes). As a result, it is
   generally unnecessary (and inefficient) for applications
-  check for access token validity using an introspection
+  to check for access token validity using an introspection
   endpoint. This behavior is discussed in more detail in
   Section 3 of
   RFC 7009 ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009),
