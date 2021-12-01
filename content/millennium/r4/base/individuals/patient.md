@@ -9,7 +9,7 @@ title: Patient | R4 API
 
 ## Overview
 
-The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
 
 The following fields are returned if valued:
 
@@ -19,7 +19,7 @@ The following fields are returned if valued:
 * [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
 * [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
 * [Gender (administrative)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender){:target="_blank"}
-* [Extensions including birth time, birth sex, ethnicity and race](#extensions){:target="_blank"}
+* [Extensions including birth time, preferred contact, birth sex, ethnicity and race](#extensions){:target="_blank"}
 * [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
 * [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
 * [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
@@ -36,6 +36,7 @@ The following fields are returned if valued:
 ## Extensions
 
 * [Patient Birth Time]
+* [Patient Preferred Contact]
 * [US Core Race]
 * [US Core Ethnicity]
 * [US Core Birth Sex]
@@ -280,6 +281,7 @@ See [Health Cards] documentation for more details about this operation.
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
+[Patient Preferred Contact]: https://www.hl7.org/fhir/extension-organization-preferredcontact.html
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
