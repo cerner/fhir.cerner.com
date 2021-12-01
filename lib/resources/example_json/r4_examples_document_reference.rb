@@ -683,12 +683,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference?_id=214938095&_revinclude=Provenance%3Atarget'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=214938095&_revinclude=Provenance%3Atarget'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//DocumentReference/214938095',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/214938095',
           'resource': {
             'resourceType': 'DocumentReference',
             'id': '214938095',
@@ -698,11 +698,12 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p>
-              <p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p>
-              <p><b>Document Type</b>: Rheumatology Consultation</p>
-              <p><b>Document Title</b>: TEST TIMEZONE A17</p><p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p>
-              <p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p>'\
+              '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p>'\
+              '<p><b>Document Type</b>: Rheumatology Consultation</p>'\
+              '<p><b>Document Title</b>: TEST TIMEZONE A17</p>'\
+              '<p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p>'\
+              '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
             },
             'identifier': [
               {
@@ -715,7 +716,7 @@ module Cerner
             'type': {
               'coding': [
                 {
-                  'system': 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/72',
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
                   'code': '2820583',
                   'display': 'Rheumatology Consultation',
                   'userSelected': true
@@ -790,7 +791,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d//Provenance/INT.doc-214938095',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.doc-214938095',
           'resource': {
             'resourceType': 'Provenance',
             'id': 'INT.doc-214938095',
@@ -800,13 +801,13 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>
-              <p><b>Target</b>:</p><ul><li>DocumentReference/214938095</li></ul>
-              <p><b>Recorded</b>: Jul 30, 2020  6:20 A.M. CDT</p>
-              <p><b>Agents</b>:</p>
-              <dl><dt>M, SANGEETHA</dt><dd><b>Agent Type</b>: Author</dd>
-              <dd><b>Agent Role</b>: Source</dd><dt>DEVENG-DEFAULT-PROV</dt>
-              <dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>'\
+              '<p><b>Target</b>:</p><ul><li>DocumentReference/214938095</li></ul>'\
+              '<p><b>Recorded</b>: Jul 30, 2020  6:20 A.M. CDT</p>'\
+              '<p><b>Agents</b>:</p>'\
+              '<dl><dt>M, SANGEETHA</dt><dd><b>Agent Type</b>: Author</dd>'\
+              '<dd><b>Agent Role</b>: Source</dd><dt>DEVENG-DEFAULT-PROV</dt>'\
+              '<dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
             },
             'target': [
               {
