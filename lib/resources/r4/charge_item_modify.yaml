@@ -24,8 +24,8 @@ fields:
 
   - name: status
     required: 'Yes'
-    type: string
-    description: The status of the ChargeItem.
+    type: code
+    description: The current state of the charge.
     action: modify
     example: |
       {
@@ -39,7 +39,7 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `string`</li>
+        <li>The status must be set to `unknown`</li>
         <li>Only one value can be defined</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.status
@@ -47,7 +47,7 @@ fields:
   - name: subject
     required: 'Yes'
     type: Reference (Patient)
-    description: The Patient associated with the ChargeItem.
+    description: The patient associated with the charge.
     action: modify
     example: |
       {
@@ -63,7 +63,7 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `valueReference`</li>
+        <li>Must be a Patient reference</li>
         <li>Only one value can be defined</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject
@@ -71,7 +71,7 @@ fields:
   - name: context
     required: 'Yes'
     type: Reference (Encounter)
-    description: The Encounter associated with the ChargeItem.
+    description: The encounter associated with the charge.
     action: modify
     example: |
       {
@@ -87,15 +87,15 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `valueReference`</li>
+        <li>Must be an Encounter reference</li>
         <li>Only one value can be defined</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
 
   - name: occurrenceDateTime
     required: 'No'
-    type: string
-    description: The occurrenceDateTime of the ChargeItem.
+    type: dateTime
+    description: Date/time when the charged service was applied.
     action: modify
     example: |
       {
@@ -116,8 +116,8 @@ fields:
 
   - name: quantity
     required: 'No'
-    type: integer
-    description: The quantity of the ChargeItem.
+    type: Quantity
+    description: Quantity of which the charge item has been serviced.
     action: modify
     example: |
       {
@@ -141,7 +141,7 @@ fields:
   - name: code
     required: 'Yes'
     type: CodeableConcept
-    description: The code of the ChargeItem.
+    description: The primary billing code that identifies the charge.
     action: modify
     example: |
       {
@@ -171,15 +171,16 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>The coding field must contain only one coding from the CDM_SCHED, CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
+        <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
         <li>Only one value can be defined</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
 
   - name: performer
     required: 'No'
-    type: List of performer
-    description: The performer of the ChargeItem.
+    type: List of BackboneElement
+    description: Indicates who performed or participated in the charge.
     action: modify
     example: |
       {
@@ -209,16 +210,15 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
-        <li>It should contain `actor`</li>
-        <li>The value of actor must be in the form of `valueReference`</li>
+        <li>Need notes around supported system and values for function</li>
+        <li>Both actor and function are required</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
 
   - name: reason
     required: 'No'
-    type: List of reason
-    description: The reason of the ChargeItem.
+    type: CodeableConcept
+    description: Diagnosis codes for why the charge was rendered.
     action: modify
     example: |
       {
@@ -256,41 +256,16 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>The coding field must contain only one coding from the ICD proprietary Bill Codes Types systems.</li>
         <li>It must have priority extension </li>
         <li>It must have bill-code-schedule extension </li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
 
-  - name: account
-    required: 'No'
-    type: List of account
-    description: The account of the ChargeItem.
-    action: modify
-    example: |
-      {
-        "parameter": [
-          {
-            "resource": {
-              "account": [
-                {
-                  "reference": "Account/F3236114"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    note: >
-      <ul>
-        <li>The value must be in the form of `valueReference`</li>
-      </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account
-
   - name: Replacing Extension
     required: 'Yes'
     type: Extension
-    description: The replacing extension of the ChargeItem.
+    description: The resource that this ChargeItem is replacing.
     action: modify
     example: |
       {
@@ -317,14 +292,14 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `valueReference`</li>
+        <li>Can only provide one replacing extension</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Performing Location Extension
     required: 'No'
     type: Extension
-    description: The performing-location extension of the ChargeItem.
+    description: A location where the charge was performed.
     action: modify
     example: |
       {
@@ -353,7 +328,7 @@ fields:
   - name: Description Extension
     required: 'No'
     type: Extension
-    description: The description extension of the ChargeItem.
+    description: A description providing additional details of the resource.
     action: modify
     example: |
       {
@@ -379,7 +354,7 @@ fields:
   - name: Custom Attribute Extension
     required: 'No'
     type: List of Custom Attribute Extension
-    description: The custom-attribute extension of the ChargeItem.
+    description: A client defined custom attribute for the charge.
     action: modify
     example: |
       {
@@ -408,14 +383,15 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `valueString`</li>
+        <li>Custom-attribute-value and Custom-attribute-value are both required</li>
+        <li>Custom-attribute-value can be of type integer, string, decimal, or date</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Modifier Code Extension
     required: 'No'
     type: Extension
-    description: The modifier-code extension of the ChargeItem.
+    description: A code providing information about the procedure performed on the patient associated to the resource.
     action: modify
     example: |
       {
@@ -459,7 +435,7 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>The coding field must contain only one coding from the MODIFIER proprietary Bill Codes Types system.</li>
         <li>It Must have priority extension</li>
         <li>The value of priority must be in the form of `valueUnsignedInt`</li>
       </ul>
@@ -468,7 +444,7 @@ fields:
   - name: Procedure Code Extension
     required: 'No'
     type: List of Procedure Code Extension
-    description: The modifier-code extension of the ChargeItem.
+    description: A code providing information about the procedure performed on the patient associated to the resource.
     action: modify
     example: |
       {
@@ -512,7 +488,8 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>The coding field must contain only one coding from the CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems</li>
+        <li>Must be of a lower bill code tier than the ChargeItem.code field if provided.</li>
         <li>It Must have priority extension</li>
         <li>The value of priority must be in the form of `valueUnsignedInt`</li>
       </ul>
@@ -521,7 +498,7 @@ fields:
   - name: Revenue Code Extension
     required: 'No'
     type: Extension
-    description: The revenue-code extension of the ChargeItem.
+    description: The type of revenue or cost center providing the product and/or service.
     action: modify
     example: |
       {
@@ -556,7 +533,7 @@ fields:
       }
     note: >
       <ul>
-        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>The coding field must contain only one coding from the REVENUE proprietary Bill Codes Types system</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 

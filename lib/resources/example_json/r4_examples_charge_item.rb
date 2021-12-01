@@ -538,13 +538,13 @@ module Cerner
                   'extension': [
                     {
                       'valueCoding': {
-                        'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002',
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
                         'code': '615214'
                       },
                       'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                     }
                   ],
-                  'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT',
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT',
                   'code': '88384'
                 }
               ]
@@ -579,13 +579,13 @@ module Cerner
                     'extension': [
                       {
                         'valueCoding': {
-                          'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002',
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
                           'code': '615217'
                         },
                         'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                       }
                     ],
-                    'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-ICD',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD',
                     'code': '0023'
                   }
                 ]
@@ -646,13 +646,13 @@ module Cerner
                           'extension': [
                             {
                               'valueCoding': {
-                                'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002',
+                                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
                                 'code': '3536620'
                               },
                               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                             }
                           ],
-                          'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-MODIFIER',
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
                           'code': '26'
                         }
                       ]
@@ -675,13 +675,13 @@ module Cerner
                           'extension': [
                             {
                               'valueCoding': {
-                                'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002',
+                                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
                                 'code': '3536619'
                               },
                               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                             }
                           ],
-                          'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT',
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT',
                           'code': '88304'
                         }
                       ]
@@ -702,13 +702,13 @@ module Cerner
                       'extension': [
                         {
                           'valueCoding': {
-                            'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002',
+                            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
                             'code': '4670239'
                           },
                           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                         }
                       ],
-                      'system': 'https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-REVENUE',
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE',
                       'code': '0971'
                     }
                   ]
