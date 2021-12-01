@@ -37,6 +37,13 @@ module Cerner
       ],
       'modelNumber': 'T0765',
       'type': {
+        'coding': [
+          {
+            'system': 'http://snomed.info/sct',
+            'code': '14106009',
+            'display': 'Cardiac pacemaker implant'
+          }
+        ],
         'text': 'Pacemaker'
       },
       'patient': {
@@ -132,6 +139,13 @@ module Cerner
       ],
       'modelNumber': 'T0765',
       'type': {
+        'coding': [
+          {
+            'system': 'http://snomed.info/sct',
+            'code': '14106009',
+            'display': 'Cardiac pacemaker implant'
+          }
+        ],
         'text': 'Pacemaker'
       },
       'patient': {
@@ -193,6 +207,13 @@ module Cerner
             ],
             'modelNumber': 'T0765',
             'type': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '14106009',
+                  'display': 'Cardiac pacemaker implant'
+                }
+              ],
               'text': 'Pacemaker'
             },
             'patient': {
