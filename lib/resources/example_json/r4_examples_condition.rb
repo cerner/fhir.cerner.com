@@ -470,6 +470,155 @@ module Cerner
       ]
     }.freeze
 
+    R4_CONDITION_REVINCLUDE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '27541846-3943-4168-8ccf-fc5dff9cdac3',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+          'Condition?_id=00a5d6eb-c567-42f7-be07-53804cece075&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+          'Condition/00a5d6eb-c567-42f7-be07-53804cece075',
+          'resource': {
+            'resourceType': 'Condition',
+            'id': '00a5d6eb-c567-42f7-be07-53804cece075',
+            'meta': {
+              'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
+              'lastUpdated': '2020-07-06T19:36:23.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p>'\
+                     '<p><b>Patient</b>: SMART, NANCYU</p><p><b>Health Concern</b>'\
+                     ': Afraid my community will not be as close with COVID19.</p><p><b>Clinical Status</b>'\
+                     ': Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jul  6, 2020</p>'\
+                     '<p><b>Recorder</b>: Spence, Stephen</p><p><b>Recorded Date</b>: Jul  6, 2020  7:36 P.M. UTC</p>'\
+                     '<p><b>Asserter</b>: SMART, NANCYU</p></div>'
+            },
+            'clinicalStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
+                  'code': 'active',
+                  'display': 'Active'
+                }
+              ],
+              'text': 'Active'
+            },
+            'verificationStatus': {
+              'coding': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+                  'code': 'confirmed',
+                  'display': 'Confirmed'
+                }
+              ],
+              'text': 'Confirmed'
+            },
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
+                    'code': 'health-concern',
+                    'display': 'Health Concern'
+                  }
+                ],
+                'text': 'Health Concern'
+              }
+            ],
+            'code': {
+              'text': 'Afraid my community will not be as close with COVID19.'
+            },
+            'subject': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCYU'
+            },
+            'onsetDateTime': '2020-07-06',
+            'recordedDate': '2020-07-06T19:36:23.000Z',
+            'recorder': {
+              'reference': 'Practitioner/12724064',
+              'display': 'Spence, Stephen'
+            },
+            'asserter': {
+              'reference': 'Patient/12724066',
+              'display': 'SMART, NANCYU'
+            },
+            'note': [
+              {
+                'time': '2020-07-06T19:36:23.000Z',
+                'text': 'Concerns with impact of COVID19 on community.'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.hcncrn-00a5d6eb-c567-42f7-be07-53804cece075',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'INT.hcncrn-00a5d6eb-c567-42f7-be07-53804cece075',
+            'meta': {
+              'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
+              'lastUpdated': '2020-07-06T19:36:23Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p><p><b>Target</b>:</p>'\
+                     '<ul><li>Condition/00a5d6eb-c567-42f7-be07-53804cece075</li></ul><p><b>Recorded'\
+                     'Spence, Open Platform IA, Stephen</b>: Jul  6, 2020  7:36 P.M. UTC</p><p><b>Agents</b>'\
+                     ':</p><dl><dt></dt><dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
+            },
+            'target': [
+              {
+                'reference': 'Condition/00a5d6eb-c567-42f7-be07-53804cece075'
+              }
+            ],
+            'recorded': '2020-07-06T19:36:23Z',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Practitioner/12724064',
+                  'display': 'Spence, Open Platform IA, Stephen'
+                }
+              }
+            ]
+          },
+          'search': {
+            'mode': 'include'
+          }
+        }
+      ]
+    }.freeze
+
     R4_CONDITION_CREATE ||= {
       'resourceType': 'Condition',
       'subject': {
