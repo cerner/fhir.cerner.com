@@ -120,7 +120,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC Taxi
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC
 
 #### Response
 

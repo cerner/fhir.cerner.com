@@ -129,7 +129,7 @@ module Cerner
       "physicalType": {
         "coding": [
           {
-            "system": 'https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/222',
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
             "code": '783',
             "display": 'Facility(s)',
             "userSelected": true
@@ -191,7 +191,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC+Taxi'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC'
         }
       ],
       "entry": [
@@ -206,10 +206,10 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>
-              <p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>
-              <p><b>Managing Organization</b>: ABC Taxi Company</p>
-              <p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p> '\
+              '<p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>'\
+              '<p><b>Managing Organization</b>: ABC Taxi Company</p> '\
+              '<p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
             },
             "status": 'active',
             "name": 'ABC Taxi Company',
@@ -237,7 +237,7 @@ module Cerner
             "physicalType": {
               "coding": [
                 {
-                  "system": 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/222',
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
                   "code": '783',
                   "display": 'Facility(s)',
                   "userSelected": true
@@ -281,10 +281,10 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>
-              <p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>
-              <p><b>Managing Organization</b>: ABC Taxi Company</p>
-              <p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>'\
+              '<p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>'\
+              '<p><b>Managing Organization</b>: ABC Taxi Company</p>'\
+              '<p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
             },
             "status": 'active',
             "name": 'ABC Taxi Company',
@@ -312,7 +312,7 @@ module Cerner
             "physicalType": {
               "coding": [
                 {
-                  "system": 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/222',
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
                   "code": '783',
                   "display": 'Facility(s)',
                   "userSelected": true
