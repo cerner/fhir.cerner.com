@@ -1,0 +1,582 @@
+---
+name: Parameters
+field_name_base_url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters
+fields:
+
+  - name: resourceType
+    required: 'Yes'
+    type: string
+    description: The type of the FHIR resource.
+    action: modify
+    example: |
+      {
+        "resourceType": "Parameters"
+      }
+    note: resourceType must be ChargeItem
+    url: https://hl7.org/fhir/r4/json.html#resources
+
+  - name: parameter
+    required: 'Yes'
+    type: List of BackboneElement
+    description: Parameters defined by the operation.
+    action: credit
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: status
+    required: 'Yes'
+    type: string
+    description: The status of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "status": "unknown"
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `string`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.status
+
+  - name: subject
+    required: 'Yes'
+    type: Reference (Patient)
+    description: The Patient associated with the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "subject": {
+                "reference": "Patient/6968792"
+              }
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject
+
+  - name: context
+    required: 'Yes'
+    type: Reference (Encounter)
+    description: The Encounter associated with the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "context": {
+                "reference": "Encounter/98255557"
+              }
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
+
+  - name: occurrenceDateTime
+    required: 'No'
+    type: string
+    description: The occurrenceDateTime of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "occurrenceDateTime": "2021-01-08T10:38:00Z"
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `datetime`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrenceDateTime
+
+  - name: quantity
+    required: 'No'
+    type: integer
+    description: The quantity of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "quantity": {
+                "value": 31
+              }
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `integer`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity
+
+  - name: code
+    required: 'Yes'
+    type: CodeableConcept
+    description: The code of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "code": {
+                "coding": [
+                  {
+                    "extension": [
+                      {
+                        "valueCoding": {
+                          "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                          "code": "615214"
+                        },
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                      }
+                    ],
+                    "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT",
+                    "code": "88384"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
+
+  - name: performer
+    required: 'No'
+    type: List of performer
+    description: The performer of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "performer": [
+                {
+                  "function": {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0912",
+                        "code": "OP",
+                        "display": "Ordering Provider"
+                      }
+                    ],
+                    "text": "Ordering Provider"
+                  },
+                  "actor": {
+                    "reference": "Practitioner/3943231"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It should contain `actor`</li>
+        <li>The value of actor must be in the form of `valueReference`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
+
+  - name: reason
+    required: 'No'
+    type: List of reason
+    description: The reason of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "reason": [
+                {
+                  "extension": [
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "coding": [
+                    {
+                      "extension": [
+                        {
+                          "valueCoding": {
+                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                            "code": "615217"
+                          },
+                          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                        }
+                      ],
+                      "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-ICD",
+                      "code": "0023"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It must have priority extension </li>
+        <li>It must have bill-code-schedule extension </li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
+
+  - name: account
+    required: 'No'
+    type: List of account
+    description: The account of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "account": [
+                {
+                  "reference": "Account/F3236114"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account
+
+  - name: Replacing Extension
+    required: 'Yes'
+    type: Extension
+    description: The replacing extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "valueId": "1",
+                      "url": "item-version"
+                    }
+                  ],
+                  "valueReference": {
+                    "reference": "ChargeItem/2175336617"
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Performing Location Extension
+    required: 'No'
+    type: Extension
+    description: The performing-location extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "valueReference": {
+                    "reference": "Location/2170691494",
+                    "display": "RCR Analytics"
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueReference`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Description Extension
+    required: 'No'
+    type: Extension
+    description: The description extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "valueString": "85095 AP Bill Bone Marrow Aspiration1",
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/description"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueString`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Custom Attribute Extension
+    required: 'No'
+    type: List of Custom Attribute Extension
+    description: The custom-attribute extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "id": "17433932",
+                      "valueString": "Line Note Text",
+                      "url": "custom-attribute-name"
+                    },
+                    {
+                      "valueString": "Raghu, P",
+                      "url": "custom-attribute-value"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueString`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Modifier Code Extension
+    required: 'No'
+    type: Extension
+    description: The modifier-code extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "extension": [
+                              {
+                                "valueCoding": {
+                                  "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                                  "code": "3536620"
+                                },
+                                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                              }
+                            ],
+                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-MODIFIER",
+                            "code": "26"
+                          }
+                        ]
+                      },
+                      "url": "code"
+                    },
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It Must have priority extension</li>
+        <li>The value of priority must be in the form of `valueUnsignedInt`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Procedure Code Extension
+    required: 'No'
+    type: List of Procedure Code Extension
+    description: The modifier-code extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "extension": [
+                              {
+                                "valueCoding": {
+                                  "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                                  "code": "3536619"
+                                },
+                                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                              }
+                            ],
+                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT",
+                            "code": "88304"
+                          }
+                        ]
+                      },
+                      "url": "code"
+                    },
+                    {
+                      "valueUnsignedInt": 1,
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It Must have priority extension</li>
+        <li>The value of priority must be in the form of `valueUnsignedInt`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: Revenue Code Extension
+    required: 'No'
+    type: Extension
+    description: The revenue-code extension of the ChargeItem.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "resource": {
+              "extension": [
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "extension": [
+                          {
+                            "valueCoding": {
+                              "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                              "code": "4670239"
+                            },
+                            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                          }
+                        ],
+                        "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-REVENUE",
+                        "code": "0971"
+                      }
+                    ]
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `CodeableConcept`</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+
+  - name: transactionId
+    required: 'Yes'
+    type: uuid
+    description: A UUID to uniquely identify the credit operation.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "transactionId",
+            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueUuid`</li>
+        <li>Only one value can be defined</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.transactionId
