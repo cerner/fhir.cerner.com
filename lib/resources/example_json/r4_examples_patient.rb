@@ -74,7 +74,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/4640016',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016',
                     'code': '485602703',
                     'display': 'Appointment Reminders',
                     'userSelected': true
@@ -94,7 +94,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/23042',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042',
                     'code': '495085513',
                     'display': 'Fax',
                     'userSelected': true
@@ -114,7 +114,7 @@ module Cerner
               'valueCodeableConcept': {
                 'coding': [
                   {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/43',
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43',
                     'code': '163',
                     'display': 'Business',
                     'userSelected': true
