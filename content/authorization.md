@@ -1054,15 +1054,30 @@ preceding documentation.
   such devices to participate in the authorization
   ecosystem.
 
+- What happens when a user revokes my application's
+  access to their data?
+
+> When a user revokes an application's access, its
+  *refresh* tokens immediately become non-functional.
+  *Access* tokens cannot be directly revoked; however,
+  they are only valid for a brief period in any case
+  (on the order of a few minutes). As a result, it is
+  generally unnecessary (and inefficient) for applications
+  to check for access token validity using an introspection
+  endpoint. This behavior is discussed in more detail in
+  Section 3 of RFC 7009
+  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009),
+  as well as Section 16.18 of the
+  ["OpenID Connect Core 1.0"](https://openid.net/specs/openid-connect-core-1_0.html)
+  specification.
+
 - How can my application revoke a refresh token on
   behalf of a user?
 
 > Cerner currently does not have a mechanism that allows
-  client applications to revoke refresh tokens.  Cerner is
-  currently tracking the progress of the IETF Proposed
-  Standard RFC
-  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009)
-  for further evaluation of such capabilities.
+  client applications to revoke refresh tokens.  If/when
+  such functionality is implemented, it will follow RFC 7009
+  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009).
 
 - How can my application participate in log out
   mechanisms provided by the organization's single
