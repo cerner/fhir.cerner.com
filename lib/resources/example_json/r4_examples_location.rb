@@ -184,5 +184,155 @@ module Cerner
       ]
     }.freeze
 
+    R4_LOCATION_ADDRESS_NAME_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'af79f094-3b5e-4472-86bf-4044aeb4193c',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC+Taxi'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033',
+          "resource": {
+            "resourceType": 'Location',
+            "id": '2554914033',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2017-09-19T17:38:08Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>
+              <p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>
+              <p><b>Managing Organization</b>: ABC Taxi Company</p>
+              <p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+            },
+            "status": 'active',
+            "name": 'ABC Taxi Company',
+            "alias": [
+              'ABC Taxi'
+            ],
+            "mode": 'instance',
+            "telecom": [
+              {
+                "system": 'phone',
+                "value": '8168769999'
+              }
+            ],
+            "address": {
+              "use": 'work',
+              "text": "123 Main Street\nKansas City, MO 64117\nUS",
+              "line": [
+                '123 Main Street'
+              ],
+              "city": 'Kansas City',
+              "state": 'MO',
+              "postalCode": '64117',
+              "country": 'US'
+            },
+            "physicalType": {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/222',
+                  "code": '783',
+                  "display": 'Facility(s)',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
+                  "code": 'si',
+                  "display": 'Site'
+                }
+              ],
+              "text": 'Facility(s)'
+            },
+            "managingOrganization": {
+              "reference": 'Organization/3054032',
+              "display": 'ABC Taxi Company'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_LOCATION_ADDRESS_ORGANIZATION_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'a05b2157-824e-4908-b94e-f4617d6ab95e',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=3054032'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033',
+          "resource": {
+            "resourceType": 'Location',
+            "id": '2554914033',
+            "meta": {
+              "versionId": '0',
+              "lastUpdated": '2017-09-19T17:38:08Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>
+              <p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>
+              <p><b>Managing Organization</b>: ABC Taxi Company</p>
+              <p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+            },
+            "status": 'active',
+            "name": 'ABC Taxi Company',
+            "alias": [
+              'ABC Taxi'
+            ],
+            "mode": 'instance',
+            "telecom": [
+              {
+                "system": 'phone',
+                "value": '8168769999'
+              }
+            ],
+            "address": {
+              "use": 'work',
+              "text": "123 Main Street\nKansas City, MO 64117\nUS",
+              "line": [
+                '123 Main Street'
+              ],
+              "city": 'Kansas City',
+              "state": 'MO',
+              "postalCode": '64117',
+              "country": 'US'
+            },
+            "physicalType": {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/222',
+                  "code": '783',
+                  "display": 'Facility(s)',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
+                  "code": 'si',
+                  "display": 'Site'
+                }
+              ],
+              "text": 'Facility(s)'
+            },
+            "managingOrganization": {
+              "reference": 'Organization/3054032',
+              "display": 'ABC Taxi Company'
+            }
+          }
+        }
+      ]
+    }.freeze
+
   end
 end

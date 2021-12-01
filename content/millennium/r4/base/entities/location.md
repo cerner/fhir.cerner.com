@@ -116,6 +116,32 @@ Search for Locations that meet supplied query parameters:
 
 <%= disclaimer %>
 
+### Example with name
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&name=ABC Taxi
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_address_name_bundle) %>
+
+<%= disclaimer %>
+
+### Example with organization
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=3054032
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_address_organization_bundle) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
