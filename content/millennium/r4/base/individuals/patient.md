@@ -19,7 +19,7 @@ The following fields are returned if valued:
 * [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
 * [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
 * [Gender (administrative)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender){:target="_blank"}
-* [Extensions including birth time, preferred contact, birth sex, ethnicity and race](#extensions){:target="_blank"}
+* [Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race](#extensions){:target="_blank"}
 * [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
 * [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
 * [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
@@ -40,6 +40,7 @@ The following fields are returned if valued:
 * [US Core Race]
 * [US Core Ethnicity]
 * [US Core Birth Sex]
+* [Communication Preference]
 
 ## Search
 
@@ -290,4 +291,5 @@ See [Health Cards] documentation for more details about this operation.
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
+[Communication Preference]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
 [Health Cards]: /millennium/r4/other/health-cards/

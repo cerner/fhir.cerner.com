@@ -84,6 +84,7 @@ Authorization is not required.
  [`condition-lifecycle-status`]                              | Indication of whether a condition is active, inactive, resolved, etc.
  [`condition-result`]                                        | Indication of the presence (positive) or absence (negative) of a given condition.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
+ [`communication-preference`]                                | Defines communication methods preferred by a patient.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
  [`email-status`]                                            | The status of the electronic communication.
@@ -136,6 +137,7 @@ Authorization is not required.
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
 [`bill-code-schedule`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json
+[`communication-preference`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
 [`choice-answer`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer?_format=json
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
