@@ -1207,10 +1207,28 @@ the authorization workflow?</li>
 <blockquote>
   <p>Cerner currently does not have a mechanism to allow
   such devices to participate in the authorization
-  ecosystem.  Cerner is tracking the progress
-  of the IETF draft RFC
-  <a href="https://tools.ietf.org/html/draft-denniss-oauth-device-flow-00">“OAuth 2.0 Device Flow”</a>
-  for further evaluation of such capabilities.</p>
+  ecosystem.</p>
+</blockquote>
+
+<ul>
+  <li>What happens when a user revokes my application’s
+access to their data?</li>
+</ul>
+
+<blockquote>
+  <p>When a user revokes an application’s access, its
+  <em>refresh</em> tokens immediately become non-functional.
+  <em>Access</em> tokens cannot be directly revoked; however,
+  they are only valid for a brief period in any case
+  (on the order of a few minutes). As a result, it is
+  generally unnecessary (and inefficient) for applications
+  to check for access token validity using an introspection
+  endpoint. This behavior is discussed in more detail in
+  Section 3 of RFC 7009
+  <a href="https://tools.ietf.org/html/rfc7009">“OAuth 2.0 Token Revocation”</a>,
+  as well as Section 16.18 of the
+  <a href="https://openid.net/specs/openid-connect-core-1_0.html">“OpenID Connect Core 1.0”</a>
+  specification.</p>
 </blockquote>
 
 <ul>
@@ -1220,11 +1238,9 @@ behalf of a user?</li>
 
 <blockquote>
   <p>Cerner currently does not have a mechanism that allows
-  client applications to revoke refresh tokens.  Cerner is
-  currently tracking the progress of the IETF Proposed
-  Standard RFC
-  <a href="https://tools.ietf.org/html/rfc7009">“OAuth 2.0 Token Revocation”</a>
-  for further evaluation of such capabilities.</p>
+  client applications to revoke refresh tokens.  If/when
+  such functionality is implemented, it will follow RFC 7009
+  <a href="https://tools.ietf.org/html/rfc7009">“OAuth 2.0 Token Revocation”</a>.</p>
 </blockquote>
 
 <ul>

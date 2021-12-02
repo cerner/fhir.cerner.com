@@ -68,7 +68,7 @@
       <ul>
         <li><a href="../../../../overview/">Overview</a></li>
         <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../">R4 First Normative Content (4.0.1)</a></li>
         <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -89,12 +89,14 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
+      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
 <a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
       <li><a href="#patient-combines-example" id="markdown-toc-patient-combines-example">Patient Combines Example</a></li>
@@ -103,7 +105,7 @@
   </li>
   <li>
 <a href="#create" id="markdown-toc-create">Create</a>    <ul>
-      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
@@ -112,11 +114,11 @@
   </li>
   <li>
 <a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
-      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#authorization-types-4" id="markdown-toc-authorization-types-4">Authorization Types</a></li>
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#response-4" id="markdown-toc-response-4">Response</a></li>
+      <li><a href="#response-5" id="markdown-toc-response-5">Response</a></li>
       <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
@@ -125,7 +127,7 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.</p>
+<p>The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -136,7 +138,7 @@
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.name" target="_blank">Patient name</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom" target="_blank">Telecom Information (may include phone and email)</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender" target="_blank">Gender (administrative)</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including birth time, birth sex, ethnicity and race</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
@@ -477,6 +479,7 @@
       
       
       
+      
   </tbody>
 </table>
 
@@ -484,9 +487,11 @@
 
 <ul>
   <li><a href="https://hl7.org/fhir/R4/extension-patient-birthtime.html">Patient Birth Time</a></li>
+  <li><a href="https://www.hl7.org/fhir/extension-organization-preferredcontact.html">Patient Preferred Contact</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html">US Core Race</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
+  <li><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
 </ul>
 
 <h2 id="search">Search</h2>
@@ -603,6 +608,12 @@
       <td><a href="http://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
     </tr>
+    <tr>
+      <td><code>_revinclude</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+    </tr>
   </tbody>
 </table>
 
@@ -621,6 +632,18 @@
       <li>Must not be provided with a time component</li>
     </ul>
   </li>
+  <li>The <code>identifier</code> parameter
+    <ul>
+      <li>Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+Patient resource.</li>
+      <li>When valid system is provided, search is performed against the specific system.</li>
+    </ul>
+  </li>
+  <li>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+</li>
+  <li>The <code>_revinclude</code> parameter may be provided with any required search param. Example: <code>_id=629928&amp;_revinclude=Provenance:target</code>
+</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -665,6 +688,76 @@
           "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 29, 1976&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
+          {
+            "id": "59434424",
+            "extension": [
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                      "code": "485602703",
+                      "display": "Appointment Reminders",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/communication-topic",
+                      "code": "appointment-reminder",
+                      "display": "Appointment Reminder",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Appointment Reminders"
+                },
+                "url": "communication-type"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                      "code": "495085513",
+                      "display": "Fax",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://hl7.org/fhir/contact-point-system",
+                      "code": "fax",
+                      "display": "Fax",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Fax"
+                },
+                "url": "contact-method"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                      "code": "163",
+                      "display": "Business",
+                      "userSelected": true
+                    },
+                    {
+                      "system": "http://hl7.org/fhir/contact-point-use",
+                      "code": "work",
+                      "display": "Work",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Business"
+                },
+                "url": "contact-type"
+              },
+              {
+                "valueDateTime": "2019-04-13T20:00:00.000Z",
+                "url": "verified-datetime"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+          },
           {
             "extension": [
               {
@@ -1006,6 +1099,310 @@
   ]
 }</code></pre>
 
+<h3 id="example-with-revinclude">Example with RevInclude</h3>
+
+<h3 id="authorization-types-1">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=629928&amp;_revinclude=Provenance:target
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "65ee4c79-3514-4eab-b606-10ad56fb0d5d",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=629928&amp;_revinclude=Provenance%3Atarget"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/629928",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "629928",
+        "meta": {
+          "versionId": "36",
+          "lastUpdated": "2020-09-17T16:35:12.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: England,\n              Brad N&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Jan 20, 1999&lt;/p&gt;\n              &lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Unknown&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "extension": [
+              {
+                "valueCode": "unknown",
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "id": "CI-629928-0",
+            "use": "official",
+            "text": "England, Brad N",
+            "family": "England",
+            "given": [
+              "Brad",
+              "N"
+            ],
+            "period": {
+              "start": "2004-01-27T00:00:00.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-PH-46477780-0",
+            "extension": [
+              {
+                "valueUrl": "2232323",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              }
+            ],
+            "system": "phone",
+            "value": "2232323",
+            "rank": 1,
+            "period": {
+              "start": "2021-01-11T06:00:00.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-9543543-1",
+            "extension": [
+              {
+                "valueUrl": "1234567890",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              },
+              {
+                "valueString": "345",
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+              }
+            ],
+            "system": "phone",
+            "value": "1234567890",
+            "use": "home",
+            "rank": 1,
+            "period": {
+              "start": "2014-01-20T15:48:39.000Z",
+              "end": "2014-03-20T15:48:39.000Z"
+            }
+          },
+          {
+            "id": "CI-PH-9543573-2",
+            "extension": [
+              {
+                "valueUrl": "1234567890",
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address"
+              },
+              {
+                "valueString": "345",
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+              }
+            ],
+            "system": "phone",
+            "value": "1234567890",
+            "use": "home",
+            "rank": 1,
+            "period": {
+              "start": "2014-01-20T15:48:39.000Z",
+              "end": "2014-03-20T15:48:39.000Z"
+            }
+          }
+        ],
+        "gender": "unknown",
+        "birthDate": "1999-01-20",
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                    "code": "83266815",
+                    "display": "Authorized Representative",
+                    "userSelected": true
+                  }
+                ],
+                "text": "Authorized Representative"
+              }
+            ],
+            "name": {
+              "id": "CI-170778458-0",
+              "use": "official",
+              "text": "MARSTON, Dutch",
+              "family": "MARSTON",
+              "given": [
+                "Dutch"
+              ],
+              "period": {
+                "start": "2020-08-26T14:44:08.000Z"
+              }
+            },
+            "telecom": [
+              {
+                "system": "email",
+                "value": "kaishwaryaramesh@gmail.com",
+                "use": "home",
+                "rank": 1,
+                "period": {
+                  "start": "2020-10-09T07:29:32.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 2,
+                "period": {
+                  "start": "2020-08-26T14:45:59.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 3,
+                "period": {
+                  "start": "2020-08-26T16:47:31.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 4,
+                "period": {
+                  "start": "2020-08-27T20:27:31.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 5,
+                "period": {
+                  "start": "2020-08-28T15:24:19.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 6,
+                "period": {
+                  "start": "2020-08-31T15:16:18.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 7,
+                "period": {
+                  "start": "2020-09-10T20:41:05.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "abigail.testpatient@gmail.com",
+                "use": "home",
+                "rank": 8,
+                "period": {
+                  "start": "2020-09-11T15:52:04.000Z"
+                }
+              }
+            ],
+            "gender": "male",
+            "period": {
+              "start": "2020-08-27T20:27:31.000Z"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "match"
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/ptntdemo-17390433",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "ptntdemo-17390433",
+        "meta": {
+          "versionId": "17390433",
+          "lastUpdated": "2021-06-03T11:18:59Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Provenance&lt;/b&gt;&lt;/p&gt;\n              &lt;p&gt;&lt;b&gt;Target&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Patient/629928&lt;/li&gt;&lt;/ul&gt;\n              &lt;p&gt;&lt;b&gt;Recorded&lt;/b&gt;: Jun  3, 2021  6:18 A.M. CDT&lt;/p&gt;\n              &lt;p&gt;&lt;b&gt;Agents&lt;/b&gt;:&lt;/p&gt;&lt;dl&gt;&lt;dt&gt;organizationName PrH&lt;/dt&gt;\n              &lt;dd&gt;&lt;b&gt;Agent Type&lt;/b&gt;: Author&lt;/dd&gt;\n              &lt;dd&gt;&lt;b&gt;Agent Role&lt;/b&gt;: Source&lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;b&gt;Entity Source&lt;/b&gt;: DocumentReference/S-68607&lt;/p&gt;&lt;/div&gt;"
+        },
+        "target": [
+          {
+            "reference": "Patient/629928"
+          }
+        ],
+        "recorded": "2021-06-03T11:18:59Z",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author"
+                }
+              ],
+              "text": "Author"
+            },
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+                    "code": "SOURCE"
+                  }
+                ],
+                "text": "Source"
+              }
+            ],
+            "who": {
+              "reference": "Organization/59917604",
+              "display": "organizationName PrH"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "reference": "DocumentReference/S-68607"
+            }
+          }
+        ]
+      },
+      "search": {
+        "mode": "include"
+      }
+    }
+  ]
+}</code></pre>
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned. In addition, a <code>422 Unprocessable Entity</code> will be returned when too many (&gt;1000) patients qualify for the search criteria.</p>
@@ -1023,7 +1420,7 @@
   <li>Direct secure email will not be returned.</li>
 </ul>
 
-<h3 id="authorization-types-1">Authorization Types</h3>
+<h3 id="authorization-types-2">Authorization Types</h3>
 
 <div class="auth-types">
 <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -1036,12 +1433,12 @@
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724067
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1057,6 +1454,76 @@
     "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: SMART, JOE&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;DOB&lt;/b&gt;: Apr 29, 1976&lt;/p&gt;&lt;p&gt;&lt;b&gt;Administrative Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Marital Status&lt;/b&gt;: Married&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
+    {
+      "id": "59434424",
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                "code": "485602703",
+                "display": "Appointment Reminders",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/communication-topic",
+                "code": "appointment-reminder",
+                "display": "Appointment Reminder",
+                "userSelected": false
+              }
+            ],
+            "text": "Appointment Reminders"
+          },
+          "url": "communication-type"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                "code": "495085513",
+                "display": "Fax",
+                "userSelected": true
+              },
+              {
+                "system": "http://hl7.org/fhir/contact-point-system",
+                "code": "fax",
+                "display": "Fax",
+                "userSelected": false
+              }
+            ],
+            "text": "Fax"
+          },
+          "url": "contact-method"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                "code": "163",
+                "display": "Business",
+                "userSelected": true
+              },
+              {
+                "system": "http://hl7.org/fhir/contact-point-use",
+                "code": "work",
+                "display": "Work",
+                "userSelected": false
+              }
+            ],
+            "text": "Business"
+          },
+          "url": "contact-type"
+        },
+        {
+          "valueDateTime": "2019-04-13T20:00:00.000Z",
+          "url": "verified-datetime"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+    },
     {
       "extension": [
         {
@@ -1404,12 +1871,12 @@ the entries directly by id. They will not be returned when searching with other 
 
 <p>The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.</p>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742633
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1480,7 +1947,7 @@ the entries directly by id. They will not be returned when searching with other 
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
 </ul>
 
-<h3 id="authorization-types-2">Authorization Types</h3>
+<h3 id="authorization-types-3">Authorization Types</h3>
 
 <div class="auth-types">
 <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -1728,7 +2195,7 @@ the entries directly by id. They will not be returned when searching with other 
   <li>Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
   <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
   <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
-  <li>The <code>family</code> field has a character limit of 100.</li> 
+  <li>The <code>family</code> field has a character limit of 100.</li>
   <li>Each value for the <code>given</code>, <code>prefix</code>, and <code>suffix</code> fields has a character limit of 100.</li>
 </ul>
 </li></ul>
@@ -1770,7 +2237,7 @@ the entries directly by id. They will not be returned when searching with other 
           "valueString": "12345",
           "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
         }
-      ],  
+      ],
       "period": {
         "start": "2012-05-17T15:33:18.000Z"
       }
@@ -2213,12 +2680,98 @@ the entries directly by id. They will not be returned when searching with other 
       </td>
     </tr>
     
+    <tr>
+      <td>
+        <a name="create-Communication%20Preference%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json"><code>Communication Preference Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The communication preference for the patient.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+      "extension": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                    "code": "485602703",
+                    "display": "Appointment Reminder",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Appointment Reminder"
+              },
+              "url": "communication-type"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                    "code": "4054467",
+                    "display": "Phone",
+                    "userSelected": false
+                  }
+                ]
+                },
+              "url": "contact-method"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                    "code": "163",
+                    "display": "Business",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Home"
+              },
+              "url": "contact-type"
+            }
+          ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+      "verified": "2019-12-26T15:41:52.000Z"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
 <h3 id="example-2">Example</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient
 </code></pre>
@@ -2263,6 +2816,57 @@ the entries directly by id. They will not be returned when searching with other 
             "code": "2186-5",
             "display": "Non Hispanic or Latino"
           }
+        }
+      ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+      "extension": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                    "code": "485602703",
+                    "display": "Appointment Reminder",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Appointment Reminder"
+              },
+              "url": "communication-type"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                    "code": "4054467",
+                    "display": "Phone",
+                    "userSelected": false
+                  }
+                ]
+              },
+              "url": "contact-method"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                    "code": "163",
+                    "display": "Business",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Home"
+              },
+              "url": "contact-type"
+            }
+          ],
+          "verified": "2019-12-26T15:41:52.000Z"
         }
       ]
     }
@@ -2365,7 +2969,7 @@ the entries directly by id. They will not be returned when searching with other 
   ]
 }</code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2402,7 +3006,7 @@ X-Request-Id: 11111111111111111111111111111111
   <li>When a path includes <code>{index}</code>, it refers to the index of the element in the list of elements. The indexes here are 0 based.</li>
 </ul>
 
-<h3 id="authorization-types-3">Authorization Types</h3>
+<h3 id="authorization-types-4">Authorization Types</h3>
 
 <div class="auth-types">
 <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -4070,6 +4674,61 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
           }
         }
       ]
+    },
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+      "extension": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                    "code": "485602703",
+                    "display": "Appointment Reminder",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Appointment Reminder"
+              },
+              "url": "communication-type"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                    "code": "4054467",
+                    "display": "Phone",
+                    "userSelected": false
+                  }
+                ]
+              },
+              "url": "contact-method"
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                    {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                    "code": "163",
+                    "display": "Business",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Home" 
+              },
+              "url": "contact-type"
+            },
+            {
+              "valueDateTime": "2019-12-26T15:41:52.000Z",
+              "url": "verified-datetime"
+            }
+          ],
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+        }
+      ]
     }
   ]
 }
@@ -4085,6 +4744,180 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
 </li>
   <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a>
 </li>
+  <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a>
+</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="test-communication-preference-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/extension/{index}/id</code></a>
+          
+        
+      </td>
+      <td>test</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Test the value of the <code>CommunicationPreference.id</code> of the Communication Preference at the given <code>{index}</code> in the list of the patient's extensions.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/extension/1/id",
+  "op": "test",
+  "value": "151534123"
+}
+</pre></li></ul>
+          
+          
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="remove-communication-preference-id">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/element-definitions.html#Element.id"><code>/extension/{index}</code></a>
+          
+        
+      </td>
+      <td>remove</td>
+      <td>
+<code>N</code>/<code>A</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Remove the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/extension/1",
+  "op": "remove"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the <code>CommunicationPreference.id</code> of the Communication Preference intended to be removed.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-communication-preference">
+          
+            </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json"><code>/extension/-</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<code>Communication</code> <code>Preference</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Add a new Communication Preference extension for the patient.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "path": "/extension/-",
+  "op": "add",
+  "value": {
+    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+    "extension": [
+      {
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                  "code": "485602703",
+                  "display": "Appointment Reminder",
+                  "userSelected": false
+                }
+              ],
+              "text": "Appointment Reminder"
+            },
+            "url": "communication-type"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                  "code": "4054467",
+                  "display": "Phone",
+                  "userSelected": false
+                }
+              ]
+            },
+            "url": "contact-method"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                  {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                  "code": "163",
+                  "display": "Business",
+                  "userSelected": false
+                }
+              ],
+              "text": "Home" 
+            },
+            "url": "contact-type"
+          },
+          {
+            "valueDateTime": "2019-12-26T15:41:52.000Z",
+            "url": "verified-datetime"
+          }
+        ],
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Must be a valid <code>CommunicationPreference</code> extension.</li>
 </ul>
 </li></ul>
           
@@ -4098,7 +4931,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
 
 <h3 id="example-3">Example</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12724067
 </code></pre>
@@ -4231,7 +5064,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
   }
 ]</code></pre>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

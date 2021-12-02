@@ -68,7 +68,7 @@
       <ul>
         <li><a href="../../../../overview/">Overview</a></li>
         <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../../">R4 First Normative Content (4.0.0)</a></li>
+        <li><a href="../../../">R4 First Normative Content (4.0.1)</a></li>
         <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -93,6 +93,10 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-address" id="markdown-toc-example-with-address">Example with address</a></li>
+      <li><a href="#example-address-city-with-address-state" id="markdown-toc-example-address-city-with-address-state">Example address-city with address-state</a></li>
+      <li><a href="#example-with-name" id="markdown-toc-example-with-name">Example with name</a></li>
+      <li><a href="#example-with-organization" id="markdown-toc-example-with-organization">Example with organization</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -330,6 +334,42 @@
       <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>100</code>.</td>
     </tr>
+    <tr>
+      <td><code>address</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A (part of the) address of the location.</td>
+    </tr>
+    <tr>
+      <td><code>address-city</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A city specified in an address</td>
+    </tr>
+    <tr>
+      <td><code>address-state</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A state specified in an address</td>
+    </tr>
+    <tr>
+      <td><code>address-postalcode</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A postal code specified in an address</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>A portion of the location’s name or alias</td>
+    </tr>
+    <tr>
+      <td><code>organization</code></td>
+      <td>no</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>Searches for locations that are managed by the provided organization</td>
+    </tr>
   </tbody>
 </table>
 
@@ -339,6 +379,11 @@
   <li>The <code>-physicalType</code> parameter
     <ul>
       <li>Searching by Millennium proprietary codes is not supported.</li>
+    </ul>
+  </li>
+  <li>The <code>-address-city</code> parameter
+    <ul>
+      <li>needs address-state or address-postalcode while searching with address-city</li>
     </ul>
   </li>
 </ul>
@@ -453,6 +498,334 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<h3 id="example-with-address">Example with address</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "f4749f7a-e67d-49d1-8b92-ddbef46eae15",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA",
+      "resource": {
+        "resourceType": "Location",
+        "id": "982243103",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2019-03-29T14:40:50Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ADOne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "name": "Anushka Org One",
+        "alias": [
+          "ADOne"
+        ],
+        "mode": "instance",
+        "address": {
+          "use": "work",
+          "text": "111th West st\nMalvern, PA 19355\nUSA",
+          "line": [
+            "111th West st"
+          ],
+          "city": "Malvern",
+          "state": "PA",
+          "postalCode": "19355",
+          "country": "USA"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "si",
+              "display": "Site"
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/28096355",
+          "display": "Anushka Org One"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example-address-city-with-address-state">Example address-city with address-state</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "418d018e-ef93-43a0-b880-4888218ed3c6",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern",
+      "resource": {
+        "resourceType": "Location",
+        "id": "982243103",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2019-03-29T14:40:50Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ADOne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "name": "Anushka Org One",
+        "alias": [
+          "ADOne"
+        ],
+        "mode": "instance",
+        "address": {
+          "use": "work",
+          "text": "111th West st\nMalvern, PA 19355\nUSA",
+          "line": [
+            "111th West st"
+          ],
+          "city": "Malvern",
+          "state": "PA",
+          "postalCode": "19355",
+          "country": "USA"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "si",
+              "display": "Site"
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/28096355",
+          "display": "Anushka Org One"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example-with-name">Example with name</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;name=ABC
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "af79f094-3b5e-4472-86bf-4044aeb4193c",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;name=ABC"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033",
+      "resource": {
+        "resourceType": "Location",
+        "id": "2554914033",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2017-09-19T17:38:08Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt; &lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: ABC Taxi Company&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ABC Taxi&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: ABC Taxi Company&lt;/p&gt; &lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "name": "ABC Taxi Company",
+        "alias": [
+          "ABC Taxi"
+        ],
+        "mode": "instance",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "8168769999"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "text": "123 Main Street\nKansas City, MO 64117\nUS",
+          "line": [
+            "123 Main Street"
+          ],
+          "city": "Kansas City",
+          "state": "MO",
+          "postalCode": "64117",
+          "country": "US"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "si",
+              "display": "Site"
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/3054032",
+          "display": "ABC Taxi Company"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example-with-organization">Example with organization</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=3054032
+</code></pre>
+
+<h4 id="response-4">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "a05b2157-824e-4908-b94e-f4617d6ab95e",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=3054032"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033",
+      "resource": {
+        "resourceType": "Location",
+        "id": "2554914033",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2017-09-19T17:38:08Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: ABC Taxi Company&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ABC Taxi&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: ABC Taxi Company&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "name": "ABC Taxi Company",
+        "alias": [
+          "ABC Taxi"
+        ],
+        "mode": "instance",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "8168769999"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "text": "123 Main Street\nKansas City, MO 64117\nUS",
+          "line": [
+            "123 Main Street"
+          ],
+          "city": "Kansas City",
+          "state": "MO",
+          "postalCode": "64117",
+          "country": "US"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "si",
+              "display": "Site"
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/3054032",
+          "display": "ABC Taxi Company"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
@@ -477,12 +850,12 @@
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
