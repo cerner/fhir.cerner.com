@@ -55,7 +55,7 @@ fields:
           {
             "resource": {
               "subject": {
-                "reference": "Patient/6968792"
+                "reference": "Patient/12768550"
               }
             }
           }
@@ -79,7 +79,7 @@ fields:
           {
             "resource": {
               "context": {
-                "reference": "Encounter/98255557"
+                "reference": "Encounter/97965088"
               }
             }
           }
@@ -154,14 +154,14 @@ fields:
                     "extension": [
                       {
                         "valueCoding": {
-                          "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
-                          "code": "615214"
+                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
+                          "code": "667687"
                         },
                         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                       }
                     ],
-                    "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT",
-                    "code": "88384"
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CDM_SCHED",
+                    "code": "64897"
                   }
                 ]
               }
@@ -200,7 +200,7 @@ fields:
                     "text": "Ordering Provider"
                   },
                   "actor": {
-                    "reference": "Practitioner/3943231"
+                    "reference": "Practitioner/11817978"
                   }
                 }
               ]
@@ -238,13 +238,13 @@ fields:
                       "extension": [
                         {
                           "valueCoding": {
-                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
                             "code": "615217"
                           },
                           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                         }
                       ],
-                      "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-ICD",
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD",
                       "code": "0023"
                     }
                   ]
@@ -281,7 +281,7 @@ fields:
                     }
                   ],
                   "valueReference": {
-                    "reference": "ChargeItem/2175336617"
+                    "reference": "ChargeItem/317370800"
                   },
                   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing"
                 }
@@ -337,7 +337,7 @@ fields:
             "resource": {
               "extension": [
                 {
-                  "valueString": "85095 AP Bill Bone Marrow Aspiration1",
+                  "valueString": "Acetaminophen Level",
                   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/description"
                 }
               ]
@@ -408,14 +408,14 @@ fields:
                             "extension": [
                               {
                                 "valueCoding": {
-                                  "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
-                                  "code": "3536620"
+                                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
+                                  "code": "3692"
                                 },
                                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                               }
                             ],
-                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-MODIFIER",
-                            "code": "26"
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER",
+                            "code": "66"
                           }
                         ]
                       },
@@ -461,14 +461,14 @@ fields:
                             "extension": [
                               {
                                 "valueCoding": {
-                                  "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
-                                  "code": "3536619"
+                                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
+                                  "code": "615214"
                                 },
                                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                               }
                             ],
-                            "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-CPT",
-                            "code": "88304"
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT",
+                            "code": "10081"
                           }
                         ]
                       },
@@ -513,14 +513,14 @@ fields:
                         "extension": [
                           {
                             "valueCoding": {
-                              "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/codeSet/14002",
-                              "code": "4670239"
+                              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
+                              "code": "615217"
                             },
                             "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                           }
                         ],
-                        "system": "https://fhir.cerner.com/9ce2bac1-f00e-43d9-ab88-89e1d4c52e1a/CodeSystem/BillCodes-REVENUE",
-                        "code": "0971"
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE",
+                        "code": "0024"
                       }
                     ]
                   },
