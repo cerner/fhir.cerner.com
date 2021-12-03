@@ -12,14 +12,14 @@ fields:
       {
         "resourceType": "Parameters"
       }
-    note: resourceType must be ChargeItem
+    note: resourceType must be Parameters
     url: https://hl7.org/fhir/r4/json.html#resources
 
   - name: parameter
     required: 'Yes'
     type: List of BackboneElement
     description: Parameters defined by the operation.
-    action: credit
+    action: modify
     url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
   - name: status
@@ -239,13 +239,13 @@ fields:
                         {
                           "valueCoding": {
                             "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
-                            "code": "615217"
+                            "code": "3693"
                           },
                           "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
                         }
                       ],
                       "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD",
-                      "code": "0023"
+                      "code": "R51"
                     }
                   ]
                 }
@@ -365,12 +365,12 @@ fields:
                 {
                   "extension": [
                     {
-                      "id": "17433932",
-                      "valueString": "Line Note Text",
+                      "id": "2572130093",
+                      "valueString": "Special Authority",
                       "url": "custom-attribute-name"
                     },
                     {
-                      "valueString": "Raghu, P",
+                      "valueInteger": 1,
                       "url": "custom-attribute-value"
                     }
                   ],
@@ -383,8 +383,8 @@ fields:
       }
     note: >
       <ul>
-        <li>Custom-attribute-value and Custom-attribute-value are both required</li>
-        <li>Custom-attribute-value can be of type integer, string, decimal, or date</li>
+        <li>Custom-attribute-name and Custom-attribute-value are both required</li>
+        <li>Custom-attribute-value can be of type integer, string, decimal, or date_time</li>
       </ul>
     url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
@@ -540,7 +540,7 @@ fields:
   - name: transactionId
     required: 'Yes'
     type: uuid
-    description: A UUID to uniquely identify the credit operation.
+    description: A UUID to uniquely identify the modify operation.
     action: modify
     example: |
       {
@@ -556,4 +556,4 @@ fields:
         <li>The value must be in the form of `valueUuid`</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.transactionId
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
