@@ -309,8 +309,8 @@ fields:
               "extension": [
                 {
                   "valueReference": {
-                    "reference": "Location/2170691494",
-                    "display": "RCR Analytics"
+                    "reference": "Location/21304903",
+                    "display": "NM"
                   },
                   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
                 }
