@@ -295,7 +295,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/ChargeItem/$create
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
 
 #### Body
 
@@ -310,7 +310,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Thu, 11 Nov 2021 17:23:14 GMT
 Etag: W/"0"
-Location: https://fhir-ehr.devcerner.com/r4/2c400054-42d8-4e74-87b7-80b5bd5fde9f/ChargeItem/$create
+Location: https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
 Last-Modified: Thu, 11 Nov 2021 17:25:14 GMT
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
