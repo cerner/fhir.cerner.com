@@ -1,6 +1,6 @@
 ---
 name: Parameters
-field_name_base_url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters
+field_name_base_url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters
 fields:
 
   - name: resourceType
@@ -20,7 +20,7 @@ fields:
     type: List of BackboneElement
     description: Parameters defined by the operation.
     action: modify
-    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
   - name: status
     required: 'Yes'
@@ -42,7 +42,7 @@ fields:
         <li>The status must be set to `unknown`</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.status
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.status
 
   - name: subject
     required: 'Yes'
@@ -66,7 +66,7 @@ fields:
         <li>Must be a Patient reference</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject
 
   - name: context
     required: 'Yes'
@@ -90,7 +90,7 @@ fields:
         <li>Must be an Encounter reference</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
 
   - name: occurrenceDateTime
     required: 'No'
@@ -112,7 +112,7 @@ fields:
         <li>The value must be in the form of `datetime`</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrenceDateTime
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrenceDateTime
 
   - name: quantity
     required: 'No'
@@ -136,7 +136,7 @@ fields:
         <li>The value must be in the form of `integer`</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity
 
   - name: code
     required: 'Yes'
@@ -175,7 +175,7 @@ fields:
         <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
 
   - name: performer
     required: 'No'
@@ -213,7 +213,7 @@ fields:
         <li>Need notes around supported system and values for function</li>
         <li>Both actor and function are required</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
 
   - name: reason
     required: 'No'
@@ -260,7 +260,7 @@ fields:
         <li>It must have priority extension </li>
         <li>It must have bill-code-schedule extension </li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
 
   - name: Replacing Extension
     required: 'Yes'
@@ -294,7 +294,7 @@ fields:
       <ul>
         <li>Can only provide one replacing extension</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Performing Location Extension
     required: 'No'
@@ -323,7 +323,7 @@ fields:
       <ul>
         <li>The value must be in the form of `valueReference`</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Description Extension
     required: 'No'
@@ -349,7 +349,7 @@ fields:
       <ul>
         <li>The value must be in the form of `valueString`</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Custom Attribute Extension
     required: 'No'
@@ -384,9 +384,9 @@ fields:
     note: >
       <ul>
         <li>Custom-attribute-name and Custom-attribute-value are both required</li>
-        <li>Custom-attribute-value can be of type integer, string, decimal, or date_time</li>
+        <li>Custom-attribute-value can be of type integer, string or decimal</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Modifier Code Extension
     required: 'No'
@@ -439,7 +439,7 @@ fields:
         <li>It Must have priority extension</li>
         <li>The value of priority must be in the form of `valueUnsignedInt`</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Procedure Code Extension
     required: 'No'
@@ -493,7 +493,7 @@ fields:
         <li>It Must have priority extension</li>
         <li>The value of priority must be in the form of `valueUnsignedInt`</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: Revenue Code Extension
     required: 'No'
@@ -535,7 +535,7 @@ fields:
       <ul>
         <li>The coding field must contain only one coding from the REVENUE proprietary Bill Codes Types system</li>
       </ul>
-    url: http://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
   - name: transactionId
     required: 'Yes'
@@ -556,4 +556,4 @@ fields:
         <li>The value must be in the form of `valueUuid`</li>
         <li>Only one value can be defined</li>
       </ul>
-    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
