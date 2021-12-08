@@ -22,6 +22,24 @@ fields:
     action: modify
     url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
+  - name: chargeItem
+    required: 'Yes'
+    type: resource
+    description: The ChargeItem to be modified.
+    action: modify
+    example: |
+      {
+        "name": "chargeItem",
+        "resource": {
+          "resourceType": "ChargeItem"
+        }
+      }
+    note: >
+      <ul>
+        <li>Can only provide one</li>
+      </ul>
+    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem
+
   - name: status
     required: 'Yes'
     type: code
@@ -123,8 +141,8 @@ fields:
     note: >
       <ul>
         <li>The coding field must contain only one coding from the CDM_SCHED, CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
-        <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
         <li>The Bill Code Type provided in `code` must be the highest tier of all of the Bill Code Types associated to the ChargeItem</li>
+        <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
 
@@ -156,7 +174,6 @@ fields:
     note: >
       <ul>
         <li>The value must be in the form of `CodeableConcept`</li>
-        <li>It should contain `actor`</li>
         <li>The value of actor must be in the form of `valueReference`</li>
         <li>Must contain both the actor and function subfields</li>
       </ul>
@@ -276,6 +293,7 @@ fields:
     note: >
       <ul>
         <li>custom-attribute-name and custom-attribute-value are both required</li>
+        <li>id and valueString for custom-attribute-value are required</li>
         <li>custom-attribute-value can be of type integer, string, or decimal</li>
       </ul>
     url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
