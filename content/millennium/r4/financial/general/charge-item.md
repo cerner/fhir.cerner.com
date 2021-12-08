@@ -212,17 +212,17 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Modify
+## Operation: charge-item-modify
 
 <%= beta_tag(action: true) %>
 
-Modify a ChargeItem
+Modifies an existing ChargeItem resulting in a newly created ChargeItem.
 
     POST /ChargeItem/$modify
 
 _Implementation Notes_
 
-* Only the body fields mentioned below are supported.
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 
 ### Authorization Types
 
