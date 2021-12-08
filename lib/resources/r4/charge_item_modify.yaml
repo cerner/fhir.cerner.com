@@ -80,7 +80,7 @@ fields:
       {
         "occurrenceDateTime": "2021-01-08T10:38:00Z"
       }
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrenceDateTime
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrence_x_
 
   - name: quantity
     required: 'No'
@@ -93,10 +93,6 @@ fields:
           "value": 31
         }
       }
-    note: >
-      <ul>
-        <li>The value must be in the form of `integer`</li>
-      </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity
 
   - name: code
@@ -128,6 +124,7 @@ fields:
       <ul>
         <li>The coding field must contain only one coding from the CDM_SCHED, CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
         <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
+        <li>The Bill Code Type provided in `code` must be the highest tier of all of the Bill Code Types associated to the ChargeItem</li>
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
 
@@ -158,8 +155,10 @@ fields:
       }
     note: >
       <ul>
-        <li>Need notes around supported system and values for function</li>
-        <li>Both actor and function are required</li>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It should contain `actor`</li>
+        <li>The value of actor must be in the form of `valueReference`</li>
+        <li>Must contain both the actor and function subfields</li>
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
 
@@ -223,6 +222,7 @@ fields:
     note: >
       <ul>
         <li>Can only provide one replacing extension</li>
+        <li>The item-version sub extension is required</li>
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
 
@@ -239,19 +239,19 @@ fields:
         },
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
       }
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 
   - name: description
     required: 'No'
     type: Extension
-    description: A description providing additional details of the resource.
+    description: A description providing additional details about the ChargeItem.
     action: modify
     example: |
       {
         "valueString": "Acetaminophen Level",
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/description"
       }
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json
 
   - name: custom-attribute
     required: 'No'
@@ -275,15 +275,15 @@ fields:
       }
     note: >
       <ul>
-        <li>Custom-attribute-name and Custom-attribute-value are both required</li>
-        <li>Custom-attribute-value can be of type integer, string, or decimal</li>
+        <li>custom-attribute-name and custom-attribute-value are both required</li>
+        <li>custom-attribute-value can be of type integer, string, or decimal</li>
       </ul>
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 
   - name: modifier-code
     required: 'No'
     type: Extension
-    description: A code providing information about the procedure performed on the patient associated to the resource.
+    description: A code providing information about the modification performed on the patient associated to the resource.
     action: modify
     example: |
       {
@@ -318,8 +318,9 @@ fields:
     note: >
       <ul>
         <li>The coding field must contain only one coding from the MODIFIER proprietary Bill Codes Types system.</li>
+        <li>Both code and priority sub extensions are required</li>
       </ul>
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 
   - name: procedure-code
     required: 'No'
@@ -360,8 +361,9 @@ fields:
       <ul>
         <li>The coding field must contain only one coding from the CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems</li>
         <li>Must be of a lower bill code tier than the ChargeItem.code field if provided.</li>
+        <li>Both code and priority sub extensions are required</li>
       </ul>
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json
 
   - name: revenue-code
     required: 'No'
@@ -393,7 +395,7 @@ fields:
       <ul>
         <li>The coding field must contain only one coding from the REVENUE proprietary Bill Codes Types system</li>
       </ul>
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
 
   - name: transactionId
     required: 'Yes'
