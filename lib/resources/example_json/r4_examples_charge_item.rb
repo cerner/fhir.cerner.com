@@ -726,10 +726,10 @@ module Cerner
             'resourceType': 'ChargeItem',
             'status': 'unknown',
             'subject': {
-              'reference': 'Patient/178594204'
+              'reference': 'Patient/12742419'
             },
             'context': {
-              'reference': 'Encounter/53066085'
+              'reference': 'Encounter/97953601'
             },
             'occurrenceDateTime': '2021-08-02T21:53:34Z',
             'quantity': {
@@ -765,7 +765,7 @@ module Cerner
                   'text': 'Ordering Provider'
                 },
                 'actor': {
-                  'reference': 'Practitioner/190182805'
+                  'reference': 'Practitioner/11817978'
                 }
               }
             ],
@@ -789,7 +789,7 @@ module Cerner
                       }
                     ],
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD',
-                    'code': 'Y22'
+                    'code': 'Z00'
                   }
                 ]
               }
@@ -826,7 +826,7 @@ module Cerner
               },
               {
                 'valueReference': {
-                  'reference': 'Location/683731',
+                  'reference': 'Location/31103071',
                   'display': '1 West SA2'
                 },
                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location'
@@ -890,7 +890,7 @@ module Cerner
                             }
                           ],
                           'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-PROCCODE',
-                          'code': '01U10JZ'
+                          'code': 'GZ1'
                         }
                       ]
                     },
@@ -917,7 +917,7 @@ module Cerner
                         }
                       ],
                       'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE',
-                      'code': '0100'
+                      'code': '0900'
                     }
                   ]
                 },

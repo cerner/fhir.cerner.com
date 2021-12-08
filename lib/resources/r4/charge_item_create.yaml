@@ -33,7 +33,7 @@ fields:
           {
             "name": "chargeItem",
             "resource": {
-              "resourceType": "chargeItem"
+              "resourceType": "ChargeItem"
             }
           }
         ]
@@ -67,7 +67,7 @@ fields:
     example: |
       {
         "subject": {
-          "reference": "Patient/178594204"
+          "reference": "Patient/12742419"
         }
       }
     note: >
@@ -84,7 +84,7 @@ fields:
     example: |
       {
         "context": {
-          "reference": "Encounter/53066085"
+          "reference": "Encounter/97953601"
         }
       }
     note: >
@@ -169,15 +169,16 @@ fields:
               "text": "Ordering Provider"
             },
             "actor": {
-              "reference": "Practitioner/190182805"
+              "reference": "Practitioner/11817978"
             }
           }
         ]
       }
     note: >
       <ul>
-        <li>Need notes around supported system and values for function</li>
-        <li>Both actor and function are required</li>
+        <li>The value must be in the form of `CodeableConcept`</li>
+        <li>It should contain `actor`</li>
+        <li>The value of actor must be in the form of `valueReference`</li>
       </ul>
     url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.performer
 
@@ -208,7 +209,7 @@ fields:
                   }
                 ],
                 "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-ICD",
-                "code": "Y22"
+                "code": "Z00"
               }
             ]
           }
@@ -272,7 +273,7 @@ fields:
                       }
                     ],
                     "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-PROCCODE",
-                    "code": "01U10JZ"
+                    "code": "GZ1"
                   }
                 ]
               },
@@ -352,7 +353,7 @@ fields:
                 }
               ],
               "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-REVENUE",
-              "code": "0100"
+              "code": "0900"
             }
           ]
         },
