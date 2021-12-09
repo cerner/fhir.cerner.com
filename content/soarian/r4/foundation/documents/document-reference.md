@@ -9,7 +9,7 @@ title: DocumentReference | R4 API
 
 ## Overview
 
-The DocumentReference resource is used to reference a clinical document for a patient in the health system. This resource supports reading clinical notes and returning references to retrieve Continuity of Care Documents (CCD).
+The DocumentReference resource is used to reference a clinical document for a patient in the health system. This resource supports reading clinical notes and returning references to retrieve Continuity of Care Documents (CCDs).
 
 Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 
@@ -48,7 +48,7 @@ Search for DocumentReference resources that meet the specified query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true) %>
+<%= authorization_types(provider: true, patient: true,system: true) %>
 
 ### Parameters
 
@@ -67,6 +67,8 @@ Notes
 
 * The `category` parameter only supports the code `clinical-note`.
 * The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
 
 
 ### Headers
