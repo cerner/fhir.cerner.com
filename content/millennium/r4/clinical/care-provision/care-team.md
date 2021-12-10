@@ -33,7 +33,9 @@ Search for CareTeams that meet supplied query parameters:
 
     GET /CareTeam?:parameters
 
+_Implementation Notes_
 
+* The CareTeam search returns the active Care Teams only.
 
 ### Authorization Types
 
@@ -129,6 +131,9 @@ List an individual CareTeam by its id:
 
     GET /CareTeam/:id
 
+_Implementation Notes_
+
+* The CareTeam read returns the active Care Teams only.
 
 ### Authorization Types
 
