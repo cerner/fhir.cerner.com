@@ -200,7 +200,7 @@ fields:
         <li>The value must be in the form of `CodeableConcept`</li>
         <li>Must contain both the actor and function subfields</li>
         <li>The value of actor must be in the form of `valueReference`</li>
-        <li>Only the following code and system combinations may be used</li>
+        <li>Only the following system and code combinations may be used in the performer function `coding`</li>
         <ul>
           <li>http://terminology.hl7.org/CodeSystem/v2-0912 - OP</li>
           <li>http://terminology.hl7.org/CodeSystem/v3 - PRF</li>
