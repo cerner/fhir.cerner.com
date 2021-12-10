@@ -22,27 +22,6 @@ fields:
     action: modify
     url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
-  - name: chargeItem
-    required: 'Yes'
-    type: resource
-    description: The ChargeItem to be modified.
-    action: modify
-    example: |
-      {
-        "parameter": [
-          "name": "chargeItem",
-          "resource": {
-            "resourceType": "ChargeItem"
-          }
-        ]
-      }
-    note: >
-      <ul>
-        <li>Resource field is required and it must be of type ChargeItem</li>
-        <li>Only one `chargeItem` parameter may be provided</li>
-      </ul>
-    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
-
   - name: transactionId
     required: 'Yes'
     type: uuid
@@ -61,6 +40,27 @@ fields:
       <ul>
         <li>The value must be in the form of `valueUuid`</li>
         <li>Only one `transactionId` parameter may be provided</li>
+      </ul>
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: chargeItem
+    required: 'Yes'
+    type: resource
+    description: The ChargeItem to be modified.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          "name": "chargeItem",
+          "resource": {
+            "resourceType": "ChargeItem"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>Resource field is required and it must be of type ChargeItem</li>
+        <li>Only one `chargeItem` parameter may be provided</li>
       </ul>
     url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
