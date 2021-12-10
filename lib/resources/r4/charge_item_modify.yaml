@@ -286,6 +286,10 @@ fields:
         },
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
       }
+    note: >
+      <ul>
+        <li>Must be a Location reference</li>
+      </ul>
     url: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 
   - name: description
