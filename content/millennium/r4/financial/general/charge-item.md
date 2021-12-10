@@ -222,7 +222,7 @@ Modifies an existing ChargeItem resulting in a newly created ChargeItem.
 
 _Implementation Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Only the body fields mentioned below are supported.
 
 ### Authorization Types
 

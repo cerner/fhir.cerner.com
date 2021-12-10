@@ -38,7 +38,7 @@ fields:
       }
     note: >
       <ul>
-        <li>Resource is required for this parameter and that it must be a ChargeItem</li>
+        <li>Resource field is required and it must be of type ChargeItem</li>
         <li>Only one `chargeItem` parameter may be provided</li>
       </ul>
     url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
@@ -200,6 +200,12 @@ fields:
         <li>The value must be in the form of `CodeableConcept`</li>
         <li>Must contain both the actor and function subfields</li>
         <li>The value of actor must be in the form of `valueReference`</li>
+        <li>Only the following code and system combinations may be used</li>
+        <ul>
+          <li>http://terminology.hl7.org/CodeSystem/v2-0912 - OP</li>
+          <li>http://terminology.hl7.org/CodeSystem/v3 - PRF</li>
+          <li>http://terminology.hl7.org/CodeSystem/v3 - VRF</li>
+        </ul>
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
 
