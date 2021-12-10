@@ -29,16 +29,40 @@ fields:
     action: modify
     example: |
       {
-        "name": "chargeItem",
-        "resource": {
-          "resourceType": "ChargeItem"
-        }
+        "parameter": [
+          "name": "chargeItem",
+          "resource": {
+            "resourceType": "ChargeItem"
+          }
+        ]
       }
     note: >
       <ul>
-        <li>Can only provide one</li>
+        <li>Resource is required for this parameter and that it must be a ChargeItem</li>
+        <li>Only one `chargeItem` parameter may be provided</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
+  - name: transactionId
+    required: 'Yes'
+    type: uuid
+    description: A UUID to uniquely identify the modify operation.
+    action: modify
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "transactionId",
+            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueUuid`</li>
+        <li>Only one `transactionId` parameter may be provided</li>
+      </ul>
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
   - name: status
     required: 'Yes'
@@ -218,7 +242,7 @@ fields:
       </ul>
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
 
-  - name: Replacing Extension
+  - name: replacing
     required: 'Yes'
     type: Extension
     description: The resource that this ChargeItem is replacing.
@@ -241,7 +265,7 @@ fields:
         <li>Can only provide one replacing extension</li>
         <li>The item-version sub extension is required</li>
       </ul>
-    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.extension
+    url:  https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing?_format=json
 
   - name: performing-location
     required: 'No'
@@ -415,23 +439,3 @@ fields:
       </ul>
     url: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
 
-  - name: transactionId
-    required: 'Yes'
-    type: uuid
-    description: A UUID to uniquely identify the modify operation.
-    action: modify
-    example: |
-      {
-        "parameter": [
-          {
-            "name": "transactionId",
-            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
-          }
-        ]
-      }
-    note: >
-      <ul>
-        <li>The value must be in the form of `valueUuid`</li>
-        <li>Only one value can be defined</li>
-      </ul>
-    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
