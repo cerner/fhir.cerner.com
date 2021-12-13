@@ -71,7 +71,7 @@ Notes:
 
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 
-* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
+* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
