@@ -68,7 +68,7 @@ Notes:
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
-* When `encounter` is provided, only encounter-dianosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned
+* When `encounter` is provided, only encounter-diagnosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned
 
 ### Headers
 
