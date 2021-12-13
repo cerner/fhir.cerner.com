@@ -55,7 +55,8 @@ _Implementation Notes_
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
  `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
- `_revinclude`      | No                                                                   | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `encounter`       | No                             | [`reference`] | The encounter ID/s for the patient. Only encounter-diagnosis are returned. Example: `encounter=97733489`
 
 Notes:
 
@@ -66,6 +67,8 @@ Notes:
 * The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
+* When `encounter` is provided, only encounter-dianosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned
 
 ### Headers
 
