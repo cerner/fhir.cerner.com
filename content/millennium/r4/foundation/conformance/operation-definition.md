@@ -75,6 +75,8 @@ ID                                        |  Description
 ------------------------------------------|----------------------------------------------
 [`binary-autogen-ccd-if`]                 |  Generates a copy of a patient's Continuity of Care Document (CCD) as a Binary.
 [`organization-get-cg-for-mrcu`]          |  Retrieves details for a caregiver organization given a care unit organization id.
+[`group-export`]                          |  Obtains a detailed set of FHIR resources of diverse resource types pertaining to all patients in specified Group.
 
 [`binary-autogen-ccd-if`]: https://fhir-ehr.cerner.com/r4/OperationDefinition/binary-autogen-ccd-if?_format=json
 [`organization-get-cg-for-mrcu`]: https://fhir-ehr.cerner.com/r4/OperationDefinition/organization-get-cg-for-mrcu?_format=json
+[`group-export`]: https://fhir-ehr.cerner.com/r4/OperationDefinition/group-export?_format=json
