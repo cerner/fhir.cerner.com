@@ -114,7 +114,7 @@ fields:
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
 
   - name: occurrenceDateTime
-    required: 'No'
+    required: 'Yes'
     type: dateTime
     description: Date/time when the charged service was applied.
     action: create
@@ -125,7 +125,7 @@ fields:
     url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrence_x_
 
   - name: quantity
-    required: 'No'
+    required: 'Yes'
     type: Quantity
     description: Quantity of which the charge item has been serviced.
     action: create
