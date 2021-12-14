@@ -310,7 +310,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Thu, 11 Nov 2021 17:23:14 GMT
 Etag: W/"0"
-Location: https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
 Last-Modified: Thu, 11 Nov 2021 17:25:14 GMT
 Vary: Origin
 X-Request-Id: 11111111111111111111111111111111
