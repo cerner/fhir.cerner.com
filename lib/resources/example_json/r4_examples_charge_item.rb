@@ -796,35 +796,6 @@ module Cerner
             ],
             'extension': [
               {
-                'extension': [
-                  {
-                    'valueCodeableConcept': {
-                      'coding': [
-                        {
-                          'extension': [
-                            {
-                              'valueCoding': {
-                                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
-                                'code': '3692'
-                              },
-                              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
-                            }
-                          ],
-                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
-                          'code': '26'
-                        }
-                      ]
-                    },
-                    'url': 'code'
-                  },
-                  {
-                    'valueUnsignedInt': 1,
-                    'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
-                  }
-                ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
-              },
-              {
                 'valueReference': {
                   'reference': 'Location/31103071',
                   'display': '1 West SA2'
@@ -855,13 +826,13 @@ module Cerner
                             {
                               'valueCoding': {
                                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002',
-                                'code': '615214'
+                                'code': '3692'
                               },
                               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                             }
                           ],
-                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT',
-                          'code': '99204'
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-MODIFIER',
+                          'code': '26'
                         }
                       ]
                     },
@@ -872,7 +843,7 @@ module Cerner
                     'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/priority'
                   }
                 ],
-                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code'
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code'
               },
               {
                 'extension': [
@@ -889,7 +860,7 @@ module Cerner
                               'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule'
                             }
                           ],
-                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-PROCCODE',
+                          'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT',
                           'code': 'GZ1'
                         }
                       ]
@@ -928,7 +899,7 @@ module Cerner
         },
         {
           'name': 'transactionId',
-          'valueUuid': 'urn:uuid:9befb168-c01f-4336-9547-5d26f0100058'
+          'valueUuid': 'urn:uuid:9befb168-g01f-4336-9547-5d26f0100058'
         }
       ]
     }.freeze

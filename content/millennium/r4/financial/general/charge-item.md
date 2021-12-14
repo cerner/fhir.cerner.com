@@ -277,7 +277,7 @@ Creates a charge event which can result in the creation of one or more ChargeIte
 
 _Implementation Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Only the body fields mentioned below are supported.
 
 ### Authorization Types
 

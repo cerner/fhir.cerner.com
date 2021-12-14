@@ -22,6 +22,27 @@ fields:
     action: create
     url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
+  - name: transactionId
+    required: 'Yes'
+    type: uuid
+    description: A UUID to uniquely identify the create operation.
+    action: create
+    example: |
+      {
+        "parameter": [
+          {
+            "name": "transactionId",
+            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>The value must be in the form of `valueUuid`</li>
+        <li>Only one `transactionId` parameter may be provided</li>
+      </ul>
+    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+
   - name: chargeItem
     required: 'Yes'
     type: resource
@@ -30,19 +51,18 @@ fields:
     example: |
       {
         "parameter": [
-          {
-            "name": "chargeItem",
-            "resource": {
-              "resourceType": "ChargeItem"
-            }
+          "name": "chargeItem",
+          "resource": {
+            "resourceType": "ChargeItem"
           }
         ]
       }
     note: >
       <ul>
-        <li>Can only provide one</li>
+        <li>Resource field is required and it must be of type ChargeItem</li>
+        <li>Only one `chargeItem` parameter may be provided</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem
+    url: https://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
   - name: status
     required: 'Yes'
@@ -55,13 +75,13 @@ fields:
       }
     note: >
       <ul>
-        <li>The status must be set to 'unknown'</li>
+        <li>The status must be set to `unknown`</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.status
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.status
 
   - name: subject
     required: 'Yes'
-    type: Reference(Patient)
+    type: Reference
     description: The patient associated with the charge.
     action: create
     example: |
@@ -74,11 +94,11 @@ fields:
       <ul>
         <li>Must be a Patient reference</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.subject
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.subject
 
   - name: context
     required: 'Yes'
-    type: Reference(Encounter)
+    type: Reference
     description: The encounter associated with the charge.
     action: create
     example: |
@@ -91,7 +111,7 @@ fields:
       <ul>
         <li>Must be an Encounter reference</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.context
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.context
 
   - name: occurrenceDateTime
     required: 'No'
@@ -102,7 +122,7 @@ fields:
       {
         "occurrenceDateTime": "2021-08-02T21:53:34Z"
       }
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.enteredDate
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.occurrence_x_
 
   - name: quantity
     required: 'No'
@@ -115,7 +135,7 @@ fields:
           "value": 1
         }
       }
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.quantity
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.quantity
 
   - name: code
     required: 'Yes'
@@ -145,9 +165,10 @@ fields:
     note: >
       <ul>
         <li>The coding field must contain only one coding from the CDM_SCHED, CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
+        <li>The Bill Code Type provided in `code` must be the highest tier of all of the Bill Code Types associated to the ChargeItem</li>
         <li>Tiering logic from highest to lowest: CDM_SCHED, CPT, HCPCS, or PROCCODE</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.code
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code
 
   - name: performer
     required: 'No'
@@ -177,10 +198,16 @@ fields:
     note: >
       <ul>
         <li>The value must be in the form of `CodeableConcept`</li>
-        <li>It should contain `actor`</li>
+        <li>Must contain both the actor and function subfields</li>
         <li>The value of actor must be in the form of `valueReference`</li>
+        <li>Only the following system and code combinations may be used in the performer function `coding`</li>
+        <ul>
+          <li>http://terminology.hl7.org/CodeSystem/v2-0912 - OP</li>
+          <li>http://terminology.hl7.org/CodeSystem/v3 - PRF</li>
+          <li>http://terminology.hl7.org/CodeSystem/v3 - VRF</li>
+        </ul>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.performer
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.performer
 
   - name: reason
     required: 'No'
@@ -217,86 +244,61 @@ fields:
       }
     note: >
       <ul>
-        <li>The coding field must contain only one coding from the ICD proprietary Bill Codes Types systems.</li>
+        <li>The coding field must contain only one coding from the ICD proprietary Bill Codes Types systems</li>
       </ul>
-    url: https://hl7.org/fhir/chargeitem-definitions.html#ChargeItem.reason
+    url: https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason
 
-  - name: procedure-code
+  - name: performing-location
     required: 'No'
     type: Extension
-    description: A code providing information about the procedure performed on the patient associated to the resource.
+    description: A location where the charge was performed.
     action: create
     example: |
-      [
-        {
-          "extension": [
-            {
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "extension": [
-                      {
-                        "valueCoding": {
-                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
-                          "code": "615214"
-                        },
-                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                      }
-                    ],
-                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT",
-                    "code": "99204"
-                  }
-                ]
-              },
-              "url": "code"
-            },
-            {
-              "valueUnsignedInt": 1,
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-            }
-          ],
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+      {
+        "valueReference": {
+          "reference": "Location/683731",
+          "display": "SA"
         },
-        {
-          "extension": [
-            {
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "extension": [
-                      {
-                        "valueCoding": {
-                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
-                          "code": "615216"
-                        },
-                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
-                      }
-                    ],
-                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-PROCCODE",
-                    "code": "GZ1"
-                  }
-                ]
-              },
-              "url": "code"
-            },
-            {
-              "valueUnsignedInt": 1,
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
-            }
-          ],
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
-        }
-      ]
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
+      }
     note: >
       <ul>
-        <li>The coding field must contain only one coding from the CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
-        <li>Must be of a lower bill code tier than the ChargeItem.code field if provided.</li>
+        <li>Must be a Location reference</li>
       </ul>
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
+
+  - name: custom-attribute
+    required: 'No'
+    type: Extension
+    description: A client defined custom attribute for the charge.
+    action: create
+    example: |
+      {
+        "extension": [
+          {
+            "id": "68985657",
+            "valueString": "Family Planning Indicator",
+            "url": "custom-attribute-name"
+          },
+          {
+            "valueInteger": 68,
+            "url": "custom-attribute-value"
+          }
+        ],
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+      }
+    note: >
+      <ul>
+        <li>Custom-attribute-name and Custom-attribute-value are both required</li>
+        <li>id and valueString for custom-attribute-value are required</li>
+        <li>Custom-attribute-value can be of type integer, string or decimal</li>
+      </ul>
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 
   - name: modifier-code
     required: 'No'
     type: Extension
-    description: A code providing information about the procedure performed on the patient associated to the resource.
+    description: A code providing additional detail about a product or service.
     action: create
     example: |
       {
@@ -331,7 +333,52 @@ fields:
     note: >
       <ul>
         <li>The coding field must contain only one coding from the MODIFIER proprietary Bill Codes Types system.</li>
+        <li>Both code and priority sub extensions are required</li>
       </ul>
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
+
+  - name: procedure-code
+    required: 'No'
+    type: Extension
+    description: A code providing information about the procedure performed on the patient associated to the resource.
+    action: create
+    example: |
+      {
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "extension": [
+                    {
+                      "valueCoding": {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14002",
+                        "code": "615214"
+                      },
+                      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule"
+                    }
+                  ],
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/CodeSystem/BillCodes-CPT",
+                  "code": "99204"
+                }
+              ]
+            },
+            "url": "code"
+          },
+          {
+            "valueUnsignedInt": 1,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/priority"
+          }
+        ],
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code"
+      }
+    note: >
+      <ul>
+        <li>The coding field must contain only one coding from the CPT, HCPCS, or PROCCODE proprietary Bill Codes Types systems.</li>
+        <li>Must be of a lower bill code tier than the ChargeItem.code field if provided.</li>
+        <li>Both code and priority sub extensions are required</li>
+      </ul>
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json
 
   - name: revenue-code
     required: 'No'
@@ -361,66 +408,6 @@ fields:
       }
     note: >
       <ul>
-        <li>The coding field must contain only one coding from the REVENUE proprietary Bill Codes Types system.</li>
+        <li>The coding field must contain only one coding from the REVENUE proprietary Bill Codes Types system</li>
       </ul>
-
-  - name: performing-location
-    required: 'No'
-    type: Extension
-    description: A location where the charge was performed.
-    action: create
-    example: |
-      {
-        "valueReference": {
-          "reference": "Location/683731",
-          "display": "1 West SA2"
-        },
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location"
-      }
-
-  - name: custom-attribute
-    required: 'No'
-    type: Extension
-    description: A client defined custom attribute for the charge.
-    action: create
-    example: |
-      {
-        "extension": [
-          {
-            "id": "68985657",
-            "valueString": "Family Planning Indicator",
-            "url": "custom-attribute-name"
-          },
-          {
-            "valueInteger": 68985657,
-            "url": "custom-attribute-value"
-          }
-        ],
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
-      }
-    note: >
-      <ul>
-        <li>Custom-attribute-name and Custom-attribute-value are both required.</li>
-        <li>Custom-attribute-value can be of type integer, string, decimal, or dateTime.</li>
-      </ul>
-
-  - name: transactionId
-    required: 'Yes'
-    type: uuid
-    description: A UUID to uniquely identify the create operation.
-    action: create
-    example: |
-      {
-        "parameter": [
-          {
-            "name": "transactionId",
-            "valueUuid": "urn:uuid:aa7623a0-0c7b-11ec-82a8-0242ac130003"
-          }
-        ]
-      }
-    note: >
-      <ul>
-        <li>The value must be in the form of `valueUuid`</li>
-        <li>Only one value can be defined</li>
-      </ul>
-    url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
+    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json
