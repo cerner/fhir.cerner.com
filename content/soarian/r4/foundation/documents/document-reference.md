@@ -117,7 +117,7 @@ List an individual DocumentReference resource by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: true) %>
+<%= authorization_types(provider: true, patient: true,system: true) %>
 
 ### Headers
 
