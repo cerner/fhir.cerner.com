@@ -661,7 +661,9 @@ describe Cerner::Resources::Helpers do
     end
 
     context 'when parameters are passed in' do
-      subject(:beta_tag_parameters) { Cerner::Resources::Helpers.beta_tag(action: action, known_issues: issues) }
+      subject(:beta_tag_parameters) do
+        Cerner::Resources::Helpers.beta_tag(resource: resource, action: action, known_issues: issues)
+      end
       let(:issues) { %w[hi hello] }
       let(:beta_tag_div) do
         '<div class="beta-tag"></div>This Resource is still under development.<p>Known Issues:</p><ul><li>hi</li>'\
@@ -677,8 +679,23 @@ describe Cerner::Resources::Helpers do
             '<div class="beta-tag"><p>This Resource is still under development.</p></div>'
           end
 
-          it 'returns the beta_tag div for a Resource' do
-            expect(beta_tag_parameters).to eq(beta_tag_div)
+          context 'when resource is false' do
+            let(:resource) { false }
+            let(:beta_tag_div) do
+              '<div class="beta-tag"><p>This feature is still under development.</p></div>'
+            end
+
+            it 'returns the beta_tag div for a feature' do
+              expect(beta_tag_parameters).to eq(beta_tag_div)
+            end
+          end
+
+          context 'when resource is true' do
+            let(:resource) { true }
+
+            it 'returns the beta_tag div for a Resource' do
+              expect(beta_tag_parameters).to eq(beta_tag_div)
+            end
           end
         end
 
@@ -688,14 +705,31 @@ describe Cerner::Resources::Helpers do
             '<li>hi</li><li>hello</li></ul></div>'
           end
 
-          it 'returns the beta_tag div for a Resource with known issues' do
-            expect(beta_tag_parameters).to eq(beta_tag_div)
+          context 'when resource is false' do
+            let(:resource) { false }
+            let(:beta_tag_div) do
+              '<div class="beta-tag"><p>This feature is still under development.</p><p>Known Issues:</p><ul>'\
+              '<li>hi</li><li>hello</li></ul></div>'
+            end
+
+            it 'returns the beta_tag div for a feature with known issues' do
+              expect(beta_tag_parameters).to eq(beta_tag_div)
+            end
+          end
+
+          context 'when resource is true' do
+            let(:resource) { true }
+
+            it 'returns the beta_tag div for a Resource with known issues' do
+              expect(beta_tag_parameters).to eq(beta_tag_div)
+            end
           end
         end
       end
 
       context 'when action is true' do
         let(:action) { true }
+        let(:resource) { true }
 
         context 'when known issues are not present' do
           let(:issues) { nil }
