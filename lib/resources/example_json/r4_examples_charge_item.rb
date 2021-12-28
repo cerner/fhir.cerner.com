@@ -717,7 +717,7 @@ module Cerner
       ]
     }.freeze
 
-    R4_CHARGE_ITEM_CREATE ||= {
+    R4_CHARGE_ITEM_WRITE ||= {
       'resourceType': 'Parameters',
       'parameter': [
         {

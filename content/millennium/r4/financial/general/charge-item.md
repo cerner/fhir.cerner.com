@@ -267,13 +267,13 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Operation: charge-item-create
+## Operation: charge-item-write
 
 <%= beta_tag(action: true) %>
 
 Creates a charge event which can result in the creation of one or more ChargeItems.
 
-    POST /ChargeItem/:id/$create
+    POST /ChargeItem/:id/$write
 
 _Implementation Notes_
 
@@ -289,7 +289,7 @@ _Implementation Notes_
 
 ### Body Fields
 
-<%= definition_table(:charge_item_create, :create, :r4) %>
+<%= definition_table(:charge_item_write, :write, :r4) %>
 
 ### Example
 
@@ -299,7 +299,7 @@ _Implementation Notes_
 
 #### Body
 
-<%= json(:r4_charge_item_create) %>
+<%= json(:r4_charge_item_write) %>
 
 #### Response
 

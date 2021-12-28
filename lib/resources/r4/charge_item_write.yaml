@@ -7,7 +7,7 @@ fields:
     required: 'Yes'
     type: string
     description: The type of the FHIR resource.
-    action: create
+    action: write
     example: |
       {
         "resourceType": "Parameters"
@@ -19,14 +19,14 @@ fields:
     required: 'Yes'
     type: List of BackboneElement
     description: Parameters defined by the operation.
-    action: create
+    action: write
     url: http://hl7.org/fhir/r4/parameters-definitions.html#Parameters.parameter
 
   - name: transactionId
     required: 'Yes'
     type: uuid
     description: A UUID to uniquely identify the create operation.
-    action: create
+    action: write
     example: |
       {
         "parameter": [
@@ -47,7 +47,7 @@ fields:
     required: 'Yes'
     type: resource
     description: The ChargeItem to be created.
-    action: create
+    action: write
     example: |
       {
         "parameter": [
@@ -68,7 +68,7 @@ fields:
     required: 'Yes'
     type: code
     description: The current state of the Charge.
-    action: create
+    action: write
     example: |
       {
         "status": "unknown"
@@ -83,7 +83,7 @@ fields:
     required: 'Yes'
     type: Reference
     description: The patient associated with the charge.
-    action: create
+    action: write
     example: |
       {
         "subject": {
@@ -100,7 +100,7 @@ fields:
     required: 'Yes'
     type: Reference
     description: The encounter associated with the charge.
-    action: create
+    action: write
     example: |
       {
         "context": {
@@ -117,7 +117,7 @@ fields:
     required: 'Yes'
     type: dateTime
     description: Date/time when the charged service was applied.
-    action: create
+    action: write
     example: |
       {
         "occurrenceDateTime": "2021-08-02T21:53:34Z"
@@ -128,7 +128,7 @@ fields:
     required: 'Yes'
     type: Quantity
     description: Quantity of which the charge item has been serviced.
-    action: create
+    action: write
     example: |
       {
         "quantity": {
@@ -141,7 +141,7 @@ fields:
     required: 'Yes'
     type: CodeableConcept
     description: The primary billing code that identifies the charge.
-    action: create
+    action: write
     example: |
       {
         "code": {
@@ -174,7 +174,7 @@ fields:
     required: 'No'
     type: List of BackboneElement
     description: Indicates who performed or participated in the charge.
-    action: create
+    action: write
     example: |
       {
         "performer": [
@@ -213,7 +213,7 @@ fields:
     required: 'No'
     type: CodeableConcept
     description: Diagnosis codes for why the charge was rendered.
-    action: create
+    action: write
     example: |
       {
         "reason": [
@@ -252,7 +252,7 @@ fields:
     required: 'No'
     type: Extension
     description: A location where the charge was performed.
-    action: create
+    action: write
     example: |
       {
         "valueReference": {
@@ -271,7 +271,7 @@ fields:
     required: 'No'
     type: Extension
     description: A client defined custom attribute for the charge.
-    action: create
+    action: write
     example: |
       {
         "extension": [
@@ -299,7 +299,7 @@ fields:
     required: 'No'
     type: Extension
     description: A code providing additional detail about a product or service.
-    action: create
+    action: write
     example: |
       {
         "extension": [
@@ -341,7 +341,7 @@ fields:
     required: 'No'
     type: Extension
     description: A code providing information about the procedure performed on the patient associated to the resource.
-    action: create
+    action: write
     example: |
       {
         "extension": [
@@ -384,7 +384,7 @@ fields:
     required: 'No'
     type: Extension
     description: The type of revenue or cost center providing the product and/or service.
-    action: create
+    action: write
     example: |
       {
         "valueCodeableConcept": {
