@@ -315,12 +315,6 @@ URL identifies the specific FHIR<sup>®</sup> resource URL of the
 authenticated user.   This resource may be a Patient, Practitioner, or
 Person resource, depending on the type of user whom is authenticated.
 
-_NOTE_:  As of this writing, Cerner's Ignite implementation does not
-support authorization for retrieval of Person resources; you
-may proceed with a design that proactively attempts to retrieve the
-resource such that your app takes advantage of this capability once
-made available.
-
 ##### Duration Scopes: 'online_access' and 'offline_access' #####
 
 The default duration of access received through the authorization grant
