@@ -275,8 +275,9 @@ that further govern the behavior of authorization:
 
 - openid: Provides access to the "principal" of the authenticated user per the
   [OpenID Connect][OPENID] specification.
-- profile: Provides an OpenID Connect "profile" that contains the URL of the
-  authenticated user's FHIR<sup>®</sup> resource.
+- fhirUser: Provides an OpenID Connect token that contains the URL of the
+  authenticated user's FHIR<sup>®</sup> resource. This scope was formerly known
+  as "profile", but that name has since been deprecated.
 - online_access: Allows an application to obtain tokens via a "refresh" process
   while the authenticated user has an active session present at the device.
 - offline_access: Allows an application to continue to obtain tokens on behalf
@@ -286,7 +287,7 @@ that further govern the behavior of authorization:
 Further information on the usage of these special scopes are further detailed
 below.
 
-##### Identity Scopes: 'openid' and 'profile' #####
+##### Identity Scopes: 'openid' and 'fhirUser' #####
 
 Certain classes of applications may need to identify the user for whom it
 is acting on behalf of.  Such requirements may include (but are not
@@ -307,8 +308,8 @@ and [OpenID Connect][OPENID] identity token as part of the authorization
 workflow.  Further details on utilizing the OpenID token can be found in
 the [OpenID Connect Guide](../authorization/openid-connect).
 
-The scope 'profile' will additionally request that the OpenID Connect
-token include the claim "profileURL", as defined by the
+The scope 'fhirUser' will additionally request that the OpenID Connect
+token include the claim 'fhirUser', as defined by the
 SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This
 URL identifies the specific FHIR<sup>®</sup> resource URL of the
 authenticated user.   This resource may be a Patient, Practitioner, or
