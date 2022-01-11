@@ -237,6 +237,11 @@ module Cerner
         {
           'reference': 'Account/C98900463'
         }
+      ],
+      "supportingInformation": [
+        {
+          "reference": "ServiceRequest/17124247"
+        }
       ]
     }.freeze
 
@@ -481,6 +486,11 @@ module Cerner
               },
               {
                 'reference': 'Account/C98900463'
+              }
+            ],
+            "supportingInformation": [
+              {
+                "reference": "ServiceRequest/17124247"
               }
             ]
           }

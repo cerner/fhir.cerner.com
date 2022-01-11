@@ -29,6 +29,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
+* [Supporting Information](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.supportingInformation){:target="_blank"}
 * [Extensions including bill code schedule, custom attribute, description, modifier code, national drug product, net price, offset by, performing location, procedure code, quantity conversion factor, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
