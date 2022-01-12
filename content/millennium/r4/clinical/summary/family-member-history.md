@@ -204,14 +204,11 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
-Etag: W/"1"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
 <%= disclaimer %>
 
@@ -236,8 +233,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json',
-'If-Match': 'W/"&lt;Current version of the FamilyMemberHistory resource>"'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body fields
 
