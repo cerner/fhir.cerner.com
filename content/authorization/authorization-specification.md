@@ -674,7 +674,7 @@ The following scopes are defined for requesting identity information:
     Requests that an OpenID Connect id_token be returned alongside 
     the access token.
 	
-*   profile
+*   fhirUser
 
     Requests access to the FHIR<sup>®</sup> resource that represents 
     the user, and that the location of said resource be returned in the
@@ -750,7 +750,7 @@ shorthand versions where no conflicts exist with other values.  For example, an 
 return the fully-qualified scopes in the authorized access token response in response to the short-hand versions being 
 used.
 
-__NOTE__: The openid and profile scopes are defined by the OpenID Connect specification, which does not define a
+__NOTE__: The openid and fhirUser scopes are defined by the OpenID Connect specification, which does not define a
 prefix.  
 
 <a id="user-identity"></a>
@@ -789,12 +789,12 @@ tokens.
 SMART applications __MUST__ validate the token per the token 
 validation section of [OpenID Connect][OPENID].
 
-#### Profile Resource ####
+#### fhirUser Resource ####
 In addition to the to requesting access to the user's OpenID identity,
 a SMART application __MAY__ request access to the FHIR<sup>®</sup> 
 resource that represents the user through the addition of the 
-"_profile_" scope.  The authorization server __SHALL__ fulfill such 
-by including available default profile claims in the id_token.
+"_fhirUser_" scope.  The authorization server __SHALL__ fulfill such 
+by including a fhirUser claim in the id_token.
 
 An EHR __MAY__ include the  URI of the user's FHIR<sup>®</sup> 
 resource.  This resource may be a Patient, Practitioner, 
@@ -803,7 +803,7 @@ RelatedPerson, or Person resource as described by the
 
 The FHIR<sup>®</sup> resource server __MUST__ allow a user access 
 to their own user resource when receiving any access token
-that represents approved access to the profile scope. 
+that represents approved access to the fhirUser scope. 
 
 <a id="discovery"></a>
 
