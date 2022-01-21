@@ -97,8 +97,7 @@ module Cerner
               {
                 'code': 'CASH',
                 'display': 'Cash',
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570',
-                'userSelected': true
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570'
               }
             ],
             'text': 'Cash'
@@ -117,7 +116,7 @@ module Cerner
             {
               'url': 'target',
               'valueReference': {
-                'reference': 'Encounter/97953536'
+                'reference': 'Account/G63392574'
               }
             },
             {
@@ -181,8 +180,7 @@ module Cerner
               {
                 'code': 'CCCA',
                 'display': 'Credit Card',
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570',
-                'isPrimary': true
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570'
               }
             ],
             'text': 'Credit Card'
@@ -270,8 +268,7 @@ module Cerner
               {
                 'code': 'CCHK',
                 'display': 'Check',
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570',
-                'userSelected': true
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0570'
               }
             ],
             'text': 'Check'
