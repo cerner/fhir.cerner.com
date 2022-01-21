@@ -50,7 +50,7 @@ Cerner __RECOMMENDS__ the use of any of the following programs that provide vett
 - [Oracle Java Root Certificate Program](https://www.oracle.com/java/technologies/javase/carootcertsprogram.html)
 - [Apple Root Certificate Program](https://www.apple.com/certificateauthority/ca_program.html)
 
-## Developed-Operated TLS Endpoints
+## Developer-Operated TLS Endpoints
 
 Most applications integrating with Cerner's implementations of HL7 FHIR and HL7 SMART will have endpoints that receive communication from browsers or Cerner software.  Examples include, but are not limited to:
 
