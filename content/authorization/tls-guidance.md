@@ -15,9 +15,9 @@ The https protocol relies upon public key infrastructure ("PKI") as the means by
 
 The following requirements and recommendations apply to any software connecting to Cerner's implementation of HL7 FHIR or HL7 SMART.
 
-### Supported versions of HTTPS
+### Supported versions of HTTP
 
-Cerner currently supports the HTTPS 1.1 protocol.  Connectivity to certain endpoints using newer versions __MAY__ be technically possible, but are not guaranteed to be available in all service deployments.
+Cerner currently supports the HTTP 1.1 protocol.  Connectivity to certain endpoints using newer versions __MAY__ be technically possible, but are not guaranteed to be available in all service deployments.
 
 ### TLS Versions and Cipher Suites
 
