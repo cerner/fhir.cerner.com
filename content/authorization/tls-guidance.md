@@ -13,7 +13,7 @@ The https protocol relies upon public key infrastructure ("PKI") as the means by
 
 ## Establishing TLS Connections to Cerner
 
-The following requirements and recommendations apply to any software connecting to Cerner's implementation of HL7 FHIR or HL7 SMART.
+The following requirements and recommendations apply to any software connecting to Cerner's implementation of HL7<sup>®</sup> FHIR<sup>®</sup>  or HL7<sup>®</sup>  SMART<sup>®</sup>.
 
 ### Supported versions of HTTP
 
@@ -33,7 +33,7 @@ As of this writing, these best current practices dictate the use of TLS versions
 
 ### Certificate Chain Validation Process
 
-Developers writing software that interoperates with Cerner's HL7 FHIR and HL7 SMART components should utilize https implementations that implement [RFC 6125](https://datatracker.ietf.org/doc/html/rfc6125) for certificate validation.
+Developers writing software that interoperates with Cerner's HL7<sup>®</sup> FHIR<sup>®</sup> and HL7<sup>®</sup> SMART<sup>®</sup> components should utilize https implementations that implement [RFC 6125](https://datatracker.ietf.org/doc/html/rfc6125) for certificate validation.
 
 ### Trusted Certificate Authorities
 
@@ -52,10 +52,10 @@ Cerner __RECOMMENDS__ the use of any of the following programs that provide vett
 
 ## Developer-Operated TLS Endpoints
 
-Most applications integrating with Cerner's implementations of HL7 FHIR and HL7 SMART will have endpoints that receive communication from browsers or Cerner software.  Examples include, but are not limited to:
+Most applications integrating with Cerner's implementations of HL7<sup>®</sup> FHIR<sup>®</sup> and HL7<sup>®</sup> SMART<sup>®</sup> will have endpoints that receive communication from browsers or Cerner software.  Examples include, but are not limited to:
 
-- Web-based SMART Launch applications that render markup to a user's browser via an https endpoint.
-- SMART Backend Services applications that publish their JSON Web Key Sets via an https endpoint.
+- Web-based SMART<sup>®</sup> Launch applications that render markup to a user's browser via an https endpoint.
+- SMART<sup>®</sup> Backend Services applications that publish their JSON Web Key Sets via an https endpoint.
 - CDS Hooks services that receive publications from Cerner's CDS Hooks infrastructure via an https endpoint.
 
 ### Supported versions of HTTPS
