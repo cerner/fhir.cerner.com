@@ -250,7 +250,7 @@ fields:
     note: >
       <ul>
         <li>The <code>valueReference.reference</code> must be either an Encounter or Account reference.</li>
-        <li>If there reference is of type Account, it must be a <code>guarantor-balance</code> account type.</li>
+        <li>If the reference is of type Account, it must be a <code>guarantor-balance</code> account type.</li>
         <li>The URL for this extension is <code>target</code>.</li>
       </ul>
     example: |
