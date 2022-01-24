@@ -145,7 +145,7 @@ List an individual ChargeItem by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292870306
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/321088041
 
 #### Response
 
