@@ -105,6 +105,8 @@ redirects:
     url: /authorization
   /dstu2/authorization-specification:
     url: /authorization/authorization-specification
+  /dstu2/tls-guidance:
+    url: /authorization/tls-guidance    
   /dstu2/binary:
     url: /millennium/dstu2/infrastructure/binary
   /dstu2/care-plan:
