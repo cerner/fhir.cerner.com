@@ -48,6 +48,7 @@ Search for CareTeams that meet supplied query parameters:
  `encounter`  | Required if `_id` or `patient` is not present       | [`reference`] | Who care team is for. Example: `encounter=98765`
  `category`   | N                                                   | [`token`]     | The scope of care team being searched for. Examples: `category=longitudinal`
  `status`     | N                                                   | [`token`]     | Indicates the status of the care team
+`_revinclude`      | No                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
@@ -68,6 +69,12 @@ Notes:
   * Can only be used with the `patient` parameter.
   * The longitudinal and encounter codes are defined by the CareTeam category system
 
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
 ### Headers
 
  <%= headers %>
@@ -83,6 +90,22 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_care_team_bundle) %>
 
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam?_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_care_team_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request
@@ -119,7 +142,7 @@ List an individual CareTeam by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/CT-119078440-34768489-17490349-4048128-0-22554767
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/CARE_TEAM-119078440-34768489-17490349-4048128-0-22554767
 
 #### Response
 
@@ -130,7 +153,7 @@ List an individual CareTeam by its id:
 
 #### Patient Authorization Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/LP-4169494-0-3038500-0-0-0
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/CareTeam/LIFETIME_PROVIDER-4169494-0-3038500-0-0-0
 
 #### Response
 
