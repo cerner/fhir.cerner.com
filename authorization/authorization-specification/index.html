@@ -876,7 +876,7 @@ also allows the type level interactions of “create” and “validate”.</p>
 the access token.</p>
   </li>
   <li>
-    <p>profile</p>
+    <p>fhirUser</p>
 
     <p>Requests access to the FHIR<sup>®</sup> resource that represents 
 the user, and that the location of said resource be returned in the
@@ -973,7 +973,7 @@ shorthand versions where no conflicts exist with other values.  For example, an 
 return the fully-qualified scopes in the authorized access token response in response to the short-hand versions being 
 used.</p>
 
-<p><strong>NOTE</strong>: The openid and profile scopes are defined by the OpenID Connect specification, which does not define a
+<p><strong>NOTE</strong>: The openid and fhirUser scopes are defined by the OpenID Connect specification, which does not define a
 prefix.</p>
 
 <p><a id="user-identity"></a></p>
@@ -1012,12 +1012,12 @@ tokens.</p>
 <p>SMART applications <strong>MUST</strong> validate the token per the token 
 validation section of <a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID Connect Core 1.0 incorporating errata set 1">OpenID Connect</a>.</p>
 
-<h4 id="profile-resource">Profile Resource</h4>
+<h4 id="fhiruser-resource">fhirUser Resource</h4>
 <p>In addition to the to requesting access to the user’s OpenID identity,
 a SMART application <strong>MAY</strong> request access to the FHIR<sup>®</sup> 
 resource that represents the user through the addition of the 
-“<em>profile</em>” scope.  The authorization server <strong>SHALL</strong> fulfill such 
-by including available default profile claims in the id_token.</p>
+“<em>fhirUser</em>” scope.  The authorization server <strong>SHALL</strong> fulfill such 
+by including a fhirUser claim in the id_token.</p>
 
 <p>An EHR <strong>MAY</strong> include the  URI of the user’s FHIR<sup>®</sup> 
 resource.  This resource may be a Patient, Practitioner, 
@@ -1026,7 +1026,7 @@ RelatedPerson, or Person resource as described by the
 
 <p>The FHIR<sup>®</sup> resource server <strong>MUST</strong> allow a user access 
 to their own user resource when receiving any access token
-that represents approved access to the profile scope.</p>
+that represents approved access to the fhirUser scope.</p>
 
 <p><a id="discovery"></a></p>
 
@@ -1285,6 +1285,9 @@ modification-rights = ("read" / "write");
       </li>
       <li class="js-topic">
         <h3><a href="../openid-connect">OpenId Connect</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../tls-guidance">TLS Usage Guidance</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

@@ -1829,14 +1829,11 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
-Etag: W/"1"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 </pre>
-
-<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on a subsequent update.</p>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
@@ -1867,8 +1864,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 <h3 id="headers-3">Headers</h3>
 
 <pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
-<a href="../../#media-types">Content-Type</a>: application/fhir+json
-If-Match: W/"&lt;Current version of the FamilyMemberHistory resource&gt;"</code></pre>
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
 
 <h3 id="body-fields-1">Body fields</h3>
 

@@ -533,6 +533,13 @@
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
     </tr>
+    <tr>
+      <td><code>encounter</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>The encounter ID/s for the patient. Only encounter-diagnosis are returned. Example: <code>encounter=97733489</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -550,6 +557,9 @@
   </li>
   <li>
     <p>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</p>
+  </li>
+  <li>
+    <p>When <code>encounter</code> is provided, only encounter-diagnosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned</p>
   </li>
 </ul>
 

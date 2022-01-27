@@ -404,8 +404,9 @@ that further govern the behavior of authorization:</p>
 <ul>
   <li>openid: Provides access to the “principal” of the authenticated user per the
 <a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID Connect Core 1.0 incorporating errata set 1">OpenID Connect</a> specification.</li>
-  <li>profile: Provides an OpenID Connect “profile” that contains the URL of the
-authenticated user’s FHIR<sup>®</sup> resource.</li>
+  <li>fhirUser: Provides an OpenID Connect token that contains the URL of the
+authenticated user’s FHIR<sup>®</sup> resource. This scope was formerly known
+as “profile”, but that name has since been deprecated.</li>
   <li>online_access: Allows an application to obtain tokens via a “refresh” process
 while the authenticated user has an active session present at the device.</li>
   <li>offline_access: Allows an application to continue to obtain tokens on behalf
@@ -416,7 +417,7 @@ the user, an administrator, or your application.</li>
 <p>Further information on the usage of these special scopes are further detailed
 below.</p>
 
-<h5 id="identity-scopes-openid-and-profile">Identity Scopes: ‘openid’ and ‘profile’</h5>
+<h5 id="identity-scopes-openid-and-fhiruser">Identity Scopes: ‘openid’ and ‘fhirUser’</h5>
 
 <p>Certain classes of applications may need to identify the user for whom it
 is acting on behalf of.  Such requirements may include (but are not
@@ -439,18 +440,12 @@ and <a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID
 workflow.  Further details on utilizing the OpenID token can be found in
 the <a href="../authorization/openid-connect">OpenID Connect Guide</a>.</p>
 
-<p>The scope ‘profile’ will additionally request that the OpenID Connect
-token include the claim “profileURL”, as defined by the
+<p>The scope ‘fhirUser’ will additionally request that the OpenID Connect
+token include the claim ‘fhirUser’, as defined by the
 SMART<sup>®</sup> on FHIR<sup>®</sup> authorization framework.  This
 URL identifies the specific FHIR<sup>®</sup> resource URL of the
 authenticated user.   This resource may be a Patient, Practitioner, or
 Person resource, depending on the type of user whom is authenticated.</p>
-
-<p><em>NOTE</em>:  As of this writing, Cerner’s Ignite implementation does not
-support authorization for retrieval of Person resources; you
-may proceed with a design that proactively attempts to retrieve the
-resource such that your app takes advantage of this capability once
-made available.</p>
 
 <h5 id="duration-scopes-onlineaccess-and-offlineaccess">Duration Scopes: ‘online_access’ and ‘offline_access’</h5>
 
@@ -1426,6 +1421,9 @@ Citrix instance with XenApp?</li>
       </li>
       <li class="js-topic">
         <h3><a href="openid-connect">OpenId Connect</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="tls-guidance">TLS Usage Guidance</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

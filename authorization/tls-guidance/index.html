@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>TLS Usage Guidance</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
+  <script src="../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body class="_api">
+<div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../millennium/overview/">Millennium</a></li>
+         <li><a href="../../soarian/overview/">Soarian</a></li>
+        <li><a href="..">Authorization</a></li>
+        <li><a href="../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+<div id="wrapper">
+  <div class="content">
+    <h1 id="guidance-for-the-use-of-tls-with-cerner-ignite">Guidance for the use of TLS with Cerner Ignite</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>All HL7 FHIR and HL7 SMART endpoints offered by Cerner utilize the Secure HyperText Transfer Protocol (“https”) to ensure the confidentiality and integrity of data transmissions.  Cerner strongly <strong>RECOMMENDS</strong> that application developers also utilize https for protecting their own application endpoints.</p>
+
+<p>The https protocol relies upon public key infrastructure (“PKI”) as the means by which client applications can verify the authenticity of each remote service endpoint.  This document provides Cerner’s guidance to developers on how to utilize https and PKI in conjunction with Cerner’s services as to guarantee interoperability of https connections.</p>
+
+<h2 id="establishing-tls-connections-to-cerner">Establishing TLS Connections to Cerner</h2>
+
+<p>The following requirements and recommendations apply to any software connecting to Cerner’s implementation of HL7<sup>®</sup> FHIR<sup>®</sup>  or HL7<sup>®</sup>  SMART<sup>®</sup>.</p>
+
+<h3 id="supported-versions-of-http">Supported versions of HTTP</h3>
+
+<p>Cerner currently supports the HTTP 1.1 protocol.  Connectivity to certain endpoints using newer versions <strong>MAY</strong> be technically possible, but are not guaranteed to be available in all service deployments.</p>
+
+<h3 id="tls-versions-and-cipher-suites">TLS Versions and Cipher Suites</h3>
+
+<p>Cerner ascribes to follow all best current practices “BCPs” published by the IETF, which currently includes:</p>
+
+<ul>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc7525">RFC 7525 Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS)</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc8996">RFC 8996 Deprecating TLS 1.0 and TLS 1.1</a></li>
+</ul>
+
+<p>As of this writing, these best current practices dictate the use of TLS versions 1.2 and 1.3, along with a recommneded suite of minimum encryption cipher suites.  Cerner <strong>RECOMMENDS</strong> developers either:</p>
+
+<ul>
+  <li>Utilize an “evergreen” TLS implementation that similarly implements best current practices.  For example, most operating systems provide implementations that maintain best practices through automated patching.  Simiarly, browser-based applications benefit from the browser’s built-in TLS implementation, in which most browsers are delivered in an evergreen fashion to end users.</li>
+  <li>Maintain patching of the application’s TLS implementation to stay current with best practices.</li>
+</ul>
+
+<h3 id="certificate-chain-validation-process">Certificate Chain Validation Process</h3>
+
+<p>Developers writing software that interoperates with Cerner’s HL7<sup>®</sup> FHIR<sup>®</sup> and HL7<sup>®</sup> SMART<sup>®</sup> components should utilize https implementations that implement <a href="https://datatracker.ietf.org/doc/html/rfc6125">RFC 6125</a> for certificate validation.</p>
+
+<h3 id="trusted-certificate-authorities">Trusted Certificate Authorities</h3>
+
+<p>Cerner relies on public PKI systems (specifically, certificate authorities participating in the <a href="https://cabforum.org/">CA/Browser Forum</a>), as the means by which it identifies its services to customers and third-party applications.  Multiple vendors of operating systems, browsers, and other layered software components publish their own vetted list of certificate authorities that participtate in CA/Browser Forum.</p>
+
+<p>Cerner <strong>REQUIRES</strong> developers to choose one or more vetted sources of certificate authorities that participate in CA/Browser Forum to trust within their application, as Cerner does not guarantee it will source certificates from any one specific certificate authority.</p>
+
+<p>Cerner <strong>RECOMMENDS</strong> the use of any of the following programs that provide vetted certificate authority lists:</p>
+
+<ul>
+  <li><a href="https://www.ccadb.org/policy">Common CCADB</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/security/trusted-root/participants-list">Microsoft Trusted Root Program</a></li>
+  <li><a href="https://www.chromium.org/Home/chromium-security/root-ca-policy/">Chrome Root Program</a></li>
+  <li><a href="https://www.oracle.com/java/technologies/javase/carootcertsprogram.html">Oracle Java Root Certificate Program</a></li>
+  <li><a href="https://www.apple.com/certificateauthority/ca_program.html">Apple Root Certificate Program</a></li>
+</ul>
+
+<h2 id="developer-operated-tls-endpoints">Developer-Operated TLS Endpoints</h2>
+
+<p>Most applications integrating with Cerner’s implementations of HL7<sup>®</sup> FHIR<sup>®</sup> and HL7<sup>®</sup> SMART<sup>®</sup> will have endpoints that receive communication from browsers or Cerner software.  Examples include, but are not limited to:</p>
+
+<ul>
+  <li>Web-based SMART<sup>®</sup> Launch applications that render markup to a user’s browser via an https endpoint.</li>
+  <li>SMART<sup>®</sup> Backend Services applications that publish their JSON Web Key Sets via an https endpoint.</li>
+  <li>CDS Hooks services that receive publications from Cerner’s CDS Hooks infrastructure via an https endpoint.</li>
+</ul>
+
+<h3 id="supported-versions-of-https">Supported versions of HTTPS</h3>
+
+<p>Cerner <strong>REQUIRES</strong> developers support the HTTPS 1.1 protocol.</p>
+
+<h3 id="tls-versions-and-cipher-suites-1">TLS Versions and Cipher Suites</h3>
+
+<p>Cerner <strong>RECOMMENDS</strong> developers utilize an evergreen TLS implementation to protect https endpoints.  Developers <strong>MUST</strong> use an implementation that supports current IETF best practices for TLS in order to guarantee interoperability with browsers and Cerner infrastructure.  Cerner <strong>RECOMMENDS</strong> developers utilize public testing tools, such as <a href="https://www.ssllabs.com/">Qualsys SSL Labs</a> to verify proper functioning of their https implementation.</p>
+
+<h3 id="trusted-certificate-authorities-1">Trusted Certificate Authorities</h3>
+
+<p>To guarantee interoperability with customer deployments and Cerner infrastructure, Cerner <strong>RECOMMENDS</strong> developers utilize certificates from public certificate authorities that participate in the CA/Browser Forum and that have been generally accepted into root certificate programs of the major browser vendors (Google, Apple, Microsoft, Mozilla).</p>
+
+  </div>
+
+  <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="..">Authorization Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization-specification">Authorization Specification (1.0)</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../openid-connect">OpenId Connect</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href=".">TLS Usage Guidance</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+</div>
+<!-- #wrapper -->
+
+<div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
