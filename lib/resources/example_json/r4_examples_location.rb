@@ -39,6 +39,21 @@ module Cerner
           "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         }
       ],
+      'identifier': [
+        {
+          'use': 'official',
+          'type': {
+            'coding': [
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
+              'code': 'ACCTRECEIVABLE',
+              'display': 'FIN NBR',
+              'userSelected': true
+            ]
+          },
+          'system': 'FIN NBR',
+          'value': '16000',
+        }
+      ],
       "status": 'active',
       "name": 'BE 1 North',
       "alias": [
