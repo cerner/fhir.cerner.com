@@ -60,7 +60,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                           | Value\[x] Type                                                    | Description
 ------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------
  `bill-code-schedule`         | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
- `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
+ `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`dateTime`].
  `description`                | [`string`]                                                        | A description providing additional details of the resource.
  `modifier-code`              | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
  `national-drug-product`      | None (contains nested extensions)                                 | The national drug product used in care.
@@ -323,7 +323,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`date`]: https://hl7.org/fhir/r4/datatypes.html#date
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#datetime
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
