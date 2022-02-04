@@ -291,7 +291,7 @@ fields:
       <ul>
         <li>Custom-attribute-name and Custom-attribute-value are both required</li>
         <li>id and valueString for custom-attribute-value are required</li>
-        <li>Custom-attribute-value can be of type integer, string, or decimal</li>
+        <li>Custom-attribute-value can be of type integer, string, decimal, or dateTime</li>
       </ul>
     url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 
