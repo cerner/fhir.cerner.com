@@ -528,6 +528,34 @@ fields:
       }
     }
 
+- name: custom-attribute
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
+  required: 'No'
+  type: Extension
+  description: A client defined custom attribute for the encounter.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:2822522",
+          "valueString": "ICD-9 Code",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueString": "test string",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    }
+  note: >
+    <ul>
+      <li>custom-attribute-name and custom-attribute-value are both required</li>
+      <li>id and valueString for custom-attribute-value are required</li>
+      <li>custom-attribute-value can only be of type string</li>
+    </ul>
+
 - name: meta.security
   url: https://hl7.org/fhir/r4/resource-definitions.html#Meta.security
   required: 'No'
@@ -555,34 +583,6 @@ fields:
         system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
         info_link: http://hl7.org/fhir/r4/v3/ObservationValue/cs.html
     note: Encounters created with meta.security set with code 'UNCERTREL' will be returned with an external encounter type.
-
-- name: custom-attribute
-    required: 'No'
-    type: Extension
-    description: A client defined custom attribute for the encounter.
-    action: create
-    example: |
-      {
-        "extension": [
-          {
-            "id": "ENCNTR:2822522",
-            "valueString": "ICD-9 Code",
-            "url": "custom-attribute-name"
-          },
-          {
-            "valueString": "test string",
-            "url": "custom-attribute-value"
-          }
-        ],
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
-      }
-    note: >
-      <ul>
-        <li>custom-attribute-name and custom-attribute-value are both required</li>
-        <li>id and valueString for custom-attribute-value are required</li>
-        <li>custom-attribute-value can only be of type string</li>
-      </ul>
-    url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 
 - name: Custom Attribute Value Extension
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
