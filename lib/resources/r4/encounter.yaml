@@ -552,7 +552,7 @@ fields:
   note: >
     <ul>
       <li>custom-attribute-name and custom-attribute-value are both required</li>
-      <li>id and valueString for custom-attribute-value are required</li>
+      <li>id and valueString for custom-attribute-name are required</li>
       <li>custom-attribute-value can only be of type string</li>
     </ul>
 
