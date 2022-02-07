@@ -2,6 +2,23 @@
 name: Location
 field_name_base_url: http://hl7.org/fhir/R4/location-definitions.html#Location
 fields:
+  - name: identifier
+    required: 'No'
+    type: List of Identifier
+    description: Identifier(s) by which this location is known.
+    children:
+
+      - name: type
+        required: 'No'
+        type: CodeableConcept
+        description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+        url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
+        binding:
+          description: The type used to determine which identifier to use for a specific purpose.
+          terminology:
+            - display: Contributor Source
+              system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/73
+              info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-73-location-contributor-source
 
   - name: physicalType
     type: List of CodeableConcept
