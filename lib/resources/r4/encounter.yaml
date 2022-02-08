@@ -528,6 +528,34 @@ fields:
       }
     }
 
+- name: custom-attribute
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
+  required: 'No'
+  type: Extension
+  description: A client defined custom attribute for the encounter.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:2822522",
+          "valueString": "ICD-9 Code",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueString": "test string",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    }
+  note: >
+    <ul>
+      <li>custom-attribute-name and custom-attribute-value are both required</li>
+      <li>id and valueString for custom-attribute-name are required</li>
+      <li>custom-attribute-value can only be of type string</li>
+    </ul>
+
 - name: meta.security
   url: https://hl7.org/fhir/r4/resource-definitions.html#Meta.security
   required: 'No'
