@@ -224,7 +224,7 @@ Update a FamilyMemberHistory.
 
 _Implementation Notes_
 
-* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error'. Only existing conditions can be removed; condition id must be provided.
+* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error' with system 'http://terminology.hl7.org/CodeSystem/condition-ver-status'. Only existing conditions can be removed; condition id must be provided.
 * An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.id is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.
 
 ### Authorization Types
