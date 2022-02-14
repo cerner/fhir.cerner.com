@@ -13,11 +13,11 @@ title: Proprietary Codes and Systems | R4 API
 
 Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients' proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.
 
-Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the EHR source id (or tenant) qualifier in the system URL.
+Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the region and the EHR source id (or tenant) qualifier in the system URL. See [Multi-Region Support](#multi-region-support) for further details.
 
 The following are true for all Millennium proprietary codes:
 
-* The `system` value uses the following format: `https://fhir.cerner.com/<EHR source id>/codeSet/<code set>`
+* The `system` value uses the following format: `https://fhir.<region>.cerner.com/<EHR source id>/codeSet/<code set>`
 * The `code` value is the numeric code value as a string
 * The `display` value is the code value display
 * The `userSelected` value is set to true
@@ -834,7 +834,7 @@ This system is the account number of a financial account.
 
     {
       "use": "usual",
-      "system": "https://fhir.cerner.com/<EHR source id>/account-number",
+      "system": "https://fhir.<region>.cerner.com/<EHR source id>/account-number",
       "value": "5646"
     }
 
@@ -843,7 +843,7 @@ This system is the account number of a financial account.
 This system is the bill code type for a charge item. `Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, `ICD`, `MODIFIER`, or `REVENUE`.
 
     {
-      "system": "https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>",
+      "system": "https://fhir.<region>.cerner.com/<EHR source id>/CodeSystem/BillCodes-<Bill code type>",
       "code": "0310"
     }
 
@@ -862,7 +862,7 @@ This system is the category and is only for a pharmacy charge-only order. The co
 This system is the synonym id for an order and the ingredients.
 
     {
-      'system': 'https://fhir.cerner.com/<Ehr source id>/synonym',
+      'system': 'https://fhir.<region>.cerner.com/<EHR source id>/synonym',
       'code': '2762111',
       'display': 'lidocaine topical',
       'userSelected': true
@@ -873,8 +873,25 @@ This system is the synonym id for an order and the ingredients.
 This system contains all nomenclature values configured in the domain.
 
     {
-      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+      'system': 'https://fhir.<region>.cerner.com/<EHR source id>/nomenclature',
       'code': '13249579',
       'display': 'Tension-type headache',
       'userSelected': false
     }
+
+## Multi-Region Support
+
+### Overview
+
+Proprietary codes and systems that are dependent on a specific EHR system may include a Cerner cloud region in their `system` value. The default `system` value format is `https://fhir.cerner.com/<EHR source id>/`.
+
+### Regions
+
+The `system` value formats for the following regions are:
+
+* Canada:  `https://fhir.ca.cerner.com/<EHR source id>/`
+* Asia-Pacific: `https://fhir.au.cerner.com/<EHR source id>/`
+
+### Exclusions
+
+The proprietary systems that are not dependent on a EHR system will not include region in their `system` value, for example `https://fhir.cerner.com/medicationrequest-category` is applied for all regions.
