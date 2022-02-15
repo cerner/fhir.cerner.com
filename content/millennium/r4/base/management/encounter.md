@@ -183,6 +183,8 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
+* Only one [Encounter.location.location] reference is permitted.
+* [Encounter.serviceProvider] and [Encounter.location.location] are mutually exclusive. Only one or the other is permitted.
 
 ### Authorization Types
 
@@ -224,6 +226,12 @@ The common [errors] and [OperationOutcomes] may be returned.
 Create an individual Encounter.
 
     POST /Encounter
+
+_Implementation Notes_
+
+* Only one [Encounter.location.location] reference is permitted.
+* [Encounter.serviceProvider] and [Encounter.location.location] are mutually exclusive. Only one or the other is permitted.
+
 
 ### Authorization Types
 
@@ -337,6 +345,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
 [Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
+[Encounter.serviceProvider]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider
 [errors]: ../../#client-errors
 [Estimated Financial Responsibility Amount]: #custom-extensions
 [Estimated Financial Responsibility Not Collected Reason]: #custom-extensions

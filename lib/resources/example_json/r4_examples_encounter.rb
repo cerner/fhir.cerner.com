@@ -1983,6 +1983,13 @@ module Cerner
       'serviceProvider': {
         'reference': 'Organization/675844'
       },
+      "location": [
+          {
+            "location": {
+              "reference": "Location/633869"
+            }
+          }
+        ],
       'period': {
         'start': '2020-03-02T01:13:00Z',
         'end': '2020-03-05T00:00:00Z'

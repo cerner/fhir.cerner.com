@@ -528,6 +528,22 @@ fields:
       }
     }
 
+- name: location
+  required: 'No'
+  type: Reference (Location)
+  description: The location where the encounter takes place.
+  action: create
+  example: |
+    {
+      "location": [
+        {
+          "location": {
+            "reference": "Location/633869"
+          }
+        }
+      ]
+    }
+
 - name: custom-attribute
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
   required: 'No'
