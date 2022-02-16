@@ -527,9 +527,13 @@ fields:
         "reference": "Organization/619848"
       }
     }
+  note: >
+    <ul>
+      <li>serviceProvider cannot be provided when Encounter.location.location is present.</li>
+    </ul>
 
 - name: location
-  required: 'No'
+  required: 'Yes'
   type: Reference (Location)
   description: The location where the encounter takes place.
   action: create
@@ -538,11 +542,16 @@ fields:
       "location": [
         {
           "location": {
-            "reference": "Location/633869"
+            "reference": "Location/21250409"
           }
         }
       ]
     }
+  note: >
+    <ul>
+      <li>Only one location reference is permitted.</li>
+      <li>location cannot be provided when Encounter.serviceProvider is present.</li>
+    </ul>
 
 - name: custom-attribute
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json

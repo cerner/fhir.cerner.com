@@ -183,8 +183,6 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
-* Only one [Encounter.location.location] reference is permitted.
-* [Encounter.serviceProvider] and [Encounter.location.location] are mutually exclusive. Only one or the other is permitted.
 
 ### Authorization Types
 
@@ -226,12 +224,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 Create an individual Encounter.
 
     POST /Encounter
-
-_Implementation Notes_
-
-* Only one [Encounter.location.location] reference is permitted.
-* [Encounter.serviceProvider] and [Encounter.location.location] are mutually exclusive. Only one or the other is permitted.
-
 
 ### Authorization Types
 
