@@ -1983,10 +1983,10 @@ module Cerner
       'serviceProvider': {
         'reference': 'Organization/675844'
       },
-      "location": [
+      'location': [
           {
-            "location": {
-              "reference": "Location/21250409"
+            'location': {
+              'reference': "Location/21250409"
             }
           }
         ],
