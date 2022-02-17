@@ -267,7 +267,7 @@ module Cerner
         {
           'coding': [
             {
-              'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
+              'system': 'http://hl7.org/fhir/us/core/CodeSystem/condition-category',
               'code': 'health-concern',
               'display': 'Health Concern'
             }
@@ -425,7 +425,7 @@ module Cerner
           {
             'coding': [
               {
-                'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
+                'system': 'http://hl7.org/fhir/us/core/CodeSystem/condition-category',
                 'code': 'health-concern',
                 'display': 'Health Concern'
               }
@@ -525,7 +525,7 @@ module Cerner
               {
                 'coding': [
                   {
-                    'system': 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category',
+                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/condition-category',
                     'code': 'health-concern',
                     'display': 'Health Concern'
                   }
