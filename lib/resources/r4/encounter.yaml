@@ -529,7 +529,7 @@ fields:
     }
   note: >
     <ul>
-      <li>serviceProvider cannot be provided when Encounter.location.location is present.</li>
+      <li><code>serviceProvider</code> cannot be provided when <code>location</code> is present.</li>
     </ul>
 
 - name: location
@@ -549,8 +549,8 @@ fields:
     }
   note: >
     <ul>
-      <li>Only one location reference is permitted.</li>
-      <li>location cannot be provided when Encounter.serviceProvider is present.</li>
+      <li>Only one <code>location</code> reference is permitted.</li>
+      <li><code>location</code> cannot be provided when <code>serviceProvider</code> is present.</li>
     </ul>
 
 - name: custom-attribute

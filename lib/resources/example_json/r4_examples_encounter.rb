@@ -1986,7 +1986,7 @@ module Cerner
       'location': [
           {
             'location': {
-              'reference': "Location/21250409"
+              'reference': 'Location/21250409'
             }
           }
         ],
