@@ -856,6 +856,7 @@
       
       
       
+      
     <tr>
       <td>
       
@@ -4806,6 +4807,61 @@ Encounter resource.</li>
     
     <tr>
       <td>
+        <a name="create-custom-attribute">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json"><code>custom-attribute</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A client defined custom attribute for the encounter.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "extension": [
+    {
+      "id": "ENCNTR:2822522",
+      "valueString": "ICD-9 Code",
+      "url": "custom-attribute-name"
+    },
+    {
+      "valueString": "test string",
+      "url": "custom-attribute-value"
+    }
+  ],
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>custom-attribute-name and custom-attribute-value are both required</li>
+  <li>id and valueString for custom-attribute-name are required</li>
+  <li>custom-attribute-value can only be of type string</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="create-meta.security">
         
           </a><a target="_blank" href="https://hl7.org/fhir/r4/resource-definitions.html#Meta.security"><code>meta.security</code></a>
@@ -4935,6 +4991,22 @@ Encounter resource.</li>
       "individual": {
         "reference": "Practitioner/4122622"
       }
+    }
+  ],
+  "extension": [
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:2822522",
+          "valueString": "ICD-9 Code",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueString": "test string",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
     }
   ]
 }</code></pre>
