@@ -45,13 +45,13 @@ module Cerner
           'type': {
             'coding': [
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-              'code': 'ACCTRECEIVABLE',
+              'code': '653385',
               'display': 'FIN NBR',
               'userSelected': true
             ]
           },
           'system': 'FIN NBR',
-          'value': '16000',
+          'value': 'FSI^~BUILD^~NU',
         }
       ],
       "status": 'active',
@@ -130,13 +130,13 @@ module Cerner
           'type': {
             'coding': [
               'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-              'code': 'ACCTRECEIVABLE',
+              'code': '653385',
               'display': 'FIN NBR',
               'userSelected': true
             ]
           },
           'system': 'FIN NBR',
-          'value': '16000',
+          'value': 'FSI^~BUILD^~NU',
         }
       ],
       "status": 'active',
@@ -247,13 +247,13 @@ module Cerner
                 'type': {
                   'coding': [
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-                    'code': 'ACCTRECEIVABLE',
+                    'code': '653385',
                     'display': 'FIN NBR',
                     'userSelected': true
                   ]
                 },
                 'system': 'FIN NBR',
-                'value': '16000',
+                'value': 'FSI^~BUILD^~NU',
               }
             ],
             "status": 'active',
@@ -337,13 +337,13 @@ module Cerner
                 'type': {
                   'coding': [
                     'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-                    'code': 'ACCTRECEIVABLE',
+                    'code': '653385',
                     'display': 'FIN NBR',
                     'userSelected': true
                   ]
                 },
                 'system': 'FIN NBR',
-                'value': '16000',
+                'value': 'FSI^~BUILD^~NU',
               }
             ],
             "status": 'active',
