@@ -13,7 +13,7 @@ title: Proprietary Codes and Systems | R4 API
 
 Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients' proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.
 
-Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the region and the EHR source id (or tenant) qualifier in the system URL. See [Multi-Region Support](#multi-region-support) for further details.
+Millennium groups repetitive textual information into code sets. A code set stores numeric code values that represent textual or character displays. Code sets are consistent across all clients, however the values within a code set vary between clients and are only guaranteed unique within a specific EHR system. For this reason the region and the EHR source id (or tenant) are included in the system URL. See [Multi-Region Support](#multi-region-support) for further details.
 
 The following are true for all Millennium proprietary codes:
 
@@ -883,11 +883,11 @@ This system contains all nomenclature values configured in the domain.
 
 ### Overview
 
-Proprietary codes and systems that are dependent on a specific EHR system may include a Cerner cloud region in their `system` value. The default `system` value format is `https://fhir.cerner.com/<EHR source id>/`.
+Proprietary codes and systems that are dependent on a specific EHR system may include a Cerner cloud region in their `system` value. Unless stated otherwise below, the `system` value format is `https://fhir.cerner.com/<EHR source id>/`.
 
-### Regions
+### Region-specific Systems
 
-The `system` value formats for the following regions are:
+The following regions override the format above with a region-specific `system`:
 
 * Canada:  `https://fhir.ca.cerner.com/<EHR source id>/`
 * Asia-Pacific: `https://fhir.au.cerner.com/<EHR source id>/`
