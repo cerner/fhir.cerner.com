@@ -337,6 +337,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
 [Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
+[Encounter.serviceProvider]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider
 [errors]: ../../#client-errors
 [Estimated Financial Responsibility Amount]: #custom-extensions
 [Estimated Financial Responsibility Not Collected Reason]: #custom-extensions
