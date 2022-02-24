@@ -857,6 +857,7 @@
       
       
       
+      
     <tr>
       <td>
       
@@ -4799,6 +4800,64 @@ Encounter resource.</li>
       
       
       
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>
+<code>serviceProvider</code> cannot be provided when <code>location</code> is present.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-location">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location"><code>location</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<a target="_blank" href="https://hl7.org/fhir/R4/location.html"><code>Location</code></a>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The location where the encounter takes place.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "location": [
+    {
+      "location": {
+        "reference": "Location/21250409"
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>Only one <code>location</code> reference is permitted.</li>
+  <li>
+<code>location</code> cannot be provided when <code>serviceProvider</code> is present.</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>

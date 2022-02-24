@@ -104,6 +104,13 @@
       <li><a href="#list-of-systems" id="markdown-toc-list-of-systems">List of Systems</a></li>
     </ul>
   </li>
+  <li>
+<a href="#multi-region-support" id="markdown-toc-multi-region-support">Multi-Region Support</a>    <ul>
+      <li><a href="#overview-2" id="markdown-toc-overview-2">Overview</a></li>
+      <li><a href="#region-specific-systems" id="markdown-toc-region-specific-systems">Region-specific Systems</a></li>
+      <li><a href="#exclusions" id="markdown-toc-exclusions">Exclusions</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="proprietary-codes">Proprietary Codes</h2>
@@ -112,12 +119,12 @@
 
 <p>Cerner’s implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients’ proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.</p>
 
-<p>Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the EHR source id (or tenant) qualifier in the system URL.</p>
+<p>Millennium groups repetitive textual information into code sets. A code set stores numeric code values that represent textual or character displays. Code sets are consistent across all clients, however the values within a code set vary between clients and are only guaranteed unique within a specific EHR system. For this reason the region and the EHR source id (or tenant) are included in the system URL. See <a href="#multi-region-support">Multi-Region Support</a> for further details.</p>
 
 <p>The following are true for all Millennium proprietary codes:</p>
 
 <ul>
-  <li>The <code>system</code> value uses the following format: <code>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</code>
+  <li>The <code>system</code> value uses the following format: <code>https://fhir.&lt;region&gt;.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</code>
 </li>
   <li>The <code>code</code> value is the numeric code value as a string</li>
   <li>The <code>display</code> value is the code value display</li>
@@ -1087,7 +1094,7 @@
 
 <pre><code>{
   "use": "usual",
-  "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/account-number",
+  "system": "https://fhir.&lt;region&gt;.cerner.com/&lt;EHR source id&gt;/account-number",
   "value": "5646"
 }
 </code></pre>
@@ -1097,7 +1104,7 @@
 <p>This system is the bill code type for a charge item. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, <code>HCPCS</code>, <code>ICD</code>, <code>MODIFIER</code>, or <code>REVENUE</code>.</p>
 
 <pre><code>{
-  "system": "https://fhir.cerner.com/&lt;Ehr source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;",
+  "system": "https://fhir.&lt;region&gt;.cerner.com/&lt;EHR source id&gt;/CodeSystem/BillCodes-&lt;Bill code type&gt;",
   "code": "0310"
 }
 </code></pre>
@@ -1118,7 +1125,7 @@
 <p>This system is the synonym id for an order and the ingredients.</p>
 
 <pre><code>{
-  'system': 'https://fhir.cerner.com/&lt;Ehr source id&gt;/synonym',
+  'system': 'https://fhir.&lt;region&gt;.cerner.com/&lt;EHR source id&gt;/synonym',
   'code': '2762111',
   'display': 'lidocaine topical',
   'userSelected': true
@@ -1130,12 +1137,33 @@
 <p>This system contains all nomenclature values configured in the domain.</p>
 
 <pre><code>{
-  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+  'system': 'https://fhir.&lt;region&gt;.cerner.com/&lt;EHR source id&gt;/nomenclature',
   'code': '13249579',
   'display': 'Tension-type headache',
   'userSelected': false
 }
 </code></pre>
+
+<h2 id="multi-region-support">Multi-Region Support</h2>
+
+<h3 id="overview-2">Overview</h3>
+
+<p>Proprietary codes and systems that are dependent on a specific EHR system may include a Cerner cloud region in their <code>system</code> value. Unless stated otherwise below, the <code>system</code> value format is <code>https://fhir.cerner.com/&lt;EHR source id&gt;/</code>.</p>
+
+<h3 id="region-specific-systems">Region-specific Systems</h3>
+
+<p>The following regions override the format above with a region-specific <code>system</code>:</p>
+
+<ul>
+  <li>Canada:  <code>https://fhir.ca.cerner.com/&lt;EHR source id&gt;/</code>
+</li>
+  <li>Asia-Pacific: <code>https://fhir.au.cerner.com/&lt;EHR source id&gt;/</code>
+</li>
+</ul>
+
+<h3 id="exclusions">Exclusions</h3>
+
+<p>The proprietary systems that are not dependent on a EHR system will not include region in their <code>system</code> value, for example <code>https://fhir.cerner.com/medicationrequest-category</code> is applied for all regions.</p>
 
     </div>
 
