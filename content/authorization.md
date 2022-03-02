@@ -598,14 +598,14 @@ preventing remnant browser tabs and smoothing the
 transition between browser and app (no OS app switching
 occurs.)
 
+Refresh tokens for native applications are handled in the
+same fashion as for web-based applications; see further
+below for a detailed discussion of this topic.
+
 For more information on best practices for OAuth2-based
 workflows for native applications, please refer to the
 IETF Best Current Practices (BCP)
 ["OAuth 2.0 for Native Apps"][OAUTH-NATIVE].
-
-Refresh tokens for native applications are handled in the
-same fashion as for web-based applications; see further
-below for a detailed discussion of this topic.
 
 _NOTE_: Cerner's Authorization Server does not currently
 implement PKCE as noted in section 8.2 of the native
