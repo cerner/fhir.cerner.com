@@ -1,0 +1,35 @@
+---
+name: InsurancePlan
+field_name_base_url: http://hl7.org/fhir/R4/insuranceplan-definitions.html#InsurancePlan
+fields:
+
+  - name: status
+    type: code
+    description: The current state of the health insurance product.
+    action: terminology
+
+  - name: type
+    type: CodeableConcept
+    description: The kind of health insurance product.
+    action: terminology
+    url: https://hl7.org/fhir/r4/insurnaceplan-definitions.html#InsurancePlan.type
+    binding:
+      - desciption: This example value set defines a set of codes that can be used to indicate a type of insurance plan.
+        system: http://terminology.hl7.org/CodeSystem/insurance-plan-type
+
+  - name: name
+    type: string
+    description: Official name of the health insurance product as designated by the owner.
+    action: terminology
+
+  - name: period
+    type: period
+    description: The period of time that the health insurance product is available.
+    action: terminology
+
+  - name: ownedBy
+    type: Reference(Organization)
+    description: The entity that is providing the health insurance product and underwriting the risk.
+    action: terminology
+
+
