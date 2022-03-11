@@ -2018,6 +2018,20 @@ module Cerner
             {
               'valueString': 'test string',
               'url': 'custom-attribute-value'
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/nomenclature",
+                    "code": "12473282",
+                    "display": "Encounter Nomeclature",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Squamous odontogenic tumour"
+              },
+              "url": "custom-attribute-value"
             }
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
