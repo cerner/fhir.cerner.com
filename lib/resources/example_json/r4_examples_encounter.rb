@@ -2018,12 +2018,22 @@ module Cerner
             {
               'valueString': 'test string',
               'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          "extension": [
+            {
+              "id": "ENCNTR:2822522",
+              "valueString": "ICD-9 Code",
+              "url": "custom-attribute-name"
             },
             {
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/nomenclature",
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
                     "code": "12473282",
                     "display": "Encounter Nomeclature",
                     "userSelected": false
@@ -2034,7 +2044,7 @@ module Cerner
               "url": "custom-attribute-value"
             }
           ],
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
         }
       ]
     }.freeze
